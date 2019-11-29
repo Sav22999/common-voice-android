@@ -1,0 +1,19 @@
+<resources>
+    <string name="releaseNumber">0.0.1a</string>
+    <string name="app_name">Common Voice Android</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_settings">Settings</string>
+    <string name="description_cv_robot">Common Voice logo</string>
+    <string name="description_cv_logo">Common Voice robot</string>
+    <string name="button_home_login">Login / Sign up</string>
+    <string name="btn_startup1">Start</string>
+    <string name="btn_startup2">Permit</string>
+    <string name="btn_startup3">Next</string>
+    <string name="btn_startup4">Try again</string>
+    <string name="btn_startup5">Finish</string>
+    <string name="btn_startup6"></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
