@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textRelease"
         android:layout_width="0dp"
         android:layout_height="16dp"
         android:layout_marginTop="5dp"
