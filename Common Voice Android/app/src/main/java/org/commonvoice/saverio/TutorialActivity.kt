@@ -2,6 +2,7 @@ package org.commonvoice.saverio
 
 import android.Manifest
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.webkit.WebView
@@ -18,6 +19,8 @@ class TutorialActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
+    private var PRIVATE_MODE = 0
+    private val PREF_NAME = "FIRST_RUN"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +53,14 @@ class TutorialActivity : AppCompatActivity() {
         } else if (this.status == 2) {
             tutorialStart3()
         } else if (this.status == 3) {
-            // close tutorial
+            // close tutorial and open main
+            val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+            val editor = sharedPref.edit()
+            editor.putBoolean(PREF_NAME, false)
+            editor.apply()
+            val intent = Intent(this, MainActivity::class.java).also {
+                startActivity(it)
+            }
             finish()
         }
     }

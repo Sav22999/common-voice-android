@@ -44,14 +44,11 @@ class MainActivity : AppCompatActivity() {
         this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
 
         if (this.firstRun) {
-            // open tutorial
-            val editor = sharedPref.edit()
-            editor.putBoolean(PREF_NAME, false)
-            editor.apply()
-
+            // close main and open tutorial
             val intent = Intent(this, TutorialActivity::class.java).also {
                 startActivity(it)
             }
+            finish()
         }
         else {
             checkRecordVoicePermission()
