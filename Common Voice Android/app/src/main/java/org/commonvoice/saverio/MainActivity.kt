@@ -14,7 +14,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.fragment_settings.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
@@ -49,9 +50,22 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
             finish()
-        }
-        else {
+        } else {
             checkRecordVoicePermission()
+        }
+    }
+
+    fun open_speak_section()
+    {
+        val intent = Intent(this, SpeakActivity::class.java).also {
+            startActivity(it)
+        }
+    }
+
+    fun open_listen_section()
+    {
+        val intent = Intent(this, ListenActivity::class.java).also {
+            startActivity(it)
         }
     }
 

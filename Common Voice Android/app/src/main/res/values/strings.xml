@@ -1,18 +1,23 @@
 <resources>
-    <string name="releaseNumber">0.0.3a</string>
+    <string name="releaseNumber">0.0.4a</string>
     <string name="app_name">Common Voice</string>
+
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_settings">Settings</string>
+
     <string name="description_cv_robot">Common Voice logo</string>
     <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Login / Sign up</string>
+
+    <string name="dashboardStatistics">Statistics</string>
+    <string name="settingsLanguage">Language</string>
+
     <string name="btn_tutorial1">Start</string>
     <string name="btn_tutorial2">Permit</string>
     <string name="btn_tutorial3">Next</string>
     <string name="btn_tutorial4">Try again</string>
     <string name="btn_tutorial5">Finish</string>
-    <string name="btn_tutorial6"></string>
     <string name="tutorial_text1">
         This is not the official app of Common Voice by Mozilla. It\'s developed by Saverio Morelli, a volunteer of Mozilla Italia community.
     </string>
@@ -22,4 +27,8 @@
     <string name="tutorial_text3">
         [NOT AVAILABLE YET] Choose your native language, it will use to display this app and Common Voice website.
     </string>
+    <string-array name="languages">
+        <item>Italiano</item>
+        <item>English</item>
+    </string-array>
 </resources>

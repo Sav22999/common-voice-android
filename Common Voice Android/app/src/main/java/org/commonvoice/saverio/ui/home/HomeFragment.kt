@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_settings.*
+import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 
 class HomeFragment : Fragment() {
@@ -24,15 +26,18 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        /*val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
-            textView.text = it
-        })*/
+
         val btnSpeak: Button = root.findViewById(R.id.btn_speak)
         val btnListen: Button = root.findViewById(R.id.btn_listen)
 
+        btnSpeak.setOnClickListener{
+            (activity as MainActivity).open_speak_section()
+        }
+
+        btnListen.setOnClickListener{
+            (activity as MainActivity).open_listen_section()
+        }
+
         return root
     }
-
-
 }
