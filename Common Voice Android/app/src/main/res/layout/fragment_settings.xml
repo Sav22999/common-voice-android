@@ -43,8 +43,10 @@
         android:layout_height="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:fontFamily="sans-serif"
         android:text="@string/releaseNumber"
         android:textColor="@color/colorPrimaryDark"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,12 +64,24 @@
     <Spinner
         android:id="@+id/languageList"
         android:layout_width="350dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/txt_rounded"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:popupBackground="@color/colorWhite"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage" />
+
+    <TextView
+        android:id="@+id/textSelectedLanguage"
+        android:layout_width="339dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="54dp"
+        android:gravity="center|center_horizontal|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/languageList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

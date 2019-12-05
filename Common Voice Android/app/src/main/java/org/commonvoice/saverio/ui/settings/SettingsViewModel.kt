@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class SettingsViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = ""
+    private val selected_language = MutableLiveData<String>().apply {
+        value = "it"
     }
-    val text: LiveData<String> = _text
+    val language: LiveData<String> = selected_language
 }

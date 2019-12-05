@@ -6,15 +6,21 @@ import android.content.SharedPreferences
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_settings.*
+import org.commonvoice.saverio.ui.settings.SettingsFragment
+import org.commonvoice.saverio.ui.settings.SettingsViewModel
 import java.net.URL
 
 
@@ -24,6 +30,10 @@ class MainActivity : AppCompatActivity() {
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
+    private val LANGUAGE_NAME = "LANGUAGE"
+    val languages_list_short = arrayOf("it", "en")
+    val languages_list = arrayOf("Italiano", "English")
+    var selected_language = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +54,9 @@ class MainActivity : AppCompatActivity() {
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
 
+        val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
+        this.selected_language = sharedPref2.getString(LANGUAGE_NAME, "en")
+
         if (this.firstRun) {
             // close main and open tutorial
             val intent = Intent(this, TutorialActivity::class.java).also {
@@ -53,6 +66,13 @@ class MainActivity : AppCompatActivity() {
         } else {
             checkRecordVoicePermission()
         }
+
+        get_language()
+    }
+
+    fun get_language()
+    {
+        //Toast.makeText(this,"Language: "+this.selected_language+" index: "+languages_list_short.indexOf(this.selected_language), Toast.LENGTH_LONG).show()
     }
 
     fun open_speak_section()
@@ -65,6 +85,13 @@ class MainActivity : AppCompatActivity() {
     fun open_listen_section()
     {
         val intent = Intent(this, ListenActivity::class.java).also {
+            startActivity(it)
+        }
+    }
+
+    fun open_login_section()
+    {
+        val intent = Intent(this, LoginActivity::class.java).also {
             startActivity(it)
         }
     }

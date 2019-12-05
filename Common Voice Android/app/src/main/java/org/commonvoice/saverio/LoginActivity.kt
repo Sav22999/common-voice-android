@@ -13,36 +13,29 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 
-class SpeakActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_speak)
         setContentView(R.layout.fragment_webbrowser)
 
         checkRecordVoicePermission()
-
-        /*this.btn_start_speak.setOnClickListener {
-            //
-        }*/
 
         webView = findViewById(R.id.webViewBrowser)
 
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
         webView.webViewClient = WebViewClient()
-        webView.loadUrl("https://voice.mozilla.org/it/speak")
-
-        // API url: https://voice.mozilla.org/api/v1/it/sentences
+        webView.loadUrl("https://voice.mozilla.org/login")
     }
 
     fun checkRecordVoicePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
             != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), RECORD_REQUEST_CODE)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.INTERNET), RECORD_REQUEST_CODE)
         }
     }
 

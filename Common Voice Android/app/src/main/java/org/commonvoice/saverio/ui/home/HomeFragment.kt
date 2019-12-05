@@ -29,6 +29,7 @@ class HomeFragment : Fragment() {
 
         val btnSpeak: Button = root.findViewById(R.id.btn_speak)
         val btnListen: Button = root.findViewById(R.id.btn_listen)
+        val btnLogin: Button = root.findViewById(R.id.btn_login)
 
         btnSpeak.setOnClickListener{
             (activity as MainActivity).open_speak_section()
@@ -36,6 +37,10 @@ class HomeFragment : Fragment() {
 
         btnListen.setOnClickListener{
             (activity as MainActivity).open_listen_section()
+        }
+
+        btnLogin.setOnClickListener{
+            (activity as MainActivity).open_login_section()
         }
 
         return root

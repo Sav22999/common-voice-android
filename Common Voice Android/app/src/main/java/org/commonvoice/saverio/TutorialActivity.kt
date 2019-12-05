@@ -5,7 +5,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,6 +22,9 @@ class TutorialActivity : AppCompatActivity() {
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
+    private val LANGUAGE_NAME = "LANGUAGE"
+    val languages_list_short = arrayOf("it", "en")
+    val languages_list = arrayOf("Italiano", "English")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,6 +115,33 @@ class TutorialActivity : AppCompatActivity() {
         this.btn_next.text = getString(R.string.btn_tutorial5)
         this.status = 3
         this.languageListTutorial.isVisible = true
+
+        var languages = findViewById(R.id.languageListTutorial) as Spinner
+        languages.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,languages_list)
+        languages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                setLanguage("")
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                setLanguage(languages_list_short.get(position))
+            }
+        }
+    }
+
+    fun setLanguage(language: String)
+    {
+        val sharedPref: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
+        val editor = sharedPref.edit()
+        editor.putString(LANGUAGE_NAME, language)
+        editor.apply()
+
+        //Toast.makeText(this,"Language: "+language+" index: "+languages_list_short.indexOf(language), Toast.LENGTH_SHORT).show()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {

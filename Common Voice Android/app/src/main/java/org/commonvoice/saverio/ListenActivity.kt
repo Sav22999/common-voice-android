@@ -6,6 +6,8 @@ import android.content.SharedPreferences
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -14,12 +16,21 @@ import androidx.core.content.ContextCompat
 class ListenActivity : AppCompatActivity() {
 
     private val RECORD_REQUEST_CODE = 101
+    private lateinit var webView: WebView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_listen)
+        //setContentView(R.layout.activity_listen)
+        setContentView(R.layout.fragment_webbrowser)
 
         checkRecordVoicePermission()
+
+        webView = findViewById(R.id.webViewBrowser)
+
+        webView.settings.javaScriptEnabled = true
+        webView.settings.domStorageEnabled = true
+        webView.webViewClient = WebViewClient()
+        webView.loadUrl("https://voice.mozilla.org/it/listen")
     }
 
     fun checkRecordVoicePermission() {

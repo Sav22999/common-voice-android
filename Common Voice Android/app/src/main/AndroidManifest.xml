@@ -4,6 +4,7 @@
     package="org.commonvoice.saverio">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
@@ -39,6 +40,12 @@
         <!-- ListenActivity -->
         <activity
             android:name=".ListenActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- LoginActivity -->
+        <activity
+            android:name=".LoginActivity"
             android:theme="@style/AppTheme"
             android:label="@string/app_name" >
         </activity>
