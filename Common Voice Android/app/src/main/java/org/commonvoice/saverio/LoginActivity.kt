@@ -8,9 +8,11 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -20,16 +22,29 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_webbrowser)
+        setContentView(R.layout.activity_login)
 
         checkRecordVoicePermission()
 
-        webView = findViewById(R.id.webViewBrowser)
+        this.btn_login_signup.setOnClickListener {
+            openWebBrowser()
+        }
+    }
 
-        webView.settings.javaScriptEnabled = true
-        webView.settings.domStorageEnabled = true
-        webView.webViewClient = WebViewClient()
-        webView.loadUrl("https://voice.mozilla.org/login")
+    fun openWebBrowser()
+    {
+        val email = findViewById<EditText>(R.id.txt_email_login).text
+
+        if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            setContentView(R.layout.fragment_webbrowser)
+
+            webView = findViewById(R.id.webViewBrowser)
+
+            webView.settings.javaScriptEnabled = true
+            webView.settings.domStorageEnabled = true
+            webView.webViewClient = WebViewClient()
+            webView.loadUrl("https://accounts.firefox.com/signup?email=" + email)
+        }
     }
 
     fun checkRecordVoicePermission() {
