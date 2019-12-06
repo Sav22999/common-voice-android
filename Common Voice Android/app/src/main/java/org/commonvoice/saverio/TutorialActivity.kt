@@ -30,11 +30,11 @@ class TutorialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutorial)
 
-        this.seekBar.isEnabled=false
+        this.seekBar.isEnabled = false
 
         this.seekBar.progress = 0
 
-        this.btn_next.setOnClickListener{
+        this.btn_next.setOnClickListener {
             tutorialStart()
         }
     }
@@ -67,7 +67,8 @@ class TutorialActivity : AppCompatActivity() {
         this.seekBar.progress = 1
         this.textView_tutorial.text = getString(R.string.tutorial_text2)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED) {
+            != PackageManager.PERMISSION_GRANTED
+        ) {
             this.btn_next.text = getString(R.string.btn_tutorial2) // permit
         } else {
             this.btn_next.text = getString(R.string.btn_tutorial3) // next
@@ -78,17 +79,20 @@ class TutorialActivity : AppCompatActivity() {
 
     fun tutorialStart2() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), RECORD_REQUEST_CODE)
-        }
-        else {
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.RECORD_AUDIO),
+                RECORD_REQUEST_CODE
+            )
+        } else {
             tutorialStart3()
             this.status = 2
         }
     }
 
-    fun tutorialStartPermissionDenied()
-    {
+    fun tutorialStartPermissionDenied() {
         // Permission is not granted
         this.textTutorialMessage.isVisible = true
         this.textTutorialMessage.text = "Error: permission fail"
@@ -96,8 +100,7 @@ class TutorialActivity : AppCompatActivity() {
         this.btn_next.text = getString(R.string.btn_tutorial4) // try again
     }
 
-    fun tutorialStartPermissionSuccessful()
-    {
+    fun tutorialStartPermissionSuccessful() {
         // Permission is granted
         this.textTutorialMessage.isVisible = true
         this.textTutorialMessage.text = "Permission successful"
@@ -117,7 +120,8 @@ class TutorialActivity : AppCompatActivity() {
         this.languageListTutorial.isVisible = true
 
         var languages = findViewById(R.id.languageListTutorial) as Spinner
-        languages.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,languages_list)
+        languages.adapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languages_list)
         languages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 setLanguage("")
@@ -134,8 +138,7 @@ class TutorialActivity : AppCompatActivity() {
         }
     }
 
-    fun setLanguage(language: String)
-    {
+    fun setLanguage(language: String) {
         val sharedPref: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         val editor = sharedPref.edit()
         editor.putString(LANGUAGE_NAME, language)
@@ -144,7 +147,11 @@ class TutorialActivity : AppCompatActivity() {
         //Toast.makeText(this,"Language: "+language+" index: "+languages_list_short.indexOf(language), Toast.LENGTH_SHORT).show()
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
