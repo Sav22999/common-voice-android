@@ -1,5 +1,5 @@
 <resources>
-    <string name="releaseNumber">0.0.6a</string>
+    <string name="releaseNumber">0.0.7a</string>
     <string name="app_name">Common Voice</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Home</string>

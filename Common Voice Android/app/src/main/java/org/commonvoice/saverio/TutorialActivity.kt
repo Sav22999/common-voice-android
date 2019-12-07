@@ -116,7 +116,6 @@ class TutorialActivity : AppCompatActivity() {
         this.seekBar.progress = 2
         this.textView_tutorial.text = getString(R.string.tutorial_text3)
         this.btn_next.text = getString(R.string.btn_tutorial5)
-        this.status = 3
         this.languageListTutorial.isVisible = true
 
         var languages = findViewById(R.id.languageListTutorial) as Spinner
@@ -124,7 +123,7 @@ class TutorialActivity : AppCompatActivity() {
             ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languages_list)
         languages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                setLanguage("")
+                //setLanguage("")
             }
 
             override fun onItemSelected(
@@ -134,6 +133,7 @@ class TutorialActivity : AppCompatActivity() {
                 id: Long
             ) {
                 setLanguage(languages_list_short.get(position))
+                status = 3
             }
         }
     }

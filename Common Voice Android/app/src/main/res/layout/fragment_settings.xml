@@ -125,7 +125,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/txt_rounded"
         android:gravity="center|center_horizontal|center_vertical"
-        android:popupBackground="@color/colorWhite"
+        android:popupBackground="@drawable/txt_rounded"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
