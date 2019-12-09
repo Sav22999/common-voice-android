@@ -19,8 +19,8 @@ import org.commonvoice.saverio.R
 class SettingsFragment : Fragment() {
 
     private lateinit var settingsViewModel: SettingsViewModel
-    var languages_list_short = arrayOf("it", "en") // don't change it manually -> it will import automatically
-    var languages_list = arrayOf("Italiano", "English") // don't change it manually -> it will import automatically
+    var languages_list_short = arrayOf("en") // don't change it manually -> it will import automatically
+    var languages_list = arrayOf("English") // don't change it manually -> it will import automatically
 
     override fun onCreateView(
         inflater: LayoutInflater,

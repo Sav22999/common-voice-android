@@ -23,8 +23,8 @@ class TutorialActivity : AppCompatActivity() {
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
     private val LANGUAGE_NAME = "LANGUAGE"
-    val languages_list_short = arrayOf("it", "en")
-    val languages_list = arrayOf("Italiano", "English")
+    var languages_list_short = arrayOf("en") // don't change manually -> it's imported from strings.xml
+    var languages_list = arrayOf("English") // don't change manually -> it's imported from strings.xml
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +33,10 @@ class TutorialActivity : AppCompatActivity() {
         this.seekBar.isEnabled = false
 
         this.seekBar.progress = 0
+
+        // import languages from array
+        this.languages_list = resources.getStringArray(R.array.languages)
+        this.languages_list_short = resources.getStringArray(R.array.languages_short)
 
         this.btn_next.setOnClickListener {
             tutorialStart()

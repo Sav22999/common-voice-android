@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
     private val LANGUAGE_NAME = "LANGUAGE"
-    val languages_list_short = arrayOf("it", "en", "fr")
-    val languages_list = arrayOf("Italiano", "English")
+    var languages_list_short = arrayOf("en") // don't change manually -> it's imported from strings.xml
+    var languages_list = arrayOf("English") // don't change manually -> it's imported from strings.xml
     var selected_language = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +53,10 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
+
+        // import languages from array
+        this.languages_list = resources.getStringArray(R.array.languages)
+        this.languages_list_short = resources.getStringArray(R.array.languages_short)
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selected_language = sharedPref2.getString(LANGUAGE_NAME, "en")
