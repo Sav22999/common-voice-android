@@ -97,13 +97,13 @@ class ListenActivity : AppCompatActivity() {
                 sentence.text = "..."
                 try {
                     val json_result = URL(url).readText()
-                    //val jsonObj = JSONObject(json_result.substring(json_result.indexOf("{"), json_result.lastIndexOf("}") + 1))
-                    //this.id_sentence=jsonObj.getString("id")
-                    //this.text_sentence=jsonObj.getString("text")
-                    //this.sound_sentence=jsonObj.getString("sound")
-                    //this.glob_sentence=jsonObj.getString("glob")
+                    /*val jsonObj = JSONObject(json_result.substring(json_result.indexOf("{"), json_result.lastIndexOf("}") + 1))
+                    this.id_sentence=jsonObj.getString("id").toInt()
+                    this.text_sentence=jsonObj.getString("text")
+                    this.sound_sentence=jsonObj.getString("sound")
+                    this.glob_sentence=jsonObj.getString("glob")*/
 
-                    this.text_sentence = json_result
+                    //this.text_sentence = json_result//just for testing
                     runOnUiThread {
                         //Update UI
                         sentence.text = this.text_sentence
@@ -113,13 +113,13 @@ class ListenActivity : AppCompatActivity() {
                     }
                 } catch (e: Exception) {
                     var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
-                    sentence.text = "Error. Try again, so press ${skip_text.text} button"
+                    msg.text = "Error. Try again, so press ${skip_text.text} button"
                 }
             }.start()
         } catch (e: Exception) {
             //sentence.text = "Error. Exception:\n$e"
             var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
-            sentence.text = "Error. Try again, so press ${skip_text.text} button"
+            msg.text = "Error. Try again, so press ${skip_text.text} button"
         }
     }
 

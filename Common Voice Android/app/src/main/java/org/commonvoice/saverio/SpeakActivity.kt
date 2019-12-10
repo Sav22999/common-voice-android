@@ -109,13 +109,13 @@ class SpeakActivity : AppCompatActivity() {
                     }
                 } catch (e: Exception) {
                     var skip_text: Button = this.findViewById(R.id.btn_skip_speak)
-                    sentence.text = "Error. Try again, so press ${skip_text.text} button"
+                    msg.text = "Error. Try again, so press ${skip_text.text} button"
                 }
             }.start()
         } catch (e: Exception) {
             //sentence.text = "Error. Exception:\n$e"
             var skip_text: Button = this.findViewById(R.id.btn_skip_speak)
-            sentence.text = "Error. Try again, so press ${skip_text.text} button"
+            msg.text = "Error. Try again, so press ${skip_text.text} button"
         }
     }
 
