@@ -26,15 +26,6 @@
     <string name="tutorial_text3">
         Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare
     </string>
-    <!-- Languages (list) -->
-    <string-array name="languages">
-        <item>English</item><!-- en -->
-        <item>Italiano</item>
-    </string-array>
-    <string-array name="languages_short">
-        <item>en</item>
-        <item>it</item>
-    </string-array>
     <!-- Login -->
     <string name="txt_email_hint">Email</string>
     <!-- Settings -->
@@ -44,4 +35,5 @@
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>
     <string name="btn_send_sentence">Invia registrazione</string>
+    <string name="txt_loading_clip">Caricamento di una registrazione...</string>
 </resources>

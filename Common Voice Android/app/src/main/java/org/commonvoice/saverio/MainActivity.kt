@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         return ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languages_list)
     }
 
-    public fun getSelectedLanguage(): String {
+    fun getSelectedLanguage(): String {
         return this.selected_language
     }
 

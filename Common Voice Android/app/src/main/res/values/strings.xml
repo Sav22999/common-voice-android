@@ -26,13 +26,19 @@
     <string name="tutorial_text3">
         Choose your native language, it will use to show sentences to record and to validate
     </string>
-    <!-- Languages (list) -->
+    <!-- Languages (list) sort "A-Z" - DO NOT TRANSLATE THESE STRINGS -->
     <string-array name="languages">
+        <item>Deutsch</item><!-- de -->
         <item>English</item><!-- en -->
-        <item>Italian</item>
+        <item>Español</item><!-- es -->
+        <item>Français</item><!-- fr -->
+        <item>Italiano</item><!-- it -->
     </string-array>
     <string-array name="languages_short">
+        <item>de</item>
         <item>en</item>
+        <item>es</item>
+        <item>fr</item>
         <item>it</item>
     </string-array>
     <!-- Login -->
@@ -40,8 +46,9 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open Tutorial again</string>
     <string name="txt_project_github_settings">Project open-source on GitHub</string>
-    <!-- Speak -->
+    <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Skip</string>
     <string name="btn_send_sentence">Send recording</string>
+    <string name="txt_loading_clip">Loading a clip...</string>
 </resources>
