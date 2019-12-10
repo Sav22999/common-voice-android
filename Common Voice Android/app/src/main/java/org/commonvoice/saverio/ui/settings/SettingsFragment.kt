@@ -12,6 +12,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 
@@ -35,6 +36,9 @@ class SettingsFragment : Fragment() {
         val model = ViewModelProviders.of(activity!!).get(SettingsViewModel::class.java)
 
         var main = (activity as MainActivity)
+
+        var releaseNumber: TextView = root.findViewById(R.id.textRelease)
+        releaseNumber.text = BuildConfig.VERSION_NAME
 
         // import the languages list (short and "standard" from mainactivity)
         this.languages_list_short = main.languages_list_short

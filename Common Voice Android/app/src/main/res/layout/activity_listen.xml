@@ -8,16 +8,16 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_next"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:id="@+id/btn_start_listen"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/btn_rounded"
-        android:text="@string/btn_tutorial1"
+        android:background="@drawable/listen_cv"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />
 
     <TextView
         android:id="@+id/textListenSentence"
@@ -29,6 +29,7 @@
         android:background="@color/colorBlack"
         android:backgroundTintMode="screen"
         android:gravity="center|center_horizontal|center_vertical"
+        android:text="Sentence to validate ..."
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorWhite"
         android:textSize="20dp"
@@ -36,6 +37,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Sentence to validate ..." />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

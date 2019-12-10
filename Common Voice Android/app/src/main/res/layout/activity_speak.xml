@@ -8,16 +8,41 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_start_speak"
+        android:id="@+id/btn_send_speak"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded"
-        android:text="@string/btn_tutorial1"
+        android:text="@string/btn_send_sentence"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_speak" />
+
+    <Button
+        android:id="@+id/btn_skip_speak"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_rounded"
+        android:text="@string/btn_skip_sentence"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_start_speak"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/speak_cv"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSpeakSentence" />
 
     <TextView
         android:id="@+id/textSpeakSentence"
@@ -29,6 +54,7 @@
         android:background="@color/colorBlack"
         android:backgroundTintMode="screen"
         android:gravity="center|center_horizontal|center_vertical"
+        android:text="Sentence to record ..."
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorWhite"
         android:textSize="20dp"
@@ -36,7 +62,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Sentence to record ..." />
+        app:layout_constraintTop_toBottomOf="@+id/btn_skip_speak" />
+
+    <TextView
+        android:id="@+id/textMessageAlertSpeak"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center|top|center_vertical"
+        android:textColor="@color/colorAlertMessage"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSpeakSentence" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

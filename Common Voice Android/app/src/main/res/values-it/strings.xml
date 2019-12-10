@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Common Voice</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Pannello</string>
+    <string name="title_settings">Impostazioni</string>
+    <!-- Home (main) -->
+    <string name="description_cv_robot">Common Voice logo</string>
+    <string name="description_cv_logo">Common Voice robot</string>
+    <string name="button_home_login">Accedi / Registrati</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Statistiche</string>
+    <string name="settingsLanguage">Lingua</string>
+    <!-- Tutorial -->
+    <string name="btn_tutorial1">Inizia</string>
+    <string name="btn_tutorial2">Permetti</string>
+    <string name="btn_tutorial3">Avanti</string>
+    <string name="btn_tutorial4">Riprova</string>
+    <string name="btn_tutorial5">Finito</string>
+    <string name="tutorial_text1">
+        Questa non è l\'app ufficiale di Common Voice di Mozilla. È sviluppata da Saverio Morelli, un volontario della comunità Mozilla Italia.
+    </string>
+    <string name="tutorial_text2">
+        Common Voice App necessità del permesso di "Registrazione audio" per funzionare correttamente.
+    </string>
+    <string name="tutorial_text3">
+        Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare
+    </string>
+    <!-- Languages (list) -->
+    <string-array name="languages">
+        <item>English</item><!-- en -->
+        <item>Italiano</item>
+    </string-array>
+    <string-array name="languages_short">
+        <item>en</item>
+        <item>it</item>
+    </string-array>
+    <!-- Login -->
+    <string name="txt_email_hint">Email</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">Apri nuovamente il Tutorial</string>
+    <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>
+    <!-- Speak -->
+    <string name="txt_loading_sentence">Caricamento di una frase...</string>
+    <string name="btn_skip_sentence">Salta</string>
+    <string name="btn_send_sentence">Invia registrazione</string>
+</resources>
