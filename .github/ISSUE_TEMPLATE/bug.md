@@ -1,5 +1,5 @@
 ---
-name: BUG
+name: Bug
 about: Report a bug
 title: "[BUG] "
 labels: "\U0001F41E bug"
@@ -7,9 +7,9 @@ assignees: ''
 
 ---
 
-_Android (OS) version:_ 7.1.1
-_App release:_ 0.0.8a
-_App language:_ Italian
+_Android (OS) version:_ (e.g. 8.0)
+_App release:_ (e.g. 0.0.8a)
+_App language (in English):_ (e.g. Italian)
 
 **Description bug**
 
