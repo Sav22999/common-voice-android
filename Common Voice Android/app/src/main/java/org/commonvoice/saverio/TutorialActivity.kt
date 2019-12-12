@@ -140,7 +140,7 @@ class TutorialActivity : AppCompatActivity() {
                 status = 3
             }
         }
-        languages.setSelection(languages_list_short.indexOf("en"))
+        languages.setSelection(languages_list_short.indexOf(getString(R.string.language)))
     }
 
     fun setLanguage(language: String) {
