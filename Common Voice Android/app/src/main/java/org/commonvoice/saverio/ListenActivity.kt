@@ -15,6 +15,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URL
 
@@ -92,35 +97,50 @@ class ListenActivity : AppCompatActivity() {
         btnListen.isEnabled = false
         this.status = 0
         msg.text = getText(R.string.txt_loading_clip)
+        sentence.text = "..."
         try {
-            Thread {
-                sentence.text = "..."
-                try {
-                    val json_result = URL(url).readText()
-                    /*val jsonObj = JSONObject(json_result.substring(json_result.indexOf("{"), json_result.lastIndexOf("}") + 1))
-                    this.id_sentence=jsonObj.getString("id").toInt()
-                    this.text_sentence=jsonObj.getString("text")
-                    this.sound_sentence=jsonObj.getString("sound")
-                    this.glob_sentence=jsonObj.getString("glob")*/
+            val path = "clips" //API to get sentences
+            val params = JSONArray()
+            //params.put("")
 
-                    //this.text_sentence = json_result//just for testing
-                    runOnUiThread {
-                        //Update UI
+            val que = Volley.newRequestQueue(this)
+            val req = JsonArrayRequest(Request.Method.GET, url + path, params,
+                Response.Listener {
+                    val json_result = it.toString()
+                    if (json_result.length>2) {
+                        val jsonObj = JSONObject(
+                            json_result.substring(
+                                json_result.indexOf("{"),
+                                json_result.lastIndexOf("}") + 1
+                            )
+                        )
+                        this.id_sentence=jsonObj.getString("id").toInt()
+                        this.text_sentence=jsonObj.getString("text")
+                        this.sound_sentence=jsonObj.getString("sound")
+                        this.glob_sentence=jsonObj.getString("glob")
+                        //this.text_sentence = json_result//just for testing
                         sentence.text = this.text_sentence
                         btnListen.isEnabled = true
                         btnListen.setBackgroundResource(R.drawable.listen_cv)
                         msg.text = "Press the icon below to start the clip"
+                    } else {
+                        error1()
                     }
-                } catch (e: Exception) {
-                    var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
-                    msg.text = "Error. Try again, so press ${skip_text.text} button"
+                }, Response.ErrorListener {
+                    //println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                    error1()
                 }
-            }.start()
+            )
+            que.add(req)
         } catch (e: Exception) {
-            //sentence.text = "Error. Exception:\n$e"
-            var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
-            msg.text = "Error. Try again, so press ${skip_text.text} button"
+            error1()
         }
+    }
+
+    fun error1() {
+        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+        var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
+        msg.text = "Error. Try again, so press ${skip_text.text} button"
     }
 
     fun StartListening() {

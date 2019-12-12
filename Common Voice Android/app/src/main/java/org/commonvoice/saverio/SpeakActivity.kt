@@ -101,7 +101,6 @@ class SpeakActivity : AppCompatActivity() {
             val req = JsonArrayRequest(Request.Method.GET, url + path, params,
                 Response.Listener {
                     val json_result = it.toString()
-                    println(" -->>-->> lenght: "+json_result.length)
                     if (json_result.length>2) {
                         val jsonObj = JSONObject(
                             json_result.substring(

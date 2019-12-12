@@ -54,7 +54,8 @@ class LoginActivity : AppCompatActivity() {
             webView.settings.javaScriptEnabled = true
             webView.settings.domStorageEnabled = true
             webView.webViewClient = WebViewClient()
-            webView.loadUrl("https://accounts.firefox.com/signup?email=" + email)
+            //webView.loadUrl("https://accounts.firefox.com/signup?email=" + email)
+            webView.loadUrl("https://voice.mozilla.org/login")
         }
     }
 
