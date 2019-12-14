@@ -108,6 +108,7 @@ class ListenActivity : AppCompatActivity() {
             val params = JSONArray()
             //params.put("")
 
+            btnListen.setBackgroundResource(R.drawable.listen_cv)
             val que = Volley.newRequestQueue(this)
             val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
                 Response.Listener {
@@ -126,7 +127,6 @@ class ListenActivity : AppCompatActivity() {
                         //this.text_sentence = json_result//just for testing
                         sentence.text = this.text_sentence
                         btnListen.isEnabled = true
-                        btnListen.setBackgroundResource(R.drawable.listen_cv)
                         msg.text = "Press the icon below to start the clip"
 
                         this.mediaPlayer = MediaPlayer().apply {
@@ -221,6 +221,7 @@ class ListenActivity : AppCompatActivity() {
 
     fun YesClip() {
         Toast.makeText(this, "Clip validated \"Yes\"!", Toast.LENGTH_SHORT).show()
+        StopListening()
 
         //when listening is validated
         API_request()
@@ -228,6 +229,7 @@ class ListenActivity : AppCompatActivity() {
 
     fun NoClip() {
         Toast.makeText(this, "Clip validated \"No\"!", Toast.LENGTH_SHORT).show()
+        StopListening()
 
         //when listening is validated
         API_request()
