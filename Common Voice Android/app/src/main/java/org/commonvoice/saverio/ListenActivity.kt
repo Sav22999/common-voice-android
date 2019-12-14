@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
@@ -31,8 +32,7 @@ class ListenActivity : AppCompatActivity() {
     private var PRIVATE_MODE = 0
     private val LANGUAGE_NAME = "LANGUAGE"
     var url: String =
-        "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/clips" //API url -> replace {{*{{lang}}*}} with the selected_language || GET request (get recording)
-    //var url_send: String = "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/clips" //API url -> replace {{*{{lang}}*}} with the selected_language || POST request (send validating)
+        "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
     var id_sentence: Int = 0
     var text_sentence: String = ""
@@ -61,8 +61,7 @@ class ListenActivity : AppCompatActivity() {
         start_stop_listening.setOnClickListener {
             if (this.status == 0 || this.status == 2) {
                 StartListening() //0->play | 2->re-play
-            }
-            else if (this.status == 1)
+            } else if (this.status == 1)
                 StopListening()
         }
 
@@ -104,20 +103,20 @@ class ListenActivity : AppCompatActivity() {
             //params.put("")
 
             val que = Volley.newRequestQueue(this)
-            val req = JsonArrayRequest(Request.Method.GET, url + path, params,
+            val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
                 Response.Listener {
                     val json_result = it.toString()
-                    if (json_result.length>2) {
+                    if (json_result.length > 2) {
                         val jsonObj = JSONObject(
                             json_result.substring(
                                 json_result.indexOf("{"),
                                 json_result.lastIndexOf("}") + 1
                             )
                         )
-                        this.id_sentence=jsonObj.getString("id").toInt()
-                        this.text_sentence=jsonObj.getString("text")
-                        this.sound_sentence=jsonObj.getString("sound")
-                        this.glob_sentence=jsonObj.getString("glob")
+                        this.id_sentence = jsonObj.getString("id").toInt()
+                        this.text_sentence = jsonObj.getString("text")
+                        this.sound_sentence = jsonObj.getString("sound")
+                        this.glob_sentence = jsonObj.getString("glob")
                         //this.text_sentence = json_result//just for testing
                         sentence.text = this.text_sentence
                         btnListen.isEnabled = true
@@ -126,11 +125,23 @@ class ListenActivity : AppCompatActivity() {
                     } else {
                         error1()
                     }
+
                 }, Response.ErrorListener {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
                     error1()
                 }
-            )
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
+                    headers.put(
+                        "Authorization",
+                        "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                    )
+                    return headers
+                }
+            }
             que.add(req)
         } catch (e: Exception) {
             error1()

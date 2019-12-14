@@ -12,6 +12,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="200dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/yes_thumb_cv"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,6 +25,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="200dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/no_thumb_cv"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,21 +50,21 @@
 
     <Button
         android:id="@+id/btn_skip_listen"
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/btn_rounded"
         android:text="@string/btn_skip_sentence"
         android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_start_listen"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/listen_cv"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -86,8 +88,7 @@
         android:textSize="30dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_skip_listen" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

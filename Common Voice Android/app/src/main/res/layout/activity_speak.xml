@@ -21,22 +21,21 @@
 
     <Button
         android:id="@+id/btn_skip_speak"
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/btn_rounded"
         android:text="@string/btn_skip_sentence"
         android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_start_speak"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/speak_cv"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_skip_speak" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textMessageAlertSpeak"
