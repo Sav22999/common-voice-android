@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -92,6 +94,7 @@ class SpeakActivity : AppCompatActivity() {
         this.status = 0
         msg.text = getText(R.string.txt_loading_sentence)
         sentence.text = "..."
+
         try {
             val path = "sentences" //API to get sentences
             val params = JSONArray()

@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -20,6 +22,8 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_listen.*
+import kotlinx.android.synthetic.main.activity_speak.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URL
@@ -41,6 +45,8 @@ class ListenActivity : AppCompatActivity() {
     var status: Int = 0 //1->clip stopped | 2->clip re-starting
 
     var selected_language = ""
+
+    var mediaPlayer: MediaPlayer? = null //audioplayer to play/pause clips
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,6 +128,12 @@ class ListenActivity : AppCompatActivity() {
                         btnListen.isEnabled = true
                         btnListen.setBackgroundResource(R.drawable.listen_cv)
                         msg.text = "Press the icon below to start the clip"
+
+                        this.mediaPlayer = MediaPlayer().apply {
+                            //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
+                            setDataSource(sound_sentence) //to set media source and send the object to the initialized state
+                            prepare() //to send the object to the prepared state, this may take time for fetching and decoding
+                        }
                     } else {
                         error1()
                     }
@@ -169,10 +181,27 @@ class ListenActivity : AppCompatActivity() {
         msg.text = "Press the icon below to stop the clip"
         btnListen.setBackgroundResource(R.drawable.stop_cv)
 
-        //when clip is finished
-        //btnYes.isVisible = true
-        //msg.text = "The clip is correct? Press the Thumb up\nThe clip is wrong? Press the Thumb down"
-        //btnListen.setBackgroundResource(R.drawable.listen2_cv)
+        this.mediaPlayer?.seekTo(0)
+        this.mediaPlayer?.start()
+
+        this.mediaPlayer!!.setOnCompletionListener {
+            FinishListening()
+        }
+    }
+
+    fun FinishListening()
+    {
+        if(this.mediaPlayer?.isPlaying==false) {
+            //when clip is finished
+            var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
+            var btnListen: Button = this.findViewById(R.id.btn_start_listen)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+            btnYes.isVisible = true
+            msg.text =
+                "The clip is correct? Press the Thumb up\nThe clip is wrong? Press the Thumb down"
+            btnListen.setBackgroundResource(R.drawable.listen2_cv)
+            this.status = 2
+        }
     }
 
     fun StopListening() {
@@ -187,6 +216,7 @@ class ListenActivity : AppCompatActivity() {
         this.status = 2
         msg.text = "Press the icon below to start the clip again"
         btnListen.setBackgroundResource(R.drawable.listen2_cv)
+        this.mediaPlayer?.pause()
     }
 
     fun YesClip() {
