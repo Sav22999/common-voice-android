@@ -27,6 +27,9 @@
         Common Voice App necessita del permesso di "Registrazione audio" per funzionare correttamente.
     </string>
     <string name="tutorial_text3">
+        Common Voice App necessita del permesso di "Accesso memoria espandibile" per funzionare correttamente.
+    </string>
+    <string name="tutorial_text4">
         Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare
     </string>
     <!-- Login -->
@@ -47,6 +50,9 @@
     <string name="txt_sentence_recorded">Frase registrata. Ascoltala per accertarti che sia corretta</string>
     <string name="txt_sentence_record_failed">Registrazione fallita. Riprovare</string>
     <string name="txt_recorded_correct_or_wrong">Registrazione corretta? Inviala.\nRegistrazione sbagliata? Registrala di nuovo</string>
+    <string name="txt_listening_stopped">Ascolta la tua registrazione per intero ed assicurati che sia corretta</string>
+    <string name="txt_listening_again_recording">Premi l\'icona sotto per fermare l\'ascolto della tua registrazione</string>
+    <string name="txt_recording_too_long">La registrazione è troppo lunga. La durata massima è di 10 secondi</string>
     <string name="txt_sending_recording">Invio della registrazione in corso...</string>
     <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
     <string name="txt_press_icon_below_listen_1">Premi l\'icona sotto per iniziare ad ascoltare la registrazione</string>
