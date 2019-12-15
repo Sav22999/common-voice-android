@@ -83,6 +83,9 @@ class LoginActivity : AppCompatActivity() {
             //if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() || true) {
             setContentView(R.layout.fragment_webbrowser)
 
+            var txtLoading: TextView = findViewById(R.id.textLoadingPage)
+            txtLoading.text = getString(R.string.txt_loading_page)
+
             webView = findViewById(R.id.webViewBrowser)
 
             webView.settings.javaScriptEnabled = true
@@ -90,10 +93,8 @@ class LoginActivity : AppCompatActivity() {
             webView.webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                     // Loading started
-                    var txtLoading: TextView = findViewById(R.id.textLoadingPage)
                     txtLoading.isGone = false
                     txtLoading.isVisible = true
-                    txtLoading.text = getString(R.string.txt_loading_page)
                 }
                 override fun onPageFinished(view: WebView?, url: String?) {
                     // Loading finished

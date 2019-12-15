@@ -46,7 +46,7 @@
     </string-array>
     <!-- Login -->
     <string name="txt_email_hint">Email</string>
-    <string name="txt_loading_page">Caricamento ...</string>
+    <string name="txt_loading_page">Loading ...</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open Tutorial again</string>
     <string name="txt_project_github_settings">Project open-source on GitHub</string>
@@ -60,7 +60,11 @@
     <string name="txt_press_icon_below_speak_1">Press the icon below to start the recording</string>
     <string name="txt_press_icon_below_speak_2">Press the icon below to stop the recording</string>
     <string name="txt_sentence_recorded">Sentence recorded. Listen the recording</string>
+    <string name="txt_sentence_record_failed">Recording failed. Try again please</string>
     <string name="txt_recorded_correct_or_wrong">Recording correct? Send it.\nRecording wrong? Record the sentence again</string>
+    <string name="txt_listening_stopped">Listen the recording entirely to ensure it\'s correct</string>
+    <string name="txt_listening_again_recording">Press the icon below to stop the listening</string>
+    <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds</string>
     <string name="txt_sending_recording">Sending the recording...</string>
     <string name="txt_recording_sent">Recording sent!</string>
     <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip</string>

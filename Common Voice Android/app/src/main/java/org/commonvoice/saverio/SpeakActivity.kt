@@ -1,13 +1,20 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.media.MediaRecorder
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
+import android.os.Handler
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
@@ -16,16 +23,25 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_speak.*
 import org.json.JSONArray
 import org.json.JSONObject
 import org.w3c.dom.Text
+import java.io.File
+import java.io.IOException
 import java.net.URL
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
 import org.commonvoice.saverio.MainActivity as main
 
 
@@ -35,6 +51,8 @@ class SpeakActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private var PRIVATE_MODE = 0
     private val LANGUAGE_NAME = "LANGUAGE"
+    private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
+    private val USER_CONNECT_ID = "USER_CONNECT_ID"
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
@@ -44,9 +62,12 @@ class SpeakActivity : AppCompatActivity() {
     var id_sentence: String = ""
     var text_sentence: String = ""
     var status: Int =
-        0 //1->recording started | 2->recording finished | 3->recording listened | 4->recording sent
+        0 //1->recording started | 2->recording finished | 3->recording listened | 4->recording sent | 5->listening stopped | 6->recording too long
 
     var selected_language = ""
+    var mediaRecorder: MediaRecorder? = null //audiorecorder
+    var output: String? = null //path of the recording
+    var mediaPlayer: MediaPlayer? = null //audioplayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +82,8 @@ class SpeakActivity : AppCompatActivity() {
 
         var skip_button: Button = this.findViewById(R.id.btn_skip_speak)
         skip_button.setOnClickListener {
+            StopRecording()
+            StopListening()
             API_request()
         }
 
@@ -72,6 +95,8 @@ class SpeakActivity : AppCompatActivity() {
                 StopRecording()
             else if (this.status == 2)
                 ListenRecording()
+            else if (this.status == 5)
+                StopListening()
         }
 
         var send_recording: Button = this.findViewById(R.id.btn_send_speak)
@@ -79,21 +104,29 @@ class SpeakActivity : AppCompatActivity() {
             SendRecording()
         }
 
-        //var sentence: TextView = this.findViewById(R.id.textSpeakSentence)
+        var listen_again: Button = this.findViewById(R.id.btn_listen_again)
+        listen_again.setOnClickListener {
+            ListenRecording()
+        }
 
         //API request
         API_request()
     }
 
     fun API_request() {
+        DeleteRecording()
+
         var sentence: TextView = this.findViewById(R.id.textSpeakSentence)
         var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
         var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         this.id_sentence = ""
         this.text_sentence = ""
         btnRecord.isEnabled = false
         btnSend.isVisible = false
+        btnListenAgain.isGone = true
+        btnListenAgain.isVisible = false
         this.status = 0
         msg.text = getText(R.string.txt_loading_sentence)
         sentence.text = "..."
@@ -104,7 +137,7 @@ class SpeakActivity : AppCompatActivity() {
             //params.put("")
 
             val que = Volley.newRequestQueue(this)
-            val req = JsonArrayRequest(Request.Method.GET, url + path, params,
+            val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
                 Response.Listener {
                     val json_result = it.toString()
                     if (json_result.length > 2) {
@@ -127,7 +160,31 @@ class SpeakActivity : AppCompatActivity() {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
                     error1()
                 }
-            )
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
+                    val sharedPref: SharedPreferences =
+                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
+                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    if (logged) {
+                        val sharedPref3: SharedPreferences =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
+                        var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
+                        headers.put(
+                            "Cookie",
+                            "connect.sid=" + cookie_id
+                        )
+                    } else {
+                        headers.put(
+                            "Authorization",
+                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                        )
+                    }
+                    return headers
+                }
+            }
             que.add(req)
         } catch (e: Exception) {
             error1()
@@ -137,40 +194,162 @@ class SpeakActivity : AppCompatActivity() {
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         var skip_text: Button = this.findViewById(R.id.btn_skip_speak)
-        msg.text = getString(R.string.txt_error_try_again_press_skip).replace("{{*{{skip_button}}*}}",skip_text.text.toString())
+        msg.text = getString(R.string.txt_error_try_again_press_skip).replace(
+            "{{*{{skip_button}}*}}",
+            skip_text.text.toString()
+        )
+    }
+
+    override fun onBackPressed() {
+        StopRecording()
+        DeleteRecording()
+        finish()
     }
 
     fun StartRecording() {
+        //start or re-start recording
         checkRecordVoicePermission()
-        var btnSend: Button = this.findViewById(R.id.btn_send_speak)
-        var btn_record: Button = this.findViewById(R.id.btn_start_speak)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btn_record.setBackgroundResource(R.drawable.stop_cv)
-        btnSend.isVisible = false
-        this.status = 1
-        msg.text = getString(R.string.txt_press_icon_below_speak_2)
+        try {
+            mediaRecorder = MediaRecorder()
+            output = externalCacheDir?.absolutePath + "/" + this.id_sentence + ".mp3"
+            mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.MIC)
+            mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS)
+            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            mediaRecorder?.setMaxDuration(10000)
+            mediaRecorder?.setOutputFile(output)
+            mediaRecorder?.prepare()
+            mediaRecorder?.start()
+
+            Handler().postDelayed({
+                //after 10seconds returns error if status==1
+                RecordingTooLong()
+            }, 10000)
+
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+            var btn_record: Button = this.findViewById(R.id.btn_start_speak)
+            btn_record.setBackgroundResource(R.drawable.stop_cv)
+            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            btnSend.isVisible = false
+            btnListenAgain.isGone = true
+            btnListenAgain.isVisible = false
+            msg.text = getString(R.string.txt_press_icon_below_speak_2)
+            this.status = 1
+        } catch (e: Exception) {
+            //println(" -->> Something wrong: "+e.toString()+" <<-- ")
+        }
     }
 
+    @SuppressLint("RestrictedApi", "SetTextI18n")
+    @TargetApi(Build.VERSION_CODES.N)
     fun StopRecording() {
+        //stop recording
+        try {
+            mediaRecorder?.stop()
+            mediaRecorder?.release()
+
+            var btn_record: Button = this.findViewById(R.id.btn_start_speak)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            btn_record.setBackgroundResource(R.drawable.listen2_cv)
+            msg.text = getString(R.string.txt_sentence_recorded)
+            this.status = 2 //recording successful
+        } catch (e: Exception) {
+            //println(" -->> Something wrong: "+e.toString()+" <<-- ")
+            RecordingFailed()
+        }
+    }
+
+    fun RecordingFailed() {
         var btn_record: Button = this.findViewById(R.id.btn_start_speak)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btn_record.setBackgroundResource(R.drawable.listen2_cv)
-        this.status = 2 //recording successful
-        //this.status = 0 //recording failed
-        msg.text = getString(R.string.txt_sentence_recorded)
+        btn_record.setBackgroundResource(R.drawable.speak_cv)
+        if (this.status == 6) {
+            msg.text = getString(R.string.txt_recording_too_long)
+        } else {
+            msg.text = getString(R.string.txt_sentence_record_failed)
+        }
+        this.status = 0 //recording failed
+    }
+
+    fun DeleteRecording() {
+        val path = externalCacheDir?.absolutePath + "/" + this.id_sentence + ".mp3"
+        var file = File(path)
+        if (this.id_sentence != "" && file.exists()) {
+            file.delete()
+        }
+    }
+
+    fun RecordingTooLong() {
+        this.status = 6 //too long
+        RecordingFailed()
+        DeleteRecording()
     }
 
     fun ListenRecording() {
+        //listen recording
+        val output_listening = this.output
+        if (output_listening != null) {
+            val sampleUri: Uri = output_listening.toUri() // your uri here
+            mediaPlayer = MediaPlayer().apply {
+                //setAudioStreamType(AudioManager.)
+                setDataSource(
+                    applicationContext,
+                    sampleUri
+                )
+                prepare()
+                seekTo(0)
+                start()
+
+                setOnCompletionListener {
+                    FinishListening()
+                }
+            }
+        }
+        var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        btnRecord.setBackgroundResource(R.drawable.stop_cv)
+        btnListenAgain.isGone = true
+        btnListenAgain.isVisible = false
+        this.status = 5
+        msg.text = getString(R.string.txt_listening_again_recording)
+    }
+
+    fun StopListening() {
+        //stop listening
+        var btn_record: Button = this.findViewById(R.id.btn_start_speak)
+        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        btn_record.setBackgroundResource(R.drawable.listen2_cv)
+        var btn_listen_again: Button = this.findViewById(R.id.btn_listen_again)
+        btn_listen_again.setBackgroundResource(R.drawable.listen2_cv)
+        var btnSendRecording: Button = this.findViewById(R.id.btn_send_speak)
+        if (!btnSendRecording.isVisible) {
+            this.status = 2 //re-listening recording -> because it's stopped
+            msg.text = getString(R.string.txt_listening_stopped)
+        } else {
+            FinishListening()
+        }
+        this.mediaPlayer?.stop()
+    }
+
+    fun FinishListening() {
+        //finish listening
         var btn_record: Button = this.findViewById(R.id.btn_start_speak)
         var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         btn_record.setBackgroundResource(R.drawable.record2_cv)
+        var btn_listen_again: Button = this.findViewById(R.id.btn_listen_again)
+        btn_listen_again.setBackgroundResource(R.drawable.listen2_cv)
         this.status = 3 //listened the recording
         btnSend.isVisible = true
+        btnListenAgain.isGone = false
+        btnListenAgain.isVisible = true
         msg.text = getString(R.string.txt_recorded_correct_or_wrong)
     }
 
     fun SendRecording() {
+        //send recording
         var btn_record: Button = this.findViewById(R.id.btn_start_speak)
         var btnSend: Button = this.findViewById(R.id.btn_send_speak)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
@@ -192,6 +371,26 @@ class SpeakActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(Manifest.permission.RECORD_AUDIO),
+                RECORD_REQUEST_CODE
+            )
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                RECORD_REQUEST_CODE
+            )
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 RECORD_REQUEST_CODE
             )
         }

@@ -35,6 +35,8 @@ class ListenActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private var PRIVATE_MODE = 0
     private val LANGUAGE_NAME = "LANGUAGE"
+    private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
+    private val USER_CONNECT_ID = "USER_CONNECT_ID"
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
@@ -150,14 +152,26 @@ class ListenActivity : AppCompatActivity() {
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
                     //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                    headers.put(
-                        "Authorization",
-                        "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
-                    )
+                    val sharedPref: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
+                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    if (logged) {
+                        val sharedPref3: SharedPreferences = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
+                        var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
+                        headers.put(
+                            "Cookie",
+                            "connect.sid="+cookie_id
+                        )
+                    } else {
+                        headers.put(
+                            "Authorization",
+                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                        )
+                    }
                     return headers
                 }
             }
-            que.add(req)
+            var request_status = que.add(req)
+            println(" -->> Request status (Listen) -->> "+request_status.toString()+" <<-- ")
         } catch (e: Exception) {
             error1()
         }
@@ -169,6 +183,11 @@ class ListenActivity : AppCompatActivity() {
         msg.text = getString(R.string.txt_error_try_again_press_skip).replace("{{*{{skip_button}}*}}",skip_text.text.toString())
     }
 
+    override fun onBackPressed() {
+        StopListening()
+        finish()
+    }
+
     fun StartListening() {
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
@@ -178,7 +197,6 @@ class ListenActivity : AppCompatActivity() {
         this.text_sentence = ""
         this.glob_sentence = ""
         this.sound_sentence = ""
-        btnYes.isVisible = false
         btnNo.isVisible = true
         this.status = 1
         msg.text = getString(R.string.txt_press_icon_below_listen_2)

@@ -31,7 +31,7 @@
     </string>
     <!-- Login -->
     <string name="txt_email_hint">Email</string>
-    <string name="txt_loading_page">Loading ...</string>
+    <string name="txt_loading_page">Caricamento ...</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Apri nuovamente il Tutorial</string>
     <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>
@@ -45,6 +45,7 @@
     <string name="txt_press_icon_below_speak_1">Premi l\'icona sotto per iniziare la registrazione</string>
     <string name="txt_press_icon_below_speak_2">Premi l\'icona sotto per fermare la registrazione</string>
     <string name="txt_sentence_recorded">Frase registrata. Ascoltala per accertarti che sia corretta</string>
+    <string name="txt_sentence_record_failed">Registrazione fallita. Riprovare</string>
     <string name="txt_recorded_correct_or_wrong">Registrazione corretta? Inviala.\nRegistrazione sbagliata? Registrala di nuovo</string>
     <string name="txt_sending_recording">Invio della registrazione in corso...</string>
     <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
