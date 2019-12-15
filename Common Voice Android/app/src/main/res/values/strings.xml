@@ -9,6 +9,8 @@
     <string name="description_cv_robot">Common Voice logo</string>
     <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Login / Sign up</string>
+    <string name="button_home_logout">Log out</string>
+    <string name="text_hi_username">Hi</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
     <string name="settingsLanguage">Language</string>
@@ -44,12 +46,28 @@
     </string-array>
     <!-- Login -->
     <string name="txt_email_hint">Email</string>
+    <string name="txt_loading_page">Caricamento ...</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open Tutorial again</string>
     <string name="txt_project_github_settings">Project open-source on GitHub</string>
+    <string name="txt_contributors">contributors</string>
+    <string name="txt_developed_by">developed by</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Skip</string>
     <string name="btn_send_sentence">Send recording</string>
     <string name="txt_loading_clip">Loading a clip...</string>
+    <string name="txt_press_icon_below_speak_1">Press the icon below to start the recording</string>
+    <string name="txt_press_icon_below_speak_2">Press the icon below to stop the recording</string>
+    <string name="txt_sentence_recorded">Sentence recorded. Listen the recording</string>
+    <string name="txt_recorded_correct_or_wrong">Recording correct? Send it.\nRecording wrong? Record the sentence again</string>
+    <string name="txt_sending_recording">Sending the recording...</string>
+    <string name="txt_recording_sent">Recording sent!</string>
+    <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip</string>
+    <string name="txt_press_icon_below_listen_2">Press the icon below to stop the clip</string>
+    <string name="txt_clip_correct_or_wrong">The clip is correct? Press the Thumb up\nThe clip is wrong? Press the Thumb down</string>
+    <string name="txt_clip_again">Press the icon below to start the clip again</string>
+    <string name="txt_clip_validated_yes">Clip accepted!</string>
+    <string name="txt_clip_validated_no">Clip rejected!</string>
+    <string name="txt_error_try_again_press_skip">Error. Try again, so press {{*{{skip_button}}*}} button</string>
 </resources>

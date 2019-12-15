@@ -71,6 +71,23 @@
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_cv" />
+        app:layout_constraintTop_toBottomOf="@+id/textLoggedUsername" />
+
+    <TextView
+        android:id="@+id/textLoggedUsername"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="TextView"
+        android:textColor="@color/colorBlack"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_cv"
+        tools:text="Hi, Username!"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

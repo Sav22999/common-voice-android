@@ -38,6 +38,9 @@ class SpeakActivity : AppCompatActivity() {
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
+    val url_without_lang: String =
+        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+
     var id_sentence: String = ""
     var text_sentence: String = ""
     var status: Int =
@@ -116,7 +119,7 @@ class SpeakActivity : AppCompatActivity() {
                         sentence.text = this.text_sentence
                         btnRecord.isEnabled = true
                         btnRecord.setBackgroundResource(R.drawable.speak_cv)
-                        msg.text = "Press the icon below to start the recording"
+                        msg.text = getString(R.string.txt_press_icon_below_speak_1)
                     } else {
                         error1()
                     }
@@ -134,7 +137,7 @@ class SpeakActivity : AppCompatActivity() {
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         var skip_text: Button = this.findViewById(R.id.btn_skip_speak)
-        msg.text = "Error. Try again, so press ${skip_text.text} button"
+        msg.text = getString(R.string.txt_error_try_again_press_skip).replace("{{*{{skip_button}}*}}",skip_text.text.toString())
     }
 
     fun StartRecording() {
@@ -145,7 +148,7 @@ class SpeakActivity : AppCompatActivity() {
         btn_record.setBackgroundResource(R.drawable.stop_cv)
         btnSend.isVisible = false
         this.status = 1
-        msg.text = "Press the below icon to stop the recording"
+        msg.text = getString(R.string.txt_press_icon_below_speak_2)
     }
 
     fun StopRecording() {
@@ -154,7 +157,7 @@ class SpeakActivity : AppCompatActivity() {
         btn_record.setBackgroundResource(R.drawable.listen2_cv)
         this.status = 2 //recording successful
         //this.status = 0 //recording failed
-        msg.text = "Sentence recorded. Listen the recording"
+        msg.text = getString(R.string.txt_sentence_recorded)
     }
 
     fun ListenRecording() {
@@ -164,7 +167,7 @@ class SpeakActivity : AppCompatActivity() {
         btn_record.setBackgroundResource(R.drawable.record2_cv)
         this.status = 3 //listened the recording
         btnSend.isVisible = true
-        msg.text = "Recording correct? Send it.\nRecording wrong? Record the sentence again"
+        msg.text = getString(R.string.txt_recorded_correct_or_wrong)
     }
 
     fun SendRecording() {
@@ -175,8 +178,8 @@ class SpeakActivity : AppCompatActivity() {
         btn_record.isEnabled = false
         this.status = 4
         btnSend.isVisible = false
-        msg.text = "Sending the sentence..."
-        Toast.makeText(this, "Recording sent!", Toast.LENGTH_SHORT).show()
+        msg.text = getString(R.string.txt_sending_recording)
+        Toast.makeText(this, getString(R.string.txt_recording_sent), Toast.LENGTH_SHORT).show()
 
         //when recording is sent
         API_request()

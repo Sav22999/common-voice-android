@@ -78,6 +78,12 @@ class SettingsFragment : Fragment() {
             main.open_tutorial()
         }
 
+        var txt_contributors: TextView = root.findViewById(R.id.textContributors)
+        txt_contributors.text = getString(R.string.txt_contributors)
+
+        var txt_developed_by: TextView = root.findViewById(R.id.textDevelopedBy)
+        txt_developed_by.text = getString(R.string.txt_developed_by)
+
         return root
     }
 }

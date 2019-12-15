@@ -11,16 +11,28 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.android.volley.AuthFailureError
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_settings.*
+import org.commonvoice.saverio.ui.home.HomeFragment
 import org.commonvoice.saverio.ui.settings.SettingsFragment
 import org.commonvoice.saverio.ui.settings.SettingsViewModel
+import org.json.JSONArray
+import org.json.JSONObject
 import java.net.URL
 
 
@@ -31,9 +43,18 @@ class MainActivity : AppCompatActivity() {
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
     private val LANGUAGE_NAME = "LANGUAGE"
-    var languages_list_short = arrayOf("en") // don't change manually -> it's imported from strings.xml
-    var languages_list = arrayOf("English") // don't change manually -> it's imported from strings.xml
+    private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
+    private val USER_CONNECT_ID = "USER_CONNECT_ID"
+    private val USER_NAME = "USERNAME"
+
+    var languages_list_short =
+        arrayOf("en") // don't change manually -> it's imported from strings.xml
+    var languages_list =
+        arrayOf("English") // don't change manually -> it's imported from strings.xml
     var selected_language = ""
+    var logged: Boolean = false
+    var user_id: String = ""
+    var user_name: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +82,21 @@ class MainActivity : AppCompatActivity() {
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selected_language = sharedPref2.getString(LANGUAGE_NAME, "en")
 
+        val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
+        this.logged = sharedPref3.getBoolean(LOGGED_IN_NAME, false)
+
+        if (logged) {
+            val sharedPref4: SharedPreferences = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
+            this.user_id = sharedPref4.getString(USER_CONNECT_ID, "")
+
+            val sharedPref5: SharedPreferences = getSharedPreferences(USER_NAME, PRIVATE_MODE)
+            this.user_name = sharedPref5.getString(USER_NAME, "")
+
+            loginSuccessful()
+        }
+
         if (this.firstRun) {
-            // close main and open tutorial
+            // close main and open tutorial -- first run
             open_tutorial()
         } else {
             checkRecordVoicePermission()
@@ -77,6 +111,15 @@ class MainActivity : AppCompatActivity() {
             "Language: " + this.selected_language + " index: " + languages_list_short.indexOf(this.selected_language),
             Toast.LENGTH_LONG
         ).show()
+    }
+
+    fun loginSuccessful() {
+        //login successful -> show username and log-out button
+        /*Toast.makeText(
+            this,
+            "Login successful!",
+            Toast.LENGTH_LONG
+        ).show()*/
     }
 
     fun setLanguageSettings(lang: String) {
@@ -118,6 +161,17 @@ class MainActivity : AppCompatActivity() {
     fun open_login_section() {
         val intent = Intent(this, LoginActivity::class.java).also {
             startActivity(it)
+            //close the MainActivity
+            finish()
+        }
+    }
+
+    fun open_logout_section() {
+        // logout -> delete USERNAME, USERID e LOGGEDIN variables (shared)
+        val intent = Intent(this, LoginActivity::class.java).also {
+            startActivity(it)
+            //close the MainActivity
+            finish()
         }
     }
 

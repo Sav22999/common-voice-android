@@ -55,9 +55,10 @@ class TutorialActivity : AppCompatActivity() {
         } else if (this.status == 3) {
             // close tutorial and open main
             val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-            val editor = sharedPref.edit()
+            var editor = sharedPref.edit()
             editor.putBoolean(PREF_NAME, false)
             editor.apply()
+
             val intent = Intent(this, MainActivity::class.java).also {
                 startActivity(it)
             }

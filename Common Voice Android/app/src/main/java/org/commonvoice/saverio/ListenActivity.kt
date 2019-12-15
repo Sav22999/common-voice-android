@@ -38,6 +38,9 @@ class ListenActivity : AppCompatActivity() {
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
+    val url_without_lang: String =
+        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+
     var id_sentence: Int = 0
     var text_sentence: String = ""
     var glob_sentence: String = ""
@@ -127,7 +130,7 @@ class ListenActivity : AppCompatActivity() {
                         //this.text_sentence = json_result//just for testing
                         sentence.text = this.text_sentence
                         btnListen.isEnabled = true
-                        msg.text = "Press the icon below to start the clip"
+                        msg.text = getString(R.string.txt_press_icon_below_listen_1)
 
                         this.mediaPlayer = MediaPlayer().apply {
                             //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
@@ -163,7 +166,7 @@ class ListenActivity : AppCompatActivity() {
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
-        msg.text = "Error. Try again, so press ${skip_text.text} button"
+        msg.text = getString(R.string.txt_error_try_again_press_skip).replace("{{*{{skip_button}}*}}",skip_text.text.toString())
     }
 
     fun StartListening() {
@@ -178,7 +181,7 @@ class ListenActivity : AppCompatActivity() {
         btnYes.isVisible = false
         btnNo.isVisible = true
         this.status = 1
-        msg.text = "Press the icon below to stop the clip"
+        msg.text = getString(R.string.txt_press_icon_below_listen_2)
         btnListen.setBackgroundResource(R.drawable.stop_cv)
 
         this.mediaPlayer?.seekTo(0)
@@ -197,8 +200,7 @@ class ListenActivity : AppCompatActivity() {
             var btnListen: Button = this.findViewById(R.id.btn_start_listen)
             var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
             btnYes.isVisible = true
-            msg.text =
-                "The clip is correct? Press the Thumb up\nThe clip is wrong? Press the Thumb down"
+            msg.text = getString(R.string.txt_clip_correct_or_wrong)
             btnListen.setBackgroundResource(R.drawable.listen2_cv)
             this.status = 2
         }
@@ -214,13 +216,13 @@ class ListenActivity : AppCompatActivity() {
         this.glob_sentence = ""
         this.sound_sentence = ""
         this.status = 2
-        msg.text = "Press the icon below to start the clip again"
+        msg.text = getString(R.string.txt_clip_again)
         btnListen.setBackgroundResource(R.drawable.listen2_cv)
         this.mediaPlayer?.pause()
     }
 
     fun YesClip() {
-        Toast.makeText(this, "Clip validated \"Yes\"!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_SHORT).show()
         StopListening()
 
         //when listening is validated
@@ -228,7 +230,7 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun NoClip() {
-        Toast.makeText(this, "Clip validated \"No\"!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.txt_clip_validated_no), Toast.LENGTH_SHORT).show()
         StopListening()
 
         //when listening is validated

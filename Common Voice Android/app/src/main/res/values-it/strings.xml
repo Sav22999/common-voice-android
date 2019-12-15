@@ -9,6 +9,8 @@
     <string name="description_cv_robot">Common Voice logo</string>
     <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Accedi / Registrati</string>
+    <string name="button_home_logout">Disconnetti</string>
+    <string name="text_hi_username">Ciao</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiche</string>
     <string name="settingsLanguage">Lingua</string>
@@ -22,19 +24,35 @@
         Questa non è l\'app ufficiale di Common Voice di Mozilla. È sviluppata da Saverio Morelli, un volontario della comunità Mozilla Italia.
     </string>
     <string name="tutorial_text2">
-        Common Voice App necessità del permesso di "Registrazione audio" per funzionare correttamente.
+        Common Voice App necessita del permesso di "Registrazione audio" per funzionare correttamente.
     </string>
     <string name="tutorial_text3">
         Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare
     </string>
     <!-- Login -->
     <string name="txt_email_hint">Email</string>
+    <string name="txt_loading_page">Loading ...</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Apri nuovamente il Tutorial</string>
     <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>
+    <string name="txt_contributors">collaboratori</string>
+    <string name="txt_developed_by">sviluppata da</string>
     <!-- Speak -->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>
     <string name="btn_send_sentence">Invia registrazione</string>
     <string name="txt_loading_clip">Caricamento di una registrazione...</string>
+    <string name="txt_press_icon_below_speak_1">Premi l\'icona sotto per iniziare la registrazione</string>
+    <string name="txt_press_icon_below_speak_2">Premi l\'icona sotto per fermare la registrazione</string>
+    <string name="txt_sentence_recorded">Frase registrata. Ascoltala per accertarti che sia corretta</string>
+    <string name="txt_recorded_correct_or_wrong">Registrazione corretta? Inviala.\nRegistrazione sbagliata? Registrala di nuovo</string>
+    <string name="txt_sending_recording">Invio della registrazione in corso...</string>
+    <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
+    <string name="txt_press_icon_below_listen_1">Premi l\'icona sotto per iniziare ad ascoltare la registrazione</string>
+    <string name="txt_press_icon_below_listen_2">Premi l\'icona sotto per fermare l\'audio</string>
+    <string name="txt_clip_correct_or_wrong">Audio corretto? Premi pollice in su\nAudio sbagliato? Premi pollice in giù</string>
+    <string name="txt_clip_again">Premi l\'icona sotto per ascoltare nuovamente l\'audio</string>
+    <string name="txt_clip_validated_yes">Registrazione accettata!</string>
+    <string name="txt_clip_validated_no">Registrazione declinata!</string>
+    <string name="txt_error_try_again_press_skip">Errore. Riprovare, quindi premere il bottone {{*{{skip_button}}*}}</string>
 </resources>
