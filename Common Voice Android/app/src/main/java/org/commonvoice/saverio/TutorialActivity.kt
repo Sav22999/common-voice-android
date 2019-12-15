@@ -48,11 +48,16 @@ class TutorialActivity : AppCompatActivity() {
             // start
             tutorialStart1()
         } else if (this.status == 1) {
-            // permit
+            // ask microphone permission
             tutorialStart2()
         } else if (this.status == 2) {
-            tutorialStart3()
+            askStoragePermission()
         } else if (this.status == 3) {
+            // ask storage permission
+            tutorialStart3()
+        } else if (this.status == 4) {
+            tutorialStart4()
+        } else if (this.status == 5) {
             // close tutorial and open main
             val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
             var editor = sharedPref.edit()
@@ -78,8 +83,8 @@ class TutorialActivity : AppCompatActivity() {
         } else {
             this.btn_next.text = getString(R.string.btn_tutorial3) // next
         }
-
         this.status = 1
+        //println(" -->> tutorialStart1")
     }
 
     fun tutorialStart2() {
@@ -92,9 +97,9 @@ class TutorialActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         } else {
-            tutorialStart3()
-            this.status = 2
+            askStoragePermission()
         }
+        //println(" -->> tutorialStart2")
     }
 
     fun tutorialStartPermissionDenied() {
@@ -111,15 +116,52 @@ class TutorialActivity : AppCompatActivity() {
         this.textTutorialMessage.text = "Permission successful"
         //Toast.makeText(this,"Permission successful",Toast.LENGTH_SHORT).show()
         this.btn_next.text = getString(R.string.btn_tutorial3) // next
-        this.status = 2
+        if (this.status == 1) {
+            //microphone permission
+            this.status = 2
+        } else if (this.status == 3) {
+            //storage permission
+            this.status = 4
+        }
+    }
+
+    fun askStoragePermission() {
+        this.textTutorialMessage.isVisible = false
+        this.textTutorialMessage.text = ""
+        this.textView_tutorial.text = getString(R.string.tutorial_text3)
+        this.seekBar.progress = 2
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            this.btn_next.text = getString(R.string.btn_tutorial2) // permit
+        } else {
+            this.btn_next.text = getString(R.string.btn_tutorial3) // next
+        }
+        this.status = 3
+        //println(" -->> askStoragePermission")
     }
 
     fun tutorialStart3() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                RECORD_REQUEST_CODE
+            )
+        } else {
+            tutorialStart4()
+        }
+        //println(" -->> tutorialStart3")
+    }
+
+    fun tutorialStart4() {
         // finish
         this.textTutorialMessage.isVisible = false
         this.textTutorialMessage.text = ""
-        this.seekBar.progress = 2
-        this.textView_tutorial.text = getString(R.string.tutorial_text3)
+        this.seekBar.progress = 3
+        this.textView_tutorial.text = getString(R.string.tutorial_text4)
         this.btn_next.text = getString(R.string.btn_tutorial5)
         this.languageListTutorial.isVisible = true
 
@@ -138,7 +180,7 @@ class TutorialActivity : AppCompatActivity() {
                 id: Long
             ) {
                 setLanguage(languages_list_short.get(position))
-                status = 3
+                status = 5
             }
         }
         languages.setSelection(languages_list_short.indexOf(getString(R.string.language)))

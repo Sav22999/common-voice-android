@@ -256,12 +256,32 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun checkRecordVoicePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.INTERNET),
+                arrayOf(Manifest.permission.RECORD_AUDIO),
+                RECORD_REQUEST_CODE
+            )
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                RECORD_REQUEST_CODE
+            )
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 RECORD_REQUEST_CODE
             )
         }

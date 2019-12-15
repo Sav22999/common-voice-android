@@ -24,9 +24,12 @@
         This is not the official app of Common Voice by Mozilla. It\'s developed by Saverio Morelli, a volunteer of Mozilla Italia community.
     </string>
     <string name="tutorial_text2">
-        Common Voice App needs the "Audio recording" permission to work correctly.
+        Common Voice App needs the "Microphone" permission to work correctly.
     </string>
     <string name="tutorial_text3">
+        Common Voice App needs the "Storage" permission to work correctly.
+    </string>
+    <string name="tutorial_text4">
         Choose your native language, it will use to show sentences to record and to validate
     </string>
     <!-- Languages (list) sort "A-Z" - DO NOT TRANSLATE THESE STRINGS -->

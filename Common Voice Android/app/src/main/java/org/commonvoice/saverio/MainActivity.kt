@@ -185,6 +185,26 @@ class MainActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                RECORD_REQUEST_CODE
+            )
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                RECORD_REQUEST_CODE
+            )
+        }
     }
 
     override fun onRequestPermissionsResult(
