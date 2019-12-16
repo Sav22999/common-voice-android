@@ -40,6 +40,7 @@
     <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>
     <string name="txt_contributors">collaboratori</string>
     <string name="txt_developed_by">sviluppata da</string>
+    <string name="toast_language_changed">Lingua modificata correttamente in {{*{{lang}}*}}</string>
     <!-- Speak -->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>

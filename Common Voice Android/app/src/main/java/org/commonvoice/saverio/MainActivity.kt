@@ -33,6 +33,7 @@ import org.commonvoice.saverio.ui.settings.SettingsFragment
 import org.commonvoice.saverio.ui.settings.SettingsViewModel
 import org.json.JSONArray
 import org.json.JSONObject
+import java.lang.Exception
 import java.net.URL
 
 
@@ -99,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             // close main and open tutorial -- first run
             open_tutorial()
         } else {
-            checkRecordVoicePermission()
+            checkPermissions()
         }
 
         //get_language()
@@ -128,7 +129,16 @@ class MainActivity : AppCompatActivity() {
         editor.putString(LANGUAGE_NAME, lang)
         editor.apply()
 
+        var language_changed = false
+        if (this.selected_language != lang) {
+            language_changed = true
+        }
+
         this.selected_language = lang
+
+        if (language_changed) {
+            Toast.makeText(this, getString(R.string.toast_language_changed).replace("{{*{{lang}}*}}",this.languages_list.get(this.languages_list_short.indexOf(this.getSelectedLanguage()))), Toast.LENGTH_LONG).show()
+        }
     }
 
     fun getLanguageList(): ArrayAdapter<String> {
@@ -175,6 +185,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun checkPermissions() {
+        try {
+            checkRecordVoicePermission()
+        } catch (e: Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
+        try {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                checkStoragePermission()
+            }
+        } catch (e: Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
+    }
+
     fun checkRecordVoicePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
@@ -185,23 +212,15 @@ class MainActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         }
+    }
 
+    fun checkStoragePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
-        }
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 RECORD_REQUEST_CODE
             )
         }
@@ -215,7 +234,7 @@ class MainActivity : AppCompatActivity() {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    checkRecordVoicePermission()
+                    checkPermissions()
                 }
             }
         }

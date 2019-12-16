@@ -21,6 +21,7 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
@@ -57,7 +58,7 @@ class ListenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listen)
 
-        checkRecordVoicePermission()
+        checkPermissions()
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selected_language = sharedPref2.getString(LANGUAGE_NAME, "en")
@@ -129,6 +130,10 @@ class ListenActivity : AppCompatActivity() {
                         this.text_sentence = jsonObj.getString("text")
                         this.sound_sentence = jsonObj.getString("sound")
                         this.glob_sentence = jsonObj.getString("glob")
+                        /*println(" >>>> id:"+this.id_sentence)
+                        println(" >>>> text:"+this.text_sentence)
+                        println(" >>>> sound:"+this.sound_sentence)
+                        println(" >>>> glob:"+this.glob_sentence)*/
                         //this.text_sentence = json_result//just for testing
                         sentence.text = this.text_sentence
                         btnListen.isEnabled = true
@@ -139,6 +144,7 @@ class ListenActivity : AppCompatActivity() {
                             setDataSource(sound_sentence) //to set media source and send the object to the initialized state
                             prepare() //to send the object to the prepared state, this may take time for fetching and decoding
                         }
+                        this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
                     } else {
                         error1()
                     }
@@ -152,14 +158,16 @@ class ListenActivity : AppCompatActivity() {
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
                     //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                    val sharedPref: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
+                    val sharedPref: SharedPreferences =
+                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
                     var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        val sharedPref3: SharedPreferences = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
+                        val sharedPref3: SharedPreferences =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
                         var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
                         headers.put(
                             "Cookie",
-                            "connect.sid="+cookie_id
+                            "connect.sid=" + cookie_id
                         )
                     } else {
                         headers.put(
@@ -170,8 +178,7 @@ class ListenActivity : AppCompatActivity() {
                     return headers
                 }
             }
-            var request_status = que.add(req)
-            println(" -->> Request status (Listen) -->> "+request_status.toString()+" <<-- ")
+            que.add(req)
         } catch (e: Exception) {
             error1()
         }
@@ -180,7 +187,10 @@ class ListenActivity : AppCompatActivity() {
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
-        msg.text = getString(R.string.txt_error_try_again_press_skip).replace("{{*{{skip_button}}*}}",skip_text.text.toString())
+        msg.text = getString(R.string.txt_error_try_again_press_skip).replace(
+            "{{*{{skip_button}}*}}",
+            skip_text.text.toString()
+        )
     }
 
     override fun onBackPressed() {
@@ -193,10 +203,6 @@ class ListenActivity : AppCompatActivity() {
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        this.id_sentence = 0
-        this.text_sentence = ""
-        this.glob_sentence = ""
-        this.sound_sentence = ""
         btnNo.isVisible = true
         this.status = 1
         msg.text = getString(R.string.txt_press_icon_below_listen_2)
@@ -210,9 +216,8 @@ class ListenActivity : AppCompatActivity() {
         }
     }
 
-    fun FinishListening()
-    {
-        if(this.mediaPlayer?.isPlaying==false) {
+    fun FinishListening() {
+        if (this.mediaPlayer?.isPlaying == false) {
             //when clip is finished
             var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
             var btnListen: Button = this.findViewById(R.id.btn_start_listen)
@@ -229,10 +234,6 @@ class ListenActivity : AppCompatActivity() {
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        this.id_sentence = 0
-        this.text_sentence = ""
-        this.glob_sentence = ""
-        this.sound_sentence = ""
         this.status = 2
         msg.text = getString(R.string.txt_clip_again)
         btnListen.setBackgroundResource(R.drawable.listen2_cv)
@@ -240,19 +241,91 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun YesClip() {
+        validateClip(true)
         Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_SHORT).show()
-        StopListening()
-
-        //when listening is validated
-        API_request()
     }
 
     fun NoClip() {
+        validateClip(false)
         Toast.makeText(this, getString(R.string.txt_clip_validated_no), Toast.LENGTH_SHORT).show()
-        StopListening()
+    }
 
-        //when listening is validated
+    fun validateClip(value: Boolean) {
+        try {
+            var path = "clips/{{*{{sentence_id}}*}}/votes" //API to get sentences
+            path = path.replace("{{*{{sentence_id}}*}}",this.id_sentence.toString())
+            //println(" -->> "+path.toString())
+            var params = JSONObject()
+            params.put("isValid", value)
+            params.put("challenge", null)
+            //println(" -->> "+params.toString())
+
+            val que = Volley.newRequestQueue(this)
+            val req = object : JsonObjectRequest(Request.Method.POST, url + path, params,
+                Response.Listener {
+                    val json_result = it.toString()
+                    //println(" -->> Votes -->> "+json_result)
+                    /*if (json_result.length > 2) {
+                        val jsonObj = JSONObject(
+                            json_result.substring(
+                                json_result.indexOf("{"),
+                                json_result.lastIndexOf("}") + 1
+                            )
+                        )
+                    }*/
+
+                }, Response.ErrorListener {
+                    //println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                    error1()
+                }
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
+                    val sharedPref: SharedPreferences =
+                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
+                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    if (logged) {
+                        val sharedPref3: SharedPreferences =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
+                        var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
+                        headers.put(
+                            "Cookie",
+                            "connect.sid=" + cookie_id
+                        )
+                    } else {
+                        headers.put(
+                            "Authorization",
+                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                        )
+                    }
+                    return headers
+                }
+            }
+            que.add(req)
+        } catch (e: Exception) {
+            error1()
+        }
+        StopListening()
         API_request()
+    }
+
+    fun checkPermissions() {
+        try {
+            checkRecordVoicePermission()
+        } catch (e: java.lang.Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
+        try {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                checkStoragePermission()
+            }
+        } catch (e: java.lang.Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
     }
 
     fun checkRecordVoicePermission() {
@@ -265,23 +338,15 @@ class ListenActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         }
+    }
 
+    fun checkStoragePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
-        }
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 RECORD_REQUEST_CODE
             )
         }
@@ -295,7 +360,7 @@ class ListenActivity : AppCompatActivity() {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    checkRecordVoicePermission()
+                    checkPermissions()
                 }
             }
         }

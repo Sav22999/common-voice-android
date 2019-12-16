@@ -55,6 +55,7 @@
     <string name="txt_project_github_settings">Project open-source on GitHub</string>
     <string name="txt_contributors">contributors</string>
     <string name="txt_developed_by">developed by</string>
+    <string name="toast_language_changed">Language changed correctly in {{*{{lang}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Skip</string>

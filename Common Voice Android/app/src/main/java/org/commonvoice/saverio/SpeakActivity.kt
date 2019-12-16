@@ -8,6 +8,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.media.AudioManager
+import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.net.Uri
@@ -42,6 +43,10 @@ import java.net.URL
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.util.*
+import kotlin.collections.HashMap
+import kotlin.time.milliseconds
+import kotlin.time.seconds
 import org.commonvoice.saverio.MainActivity as main
 
 
@@ -73,7 +78,7 @@ class SpeakActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speak)
 
-        checkRecordVoicePermission()
+        checkPermissions()
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selected_language = sharedPref2.getString(LANGUAGE_NAME, "en")
@@ -130,6 +135,7 @@ class SpeakActivity : AppCompatActivity() {
         this.status = 0
         msg.text = getText(R.string.txt_loading_sentence)
         sentence.text = "..."
+        btnRecord.setBackgroundResource(R.drawable.speak_cv)
 
         try {
             val path = "sentences" //API to get sentences
@@ -151,7 +157,6 @@ class SpeakActivity : AppCompatActivity() {
                         this.text_sentence = jsonObj.getString("text")
                         sentence.text = this.text_sentence
                         btnRecord.isEnabled = true
-                        btnRecord.setBackgroundResource(R.drawable.speak_cv)
                         msg.text = getString(R.string.txt_press_icon_below_speak_1)
                     } else {
                         error1()
@@ -208,22 +213,25 @@ class SpeakActivity : AppCompatActivity() {
 
     fun StartRecording() {
         //start or re-start recording
-        checkRecordVoicePermission()
+        checkPermissions()
         try {
             mediaRecorder = MediaRecorder()
             output = externalCacheDir?.absolutePath + "/" + this.id_sentence + ".mp3"
-            mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.MIC)
-            mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS)
-            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-            mediaRecorder?.setMaxDuration(10000)
+            mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
+            if (Build.VERSION.SDK_INT < 26) {
+                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
+                println(" -->> Versione API < 26")
+            } else {
+                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                println(" -->> Versione API >= 26")
+            }
+            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.HE_AAC)
+            mediaRecorder?.setMaxDuration(10001)
             mediaRecorder?.setOutputFile(output)
+            mediaRecorder?.setAudioEncodingBitRate(16 * 44100)
+            mediaRecorder?.setAudioSamplingRate(44100)
             mediaRecorder?.prepare()
             mediaRecorder?.start()
-
-            Handler().postDelayed({
-                //after 10seconds returns error if status==1
-                RecordingTooLong()
-            }, 10000)
 
             var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
             var btnSend: Button = this.findViewById(R.id.btn_send_speak)
@@ -248,11 +256,21 @@ class SpeakActivity : AppCompatActivity() {
             mediaRecorder?.stop()
             mediaRecorder?.release()
 
-            var btn_record: Button = this.findViewById(R.id.btn_start_speak)
-            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-            btn_record.setBackgroundResource(R.drawable.listen2_cv)
-            msg.text = getString(R.string.txt_sentence_recorded)
-            this.status = 2 //recording successful
+            val sampleUri2: String? = this.output // your uri here
+            var metaRetriever: MediaMetadataRetriever = MediaMetadataRetriever()
+            metaRetriever.setDataSource(sampleUri2)
+            var duration: String =
+                metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+            //println(" >>>> " + duration.toLong())
+            if (duration.toLong() > 10000) {
+                RecordingTooLong()
+            } else {
+                var btn_record: Button = this.findViewById(R.id.btn_start_speak)
+                var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+                btn_record.setBackgroundResource(R.drawable.listen2_cv)
+                msg.text = getString(R.string.txt_sentence_recorded)
+                this.status = 2 //recording successful
+            }
         } catch (e: Exception) {
             //println(" -->> Something wrong: "+e.toString()+" <<-- ")
             RecordingFailed()
@@ -360,8 +378,52 @@ class SpeakActivity : AppCompatActivity() {
         msg.text = getString(R.string.txt_sending_recording)
         Toast.makeText(this, getString(R.string.txt_recording_sent), Toast.LENGTH_SHORT).show()
 
+
+        /*
+        if (Build.VERSION.SDK_INT<26) {
+            msg.text = "Error: your android version doens't permit to send record to server. Sorry."
+        } else {
+            val encoded = Files.readAllBytes(Paths.get(this.output!!))
+            println(" -->> readAllBytes -->> "+encoded.toString())
+
+            /*
+            File file = new File(path);
+            int size = (int) file.length();
+            byte[] bytes = new byte[size];
+            try {
+                BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
+                buf.read(bytes, 0, bytes.length);
+                buf.close();
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+             */
+        }
+        */
+
         //when recording is sent
         API_request()
+    }
+
+    fun checkPermissions() {
+        try {
+            checkRecordVoicePermission()
+        } catch (e: java.lang.Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
+        try {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                checkStoragePermission()
+            }
+        } catch (e: java.lang.Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
     }
 
     fun checkRecordVoicePermission() {
@@ -374,23 +436,15 @@ class SpeakActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         }
+    }
 
+    fun checkStoragePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
-        }
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 RECORD_REQUEST_CODE
             )
         }
@@ -404,7 +458,7 @@ class SpeakActivity : AppCompatActivity() {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    checkRecordVoicePermission()
+                    checkPermissions()
                 }
             }
         }

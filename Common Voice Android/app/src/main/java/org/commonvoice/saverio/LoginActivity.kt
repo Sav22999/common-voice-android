@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        checkRecordVoicePermission()
+        checkPermissions()
 
         /*var btnLoginSignUp: Button = findViewById(R.id.btn_login_signup)
         btnLoginSignUp.setOnClickListener {
@@ -96,6 +96,7 @@ class LoginActivity : AppCompatActivity() {
                     txtLoading.isGone = false
                     txtLoading.isVisible = true
                 }
+
                 override fun onPageFinished(view: WebView?, url: String?) {
                     // Loading finished
                     var txtLoading: TextView = findViewById(R.id.textLoadingPage)
@@ -228,6 +229,23 @@ class LoginActivity : AppCompatActivity() {
         //this.user_name = ""
     }
 
+    fun checkPermissions() {
+        try {
+            checkRecordVoicePermission()
+        } catch (e: java.lang.Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
+        try {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                checkStoragePermission()
+            }
+        } catch (e: java.lang.Exception) {
+            //println(" -->> Exception: " + e.toString())
+        }
+    }
+
     fun checkRecordVoicePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
             != PackageManager.PERMISSION_GRANTED
@@ -235,6 +253,18 @@ class LoginActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(Manifest.permission.INTERNET),
+                RECORD_REQUEST_CODE
+            )
+        }
+    }
+
+    fun checkStoragePermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 RECORD_REQUEST_CODE
             )
         }
@@ -248,7 +278,7 @@ class LoginActivity : AppCompatActivity() {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    checkRecordVoicePermission()
+                    checkPermissions()
                 }
             }
         }

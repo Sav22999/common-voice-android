@@ -3,28 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/textProjectGitHub"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="100dp"
-        android:fontFamily="@font/zillaslab"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/txt_project_github_settings"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/textContributors"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    android:layout_height="match_parent"
+    android:isScrollContainer="true">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginStart="20dp"
@@ -35,33 +18,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/languageList" />
 
-    <TextView
-        android:id="@+id/textContributors"
-        android:layout_width="160dp"
-        android:layout_height="21dp"
-        android:fontFamily="@font/zillaslab"
-        android:text="contributor"
+    <Spinner
+        android:id="@+id/languageList"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/txt_rounded"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:popupBackground="@drawable/txt_rounded"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/textContributor1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textContributor1"
-        android:layout_width="376dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/zillaslab"
-        android:text="Damiano Gualandri"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/textDevelopedBy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage" />
 
     <TextView
         android:id="@+id/text_settingsLanguage"
@@ -122,19 +90,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/languageList"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/txt_rounded"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:popupBackground="@drawable/txt_rounded"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage" />
-
     <Button
         android:id="@+id/buttonOpenTutorial"
         android:layout_width="250dp"
@@ -145,6 +100,52 @@
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/separator" />
+
+    <TextView
+        android:id="@+id/textProjectGitHub"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/zillaslab"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/txt_project_github_settings"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/textContributors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonOpenTutorial" />
+
+    <TextView
+        android:id="@+id/textContributors"
+        android:layout_width="160dp"
+        android:layout_height="21dp"
+        android:fontFamily="@font/zillaslab"
+        android:text="contributor"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/textContributor1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textContributor1"
+        android:layout_width="376dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/zillaslab"
+        android:text="Damiano Gualandri\nSimone Massaro"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/textDevelopedBy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
