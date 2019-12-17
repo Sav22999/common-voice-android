@@ -66,6 +66,7 @@ class ListenActivity : AppCompatActivity() {
 
         var skip_button: Button = this.findViewById(R.id.btn_skip_listen)
         skip_button.setOnClickListener {
+            StopListening()
             API_request()
         }
 

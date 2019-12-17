@@ -167,9 +167,10 @@ class DashboardFragment : Fragment() {
                             }
                         } else if (type == "youEverSpeak" || type == "youEverListen" || type == "everyoneEverSpeak" || type == "everyoneEverListen") {
                             if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
-                                var jsonResultTemp = jsonResult.replace("[{","").replace("}]","")
+                                var jsonResultTemp = jsonResult.replace("[{", "").replace("}]", "")
                                 var jsonResultTempArray = jsonResultTemp.split("},{")
-                                jsonResult = "[{"+jsonResultTempArray[jsonResultTempArray.size-1]+"}]"
+                                jsonResult =
+                                    "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
                             }
                             val jsonObj = JSONObject(
                                 jsonResult.substring(
@@ -190,16 +191,19 @@ class DashboardFragment : Fragment() {
                         }
                         //println(" >>>> " + type + " -- " + valueToReturn)
                         if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
-                            textElements[index]?.text = truncate(valueToReturn.toDouble()/3600).toInt().toString()+getString(R.string.textHoursAbbreviation)
+                            textElements[index]?.text =
+                                truncate(valueToReturn.toDouble() / 3600).toInt().toString() + getString(
+                                    R.string.textHoursAbbreviation
+                                )
                         } else {
                             textElements[index]?.text = valueToReturn.toString()
                         }
                         if (valueToReturn == -1) {
-                            error3(index)
+                            error3(index, viewToUse)
                         }
                     }, Response.ErrorListener {
                         //println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                        error3(index)
+                        error3(index, viewToUse)
                     }
                 ) {
                     @Throws(AuthFailureError::class)
@@ -218,19 +222,19 @@ class DashboardFragment : Fragment() {
                 que.add(req)
             } catch (e: Exception) {
                 //println(" -->> Something wrong: " + e.toString() + " <<-- ")
-               error3(index)
+                error3(index, viewToUse)
             }
         } else {
-            error3(index)
+            error3(index, viewToUse)
         }
     }
 
-    fun error3(index: Int) {
+    fun error3(index: Int, root: View?) {
         var textElements: Array<TextView?> = arrayOf(
-            view?.findViewById(R.id.textTodaySpeak),
-            view?.findViewById(R.id.textTodayListen),
-            view?.findViewById(R.id.textEverSpeak),
-            view?.findViewById(R.id.textEverListen)
+            root?.findViewById(R.id.textTodaySpeak),
+            root?.findViewById(R.id.textTodayListen),
+            root?.findViewById(R.id.textEverSpeak),
+            root?.findViewById(R.id.textEverListen)
         )
 
         textElements[index]?.text = "?"
