@@ -18,6 +18,7 @@
     <string name="dashboardToday">Today</string>
     <string name="dashboardEver">Ever</string>
     <string name="toastNoLoginNoStatistics">You have to log-in to see \"you\" statistics</string>
+    <string name="textHoursAbbreviation">h</string>
     <!-- Tutorial -->
     <string name="btn_tutorial1">Start</string>
     <string name="btn_tutorial2">Permit</string>

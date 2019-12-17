@@ -43,19 +43,6 @@ class MainActivity : AppCompatActivity() {
     var userId: String = ""
     var userName: String = ""
 
-    var statisticsYou = arrayOf(
-        0,
-        0,
-        0,
-        0
-    ) //(todaySpeak, todayListen, everSpeak, everListen); "-1" indicates an error -> show "?"
-    var statisticsEveryone = arrayOf(
-        0,
-        0,
-        0,
-        0
-    ) //(todaySpeak, todayListen, everSpeak, everListen); "-1" indicates an error -> show "?"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -103,15 +90,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         //get_language()
-    }
-
-    fun getDashboardValues(type: String): Array<Int> {
-        if (type == "you") {
-            return this.statisticsYou
-        } else if (type == "everyone") {
-            return this.statisticsEveryone
-        }
-        return arrayOf(-1, -1, -1, -1) //-1 indicates and error, show "?"
     }
 
     fun getHiUsernameLoggedIn(): String {
@@ -227,84 +205,6 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.toastNoLoginNoStatistics),
             Toast.LENGTH_LONG
         ).show()
-    }
-
-    fun loadStatistics() {
-        //load statistics
-        var everyoneTodaySpeak: Int = loadStatisticsOf("everyoneTodaySpeak")
-        this.statisticsEveryone = arrayOf(
-            loadStatisticsOf("everyoneTodaySpeak"),
-            loadStatisticsOf("everyoneTodayListen"),
-            loadStatisticsOf("everyoneEverSpeak"),
-            loadStatisticsOf("everyoneEverListen")
-        )
-        this.statisticsYou = arrayOf(
-            loadStatisticsOf("youTodaySpeak"),
-            loadStatisticsOf("youTodayListen"),
-            loadStatisticsOf("youEverSpeak"),
-            loadStatisticsOf("youEverListen")
-        )
-        //println(" >> >> "+loadStatisticsOf("everyoneTodaySpeak"))
-    }
-
-    fun loadStatisticsOf(type: String): Int {
-        var valueToReturn = -1
-        var speakOrListen = true //true->speak, false->listen
-        if (type.contains("Listen")) {
-            speakOrListen = false
-        }
-
-        val requestUrl = when (type) {
-            "youTodaySpeak" -> "" //?
-            "youTodayListen" -> "" //?
-            "youEverSpeak" -> "https://voice.mozilla.org/api/v1/user_client" //clips_count
-            "youEverListen" -> "https://voice.mozilla.org/api/v1/user_client" //votes_count
-            "everyoneTodaySpeak" -> "https://voice.mozilla.org/api/v1/it/clips/daily_count" //just the value we need
-            "everyoneTodayListen" -> "https://voice.mozilla.org/api/v1/it/clips/votes/daily_count" //just the value we need
-            "everyoneEverSpeak" -> "https://voice.mozilla.org/api/v1/it/clips/stats" //total
-            "everyoneEverListen" -> "https://voice.mozilla.org/api/v1/it/clips/stats" //valid
-            else -> ""
-        }
-
-        if (requestUrl != "") {
-            try {
-                val que = Volley.newRequestQueue(this)
-                val req = object : StringRequest(Request.Method.GET, requestUrl,
-                    Response.Listener {
-                        val jsonResult = it.toString()
-                        //println(" >>>> " + jsonResult)
-                        if (type == "everyoneTodaySpeak" || type == "everyoneTodayListen") {
-                            if (jsonResult.toInt() >= 0) {
-                                valueToReturn = jsonResult.toInt()
-                                //println(" >>>> YES! ")
-                            }
-                        }
-                        //println(" >>>> " + valueToReturn)
-                    }, Response.ErrorListener {
-                        //println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                    }
-                ) {
-                    @Throws(AuthFailureError::class)
-                    override fun getHeaders(): Map<String, String> {
-                        val headers = HashMap<String, String>()
-                        //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                        if (logged) {
-                            headers.put(
-                                "Cookie",
-                                "connect.sid=" + userId
-                            )
-                        }
-                        return headers
-                    }
-                }
-                que.add(req)
-            } catch (e: Exception) {
-                //println(" -->> Something wrong: " + e.toString() + " <<-- ")
-                valueToReturn = -1
-            }
-        }
-        //println(" >> >> "+valueToReturn)
-        return valueToReturn
     }
 
     fun checkPermissions() {
