@@ -368,6 +368,7 @@ class SpeakActivity : AppCompatActivity() {
 
     fun SendRecording() {
         //send recording
+        StopListening()
         var btn_record: Button = this.findViewById(R.id.btn_start_speak)
         var btnSend: Button = this.findViewById(R.id.btn_send_speak)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)

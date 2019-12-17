@@ -6,14 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_settings.*
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 
@@ -36,12 +32,12 @@ class HomeFragment : Fragment() {
 
         val main = activity as MainActivity
 
-        btnSpeak.setOnClickListener{
-            main.open_speak_section()
+        btnSpeak.setOnClickListener {
+            main.openSpeakSection()
         }
 
-        btnListen.setOnClickListener{
-            main.open_listen_section()
+        btnListen.setOnClickListener {
+            main.openListenSection()
         }
 
         if (main.logged) {
@@ -50,19 +46,16 @@ class HomeFragment : Fragment() {
             var textLoggedIn: TextView = root.findViewById(R.id.textLoggedUsername)
             textLoggedIn.isGone = false
             textLoggedIn.isVisible = true
-            if (main.user_name == "") textLoggedIn.text = getString(R.string.text_hi_username) + "!"
-            else {
-                textLoggedIn.text = getString(R.string.text_hi_username) + ", " + main.user_name + "!"
-            }
+            textLoggedIn.text = main.getHiUsernameLoggedIn()
             var btnLogOut: Button = root.findViewById(R.id.btn_login)
             btnLogOut.text = getString(R.string.button_home_logout)
 
-            btnLogin.setOnClickListener{
-                main.open_logout_section()
+            btnLogin.setOnClickListener {
+                main.openLogoutSection()
             }
         } else {
-            btnLogin.setOnClickListener{
-                main.open_login_section()
+            btnLogin.setOnClickListener {
+                main.openLoginSection()
             }
         }
 

@@ -6,5 +6,7 @@
     <color name="colorBackground">#EEEEEE</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorRed">#FF0000</color>
     <color name="colorAlertMessage">#FF0000</color>
+    <color name="colorSelected">@color/colorRed</color>
 </resources>

@@ -41,8 +41,8 @@ class SettingsFragment : Fragment() {
         releaseNumber.text = BuildConfig.VERSION_NAME
 
         // import the languages list (short and "standard" from mainactivity)
-        this.languages_list_short = main.languages_list_short
-        this.languages_list = main.languages_list
+        this.languages_list_short = main.languagesListShortArray
+        this.languages_list = main.languagesListArray
 
         var language: Spinner = root.findViewById(R.id.languageList)
         language.adapter = main.getLanguageList()
@@ -75,7 +75,7 @@ class SettingsFragment : Fragment() {
 
         var btn_open_tutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btn_open_tutorial.setOnClickListener {
-            main.open_tutorial()
+            main.openTutorial()
         }
 
         var txt_contributors: TextView = root.findViewById(R.id.textContributors)

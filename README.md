@@ -14,8 +14,6 @@ If you want to help to develop this app, you can open an “Issue” an send fee
 
 - Create POST request to send the recording
 
-- Create POST request to send validation of clip (yes/no)
-
 - Improve the loading of sentences/clips (download 5s per time, and when you are at the "4th” automatically download others)
 - Tutorial also for Listen and Speak section (just the first time you launch them)
 
