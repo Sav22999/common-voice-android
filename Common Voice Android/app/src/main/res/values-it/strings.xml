@@ -13,7 +13,12 @@
     <string name="text_hi_username">Ciao</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiche</string>
-    <string name="settingsLanguage">Lingua</string>
+    <string name="dashboardTabYou">Tu</string>
+    <string name="dashboardTabEveryone">Tutti</string>
+    <string name="dashboardToday">Oggi</string>
+    <string name="dashboardEver">Di sempre</string>
+    <string name="toastNoLoginNoStatistics">Effettuare l\'accesso per vedere le tue statistiche</string>
+    <string name="textHoursAbbreviation">o</string>
     <!-- Tutorial -->
     <string name="btn_tutorial1">Inizia</string>
     <string name="btn_tutorial2">Permetti</string>
@@ -41,6 +46,7 @@
     <string name="txt_contributors">collaboratori</string>
     <string name="txt_developed_by">sviluppata da</string>
     <string name="toast_language_changed">Lingua modificata correttamente in {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">Lingua</string>
     <!-- Speak -->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>

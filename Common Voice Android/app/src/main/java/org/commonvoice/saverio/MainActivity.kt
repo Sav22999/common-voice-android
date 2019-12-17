@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.webkit.WebViewFragment
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -14,11 +13,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.android.volley.AuthFailureError
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.lang.Exception
 
@@ -136,14 +130,14 @@ class MainActivity : AppCompatActivity() {
         editor.putString(LANGUAGE_NAME, lang)
         editor.apply()
 
-        var language_changed = false
+        var languageChanged = false
         if (this.selectedLanguageVar != lang) {
-            language_changed = true
+            languageChanged = true
         }
 
         this.selectedLanguageVar = lang
 
-        if (language_changed) {
+        if (languageChanged) {
             Toast.makeText(
                 this,
                 getString(R.string.toast_language_changed).replace(

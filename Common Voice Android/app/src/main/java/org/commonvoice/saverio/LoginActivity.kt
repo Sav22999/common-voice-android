@@ -3,19 +3,13 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -26,7 +20,6 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
 import org.commonvoice.saverio.MainActivity as MainActivity
 
@@ -39,10 +32,10 @@ class LoginActivity : AppCompatActivity() {
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val USER_NAME = "USERNAME"
-    var user_id: String = ""
-    var user_name: String = ""
+    var userId: String = ""
+    var userName: String = ""
 
-    val url_without_lang: String =
+    val urlWithoutLang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,18 +102,18 @@ class LoginActivity : AppCompatActivity() {
                             "connect.sid="
                         )
                     ) {
-                        var array_cookies = cookies.split("; ")
+                        var arrayCookies = cookies.split("; ")
                         //println(" -->> ALL COOKIES -->> " + array_cookies.toString() + " <<--")
-                        var my_cookie: String = ""
-                        if (array_cookies[0].contains("connect.sid=")) my_cookie =
-                            array_cookies[0].substring(12)
+                        var myCookie: String = ""
+                        if (arrayCookies[0].contains("connect.sid=")) myCookie =
+                            arrayCookies[0].substring(12)
                         var i = 1
-                        while (i < array_cookies.count() || my_cookie == "") {
-                            if (array_cookies[i].contains("connect.sid=")) my_cookie =
-                                array_cookies[i].substring(12, array_cookies[i].length - 1)
+                        while (i < arrayCookies.count() || myCookie == "") {
+                            if (arrayCookies[i].contains("connect.sid=")) myCookie =
+                                arrayCookies[i].substring(12, arrayCookies[i].length - 1)
                             i++;
                         }
-                        user_id = my_cookie
+                        userId = myCookie
                         //println(" -->> MY COOKIE -->> "+my_cookie+" <<--")
 
                         val sharedPref: SharedPreferences =
@@ -132,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
                         val sharedPref2: SharedPreferences =
                             getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
                         editor = sharedPref2.edit()
-                        editor.putString(USER_CONNECT_ID, user_id)
+                        editor.putString(USER_CONNECT_ID, userId)
                         editor.apply()
 
                         //println(" -->> LOGGED IN <<-- ")
@@ -180,22 +173,22 @@ class LoginActivity : AppCompatActivity() {
             val path = "user_client" //API to get sentences
 
             val que = Volley.newRequestQueue(this)
-            val req = object : StringRequest(Request.Method.GET, url_without_lang + path,
+            val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
                 Response.Listener {
-                    val json_result = it.toString()
-                    if (json_result.length > 2) {
+                    val jsonResult = it.toString()
+                    if (jsonResult.length > 2) {
                         val jsonObj = JSONObject(
-                            json_result.substring(
-                                json_result.indexOf("{"),
-                                json_result.lastIndexOf("}") + 1
+                            jsonResult.substring(
+                                jsonResult.indexOf("{"),
+                                jsonResult.lastIndexOf("}") + 1
                             )
                         )
-                        user_name = jsonObj.getString("username")
+                        userName = jsonObj.getString("username")
 
                         val sharedPref: SharedPreferences =
                             getSharedPreferences(USER_NAME, PRIVATE_MODE)
                         var editor = sharedPref.edit()
-                        editor.putString(USER_NAME, user_name)
+                        editor.putString(USER_NAME, userName)
                         editor.apply()
                     } else {
                         error2()
@@ -211,7 +204,7 @@ class LoginActivity : AppCompatActivity() {
                     //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
                     headers.put(
                         "Cookie",
-                        "connect.sid=" + user_id
+                        "connect.sid=" + userId
                     )
                     return headers
                 }

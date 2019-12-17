@@ -1,15 +1,11 @@
 package org.commonvoice.saverio
 
 import android.Manifest
-import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -23,11 +19,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_listen.*
-import kotlinx.android.synthetic.main.activity_speak.*
 import org.json.JSONArray
 import org.json.JSONObject
-import java.net.URL
 
 
 class ListenActivity : AppCompatActivity() {
@@ -44,13 +37,13 @@ class ListenActivity : AppCompatActivity() {
     val url_without_lang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
 
-    var id_sentence: Int = 0
-    var text_sentence: String = ""
-    var glob_sentence: String = ""
-    var sound_sentence: String = ""
+    var idSentence: Int = 0
+    var textSentence: String = ""
+    var globSentence: String = ""
+    var soundSentence: String = ""
     var status: Int = 0 //1->clip stopped | 2->clip re-starting
 
-    var selected_language = ""
+    var selectedLanguageVar = ""
 
     var mediaPlayer: MediaPlayer? = null //audioplayer to play/pause clips
 
@@ -61,30 +54,30 @@ class ListenActivity : AppCompatActivity() {
         checkPermissions()
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-        this.selected_language = sharedPref2.getString(LANGUAGE_NAME, "en")
-        this.url = this.url.replace("{{*{{lang}}*}}", this.selected_language)
+        this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
+        this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguageVar)
 
-        var skip_button: Button = this.findViewById(R.id.btn_skip_listen)
-        skip_button.setOnClickListener {
+        var skipButton: Button = this.findViewById(R.id.btn_skip_listen)
+        skipButton.setOnClickListener {
             StopListening()
             API_request()
         }
 
-        var start_stop_listening: Button = this.findViewById(R.id.btn_start_listen)
-        start_stop_listening.setOnClickListener {
+        var startStopListening: Button = this.findViewById(R.id.btn_start_listen)
+        startStopListening.setOnClickListener {
             if (this.status == 0 || this.status == 2) {
                 StartListening() //0->play | 2->re-play
             } else if (this.status == 1)
                 StopListening()
         }
 
-        var yes_clip: Button = this.findViewById(R.id.btn_yes_thumb)
-        yes_clip.setOnClickListener {
+        var yesClip: Button = this.findViewById(R.id.btn_yes_thumb)
+        yesClip.setOnClickListener {
             YesClip()
         }
 
-        var no_clip: Button = this.findViewById(R.id.btn_no_thumb)
-        no_clip.setOnClickListener {
+        var noClip: Button = this.findViewById(R.id.btn_no_thumb)
+        noClip.setOnClickListener {
             NoClip()
         }
 
@@ -100,10 +93,10 @@ class ListenActivity : AppCompatActivity() {
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        this.id_sentence = 0
-        this.text_sentence = ""
-        this.glob_sentence = ""
-        this.sound_sentence = ""
+        this.idSentence = 0
+        this.textSentence = ""
+        this.globSentence = ""
+        this.soundSentence = ""
         btnYes.isVisible = false
         btnNo.isVisible = false
         btnListen.isEnabled = false
@@ -119,30 +112,30 @@ class ListenActivity : AppCompatActivity() {
             val que = Volley.newRequestQueue(this)
             val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
                 Response.Listener {
-                    val json_result = it.toString()
-                    if (json_result.length > 2) {
+                    val jsonResult = it.toString()
+                    if (jsonResult.length > 2) {
                         val jsonObj = JSONObject(
-                            json_result.substring(
-                                json_result.indexOf("{"),
-                                json_result.lastIndexOf("}") + 1
+                            jsonResult.substring(
+                                jsonResult.indexOf("{"),
+                                jsonResult.lastIndexOf("}") + 1
                             )
                         )
-                        this.id_sentence = jsonObj.getString("id").toInt()
-                        this.text_sentence = jsonObj.getString("text")
-                        this.sound_sentence = jsonObj.getString("sound")
-                        this.glob_sentence = jsonObj.getString("glob")
+                        this.idSentence = jsonObj.getString("id").toInt()
+                        this.textSentence = jsonObj.getString("text")
+                        this.soundSentence = jsonObj.getString("sound")
+                        this.globSentence = jsonObj.getString("glob")
                         /*println(" >>>> id:"+this.id_sentence)
                         println(" >>>> text:"+this.text_sentence)
                         println(" >>>> sound:"+this.sound_sentence)
                         println(" >>>> glob:"+this.glob_sentence)*/
                         //this.text_sentence = json_result//just for testing
-                        sentence.text = this.text_sentence
+                        sentence.text = this.textSentence
                         btnListen.isEnabled = true
                         msg.text = getString(R.string.txt_press_icon_below_listen_1)
 
                         this.mediaPlayer = MediaPlayer().apply {
                             //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
-                            setDataSource(sound_sentence) //to set media source and send the object to the initialized state
+                            setDataSource(soundSentence) //to set media source and send the object to the initialized state
                             prepare() //to send the object to the prepared state, this may take time for fetching and decoding
                         }
                         this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
@@ -165,10 +158,10 @@ class ListenActivity : AppCompatActivity() {
                     if (logged) {
                         val sharedPref3: SharedPreferences =
                             getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                        var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
+                        var cookieId = sharedPref3.getString(USER_CONNECT_ID, "")
                         headers.put(
                             "Cookie",
-                            "connect.sid=" + cookie_id
+                            "connect.sid=" + cookieId
                         )
                     } else {
                         headers.put(
@@ -187,10 +180,10 @@ class ListenActivity : AppCompatActivity() {
 
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        var skip_text: Button = this.findViewById(R.id.btn_skip_listen)
+        var skipText: Button = this.findViewById(R.id.btn_skip_listen)
         msg.text = getString(R.string.txt_error_try_again_press_skip).replace(
             "{{*{{skip_button}}*}}",
-            skip_text.text.toString()
+            skipText.text.toString()
         )
     }
 
@@ -254,7 +247,7 @@ class ListenActivity : AppCompatActivity() {
     fun validateClip(value: Boolean) {
         try {
             var path = "clips/{{*{{sentence_id}}*}}/votes" //API to get sentences
-            path = path.replace("{{*{{sentence_id}}*}}",this.id_sentence.toString())
+            path = path.replace("{{*{{sentence_id}}*}}",this.idSentence.toString())
             //println(" -->> "+path.toString())
             var params = JSONObject()
             params.put("isValid", value)
@@ -290,10 +283,10 @@ class ListenActivity : AppCompatActivity() {
                     if (logged) {
                         val sharedPref3: SharedPreferences =
                             getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                        var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
+                        var cookieId = sharedPref3.getString(USER_CONNECT_ID, "")
                         headers.put(
                             "Cookie",
-                            "connect.sid=" + cookie_id
+                            "connect.sid=" + cookieId
                         )
                     } else {
                         headers.put(
