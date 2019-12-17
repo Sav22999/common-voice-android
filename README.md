@@ -8,7 +8,18 @@ If you have any questions, please open an issue.
 
 If you want to help to develop this app, you can open an “Issue” an send feedback about the features or bugs. In the “Screenshots” folder there are update screenshots of the app status and in the “Screenshots”>“0.0.0a (Draft)” you can find the original (initial) idea about the app.
 
-##### To do:
+You can contribute also to translate the app:
+
+- Open an issue and tell us you want to translate in your language (specify it): in this way, other people can know you’re translating the app in that language
+- Fork this repo and go to your repo-forked
+- Create a branch: “new-languages-<u>**lang**</u>”
+- Go to “Languages” and translate in your language the file “strings.xml” (it’s in English)
+- Renamed “strings.xml” with “strings-<u>**lang**</u>.xml”
+- Commit the changes in your repo and create a pull-request
+
+<u>**lang** is the short-name of your languages (e.g. Italian: it, French: fr, ect.)</u>
+
+#### To do:
 
 - Change manually the UI language, when change from Settings/Tutorial
 
@@ -20,6 +31,10 @@ If you want to help to develop this app, you can open an “Issue” an send fee
 ### Screenshots
 
 You can find updated screenshots in the “Screenshots” folder.
+
+### Why an Android app of Common Voice?
+
+There is already the website, which is response and mobile-friendly, but actually it’s very slow, because of so many effects, which could distract you to record or validate clips. So, this app want to improve the experience of this fantastic project, you can fiend you statistics, or you can record/validate a clip just with a single click.
 
 ### License
 

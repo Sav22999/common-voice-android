@@ -169,7 +169,6 @@ class SpeakActivity : AppCompatActivity() {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
-                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
                     val sharedPref: SharedPreferences =
                         getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
                     var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)

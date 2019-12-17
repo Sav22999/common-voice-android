@@ -72,8 +72,6 @@ class MainActivity : AppCompatActivity() {
 
             val sharedPref5: SharedPreferences = getSharedPreferences(USER_NAME, PRIVATE_MODE)
             this.userName = sharedPref5.getString(USER_NAME, "")
-
-            loginSuccessful()
         }
 
         if (this.firstRun) {
@@ -113,15 +111,6 @@ class MainActivity : AppCompatActivity() {
             ),
             Toast.LENGTH_LONG
         ).show()
-    }
-
-    fun loginSuccessful() {
-        //login successful -> show username and log-out button
-        /*Toast.makeText(
-            this,
-            "Login successful!",
-            Toast.LENGTH_LONG
-        ).show()*/
     }
 
     fun setLanguageSettings(lang: String) {

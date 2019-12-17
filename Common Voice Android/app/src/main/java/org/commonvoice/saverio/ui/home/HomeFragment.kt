@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
             textLoggedIn.isVisible = true
             textLoggedIn.text = main.getHiUsernameLoggedIn()
             var btnLogOut: Button = root.findViewById(R.id.btn_login)
-            btnLogOut.text = getString(R.string.button_home_logout)
+            btnLogOut.text = getString(R.string.button_home_profile)
 
             btnLogin.setOnClickListener {
                 main.openLogoutSection()

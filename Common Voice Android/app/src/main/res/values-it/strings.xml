@@ -10,6 +10,7 @@
     <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Accedi / Registrati</string>
     <string name="button_home_logout">Disconnetti</string>
+    <string name="button_home_profile">Profilo</string>
     <string name="text_hi_username">Ciao</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiche</string>
@@ -38,8 +39,16 @@
         Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare
     </string>
     <!-- Login -->
-    <string name="txt_email_hint">Email</string>
     <string name="txt_loading_page">Caricamento ...</string>
+    <string name="txt_profile_username">Nome utente</string>
+    <string name="txt_profile_email">Email</string>
+    <string name="txt_profile_age">Età</string>
+    <string name="txt_profile_gender">Sesso</string>
+    <string name="txt_profile_edit_data_alert">Per modificare le informazioni del tuo profilo, vai sul sito ufficiale.</string>
+    <string name="txt_login_successful_alert">Login eseguito correttamente!</string>
+    <string name="txt_gender_male">Maschio</string>
+    <string name="txt_gender_female">Femmina</string>
+    <string name="txt_gender_other">Altro</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Apri nuovamente il Tutorial</string>
     <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>

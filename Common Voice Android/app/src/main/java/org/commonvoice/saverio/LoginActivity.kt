@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,8 +20,8 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.json.JSONObject
-import org.commonvoice.saverio.MainActivity as MainActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -44,29 +44,26 @@ class LoginActivity : AppCompatActivity() {
 
         checkPermissions()
 
-        /*var btnLoginSignUp: Button = findViewById(R.id.btn_login_signup)
+        var btnLoginSignUp: Button = findViewById(R.id.btnLogout)
         btnLoginSignUp.setOnClickListener {
-            openWebBrowser()
+            openWebBrowser("logout")
         }
-        var txtEmail: EditText = findViewById(R.id.txt_email_login)
-        txtEmail.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                openWebBrowser()
-                return@OnKeyListener true
-            }
-            false
-        })*/
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
         if (sharedPref3.getBoolean(LOGGED_IN_NAME, false) == false) {
             openWebBrowser("login")
         } else {
-            openWebBrowser("logout")
+            loadUserData("profile")
         }
     }
 
     override fun onBackPressed() {
         openMainAfterLogin()
+    }
+
+    fun openProfileSection() {
+        setContentView(R.layout.activity_login)
+        loadUserData("profile")
     }
 
     fun openWebBrowser(type: String) {
@@ -102,6 +99,8 @@ class LoginActivity : AppCompatActivity() {
                             "connect.sid="
                         )
                     ) {
+                        loginSuccessful()
+                        openProfileSection()
                         var arrayCookies = cookies.split("; ")
                         //println(" -->> ALL COOKIES -->> " + array_cookies.toString() + " <<--")
                         var myCookie: String = ""
@@ -130,7 +129,7 @@ class LoginActivity : AppCompatActivity() {
 
                         //println(" -->> LOGGED IN <<-- ")
 
-                        getUsernameFromAPI()
+                        loadUserData("userName")
                     }
                 }
             }
@@ -161,6 +160,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    fun loginSuccessful() {
+        //login successful -> show username and log-out button
+        Toast.makeText(
+            this,
+            getString(R.string.txt_login_successful_alert),
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
     fun openMainAfterLogin() {
         val intent = Intent(this, MainActivity::class.java).also {
             startActivity(it)
@@ -168,7 +176,18 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    fun getUsernameFromAPI() {
+    fun loadUserData(type: String) {
+        if (type == "profile") {
+            var profileImage: ImageView = findViewById(R.id.imageProfileImage)
+            var profileEmail: EditText = findViewById(R.id.textProfileEmail)
+            var profileUsername: EditText = findViewById(R.id.textProfileUsername)
+            var profileAge: EditText = findViewById(R.id.textProfileAge)
+            var profileGender: EditText = findViewById(R.id.textProfileGender)
+            profileEmail.setText("...")
+            profileUsername.setText("...")
+            profileAge.setText("...")
+            profileGender.setText("...")
+        }
         try {
             val path = "user_client" //API to get sentences
 
@@ -183,7 +202,27 @@ class LoginActivity : AppCompatActivity() {
                                 jsonResult.lastIndexOf("}") + 1
                             )
                         )
-                        userName = jsonObj.getString("username")
+                        if (type == "userName") {
+                            userName = jsonObj.getString("username")
+                        } else if (type == "profile") {
+                            userName = jsonObj.getString("username")
+
+                            var profileImage: ImageView = findViewById(R.id.imageProfileImage)
+                            //should set also the profileImage
+                            var profileEmail: EditText = findViewById(R.id.textProfileEmail)
+                            var profileUsername: EditText = findViewById(R.id.textProfileUsername)
+                            val sharedPref1: SharedPreferences =
+                                getSharedPreferences(USER_NAME, PRIVATE_MODE)
+                            val editor = sharedPref1.edit()
+                            editor.putString(USER_NAME, userName)
+                            editor.apply()
+                            var profileAge: EditText = findViewById(R.id.textProfileAge)
+                            var profileGender: EditText = findViewById(R.id.textProfileGender)
+                            profileEmail.setText(jsonObj.getString("email").toString())
+                            profileUsername.setText(jsonObj.getString("username").toString())
+                            profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
+                            profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
+                        }
 
                         val sharedPref: SharedPreferences =
                             getSharedPreferences(USER_NAME, PRIVATE_MODE)
@@ -200,8 +239,16 @@ class LoginActivity : AppCompatActivity() {
             ) {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
+                    if (userId == "") {
+                        val sharedPref1: SharedPreferences =
+                            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
+                        if (sharedPref1.getBoolean(LOGGED_IN_NAME, false)) {
+                            val sharedPref2: SharedPreferences =
+                                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
+                            userId = sharedPref2.getString(USER_CONNECT_ID, "")
+                        }
+                    }
                     val headers = HashMap<String, String>()
-                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
                     headers.put(
                         "Cookie",
                         "connect.sid=" + userId
@@ -211,15 +258,41 @@ class LoginActivity : AppCompatActivity() {
             }
             que.add(req)
         } catch (e: Exception) {
+            println(" -->> Something wrong: " + e.toString() + " <<-- ")
             error2()
         }
-
-        openMainAfterLogin()
     }
 
     fun error2() {
         //error while getting the username
-        //this.user_name = ""
+        this.userName = ""
+        openMainAfterLogin()
+    }
+
+    fun getAgeString(age: String): String {
+        var value: String = when(age) {
+            "teens" -> "< 19"
+            "twenties" -> "19-29"
+            "thirties" -> "30-39"
+            "fourties" -> "40-49"
+            "fifties" -> "50-59"
+            "sixties" -> "60-69"
+            "seventies" -> "70-79"
+            "eighties" -> "80-89"
+            "nineties" -> "> 89"
+            else -> "?"
+        }
+        return value
+    }
+
+    fun getGenderString(gender: String): String {
+        var value: String = when(gender) {
+            "male" -> getString(R.string.txt_gender_male)
+            "female" -> getString(R.string.txt_gender_female)
+            "other" -> getString(R.string.txt_gender_other)
+            else -> "?"
+        }
+        return value
     }
 
     fun checkPermissions() {
