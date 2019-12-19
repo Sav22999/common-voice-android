@@ -14,12 +14,14 @@
     <string name="text_hi_username">Hi</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
+    <string name="dashboardVoicesOnline">Voices online</string>
     <string name="dashboardTabYou">You</string>
     <string name="dashboardTabEveryone">Everyone</string>
     <string name="dashboardToday">Today</string>
     <string name="dashboardEver">Ever</string>
     <string name="toastNoLoginNoStatistics">You have to log-in to see your statistics</string>
     <string name="textHoursAbbreviation">h</string>
+    <string name="textHour">Hour</string>
     <!-- Tutorial -->
     <string name="btn_tutorial1">Start</string>
     <string name="btn_tutorial2">Permit</string>
@@ -69,8 +71,9 @@
     <string name="txt_project_github_settings">Project open-source on GitHub</string>
     <string name="txt_contributors">contributors</string>
     <string name="txt_developed_by">developed by</string>
-    <string name="toast_language_changed">Language changed correctly in {{*{{lang}}*}}</string>
+    <string name="toast_language_changed">Language changed correctly to {{*{{lang}}*}}</string>
     <string name="settingsLanguage">Language</string>
+    <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Skip</string>

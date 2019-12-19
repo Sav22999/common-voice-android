@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Common Voice</string>
+    <string name="language">it</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Pannello</string>
+    <string name="title_settings">Impostazioni</string>
+    <!-- Home (main) -->
+    <string name="description_cv_robot">Common Voice logo</string>
+    <string name="description_cv_logo">Common Voice robot</string>
+    <string name="button_home_login">Accedi / Registrati</string>
+    <string name="button_home_logout">Disconnetti</string>
+    <string name="button_home_profile">Profilo</string>
+    <string name="text_hi_username">Ciao</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Statistiche</string>
+    <string name="dashboardVoicesOnline">Voci online</string>
+    <string name="dashboardTabYou">Tu</string>
+    <string name="dashboardTabEveryone">Tutti</string>
+    <string name="dashboardToday">Oggi</string>
+    <string name="dashboardEver">Di sempre</string>
+    <string name="toastNoLoginNoStatistics">Effettuare l\'accesso per vedere le tue statistiche</string>
+    <string name="textHoursAbbreviation">o</string>
+    <string name="textHour">Ora</string>
+    <!-- Tutorial -->
+    <string name="btn_tutorial1">Inizia</string>
+    <string name="btn_tutorial2">Permetti</string>
+    <string name="btn_tutorial3">Avanti</string>
+    <string name="btn_tutorial4">Riprova</string>
+    <string name="btn_tutorial5">Finito</string>
+    <string name="tutorial_text1">
+        Questa non è l\'app ufficiale di Common Voice di Mozilla. È sviluppata da Saverio Morelli, un volontario della comunità Mozilla Italia.
+    </string>
+    <string name="tutorial_text2">
+        Common Voice App necessita del permesso di "Registrazione audio" per funzionare correttamente.
+    </string>
+    <string name="tutorial_text3">
+        Common Voice App necessita del permesso di "Accesso memoria espandibile" per funzionare correttamente.
+    </string>
+    <string name="tutorial_text4">
+        Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare
+    </string>
+    <!-- Login -->
+    <string name="txt_loading_page">Caricamento ...</string>
+    <string name="txt_profile_username">Nome utente</string>
+    <string name="txt_profile_email">Email</string>
+    <string name="txt_profile_age">Età</string>
+    <string name="txt_profile_gender">Sesso</string>
+    <string name="txt_profile_edit_data_alert">Per modificare le informazioni del tuo profilo, vai sul sito ufficiale.</string>
+    <string name="txt_login_successful_alert">Login eseguito correttamente!</string>
+    <string name="txt_gender_male">Maschio</string>
+    <string name="txt_gender_female">Femmina</string>
+    <string name="txt_gender_other">Altro</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">Apri nuovamente il Tutorial</string>
+    <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>
+    <string name="txt_contributors">collaboratori</string>
+    <string name="txt_developed_by">sviluppata da</string>
+    <string name="toast_language_changed">Lingua modificata correttamente a {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">Lingua</string>
+    <string name="txt_donate_paypal_settings">Fai una donazione allo sviluppatore su PayPal</string>
+    <!-- Speak -->
+    <string name="txt_loading_sentence">Caricamento di una frase...</string>
+    <string name="btn_skip_sentence">Salta</string>
+    <string name="btn_send_sentence">Invia registrazione</string>
+    <string name="txt_loading_clip">Caricamento di una registrazione...</string>
+    <string name="txt_press_icon_below_speak_1">Premi l\'icona sotto per iniziare la registrazione</string>
+    <string name="txt_press_icon_below_speak_2">Premi l\'icona sotto per fermare la registrazione</string>
+    <string name="txt_sentence_recorded">Frase registrata. Ascoltala per accertarti che sia corretta</string>
+    <string name="txt_sentence_record_failed">Registrazione fallita. Riprovare</string>
+    <string name="txt_recorded_correct_or_wrong">Registrazione corretta? Inviala.\nRegistrazione sbagliata? Registrala di nuovo</string>
+    <string name="txt_listening_stopped">Ascolta la tua registrazione per intero ed assicurati che sia corretta</string>
+    <string name="txt_listening_again_recording">Premi l\'icona sotto per fermare l\'ascolto della tua registrazione</string>
+    <string name="txt_recording_too_long">La registrazione è troppo lunga. La durata massima è di 10 secondi</string>
+    <string name="txt_sending_recording">Invio della registrazione in corso...</string>
+    <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
+    <string name="txt_press_icon_below_listen_1">Premi l\'icona sotto per iniziare ad ascoltare la registrazione</string>
+    <string name="txt_press_icon_below_listen_2">Premi l\'icona sotto per fermare l\'audio</string>
+    <string name="txt_clip_correct_or_wrong">Audio corretto? Premi pollice in su\nAudio sbagliato? Premi pollice in giù</string>
+    <string name="txt_clip_again">Premi l\'icona sotto per ascoltare nuovamente l\'audio</string>
+    <string name="txt_clip_validated_yes">Registrazione accettata!</string>
+    <string name="txt_clip_validated_no">Registrazione declinata!</string>
+    <string name="txt_error_try_again_press_skip">Errore. Riprovare, quindi premere il bottone {{*{{skip_button}}*}}</string>
+</resources>
