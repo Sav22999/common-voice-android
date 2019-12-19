@@ -126,7 +126,7 @@ class DashboardFragment : Fragment() {
                     if (tab?.position == 0) {
                         if (main.logged) {
                             try {
-                                loadData("you", null)
+                                loadData("you", root)
                             } catch (e: Exception) {
                                 //println("Error: " + e.toString())
                             }
@@ -136,7 +136,7 @@ class DashboardFragment : Fragment() {
                         }
                     } else if (tab?.position == 1) {
                         try {
-                            loadData("everyone", null)
+                            loadData("everyone", root)
                         } catch (e: Exception) {
                             //println("Error: " + e.toString())
                         }
@@ -169,6 +169,7 @@ class DashboardFragment : Fragment() {
         //load statistics
         var loadStatistics: Boolean = loadStatisticsYesOrNot(type)
         var loadVoices: Boolean = loadVoicesOnlineYesOrNot(type)
+        var main = (activity as MainActivity)
 
         if (type == "you" && loadStatistics) {
             loadDataOf("youTodaySpeak", 0, root)
@@ -184,6 +185,7 @@ class DashboardFragment : Fragment() {
             loadDataOf(type, -1, root)
         }
 
+        println(" ---->>>> type: " + type + " loadStatistics: " + loadStatistics)
         if (!loadStatistics && (type == "you" || type == "everyone")) {
             var textElements: Array<TextView?> = arrayOf(
                 root?.findViewById(R.id.textTodaySpeak),
@@ -191,27 +193,33 @@ class DashboardFragment : Fragment() {
                 root?.findViewById(R.id.textEverSpeak),
                 root?.findViewById(R.id.textEverListen)
             )
-            var main = (activity as MainActivity)
-            textElements[0]?.text = main.getSavedStatisticsValue(type, 0)
-            textElements[1]?.text = main.getSavedStatisticsValue(type, 1)
+            var value1 = main.getSavedStatisticsValue(type, 0)
+            var value2 = main.getSavedStatisticsValue(type, 1)
+            textElements[0]?.text = value1
+            textElements[1]?.text = value2
             if (type == "everyone") {
-                textElements[2]?.text = truncate(
-                    main.getSavedStatisticsValue(
-                        type,
-                        2
-                    ).toDouble() / 3600
-                ).toInt().toString() + getString(R.string.textHoursAbbreviation)
-                textElements[3]?.text = truncate(
+                var value3 = truncate(
                     main.getSavedStatisticsValue(
                         type,
                         3
                     ).toDouble() / 3600
                 ).toInt().toString() + getString(R.string.textHoursAbbreviation)
+                var value4 = truncate(
+                    main.getSavedStatisticsValue(
+                        type,
+                        2
+                    ).toDouble() / 3600
+                ).toInt().toString() + getString(R.string.textHoursAbbreviation)
+                textElements[3]?.setText(value3)
+                textElements[2]?.setText(value4)
             } else {
-                textElements[2]?.text = main.getSavedStatisticsValue(type, 2)
-                textElements[3]?.text = main.getSavedStatisticsValue(type, 3)
+                var value3 = main.getSavedStatisticsValue(type, 2)
+                var value4 = main.getSavedStatisticsValue(type, 3)
+                textElements[2]?.setText(value3)
+                textElements[3]?.setText(value4)
+                println("-->><<--")
             }
-        } else if (!loadVoices) {
+        } else if (!loadVoices && type.contains("voices")) {
             var textVoicesElements: Array<TextView?> = arrayOf(
                 root?.findViewById(R.id.textDashboardVoicesNow),
                 root?.findViewById(R.id.textDashboardVoicesBefore)
@@ -442,7 +450,7 @@ class DashboardFragment : Fragment() {
                                 )
                                 valueToReturn = jsonObj.getString("value").toInt()
                             }
-                            println(" >>>> " + type + " -- " + valueToReturn)
+                            println(" >>>> " + type + " -- " + valueToReturn + " -- " + typeToSend)
                             if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
                                 textElements[index]?.text =
                                     truncate(valueToReturn.toDouble() / 3600).toInt().toString() + getString(
