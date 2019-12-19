@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +31,21 @@ class MainActivity : AppCompatActivity() {
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val USER_NAME = "USERNAME"
+    private val LAST_STATS_EVERYONE = "LAST_STATS_EVERYONE" //yyyy/mm/dd hh:mm:ss
+    private val LAST_STATS_YOU = "LAST_STATS_YOU" //yyyy/mm/dd hh:mm:ss
+    private val LAST_STATS_EVERYONE_VALUE_0 = "LAST_STATS_EVERYONE_VALUE_0"
+    private val LAST_STATS_EVERYONE_VALUE_1 = "LAST_STATS_EVERYONE_VALUE_1"
+    private val LAST_STATS_EVERYONE_VALUE_2 = "LAST_STATS_EVERYONE_VALUE_2"
+    private val LAST_STATS_EVERYONE_VALUE_3 = "LAST_STATS_EVERYONE_VALUE_3"
+    private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
+    private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
+    private val LAST_STATS_YOU_VALUE_2 = "LAST_STATS_YOU_VALUE_2"
+    private val LAST_STATS_YOU_VALUE_3 = "LAST_STATS_YOU_VALUE_3"
+    private val LAST_VOICES_ONLINE_NOW = "LAST_VOICES_ONLINE_NOW"
+    private val LAST_VOICES_ONLINE_BEFORE = "LAST_VOICES_ONLINE_BEFORE"
+    private val LAST_VOICES_ONLINE_NOW_VALUE = "LAST_VOICES_ONLINE_NOW_VALUE"
+    private val LAST_VOICES_ONLINE_BEFORE_VALUE = "LAST_VOICES_ONLINE_BEFORE_VALUE"
+
 
     var languagesListShortArray =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
@@ -80,8 +99,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             checkPermissions()
         }
-
-        //get_language()
     }
 
     fun getHiUsernameLoggedIn(): String {
@@ -113,28 +130,230 @@ class MainActivity : AppCompatActivity() {
         ).show()
     }
 
-    fun setLanguageSettings(lang: String) {
-        val sharedPref: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-        val editor = sharedPref.edit()
-        editor.putString(LANGUAGE_NAME, lang)
-        editor.apply()
-
-        var languageChanged = false
-        if (this.selectedLanguageVar != lang) {
-            languageChanged = true
+    fun getSavedStatistics(type: String): String {
+        var sharedPref: SharedPreferences? = null
+        var returnStatistics: String = "?"
+        try {
+            if (type == "you") {
+                sharedPref = getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE)
+                returnStatistics = sharedPref.getString(LAST_STATS_YOU, "?")
+            } else if (type == "everyone") {
+                sharedPref = getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE)
+                returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE, "?")
+            } else if (type == "voices_now") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE)
+                returnStatistics = sharedPref.getString(LAST_VOICES_ONLINE_NOW, "?")
+            } else if (type == "voices_now") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE)
+                returnStatistics = sharedPref.getString(LAST_VOICES_ONLINE_BEFORE, "?")
+            }
+        } catch (e: Exception) {
+            //println("Error: " + e.toString())
         }
+        return returnStatistics
+    }
 
-        this.selectedLanguageVar = lang
+    fun setSavedStatistics(type: String, statistics: String) {
+        try {
+            var sharedPref: SharedPreferences? = null
+            if (type == "you") {
+                sharedPref = getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE)
+                val editor = sharedPref.edit()
+                editor.putString(LAST_STATS_YOU, statistics)
+                editor.apply()
+            } else if (type == "everyone") {
+                sharedPref = getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE)
+                val editor = sharedPref.edit()
+                editor.putString(LAST_STATS_EVERYONE, statistics)
+                editor.apply()
+            }
+        } catch (e: Exception) {
+            //println("Error: " + e.toString())
+        }
+    }
 
-        if (languageChanged) {
-            Toast.makeText(
-                this,
-                getString(R.string.toast_language_changed).replace(
-                    "{{*{{lang}}*}}",
-                    this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                ),
-                Toast.LENGTH_LONG
-            ).show()
+    fun getSavedStatisticsValue(type: String, index: Int): String {
+        var sharedPref: SharedPreferences? = null
+        var returnStatistics: String = "?"
+        try {
+            if (type == "you") {
+                if (index == 0) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_0, "?")
+                } else if (index == 1) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_1, "?")
+                } else if (index == 2) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_2, "?")
+                } else if (index == 3) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_3, "?")
+                }
+            } else if (type == "everyone") {
+                if (index == 0) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_0, "?")
+                } else if (index == 1) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_1, "?")
+                } else if (index == 2) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_2, "?")
+                } else if (index == 3) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE)
+                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_3, "?")
+                }
+            }
+            //println(" --> "+type+" "+index+" "+returnStatistics)
+        } catch (e: Exception) {
+            //println("Error: " + e.toString())
+        }
+        return returnStatistics
+    }
+
+    fun setSavedStatisticsValue(type: String, value: String, index: Int) {
+        var sharedPref: SharedPreferences? = null
+        var valueToSave = "?"
+        if (value != "-1") {
+            valueToSave = value
+        }
+        //println(" --> "+type+" "+index+" "+value+" "+valueToSave)
+        try {
+            if (type == "you") {
+                if (index == 0) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_YOU_VALUE_0, valueToSave)
+                    editor.apply()
+                } else if (index == 1) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_YOU_VALUE_1, valueToSave)
+                    editor.apply()
+                } else if (index == 2) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_YOU_VALUE_2, valueToSave)
+                    editor.apply()
+                } else if (index == 3) {
+                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_YOU_VALUE_3, valueToSave)
+                    editor.apply()
+                }
+            } else if (type == "everyone") {
+                if (index == 0) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_EVERYONE_VALUE_0, valueToSave)
+                    editor.apply()
+                } else if (index == 1) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_EVERYONE_VALUE_1, valueToSave)
+                    editor.apply()
+                } else if (index == 2) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_EVERYONE_VALUE_2, valueToSave)
+                    editor.apply()
+                } else if (index == 3) {
+                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE)
+                    val editor = sharedPref.edit()
+                    editor.putString(LAST_STATS_EVERYONE_VALUE_3, valueToSave)
+                    editor.apply()
+                }
+            }
+        } catch (e: Exception) {
+            //println("Error: " + e.toString())
+        }
+    }
+
+    fun getSavedVoicesOnline(type: String): String {
+        var sharedPref: SharedPreferences? = null
+        var returnVoicesOnline: String = "?"
+        try {
+            if (type == "voicesNow") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE)
+                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_NOW, "?")
+            } else if (type == "voicesBefore") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE)
+                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_BEFORE, "?")
+            } else if (type == "voicesNowValue") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE)
+                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_NOW_VALUE, "?")
+            } else if (type == "voicesBeforeValue") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE)
+                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_BEFORE_VALUE, "?")
+            }
+        } catch (e: Exception) {
+            println("Error: " + e.toString())
+        }
+        println(type + " -> " + returnVoicesOnline)
+        return returnVoicesOnline
+    }
+
+    fun setSavedVoicesOnline(type: String, voices: String) {
+        try {
+            var sharedPref: SharedPreferences? = null
+            if (type == "voicesNow") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE)
+                val editor = sharedPref.edit()
+                editor.putString(LAST_VOICES_ONLINE_NOW, voices)
+                editor.apply()
+            } else if (type == "voicesBefore") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE)
+                val editor = sharedPref.edit()
+                editor.putString(LAST_VOICES_ONLINE_BEFORE, voices)
+                editor.apply()
+            } else if (type == "voicesNowValue") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE)
+                val editor = sharedPref.edit()
+                editor.putString(LAST_VOICES_ONLINE_NOW_VALUE, voices)
+                editor.apply()
+            } else if (type == "voicesBeforeValue") {
+                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE)
+                val editor = sharedPref.edit()
+                editor.putString(LAST_VOICES_ONLINE_BEFORE_VALUE, voices)
+                editor.apply()
+            }
+        } catch (e: Exception) {
+            //println("Error: " + e.toString())
+        }
+    }
+
+    fun setLanguageSettings(lang: String) {
+        try {
+            val sharedPref: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
+            val editor = sharedPref.edit()
+            editor.putString(LANGUAGE_NAME, lang)
+            editor.apply()
+
+            var languageChanged = false
+            if (this.selectedLanguageVar != lang) {
+                languageChanged = true
+            }
+
+            this.selectedLanguageVar = lang
+
+            if (languageChanged) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.toast_language_changed).replace(
+                        "{{*{{lang}}*}}",
+                        this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
+                    ),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+            setSavedStatistics("you", "?")
+            setSavedStatistics("everyone", "?")
+            setSavedVoicesOnline("voicesNow", "?")
+            setSavedVoicesOnline("voicesBefore", "?")
+        } catch (e: Exception) {
+            //println("Error: " + e.toString())
         }
     }
 

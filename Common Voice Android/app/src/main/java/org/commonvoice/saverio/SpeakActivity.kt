@@ -219,10 +219,10 @@ class SpeakActivity : AppCompatActivity() {
             mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
             if (Build.VERSION.SDK_INT < 26) {
                 mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-                println(" -->> Versione API < 26")
+                //println(" -->> Versione API < 26")
             } else {
                 mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                println(" -->> Versione API >= 26")
+                //println(" -->> Versione API >= 26")
             }
             mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.HE_AAC)
             mediaRecorder?.setMaxDuration(10001)

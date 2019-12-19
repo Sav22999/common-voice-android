@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     android:isScrollContainer="true">
 
+    <TextView
+        android:id="@+id/textDonatePayPal"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_rounded"
+        android:fontFamily="@font/zillaslab"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/txt_donate_paypal_settings"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorWhite"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textProjectGitHub" />
+
     <View
         android:id="@+id/separator"
         android:layout_width="match_parent"
@@ -108,12 +127,13 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_rounded"
         android:fontFamily="@font/zillaslab"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="@string/txt_project_github_settings"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/textContributors"
         app:layout_constraintEnd_toEndOf="parent"
