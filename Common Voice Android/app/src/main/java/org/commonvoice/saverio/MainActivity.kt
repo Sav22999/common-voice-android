@@ -346,12 +346,11 @@ class MainActivity : AppCompatActivity() {
                     ),
                     Toast.LENGTH_LONG
                 ).show()
+                setSavedStatistics("you", "?")
+                setSavedStatistics("everyone", "?")
+                setSavedVoicesOnline("voicesNow", "?")
+                setSavedVoicesOnline("voicesBefore", "?")
             }
-
-            setSavedStatistics("you", "?")
-            setSavedStatistics("everyone", "?")
-            setSavedVoicesOnline("voicesNow", "?")
-            setSavedVoicesOnline("voicesBefore", "?")
         } catch (e: Exception) {
             //println("Error: " + e.toString())
         }
