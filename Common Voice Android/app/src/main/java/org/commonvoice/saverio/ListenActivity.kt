@@ -92,6 +92,7 @@ class ListenActivity : AppCompatActivity() {
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
+        var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         this.idSentence = 0
         this.textSentence = ""
@@ -100,6 +101,7 @@ class ListenActivity : AppCompatActivity() {
         btnYes.isVisible = false
         btnNo.isVisible = false
         btnListen.isEnabled = false
+        btnSkip.isEnabled = false
         this.status = 0
         msg.text = getText(R.string.txt_loading_clip)
         sentence.text = "..."
@@ -139,8 +141,10 @@ class ListenActivity : AppCompatActivity() {
                             prepare() //to send the object to the prepared state, this may take time for fetching and decoding
                         }
                         this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
+                        btnSkip.isEnabled = true
                     } else {
                         error1()
+                        btnSkip.isEnabled = true
                     }
 
                 }, Response.ErrorListener {
@@ -175,13 +179,14 @@ class ListenActivity : AppCompatActivity() {
             que.add(req)
         } catch (e: Exception) {
             error1()
+            btnSkip.isEnabled = true
         }
     }
 
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         var skipText: Button = this.findViewById(R.id.btn_skip_listen)
-        msg.text = getString(R.string.txt_error_try_again_press_skip).replace(
+        msg.text = getString(R.string.txt_error_1_try_again_press_skip).replace(
             "{{*{{skip_button}}*}}",
             skipText.text.toString()
         )
@@ -224,8 +229,6 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun StopListening() {
-        var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
-        var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         this.status = 2
@@ -236,18 +239,27 @@ class ListenActivity : AppCompatActivity() {
 
     fun YesClip() {
         validateClip(true)
-        Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_SHORT).show()
     }
 
     fun NoClip() {
         validateClip(false)
-        Toast.makeText(this, getString(R.string.txt_clip_validated_no), Toast.LENGTH_SHORT).show()
     }
 
     fun validateClip(value: Boolean) {
         try {
+            var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
+            var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+            var btnListen: Button = this.findViewById(R.id.btn_start_listen)
+            var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
+            btnNo.isVisible = false
+            btnYes.isVisible = false
+            btnListen.isEnabled = false
+            btnSkip.isEnabled = false
+            msg.text = getString(R.string.txt_sending_validation)
+
             var path = "clips/{{*{{sentence_id}}*}}/votes" //API to get sentences
-            path = path.replace("{{*{{sentence_id}}*}}",this.idSentence.toString())
+            path = path.replace("{{*{{sentence_id}}*}}", this.idSentence.toString())
             //println(" -->> "+path.toString())
             var params = JSONObject()
             params.put("isValid", value)
@@ -267,10 +279,11 @@ class ListenActivity : AppCompatActivity() {
                             )
                         )
                     }*/
-
+                    ValidationSuccessful(value)
                 }, Response.ErrorListener {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
-                    error1()
+                    //error1()
+                    ValidationError(value)
                 }
             ) {
                 @Throws(AuthFailureError::class)
@@ -301,8 +314,6 @@ class ListenActivity : AppCompatActivity() {
         } catch (e: Exception) {
             error1()
         }
-        StopListening()
-        API_request()
     }
 
     fun checkPermissions() {
@@ -320,6 +331,41 @@ class ListenActivity : AppCompatActivity() {
         } catch (e: java.lang.Exception) {
             //println(" -->> Exception: " + e.toString())
         }
+    }
+
+    fun ValidationSuccessful(value: Boolean) {
+        //Validation sent
+        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+        if (value) {
+            Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_SHORT)
+                .show()
+            msg.text = getString(R.string.txt_clip_validated_yes)
+        } else {
+            Toast.makeText(this, getString(R.string.txt_clip_validated_no), Toast.LENGTH_SHORT)
+                .show()
+            msg.text = getString(R.string.txt_clip_validated_no)
+        }
+        StopListening()
+        API_request()
+    }
+
+    fun ValidationError(value: Boolean) {
+        //Sending validation error
+        error1()
+        StopListening()
+        var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
+        var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
+        var btnListen: Button = this.findViewById(R.id.btn_start_listen)
+        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+        var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
+        btnNo.isVisible = true
+        btnYes.isVisible = value
+        btnListen.isEnabled = true
+        btnSkip.isEnabled = true
+        msg.text = getString(R.string.txt_error_3_sending_validation_failed).replace(
+            "{{*{{skip_button}}*}}",
+            getString(R.string.btn_skip_sentence)
+        )
     }
 
     fun checkRecordVoicePermission() {

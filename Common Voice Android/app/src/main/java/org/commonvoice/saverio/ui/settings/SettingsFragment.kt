@@ -1,6 +1,7 @@
 package org.commonvoice.saverio.ui.settings
 
 import android.content.Intent
+import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -72,6 +73,7 @@ class SettingsFragment : Fragment() {
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sav22999/common-voice-android"))
             startActivity(browserIntent)
         }
+        text_project_github.paintFlags= Paint.UNDERLINE_TEXT_FLAG
 
         var text_donate_paypal: TextView = root.findViewById(R.id.textDonatePayPal)
         text_donate_paypal.setOnClickListener {
@@ -79,6 +81,7 @@ class SettingsFragment : Fragment() {
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/saveriomorelli"))
             startActivity(browserIntent)
         }
+        text_donate_paypal.paintFlags= Paint.UNDERLINE_TEXT_FLAG
 
         var btn_open_tutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btn_open_tutorial.setOnClickListener {

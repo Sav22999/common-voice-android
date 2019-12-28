@@ -59,7 +59,7 @@
     <string name="toast_language_changed">Lingua modificata correttamente a {{*{{lang}}*}}</string>
     <string name="settingsLanguage">Lingua</string>
     <string name="txt_donate_paypal_settings">Fai una donazione allo sviluppatore su PayPal</string>
-    <!-- Speak -->
+    <!-- Speak & Listen -->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>
     <string name="btn_send_sentence">Invia registrazione</string>
@@ -74,11 +74,16 @@
     <string name="txt_recording_too_long">La registrazione è troppo lunga. La durata massima è di 10 secondi</string>
     <string name="txt_sending_recording">Invio della registrazione in corso...</string>
     <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
+    <string name="txt_sending_recording_failed">Invio registrazione fallito!</string>
+    <string name="txt_sending_recording_failed_and_skip">Invio della registrazione fallito. Riprova a inviarlo, altrimenti premi sul bottone {{*{{skip_button}}*}}</string>
     <string name="txt_press_icon_below_listen_1">Premi l\'icona sotto per iniziare ad ascoltare la registrazione</string>
     <string name="txt_press_icon_below_listen_2">Premi l\'icona sotto per fermare l\'audio</string>
     <string name="txt_clip_correct_or_wrong">Audio corretto? Premi pollice in su\nAudio sbagliato? Premi pollice in giù</string>
     <string name="txt_clip_again">Premi l\'icona sotto per ascoltare nuovamente l\'audio</string>
     <string name="txt_clip_validated_yes">Registrazione accettata!</string>
     <string name="txt_clip_validated_no">Registrazione declinata!</string>
-    <string name="txt_error_try_again_press_skip">Errore. Riprovare, quindi premere il bottone {{*{{skip_button}}*}}</string>
+    <string name="txt_error_1_try_again_press_skip">Errore. Riprovare, quindi premere il bottone {{*{{skip_button}}*}}</string>
+    <string name="txt_error_2_sending_failed">Errore durante l\'invio della registrazione, perciò non è stata inviata al server</string>
+    <string name="txt_sending_validation">Invio della convalida in corso...</string>
+    <string name="txt_error_3_sending_validation_failed">Errore durante l\'invio della convalida. Riprovare, altrimenti premere sul bottone {{*{{skip_button}}*}}</string>
 </resources>

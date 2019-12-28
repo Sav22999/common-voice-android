@@ -81,7 +81,7 @@ class DashboardFragment : Fragment() {
             var labelBefore: String = ""
             if (Build.VERSION.SDK_INT < 26) {
                 labelNow = SimpleDateFormat("hh").format(Date()).toString()
-                if ((labelNow.toInt() - 1) > 0) {
+                if ((labelNow.toInt() - 1) >= 0) {
                     labelBefore = (labelNow.toInt() - 1).toString()
                 } else {
                     labelBefore = "23"
@@ -90,7 +90,7 @@ class DashboardFragment : Fragment() {
             } else {
                 val dateTemp = LocalDateTime.now()
                 labelNow = dateTemp.hour.toString()
-                if ((labelNow.toInt() - 1) > 0) {
+                if ((labelNow.toInt() - 1) >= 0) {
                     labelBefore = (labelNow.toInt() - 1).toString()
                 } else {
                     labelBefore = "23"

@@ -74,7 +74,6 @@ class LoginActivity : AppCompatActivity() {
             setContentView(R.layout.fragment_webbrowser)
 
             var txtLoading: TextView = findViewById(R.id.textLoadingPage)
-            txtLoading.text = getString(R.string.txt_loading_page)
 
             webView = findViewById(R.id.webViewBrowser)
 
@@ -85,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
                     // Loading started
                     txtLoading.isGone = false
                     txtLoading.isVisible = true
+                    txtLoading.text = getString(R.string.txt_loading_page)
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {

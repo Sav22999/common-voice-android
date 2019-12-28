@@ -105,6 +105,7 @@
         android:fontFamily="@font/zillaslab"
         android:gravity="center|top|center_vertical"
         android:textColor="@color/colorAlertMessage"
+        android:textSize="16dp"
         android:textStyle="italic"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
