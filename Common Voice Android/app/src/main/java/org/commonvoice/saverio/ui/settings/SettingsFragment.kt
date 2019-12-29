@@ -34,7 +34,7 @@ class SettingsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
         val textLanguage: TextView = root.findViewById(R.id.text_settingsLanguage)
         textLanguage.text = getText(R.string.settingsLanguage)
-        val model = ViewModelProviders.of(activity!!).get(SettingsViewModel::class.java)
+        //val model = ViewModelProviders.of(activity!!).get(SettingsViewModel::class.java)
 
         var main = (activity as MainActivity)
 

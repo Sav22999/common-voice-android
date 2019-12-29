@@ -101,4 +101,5 @@
     <string name="txt_error_2_sending_failed">Error during the sending of the recording. The audio wasn\'t sent to server</string>
     <string name="txt_sending_validation">Sending the validation...</string>
     <string name="txt_error_3_sending_validation_failed">Error during the sending of the validation. Try again or press {{*{{skip_button}}*}} button</string>
+    <string name="txt_closing">Closing ...</string>
 </resources>

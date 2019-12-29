@@ -193,8 +193,15 @@ class ListenActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        StopListening()
-        finish()
+        var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
+        var txtSentence: TextView = this.findViewById(R.id.textListenSentence)
+        if (btnSkip.isEnabled || txtSentence.text == "...") {
+            StopListening()
+            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+            btnSkip.isEnabled = false
+            msg.text = getString(R.string.txt_closing)
+            finish()
+        }
     }
 
     fun StartListening() {

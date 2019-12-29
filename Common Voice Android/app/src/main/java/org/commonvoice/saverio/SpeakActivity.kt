@@ -3,21 +3,15 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
-import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.media.AudioManager
 import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.os.Handler
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -31,23 +25,13 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_speak.*
 import org.json.JSONArray
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.io.File
-import java.io.IOException
-import java.net.URL
 import java.nio.file.Files
-import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.*
 import kotlin.collections.HashMap
-import kotlin.time.milliseconds
-import kotlin.time.seconds
-import org.commonvoice.saverio.MainActivity as main
 
 
 class SpeakActivity : AppCompatActivity() {
@@ -58,8 +42,12 @@ class SpeakActivity : AppCompatActivity() {
     private val LANGUAGE_NAME = "LANGUAGE"
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
+    private val FIRST_RUN_SPEAK = "FIRST_RUN_SPEAK"
+
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
+    var temp_url: String =
+        "https://voice.allizom.org/api/v1/en/" //TEST API url (en)
 
     val url_without_lang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
@@ -114,8 +102,15 @@ class SpeakActivity : AppCompatActivity() {
             ListenRecording()
         }
 
-        //API request
-        API_request()
+        val sharedPref: SharedPreferences = getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE)
+        val defaultValue = false //actually it's "true", false is hust for testing
+        if (sharedPref.getBoolean(FIRST_RUN_SPEAK, defaultValue)) {
+            //First-run
+            //setContentView(R.layout.first_run_speak_1)
+        } else {
+            //API request
+            API_request()
+        }
     }
 
     fun API_request() {
@@ -126,12 +121,14 @@ class SpeakActivity : AppCompatActivity() {
         var btnSend: Button = this.findViewById(R.id.btn_send_speak)
         var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
         this.id_sentence = ""
         this.text_sentence = ""
         btnRecord.isEnabled = false
         btnSend.isVisible = false
         btnListenAgain.isGone = true
         btnListenAgain.isVisible = false
+        btnSkip.isEnabled = false
         this.status = 0
         msg.text = getText(R.string.txt_loading_sentence)
         sentence.text = "..."
@@ -161,9 +158,11 @@ class SpeakActivity : AppCompatActivity() {
                     } else {
                         error1()
                     }
+                    btnSkip.isEnabled = true
                 }, Response.ErrorListener {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
                     error1()
+                    btnSkip.isEnabled = true
                 }
             ) {
                 @Throws(AuthFailureError::class)
@@ -192,22 +191,35 @@ class SpeakActivity : AppCompatActivity() {
             que.add(req)
         } catch (e: Exception) {
             error1()
+            btnSkip.isEnabled = true
         }
     }
 
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         var skip_text: Button = this.findViewById(R.id.btn_skip_speak)
-        msg.text = getString(R.string.txt_error_try_again_press_skip).replace(
+        msg.text = getString(R.string.txt_error_1_try_again_press_skip).replace(
             "{{*{{skip_button}}*}}",
             skip_text.text.toString()
         )
     }
 
+    fun error2() {
+        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        msg.text = getString(R.string.txt_error_2_sending_failed)
+    }
+
     override fun onBackPressed() {
-        StopRecording()
-        DeleteRecording()
-        finish()
+        var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
+        var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
+        if (btnSkip.isEnabled || txtSentence.text == "...") {
+            StopRecording()
+            DeleteRecording()
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            btnSkip.isEnabled = false
+            msg.text = getString(R.string.txt_closing)
+            finish()
+        }
     }
 
     fun StartRecording() {
@@ -279,7 +291,7 @@ class SpeakActivity : AppCompatActivity() {
     fun RecordingFailed() {
         var btn_record: Button = this.findViewById(R.id.btn_start_speak)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btn_record.setBackgroundResource(R.drawable.speak_cv)
+        btn_record.setBackgroundResource(R.drawable.speak2_cv)
         if (this.status == 6) {
             msg.text = getString(R.string.txt_recording_too_long)
         } else {
@@ -355,7 +367,7 @@ class SpeakActivity : AppCompatActivity() {
         var btnSend: Button = this.findViewById(R.id.btn_send_speak)
         var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btn_record.setBackgroundResource(R.drawable.record2_cv)
+        btn_record.setBackgroundResource(R.drawable.speak2_cv)
         var btn_listen_again: Button = this.findViewById(R.id.btn_listen_again)
         btn_listen_again.setBackgroundResource(R.drawable.listen2_cv)
         this.status = 3 //listened the recording
@@ -366,25 +378,32 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     fun SendRecording() {
-        //send recording
+        //sending recording
         StopListening()
-        var btn_record: Button = this.findViewById(R.id.btn_start_speak)
+        var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
         var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+        var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
+        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btn_record.setBackgroundResource(R.drawable.speak_cv)
-        btn_record.isEnabled = false
+        btnRecord.setBackgroundResource(R.drawable.speak_cv)
+        btnRecord.isEnabled = false
         this.status = 4
         btnSend.isVisible = false
+        btnSkip.isEnabled = false
+        btnListenAgain.isVisible = false
         msg.text = getString(R.string.txt_sending_recording)
-        Toast.makeText(this, getString(R.string.txt_recording_sent), Toast.LENGTH_SHORT).show()
 
-
-        /*
-        if (Build.VERSION.SDK_INT<26) {
-            msg.text = "Error: your android version doens't permit to send record to server. Sorry."
+        var encoded: ByteArray? = null
+        var encoded2: String? = null
+        if (Build.VERSION.SDK_INT < 26) {
+            msg.text = "Error: your android version doesn't permit to send record to server. Sorry."
         } else {
-            val encoded = Files.readAllBytes(Paths.get(this.output!!))
-            println(" -->> readAllBytes -->> "+encoded.toString())
+            println("output: " + output)
+            encoded = Files.readAllBytes(Paths.get(this.output!!))
+            println(" -->> readAllBytes -->> " + encoded.toString())
+
+            encoded2 = readFileAsLinesUsingBufferedReader(output!!)
+            println(" -->> fileReadStream: " + encoded2.toString())
 
             /*
             File file = new File(path);
@@ -401,13 +420,94 @@ class SpeakActivity : AppCompatActivity() {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-             */
+            */
         }
-        */
 
+        try {
+            val path = "clips" //API to get sentences
+            val params = JSONArray()
+            params.put(encoded)
+
+            val que = Volley.newRequestQueue(this)
+            val req = object : JsonArrayRequest(Request.Method.POST, temp_url + path, params,
+                Response.Listener {
+                    val json_result = it.toString()
+                    println(">> Successful: " + it.toString())
+                    RecordingSent()
+                }, Response.ErrorListener {
+                    //println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                    error2()
+                    println(">> Error: " + it.toString())
+                    RecordingError()
+                    btnSkip.isEnabled = true
+                }
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    val sharedPref: SharedPreferences =
+                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
+                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    if (logged) {
+                        val sharedPref3: SharedPreferences =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
+                        var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
+                        headers.put(
+                            "Cookie",
+                            "connect.sid=" + cookie_id
+                        )
+                    } else {
+                        headers.put(
+                            "Authorization",
+                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                        )
+                    }
+                    headers.put("Content-Type", "application/octet-stream")
+                    headers.put("sentence", text_sentence)
+                    headers.put("sentence_id", id_sentence)
+                    println(" >> text_sentence >> " + text_sentence)
+                    println(" >> id_sentence >> " + id_sentence)
+                    return headers
+                }
+            }
+            que.add(req)
+        } catch (e: Exception) {
+            error2()
+            println(">> Exception: " + e.toString())
+            btnSkip.isEnabled = true
+        }
+    }
+
+    fun RecordingSent() {
         //when recording is sent
+        println("Recording sent!")
+        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        msg.text = getString(R.string.txt_recording_sent)
+        Toast.makeText(this, getString(R.string.txt_recording_sent), Toast.LENGTH_SHORT).show()
         API_request()
     }
+
+    fun RecordingError() {
+        //when recording sending is failed
+        println("Sending recording failed!")
+        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        msg.text = getString(R.string.txt_sending_recording_failed_and_skip).replace(
+            "{{*{{skip_button}}*}}",
+            getString(R.string.btn_skip_sentence)
+        )
+        var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+        var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+        var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
+        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+        btnRecord.isEnabled = true
+        btnSend.isVisible = true
+        btnListenAgain.isVisible = true
+        btnSkip.isEnabled = true
+        Toast.makeText(this, getString(R.string.txt_sending_recording_failed), Toast.LENGTH_SHORT).show()
+    }
+
+    fun readFileAsLinesUsingBufferedReader(fileName: String): String =
+        File(fileName).inputStream().readBytes().toString(Charsets.UTF_8)
 
     fun checkPermissions() {
         try {

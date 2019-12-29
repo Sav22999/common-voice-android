@@ -86,4 +86,5 @@
     <string name="txt_error_2_sending_failed">Errore durante l\'invio della registrazione, perciò non è stata inviata al server</string>
     <string name="txt_sending_validation">Invio della convalida in corso...</string>
     <string name="txt_error_3_sending_validation_failed">Errore durante l\'invio della convalida. Riprovare, altrimenti premere sul bottone {{*{{skip_button}}*}}</string>
+    <string name="txt_closing">Chiusura in corso ...</string>
 </resources>
