@@ -14,7 +14,7 @@ You can contribute also to translate the app:
 - Fork this repo and go to your repo-forked
 - Create a branch: “new-languages-<u>**lang**</u>”
 - Go to “Languages” and translate in your language the file “strings.xml” (it’s in English)
-- Renamed “strings.xml” with “strings-<u>**lang**</u>.xml”
+- Create a new folder “**lang**” and put the *strings.xml* file modified there
 - Commit the changes in your repo and create a pull-request
 
 <u>**lang** is the short-name of your languages (e.g. Italian: it, French: fr, ect.)</u>
@@ -22,11 +22,10 @@ You can contribute also to translate the app:
 #### To do:
 
 - Change manually the UI language, when change from Settings/Tutorial
-
-- Create POST request to send the recording
-
+- Create POST request to send the recording (Now it saves the audio on device, but I don’t know how to send the audio file to CV server)
 - Improve the loading of sentences/clips (download 5s per time, and when you are at the "4th” automatically download others)
-- Tutorial also for Listen and Speak section (just the first time you launch them)
+- Tutorial first-run for Listen and Speak section (just the first time you launch them)
+- Statistics "You” for Today (I don’t know how to get these information)
 
 ### Screenshots
 
