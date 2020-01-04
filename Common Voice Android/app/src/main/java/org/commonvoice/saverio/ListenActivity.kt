@@ -88,6 +88,7 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun API_request() {
+        StopListening()
         var sentence: TextView = this.findViewById(R.id.textListenSentence)
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
@@ -142,9 +143,15 @@ class ListenActivity : AppCompatActivity() {
                         }
                         this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
                         btnSkip.isEnabled = true
+
+                        btnYes.isVisible = false
+                        btnNo.isVisible = false
                     } else {
                         error1()
                         btnSkip.isEnabled = true
+
+                        btnYes.isVisible = false
+                        btnNo.isVisible = false
                     }
 
                 }, Response.ErrorListener {
@@ -254,6 +261,7 @@ class ListenActivity : AppCompatActivity() {
 
     fun validateClip(value: Boolean) {
         try {
+            StopListening()
             var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
             var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
             var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
