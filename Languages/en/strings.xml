@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Common Voice</string>
+    <string name="app_name" translatable="false">Common Voice</string>
     <string name="language">en</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Home</string>
@@ -28,27 +28,21 @@
     <string name="btn_tutorial3">Next</string>
     <string name="btn_tutorial4">Try again</string>
     <string name="btn_tutorial5">Finish</string>
-    <string name="tutorial_text1">
-        This is not the official app of Common Voice by Mozilla. It\'s developed by Saverio Morelli, a volunteer of Mozilla Italia community.
-    </string>
-    <string name="tutorial_text2">
-        Common Voice App needs the "Microphone" permission to work correctly.
-    </string>
-    <string name="tutorial_text3">
-        Common Voice App needs the "Storage" permission to work correctly.
-    </string>
-    <string name="tutorial_text4">
-        Choose your native language, it will use to show sentences to record and to validate
-    </string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
+    <string name="tutorial_text1">This is not the official app of Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
+    <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
+    <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
+    <string name="tutorial_text4">Choose your native language, it will use to show sentences to record and to validate</string>
     <!-- Languages (list) sort "A-Z" - DO NOT TRANSLATE THESE STRINGS -->
-    <string-array name="languages">
+    <string-array name="languages" translatable="false">
         <item>Deutsch</item><!-- de -->
         <item>English</item><!-- en -->
         <item>Español</item><!-- es -->
         <item>Français</item><!-- fr -->
         <item>Italiano</item><!-- it -->
     </string-array>
-    <string-array name="languages_short">
+    <string-array name="languages_short" translatable="false">
         <item>de</item>
         <item>en</item>
         <item>es</item>
@@ -75,10 +69,10 @@
     <string name="settingsLanguage">Language</string>
     <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Loading a sentence...</string>
+    <string name="txt_loading_sentence">Loading a sentence ...</string>
     <string name="btn_skip_sentence">Skip</string>
     <string name="btn_send_sentence">Send recording</string>
-    <string name="txt_loading_clip">Loading a clip...</string>
+    <string name="txt_loading_clip">Loading a clip ...</string>
     <string name="txt_press_icon_below_speak_1">Press the icon below to start the recording</string>
     <string name="txt_press_icon_below_speak_2">Press the icon below to stop the recording</string>
     <string name="txt_sentence_recorded">Sentence recorded. Listen the recording</string>
@@ -87,7 +81,7 @@
     <string name="txt_listening_stopped">Listen the recording entirely to ensure it\'s correct</string>
     <string name="txt_listening_again_recording">Press the icon below to stop the listening</string>
     <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds</string>
-    <string name="txt_sending_recording">Sending the recording...</string>
+    <string name="txt_sending_recording">Sending the recording ...</string>
     <string name="txt_recording_sent">Recording sent!</string>
     <string name="txt_sending_recording_failed">Sending recording failed!</string>
     <string name="txt_sending_recording_failed_and_skip">Sending recording failed! Try again to send it otherwise press {{*{{skip_button}}*}} button</string>
@@ -99,7 +93,7 @@
     <string name="txt_clip_validated_no">Clip rejected!</string>
     <string name="txt_error_1_try_again_press_skip">Error. Try again, so press {{*{{skip_button}}*}} button</string>
     <string name="txt_error_2_sending_failed">Error during the sending of the recording. The audio wasn\'t sent to server</string>
-    <string name="txt_sending_validation">Sending the validation...</string>
+    <string name="txt_sending_validation">Sending the validation ...</string>
     <string name="txt_error_3_sending_validation_failed">Error during the sending of the validation. Try again or press {{*{{skip_button}}*}} button</string>
     <string name="txt_closing">Closing ...</string>
 </resources>

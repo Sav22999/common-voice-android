@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.Paint
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
@@ -11,6 +13,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_tutorial.*
 
@@ -23,8 +26,10 @@ class TutorialActivity : AppCompatActivity() {
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
     private val LANGUAGE_NAME = "LANGUAGE"
-    var languages_list_short = arrayOf("en") // don't change manually -> it's imported from strings.xml
-    var languages_list = arrayOf("English") // don't change manually -> it's imported from strings.xml
+    var languages_list_short =
+        arrayOf("en") // don't change manually -> it's imported from strings.xml
+    var languages_list =
+        arrayOf("English") // don't change manually -> it's imported from strings.xml
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +42,14 @@ class TutorialActivity : AppCompatActivity() {
         // import languages from array
         this.languages_list = resources.getStringArray(R.array.languages)
         this.languages_list_short = resources.getStringArray(R.array.languages_short)
+
+        var txt_terms = this.textView_tutorialTerms
+        txt_terms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        txt_terms.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.linkTermsCommonVoice)))
+            startActivity(browserIntent)
+        }
 
         this.btn_next.setOnClickListener {
             tutorialStart()
@@ -75,6 +88,7 @@ class TutorialActivity : AppCompatActivity() {
         this.textTutorialMessage.isVisible = false
         this.textTutorialMessage.text = ""
         this.seekBar.progress = 1
+        this.textView_tutorialTerms.isGone = true
         this.textView_tutorial.text = getString(R.string.tutorial_text2)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED

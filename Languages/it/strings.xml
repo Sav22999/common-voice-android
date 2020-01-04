@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Common Voice</string>
     <string name="language">it</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Home</string>
@@ -28,18 +27,12 @@
     <string name="btn_tutorial3">Avanti</string>
     <string name="btn_tutorial4">Riprova</string>
     <string name="btn_tutorial5">Finito</string>
-    <string name="tutorial_text1">
-        Questa non è l\'app ufficiale di Common Voice di Mozilla. È sviluppata da Saverio Morelli, un volontario della comunità Mozilla Italia.
-    </string>
-    <string name="tutorial_text2">
-        Common Voice App necessita del permesso di "Registrazione audio" per funzionare correttamente.
-    </string>
-    <string name="tutorial_text3">
-        Common Voice App necessita del permesso di "Accesso memoria espandibile" per funzionare correttamente.
-    </string>
-    <string name="tutorial_text4">
-        Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare
-    </string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/it/terms</string>
+    <string name="tutorial_text1">Questa non è l\'app ufficiale di Common Voice. È sviluppata da Saverio Morelli senza alcun supporto o accordo con Mozilla.</string>
+    <string name="tutorial_terms">Proseguendo, accetti le Condizioni di utilizzo del servizio di Common Voice.</string>
+    <string name="tutorial_text2">Common Voice App necessita del permesso di registrare audio per funzionare correttamente.</string>
+    <string name="tutorial_text3">Common Voice App necessita del permesso di accedere alla memoria esterna per funzionare correttamente.</string>
+    <string name="tutorial_text4">Scegli la tua lingua principale, verrà utilizzata per visualizzare le frasi da registrare o da convalidare</string>
     <!-- Login -->
     <string name="txt_loading_page">Caricamento ...</string>
     <string name="txt_profile_username">Nome utente</string>
@@ -60,10 +53,10 @@
     <string name="settingsLanguage">Lingua</string>
     <string name="txt_donate_paypal_settings">Fai una donazione allo sviluppatore su PayPal</string>
     <!-- Speak & Listen -->
-    <string name="txt_loading_sentence">Caricamento di una frase...</string>
+    <string name="txt_loading_sentence">Caricamento di una frase ...</string>
     <string name="btn_skip_sentence">Salta</string>
     <string name="btn_send_sentence">Invia registrazione</string>
-    <string name="txt_loading_clip">Caricamento di una registrazione...</string>
+    <string name="txt_loading_clip">Caricamento di una registrazione ...</string>
     <string name="txt_press_icon_below_speak_1">Premi l\'icona sotto per iniziare la registrazione</string>
     <string name="txt_press_icon_below_speak_2">Premi l\'icona sotto per fermare la registrazione</string>
     <string name="txt_sentence_recorded">Frase registrata. Ascoltala per accertarti che sia corretta</string>
@@ -72,7 +65,7 @@
     <string name="txt_listening_stopped">Ascolta la tua registrazione per intero ed assicurati che sia corretta</string>
     <string name="txt_listening_again_recording">Premi l\'icona sotto per fermare l\'ascolto della tua registrazione</string>
     <string name="txt_recording_too_long">La registrazione è troppo lunga. La durata massima è di 10 secondi</string>
-    <string name="txt_sending_recording">Invio della registrazione in corso...</string>
+    <string name="txt_sending_recording">Invio della registrazione in corso ...</string>
     <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
     <string name="txt_sending_recording_failed">Invio registrazione fallito!</string>
     <string name="txt_sending_recording_failed_and_skip">Invio della registrazione fallito. Riprova a inviarlo, altrimenti premi sul bottone {{*{{skip_button}}*}}</string>
@@ -84,7 +77,7 @@
     <string name="txt_clip_validated_no">Registrazione declinata!</string>
     <string name="txt_error_1_try_again_press_skip">Errore. Riprovare, quindi premere il bottone {{*{{skip_button}}*}}</string>
     <string name="txt_error_2_sending_failed">Errore durante l\'invio della registrazione, perciò non è stata inviata al server</string>
-    <string name="txt_sending_validation">Invio della convalida in corso...</string>
+    <string name="txt_sending_validation">Invio della convalida in corso ...</string>
     <string name="txt_error_3_sending_validation_failed">Errore durante l\'invio della convalida. Riprovare, altrimenti premere sul bottone {{*{{skip_button}}*}}</string>
     <string name="txt_closing">Chiusura in corso ...</string>
 </resources>
