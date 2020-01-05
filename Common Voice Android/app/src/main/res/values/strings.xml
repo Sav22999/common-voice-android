@@ -47,6 +47,7 @@
         <item>Español</item><!-- es -->
         <item>Français</item><!-- fr -->
         <item>Italiano</item><!-- it -->
+        <item>Svenska</item><!-- it -->
     </string-array>
     <string-array name="languages_short">
         <item>de</item>
@@ -54,6 +55,7 @@
         <item>es</item>
         <item>fr</item>
         <item>it</item>
+        <item>sv-SE</item>
     </string-array>
     <!-- Login -->
     <string name="txt_loading_page">Loading ...</string>
