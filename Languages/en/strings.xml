@@ -41,7 +41,7 @@
         <item>Español</item><!-- es -->
         <item>Français</item><!-- fr -->
         <item>Italiano</item><!-- it -->
-        <item>Swedish</item><!-- sv-SE -->
+        <item>Svenska</item><!-- sv-SE -->
     </string-array>
 
     <!-- Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
