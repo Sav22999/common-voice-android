@@ -162,7 +162,7 @@
         android:fontFamily="@font/zillaslab"
         android:text="Damiano Gualandri\nSimone Massaro"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/textDevelopedBy"
         app:layout_constraintEnd_toEndOf="parent"

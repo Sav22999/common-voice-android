@@ -47,7 +47,7 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Apri nuovamente il Tutorial</string>
     <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>
-    <string name="txt_contributors">collaboratori</string>
+    <string name="txt_contributors">collaboratori principali</string>
     <string name="txt_developed_by">sviluppata da</string>
     <string name="toast_language_changed">Lingua modificata correttamente a {{*{{lang}}*}}</string>
     <string name="settingsLanguage">Lingua</string>

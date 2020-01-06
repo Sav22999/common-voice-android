@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/zillaslab"
         android:gravity="center|top|center_vertical"
-        android:text="&quot;SEND RECORDING&quot; button doens't send an actual request, so now you can do every test you want"
+        android:text="&quot;SEND RECORDING&quot; button doesn't send an actual request, so now you can do every test you want"
         android:textColor="@color/colorBlack"
         android:textSize="16dp"
         android:textStyle="bold"
