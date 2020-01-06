@@ -1,0 +1,83 @@
+<resources>
+    <string name="language">sv</string><!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <!-- Buttons (nav) -->
+    <string name="title_home">Hem</string>
+    <string name="title_dashboard">Översikt</string>
+    <string name="title_settings">Inställningar</string>
+    <!-- Home (main) -->
+    <string name="description_cv_robot">Common Voice logga</string>
+    <string name="description_cv_logo">Common Voice robot</string>
+    <string name="button_home_login">Logga in / Registrera</string>
+    <string name="button_home_logout">Logga ut</string>
+    <string name="button_home_profile">Profil</string>
+    <string name="text_hi_username">Hej</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Statistik</string>
+    <string name="dashboardVoicesOnline">Röster online</string>
+    <string name="dashboardTabYou">Du</string>
+    <string name="dashboardTabEveryone">Alla</string>
+    <string name="dashboardToday">Idag</string>
+    <string name="dashboardEver">Någonsin</string>
+    <string name="toastNoLoginNoStatistics">Du måste vara inloggad för att se din statistik</string>
+    <string name="textHoursAbbreviation">h</string>
+    <string name="textHour">Timme</string>
+    <!-- Tutorial -->
+    <string name="btn_tutorial1">Start</string>
+    <string name="btn_tutorial2">Godkänn</string>
+    <string name="btn_tutorial3">Nästa</string>
+    <string name="btn_tutorial4">Försök igen</string>
+    <string name="btn_tutorial5">Avsluta</string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/sv-SE/terms</string>
+    <string name="tutorial_text1">Det här är inte en officiel app för Common Voice av Mozilla. Den är utvecklad av Saverio Morelli utan support eller partnerskap med Mozilla.</string>
+    <string name="tutorial_terms">Genom att fortsätta godkänner du villkoren för Common Voice.</string>
+    <string name="tutorial_text2">Common Voice Appen behöver \"Mikrofon"\ åtkomst för att fungera korrekt.</string>
+    <string name="tutorial_text3">Common Voice Appen behöver \"Lagring"\ åtkomst för att fungera korrekt.</string>
+    <string name="tutorial_text4">Välj ditt modersmål, som kommer användas för att visa meningar att spela in eller validera.</string>
+    <!-- Login -->
+    <string name="txt_loading_page">Laddar ...</string>
+    <string name="txt_profile_username">Användarnamn</string>
+    <string name="txt_profile_email">Epost</string>
+    <string name="txt_profile_age">Ålder</string>
+    <string name="txt_profile_gender">Kön</string>
+    <string name="txt_profile_edit_data_alert">För att ändra din profilinformation, gå till den officiella webbsidan.</string>
+    <string name="txt_login_successful_alert">Inloggning godkänd!</string>
+    <string name="txt_gender_male">Man</string>
+    <string name="txt_gender_female">Kvinna</string>
+    <string name="txt_gender_other">Annat</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">Öppna guide igen</string>
+    <string name="txt_project_github_settings">Projekt öppen kod på GitHub</string>
+    <string name="txt_contributors">bidragare</string>
+    <string name="txt_developed_by">utvecklad av</string>
+    <string name="toast_language_changed">Språk ändrat till {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">Språk</string>
+    <string name="txt_donate_paypal_settings">Donera till utvecklaren med PayPal</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence">Laddar en mening...</string>
+    <string name="btn_skip_sentence">Hoppa över</string>
+    <string name="btn_send_sentence">Ladda upp inspelning</string>
+    <string name="txt_loading_clip">Laddar ett klipp...</string>
+    <string name="txt_press_icon_below_speak_1">Tryck på ikonen nedan för att starta inspelningen</string>
+    <string name="txt_press_icon_below_speak_2">Tryck på ikonen nedan för att stoppa inspelningen</string>
+    <string name="txt_sentence_recorded">Meningen inspelad. Lyssna på inspelningen</string>
+    <string name="txt_sentence_record_failed">Inspelningen misslyckades. Försök igen</string>
+    <string name="txt_recorded_correct_or_wrong">Blev inspelningen rätt? Ladda upp den.\nBlev inspelningen fel? Spela in meningen igen</string>
+    <string name="txt_listening_stopped">Lyssna på hela inspelningen för att se till att den är korrekt</string>
+    <string name="txt_listening_again_recording">Tryck på ikonen nedan för att stoppa uppspelningen</string>
+    <string name="txt_recording_too_long">Inspelningen är för lång. 10 sekunder är max</string>
+    <string name="txt_sending_recording">Laddar upp inspelningen...</string>
+    <string name="txt_recording_sent">Inspelningen uppladdad!</string>
+    <string name="txt_sending_recording_failed">Uppladningen av inspellningen gick fel!</string>
+    <string name="txt_sending_recording_failed_and_skip">Uppladdningen av inspelningen gick fel! Försök att ladda upp igen eller tryck {{*{{skip_button}}*}} knappen</string>
+    <string name="txt_press_icon_below_listen_1">Tryck på ikonen nedan för att starta klippet</string>
+    <string name="txt_press_icon_below_listen_2">Tryck på ikonen nedan för att stoppa klippet</string>
+    <string name="txt_clip_correct_or_wrong">Om klippet är korrekt, tryck på tumme upp\nOm klippet är fel, tryck på tumme ner</string>
+    <string name="txt_clip_again">Tryck på ikonen nedan för att starta klippet igen</string>
+    <string name="txt_clip_validated_yes">Klipp godkännt!</string>
+    <string name="txt_clip_validated_no">Klipp refuserat!</string>
+    <string name="txt_error_1_try_again_press_skip">Fel- Försök igen, tryck {{*{{skip_button}}*}} knappen</string>
+    <string name="txt_error_2_sending_failed">Fel vid uppladdning av inspelningen. Ljudfilen blev inte överförd till servern</string>
+    <string name="txt_sending_validation">Laddar upp valideringen...</string>
+    <string name="txt_error_3_sending_validation_failed">Fel vid uppladdninen av valideringen. Försök igen eller tryck på {{*{{skip_button}}*}} knappen</string>
+    <string name="txt_closing">Avslutar ...</string>
+</resources>
