@@ -1,5 +1,5 @@
-    <string name="language">en</string><!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
 <resources>
+    <string name="language">en</string><!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <!-- Buttons (nav) -->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

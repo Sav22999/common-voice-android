@@ -1,5 +1,5 @@
 <resources>
-    <string name="language">sv</string><!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language">sv-SE</string><!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <!-- Buttons (nav) -->
     <string name="title_home">Hem</string>
     <string name="title_dashboard">Översikt</string>
@@ -53,10 +53,10 @@
     <string name="settingsLanguage">Språk</string>
     <string name="txt_donate_paypal_settings">Donera till utvecklaren med PayPal</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Laddar en mening...</string>
+    <string name="txt_loading_sentence">Laddar en mening ...</string>
     <string name="btn_skip_sentence">Hoppa över</string>
     <string name="btn_send_sentence">Ladda upp inspelning</string>
-    <string name="txt_loading_clip">Laddar ett klipp...</string>
+    <string name="txt_loading_clip">Laddar ett klipp ...</string>
     <string name="txt_press_icon_below_speak_1">Tryck på ikonen nedan för att starta inspelningen</string>
     <string name="txt_press_icon_below_speak_2">Tryck på ikonen nedan för att stoppa inspelningen</string>
     <string name="txt_sentence_recorded">Meningen inspelad. Lyssna på inspelningen</string>
@@ -65,7 +65,7 @@
     <string name="txt_listening_stopped">Lyssna på hela inspelningen för att se till att den är korrekt</string>
     <string name="txt_listening_again_recording">Tryck på ikonen nedan för att stoppa uppspelningen</string>
     <string name="txt_recording_too_long">Inspelningen är för lång. 10 sekunder är max</string>
-    <string name="txt_sending_recording">Laddar upp inspelningen...</string>
+    <string name="txt_sending_recording">Laddar upp inspelningen ...</string>
     <string name="txt_recording_sent">Inspelningen uppladdad!</string>
     <string name="txt_sending_recording_failed">Uppladningen av inspellningen gick fel!</string>
     <string name="txt_sending_recording_failed_and_skip">Uppladdningen av inspelningen gick fel! Försök att ladda upp igen eller tryck {{*{{skip_button}}*}} knappen</string>
@@ -77,7 +77,7 @@
     <string name="txt_clip_validated_no">Klipp refuserat!</string>
     <string name="txt_error_1_try_again_press_skip">Fel- Försök igen, tryck {{*{{skip_button}}*}} knappen</string>
     <string name="txt_error_2_sending_failed">Fel vid uppladdning av inspelningen. Ljudfilen blev inte överförd till servern</string>
-    <string name="txt_sending_validation">Laddar upp valideringen...</string>
+    <string name="txt_sending_validation">Laddar upp valideringen ...</string>
     <string name="txt_error_3_sending_validation_failed">Fel vid uppladdninen av valideringen. Försök igen eller tryck på {{*{{skip_button}}*}} knappen</string>
     <string name="txt_closing">Avslutar ...</string>
 </resources>
