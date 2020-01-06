@@ -1,7 +1,7 @@
 ---
 name: Feedback / Suggestion
 about: Suggest an idea for this project
-title: "[SUGGESTION] "
+title: "[SUGGESTION] Short description of the suggestion"
 labels: "✚ enhancement"
 assignees: ''
 
