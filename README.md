@@ -36,6 +36,14 @@ You can find updated screenshots in the “Screenshots” folder.
 
 There is already the website, which is response and mobile-friendly, but actually it’s very slow, because of so many effects, which could distract you to record or validate clips. So, this app want to improve the experience of this fantastic project, you can fiend you statistics, or you can record/validate a clip just with a single click.
 
+### Translators
+
+The app is officially translated in these following languages, **thank you very much** to the contributors who translated the app.
+
+- English -> Saverio Morelli @Sav22999
+- Italian -> Saverio Morelli @Sav22999
+- Swedish -> Linus Amvall @klasrocket
+
 ### License
 
 The license of *Common Voice Android* is GPLv3.
