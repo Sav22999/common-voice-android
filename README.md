@@ -8,11 +8,13 @@ If you have any questions, please open an issue.
 
 If you want to help to develop this app, you can open an “Issue” an send feedback about the features or bugs. In the “Screenshots” folder there are update screenshots of the app status and in the “Screenshots”>“0.0.0a (Draft)” you can find the original (initial) idea about the app.
 
-You can contribute also to translate the app, in two modes:
+You can contribute also to translate the app, in three modes:
 
-**First mode**: Open an issue (use TRANSLATION template), then go to https://crowdin.com/project/common-voice-android choose your language (you can ask for a new language) and translate strings.
+**First mode**: Open a new issue (use TRANSLATION template), then go to https://crowdin.com/project/common-voice-android choose your language (you can ask for a new language) and translate strings.
 
-**Second mode**:
+**Second mode**: Similar to the first: Open a new issue (use TRANSLATION template), then go to https://poeditor.com/projects/view?id=307161 choose your language (you can ask for a new language too) and translate strings.
+
+**Third mode**:
 
 - Open an issue and tell us you want to translate in your language (use TRANSLATION template): in this way, other people can know you’re translating the app in that language
 - Fork this repo and go to your repo-forked
