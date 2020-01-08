@@ -270,7 +270,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun getAgeString(age: String): String {
-        var value: String = when(age) {
+        var value: String = when (age) {
             "teens" -> "< 19"
             "twenties" -> "19-29"
             "thirties" -> "30-39"
@@ -286,7 +286,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun getGenderString(gender: String): String {
-        var value: String = when(gender) {
+        var value: String = when (gender) {
             "male" -> getString(R.string.txt_gender_male)
             "female" -> getString(R.string.txt_gender_female)
             "other" -> getString(R.string.txt_gender_other)

@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.widget.*
@@ -81,6 +83,8 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
+
+        setLanguageUI()
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
         this.logged = sharedPref3.getBoolean(LOGGED_IN_NAME, false)
@@ -351,6 +355,9 @@ class MainActivity : AppCompatActivity() {
                 setSavedVoicesOnline("voicesNow", "?")
                 setSavedVoicesOnline("voicesBefore", "?")
             }
+
+            setLanguageUI()
+
         } catch (e: Exception) {
             //println("Error: " + e.toString())
         }
@@ -459,6 +466,30 @@ class MainActivity : AppCompatActivity() {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     checkPermissions()
                 }
+            }
+        }
+    }
+
+    fun setLanguageUI() {
+        var restart = false
+        if (getString(R.string.language) != selectedLanguageVar) {
+            restart = true
+        }
+        println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
+        var lang = selectedLanguageVar.split("-")[0]
+        var locale: Locale = Locale(lang)
+        Locale.setDefault(locale)
+        var res: Resources = resources
+        var config: Configuration = res.configuration
+        config.setLocale(locale)
+        res.updateConfiguration(config, res.displayMetrics)
+        //createConfigurationContext(config)
+
+        if (restart) {
+            val intent = Intent(this, MainActivity::class.java).also {
+                startActivity(it)
+
+                finish()
             }
         }
     }

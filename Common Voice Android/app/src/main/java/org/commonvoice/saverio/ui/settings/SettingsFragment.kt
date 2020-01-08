@@ -21,8 +21,10 @@ import org.commonvoice.saverio.R
 class SettingsFragment : Fragment() {
 
     private lateinit var settingsViewModel: SettingsViewModel
-    var languages_list_short = arrayOf("en") // don't change it manually -> it will import automatically
-    var languages_list = arrayOf("English") // don't change it manually -> it will import automatically
+    var languages_list_short =
+        arrayOf("en") // don't change it manually -> it will import automatically
+    var languages_list =
+        arrayOf("English") // don't change it manually -> it will import automatically
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,10 +72,13 @@ class SettingsFragment : Fragment() {
         var text_project_github: TextView = root.findViewById(R.id.textProjectGitHub)
         text_project_github.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sav22999/common-voice-android"))
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://github.com/Sav22999/common-voice-android")
+                )
             startActivity(browserIntent)
         }
-        text_project_github.paintFlags= Paint.UNDERLINE_TEXT_FLAG
+        text_project_github.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         var text_donate_paypal: TextView = root.findViewById(R.id.textDonatePayPal)
         text_donate_paypal.setOnClickListener {
@@ -81,7 +86,7 @@ class SettingsFragment : Fragment() {
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/saveriomorelli"))
             startActivity(browserIntent)
         }
-        text_donate_paypal.paintFlags= Paint.UNDERLINE_TEXT_FLAG
+        text_donate_paypal.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         var btn_open_tutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btn_open_tutorial.setOnClickListener {
