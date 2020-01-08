@@ -99,6 +99,8 @@ class SettingsFragment : Fragment() {
         var txt_developed_by: TextView = root.findViewById(R.id.textDevelopedBy)
         txt_developed_by.text = getString(R.string.txt_developed_by)
 
+        main.checkConnection()
+
         return root
     }
 }

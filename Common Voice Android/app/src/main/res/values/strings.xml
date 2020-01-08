@@ -100,4 +100,7 @@
     <string name="txt_sending_validation">Sending the validation ...</string>
     <string name="txt_error_3_sending_validation_failed">Error during the sending of the validation. Try again or press {{*{{skip_button}}*}} button</string>
     <string name="txt_closing">Closing ...</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection">Check again</string>
+    <string name="txt_noconnection">Internet connection isn\'t available now. Please, connect to WiFi network or mobile data and then press on the button below</string>
 </resources>

@@ -149,6 +149,8 @@ class DashboardFragment : Fragment() {
                 override fun onTabReselected(tab: TabLayout.Tab?) {
                 }
             })
+
+            main.checkConnection()
         } catch (e: Exception) {
             //println("Error: " + e.toString())
         }

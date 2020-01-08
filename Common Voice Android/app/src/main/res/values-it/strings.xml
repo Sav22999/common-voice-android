@@ -80,4 +80,7 @@
     <string name="txt_sending_validation">Invio della convalida in corso ...</string>
     <string name="txt_error_3_sending_validation_failed">Errore durante l\'invio della convalida. Riprovare, altrimenti premere sul bottone {{*{{skip_button}}*}}</string>
     <string name="txt_closing">Chiusura in corso ...</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection">Verifica nuovamente</string>
+    <string name="txt_noconnection">Al momento non è disponibile alcuna connessione Internet. Connettersi a una rete WiFi o alla connessione dati dello smartphone, poi premere sul bottone seguente</string>
 </resources>
