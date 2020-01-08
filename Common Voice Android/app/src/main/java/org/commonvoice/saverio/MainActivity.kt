@@ -25,6 +25,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val translations_languages: Array<String> = arrayOf("en", "it", "sv") //change manually
+
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
@@ -471,12 +473,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setLanguageUI() {
+        var lang = selectedLanguageVar.split("-")[0]
         var restart = false
-        if (getString(R.string.language) != selectedLanguageVar) {
+        if (getString(R.string.language) != selectedLanguageVar && translations_languages.indexOf(lang) != -1) {
             restart = true
         }
+        else if (translations_languages.indexOf(lang) == -1 && getString(R.string.language) != "en") {
+            restart = true
+            lang = "en"
+        }
         println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
-        var lang = selectedLanguageVar.split("-")[0]
+        println("-->index: " + translations_languages.indexOf(lang))
         var locale: Locale = Locale(lang)
         Locale.setDefault(locale)
         var res: Resources = resources

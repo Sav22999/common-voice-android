@@ -27,12 +27,11 @@ _<u>**lang** is the short-name of your languages (e.g. Italian: it, English: en,
 
 #### To do:
 
-- **PRIORITY**: Create POST request to send the recording (Now it saves the audio on device, but I don’t know how to send the audio file to CV server)
-- **PRIORITY**: Statistics "You” for Today (I don’t know how to get these information)
+- **PRIORITY**: Create POST request to send the recording (Now it saves the audio on device, but I don’t know how to send the audio file to CV server) -> to do tests use voice.allizom.org instead of the main server.
+- **PRIORITY**: Statistics "You” for “Today” (I don’t know how to get these information)
 - Improve the loading of sentences/clips (download 5s per time, and when you are at the "4th” automatically download others)
 - _IN PROGRESS_: Tutorial first-run for Listen and Speak section (just the first time you launch them)
-- Change manually the UI language, when change from Settings/Tutorial
-- Add option in Settings (toggle on/off) to play automatically the new clip after validation/skip in Listen section
+- Add option in Settings (switch on/off) to play automatically the new clip after validation/skip (so after loading) in Listen section
 
 ### Screenshots
 
