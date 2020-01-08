@@ -34,6 +34,8 @@ class ListenActivity : AppCompatActivity() {
     private val LANGUAGE_NAME = "LANGUAGE"
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
+    private val FIRST_RUN_LISTEN = "FIRST_RUN_LISTEN"
+
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
@@ -56,6 +58,17 @@ class ListenActivity : AppCompatActivity() {
 
         checkPermissions()
         checkConnection()
+
+        var firstRun: Boolean = true
+        val sharedPrefFirstRun: SharedPreferences =
+            getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE)
+        firstRun = sharedPrefFirstRun.getBoolean(FIRST_RUN_LISTEN, true)
+        if (firstRun) {
+            val intent = Intent(this, FirstRunListen::class.java).also {
+                startActivity(it)
+                finish()
+            }
+        }
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")

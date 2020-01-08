@@ -28,7 +28,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val translations_languages: Array<String> = arrayOf("en", "it", "sv") //change manually
+    private val translations_languages: Array<String> = arrayOf("en", "it", "sv", "fr") //change manually
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         checkConnection()
 
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
+    this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)

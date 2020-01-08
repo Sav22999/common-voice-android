@@ -83,4 +83,21 @@
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Verifica nuovamente</string>
     <string name="txt_noconnection">Al momento non è disponibile alcuna connessione Internet. Connettersi a una rete WiFi o alla connessione dati dello smartphone, poi premere sul bottone seguente</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak">Questa è la frase che devi registrare.</string>
+    <string name="txt2_tutorial_speak_and_listen">Qui puoi trovare frasi che ti guidano in ogni momento.</string>
+    <string name="txt3_tutorial_speak">Se non ti piace la frase, puoi premere su questo bottone per saltarla e caricarne una nuova.</string>
+    <string name="txt4_tutorial_speak">Premi su questa icona per iniziare la registrazione.</string>
+    <string name="txt5_tutorial_speak">Premi su questa icona per fermare la registrazione.</string>
+    <string name="txt6_tutorial_speak">Premi su questa icona per ascoltare la registrazione.</string>
+    <string name="txt7_tutorial_speak">Premi su questa icona per registrae nuovamente la frase, nel caso ci fossero degli errori nella precedente.</string>
+    <string name="txt8_tutorial_speak">Premi su questa icona per ascoltare nuovamente la registrazione.</string>
+    <string name="txt9_tutorial_speak">Premi su questo bottone per inviare la registrazione.</string>
+    <string name="txt1_tutorial_listen">Questa è la frase che devi validare.</string>
+    <string name="txt3_tutorial_listen">Se non ti piace la frase, puoi premere su questo bottone per saltarna e caricarne una nuova.</string>
+    <string name="txt4_tutorial_listen">Premi su questa icona per iniziare ad ascoltare la registrazione da validare.</string>
+    <string name="txt5_tutorial_listen">Premi su questa icona per fermare la riproduzione della registrazione.</string>
+    <string name="txt6_tutorial_listen">Premi su qeusta icona se vuoi ascoltare nuovamente la registrazione.</string>
+    <string name="txt7_tutorial_listen">Premi su questa icona se la registrazione coincide con la frase, quindi per accettarla.</string>
+    <string name="txt8_tutorial_listen">Premi su questa icona se la registrazione non coincide con la frase, quindi per rifiutarla.</string>
 </resources>
