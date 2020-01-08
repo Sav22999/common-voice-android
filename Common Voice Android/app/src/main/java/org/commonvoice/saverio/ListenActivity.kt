@@ -1,9 +1,12 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.webkit.WebView
 import android.widget.Button
@@ -31,6 +34,8 @@ class ListenActivity : AppCompatActivity() {
     private val LANGUAGE_NAME = "LANGUAGE"
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
+    private val FIRST_RUN_LISTEN = "FIRST_RUN_LISTEN"
+
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
@@ -52,6 +57,18 @@ class ListenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_listen)
 
         checkPermissions()
+        checkConnection()
+
+        var firstRun: Boolean = true
+        val sharedPrefFirstRun: SharedPreferences =
+            getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE)
+        firstRun = sharedPrefFirstRun.getBoolean(FIRST_RUN_LISTEN, true)
+        if (firstRun) {
+            val intent = Intent(this, FirstRunListen::class.java).also {
+                startActivity(it)
+                finish()
+            }
+        }
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
@@ -88,6 +105,8 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun API_request() {
+        checkConnection()
+
         StopListening()
         var sentence: TextView = this.findViewById(R.id.textListenSentence)
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
@@ -197,6 +216,7 @@ class ListenActivity : AppCompatActivity() {
             "{{*{{skip_button}}*}}",
             skipText.text.toString()
         )
+        skipText.isEnabled = true
     }
 
     override fun onBackPressed() {
@@ -418,6 +438,37 @@ class ListenActivity : AppCompatActivity() {
                     checkPermissions()
                 }
             }
+        }
+    }
+
+    fun checkConnection(): Boolean {
+        if (ListenActivity.checkInternet(this)) {
+            return true
+        } else {
+            openNoConnection()
+            return false
+        }
+    }
+
+    companion object {
+        fun checkInternet(context: Context): Boolean {
+            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = cm.activeNetworkInfo
+            if (networkInfo != null && networkInfo.isConnected) {
+                //Connection OK
+                return true
+            } else {
+                //No connection
+                return false
+            }
+
+        }
+    }
+
+    fun openNoConnection() {
+        val intent = Intent(this, NoConnectionActivity::class.java).also {
+            startActivity(it)
+            finish()
         }
     }
 }

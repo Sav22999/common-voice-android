@@ -1,15 +1,20 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.content.res.Resources
+import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -22,6 +27,8 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
+
+    private val translations_languages: Array<String> = arrayOf("en", "it", "sv", "fr") //change manually
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
@@ -72,8 +79,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        checkConnection()
+
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
+    this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
@@ -81,6 +90,8 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
+
+        setLanguageUI()
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
         this.logged = sharedPref3.getBoolean(LOGGED_IN_NAME, false)
@@ -351,6 +362,9 @@ class MainActivity : AppCompatActivity() {
                 setSavedVoicesOnline("voicesNow", "?")
                 setSavedVoicesOnline("voicesBefore", "?")
             }
+
+            setLanguageUI()
+
         } catch (e: Exception) {
             //println("Error: " + e.toString())
         }
@@ -460,6 +474,67 @@ class MainActivity : AppCompatActivity() {
                     checkPermissions()
                 }
             }
+        }
+    }
+
+    fun setLanguageUI() {
+        var lang = selectedLanguageVar.split("-")[0]
+        var restart = false
+        if (getString(R.string.language) != selectedLanguageVar && translations_languages.indexOf(
+                lang
+            ) != -1
+        ) {
+            restart = true
+        } else if (translations_languages.indexOf(lang) == -1 && getString(R.string.language) != "en") {
+            restart = true
+            lang = "en"
+        }
+        println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
+        println("-->index: " + translations_languages.indexOf(lang))
+        var locale: Locale = Locale(lang)
+        Locale.setDefault(locale)
+        var res: Resources = resources
+        var config: Configuration = res.configuration
+        config.setLocale(locale)
+        res.updateConfiguration(config, res.displayMetrics)
+        //createConfigurationContext(config)
+
+        if (restart) {
+            val intent = Intent(this, MainActivity::class.java).also {
+                startActivity(it)
+
+                finish()
+            }
+        }
+    }
+
+    fun checkConnection(): Boolean {
+        if (MainActivity.checkInternet(this)) {
+            return true
+        } else {
+            openNoConnection()
+            return false
+        }
+    }
+
+    companion object {
+        fun checkInternet(context: Context): Boolean {
+            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = cm.activeNetworkInfo
+            if (networkInfo != null && networkInfo.isConnected) {
+                //Connection OK
+                return true
+            } else {
+                //No connection
+                return false
+            }
+
+        }
+    }
+
+    fun openNoConnection() {
+        val intent = Intent(this, NoConnectionActivity::class.java).also {
+            startActivity(it)
         }
     }
 }

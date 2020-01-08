@@ -1,10 +1,12 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.webkit.CookieManager
 import android.webkit.WebView
@@ -20,6 +22,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.json.JSONObject
 
@@ -43,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         checkPermissions()
+        checkConnection()
 
         var btnLoginSignUp: Button = findViewById(R.id.btnLogout)
         btnLoginSignUp.setOnClickListener {
@@ -266,11 +270,15 @@ class LoginActivity : AppCompatActivity() {
     fun error2() {
         //error while getting the username
         this.userName = ""
-        openMainAfterLogin()
+        //openMainAfterLogin()
+        this.textProfileEmail.setText("?")
+        this.textProfileUsername.setText("?")
+        this.textProfileAge.setText("?")
+        this.textProfileGender.setText("?")
     }
 
     fun getAgeString(age: String): String {
-        var value: String = when(age) {
+        var value: String = when (age) {
             "teens" -> "< 19"
             "twenties" -> "19-29"
             "thirties" -> "30-39"
@@ -286,7 +294,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun getGenderString(gender: String): String {
-        var value: String = when(gender) {
+        var value: String = when (gender) {
             "male" -> getString(R.string.txt_gender_male)
             "female" -> getString(R.string.txt_gender_female)
             "other" -> getString(R.string.txt_gender_other)
@@ -347,6 +355,39 @@ class LoginActivity : AppCompatActivity() {
                     checkPermissions()
                 }
             }
+        }
+    }
+
+    fun checkConnection(): Boolean {
+        if (LoginActivity.checkInternet(this))
+        {
+            return true
+        } else {
+            openNoConnection()
+            return false
+        }
+    }
+
+    companion object {
+        fun checkInternet(context: Context):Boolean {
+            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = cm.activeNetworkInfo
+            if (networkInfo != null && networkInfo.isConnected) {
+                //Connection OK
+                return true
+            }
+            else {
+                //No connection
+                return false
+            }
+
+        }
+    }
+
+    fun openNoConnection() {
+        val intent = Intent(this, NoConnectionActivity::class.java).also {
+            startActivity(it)
+            openMainAfterLogin()
         }
     }
 }

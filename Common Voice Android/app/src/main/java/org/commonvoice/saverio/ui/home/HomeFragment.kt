@@ -59,6 +59,8 @@ class HomeFragment : Fragment() {
             }
         }
 
+        main.checkConnection()
+
         return root
     }
 }
