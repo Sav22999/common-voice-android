@@ -197,6 +197,7 @@ class ListenActivity : AppCompatActivity() {
             "{{*{{skip_button}}*}}",
             skipText.text.toString()
         )
+        skipText.isEnabled = true
     }
 
     override fun onBackPressed() {
