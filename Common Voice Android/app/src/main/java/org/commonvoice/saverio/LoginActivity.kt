@@ -307,42 +307,25 @@ class LoginActivity : AppCompatActivity() {
 
     fun checkPermissions() {
         try {
-            checkRecordVoicePermission()
-        } catch (e: java.lang.Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-        try {
+            val PERMISSIONS = arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.RECORD_AUDIO
+            )
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                == PackageManager.PERMISSION_GRANTED
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                != PackageManager.PERMISSION_GRANTED
             ) {
-                checkStoragePermission()
+                ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS,
+                    RECORD_REQUEST_CODE
+                )
             }
-        } catch (e: java.lang.Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-    }
-
-    fun checkRecordVoicePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.INTERNET),
-                RECORD_REQUEST_CODE
-            )
-        }
-    }
-
-    fun checkStoragePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
+        } catch (e: Exception) {
+            //
         }
     }
 

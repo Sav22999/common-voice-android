@@ -28,6 +28,7 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
@@ -51,7 +52,7 @@ class SpeakActivity : AppCompatActivity() {
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
     var tempUrl: String =
-        "https://voice.allizom.org/api/v1/{{*{{lang}}*}}/" //TEST API url
+        "http://52.169.248.132:9000/api/v1/{{*{{lang}}*}}/" //TEST API url
 
     val urlWithoutLang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
@@ -87,7 +88,6 @@ class SpeakActivity : AppCompatActivity() {
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selectedLanguage = sharedPref2.getString(LANGUAGE_NAME, "en")
         this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguage)
-
 
         var skipButton: Button = this.findViewById(R.id.btn_skip_speak)
         skipButton.setOnClickListener {
@@ -199,7 +199,7 @@ class SpeakActivity : AppCompatActivity() {
                     } else {
                         headers.put(
                             "Authorization",
-                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                            "Basic OWNlYzFlZTgtZGZmYS00YWU1LWI3M2MtYjg3NjM1OThjYmVjOjAxOTdmODU2NjhlMDQ3NTlhOWUxNzZkM2Q2MDdkOTEzNDE3ZGZkMjA="
                         )
                     }
                     return headers
@@ -422,7 +422,7 @@ class SpeakActivity : AppCompatActivity() {
         } else {
             println("output: " + output)
             //encoded = Files.readAllBytes(Paths.get(this.output!!))
-            encoded = getFileBytes(this, output!!)
+            encoded = Files.readAllBytes(Paths.get(this.output!!))
 
             val byteArray = output?.let { it.toByteArray() }
 
@@ -453,7 +453,7 @@ class SpeakActivity : AppCompatActivity() {
         try {
             val path = "clips" //API to get sentences
             val params = JSONArray()
-            params.put(encoded2)
+            params.put(encoded)
 
             tempUrl = tempUrl.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
@@ -471,9 +471,9 @@ class SpeakActivity : AppCompatActivity() {
                     btnSkip.isEnabled = true
                 }
             ) {
-                override fun getBodyContentType(): String {
+                /*override fun getBodyContentType(): String {
                     return "application/octet-stream"//Use this function to set Content-Type for Volley
-                }
+                }*/
 
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
@@ -495,7 +495,7 @@ class SpeakActivity : AppCompatActivity() {
                             "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
                         )
                     }
-                    //headers.put("Content-Type", "application/octet-stream")
+                    headers.put("Content-Type", "application/octet-stream")
                     headers.put("sentence", encode(textSentence, "UTF-8").replace("+", "%20"))
                     headers.put("sentence_id", idSentence)
                     println(
@@ -554,42 +554,25 @@ class SpeakActivity : AppCompatActivity() {
 
     fun checkPermissions() {
         try {
-            checkRecordVoicePermission()
-        } catch (e: java.lang.Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-        try {
+            val PERMISSIONS = arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.RECORD_AUDIO
+            )
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                == PackageManager.PERMISSION_GRANTED
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                != PackageManager.PERMISSION_GRANTED
             ) {
-                checkStoragePermission()
+                ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS,
+                    RECORD_REQUEST_CODE
+                )
             }
-        } catch (e: java.lang.Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-    }
-
-    fun checkRecordVoicePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.RECORD_AUDIO),
-                RECORD_REQUEST_CODE
-            )
-        }
-    }
-
-    fun checkStoragePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
+        } catch (e: Exception) {
+            //
         }
     }
 

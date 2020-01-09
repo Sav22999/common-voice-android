@@ -8,21 +8,17 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.net.ConnectivityManager
-import android.os.Build
 import android.os.Bundle
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.lang.Exception
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.*
 
 
@@ -351,7 +347,8 @@ class MainActivity : AppCompatActivity() {
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                val sharedPref2: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
+                val sharedPref2: SharedPreferences =
+                    getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
                 val editor2 = sharedPref2.edit()
                 editor2.putBoolean(UI_LANGUAGE_CHANGED, true)
                 editor2.apply()
@@ -430,42 +427,25 @@ class MainActivity : AppCompatActivity() {
 
     fun checkPermissions() {
         try {
-            checkRecordVoicePermission()
-        } catch (e: Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-        try {
+            val PERMISSIONS = arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.RECORD_AUDIO
+            )
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                == PackageManager.PERMISSION_GRANTED
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                != PackageManager.PERMISSION_GRANTED
             ) {
-                checkStoragePermission()
+                ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS,
+                    RECORD_REQUEST_CODE
+                )
             }
         } catch (e: Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-    }
-
-    fun checkRecordVoicePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.RECORD_AUDIO),
-                RECORD_REQUEST_CODE
-            )
-        }
-    }
-
-    fun checkStoragePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
+            //
         }
     }
 
@@ -477,6 +457,8 @@ class MainActivity : AppCompatActivity() {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    checkPermissions()
+                } else {
                     checkPermissions()
                 }
             }
@@ -501,7 +483,7 @@ class MainActivity : AppCompatActivity() {
         res.updateConfiguration(config, res.displayMetrics)
         //createConfigurationContext(config)
 
-        if (restart || type=="restart") {
+        if (restart || type == "restart") {
             val intent = Intent(this, RestartActivity::class.java).also {
                 startActivity(it)
 
