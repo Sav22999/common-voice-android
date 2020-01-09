@@ -26,11 +26,12 @@ class HomeFragment : Fragment() {
             ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
+        val main = activity as MainActivity
+        main.dashboard_selected = false
+
         val btnSpeak: Button = root.findViewById(R.id.btn_speak)
         val btnListen: Button = root.findViewById(R.id.btn_listen)
         val btnLogin: Button = root.findViewById(R.id.btn_login)
-
-        val main = activity as MainActivity
 
         btnSpeak.setOnClickListener {
             main.openSpeakSection()

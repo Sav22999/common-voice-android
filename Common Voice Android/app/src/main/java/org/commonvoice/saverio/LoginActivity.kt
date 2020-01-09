@@ -77,7 +77,9 @@ class LoginActivity : AppCompatActivity() {
             //if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() || true) {
             setContentView(R.layout.fragment_webbrowser)
 
-            var txtLoading: TextView = findViewById(R.id.textLoadingPage)
+            var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
+            var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
+            var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
 
             webView = findViewById(R.id.webViewBrowser)
 
@@ -87,15 +89,15 @@ class LoginActivity : AppCompatActivity() {
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                     // Loading started
                     txtLoading.isGone = false
-                    txtLoading.isVisible = true
-                    txtLoading.text = getString(R.string.txt_loading_page)
+                    bgLoading.isGone = false
+                    imgLoading.isGone = false
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     // Loading finished
-                    var txtLoading: TextView = findViewById(R.id.textLoadingPage)
                     txtLoading.isGone = true
-                    txtLoading.isVisible = false
+                    bgLoading.isGone = true
+                    imgLoading.isGone = true
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
                     //println(" ---->> "+url+" >> "+CookieManager.getInstance().getCookie(url)+" <<---- ")

@@ -34,11 +34,13 @@ class SettingsFragment : Fragment() {
         settingsViewModel =
             ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
+
+        var main = (activity as MainActivity)
+        main.dashboard_selected = false
+
         val textLanguage: TextView = root.findViewById(R.id.text_settingsLanguage)
         textLanguage.text = getText(R.string.settingsLanguage)
         //val model = ViewModelProviders.of(activity!!).get(SettingsViewModel::class.java)
-
-        var main = (activity as MainActivity)
 
         var releaseNumber: TextView = root.findViewById(R.id.textRelease)
         releaseNumber.text = BuildConfig.VERSION_NAME

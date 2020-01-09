@@ -16,6 +16,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_commonvoice_round"
         android:supportsRtl="true"
+        android:configChanges="locale"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <!-- First start (TutorialActivity) -->
