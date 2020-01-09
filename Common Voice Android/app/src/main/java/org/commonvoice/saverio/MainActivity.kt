@@ -478,7 +478,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setLanguageUI() {
-        var lang = selectedLanguageVar.split("-")[0]
+        /*var lang = selectedLanguageVar.split("-")[0]
         var restart = false
         if (getString(R.string.language) != selectedLanguageVar && translations_languages.indexOf(
                 lang
@@ -505,7 +505,7 @@ class MainActivity : AppCompatActivity() {
 
                 finish()
             }
-        }
+        }*/
     }
 
     fun checkConnection(): Boolean {
