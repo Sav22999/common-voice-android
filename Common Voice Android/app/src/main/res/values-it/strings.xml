@@ -90,7 +90,7 @@
     <string name="txt4_tutorial_speak">Premi su questa icona per iniziare la registrazione.</string>
     <string name="txt5_tutorial_speak">Premi su questa icona per fermare la registrazione.</string>
     <string name="txt6_tutorial_speak">Premi su questa icona per ascoltare la registrazione.</string>
-    <string name="txt7_tutorial_speak">Premi su questa icona per registrae nuovamente la frase, nel caso ci fossero degli errori nella precedente.</string>
+    <string name="txt7_tutorial_speak">Premi su questa icona per registrare nuovamente la frase, nel caso ci fossero degli errori nella precedente.</string>
     <string name="txt8_tutorial_speak">Premi su questa icona per ascoltare nuovamente la registrazione.</string>
     <string name="txt9_tutorial_speak">Premi su questo bottone per inviare la registrazione.</string>
     <string name="txt1_tutorial_listen">Questa è la frase che devi validare.</string>

@@ -28,7 +28,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val translations_languages: Array<String> = arrayOf("en", "it", "sv", "fr") //change manually
+    private val translations_languages: Array<String> =
+        arrayOf("en", "it", "sv", "fr") //change manually
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         checkConnection()
 
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-    this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
+        this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
@@ -349,6 +350,11 @@ class MainActivity : AppCompatActivity() {
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
+                setLanguageUI()
+                setSavedStatistics("you", "?")
+                setSavedStatistics("everyone", "?")
+                setSavedVoicesOnline("voicesNow", "?")
+                setSavedVoicesOnline("voicesBefore", "?")
                 Toast.makeText(
                     this,
                     getString(R.string.toast_language_changed).replace(
@@ -357,13 +363,7 @@ class MainActivity : AppCompatActivity() {
                     ),
                     Toast.LENGTH_LONG
                 ).show()
-                setSavedStatistics("you", "?")
-                setSavedStatistics("everyone", "?")
-                setSavedVoicesOnline("voicesNow", "?")
-                setSavedVoicesOnline("voicesBefore", "?")
             }
-
-            setLanguageUI()
 
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -489,8 +489,8 @@ class MainActivity : AppCompatActivity() {
             restart = true
             lang = "en"
         }
-        println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
-        println("-->index: " + translations_languages.indexOf(lang))
+        //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
+        //println("-->index: " + translations_languages.indexOf(lang))
         var locale: Locale = Locale(lang)
         Locale.setDefault(locale)
         var res: Resources = resources
@@ -500,7 +500,7 @@ class MainActivity : AppCompatActivity() {
         //createConfigurationContext(config)
 
         if (restart) {
-            val intent = Intent(this, MainActivity::class.java).also {
+            val intent = Intent(this, RestartActivity::class.java).also {
                 startActivity(it)
 
                 finish()
