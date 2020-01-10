@@ -127,7 +127,7 @@ class SpeakActivity : AppCompatActivity() {
         val defaultValue = false //actually it's "true", false is hust for testing
         if (sharedPref.getBoolean(FIRST_RUN_SPEAK, defaultValue)) {
             //First-run
-            //setContentView(R.layout.first_run_speak_1)
+            //setContentView(R.layout.first_run_speak)
         } else {
             //API request
             API_request()

@@ -19,11 +19,11 @@ class RestartActivity : AppCompatActivity() {
         val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
         var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
         if (restart) {
-            Timer("StartOrRestart", false).schedule(2000) {
+            Timer("StartOrRestart", false).schedule(1000) {
                 restart()
             }
         } else {
-            Timer("StartOrRestart", false).schedule(1000) {
+            Timer("StartOrRestart", false).schedule(500) {
                 start()
             }
         }

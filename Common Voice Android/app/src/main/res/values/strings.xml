@@ -125,4 +125,6 @@
     <string name="txt6_tutorial_listen">Tap on this icon if you want to listen again the clip.</string>
     <string name="txt7_tutorial_listen">Tap on this icon if the clip coincides with the sentence, so to accept it.</string>
     <string name="txt8_tutorial_listen">Tap on this icon if the clip doesn\'t coincide with the sentence, so to reject it.</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow">So sorry, this feature isn\'t available now.\nWe\'re working constantly to improve the app.</string>
 </resources>

@@ -389,7 +389,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSpeakSection() {
-        val intent = Intent(this, SpeakActivity::class.java).also {
+        /*val intent = Intent(this, SpeakActivity::class.java).also {
+            startActivity(it)
+        }*/
+        val intent = Intent(this, NotAvailableNow::class.java).also {
             startActivity(it)
         }
     }

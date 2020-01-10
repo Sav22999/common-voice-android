@@ -17,7 +17,7 @@ class FirstRunSpeak : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.first_run_speak_1)
+        setContentView(R.layout.first_run_speak)
 
         goNext()
         var btnNext: Button = this.findViewById(R.id.btnNextSpeak)
