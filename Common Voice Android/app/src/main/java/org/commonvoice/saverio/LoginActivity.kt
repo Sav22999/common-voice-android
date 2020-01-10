@@ -77,7 +77,9 @@ class LoginActivity : AppCompatActivity() {
             //if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() || true) {
             setContentView(R.layout.fragment_webbrowser)
 
-            var txtLoading: TextView = findViewById(R.id.textLoadingPage)
+            var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
+            var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
+            var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
 
             webView = findViewById(R.id.webViewBrowser)
 
@@ -87,15 +89,15 @@ class LoginActivity : AppCompatActivity() {
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                     // Loading started
                     txtLoading.isGone = false
-                    txtLoading.isVisible = true
-                    txtLoading.text = getString(R.string.txt_loading_page)
+                    bgLoading.isGone = false
+                    imgLoading.isGone = false
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     // Loading finished
-                    var txtLoading: TextView = findViewById(R.id.textLoadingPage)
                     txtLoading.isGone = true
-                    txtLoading.isVisible = false
+                    bgLoading.isGone = true
+                    imgLoading.isGone = true
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
                     //println(" ---->> "+url+" >> "+CookieManager.getInstance().getCookie(url)+" <<---- ")
@@ -305,42 +307,25 @@ class LoginActivity : AppCompatActivity() {
 
     fun checkPermissions() {
         try {
-            checkRecordVoicePermission()
-        } catch (e: java.lang.Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-        try {
+            val PERMISSIONS = arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.RECORD_AUDIO
+            )
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                == PackageManager.PERMISSION_GRANTED
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                != PackageManager.PERMISSION_GRANTED
             ) {
-                checkStoragePermission()
+                ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS,
+                    RECORD_REQUEST_CODE
+                )
             }
-        } catch (e: java.lang.Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-    }
-
-    fun checkRecordVoicePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.INTERNET),
-                RECORD_REQUEST_CODE
-            )
-        }
-    }
-
-    fun checkStoragePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
+        } catch (e: Exception) {
+            //
         }
     }
 

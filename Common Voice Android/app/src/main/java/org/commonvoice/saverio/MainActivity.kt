@@ -8,28 +8,24 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.net.ConnectivityManager
-import android.os.Build
 import android.os.Bundle
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.lang.Exception
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private val translations_languages: Array<String> =
-        arrayOf("en", "it", "sv", "fr") //change manually
+        arrayOf("en", "sv", "it", "fr") //change manually
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
@@ -53,7 +49,9 @@ class MainActivity : AppCompatActivity() {
     private val LAST_VOICES_ONLINE_BEFORE = "LAST_VOICES_ONLINE_BEFORE"
     private val LAST_VOICES_ONLINE_NOW_VALUE = "LAST_VOICES_ONLINE_NOW_VALUE"
     private val LAST_VOICES_ONLINE_BEFORE_VALUE = "LAST_VOICES_ONLINE_BEFORE_VALUE"
+    private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
 
+    var dashboard_selected = false
 
     var languagesListShortArray =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
@@ -66,9 +64,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -85,14 +83,20 @@ class MainActivity : AppCompatActivity() {
         val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
 
-        // import languages from array
-        this.languagesListArray = resources.getStringArray(R.array.languages)
-        this.languagesListShortArray = resources.getStringArray(R.array.languages_short)
-
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
 
-        setLanguageUI()
+        if (this.firstRun) {
+            // close main and open tutorial -- first run
+            openTutorial()
+        } else {
+            setLanguageUI("start")
+            checkPermissions()
+        }
+
+        // import languages from array
+        this.languagesListArray = resources.getStringArray(R.array.languages)
+        this.languagesListShortArray = resources.getStringArray(R.array.languages_short)
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
         this.logged = sharedPref3.getBoolean(LOGGED_IN_NAME, false)
@@ -103,13 +107,6 @@ class MainActivity : AppCompatActivity() {
 
             val sharedPref5: SharedPreferences = getSharedPreferences(USER_NAME, PRIVATE_MODE)
             this.userName = sharedPref5.getString(USER_NAME, "")
-        }
-
-        if (this.firstRun) {
-            // close main and open tutorial -- first run
-            openTutorial()
-        } else {
-            checkPermissions()
         }
     }
 
@@ -350,7 +347,13 @@ class MainActivity : AppCompatActivity() {
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                setLanguageUI()
+                val sharedPref2: SharedPreferences =
+                    getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
+                val editor2 = sharedPref2.edit()
+                editor2.putBoolean(UI_LANGUAGE_CHANGED, true)
+                editor2.apply()
+
+                setLanguageUI("restart")
                 setSavedStatistics("you", "?")
                 setSavedStatistics("everyone", "?")
                 setSavedVoicesOnline("voicesNow", "?")
@@ -386,7 +389,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSpeakSection() {
-        val intent = Intent(this, SpeakActivity::class.java).also {
+        /*val intent = Intent(this, SpeakActivity::class.java).also {
+            startActivity(it)
+        }*/
+        val intent = Intent(this, NotAvailableNow::class.java).also {
             startActivity(it)
         }
     }
@@ -424,42 +430,25 @@ class MainActivity : AppCompatActivity() {
 
     fun checkPermissions() {
         try {
-            checkRecordVoicePermission()
-        } catch (e: Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-        try {
+            val PERMISSIONS = arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.RECORD_AUDIO
+            )
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                == PackageManager.PERMISSION_GRANTED
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+                != PackageManager.PERMISSION_GRANTED
             ) {
-                checkStoragePermission()
+                ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS,
+                    RECORD_REQUEST_CODE
+                )
             }
         } catch (e: Exception) {
-            //println(" -->> Exception: " + e.toString())
-        }
-    }
-
-    fun checkRecordVoicePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.RECORD_AUDIO),
-                RECORD_REQUEST_CODE
-            )
-        }
-    }
-
-    fun checkStoragePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
+            //
         }
     }
 
@@ -472,21 +461,19 @@ class MainActivity : AppCompatActivity() {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     checkPermissions()
+                } else {
+                    checkPermissions()
                 }
             }
         }
     }
 
-    fun setLanguageUI() {
-        /*var lang = selectedLanguageVar.split("-")[0]
-        var restart = false
-        if (getString(R.string.language) != selectedLanguageVar && translations_languages.indexOf(
-                lang
-            ) != -1
-        ) {
-            restart = true
-        } else if (translations_languages.indexOf(lang) == -1 && getString(R.string.language) != "en") {
-            restart = true
+    fun setLanguageUI(type: String) {
+        val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
+        var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
+
+        var lang = selectedLanguageVar.split("-")[0]
+        if (translations_languages.indexOf(lang) == -1) {
             lang = "en"
         }
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
@@ -499,13 +486,19 @@ class MainActivity : AppCompatActivity() {
         res.updateConfiguration(config, res.displayMetrics)
         //createConfigurationContext(config)
 
-        if (restart) {
+        if (restart || type == "restart") {
             val intent = Intent(this, RestartActivity::class.java).also {
                 startActivity(it)
 
                 finish()
             }
-        }*/
+        } else {
+            if (type == "start") {
+                val intent = Intent(this, RestartActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+        }
     }
 
     fun checkConnection(): Boolean {

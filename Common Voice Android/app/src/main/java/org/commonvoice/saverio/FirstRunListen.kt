@@ -17,7 +17,7 @@ class FirstRunListen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.first_run_listen_1)
+        setContentView(R.layout.first_run_listen)
 
         goNext()
         var btnNext: Button = this.findViewById(R.id.btnNextListen)

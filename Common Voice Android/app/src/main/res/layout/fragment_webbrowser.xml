@@ -17,22 +17,49 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+        tools:visibility="visible"/>
 
-    </WebView>
-
-    <TextView
-        android:id="@+id/textLoadingPage"
+    <ImageView
+        android:id="@+id/imgBackgroundWebBrowser"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBlack"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Loading ..."
-        android:textColor="@color/colorWhite"
-        android:textSize="30dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorPrimary"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/imgRobotWebBrowser"
+        android:layout_width="270dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="50dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/robot"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtLoadingWebBrowser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/zillaslab"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/txt_loading_page"
+        android:textColor="@color/colorWhite"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgRobotWebBrowser"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
