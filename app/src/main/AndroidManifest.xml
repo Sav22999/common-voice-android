@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.commonvoice.saverio">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_commonvoice"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_commonvoice_round"
+        android:supportsRtl="true"
+        android:configChanges="locale"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <!-- First start (TutorialActivity) -->
+        <activity
+            android:name=".TutorialActivity"
+            android:theme="@style/AppTheme.FullScreen"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- The actual app (MainActivity) -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- SpeakActivity -->
+        <activity
+            android:name=".SpeakActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- ListenActivity -->
+        <activity
+            android:name=".ListenActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- LoginActivity -->
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- NoConnectionActivity -->
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".NoConnectionActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- FirstRunListen -->
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".FirstRunListen"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- FirstRunSpeak -->
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".FirstRunSpeak"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Restart -->
+        <activity
+            android:name=".RestartActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- NotAvailableNow -->
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".NotAvailableNow"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name" >
+        </activity>
+    </application>
+
+</manifest>
