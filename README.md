@@ -1,12 +1,12 @@
 
 
-# <img src="images/icon.png" style="width:50px;"></img> Common Voice Android
+#  <img src="images/icon.png" width="40px" alt=""></img> Common Voice 
 
 This is not the official app of the project Common Voice by Mozilla. This app is developed by Saverio Morelli, via Android Studio, because of there isn’t an official app for Android.
 
 If you have any questions, please open an issue.
 
-[<img src="images/googlePlayBadge.png" style="width:200px;"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio) [<img src="images/aptoideBadge.png" style="height:50px;"></img>](https://common-voice-android.en.aptoide.com/?store_name=sav22999&app_id=49778274)
+[<img src="images/googlePlayBadge.png" width="200px"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio) [<img src="images/aptoideBadge.png" height="50px"></img>](https://common-voice-android.en.aptoide.com/?store_name=sav22999&app_id=49778274)
 
 You can contact me also on Telegram, with the username `@Sav22999`.
 
@@ -28,7 +28,7 @@ You can contribute also to translate the app:
 
 ### Screenshots
 
-<img src="fastline/metadata/android/en-US/images/phoneScreenshots/1.png" style="width:200px;"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/2.png" style="width:200px;"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/3.png" style="width:200px;"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/4.png" style="width:200px;"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/5.png" style="width:200px;"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/6.png" style="width:200px;"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/7.png" style="width:200px;"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/8.png" style="width:200px;"></img>
+<img src="fastline/metadata/android/en-US/images/phoneScreenshots/1.png" width="200px"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/2.png" width="200px"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/3.png" width="200px"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/4.png" width="200px"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/5.png" width="200px"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/6.png" width="200px"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/7.png" width="200px"></img><img src="fastline/metadata/android/en-US/images/phoneScreenshots/8.png" width="200px"></img>
 
 If you want screenshots of the other versions, go to the `screenshots` folder.
 
@@ -49,4 +49,4 @@ The app is officially translated in these following languages, **thank you very 
 
 The license of *Common Voice Android* is GPLv3.
 
-<img src="images/gplv3.png" style="width:100px;"></img>
+<img src="images/gpl.png" width="100px"></img>
