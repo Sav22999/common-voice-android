@@ -1,1 +1,5 @@
 - Beta release published
+- New icon for the project
+- Added Animations in SplashScreen, First-run Speak and Listen, WebBrowser loading and Home (Speak and Listen buttons)
+- Now it's available Landscape mode (note: The app is thought to work correctly especially in portrait mode)
+- Fixed minor bugs
