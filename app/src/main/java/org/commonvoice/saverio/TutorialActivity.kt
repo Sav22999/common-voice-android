@@ -54,23 +54,26 @@ class TutorialActivity : AppCompatActivity() {
         this.btn_next.setOnClickListener {
             tutorialStart()
         }
+        tutorialStart()
     }
 
     fun tutorialStart() {
         if (this.status == 0) {
-            // start
-            tutorialStart1()
+            // first screen
+            tutorialStart0()
         } else if (this.status == 1) {
-            // ask microphone permission
-            tutorialStart2()
+            microphonePermission()
         } else if (this.status == 2) {
-            askStoragePermission()
+            // ask microphone permission
+            askMicrophonePermission()
         } else if (this.status == 3) {
-            // ask storage permission
-            tutorialStart3()
+            storagePermission()
         } else if (this.status == 4) {
-            tutorialStart4()
+            // ask storage permission
+            askStoragePermission()
         } else if (this.status == 5) {
+            tutorialStart4()
+        } else if (this.status == 6) {
             // close tutorial and open main
             val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
             var editor = sharedPref.edit()
@@ -84,7 +87,11 @@ class TutorialActivity : AppCompatActivity() {
         }
     }
 
-    fun tutorialStart1() {
+    fun tutorialStart0() {
+        this.status = 1
+    }
+
+    fun microphonePermission() {
         this.textTutorialMessage.isVisible = false
         this.textTutorialMessage.text = ""
         this.seekBar.progress = 1
@@ -97,11 +104,11 @@ class TutorialActivity : AppCompatActivity() {
         } else {
             this.btn_next.text = getString(R.string.btn_tutorial3) // next
         }
-        this.status = 1
+        this.status = 2
         //println(" -->> tutorialStart1")
     }
 
-    fun tutorialStart2() {
+    fun askMicrophonePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -111,7 +118,7 @@ class TutorialActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         } else {
-            askStoragePermission()
+            storagePermission()
         }
         //println(" -->> tutorialStart2")
     }
@@ -130,16 +137,16 @@ class TutorialActivity : AppCompatActivity() {
         this.textTutorialMessage.text = "Permission successful"
         //Toast.makeText(this,"Permission successful",Toast.LENGTH_SHORT).show()
         this.btn_next.text = getString(R.string.btn_tutorial3) // next
-        if (this.status == 1) {
+        if (this.status == 2) {
             //microphone permission
-            this.status = 2
-        } else if (this.status == 3) {
+            this.status = 3
+        } else if (this.status == 4) {
             //storage permission
-            this.status = 4
+            this.status = 5
         }
     }
 
-    fun askStoragePermission() {
+    fun storagePermission() {
         this.textTutorialMessage.isVisible = false
         this.textTutorialMessage.text = ""
         this.textView_tutorial.text = getString(R.string.tutorial_text3)
@@ -151,11 +158,11 @@ class TutorialActivity : AppCompatActivity() {
         } else {
             this.btn_next.text = getString(R.string.btn_tutorial3) // next
         }
-        this.status = 3
+        this.status = 4
         //println(" -->> askStoragePermission")
     }
 
-    fun tutorialStart3() {
+    fun askStoragePermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -194,7 +201,7 @@ class TutorialActivity : AppCompatActivity() {
                 id: Long
             ) {
                 setLanguage(languages_list_short.get(position))
-                status = 5
+                status = 6
             }
         }
         languages.setSelection(languages_list_short.indexOf(getString(R.string.language)))

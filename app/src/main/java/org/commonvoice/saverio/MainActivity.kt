@@ -9,7 +9,10 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -529,5 +532,15 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, NoConnectionActivity::class.java).also {
             startActivity(it)
         }
+    }
+
+    fun startAnimation(img: Button) {
+        var animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_out)
+        img.startAnimation(animation)
+    }
+
+    fun stopAnimation(img: Button) {
+        img.clearAnimation()
     }
 }

@@ -62,6 +62,9 @@ class HomeFragment : Fragment() {
 
         main.checkConnection()
 
+        main.startAnimation(btnSpeak)
+        main.startAnimation(btnListen)
+
         return root
     }
 }

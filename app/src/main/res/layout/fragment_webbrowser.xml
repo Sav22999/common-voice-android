@@ -34,10 +34,10 @@
     <ImageView
         android:id="@+id/imgRobotWebBrowser"
         android:layout_width="270dp"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="100dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,21 +48,23 @@
 
     <TextView
         android:id="@+id/txtLoadingWebBrowser"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/zillaslab"
         android:gravity="center|center_horizontal|center_vertical"
+        android:padding="8dp"
         android:text="@string/txt_loading_page"
         android:textColor="@color/colorWhite"
         android:textSize="30dp"
         android:textStyle="bold"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/webViewBrowser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgRobotWebBrowser"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

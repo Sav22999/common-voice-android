@@ -319,9 +319,11 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabDashboard"
-            android:layout_width="409dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/colorSelected"
@@ -329,8 +331,7 @@
             app:tabIndicatorHeight="3dp"
             app:tabRippleColor="#FFAAAA"
             app:tabSelectedTextColor="@color/colorSelected"
-            app:tabTextColor="@color/colorPrimaryDark"
-            tools:layout_editor_absoluteX="1dp">
+            app:tabTextColor="@color/colorPrimaryDark">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tabDashboardYou"

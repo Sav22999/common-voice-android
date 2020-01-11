@@ -3,6 +3,8 @@ package org.commonvoice.saverio
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -71,14 +73,17 @@ class FirstRunSpeak : AppCompatActivity() {
             txtNumberBottom.isGone = false
             txtTextBottom.isGone = false
             txtOne.isGone = false
+            startAnimation(txtOne)
         } else if (this.status == 1) {
             this.status = 2
             btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberBottom.setText("2")
-            txtTextBottom.setText(getString(R.string.txt2_tutorial_speak_and_listen))
-            txtNumberBottom.isGone = false
-            txtTextBottom.isGone = false
+            txtNumberTop.setText("2")
+            txtTextTop.setText(getString(R.string.txt2_tutorial_speak_and_listen))
+            txtNumberTop.isGone = false
+            txtTextTop.isGone = false
             txtTwo.isGone = false
+            stopAnimation(txtOne)
+            startAnimation(txtTwo)
         } else if (this.status == 2) {
             this.status = 3
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -87,6 +92,8 @@ class FirstRunSpeak : AppCompatActivity() {
             txtNumberTop.isGone = false
             txtTextTop.isGone = false
             txtThree.isGone = false
+            stopAnimation(txtTwo)
+            startAnimation(txtThree)
         } else if (this.status == 3) {
             this.status = 4
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -96,6 +103,8 @@ class FirstRunSpeak : AppCompatActivity() {
             txtTextTop.isGone = false
             txtFour.isGone = false
             txtFour.setText("4")
+            stopAnimation(txtThree)
+            startAnimation(txtFour)
         } else if (this.status == 4) {
             this.status = 5
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -106,6 +115,8 @@ class FirstRunSpeak : AppCompatActivity() {
             txtFour.isGone = false
             txtFour.setText("5")
             btnRecord.setImageResource(R.drawable.stop_cv)
+            stopAnimation(txtFour)
+            startAnimation(txtFour)
         } else if (this.status == 5) {
             this.status = 6
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -116,6 +127,8 @@ class FirstRunSpeak : AppCompatActivity() {
             txtFour.isGone = false
             txtFour.setText("6")
             btnRecord.setImageResource(R.drawable.listen2_cv)
+            stopAnimation(txtFour)
+            startAnimation(txtFour)
         } else if (this.status == 6) {
             this.status = 7
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -129,6 +142,8 @@ class FirstRunSpeak : AppCompatActivity() {
             btnSend.isGone = false
             txtSend.isGone = false
             btnRecord.setImageResource(R.drawable.speak2_cv)
+            stopAnimation(txtFour)
+            startAnimation(txtFour)
         } else if (this.status == 7) {
             this.status = 8
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -141,6 +156,8 @@ class FirstRunSpeak : AppCompatActivity() {
             btnSend.isGone = false
             txtSend.isGone = false
             btnRecord.setImageResource(R.drawable.speak2_cv)
+            stopAnimation(txtFour)
+            startAnimation(txtEight)
         } else if (this.status == 8) {
             this.status = 9
             btnNext.setText(getString(R.string.btn_tutorial5))
@@ -153,6 +170,8 @@ class FirstRunSpeak : AppCompatActivity() {
             btnRecord.setImageResource(R.drawable.speak2_cv)
             btnSend.isGone = false
             txtSend.isGone = false
+            stopAnimation(txtEight)
+            startAnimation(txtNine)
         } else if (this.status == 9) {
             val sharedPref: SharedPreferences = getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE)
             var editor = sharedPref.edit()
@@ -164,5 +183,15 @@ class FirstRunSpeak : AppCompatActivity() {
             }
             finish()
         }
+    }
+
+    fun startAnimation(img: Button) {
+        var animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+        img.startAnimation(animation)
+    }
+
+    fun stopAnimation(img: Button) {
+        img.clearAnimation()
     }
 }

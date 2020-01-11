@@ -3,6 +3,10 @@ package org.commonvoice.saverio
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import kotlin.concurrent.schedule
@@ -16,14 +20,19 @@ class RestartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restart)
 
+        val img: ImageView = this.findViewById(R.id.imgIconStart)
+        val animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.start)
+        img.startAnimation(animation)
+
         val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
         var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
         if (restart) {
-            Timer("StartOrRestart", false).schedule(1000) {
+            Timer("Restart", false).schedule(1000) {
                 restart()
             }
         } else {
-            Timer("StartOrRestart", false).schedule(500) {
+            Timer("Start", false).schedule(500) {
                 start()
             }
         }

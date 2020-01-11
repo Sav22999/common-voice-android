@@ -8,6 +8,9 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -16,14 +19,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.json.JSONObject
 
 
@@ -91,6 +92,7 @@ class LoginActivity : AppCompatActivity() {
                     txtLoading.isGone = false
                     bgLoading.isGone = false
                     imgLoading.isGone = false
+                    startAnimation(imgLoading)
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
@@ -98,6 +100,7 @@ class LoginActivity : AppCompatActivity() {
                     txtLoading.isGone = true
                     bgLoading.isGone = true
                     imgLoading.isGone = true
+                    stopAnimation(imgLoading)
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
                     //println(" ---->> "+url+" >> "+CookieManager.getInstance().getCookie(url)+" <<---- ")
@@ -180,6 +183,15 @@ class LoginActivity : AppCompatActivity() {
             startActivity(it)
         }
         finish()
+    }
+
+    fun doAnimation() {
+        val img = findViewById<View>(R.id.imgRobotWebBrowser) as ImageView
+
+        val aniSlide: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+        img.startAnimation(aniSlide)
+
     }
 
     fun loadUserData(type: String) {
@@ -374,5 +386,15 @@ class LoginActivity : AppCompatActivity() {
             startActivity(it)
             openMainAfterLogin()
         }
+    }
+
+    fun startAnimation(img: ImageView) {
+        var animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.login)
+        img.startAnimation(animation)
+    }
+
+    fun stopAnimation(img: ImageView) {
+        img.clearAnimation()
     }
 }
