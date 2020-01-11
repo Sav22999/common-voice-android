@@ -4,6 +4,8 @@ This is not the official app of the project Common Voice by Mozilla. This app is
 
 If you have any questions, please open an issue.
 
+You can download the app from [Google Play Store](https://play.google.com/store/apps/details?id=org.commonvoice.saverio&hl=it)
+
 ### How contribute
 
 If you want to help to develop this app, you can open an “Issue” an send feedback about the features or bugs. In the “Screenshots” folder there are update screenshots of the app status and in the “Screenshots”>“0.0.0a (Draft)” you can find the original (initial) idea about the app.
