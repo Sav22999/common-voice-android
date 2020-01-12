@@ -81,11 +81,12 @@
     <string name="txt_clip_again">Premi l\'icona sotto per ascoltare nuovamente l\'audio</string>
     <string name="txt_clip_validated_yes">Registrazione accettata!</string>
     <string name="txt_clip_validated_no">Registrazione declinata!</string>
-    <string name="txt_error_1_try_again_press_skip">Errore. Riprovare, quindi premere il bottone {{*{{skip_button}}*}}</string>
+    <string name="txt_error_1_try_again_tap_skip">Errore. Riprovare, quindi premere il bottone {{*{{skip_button}}*}}</string>
     <string name="txt_error_2_sending_failed">Errore durante l\'invio della registrazione, perciò non è stata inviata al server</string>
     <string name="txt_sending_validation">Invio della convalida in corso ...</string>
     <string name="txt_error_3_sending_validation_failed">Errore durante l\'invio della convalida. Riprovare, altrimenti premere sul bottone {{*{{skip_button}}*}}</string>
     <string name="txt_closing">Chiusura in corso ...</string>
+    <string name="txt_error_4_clips_no_available">Errore. Non ci sono altre registrazioni da convalidare per questa lingua.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Verifica nuovamente</string>
     <string name="txt_noconnection">Al momento non è disponibile alcuna connessione Internet. Connettersi a una rete WiFi o alla connessione dati dello smartphone, poi premere sul bottone seguente</string>

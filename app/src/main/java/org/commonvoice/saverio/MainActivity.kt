@@ -28,7 +28,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val translations_languages: Array<String> =
-        arrayOf("en", "sv", "it", "fr") //change manually
+        arrayOf("en", "eu", "fr", "it", "sv") //change manually
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
@@ -387,8 +387,8 @@ class MainActivity : AppCompatActivity() {
     fun openTutorial() {
         val intent = Intent(this, TutorialActivity::class.java).also {
             startActivity(it)
+            finish()
         }
-        finish()
     }
 
     fun openSpeakSection() {

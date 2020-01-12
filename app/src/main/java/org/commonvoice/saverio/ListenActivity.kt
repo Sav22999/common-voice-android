@@ -166,7 +166,8 @@ class ListenActivity : AppCompatActivity() {
                         btnYes.isVisible = false
                         btnNo.isVisible = false
                     } else {
-                        error1()
+                        //println(" -->> Something wrong 1: "+it.toString()+" <<-- ")
+                        error4()
                         btnSkip.isEnabled = true
 
                         btnYes.isVisible = false
@@ -212,10 +213,17 @@ class ListenActivity : AppCompatActivity() {
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         var skipText: Button = this.findViewById(R.id.btn_skip_listen)
-        msg.text = getString(R.string.txt_error_1_try_again_press_skip).replace(
+        msg.text = getString(R.string.txt_error_1_try_again_tap_skip).replace(
             "{{*{{skip_button}}*}}",
             skipText.text.toString()
         )
+        skipText.isEnabled = true
+    }
+
+    fun error4() {
+        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+        var skipText: Button = this.findViewById(R.id.btn_skip_listen)
+        msg.text = getString(R.string.txt_error_4_clips_no_available)
         skipText.isEnabled = true
     }
 
