@@ -43,9 +43,10 @@ There is already the website, which is response and mobile-friendly, but actuall
 The app is officially translated in these following languages, **thank you very much** to the contributors who translated the app.
 
 - `en` English (main language)
+- `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
 - `it` Italian -> Saverio Morelli - **[@Sav22999](https://github.com/Sav22999)**
 - `sv-SE` Swedish -> Linus Amvall - **[@klasrocket](https://github.com/klasrocket)**
-- `fr` French -> **[@PoorPocketsMcNewHold](https://github.com/PoorPocketsMcNewHold)**
+- `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**
 
 ### License
 
