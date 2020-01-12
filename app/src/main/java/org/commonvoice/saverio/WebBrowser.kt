@@ -2,19 +2,18 @@ package org.commonvoice.saverio
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
+
 
 class WebBrowser : AppCompatActivity() {
 
@@ -25,7 +24,7 @@ class WebBrowser : AppCompatActivity() {
         setContentView(R.layout.activity_webbrowser)
 
         if (checkConnection()) {
-            navigateWebBrowser()
+            navigateWebBrowser("https://voice.allizom.org/it")
         } else {
             finish()
         }
@@ -73,7 +72,7 @@ class WebBrowser : AppCompatActivity() {
         img.clearAnimation()
     }
 
-    fun navigateWebBrowser() {
+    fun navigateWebBrowser(url: String) {
         var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
         var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
         var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
@@ -99,6 +98,6 @@ class WebBrowser : AppCompatActivity() {
                 stopAnimation(imgLoading)
             }
         }
-        webView.loadUrl("https://voice.allizom.org/it")
+        webView.loadUrl(url)
     }
 }
