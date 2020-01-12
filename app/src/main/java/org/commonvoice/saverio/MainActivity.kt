@@ -543,4 +543,10 @@ class MainActivity : AppCompatActivity() {
     fun stopAnimation(img: Button) {
         img.clearAnimation()
     }
+
+    fun openWebBrowserForTest() {
+        val intent = Intent(this, WebBrowser::class.java).also {
+            startActivity(it)
+        }
+    }
 }

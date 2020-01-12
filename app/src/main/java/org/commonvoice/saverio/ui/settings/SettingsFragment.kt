@@ -11,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.BuildConfig
@@ -21,9 +22,9 @@ import org.commonvoice.saverio.R
 class SettingsFragment : Fragment() {
 
     private lateinit var settingsViewModel: SettingsViewModel
-    var languages_list_short =
+    var languagesListShort =
         arrayOf("en") // don't change it manually -> it will import automatically
-    var languages_list =
+    var languagesList =
         arrayOf("English") // don't change it manually -> it will import automatically
 
     override fun onCreateView(
@@ -46,15 +47,15 @@ class SettingsFragment : Fragment() {
         releaseNumber.text = BuildConfig.VERSION_NAME
 
         // import the languages list (short and "standard" from mainactivity)
-        this.languages_list_short = main.languagesListShortArray
-        this.languages_list = main.languagesListArray
+        this.languagesListShort = main.languagesListShortArray
+        this.languagesList = main.languagesListArray
 
         var language: Spinner = root.findViewById(R.id.languageList)
         language.adapter = main.getLanguageList()
 
-        var selected_language: String = main.getSelectedLanguage()
+        var selectedLanguage: String = main.getSelectedLanguage()
 
-        language.setSelection(languages_list_short.indexOf(selected_language))
+        language.setSelection(languagesListShort.indexOf(selectedLanguage))
 
         language.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -67,12 +68,12 @@ class SettingsFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                main.setLanguageSettings(languages_list_short.get(position))
+                main.setLanguageSettings(languagesListShort.get(position))
             }
         }
 
-        var text_project_github: TextView = root.findViewById(R.id.textProjectGitHub)
-        text_project_github.setOnClickListener {
+        var textProjectGithub: TextView = root.findViewById(R.id.textProjectGitHub)
+        textProjectGithub.setOnClickListener {
             val browserIntent =
                 Intent(
                     Intent.ACTION_VIEW,
@@ -80,26 +81,35 @@ class SettingsFragment : Fragment() {
                 )
             startActivity(browserIntent)
         }
-        text_project_github.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        textProjectGithub.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
-        var text_donate_paypal: TextView = root.findViewById(R.id.textDonatePayPal)
-        text_donate_paypal.setOnClickListener {
+        var textDonatePaypal: TextView = root.findViewById(R.id.textDonatePayPal)
+        textDonatePaypal.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/saveriomorelli"))
             startActivity(browserIntent)
         }
-        text_donate_paypal.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        textDonatePaypal.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
-        var btn_open_tutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
-        btn_open_tutorial.setOnClickListener {
+        var btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
+        btnOpenTutorial.setOnClickListener {
             main.openTutorial()
         }
 
-        var txt_contributors: TextView = root.findViewById(R.id.textContributors)
-        txt_contributors.text = getString(R.string.txt_contributors)
+        var btnWebBrowserForTest: Button = root.findViewById(R.id.buttonOpenWBTests)
+        btnWebBrowserForTest.setOnClickListener {
+            main.openWebBrowserForTest()
+        }
 
-        var txt_developed_by: TextView = root.findViewById(R.id.textDevelopedBy)
-        txt_developed_by.text = getString(R.string.txt_developed_by)
+        if (main.logged && (main.userName == "Sav22999" || main.userName == "Common Voice Android")) {
+            btnWebBrowserForTest.isGone = false
+        }
+
+        var txtContributors: TextView = root.findViewById(R.id.textContributors)
+        txtContributors.text = getString(R.string.txt_contributors)
+
+        var txtDevelopedBy: TextView = root.findViewById(R.id.textDevelopedBy)
+        txtDevelopedBy.text = getString(R.string.txt_developed_by)
 
         main.checkConnection()
 
