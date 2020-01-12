@@ -56,7 +56,18 @@ class LoginActivity : AppCompatActivity() {
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
         if (sharedPref3.getBoolean(LOGGED_IN_NAME, false) == false) {
-            openWebBrowser("login")
+            try {
+                val intent = intent
+                var url = intent.data
+                //println("Url: "+ url.toString())
+                if (url.toString().contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?")) {
+                    openWebBrowser(url.toString())
+                } else {
+                    openWebBrowser("login")
+                }
+            } catch (e: Exception) {
+                openWebBrowser("login")
+            }
         } else {
             loadUserData("profile")
         }
@@ -74,9 +85,8 @@ class LoginActivity : AppCompatActivity() {
     fun openWebBrowser(type: String) {
         //val email = findViewById<EditText>(R.id.txt_email_login).text
 
-        if (type == "login") {
-            //if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() || true) {
-            setContentView(R.layout.fragment_webbrowser)
+        if (type == "login" || (type != "login" && type != "logout" && type.contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?"))) {
+            setContentView(R.layout.activity_webbrowser)
 
             var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
             var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
@@ -144,8 +154,12 @@ class LoginActivity : AppCompatActivity() {
             }
 
             //webView.loadUrl("https://accounts.firefox.com/signup?email=" + email)
-            webView.loadUrl("https://voice.mozilla.org/login")
-            //}
+            if (type == "login") {
+                webView.loadUrl("https://voice.mozilla.org/login")
+            }
+            else {
+                webView.loadUrl(type)
+            }
         } else if (type == "logout") {
             val sharedPref: SharedPreferences =
                 getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)

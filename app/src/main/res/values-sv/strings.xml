@@ -81,13 +81,14 @@
     <string name="txt_clip_again">Tryck på ikonen nedan för att starta klippet igen</string>
     <string name="txt_clip_validated_yes">Klipp godkännt!</string>
     <string name="txt_clip_validated_no">Klipp refuserat!</string>
-    <string name="txt_error_1_try_again_press_skip">Fel- Försök igen, tryck {{*{{skip_button}}*}} knappen</string>
+    <string name="txt_error_1_try_again_tap_skip">Fel- Försök igen, tryck {{*{{skip_button}}*}} knappen</string>
     <string name="txt_error_2_sending_failed">Fel vid uppladdning av inspelningen. Ljudfilen blev inte överförd till servern</string>
     <string name="txt_sending_validation">Laddar upp valideringen ...</string>
     <string name="txt_error_3_sending_validation_failed">Fel vid uppladdninen av valideringen. Försök igen eller tryck på {{*{{skip_button}}*}} knappen</string>
     <string name="txt_closing">Avslutar ...</string>
+    <string name="txt_error_4_clips_no_available">Error. There aren\'t any other clips to validate for this language.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">Check again</string>
+    <string name="btn_check_again_noconnection">Kontrollera igen</string>
     <string name="txt_noconnection">Internet connection isn\'t available now. Please, connect to WiFi network or mobile data and then press on the button below</string>
     <!-- First-run Speak & Listen -->
     <string name="txt1_tutorial_speak">This is the sentence you must record.</string>

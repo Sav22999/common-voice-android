@@ -41,21 +41,99 @@
 
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <string-array name="languages" translatable="false">
-        <item>Deutsch</item><!-- de -->
-        <item>English</item><!-- en -->
-        <item>Español</item><!-- es -->
-        <item>Français</item><!-- fr -->
-        <item>Italiano</item><!-- it -->
-        <item>Svenska</item><!-- sv-SE -->
+        <item>Аԥсуа</item> <!-- ab -->
+        <item>العربية</item> <!-- ar -->
+        <item>Brezhoneg</item> <!-- br -->
+        <item>català</item> <!-- ca -->
+        <item>Laiholh (Hakha)</item> <!-- cnh -->
+        <item>Čeština</item> <!-- cs -->
+        <item>Чӑвашла</item> <!-- cv -->
+        <item>Cymraeg</item> <!-- cy -->
+        <item>Deutsch</item> <!-- de -->
+        <item>ދިވެހި</item> <!-- dv -->
+        <item>Ελληνικά</item> <!-- el -->
+        <item>English</item> <!-- en -->
+        <item>Esperanto</item> <!-- eo -->
+        <item>Español</item> <!-- es -->
+        <item>eesti</item> <!-- et -->
+        <item>Euskara</item> <!-- eu -->
+        <item>فارسی</item> <!-- fa -->
+        <item>Français</item> <!-- fr -->
+        <item>Frysk</item> <!-- fy-NL -->
+        <item>Gaeilge</item> <!-- ga-IE -->
+        <item>Hornjoserbšćina</item> <!-- hsb -->
+        <item>Interlingua</item> <!-- ia -->
+        <item>Bahasa Indonesia</item> <!-- id -->
+        <item>Italiano</item> <!-- it -->
+        <item>日本語</item> <!-- ja -->
+        <item>Taqbaylit</item> <!-- kab -->
+        <item>Кыргызча</item> <!-- ky -->
+        <item>Latviešu</item> <!-- lv -->
+        <item>Монгол хэл</item> <!-- mn -->
+        <item>Nederlands</item> <!-- nl -->
+        <item>Português</item> <!-- pt -->
+        <item>romontsch sursilvan</item> <!-- rm-sursilv -->
+        <item>Română</item> <!-- ro -->
+        <item>Русский</item> <!-- ru -->
+        <item>Ikinyarwanda</item> <!-- rw -->
+        <item>Саха тыла</item> <!-- sah -->
+        <item>slovenščina</item> <!-- sl -->
+        <item>Svenska</item> <!-- sv-SE -->
+        <item>தமிழ்</item> <!-- ta -->
+        <item>Türkçe</item> <!-- tr -->
+        <item>Татарча</item> <!-- tt -->
+        <item>vad̕d̕a</item> <!-- vot -->
+        <item>汉语（中国大陆）</item> <!-- zh-CN -->
+        <item>中文（香港）</item> <!-- zh-HK -->
+        <item>華語（台灣）</item> <!-- zh-TW -->
     </string-array>
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string-array name="languages_short" translatable="false">
+        <item>ab</item>
+        <item>ar</item>
+        <item>br</item>
+        <item>ca</item>
+        <item>cnh</item>
+        <item>cs</item>
+        <item>cv</item>
+        <item>cy</item>
         <item>de</item>
+        <item>dv</item>
+        <item>el</item>
         <item>en</item>
+        <item>eo</item>
         <item>es</item>
+        <item>et</item>
+        <item>eu</item>
+        <item>fa</item>
         <item>fr</item>
+        <item>fy-NL</item>
+        <item>ga-IE</item>
+        <item>hsb</item>
+        <item>ia</item>
+        <item>id</item>
         <item>it</item>
+        <item>ja</item>
+        <item>kab</item>
+        <item>ky</item>
+        <item>lv</item>
+        <item>mn</item>
+        <item>nl</item>
+        <item>pt</item>
+        <item>rm-sursilv</item>
+        <item>ro</item>
+        <item>ru</item>
+        <item>rw</item>
+        <item>sah</item>
+        <item>sl</item>
         <item>sv-SE</item>
+        <item>ta</item>
+        <item>tr</item>
+        <item>tt</item>
+        <item>vot</item>
+        <item>zh-CN</item>
+        <item>zh-HK</item>
+        <item>zh-TW</item>
     </string-array>
 
     <!-- Login -->
@@ -100,11 +178,12 @@
     <string name="txt_clip_again">Press the icon below to start the clip again</string>
     <string name="txt_clip_validated_yes">Clip accepted!</string>
     <string name="txt_clip_validated_no">Clip rejected!</string>
-    <string name="txt_error_1_try_again_press_skip">Error. Try again, so press {{*{{skip_button}}*}} button</string>
+    <string name="txt_error_1_try_again_tap_skip">Error. Try again, so tap on {{*{{skip_button}}*}} button</string>
     <string name="txt_error_2_sending_failed">Error during the sending of the recording. The audio wasn\'t sent to server</string>
     <string name="txt_sending_validation">Sending the validation ...</string>
     <string name="txt_error_3_sending_validation_failed">Error during the sending of the validation. Try again or press {{*{{skip_button}}*}} button</string>
     <string name="txt_closing">Closing ...</string>
+    <string name="txt_error_4_clips_no_available">Error. There aren\'t any other clips to validate for this language.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Check again</string>
     <string name="txt_noconnection">Internet connection isn\'t available now. Please, connect to WiFi network or mobile data and then press on the button below</string>

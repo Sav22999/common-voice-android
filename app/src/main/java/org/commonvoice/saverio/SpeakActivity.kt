@@ -178,6 +178,7 @@ class SpeakActivity : AppCompatActivity() {
                         btnRecord.isEnabled = true
                         msg.text = getString(R.string.txt_press_icon_below_speak_1)
                     } else {
+                        //println(" -->> Something wrong: "+it.toString()+" <<-- ")
                         error1()
                     }
                     btnSkip.isEnabled = true
@@ -220,11 +221,10 @@ class SpeakActivity : AppCompatActivity() {
     fun error1() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         var skipText: Button = this.findViewById(R.id.btn_skip_speak)
-        msg.text = getString(R.string.txt_error_1_try_again_press_skip).replace(
+        msg.text = getString(R.string.txt_error_1_try_again_tap_skip).replace(
             "{{*{{skip_button}}*}}",
             skipText.text.toString()
         )
-
         skipText.isEnabled = true
     }
 
