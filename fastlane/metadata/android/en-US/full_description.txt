@@ -1,5 +1,3 @@
-This is not the official app of Common Voice!
-<br/>
-There is already the <a href="https://voice.mozilla.org/">website</a>, which is responsive and mobile-friendly, but it is actually very slow, because of so many animations/graphic effects, which could distract you to record or validate clips. So, this app want to improve the experience of this fantastic project. In it you can find your statistics, or you can record/validate a clip just with a single click.
-<br/>
-This app is developed by Saverio Morelli, a volunteer of Mozilla Italia. It's not developed by or for Mozilla.
+<p>This is not the official app of Common Voice!</p>
+<p>There is already the <a href="https://voice.mozilla.org/">website</a>, which is responsive and mobile-friendly, but it is actually very slow, because of so many animations/graphic effects, which could distract you to record or validate clips. So, this app want to improve the experience of this fantastic project. In it you can find your statistics, or you can record/validate a clip just with a single click.</p>
+<p>This app is developed by Saverio Morelli, a volunteer of Mozilla Italia. It's not developed by or for Mozilla.</p>

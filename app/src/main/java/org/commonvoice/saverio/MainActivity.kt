@@ -486,8 +486,9 @@ class MainActivity : AppCompatActivity() {
         var res: Resources = resources
         var config: Configuration = res.configuration
         config.setLocale(locale)
-        res.updateConfiguration(config, res.displayMetrics)
-        //createConfigurationContext(config)
+        config.setLayoutDirection(locale)
+        createConfigurationContext(config)
+        resources.updateConfiguration(config, resources.displayMetrics)
 
         if (restart || type == "restart") {
             val intent = Intent(this, RestartActivity::class.java).also {
