@@ -55,6 +55,10 @@ class RestartActivity : AppCompatActivity() {
     }
 
     fun start() {
-        finish()
+        //finish()
+        val intent = Intent(this, MainActivity::class.java).also {
+            startActivity(it)
+            finish()
+        }
     }
 }
