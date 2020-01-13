@@ -46,7 +46,7 @@
     <string name="txt_profile_age">Età</string>
     <string name="txt_profile_gender">Sesso</string>
     <string name="txt_profile_edit_data_alert">Per modificare le informazioni del tuo profilo, vai sul sito ufficiale.</string>
-    <string name="txt_login_successful_alert">Login eseguito correttamente!</string>
+    <string name="txt_login_successful_alert">Accesso eseguito correttamente!</string>
     <string name="txt_gender_male">Maschio</string>
     <string name="txt_gender_female">Femmina</string>
     <string name="txt_gender_other">Altro</string>

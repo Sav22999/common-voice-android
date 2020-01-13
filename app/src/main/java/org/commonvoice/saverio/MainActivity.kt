@@ -28,7 +28,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val translations_languages: Array<String> =
-        arrayOf("en", "eu", "fr", "it", "sv") //change manually
+        arrayOf("en", "eu", "fr", "ia", "it", "sv") //change manually
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
