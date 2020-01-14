@@ -237,8 +237,11 @@ class LoginActivity : AppCompatActivity() {
                             userName = jsonObj.getString("username")
                         } else if (type == "profile") {
                             userName = jsonObj.getString("username")
+                            var imageUrl = jsonObj.getString("avatar_url")
 
                             var profileImage: ImageView = findViewById(R.id.imageProfileImage)
+                            var profileImageBorder: ImageView =
+                                findViewById(R.id.imageProfileImageBorder)
                             //should set also the profileImage
                             var profileEmail: EditText = findViewById(R.id.textProfileEmail)
                             var profileUsername: EditText = findViewById(R.id.textProfileUsername)
@@ -253,6 +256,11 @@ class LoginActivity : AppCompatActivity() {
                             profileUsername.setText(jsonObj.getString("username").toString())
                             profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
                             profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
+                            if (imageUrl != "null" && imageUrl != "") {
+                                DownLoadImage(profileImage, profileImageBorder).execute(imageUrl)
+                            } else {
+                                DownLoadImage(profileImage, profileImageBorder).execute("null")
+                            }
                         }
 
                         val sharedPref: SharedPreferences =
