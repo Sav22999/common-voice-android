@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        checkPermissions()
+        //checkPermissions()
         checkConnection()
 
         var btnLoginSignUp: Button = findViewById(R.id.btnLogout)
@@ -156,8 +156,7 @@ class LoginActivity : AppCompatActivity() {
             //webView.loadUrl("https://accounts.firefox.com/signup?email=" + email)
             if (type == "login") {
                 webView.loadUrl("https://voice.mozilla.org/login")
-            }
-            else {
+            } else {
                 webView.loadUrl(type)
             }
         } else if (type == "logout") {
@@ -362,7 +361,7 @@ class LoginActivity : AppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
                     checkPermissions()
                 }
             }
@@ -370,8 +369,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun checkConnection(): Boolean {
-        if (LoginActivity.checkInternet(this))
-        {
+        if (LoginActivity.checkInternet(this)) {
             return true
         } else {
             openNoConnection()
@@ -380,14 +378,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun checkInternet(context: Context):Boolean {
+        fun checkInternet(context: Context): Boolean {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
             if (networkInfo != null && networkInfo.isConnected) {
                 //Connection OK
                 return true
-            }
-            else {
+            } else {
                 //No connection
                 return false
             }

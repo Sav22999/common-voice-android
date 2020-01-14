@@ -56,7 +56,7 @@ class ListenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listen)
 
-        checkPermissions()
+        //checkPermissions()
         checkConnection()
 
         var firstRun: Boolean = true
@@ -425,7 +425,7 @@ class ListenActivity : AppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
                     checkPermissions()
                 }
             }

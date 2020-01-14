@@ -25,8 +25,7 @@ class NoConnectionActivity : AppCompatActivity() {
     }
 
     fun checkConnection(): Boolean {
-        if (MainActivity.checkInternet(this))
-        {
+        if (MainActivity.checkInternet(this)) {
             finish()
             return true
         } else {
@@ -35,14 +34,13 @@ class NoConnectionActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun checkInternet(context: Context):Boolean {
+        fun checkInternet(context: Context): Boolean {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
             if (networkInfo != null && networkInfo.isConnected) {
                 //Connection OK
                 return true
-            }
-            else {
+            } else {
                 //No connection
                 return false
             }

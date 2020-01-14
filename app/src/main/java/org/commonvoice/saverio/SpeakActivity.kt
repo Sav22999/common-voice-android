@@ -241,6 +241,10 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        closeSpeak()
+    }
+
+    fun closeSpeak() {
         var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
         var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
         if (btnSkip.isEnabled || txtSentence.text == "...") {
@@ -522,7 +526,7 @@ class SpeakActivity : AppCompatActivity() {
                     } else {
                         formatted = SimpleDateFormat("yyyyMMddhhmmssSSS").format(Date()).toString()
                     }
-                    headers.put("client_id", formatted+"CVAndroidUnofficialSav")
+                    headers.put("client_id", formatted + "CVAndroidUnofficialSav")
                     println(
                         " >> text_sentence >> " + encode(textSentence, "UTF-8").replace(
                             "+",
@@ -608,8 +612,9 @@ class SpeakActivity : AppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    checkPermissions()
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
+                    //checkPermissions()
+                    closeSpeak()
                 }
             }
         }
@@ -642,7 +647,7 @@ class SpeakActivity : AppCompatActivity() {
     fun openNoConnection() {
         val intent = Intent(this, NoConnectionActivity::class.java).also {
             startActivity(it)
-            finish()
+            closeSpeak()
         }
     }
 }

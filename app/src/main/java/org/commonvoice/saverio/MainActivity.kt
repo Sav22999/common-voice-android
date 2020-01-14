@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
             openTutorial()
         } else {
             setLanguageUI("start")
-            checkPermissions()
+            //checkPermissions()
         }
 
         // import languages from array
@@ -395,9 +395,7 @@ class MainActivity : AppCompatActivity() {
         /*val intent = Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }*/
-        val intent = Intent(this, NotAvailableNow::class.java).also {
-            startActivity(it)
-        }
+        openNoAvailableNow()
     }
 
     fun openListenSection() {
@@ -420,6 +418,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(it)
             //close the MainActivity
             finish()
+        }
+    }
+
+    fun openNoAvailableNow() {
+        val intent = Intent(this, NotAvailableNow::class.java).also {
+            startActivity(it)
         }
     }
 
@@ -462,7 +466,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
                     checkPermissions()
                 } else {
                     checkPermissions()
