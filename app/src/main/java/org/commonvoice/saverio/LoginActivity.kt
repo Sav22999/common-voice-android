@@ -1,13 +1,16 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -25,7 +28,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.all_badges.*
 import org.json.JSONObject
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class LoginActivity : AppCompatActivity() {
@@ -36,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val USER_NAME = "USERNAME"
+    private val LEVEL_SAVED = "LEVEL_SAVED"
+    private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
+    private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
     var userId: String = ""
     var userName: String = ""
 
@@ -52,6 +61,13 @@ class LoginActivity : AppCompatActivity() {
         var btnLoginSignUp: Button = findViewById(R.id.btnLogout)
         btnLoginSignUp.setOnClickListener {
             openWebBrowser("logout")
+        }
+
+        var btnOpenBadge = this.btnBadges
+        btnOpenBadge.setOnClickListener {
+            val intent = Intent(this, BadgesActivity::class.java).also {
+                startActivity(it)
+            }
         }
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
@@ -182,6 +198,30 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    fun setLevelRecordingsValidations(type: Int, value: Int) {
+        when (type) {
+            0 -> {
+                //level
+                var editor =
+                    getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).edit()
+                        .putInt(LEVEL_SAVED, value)
+                editor.apply()
+            }
+            1 -> {
+                //recordings
+                var editor = getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).edit()
+                    .putInt(RECORDINGS_SAVED, value)
+                editor.apply()
+            }
+            2 -> {
+                //validations
+                var editor = getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).edit()
+                    .putInt(VALIDATIONS_SAVED, value)
+                editor.apply()
+            }
+        }
+    }
+
     fun loginSuccessful() {
         //login successful -> show username and log-out button
         Toast.makeText(
@@ -261,6 +301,11 @@ class LoginActivity : AppCompatActivity() {
                             } else {
                                 DownLoadImage(profileImage, profileImageBorder).execute("null")
                             }
+                            val clips_count = jsonObj.getString("clips_count").toInt() //recordings
+                            val votes_count = jsonObj.getString("votes_count").toInt() //validations
+                            setLevelRecordingsValidations(0, clips_count + votes_count)
+                            setLevelRecordingsValidations(1, clips_count)
+                            setLevelRecordingsValidations(2, votes_count)
                         }
 
                         val sharedPref: SharedPreferences =
@@ -415,5 +460,48 @@ class LoginActivity : AppCompatActivity() {
 
     fun stopAnimation(img: ImageView) {
         img.clearAnimation()
+    }
+
+
+    override fun attachBaseContext(newBase: Context) {
+        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
+        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var lang = tempLang.split("-")[0]
+        val langSupportedYesOrNot = TranslationsLanguages()
+        if (!langSupportedYesOrNot.isSupported(lang)) {
+            lang = langSupportedYesOrNot.getDefaultLanguage()
+        }
+        super.attachBaseContext(newBase.wrap(Locale(lang)))
+    }
+
+    fun Context.wrap(desiredLocale: Locale): Context {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
+            return getUpdatedContextApi23(desiredLocale)
+
+        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
+            getUpdatedContextApi24(desiredLocale)
+        else
+            getUpdatedContextApi25(desiredLocale)
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.locale = locale
+        return createConfigurationContext(configuration)
+    }
+
+    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        return createConfigurationContext(configuration)
+    }
+
+    @TargetApi(Build.VERSION_CODES.N_MR1)
+    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
+        val localeList = LocaleList(locale)
+        val configuration = resources.configuration
+        configuration.locales = localeList
+        return createConfigurationContext(configuration)
     }
 }

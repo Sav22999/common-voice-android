@@ -1,13 +1,16 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.TextView
@@ -24,6 +27,8 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class ListenActivity : AppCompatActivity() {
@@ -461,5 +466,47 @@ class ListenActivity : AppCompatActivity() {
             startActivity(it)
             finish()
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
+        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var lang = tempLang.split("-")[0]
+        val langSupportedYesOrNot = TranslationsLanguages()
+        if (!langSupportedYesOrNot.isSupported(lang)) {
+            lang = langSupportedYesOrNot.getDefaultLanguage()
+        }
+        super.attachBaseContext(newBase.wrap(Locale(lang)))
+    }
+
+    fun Context.wrap(desiredLocale: Locale): Context {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
+            return getUpdatedContextApi23(desiredLocale)
+
+        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
+            getUpdatedContextApi24(desiredLocale)
+        else
+            getUpdatedContextApi25(desiredLocale)
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.locale = locale
+        return createConfigurationContext(configuration)
+    }
+
+    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        return createConfigurationContext(configuration)
+    }
+
+    @TargetApi(Build.VERSION_CODES.N_MR1)
+    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
+        val localeList = LocaleList(locale)
+        val configuration = resources.configuration
+        configuration.locales = localeList
+        return createConfigurationContext(configuration)
     }
 }

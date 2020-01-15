@@ -38,7 +38,82 @@
     <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
     <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
     <string name="tutorial_text4">Choose your native language, it will use to show sentences to record and to validate</string>
+    <!-- Login -->
+    <string name="txt_loading_page">Loading ...</string>
+    <string name="txt_profile_username">Username</string>
+    <string name="txt_profile_email">Email</string>
+    <string name="txt_profile_age">Age</string>
+    <string name="txt_profile_gender">Gender</string>
+    <string name="txt_profile_edit_data_alert">To modify your profile information, go to official website.</string>
+    <string name="txt_login_successful_alert">Login successful!</string>
+    <string name="txt_gender_male">Male</string>
+    <string name="txt_gender_female">Female</string>
+    <string name="txt_gender_other">Other</string>
+    <string name="btn_badges_loggedin">All badges</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">Open Tutorial again</string>
+    <string name="txt_project_github_settings">Project open-source on GitHub</string>
+    <string name="txt_contributors">main contributors</string>
+    <string name="txt_developed_by">developed by</string>
+    <string name="toast_language_changed">Language changed correctly to {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">Language</string>
+    <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence">Loading a sentence ...</string>
+    <string name="btn_skip_sentence">Skip</string>
+    <string name="btn_send_sentence">Send recording</string>
+    <string name="txt_loading_clip">Loading a clip ...</string>
+    <string name="txt_press_icon_below_speak_1">Press the icon below to start the recording</string>
+    <string name="txt_press_icon_below_speak_2">Press the icon below to stop the recording</string>
+    <string name="txt_sentence_recorded">Sentence recorded. Listen the recording</string>
+    <string name="txt_sentence_record_failed">Recording failed. Try again please</string>
+    <string name="txt_recorded_correct_or_wrong">Recording correct? Send it.\nRecording wrong? Record the sentence again</string>
+    <string name="txt_listening_stopped">Listen the recording entirely to ensure it\'s correct</string>
+    <string name="txt_listening_again_recording">Press the icon below to stop the listening</string>
+    <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds</string>
+    <string name="txt_sending_recording">Sending the recording ...</string>
+    <string name="txt_recording_sent">Recording sent!</string>
+    <string name="txt_sending_recording_failed">Sending recording failed!</string>
+    <string name="txt_sending_recording_failed_and_skip">Sending recording failed! Try again to send it otherwise press {{*{{skip_button}}*}} button</string>
+    <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip</string>
+    <string name="txt_press_icon_below_listen_2">Press the icon below to stop the clip</string>
+    <string name="txt_clip_correct_or_wrong">The clip is correct? Press the Thumb up\nThe clip is wrong? Press the Thumb down</string>
+    <string name="txt_clip_again">Press the icon below to start the clip again</string>
+    <string name="txt_clip_validated_yes">Clip accepted!</string>
+    <string name="txt_clip_validated_no">Clip rejected!</string>
+    <string name="txt_error_1_try_again_tap_skip">Error. Try again, so tap on {{*{{skip_button}}*}} button</string>
+    <string name="txt_error_2_sending_failed">Error during the sending of the recording. The audio wasn\'t sent to server</string>
+    <string name="txt_sending_validation">Sending the validation ...</string>
+    <string name="txt_error_3_sending_validation_failed">Error during the sending of the validation. Try again or press {{*{{skip_button}}*}} button</string>
+    <string name="txt_closing">Closing ...</string>
+    <string name="txt_error_4_clips_no_available">Error. There aren\'t any other clips to validate for this language.</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection">Check again</string>
+    <string name="txt_noconnection">Internet connection isn\'t available now. Please, connect to WiFi network or mobile data and then press on the button below</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak">This is the sentence you must record.</string>
+    <string name="txt2_tutorial_speak_and_listen">Here you can find sentences which guide you every time.</string>
+    <string name="txt3_tutorial_speak">If you don\'t like the sentence, you can tap on this button to skip and get another one.</string>
+    <string name="txt4_tutorial_speak">Tap on this icon to start the recording.</string>
+    <string name="txt5_tutorial_speak">Tap on this icon to stop the recording.</string>
+    <string name="txt6_tutorial_speak">Tap on this icon to listen the recording.</string>
+    <string name="txt7_tutorial_speak">Tap on this icon to record again the sentence, in case there are mistakes in the previous one.</string>
+    <string name="txt8_tutorial_speak">Tap on this icon to listen again the recording.</string>
+    <string name="txt9_tutorial_speak">Tap on this button to send the recording.</string>
+    <string name="txt1_tutorial_listen">This is the sentence/clip you must validate.</string>
+    <string name="txt3_tutorial_listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
+    <string name="txt4_tutorial_listen">Tap on this icon to play the clip to validate.</string>
+    <string name="txt5_tutorial_listen">Tap on this icon to stop the listening of the clip.</string>
+    <string name="txt6_tutorial_listen">Tap on this icon if you want to listen again the clip.</string>
+    <string name="txt7_tutorial_listen">Tap on this icon if the clip coincides with the sentence, so to accept it.</string>
+    <string name="txt8_tutorial_listen">Tap on this icon if the clip doesn\'t coincide with the sentence, so to reject it.</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow">So sorry, this feature isn\'t available now.\nWe\'re working constantly to improve the app.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Close</string>
+    <string name="labelAllBadges">All badges</string>
 
+    <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <string-array name="languages" translatable="false">
         <item>Аԥсуа</item> <!-- ab -->
@@ -135,75 +210,4 @@
         <item>zh-HK</item>
         <item>zh-TW</item>
     </string-array>
-
-    <!-- Login -->
-    <string name="txt_loading_page">Loading ...</string>
-    <string name="txt_profile_username">Username</string>
-    <string name="txt_profile_email">Email</string>
-    <string name="txt_profile_age">Age</string>
-    <string name="txt_profile_gender">Gender</string>
-    <string name="txt_profile_edit_data_alert">To modify your profile information, go to official website.</string>
-    <string name="txt_login_successful_alert">Login successful!</string>
-    <string name="txt_gender_male">Male</string>
-    <string name="txt_gender_female">Female</string>
-    <string name="txt_gender_other">Other</string>
-    <!-- Settings -->
-    <string name="btn_open_tutorial_settings">Open Tutorial again</string>
-    <string name="txt_project_github_settings">Project open-source on GitHub</string>
-    <string name="txt_contributors">main contributors</string>
-    <string name="txt_developed_by">developed by</string>
-    <string name="toast_language_changed">Language changed correctly to {{*{{lang}}*}}</string>
-    <string name="settingsLanguage">Language</string>
-    <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
-    <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Loading a sentence ...</string>
-    <string name="btn_skip_sentence">Skip</string>
-    <string name="btn_send_sentence">Send recording</string>
-    <string name="txt_loading_clip">Loading a clip ...</string>
-    <string name="txt_press_icon_below_speak_1">Press the icon below to start the recording</string>
-    <string name="txt_press_icon_below_speak_2">Press the icon below to stop the recording</string>
-    <string name="txt_sentence_recorded">Sentence recorded. Listen the recording</string>
-    <string name="txt_sentence_record_failed">Recording failed. Try again please</string>
-    <string name="txt_recorded_correct_or_wrong">Recording correct? Send it.\nRecording wrong? Record the sentence again</string>
-    <string name="txt_listening_stopped">Listen the recording entirely to ensure it\'s correct</string>
-    <string name="txt_listening_again_recording">Press the icon below to stop the listening</string>
-    <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds</string>
-    <string name="txt_sending_recording">Sending the recording ...</string>
-    <string name="txt_recording_sent">Recording sent!</string>
-    <string name="txt_sending_recording_failed">Sending recording failed!</string>
-    <string name="txt_sending_recording_failed_and_skip">Sending recording failed! Try again to send it otherwise press {{*{{skip_button}}*}} button</string>
-    <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip</string>
-    <string name="txt_press_icon_below_listen_2">Press the icon below to stop the clip</string>
-    <string name="txt_clip_correct_or_wrong">The clip is correct? Press the Thumb up\nThe clip is wrong? Press the Thumb down</string>
-    <string name="txt_clip_again">Press the icon below to start the clip again</string>
-    <string name="txt_clip_validated_yes">Clip accepted!</string>
-    <string name="txt_clip_validated_no">Clip rejected!</string>
-    <string name="txt_error_1_try_again_tap_skip">Error. Try again, so tap on {{*{{skip_button}}*}} button</string>
-    <string name="txt_error_2_sending_failed">Error during the sending of the recording. The audio wasn\'t sent to server</string>
-    <string name="txt_sending_validation">Sending the validation ...</string>
-    <string name="txt_error_3_sending_validation_failed">Error during the sending of the validation. Try again or press {{*{{skip_button}}*}} button</string>
-    <string name="txt_closing">Closing ...</string>
-    <string name="txt_error_4_clips_no_available">Error. There aren\'t any other clips to validate for this language.</string>
-    <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">Check again</string>
-    <string name="txt_noconnection">Internet connection isn\'t available now. Please, connect to WiFi network or mobile data and then press on the button below</string>
-    <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">This is the sentence you must record.</string>
-    <string name="txt2_tutorial_speak_and_listen">Here you can find sentences which guide you every time.</string>
-    <string name="txt3_tutorial_speak">If you don\'t like the sentence, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_speak">Tap on this icon to start the recording.</string>
-    <string name="txt5_tutorial_speak">Tap on this icon to stop the recording.</string>
-    <string name="txt6_tutorial_speak">Tap on this icon to listen the recording.</string>
-    <string name="txt7_tutorial_speak">Tap on this icon to record again the sentence, in case there are mistakes in the previous one.</string>
-    <string name="txt8_tutorial_speak">Tap on this icon to listen again the recording.</string>
-    <string name="txt9_tutorial_speak">Tap on this button to send the recording.</string>
-    <string name="txt1_tutorial_listen">This is the sentence/clip you must validate.</string>
-    <string name="txt3_tutorial_listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_listen">Tap on this icon to play the clip to validate.</string>
-    <string name="txt5_tutorial_listen">Tap on this icon to stop the listening of the clip.</string>
-    <string name="txt6_tutorial_listen">Tap on this icon if you want to listen again the clip.</string>
-    <string name="txt7_tutorial_listen">Tap on this icon if the clip coincides with the sentence, so to accept it.</string>
-    <string name="txt8_tutorial_listen">Tap on this icon if the clip doesn\'t coincide with the sentence, so to reject it.</string>
-    <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow">So sorry, this feature isn\'t available now.\nWe\'re working constantly to improve the app.</string>
 </resources>
