@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
         //checkPermissions()
         checkConnection()
 
-        var btnLoginSignUp: Button = findViewById(R.id.btnLogout)
+        var btnLoginSignUp: Button = this.findViewById(R.id.btnLogout)
         btnLoginSignUp.setOnClickListener {
             openWebBrowser("logout")
         }
@@ -244,7 +244,6 @@ class LoginActivity : AppCompatActivity() {
         val aniSlide: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
         img.startAnimation(aniSlide)
-
     }
 
     fun loadUserData(type: String) {

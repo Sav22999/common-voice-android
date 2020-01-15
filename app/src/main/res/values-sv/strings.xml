@@ -37,8 +37,6 @@
     <string name="tutorial_text2">Common Voice Appen behöver \"Mikrofon\" åtkomst för att fungera korrekt.</string>
     <string name="tutorial_text3">Common Voice Appen behöver \"Lagring\" åtkomst för att fungera korrekt.</string>
     <string name="tutorial_text4">Välj ditt modersmål, som kommer användas för att visa meningar att spela in eller validera.</string>
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <!-- Login -->
     <string name="txt_loading_page">Laddar ...</string>
     <string name="txt_profile_username">Användarnamn</string>
@@ -50,6 +48,7 @@
     <string name="txt_gender_male">Man</string>
     <string name="txt_gender_female">Kvinna</string>
     <string name="txt_gender_other">Annat</string>
+    <string name="btn_badges_loggedin">All badges</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Öppna guide igen</string>
     <string name="txt_project_github_settings">Projekt öppen kod på GitHub</string>
@@ -109,4 +108,10 @@
     <string name="txt8_tutorial_listen">Tap on this icon if the clip doesn\'t coincide with the sentence, so to reject it.</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">So sorry, this feature isn\'t available now.\nWe\'re working constantly to improve the app.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Close</string>
+    <string name="labelAllBadges">All badges</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
 </resources>

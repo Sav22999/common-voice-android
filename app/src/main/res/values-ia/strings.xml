@@ -37,8 +37,6 @@
     <string name="tutorial_text2">Le application Common Voice pro laborar correctemente necessita le permisso \"Microphono\".</string>
     <string name="tutorial_text3">Le application Common Voice pro laborar correctemente necessita le permisso \"Immagazinage\".</string>
     <string name="tutorial_text4">Elige tu lingua native que sera usate pro monstrar le phrases a registrar e a validar</string>
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <!-- Login -->
     <string name="txt_loading_page">Cargamento ...</string>
     <string name="txt_profile_username">Nomine de usator</string>
@@ -50,6 +48,7 @@
     <string name="txt_gender_male">Masculo</string>
     <string name="txt_gender_female">Femina</string>
     <string name="txt_gender_other">Altero</string>
+    <string name="btn_badges_loggedin">All badges</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Reaperir le Exercitation</string>
     <string name="txt_project_github_settings">Projecto open-source sur GitHub</string>
@@ -109,4 +108,10 @@
     <string name="txt8_tutorial_listen">Tocca sur iste icone si le retalio non coincide con le phrase, assi de rejectar lo.</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">Regrettabilemente iste functionalitate non es disponibile.\nNos labora constantemente pro meliorar le app.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Close</string>
+    <string name="labelAllBadges">All badges</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
 </resources>
