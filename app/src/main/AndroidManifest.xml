@@ -62,7 +62,6 @@
         </activity>
         <!-- NoConnectionActivity -->
         <activity
-            android:screenOrientation="portrait"
             android:name=".NoConnectionActivity"
             android:theme="@style/AppTheme"
             android:label="@string/app_name" >
@@ -89,10 +88,15 @@
         </activity>
         <!-- NotAvailableNow -->
         <activity
-            android:screenOrientation="portrait"
             android:name=".NotAvailableNow"
             android:theme="@style/AppTheme"
             android:label="@string/app_name" >
+        </activity>
+        <!-- Badges -->
+        <activity
+            android:name=".BadgesActivity"
+            android:theme="@style/AppTheme.TitleBar"
+            android:label="@string/labelAllBadges" >
         </activity>
         <!-- WebBrowser - For Testings only -->
         <activity

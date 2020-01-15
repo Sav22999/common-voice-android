@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -8,7 +9,9 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
@@ -26,10 +29,6 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-
-    private val translations_languages: Array<String> =
-        arrayOf("en", "eu", "fr", "it", "sv") //change manually
-
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
@@ -60,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     var languagesListArray =
         arrayOf("English") // don't change manually -> it's imported from strings.xml
-    var selectedLanguageVar = ""
+    var selectedLanguageVar = "en"
     var logged: Boolean = false
     var userId: String = ""
     var userName: String = ""
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             openTutorial()
         } else {
             setLanguageUI("start")
-            checkPermissions()
+            //checkPermissions()
         }
 
         // import languages from array
@@ -395,9 +394,7 @@ class MainActivity : AppCompatActivity() {
         /*val intent = Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }*/
-        val intent = Intent(this, NotAvailableNow::class.java).also {
-            startActivity(it)
-        }
+        openNoAvailableNow()
     }
 
     fun openListenSection() {
@@ -420,6 +417,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(it)
             //close the MainActivity
             finish()
+        }
+    }
+
+    fun openNoAvailableNow() {
+        val intent = Intent(this, NotAvailableNow::class.java).also {
+            startActivity(it)
         }
     }
 
@@ -462,7 +465,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
                     checkPermissions()
                 } else {
                     checkPermissions()
@@ -475,32 +478,20 @@ class MainActivity : AppCompatActivity() {
         val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
         var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
 
-        var lang = selectedLanguageVar.split("-")[0]
-        if (translations_languages.indexOf(lang) == -1) {
-            lang = "en"
-        }
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
         //println("-->index: " + translations_languages.indexOf(lang))
-        var locale: Locale = Locale(lang)
-        Locale.setDefault(locale)
-        var res: Resources = resources
-        var config: Configuration = res.configuration
-        config.setLocale(locale)
-        res.updateConfiguration(config, res.displayMetrics)
-        //createConfigurationContext(config)
 
         if (restart || type == "restart") {
             val intent = Intent(this, RestartActivity::class.java).also {
                 startActivity(it)
-
-                finish()
             }
+            finish()
         } else {
-            if (type == "start") {
+            /*if (type == "start") {
                 val intent = Intent(this, RestartActivity::class.java).also {
                     startActivity(it)
                 }
-            }
+            }*/
         }
     }
 
@@ -548,5 +539,48 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, WebBrowser::class.java).also {
             startActivity(it)
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val sharedPref2: SharedPreferences =
+            newBase.getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
+        var tempLang = sharedPref2.getString(LANGUAGE_NAME, "en")
+        var lang = tempLang.split("-")[0]
+        val langSupportedYesOrNot = TranslationsLanguages()
+        if (!langSupportedYesOrNot.isSupported(lang)) {
+            lang = langSupportedYesOrNot.getDefaultLanguage()
+        }
+        super.attachBaseContext(newBase.wrap(Locale(lang)))
+    }
+
+    fun Context.wrap(desiredLocale: Locale): Context {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
+            return getUpdatedContextApi23(desiredLocale)
+
+        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
+            getUpdatedContextApi24(desiredLocale)
+        else
+            getUpdatedContextApi25(desiredLocale)
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.locale = locale
+        return createConfigurationContext(configuration)
+    }
+
+    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        return createConfigurationContext(configuration)
+    }
+
+    @TargetApi(Build.VERSION_CODES.N_MR1)
+    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
+        val localeList = LocaleList(locale)
+        val configuration = resources.configuration
+        configuration.locales = localeList
+        return createConfigurationContext(configuration)
     }
 }

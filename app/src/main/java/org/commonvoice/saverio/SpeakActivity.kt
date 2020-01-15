@@ -14,6 +14,7 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.TextView
@@ -241,6 +242,10 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        closeSpeak()
+    }
+
+    fun closeSpeak() {
         var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
         var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
         if (btnSkip.isEnabled || txtSentence.text == "...") {
@@ -522,7 +527,7 @@ class SpeakActivity : AppCompatActivity() {
                     } else {
                         formatted = SimpleDateFormat("yyyyMMddhhmmssSSS").format(Date()).toString()
                     }
-                    headers.put("client_id", formatted+"CVAndroidUnofficialSav")
+                    headers.put("client_id", formatted + "CVAndroidUnofficialSav")
                     println(
                         " >> text_sentence >> " + encode(textSentence, "UTF-8").replace(
                             "+",
@@ -608,8 +613,9 @@ class SpeakActivity : AppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    checkPermissions()
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
+                    //checkPermissions()
+                    closeSpeak()
                 }
             }
         }
@@ -642,7 +648,49 @@ class SpeakActivity : AppCompatActivity() {
     fun openNoConnection() {
         val intent = Intent(this, NoConnectionActivity::class.java).also {
             startActivity(it)
-            finish()
+            closeSpeak()
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
+        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var lang = tempLang.split("-")[0]
+        val langSupportedYesOrNot = TranslationsLanguages()
+        if (!langSupportedYesOrNot.isSupported(lang)) {
+            lang = langSupportedYesOrNot.getDefaultLanguage()
+        }
+        super.attachBaseContext(newBase.wrap(Locale(lang)))
+    }
+
+    fun Context.wrap(desiredLocale: Locale): Context {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
+            return getUpdatedContextApi23(desiredLocale)
+
+        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
+            getUpdatedContextApi24(desiredLocale)
+        else
+            getUpdatedContextApi25(desiredLocale)
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.locale = locale
+        return createConfigurationContext(configuration)
+    }
+
+    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        return createConfigurationContext(configuration)
+    }
+
+    @TargetApi(Build.VERSION_CODES.N_MR1)
+    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
+        val localeList = LocaleList(locale)
+        val configuration = resources.configuration
+        configuration.locales = localeList
+        return createConfigurationContext(configuration)
     }
 }

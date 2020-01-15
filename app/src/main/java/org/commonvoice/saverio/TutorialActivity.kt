@@ -43,9 +43,9 @@ class TutorialActivity : AppCompatActivity() {
         this.languages_list = resources.getStringArray(R.array.languages)
         this.languages_list_short = resources.getStringArray(R.array.languages_short)
 
-        var txt_terms = this.textView_tutorialTerms
-        txt_terms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        txt_terms.setOnClickListener {
+        var txtTerms = this.textView_tutorialTerms
+        txtTerms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        txtTerms.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.linkTermsCommonVoice)))
             startActivity(browserIntent)
@@ -55,6 +55,12 @@ class TutorialActivity : AppCompatActivity() {
             tutorialStart()
         }
         tutorialStart()
+
+        var txtSkip = this.textSkipTutorial
+        txtSkip.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        txtSkip.setOnClickListener {
+            skipPermission()
+        }
     }
 
     fun tutorialStart() {
@@ -97,6 +103,8 @@ class TutorialActivity : AppCompatActivity() {
         this.seekBar.progress = 1
         this.textView_tutorialTerms.isGone = true
         this.textView_tutorial.text = getString(R.string.tutorial_text2)
+        var txtSkip = this.textSkipTutorial
+        txtSkip.isGone = false
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -105,7 +113,6 @@ class TutorialActivity : AppCompatActivity() {
             this.btn_next.text = getString(R.string.btn_tutorial3) // next
         }
         this.status = 2
-        //println(" -->> tutorialStart1")
     }
 
     fun askMicrophonePermission() {
@@ -118,9 +125,10 @@ class TutorialActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         } else {
+            var txtSkip = this.textSkipTutorial
+            txtSkip.isGone = true
             storagePermission()
         }
-        //println(" -->> tutorialStart2")
     }
 
     fun tutorialStartPermissionDenied() {
@@ -151,6 +159,8 @@ class TutorialActivity : AppCompatActivity() {
         this.textTutorialMessage.text = ""
         this.textView_tutorial.text = getString(R.string.tutorial_text3)
         this.seekBar.progress = 2
+        var txtSkip = this.textSkipTutorial
+        txtSkip.isGone = false
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -159,7 +169,6 @@ class TutorialActivity : AppCompatActivity() {
             this.btn_next.text = getString(R.string.btn_tutorial3) // next
         }
         this.status = 4
-        //println(" -->> askStoragePermission")
     }
 
     fun askStoragePermission() {
@@ -172,9 +181,10 @@ class TutorialActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         } else {
+            var txtSkip = this.textSkipTutorial
+            txtSkip.isGone = true
             tutorialStart4()
         }
-        //println(" -->> tutorialStart3")
     }
 
     fun tutorialStart4() {
@@ -185,6 +195,8 @@ class TutorialActivity : AppCompatActivity() {
         this.textView_tutorial.text = getString(R.string.tutorial_text4)
         this.btn_next.text = getString(R.string.btn_tutorial5)
         this.languageListTutorial.isVisible = true
+        var txtSkip = this.textSkipTutorial
+        txtSkip.isGone = true
 
         var languages = findViewById(R.id.languageListTutorial) as Spinner
         languages.adapter =
@@ -229,6 +241,18 @@ class TutorialActivity : AppCompatActivity() {
                     tutorialStartPermissionSuccessful()
                 }
             }
+        }
+    }
+
+    fun skipPermission() {
+        if (this.status == 2) {
+            // skip microphone
+            this.status = 3
+            tutorialStart()
+        } else if (this.status == 4) {
+            // skip storage
+            this.status = 5
+            tutorialStart()
         }
     }
 }

@@ -6,62 +6,61 @@
     <string name="language">eu</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Etxea</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Tresnak</string>
     <string name="title_settings">Ezarpenak</string>
     <!-- Home (main) -->
     <string name="description_cv_robot">Common Voice ikurra</string>
     <string name="description_cv_logo">Common Voice robota</string>
     <string name="button_home_login">Hasi saioa / eman izena</string>
     <string name="button_home_logout">Amaitu saioa</string>
-    <string name="button_home_profile">Profile</string>
+    <string name="button_home_profile">Profila</string>
     <string name="text_hi_username">Kaixo</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Estatistikak</string>
-    <string name="dashboardVoicesOnline">Voices online</string>
+    <string name="dashboardVoicesOnline">Ahotsak linean</string>
     <string name="dashboardTabYou">Zu</string>
     <string name="dashboardTabEveryone">Denak</string>
     <string name="dashboardToday">Gaur</string>
-    <string name="dashboardEver">Ever</string>
+    <string name="dashboardEver">Hasieratik</string>
     <string name="toastNoLoginNoStatistics">Konektatu behar duzu zure estatistikak ikusteko</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Orduak</string>
     <!-- Tutorial -->
     <string name="btn_tutorial1">Hasi</string>
-    <string name="btn_tutorial2">Permit</string>
-    <string name="btn_tutorial3">Next</string>
-    <string name="btn_tutorial4">Try again</string>
-    <string name="btn_tutorial5">Finish</string>
+    <string name="btn_tutorial2">Baimendu</string>
+    <string name="btn_tutorial3">Hurrengoa</string>
+    <string name="btn_tutorial4">Saiatu berriro</string>
+    <string name="btn_tutorial5">Amaitu</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
-    <string name="tutorial_text1">This is not the official app of Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
-    <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
-    <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
-    <string name="tutorial_text4">Choose your native language, it will use to show sentences to record and to validate</string>
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="tutorial_text1">Hau ez da Common Voiceren aplikazio ofiziala. Saverio Morellik Mozillarekin inolako euskarri edo atseginik gabe garatzen du.</string>
+    <string name="tutorial_terms">Aurrera egitean, Common Voiceren baldintzak eta zerbitzuak onartzen dituzu.</string>
+    <string name="tutorial_text2">Common Voice aplikazioak mikrofonoaren baimena behar du behar bezala funtzionatzeko.</string>
+    <string name="tutorial_text3">Common Voice aplikazioak biltegiratzeko baimena behar du behar bezala funtzionatzeko.</string>
+    <string name="tutorial_text4">Aukeratu jatorrizko hizkuntza, gorde eta balioztatzeko esaldiak erakusteko erabiliko da</string>
     <!-- Login -->
-    <string name="txt_loading_page">Loading ...</string>
-    <string name="txt_profile_username">Username</string>
-    <string name="txt_profile_email">Email</string>
-    <string name="txt_profile_age">Age</string>
-    <string name="txt_profile_gender">Gender</string>
-    <string name="txt_profile_edit_data_alert">To modify your profile information, go to official website.</string>
-    <string name="txt_login_successful_alert">Login successful!</string>
-    <string name="txt_gender_male">Male</string>
-    <string name="txt_gender_female">Female</string>
-    <string name="txt_gender_other">Other</string>
+    <string name="txt_loading_page">Kargatzen ...</string>
+    <string name="txt_profile_username">Erabiltzaile izena</string>
+    <string name="txt_profile_email">Posta elektronikoa</string>
+    <string name="txt_profile_age">Adina</string>
+    <string name="txt_profile_gender">Generoa</string>
+    <string name="txt_profile_edit_data_alert">Zure profilaren informazioa aldatzeko, bisitatu webgune ofiziala.</string>
+    <string name="txt_login_successful_alert">Saio hasiera arrakastatsua!</string>
+    <string name="txt_gender_male">Gizonezkoa</string>
+    <string name="txt_gender_female">Emakumezkoa</string>
+    <string name="txt_gender_other">Beste bat</string>
+    <string name="btn_badges_loggedin">All badges</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings">Open Tutorial again</string>
-    <string name="txt_project_github_settings">Project open-source on GitHub</string>
-    <string name="txt_contributors">main contributors</string>
-    <string name="txt_developed_by">developed by</string>
-    <string name="toast_language_changed">Language changed correctly to {{*{{lang}}*}}</string>
-    <string name="settingsLanguage">Language</string>
+    <string name="btn_open_tutorial_settings">Ireki berriro tutoriala</string>
+    <string name="txt_project_github_settings">Kode irekiko proiektua GitHuben</string>
+    <string name="txt_contributors">laguntzaile nagusiak</string>
+    <string name="txt_developed_by">garapena</string>
+    <string name="toast_language_changed">Hizkuntza ongi aldatu da {{*{{lang}}*}} -(e)ra</string>
+    <string name="settingsLanguage">Hizkuntza</string>
     <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence ...</string>
-    <string name="btn_skip_sentence">Skip</string>
-    <string name="btn_send_sentence">Send recording</string>
+    <string name="btn_skip_sentence">Saltatu</string>
+    <string name="btn_send_sentence">Bidali grabazioa</string>
     <string name="txt_loading_clip">Loading a clip ...</string>
     <string name="txt_press_icon_below_speak_1">Press the icon below to start the recording</string>
     <string name="txt_press_icon_below_speak_2">Press the icon below to stop the recording</string>
@@ -109,4 +108,10 @@
     <string name="txt8_tutorial_listen">Tap on this icon if the clip doesn\'t coincide with the sentence, so to reject it.</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">So sorry, this feature isn\'t available now.\nWe\'re working constantly to improve the app.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Close</string>
+    <string name="labelAllBadges">All badges</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
 </resources>

@@ -1,13 +1,16 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -25,7 +28,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.all_badges.*
 import org.json.JSONObject
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class LoginActivity : AppCompatActivity() {
@@ -36,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val USER_NAME = "USERNAME"
+    private val LEVEL_SAVED = "LEVEL_SAVED"
+    private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
+    private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
     var userId: String = ""
     var userName: String = ""
 
@@ -46,12 +55,19 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        checkPermissions()
+        //checkPermissions()
         checkConnection()
 
-        var btnLoginSignUp: Button = findViewById(R.id.btnLogout)
+        var btnLoginSignUp: Button = this.findViewById(R.id.btnLogout)
         btnLoginSignUp.setOnClickListener {
             openWebBrowser("logout")
+        }
+
+        var btnOpenBadge = this.btnBadges
+        btnOpenBadge.setOnClickListener {
+            val intent = Intent(this, BadgesActivity::class.java).also {
+                startActivity(it)
+            }
         }
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
@@ -156,8 +172,7 @@ class LoginActivity : AppCompatActivity() {
             //webView.loadUrl("https://accounts.firefox.com/signup?email=" + email)
             if (type == "login") {
                 webView.loadUrl("https://voice.mozilla.org/login")
-            }
-            else {
+            } else {
                 webView.loadUrl(type)
             }
         } else if (type == "logout") {
@@ -183,6 +198,30 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    fun setLevelRecordingsValidations(type: Int, value: Int) {
+        when (type) {
+            0 -> {
+                //level
+                var editor =
+                    getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).edit()
+                        .putInt(LEVEL_SAVED, value)
+                editor.apply()
+            }
+            1 -> {
+                //recordings
+                var editor = getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).edit()
+                    .putInt(RECORDINGS_SAVED, value)
+                editor.apply()
+            }
+            2 -> {
+                //validations
+                var editor = getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).edit()
+                    .putInt(VALIDATIONS_SAVED, value)
+                editor.apply()
+            }
+        }
+    }
+
     fun loginSuccessful() {
         //login successful -> show username and log-out button
         Toast.makeText(
@@ -205,7 +244,6 @@ class LoginActivity : AppCompatActivity() {
         val aniSlide: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
         img.startAnimation(aniSlide)
-
     }
 
     fun loadUserData(type: String) {
@@ -238,8 +276,11 @@ class LoginActivity : AppCompatActivity() {
                             userName = jsonObj.getString("username")
                         } else if (type == "profile") {
                             userName = jsonObj.getString("username")
+                            var imageUrl = jsonObj.getString("avatar_url")
 
                             var profileImage: ImageView = findViewById(R.id.imageProfileImage)
+                            var profileImageBorder: ImageView =
+                                findViewById(R.id.imageProfileImageBorder)
                             //should set also the profileImage
                             var profileEmail: EditText = findViewById(R.id.textProfileEmail)
                             var profileUsername: EditText = findViewById(R.id.textProfileUsername)
@@ -254,6 +295,16 @@ class LoginActivity : AppCompatActivity() {
                             profileUsername.setText(jsonObj.getString("username").toString())
                             profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
                             profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
+                            if (imageUrl != "null" && imageUrl != "") {
+                                DownLoadImage(profileImage, profileImageBorder).execute(imageUrl)
+                            } else {
+                                DownLoadImage(profileImage, profileImageBorder).execute("null")
+                            }
+                            val clips_count = jsonObj.getString("clips_count").toInt() //recordings
+                            val votes_count = jsonObj.getString("votes_count").toInt() //validations
+                            setLevelRecordingsValidations(0, clips_count + votes_count)
+                            setLevelRecordingsValidations(1, clips_count)
+                            setLevelRecordingsValidations(2, votes_count)
                         }
 
                         val sharedPref: SharedPreferences =
@@ -362,7 +413,7 @@ class LoginActivity : AppCompatActivity() {
     ) {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
                     checkPermissions()
                 }
             }
@@ -370,8 +421,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun checkConnection(): Boolean {
-        if (LoginActivity.checkInternet(this))
-        {
+        if (LoginActivity.checkInternet(this)) {
             return true
         } else {
             openNoConnection()
@@ -380,14 +430,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun checkInternet(context: Context):Boolean {
+        fun checkInternet(context: Context): Boolean {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
             if (networkInfo != null && networkInfo.isConnected) {
                 //Connection OK
                 return true
-            }
-            else {
+            } else {
                 //No connection
                 return false
             }
@@ -410,5 +459,48 @@ class LoginActivity : AppCompatActivity() {
 
     fun stopAnimation(img: ImageView) {
         img.clearAnimation()
+    }
+
+
+    override fun attachBaseContext(newBase: Context) {
+        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
+        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var lang = tempLang.split("-")[0]
+        val langSupportedYesOrNot = TranslationsLanguages()
+        if (!langSupportedYesOrNot.isSupported(lang)) {
+            lang = langSupportedYesOrNot.getDefaultLanguage()
+        }
+        super.attachBaseContext(newBase.wrap(Locale(lang)))
+    }
+
+    fun Context.wrap(desiredLocale: Locale): Context {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
+            return getUpdatedContextApi23(desiredLocale)
+
+        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
+            getUpdatedContextApi24(desiredLocale)
+        else
+            getUpdatedContextApi25(desiredLocale)
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.locale = locale
+        return createConfigurationContext(configuration)
+    }
+
+    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        return createConfigurationContext(configuration)
+    }
+
+    @TargetApi(Build.VERSION_CODES.N_MR1)
+    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
+        val localeList = LocaleList(locale)
+        val configuration = resources.configuration
+        configuration.locales = localeList
+        return createConfigurationContext(configuration)
     }
 }

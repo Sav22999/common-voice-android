@@ -13,6 +13,28 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textSkipTutorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:foregroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:padding="6dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/btn_skip_sentence"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <TextView
             android:id="@+id/textView_tutorialTerms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -24,7 +46,7 @@
             android:padding="4dp"
             android:text="@string/tutorial_terms"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -63,11 +85,11 @@
             android:id="@+id/btn_next"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/btn_rounded"
             android:text="@string/btn_tutorial1"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textSkipTutorial"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -106,7 +128,7 @@
             android:padding="4dp"
             android:text="@string/tutorial_text1"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/languageListTutorial"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -124,7 +146,7 @@
             android:padding="4dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/btn_next"
             app:layout_constraintEnd_toEndOf="parent"

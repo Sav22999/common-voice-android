@@ -44,8 +44,9 @@ The app is officially translated in these following languages, **thank you very 
 
 - `en` English (main language)
 - `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
-- `it` Italian -> Saverio Morelli - **[@Sav22999](https://github.com/Sav22999)**
-- `sv-SE` Swedish -> Linus Amvall - **[@klasrocket](https://github.com/klasrocket)**
+- `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
+- `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
+- `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**
 - `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**
 
 ### License
