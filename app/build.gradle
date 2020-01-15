@@ -9,9 +9,9 @@ android {
     defaultConfig {
         applicationId "org.commonvoice.saverio"
         minSdkVersion 23
-        targetSdkVersion 29
-        versionCode = 51
-        versionName '0.0.19b'
+        targetSdkVersion 28
+        versionCode = 53
+        versionName '0.0.20b'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -26,6 +26,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    bundle {
+        language {
+            // Specifies that the app bundle should not support
+            // configuration APKs for language resources. These
+            // resources are instead packaged with each base and
+            // dynamic feature APK.
+            enableSplit = false
+        }
     }
 }
 

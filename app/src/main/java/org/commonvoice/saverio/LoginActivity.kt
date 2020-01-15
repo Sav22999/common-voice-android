@@ -98,15 +98,31 @@ class LoginActivity : AppCompatActivity() {
         loadUserData("profile")
     }
 
+    fun showLoading() {
+        var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
+        var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
+        var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
+        txtLoading.isGone = false
+        bgLoading.isGone = false
+        imgLoading.isGone = false
+        startAnimation(imgLoading)
+    }
+
+    fun hideLoading() {
+        var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
+        var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
+        var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
+        txtLoading.isGone = true
+        bgLoading.isGone = true
+        imgLoading.isGone = true
+        stopAnimation(imgLoading)
+    }
+
     fun openWebBrowser(type: String) {
         //val email = findViewById<EditText>(R.id.txt_email_login).text
 
         if (type == "login" || (type != "login" && type != "logout" && type.contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?"))) {
             setContentView(R.layout.activity_webbrowser)
-
-            var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
-            var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
-            var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
 
             webView = findViewById(R.id.webViewBrowser)
 
@@ -115,18 +131,12 @@ class LoginActivity : AppCompatActivity() {
             webView.webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                     // Loading started
-                    txtLoading.isGone = false
-                    bgLoading.isGone = false
-                    imgLoading.isGone = false
-                    startAnimation(imgLoading)
+                    showLoading()
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     // Loading finished
-                    txtLoading.isGone = true
-                    bgLoading.isGone = true
-                    imgLoading.isGone = true
-                    stopAnimation(imgLoading)
+                    hideLoading()
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
                     //println(" ---->> "+url+" >> "+CookieManager.getInstance().getCookie(url)+" <<---- ")
@@ -162,7 +172,7 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString(USER_CONNECT_ID, userId)
                         editor.apply()
 
-                        //println(" -->> LOGGED IN <<-- ")
+                        println(" -->> LOGGED IN <<-- ")
 
                         loadUserData("userName")
                     }
@@ -342,6 +352,7 @@ class LoginActivity : AppCompatActivity() {
             que.add(req)
         } catch (e: Exception) {
             println(" -->> Something wrong: " + e.toString() + " <<-- ")
+            hideLoading()
             error2()
         }
     }
