@@ -99,6 +99,8 @@ class SettingsFragment : Fragment() {
 
         if (main.logged && (main.userName == "Sav22999" || main.userName == "Common Voice Android")) {
             btnWebBrowserForTest.isGone = false
+            var separator: View = root.findViewById(R.id.separator4)
+            separator.isGone = false
         }
 
         var txtContributors: TextView = root.findViewById(R.id.textContributors)
