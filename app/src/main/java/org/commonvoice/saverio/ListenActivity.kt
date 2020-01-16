@@ -27,6 +27,8 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -41,6 +43,8 @@ class ListenActivity : AppCompatActivity() {
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val FIRST_RUN_LISTEN = "FIRST_RUN_LISTEN"
     private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
+    private val TODAY_CONTRIBUTING =
+        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
 
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
@@ -63,55 +67,122 @@ class ListenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listen)
 
-        //checkPermissions()
-        checkConnection()
-
-        var firstRun: Boolean = true
-        val sharedPrefFirstRun: SharedPreferences =
-            getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE)
-        firstRun = sharedPrefFirstRun.getBoolean(FIRST_RUN_LISTEN, true)
+        var firstRun: Boolean =
+            getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE).getBoolean(FIRST_RUN_LISTEN, true)
         if (firstRun) {
+            //First-run
             val intent = Intent(this, FirstRunListen::class.java).also {
                 startActivity(it)
                 finish()
             }
-        }
+        } else {
+            //checkPermissions()
+            checkConnection()
 
-        val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-        this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
-        this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguageVar)
+            val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
+            this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
+            this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguageVar)
 
-        var skipButton: Button = this.findViewById(R.id.btn_skip_listen)
-        skipButton.setOnClickListener {
-            StopListening()
+            var skipButton: Button = this.findViewById(R.id.btn_skip_listen)
+            skipButton.setOnClickListener {
+                StopListening()
+                API_request()
+            }
+
+            var startStopListening: Button = this.findViewById(R.id.btn_start_listen)
+            startStopListening.setOnClickListener {
+                if (this.status == 0 || this.status == 2) {
+                    StartListening() //0->play | 2->re-play
+                } else if (this.status == 1)
+                    StopListening()
+            }
+
+            var yesClip: Button = this.findViewById(R.id.btn_yes_thumb)
+            yesClip.setOnClickListener {
+                YesClip()
+            }
+
+            var noClip: Button = this.findViewById(R.id.btn_no_thumb)
+            noClip.setOnClickListener {
+                NoClip()
+            }
+
+
+            this.autoPlayClips =
+                getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).getBoolean(
+                    AUTO_PLAY_CLIPS,
+                    false
+                )
+
+
+            //API request
             API_request()
         }
+    }
 
-        var startStopListening: Button = this.findViewById(R.id.btn_start_listen)
-        startStopListening.setOnClickListener {
-            if (this.status == 0 || this.status == 2) {
-                StartListening() //0->play | 2->re-play
-            } else if (this.status == 1)
-                StopListening()
+    fun getDateToSave(savedDate: String): String {
+        var todayDate: String = "?"
+        if (Build.VERSION.SDK_INT < 26) {
+            val dateTemp = SimpleDateFormat("yyyy/MM/dd")
+            todayDate = dateTemp.format(Date()).toString()
+        } else {
+            val dateTemp = LocalDateTime.now()
+            todayDate =
+                dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString()
         }
-
-        var yesClip: Button = this.findViewById(R.id.btn_yes_thumb)
-        yesClip.setOnClickListener {
-            YesClip()
+        if (checkDateToday(todayDate, savedDate)) {
+            return savedDate
+        } else {
+            return todayDate
         }
+    }
 
-        var noClip: Button = this.findViewById(R.id.btn_no_thumb)
-        noClip.setOnClickListener {
-            NoClip()
+    fun checkDateToday(todayDate: String, savedDate: String): Boolean {
+        //true -> savedDate is OK, false -> savedDate is old
+        if (todayDate == "?" || savedDate == "?") {
+            return false
+        } else if (todayDate == savedDate) {
+            return true
+        } else if (todayDate.split("/")[0] > savedDate.split("/")[0]) {
+            return false
+        } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
+            return false
+        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
+            return false
+        } else {
+            return true
         }
+    }
 
-        this.autoPlayClips =
-            getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).getBoolean(AUTO_PLAY_CLIPS, false)
-
-        //var sentence: TextView = this.findViewById(R.id.textSpeakSentence)
-
-        //API request
-        API_request()
+    fun incrementContributing() {
+        //just if the user is logged-in
+        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)) {
+            //user logged
+            var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
+                TODAY_CONTRIBUTING,
+                "?, ?, ?"
+            ).split(", ")
+            var dateContributing = contributing[0]
+            var dateContributingToSave = getDateToSave(dateContributing)
+            var nValidated: String = "?"
+            if (dateContributingToSave == dateContributing) {
+                //same date
+                nValidated = contributing[2]
+                if (nValidated == "?") {
+                    nValidated = "0"
+                }
+            } else {
+                //new date
+                nValidated = "0"
+            }
+            nValidated = (nValidated.toInt() + 1).toString()
+            var contributingToSave =
+                dateContributingToSave + ", " + contributing[1] + ", " + nValidated
+            val sharedPref = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
+                .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
+        } else {
+            //user no logged
+        }
     }
 
     fun API_request() {
@@ -285,12 +356,14 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun StopListening() {
-        var btnListen: Button = this.findViewById(R.id.btn_start_listen)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        this.status = 2
-        msg.text = getString(R.string.txt_clip_again)
-        btnListen.setBackgroundResource(R.drawable.listen2_cv)
-        this.mediaPlayer?.pause()
+        if (this.mediaPlayer?.isPlaying == true) {
+            var btnListen: Button = this.findViewById(R.id.btn_start_listen)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+            this.status = 2
+            msg.text = getString(R.string.txt_clip_again)
+            btnListen.setBackgroundResource(R.drawable.listen2_cv)
+            this.mediaPlayer?.pause()
+        }
     }
 
     fun YesClip() {
@@ -399,6 +472,7 @@ class ListenActivity : AppCompatActivity() {
 
     fun ValidationSuccessful(value: Boolean) {
         //Validation sent
+        incrementContributing()
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         if (value) {
             Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_SHORT)

@@ -48,7 +48,18 @@
     <string name="txt_gender_male">Gizonezkoa</string>
     <string name="txt_gender_female">Emakumezkoa</string>
     <string name="txt_gender_other">Beste bat</string>
-    <string name="btn_badges_loggedin">All badges</string>
+    <string name="btn_badges_loggedin">Identifikazio-txartel guztiak</string>
+    <string name="txt_your_level">Level {{*{{level}}*}}</string>
+    <string name="txt_level1_name">Infant</string>
+    <string name="txt_level2_name">Baby</string>
+    <string name="txt_level3_name">Teen</string>
+    <string name="txt_level4_name">Young</string>
+    <string name="txt_level5_name">Young adult</string>
+    <string name="txt_level6_name">Adult</string>
+    <string name="txt_level7_name">Senior</string>
+    <string name="txt_level8_name">Pro</string>
+    <string name="txt_level9_name">Master</string>
+    <string name="txt_level10_name">Champion</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Ireki berriro tutoriala</string>
     <string name="txt_project_github_settings">Kode irekiko proiektua GitHuben</string>
@@ -56,7 +67,12 @@
     <string name="txt_developed_by">garapena</string>
     <string name="toast_language_changed">Hizkuntza ongi aldatu da {{*{{lang}}*}} -(e)ra</string>
     <string name="settingsLanguage">Hizkuntza</string>
+    <string name="settingsListen">Listen section</string>
+    <string name="settingsSpeak">Speak section</string>
     <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip after it\'s loaded in Listen section</string>
+    <string name="toast_autoplay_clip_on">Auto-play clip turned on</string>
+    <string name="toast_autoplay_clip_off">Auto-play clip turned off</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence ...</string>
     <string name="btn_skip_sentence">Saltatu</string>

@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#292929</color>
     <color name="colorBackground">#EEEEEE</color>
+    <color name="colorBackgroundRipple">#AAAAAA</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorRed">#FF0000</color>

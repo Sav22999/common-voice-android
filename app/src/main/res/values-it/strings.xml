@@ -49,6 +49,17 @@
     <string name="txt_gender_female">Femmina</string>
     <string name="txt_gender_other">Altro</string>
     <string name="btn_badges_loggedin">Tutti i distintivi</string>
+    <string name="txt_your_level">Livello {{*{{level}}*}}</string>
+    <string name="txt_level1_name">Neonato</string>
+    <string name="txt_level2_name">Bambino</string>
+    <string name="txt_level3_name">Adolescente</string>
+    <string name="txt_level4_name">Giovane</string>
+    <string name="txt_level5_name">Giovane adulto</string>
+    <string name="txt_level6_name">Adulto</string>
+    <string name="txt_level7_name">Esperto</string>
+    <string name="txt_level8_name">Professionista</string>
+    <string name="txt_level9_name">Maestro</string>
+    <string name="txt_level10_name">Campione</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Apri nuovamente il Tutorial</string>
     <string name="txt_project_github_settings">Progetto open-source disponibile su GitHub</string>
@@ -56,7 +67,12 @@
     <string name="txt_developed_by">sviluppata da</string>
     <string name="toast_language_changed">Lingua modificata correttamente a {{*{{lang}}*}}</string>
     <string name="settingsLanguage">Lingua</string>
+    <string name="settingsListen">Sezione Ascolto</string>
+    <string name="settingsSpeak">Sezione Parla</string>
     <string name="txt_donate_paypal_settings">Fai una donazione allo sviluppatore su PayPal</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Riproduci automaticamente la registrazione dopo che è stata caricata in Ascolto</string>
+    <string name="toast_autoplay_clip_on">Riproduzione automatica attivata</string>
+    <string name="toast_autoplay_clip_off">Riproduzione automatica disattivata</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase ...</string>
     <string name="btn_skip_sentence">Salta</string>

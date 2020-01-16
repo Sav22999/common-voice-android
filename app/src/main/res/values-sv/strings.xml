@@ -49,6 +49,17 @@
     <string name="txt_gender_female">Kvinna</string>
     <string name="txt_gender_other">Annat</string>
     <string name="btn_badges_loggedin">All badges</string>
+    <string name="txt_your_level">Level {{*{{level}}*}}</string>
+    <string name="txt_level1_name">Infant</string>
+    <string name="txt_level2_name">Baby</string>
+    <string name="txt_level3_name">Teen</string>
+    <string name="txt_level4_name">Young</string>
+    <string name="txt_level5_name">Young adult</string>
+    <string name="txt_level6_name">Adult</string>
+    <string name="txt_level7_name">Senior</string>
+    <string name="txt_level8_name">Pro</string>
+    <string name="txt_level9_name">Master</string>
+    <string name="txt_level10_name">Champion</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Öppna guide igen</string>
     <string name="txt_project_github_settings">Projekt öppen kod på GitHub</string>
@@ -56,7 +67,12 @@
     <string name="txt_developed_by">utvecklad av</string>
     <string name="toast_language_changed">Språk ändrat till {{*{{lang}}*}}</string>
     <string name="settingsLanguage">Språk</string>
+    <string name="settingsListen">Listen section</string>
+    <string name="settingsSpeak">Speak section</string>
     <string name="txt_donate_paypal_settings">Donera till utvecklaren med PayPal</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip after it\'s loaded in Listen section</string>
+    <string name="toast_autoplay_clip_on">Auto-play clip turned on</string>
+    <string name="toast_autoplay_clip_off">Auto-play clip turned off</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Laddar en mening ...</string>
     <string name="btn_skip_sentence">Hoppa över</string>

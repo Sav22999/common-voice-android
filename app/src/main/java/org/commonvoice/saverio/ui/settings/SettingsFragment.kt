@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.w3c.dom.Text
 
 
 class SettingsFragment : Fragment() {
@@ -69,7 +70,7 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        var textProjectGithub: TextView = root.findViewById(R.id.textProjectGitHub)
+        var textProjectGithub: Button = root.findViewById(R.id.textProjectGitHub)
         textProjectGithub.setOnClickListener {
             val browserIntent =
                 Intent(
@@ -78,15 +79,13 @@ class SettingsFragment : Fragment() {
                 )
             startActivity(browserIntent)
         }
-        textProjectGithub.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
-        var textDonatePaypal: TextView = root.findViewById(R.id.textDonatePayPal)
+        var textDonatePaypal: Button = root.findViewById(R.id.textDonatePayPal)
         textDonatePaypal.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/saveriomorelli"))
             startActivity(browserIntent)
         }
-        textDonatePaypal.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         var btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btnOpenTutorial.setOnClickListener {

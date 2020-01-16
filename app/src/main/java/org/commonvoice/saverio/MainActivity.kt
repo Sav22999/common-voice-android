@@ -25,6 +25,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.util.*
 
 
@@ -54,6 +56,8 @@ class MainActivity : AppCompatActivity() {
     private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
     private val UI_LANGUAGE_CHANGED2 = "UI_LANGUAGE_CHANGED2"
     private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
+    private val TODAY_CONTRIBUTING =
+        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
 
     var dashboard_selected = false
 
@@ -385,10 +389,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSpeakSection() {
-        /*val intent = Intent(this, SpeakActivity::class.java).also {
+        val intent = Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
-        }*/
-        openNoAvailableNow()
+        }
+        //openNoAvailableNow()
     }
 
     fun openListenSection() {
@@ -574,6 +578,82 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    fun getDateToSave(savedDate: String): String {
+        var todayDate: String = "?"
+        if (Build.VERSION.SDK_INT < 26) {
+            val dateTemp = SimpleDateFormat("yyyy/MM/dd")
+            todayDate = dateTemp.format(Date()).toString()
+        } else {
+            val dateTemp = LocalDateTime.now()
+            todayDate =
+                dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString()
+        }
+        if (checkDateToday(todayDate, savedDate)) {
+            return savedDate
+        } else {
+            return todayDate
+        }
+    }
+
+    fun checkDateToday(todayDate: String, savedDate: String): Boolean {
+        //true -> savedDate is OK, false -> savedDate is old
+        if (todayDate == "?" || savedDate == "?") {
+            return false
+        } else if (todayDate == savedDate) {
+            return true
+        } else if (todayDate.split("/")[0] > savedDate.split("/")[0]) {
+            return false
+        } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
+            return false
+        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    fun getContributing(type: String): String {
+        //just if the user is logged-in
+        if (this.logged) {
+            //user logged
+            var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
+                TODAY_CONTRIBUTING,
+                "?, ?, ?"
+            ).split(", ")
+            var dateContributing = contributing[0]
+            var dateContributingToSave = getDateToSave(dateContributing)
+            var nValidated: String = "?"
+            var nRecorded: String = "?"
+            if (dateContributingToSave == dateContributing) {
+                //same date
+                nValidated = contributing[2]
+                nRecorded = contributing[1]
+                if (nValidated == "?") {
+                    nValidated = "0"
+                }
+                if (nRecorded == "?") {
+                    nRecorded = "0"
+                }
+            } else {
+                //new date
+                nValidated = "0"
+                nRecorded = "0"
+            }
+            if (type == "validations") {
+                return nValidated
+            } else if (type == "recordings") {
+                return nRecorded
+            } else {
+                return "?"
+            }
+        } else {
+            //user no logged
+        }
+        return "?"
+    }
+
+
+    //translation-methods
     override fun attachBaseContext(newBase: Context) {
         val sharedPref2: SharedPreferences =
             newBase.getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)

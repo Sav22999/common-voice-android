@@ -54,6 +54,8 @@ class SpeakActivity : AppCompatActivity() {
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val FIRST_RUN_SPEAK = "FIRST_RUN_SPEAK"
+    private val TODAY_CONTRIBUTING =
+        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
 
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
@@ -77,61 +79,117 @@ class SpeakActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speak)
 
-        checkPermissions()
-        checkConnection()
-
-        var firstRun: Boolean = true
-        val sharedPrefFirstRun: SharedPreferences =
-            getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE)
-        firstRun = sharedPrefFirstRun.getBoolean(FIRST_RUN_SPEAK, true)
+        var firstRun: Boolean =
+            getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE).getBoolean(FIRST_RUN_SPEAK, true)
         if (firstRun) {
+            //First-run
             val intent = Intent(this, FirstRunSpeak::class.java).also {
                 startActivity(it)
                 finish()
             }
-        }
-
-        val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-        this.selectedLanguage = sharedPref2.getString(LANGUAGE_NAME, "en")
-        this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguage)
-
-        var skipButton: Button = this.findViewById(R.id.btn_skip_speak)
-        skipButton.setOnClickListener {
-            StopRecording()
-            StopListening()
-            API_request()
-        }
-
-        var startStopRecording: Button = this.findViewById(R.id.btn_start_speak)
-        startStopRecording.setOnClickListener {
-            if (this.status == 0 || this.status == 3)
-                StartRecording() //0->record | 3->record again
-            else if (this.status == 1)
-                StopRecording()
-            else if (this.status == 2)
-                ListenRecording()
-            else if (this.status == 5)
-                StopListening()
-        }
-
-        var sendRecording: Button = this.findViewById(R.id.btn_send_speak)
-        sendRecording.setOnClickListener {
-            SendRecording()
-        }
-
-        var listenAgain: Button = this.findViewById(R.id.btn_listen_again)
-        listenAgain.setOnClickListener {
-            ListenRecording()
-        }
-
-        val sharedPref: SharedPreferences = getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE)
-        val defaultValue = false //actually it's "true", false is hust for testing
-        if (sharedPref.getBoolean(FIRST_RUN_SPEAK, defaultValue)) {
-            //First-run
-            //setContentView(R.layout.first_run_speak)
         } else {
+            checkPermissions()
+            checkConnection()
+
+            val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
+            this.selectedLanguage = sharedPref2.getString(LANGUAGE_NAME, "en")
+            this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguage)
+
+            var skipButton: Button = this.findViewById(R.id.btn_skip_speak)
+            skipButton.setOnClickListener {
+                StopRecording()
+                StopListening()
+                API_request()
+            }
+
+            var startStopRecording: Button = this.findViewById(R.id.btn_start_speak)
+            startStopRecording.setOnClickListener {
+                if (this.status == 0 || this.status == 3)
+                    StartRecording() //0->record | 3->record again
+                else if (this.status == 1)
+                    StopRecording()
+                else if (this.status == 2)
+                    ListenRecording()
+                else if (this.status == 5)
+                    StopListening()
+            }
+
+            var sendRecording: Button = this.findViewById(R.id.btn_send_speak)
+            sendRecording.setOnClickListener {
+                SendRecording()
+            }
+
+            var listenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            listenAgain.setOnClickListener {
+                ListenRecording()
+            }
             //API request
             API_request()
+        }
+    }
+
+    fun getDateToSave(savedDate: String): String {
+        var todayDate: String = "?"
+        if (Build.VERSION.SDK_INT < 26) {
+            val dateTemp = SimpleDateFormat("yyyy/MM/dd")
+            todayDate = dateTemp.format(Date()).toString()
+        } else {
+            val dateTemp = LocalDateTime.now()
+            todayDate =
+                dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString()
+        }
+        if (checkDateToday(todayDate, savedDate)) {
+            return savedDate
+        } else {
+            return todayDate
+        }
+    }
+
+    fun checkDateToday(todayDate: String, savedDate: String): Boolean {
+        //true -> savedDate is OK, false -> savedDate is old
+        if (todayDate == "?" || savedDate == "?") {
+            return false
+        } else if (todayDate == savedDate) {
+            return true
+        } else if (todayDate.split("/")[0] > savedDate.split("/")[0]) {
+            return false
+        } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
+            return false
+        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    fun incrementContributing() {
+        //just if the user is logged-in
+        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)) {
+            //user logged
+            var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
+                TODAY_CONTRIBUTING,
+                "?, ?, ?"
+            ).split(", ")
+            var dateContributing = contributing[0]
+            var dateContributingToSave = getDateToSave(dateContributing)
+            var nRecorded: String = "?"
+            if (dateContributingToSave == dateContributing) {
+                //same date
+                nRecorded = contributing[1]
+                if (nRecorded == "?") {
+                    nRecorded = "0"
+                }
+            } else {
+                //new date
+                nRecorded = "0"
+            }
+            nRecorded = (nRecorded.toInt() + 1).toString()
+            var contributingToSave =
+                dateContributingToSave + ", " + nRecorded + ", " + contributing[2]
+            val sharedPref = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
+                .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
+        } else {
+            //user no logged
         }
     }
 
@@ -382,35 +440,39 @@ class SpeakActivity : AppCompatActivity() {
 
     fun StopListening() {
         //stop listening
-        var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btnRecord.setBackgroundResource(R.drawable.listen2_cv)
-        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
-        btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
-        var btnSendRecording: Button = this.findViewById(R.id.btn_send_speak)
-        if (!btnSendRecording.isVisible) {
-            this.status = 2 //re-listening recording -> because it's stopped
-            msg.text = getString(R.string.txt_listening_stopped)
-        } else {
-            FinishListening()
+        if (this.mediaPlayer?.isPlaying == true) {
+            var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            btnRecord.setBackgroundResource(R.drawable.listen2_cv)
+            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+            var btnSendRecording: Button = this.findViewById(R.id.btn_send_speak)
+            if (!btnSendRecording.isVisible) {
+                this.status = 2 //re-listening recording -> because it's stopped
+                msg.text = getString(R.string.txt_listening_stopped)
+            } else {
+                FinishListening()
+            }
+            this.mediaPlayer?.stop()
         }
-        this.mediaPlayer?.stop()
     }
 
     fun FinishListening() {
         //finish listening
-        var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
-        var btnSend: Button = this.findViewById(R.id.btn_send_speak)
-        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btnRecord.setBackgroundResource(R.drawable.speak2_cv)
-        var btnListenAgain1: Button = this.findViewById(R.id.btn_listen_again)
-        btnListenAgain1.setBackgroundResource(R.drawable.listen2_cv)
-        this.status = 3 //listened the recording
-        btnSend.isVisible = true
-        btnListenAgain.isGone = false
-        btnListenAgain.isVisible = true
-        msg.text = getString(R.string.txt_recorded_correct_or_wrong)
+        if (this.mediaPlayer?.isPlaying == false) {
+            var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+            var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            btnRecord.setBackgroundResource(R.drawable.speak2_cv)
+            var btnListenAgain1: Button = this.findViewById(R.id.btn_listen_again)
+            btnListenAgain1.setBackgroundResource(R.drawable.listen2_cv)
+            this.status = 3 //listened the recording
+            btnSend.isVisible = true
+            btnListenAgain.isGone = false
+            btnListenAgain.isVisible = true
+            msg.text = getString(R.string.txt_recorded_correct_or_wrong)
+        }
     }
 
     fun SendRecording() {

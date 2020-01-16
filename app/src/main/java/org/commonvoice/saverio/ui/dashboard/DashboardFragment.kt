@@ -402,6 +402,42 @@ class DashboardFragment : Fragment() {
                 typeToSend = "everyone"
             }
 
+            //tempContributing-today
+            if (type == "youTodaySpeak" || type == "youTodayListen") {
+                if (type == "youTodaySpeak") {
+                    var value = main.getContributing("recordings")
+                    if (value == "?") {
+                        valueToReturn = -1
+                    } else {
+                        valueToReturn = value.toInt()
+                    }
+                } else if (type == "youTodayListen") {
+                    var value = main.getContributing("validations")
+                    if (value == "?") {
+                        valueToReturn = -1
+                    } else {
+                        valueToReturn = value.toInt()
+                    }
+                }
+                try {
+                    if (index != -1) {
+                        textElements[index]?.text = valueToReturn.toString()
+                        main.setSavedStatisticsValue(
+                            typeToSend,
+                            valueToReturn.toString(),
+                            index
+                        )
+                    }
+                } catch (e: Exception) {
+                    //error
+                    println("Exception Dashboard-004 !!")
+                }
+                if (valueToReturn == -1) {
+                    error3(type, index, viewToUse)
+                }
+            }
+            //endTempContributing-today
+
             if (requestUrl != "") {
                 try {
                     val que = Volley.newRequestQueue(viewToUse?.context)
@@ -525,7 +561,7 @@ class DashboardFragment : Fragment() {
                     error3(type, index, viewToUse)
                 }
             } else {
-                error3(type, index, viewToUse)
+                //error3(type, index, viewToUse)
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
