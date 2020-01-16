@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity() {
     private val LAST_VOICES_ONLINE_NOW_VALUE = "LAST_VOICES_ONLINE_NOW_VALUE"
     private val LAST_VOICES_ONLINE_BEFORE_VALUE = "LAST_VOICES_ONLINE_BEFORE_VALUE"
     private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
+    private val UI_LANGUAGE_CHANGED2 = "UI_LANGUAGE_CHANGED2"
+    private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
 
     var dashboard_selected = false
 
@@ -88,6 +90,10 @@ class MainActivity : AppCompatActivity() {
         val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
         this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
 
+        // import languages from array
+        this.languagesListArray = resources.getStringArray(R.array.languages)
+        this.languagesListShortArray = resources.getStringArray(R.array.languages_short)
+
         if (this.firstRun) {
             // close main and open tutorial -- first run
             openTutorial()
@@ -95,10 +101,6 @@ class MainActivity : AppCompatActivity() {
             setLanguageUI("start")
             //checkPermissions()
         }
-
-        // import languages from array
-        this.languagesListArray = resources.getStringArray(R.array.languages)
-        this.languagesListShortArray = resources.getStringArray(R.array.languages_short)
 
         val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
         this.logged = sharedPref3.getBoolean(LOGGED_IN_NAME, false)
@@ -360,14 +362,6 @@ class MainActivity : AppCompatActivity() {
                 setSavedStatistics("everyone", "?")
                 setSavedVoicesOnline("voicesNow", "?")
                 setSavedVoicesOnline("voicesBefore", "?")
-                Toast.makeText(
-                    this,
-                    getString(R.string.toast_language_changed).replace(
-                        "{{*{{lang}}*}}",
-                        this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                    ),
-                    Toast.LENGTH_LONG
-                ).show()
             }
 
         } catch (e: Exception) {
@@ -478,21 +472,41 @@ class MainActivity : AppCompatActivity() {
         val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
         var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
 
+        val sharedPref2: SharedPreferences =
+            getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE)
+        var restart2: Boolean = sharedPref2.getBoolean(UI_LANGUAGE_CHANGED2, false)
+
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
         //println("-->index: " + translations_languages.indexOf(lang))
 
         if (restart || type == "restart") {
+            val sharedPref2 = getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
+                .putBoolean(UI_LANGUAGE_CHANGED2, true).apply()
             val intent = Intent(this, RestartActivity::class.java).also {
                 startActivity(it)
             }
             finish()
         } else {
+            if (restart2) {
+                val sharedPref2 = getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
+                    .putBoolean(UI_LANGUAGE_CHANGED2, false).apply()
+                showMessage(
+                    getString(R.string.toast_language_changed).replace(
+                        "{{*{{lang}}*}}",
+                        this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
+                    )
+                )
+            }
             /*if (type == "start") {
                 val intent = Intent(this, RestartActivity::class.java).also {
                     startActivity(it)
                 }
             }*/
         }
+    }
+
+    fun showMessage(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 
     fun checkConnection(): Boolean {
@@ -539,6 +553,25 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, WebBrowser::class.java).also {
             startActivity(it)
         }
+    }
+
+    fun setAutoPlay(status: Boolean) {
+        if (status != this.getAutoPlay()) {
+            if (status) {
+                this.showMessage(getString(R.string.toast_autoplay_clip_on))
+            } else {
+                this.showMessage(getString(R.string.toast_autoplay_clip_off))
+            }
+            val sharedPref = getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()
+                .putBoolean(AUTO_PLAY_CLIPS, status).apply()
+        }
+    }
+
+    fun getAutoPlay(): Boolean {
+        return getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).getBoolean(
+            AUTO_PLAY_CLIPS,
+            false
+        )
     }
 
     override fun attachBaseContext(newBase: Context) {

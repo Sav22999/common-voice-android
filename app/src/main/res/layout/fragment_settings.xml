@@ -14,7 +14,7 @@
 
         <Button
             android:id="@+id/buttonOpenWBTests"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/btn_rounded"
@@ -59,9 +59,11 @@
 
         <Spinner
             android:id="@+id/languageList"
-            android:layout_width="350dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/txt_rounded"
             android:gravity="center|center_horizontal|center_vertical"
             android:popupBackground="@drawable/txt_rounded"
@@ -131,7 +133,7 @@
 
         <Button
             android:id="@+id/buttonOpenTutorial"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/btn_rounded"
@@ -159,7 +161,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textContributors"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonOpenWBTests" />
+            app:layout_constraintTop_toBottomOf="@+id/switchAutoPlayClips" />
 
         <TextView
             android:id="@+id/textContributors"
@@ -188,6 +190,27 @@
             app:layout_constraintBottom_toTopOf="@+id/textDevelopedBy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Switch
+            android:id="@+id/switchAutoPlayClips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/zillaslab"
+            android:gravity="clip_horizontal|center_horizontal|center_vertical"
+            android:padding="4dp"
+            android:showText="false"
+            android:switchPadding="4dp"
+            android:text="@string/txt_autoplay_clips_after_loading_settings"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonOpenWBTests" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

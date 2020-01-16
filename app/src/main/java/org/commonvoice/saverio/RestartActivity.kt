@@ -11,6 +11,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import kotlin.concurrent.schedule
@@ -18,6 +19,7 @@ import kotlin.concurrent.schedule
 class RestartActivity : AppCompatActivity() {
 
     private var PRIVATE_MODE = 0
+    private val LANGUAGE_NAME = "LANGUAGE"
     private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,10 +49,8 @@ class RestartActivity : AppCompatActivity() {
     }
 
     fun restart() {
-        val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
-        val editor = sharedPref.edit()
-        editor.putBoolean(UI_LANGUAGE_CHANGED, false)
-        editor.apply()
+        val sharedPref = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
+            .putBoolean(UI_LANGUAGE_CHANGED, false).apply()
 
         val intent = Intent(this, MainActivity::class.java).also {
             startActivity(it)

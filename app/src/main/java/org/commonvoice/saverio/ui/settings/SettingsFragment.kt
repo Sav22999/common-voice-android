@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -112,6 +109,17 @@ class SettingsFragment : Fragment() {
         txtDevelopedBy.text = getString(R.string.txt_developed_by)
 
         main.checkConnection()
+
+        var switchAutoPlaySettings: Switch = root.findViewById(R.id.switchAutoPlayClips)
+        switchAutoPlaySettings.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setAutoPlay(isChecked)
+        }
+        switchAutoPlaySettings.isChecked = main.getAutoPlay()
 
         return root
     }

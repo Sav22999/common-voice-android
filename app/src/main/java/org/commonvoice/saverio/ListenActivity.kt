@@ -40,6 +40,7 @@ class ListenActivity : AppCompatActivity() {
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
     private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val FIRST_RUN_LISTEN = "FIRST_RUN_LISTEN"
+    private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
 
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
@@ -56,6 +57,7 @@ class ListenActivity : AppCompatActivity() {
     var selectedLanguageVar = ""
 
     var mediaPlayer: MediaPlayer? = null //audioplayer to play/pause clips
+    var autoPlayClips: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,6 +104,9 @@ class ListenActivity : AppCompatActivity() {
         noClip.setOnClickListener {
             NoClip()
         }
+
+        this.autoPlayClips =
+            getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).getBoolean(AUTO_PLAY_CLIPS, false)
 
         //var sentence: TextView = this.findViewById(R.id.textSpeakSentence)
 
@@ -170,6 +175,10 @@ class ListenActivity : AppCompatActivity() {
 
                         btnYes.isVisible = false
                         btnNo.isVisible = false
+
+                        if (this.autoPlayClips) {
+                            StartListening()
+                        }
                     } else {
                         //println(" -->> Something wrong 1: "+it.toString()+" <<-- ")
                         error4()

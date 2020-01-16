@@ -63,9 +63,9 @@ class LoginActivity : AppCompatActivity() {
             openWebBrowser("logout")
         }
 
-        var btnOpenBadge = this.btnBadges
+        var btnOpenBadge: Button = this.findViewById(R.id.btnBadges)
         btnOpenBadge.setOnClickListener {
-            val intent = Intent(this, BadgesActivity::class.java).also {
+            var intent = Intent(this, BadgesActivity::class.java).also {
                 startActivity(it)
             }
         }
@@ -94,8 +94,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun openProfileSection() {
-        setContentView(R.layout.activity_login)
-        loadUserData("profile")
+        //setContentView(R.layout.activity_login)
+        //loadUserData("profile")
+        reopenLogin()
     }
 
     fun showLoading() {
@@ -145,6 +146,7 @@ class LoginActivity : AppCompatActivity() {
                         )
                     ) {
                         loginSuccessful()
+                        showLoading()
                         openProfileSection()
                         var arrayCookies = cookies.split("; ")
                         //println(" -->> ALL COOKIES -->> " + array_cookies.toString() + " <<--")
@@ -243,6 +245,13 @@ class LoginActivity : AppCompatActivity() {
 
     fun openMainAfterLogin() {
         val intent = Intent(this, MainActivity::class.java).also {
+            startActivity(it)
+        }
+        finish()
+    }
+
+    fun reopenLogin() {
+        val intent = Intent(this, LoginActivity::class.java).also {
             startActivity(it)
         }
         finish()
