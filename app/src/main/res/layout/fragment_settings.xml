@@ -23,6 +23,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDonatePayPal" />
 
+        <TextView
+            android:id="@+id/text_settingsOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/settingsOther"
+            android:textAlignment="textStart"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
         <View
             android:id="@+id/separator5"
             android:layout_width="match_parent"
@@ -214,6 +232,7 @@
             android:id="@+id/buttonOpenTutorial"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@color/colorBackground"
             android:foreground="@drawable/ripple"
             android:gravity="center|clip_vertical|start"
@@ -227,7 +246,7 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator2" />
+            app:layout_constraintTop_toBottomOf="@+id/text_settingsOther" />
 
         <Button
             android:id="@+id/textProjectGitHub"
@@ -280,11 +299,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:foreground="@drawable/ripple"
-            android:gravity="clip_horizontal|center_horizontal|center_vertical"
-            android:paddingStart="5dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="10dp"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
             android:showText="false"
             android:stateListAnimator="@null"
             android:switchPadding="4dp"

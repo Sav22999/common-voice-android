@@ -70,8 +70,9 @@
     <string name="settingsLanguage">Language</string>
     <string name="settingsListen">Listen section</string>
     <string name="settingsSpeak">Speak section</string>
+    <string name="settingsOther">Other</string>
     <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
-    <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip after it\'s loaded in Listen section</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip when it\'s loaded</string>
     <string name="toast_autoplay_clip_on">Auto-play clip turned on</string>
     <string name="toast_autoplay_clip_off">Auto-play clip turned off</string>
     <!-- Speak & Listen-->

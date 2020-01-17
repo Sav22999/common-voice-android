@@ -247,7 +247,7 @@ class ListenActivity : AppCompatActivity() {
                         btnYes.isVisible = false
                         btnNo.isVisible = false
 
-                        if (this.autoPlayClips) {
+                        if (this.autoPlayClips && !isFinishing) {
                             StartListening()
                         }
                     } else {

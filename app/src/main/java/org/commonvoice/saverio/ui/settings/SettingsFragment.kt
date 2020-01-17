@@ -43,6 +43,10 @@ class SettingsFragment : Fragment() {
 
         var releaseNumber: TextView = root.findViewById(R.id.textRelease)
         releaseNumber.text = BuildConfig.VERSION_NAME
+        if (BuildConfig.VERSION_NAME.contains("a")) {
+            //alpha
+            releaseNumber.text = BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")"
+        }
 
         // import the languages list (short and "standard" from mainactivity)
         this.languagesListShort = main.languagesListShortArray
@@ -112,7 +116,7 @@ class SettingsFragment : Fragment() {
         main.checkConnection()
 
         var switchAutoPlaySettings: Switch = root.findViewById(R.id.switchAutoPlayClips)
-        switchAutoPlaySettings.setOnCheckedChangeListener { buttonView, isChecked ->
+        switchAutoPlaySettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
             } else {
