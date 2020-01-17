@@ -12,6 +12,29 @@
         android:layout_height="match_parent"
         android:paddingBottom="10dp">
 
+        <View
+            android:id="@+id/separatorDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageEverSpeak" />
+
+        <ImageView
+            android:id="@+id/imageBackgroundTab"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/separatorDashboard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabDashboard"
+            app:srcCompat="@color/colorSelectedBackground" />
+
         <TextView
             android:id="@+id/labelDashboardVoicesBefore"
             android:layout_width="150dp"
@@ -41,6 +64,8 @@
             android:editable="false"
             android:ems="10"
             android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:fontFamily="@font/sourcecodepro"
             android:gravity="center|center_horizontal|center_vertical"
             android:inputType="textEmailAddress"
@@ -66,6 +91,8 @@
             android:editable="false"
             android:ems="10"
             android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:fontFamily="@font/sourcecodepro"
             android:gravity="center|center_horizontal|center_vertical"
             android:inputType="textEmailAddress"
@@ -101,7 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:text="@string/dashboardVoicesOnline"
             android:textAlignment="textStart"
@@ -115,26 +142,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separatorDashboard" />
 
-        <View
-            android:id="@+id/separatorDashboard"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/colorPrimaryDark"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageEverSpeak" />
-
         <TextView
             android:id="@+id/textDashboardEver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/dashboardEver"
             android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -216,9 +230,9 @@
             android:id="@+id/textDashboardToday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/dashboardToday"
             android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -315,7 +329,7 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabDashboard"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -325,6 +339,7 @@
             app:tabIndicatorColor="@color/colorSelected"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="3dp"
+            app:tabMaxWidth="0dp"
             app:tabRippleColor="#FFAAAA"
             app:tabSelectedTextColor="@color/colorSelected"
             app:tabTextColor="@color/colorPrimaryDark">

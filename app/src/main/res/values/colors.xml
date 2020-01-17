@@ -4,10 +4,12 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#292929</color>
     <color name="colorBackground">#EEEEEE</color>
-    <color name="colorBackgroundRipple">#AAAAAA</color>
+    <color name="colorBackgroundRipple">#BBBBBB</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorRed">#FF0000</color>
     <color name="colorAlertMessage">#FF0000</color>
     <color name="colorSelected">@color/colorRed</color>
+    <color name="colorSelectedBackground">#EEEEEE</color>
+    <color name="colorLightRed">#FFAAAA</color>
 </resources>
