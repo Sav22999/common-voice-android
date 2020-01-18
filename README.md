@@ -24,7 +24,6 @@ You can contribute also to translate the app (follow every step, please):
 #### To do:
 
 - **PRIORITY**: Create `POST` request to send the recording (Now it saves the audio on device, but I don’t know how to send the audio file to CV server) -> to do tests use voice.allizom.org instead of the main server -> You should send as `opus codecs` (probably)
-- Improve the loading of sentences/clips (download `2` clips per time. When you finish to validate the `1st`: `firstClip`=`secondClip`, `secondClip`=`loadNewClip()`)
 
 ### Screenshots
 
