@@ -48,7 +48,18 @@
     <string name="txt_gender_male">Masculo</string>
     <string name="txt_gender_female">Femina</string>
     <string name="txt_gender_other">Altero</string>
-    <string name="btn_badges_loggedin">All badges</string>
+    <string name="btn_badges_loggedin">Tote le badges</string>
+    <string name="txt_your_level">Nivello {{*{{level}}*}}</string>
+    <string name="txt_level1_name">Infante</string>
+    <string name="txt_level2_name">Baby</string>
+    <string name="txt_level3_name">Puero</string>
+    <string name="txt_level4_name">Juvene</string>
+    <string name="txt_level5_name">Juvene adulto</string>
+    <string name="txt_level6_name">Adulto</string>
+    <string name="txt_level7_name">Senior</string>
+    <string name="txt_level8_name">Pro</string>
+    <string name="txt_level9_name">Maestro</string>
+    <string name="txt_level10_name">Campion</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Reaperir le Exercitation</string>
     <string name="txt_project_github_settings">Projecto open-source sur GitHub</string>
@@ -56,15 +67,21 @@
     <string name="txt_developed_by">disveloppate per</string>
     <string name="toast_language_changed">Lingua cambiate correctemente a {{*{{lang}}*}}</string>
     <string name="settingsLanguage">Lingua</string>
+    <string name="settingsListen">Section ascolta</string>
+    <string name="settingsSpeak">Section parla</string>
+    <string name="settingsOther">Altero</string>
     <string name="txt_donate_paypal_settings">Donar al disveloppator sur Paypal</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Autoreproduction del registration al cargamento</string>
+    <string name="toast_autoplay_clip_on">Autoreproduction del registration activate</string>
+    <string name="toast_autoplay_clip_off">Autoreproduction del registration disactivate</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Cargante un phrase ...</string>
     <string name="btn_skip_sentence">Saltar</string>
     <string name="btn_send_sentence">Inviar registration</string>
-    <string name="txt_loading_clip">Cargante retalio ...</string>
+    <string name="txt_loading_clip">Cargante un retalio ...</string>
     <string name="txt_press_icon_below_speak_1">Pulsa le icone infra pro initiar le registration</string>
     <string name="txt_press_icon_below_speak_2">Pulsa le icone infra pro cessar le registration</string>
-    <string name="txt_sentence_recorded">Phrase registrate</string>
+    <string name="txt_sentence_recorded">Phrase registrate. Ascolta le registration</string>
     <string name="txt_sentence_record_failed">Registration fallite. Prova de novo per favor</string>
     <string name="txt_recorded_correct_or_wrong">Registration correcte? Invia lo.\nRegistration errate? Registra le phrase de novo</string>
     <string name="txt_listening_stopped">Ascolta le registration integremente pro verificar que es correcte</string>
@@ -74,10 +91,10 @@
     <string name="txt_recording_sent">Registration inviate!</string>
     <string name="txt_sending_recording_failed">Invio registration fallite!</string>
     <string name="txt_sending_recording_failed_and_skip">Invio registration fallite! Reproba a inviar lo, alteremente pulsa button {{*{{skip_button}}*}}</string>
-    <string name="txt_press_icon_below_listen_1">Pulsa le icone infra pro initiar le retalio</string>
-    <string name="txt_press_icon_below_listen_2">Pulsa le icone infra pro cessar le retalio</string>
+    <string name="txt_press_icon_below_listen_1">Pulsa le icone infra pro ascoltar le retalio</string>
+    <string name="txt_press_icon_below_listen_2">Pulsa le icone infra pro cessar le ascolta</string>
     <string name="txt_clip_correct_or_wrong">Es le retalio correcte? Pulsa le Pollice in supra\nLe retalio es mal? Pulsa le pollice in basso</string>
-    <string name="txt_clip_again">Pulsa le icone infra pro reinitiar le retalio</string>
+    <string name="txt_clip_again">Pulsa le icone infra pro reascotar le retalio</string>
     <string name="txt_clip_validated_yes">Retalio acceptate!</string>
     <string name="txt_clip_validated_no">Retalio rejectate!</string>
     <string name="txt_error_1_try_again_tap_skip">Error. Reproba, assi pulsa le button {{*{{skip_button}}*}}</string>
@@ -109,8 +126,8 @@
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">Regrettabilemente iste functionalitate non es disponibile.\nNos labora constantemente pro meliorar le app.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges">Close</string>
-    <string name="labelAllBadges">All badges</string>
+    <string name="btnCloseBadges">Clauder</string>
+    <string name="labelAllBadges">Tote le badges</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

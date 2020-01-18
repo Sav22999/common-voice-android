@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
@@ -21,6 +22,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColorLong
 import androidx.core.view.isGone
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -63,15 +65,20 @@ class LoginActivity : AppCompatActivity() {
             openWebBrowser("logout")
         }
 
-        var btnOpenBadge = this.btnBadges
+        var btnOpenBadge: Button = this.findViewById(R.id.btnBadges)
         btnOpenBadge.setOnClickListener {
-            val intent = Intent(this, BadgesActivity::class.java).also {
+            var intent = Intent(this, BadgesActivity::class.java).also {
                 startActivity(it)
             }
         }
 
-        val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-        if (sharedPref3.getBoolean(LOGGED_IN_NAME, false) == false) {
+        var txtLevel: TextView = this.findViewById(R.id.textLevel)
+
+        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
+                LOGGED_IN_NAME,
+                false
+            ) == false
+        ) {
             try {
                 val intent = intent
                 var url = intent.data
@@ -93,9 +100,97 @@ class LoginActivity : AppCompatActivity() {
         openMainAfterLogin()
     }
 
+    fun getSavedLevel(): Int {
+        var value = getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0)
+        println("level: " + value)
+        return when (value) {
+            in 0..20 -> 1
+            in 5..49 -> 2
+            in 50..99 -> 3
+            in 100..499 -> 4
+            in 500..999 -> 5
+            in 1000..4999 -> 6
+            in 5000..9999 -> 7
+            in 10000..49999 -> 8
+            in 50000..99999 -> 9
+            in 100000..100000000 -> 10
+            else -> 1
+        }
+    }
+
+    fun setLevel(txtLevel: TextView) {
+        txtLevel.isGone = false
+        var nLevel = getSavedLevel()
+        var nameLevel: String = ""
+        when (nLevel) {
+            1 -> {
+                nameLevel = getString(R.string.txt_level1_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel1)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+            2 -> {
+                nameLevel = getString(R.string.txt_level2_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel2)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+            3 -> {
+                nameLevel = getString(R.string.txt_level3_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel3)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+            4 -> {
+                nameLevel = getString(R.string.txt_level4_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel4)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+            5 -> {
+                nameLevel = getString(R.string.txt_level5_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel5)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+            6 -> {
+                nameLevel = getString(R.string.txt_level6_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel6)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+            7 -> {
+                nameLevel = getString(R.string.txt_level7_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel7)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+            8 -> {
+                nameLevel = getString(R.string.txt_level8_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel8)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
+            }
+            9 -> {
+                nameLevel = getString(R.string.txt_level9_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel9)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
+            }
+            10 -> {
+                nameLevel = getString(R.string.txt_level10_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel10)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
+            }
+            else -> {
+                nameLevel = getString(R.string.txt_level1_name)
+                txtLevel.setBackgroundResource(R.color.colorLevel1)
+                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
+            }
+        }
+        txtLevel.setText(
+            getString(R.string.txt_your_level).replace(
+                "{{*{{level}}*}}",
+                nLevel.toString()
+            ) + "\n\"" + nameLevel + "\""
+        )
+    }
+
     fun openProfileSection() {
-        setContentView(R.layout.activity_login)
-        loadUserData("profile")
+        //setContentView(R.layout.activity_login)
+        //loadUserData("profile")
+        reopenLogin()
     }
 
     fun showLoading() {
@@ -145,6 +240,7 @@ class LoginActivity : AppCompatActivity() {
                         )
                     ) {
                         loginSuccessful()
+                        showLoading()
                         openProfileSection()
                         var arrayCookies = cookies.split("; ")
                         //println(" -->> ALL COOKIES -->> " + array_cookies.toString() + " <<--")
@@ -160,17 +256,10 @@ class LoginActivity : AppCompatActivity() {
                         userId = myCookie
                         //println(" -->> MY COOKIE -->> "+my_cookie+" <<--")
 
-                        val sharedPref: SharedPreferences =
-                            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-                        var editor = sharedPref.edit()
-                        editor.putBoolean(LOGGED_IN_NAME, true)
-                        editor.apply()
-
-                        val sharedPref2: SharedPreferences =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                        editor = sharedPref2.edit()
-                        editor.putString(USER_CONNECT_ID, userId)
-                        editor.apply()
+                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
+                            .putBoolean(LOGGED_IN_NAME, true).apply()
+                        getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
+                            .putString(USER_CONNECT_ID, userId).apply()
 
                         println(" -->> LOGGED IN <<-- ")
 
@@ -186,24 +275,11 @@ class LoginActivity : AppCompatActivity() {
                 webView.loadUrl(type)
             }
         } else if (type == "logout") {
-            val sharedPref: SharedPreferences =
-                getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-            var editor = sharedPref.edit()
-            editor.putBoolean(LOGGED_IN_NAME, false)
-            editor.apply()
-
-            val sharedPref2: SharedPreferences =
-                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-            editor = sharedPref2.edit()
-            editor.putString(USER_CONNECT_ID, "")
-            editor.apply()
-
-            val sharedPref3: SharedPreferences =
-                getSharedPreferences(USER_NAME, PRIVATE_MODE)
-            editor = sharedPref3.edit()
-            editor.putString(USER_NAME, "")
-            editor.apply()
-
+            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
+                .putBoolean(LOGGED_IN_NAME, false).apply()
+            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
+                .putString(USER_CONNECT_ID, "").apply()
+            getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
             openMainAfterLogin()
         }
     }
@@ -212,22 +288,18 @@ class LoginActivity : AppCompatActivity() {
         when (type) {
             0 -> {
                 //level
-                var editor =
-                    getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).edit()
-                        .putInt(LEVEL_SAVED, value)
-                editor.apply()
+                getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).edit()
+                    .putInt(LEVEL_SAVED, value).apply()
             }
             1 -> {
                 //recordings
-                var editor = getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).edit()
-                    .putInt(RECORDINGS_SAVED, value)
-                editor.apply()
+                getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).edit()
+                    .putInt(RECORDINGS_SAVED, value).apply()
             }
             2 -> {
                 //validations
-                var editor = getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).edit()
-                    .putInt(VALIDATIONS_SAVED, value)
-                editor.apply()
+                getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).edit()
+                    .putInt(VALIDATIONS_SAVED, value).apply()
             }
         }
     }
@@ -243,6 +315,13 @@ class LoginActivity : AppCompatActivity() {
 
     fun openMainAfterLogin() {
         val intent = Intent(this, MainActivity::class.java).also {
+            startActivity(it)
+        }
+        finish()
+    }
+
+    fun reopenLogin() {
+        val intent = Intent(this, LoginActivity::class.java).also {
             startActivity(it)
         }
         finish()
@@ -294,11 +373,8 @@ class LoginActivity : AppCompatActivity() {
                             //should set also the profileImage
                             var profileEmail: EditText = findViewById(R.id.textProfileEmail)
                             var profileUsername: EditText = findViewById(R.id.textProfileUsername)
-                            val sharedPref1: SharedPreferences =
-                                getSharedPreferences(USER_NAME, PRIVATE_MODE)
-                            val editor = sharedPref1.edit()
-                            editor.putString(USER_NAME, userName)
-                            editor.apply()
+                            getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
+                                .putString(USER_NAME, userName).apply()
                             var profileAge: EditText = findViewById(R.id.textProfileAge)
                             var profileGender: EditText = findViewById(R.id.textProfileGender)
                             profileEmail.setText(jsonObj.getString("email").toString())
@@ -315,13 +391,11 @@ class LoginActivity : AppCompatActivity() {
                             setLevelRecordingsValidations(0, clips_count + votes_count)
                             setLevelRecordingsValidations(1, clips_count)
                             setLevelRecordingsValidations(2, votes_count)
-                        }
 
-                        val sharedPref: SharedPreferences =
-                            getSharedPreferences(USER_NAME, PRIVATE_MODE)
-                        var editor = sharedPref.edit()
-                        editor.putString(USER_NAME, userName)
-                        editor.apply()
+                            setLevel(findViewById(R.id.textLevel))
+                        }
+                        getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
+                            .putString(USER_NAME, userName).apply()
                     } else {
                         error2()
                     }
@@ -333,12 +407,15 @@ class LoginActivity : AppCompatActivity() {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
                     if (userId == "") {
-                        val sharedPref1: SharedPreferences =
-                            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-                        if (sharedPref1.getBoolean(LOGGED_IN_NAME, false)) {
-                            val sharedPref2: SharedPreferences =
-                                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                            userId = sharedPref2.getString(USER_CONNECT_ID, "")
+                        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
+                                LOGGED_IN_NAME,
+                                false
+                            )
+                        ) {
+                            userId = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
                         }
                     }
                     val headers = HashMap<String, String>()
@@ -474,8 +551,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

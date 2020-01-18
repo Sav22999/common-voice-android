@@ -3,4 +3,4 @@
 - Improved localisation
 - Updated translations
 - Fixed minor bugs
-- Micrphone and Storage permissions now are asked just in Speak section
+- Microphone and Storage permissions now are asked just in Speak section

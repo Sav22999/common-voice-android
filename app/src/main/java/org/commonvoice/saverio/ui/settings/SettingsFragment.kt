@@ -7,16 +7,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.w3c.dom.Text
 
 
 class SettingsFragment : Fragment() {
@@ -26,6 +24,7 @@ class SettingsFragment : Fragment() {
         arrayOf("en") // don't change it manually -> it will import automatically
     var languagesList =
         arrayOf("English") // don't change it manually -> it will import automatically
+    var isAlpha: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +44,15 @@ class SettingsFragment : Fragment() {
 
         var releaseNumber: TextView = root.findViewById(R.id.textRelease)
         releaseNumber.text = BuildConfig.VERSION_NAME
+
+        if (BuildConfig.VERSION_NAME.contains("a")) {
+            this.isAlpha = true
+        }
+
+        if (isAlpha) {
+            //alpha
+            releaseNumber.text = BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")"
+        }
 
         // import the languages list (short and "standard" from mainactivity)
         this.languagesListShort = main.languagesListShortArray
@@ -72,7 +80,7 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        var textProjectGithub: TextView = root.findViewById(R.id.textProjectGitHub)
+        var textProjectGithub: Button = root.findViewById(R.id.textProjectGitHub)
         textProjectGithub.setOnClickListener {
             val browserIntent =
                 Intent(
@@ -81,15 +89,13 @@ class SettingsFragment : Fragment() {
                 )
             startActivity(browserIntent)
         }
-        textProjectGithub.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
-        var textDonatePaypal: TextView = root.findViewById(R.id.textDonatePayPal)
+        var textDonatePaypal: Button = root.findViewById(R.id.textDonatePayPal)
         textDonatePaypal.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/saveriomorelli"))
             startActivity(browserIntent)
         }
-        textDonatePaypal.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         var btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btnOpenTutorial.setOnClickListener {
@@ -101,8 +107,10 @@ class SettingsFragment : Fragment() {
             main.openWebBrowserForTest()
         }
 
-        if (main.logged && (main.userName == "Sav22999" || main.userName == "Common Voice Android")) {
+        if (isAlpha) {
             btnWebBrowserForTest.isGone = false
+            var separator: View = root.findViewById(R.id.separator4)
+            separator.isGone = false
         }
 
         var txtContributors: TextView = root.findViewById(R.id.textContributors)
@@ -112,6 +120,17 @@ class SettingsFragment : Fragment() {
         txtDevelopedBy.text = getString(R.string.txt_developed_by)
 
         main.checkConnection()
+
+        var switchAutoPlaySettings: Switch = root.findViewById(R.id.switchAutoPlayClips)
+        switchAutoPlaySettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setAutoPlay(isChecked)
+        }
+        switchAutoPlaySettings.isChecked = main.getAutoPlay()
 
         return root
     }

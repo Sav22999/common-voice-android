@@ -11,6 +11,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import kotlin.concurrent.schedule
@@ -18,6 +19,7 @@ import kotlin.concurrent.schedule
 class RestartActivity : AppCompatActivity() {
 
     private var PRIVATE_MODE = 0
+    private val LANGUAGE_NAME = "LANGUAGE"
     private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +31,10 @@ class RestartActivity : AppCompatActivity() {
             AnimationUtils.loadAnimation(applicationContext, R.anim.start)
         img.startAnimation(animation)
 
-        val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
-        var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
+        var restart: Boolean = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).getBoolean(
+            UI_LANGUAGE_CHANGED,
+            true
+        )
         if (restart) {
             Timer("Restart", false).schedule(1000) {
                 restart()
@@ -47,10 +51,8 @@ class RestartActivity : AppCompatActivity() {
     }
 
     fun restart() {
-        val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
-        val editor = sharedPref.edit()
-        editor.putBoolean(UI_LANGUAGE_CHANGED, false)
-        editor.apply()
+        getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
+            .putBoolean(UI_LANGUAGE_CHANGED, false).apply()
 
         val intent = Intent(this, MainActivity::class.java).also {
             startActivity(it)
@@ -63,8 +65,7 @@ class RestartActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

@@ -116,7 +116,7 @@ class BadgesActivity() : AppCompatActivity() {
 
     fun getSavedLevel(): Int {
         var value = getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0)
-        println("level: "+value)
+        println("level: " + value)
         return when (value) {
             in 0..20 -> 1
             in 5..49 -> 2
@@ -128,13 +128,13 @@ class BadgesActivity() : AppCompatActivity() {
             in 10000..49999 -> 8
             in 50000..99999 -> 9
             in 100000..100000000 -> 10
-            else -> 0
+            else -> 1
         }
     }
 
     fun getSavedRecording(): Int {
-        var value =  getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).getInt(RECORDINGS_SAVED, 0)
-        println("recordings: "+value)
+        var value = getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).getInt(RECORDINGS_SAVED, 0)
+        println("recordings: " + value)
         return when (value) {
             in 0..4 -> 0
             in 5..49 -> 1
@@ -149,8 +149,9 @@ class BadgesActivity() : AppCompatActivity() {
     }
 
     fun getSavedValidation(): Int {
-        var value =  getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).getInt(VALIDATIONS_SAVED, 0)
-        println("validations: "+value)
+        var value =
+            getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).getInt(VALIDATIONS_SAVED, 0)
+        println("validations: " + value)
         return when (value) {
             in 0..4 -> 0
             in 5..49 -> 1
@@ -197,20 +198,19 @@ class BadgesActivity() : AppCompatActivity() {
     }
 
     fun setNewLevel(value: Int) {
-
+        //notify
     }
 
     fun setNewRecordings(value: Int) {
-
+        //notify
     }
 
     fun setNewValidations(value: Int) {
-
+        //notify
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

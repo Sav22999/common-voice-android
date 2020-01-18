@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars[0]"
+            tools:srcCompat="@drawable/ic_profileimagerobot"
             tools:visibility="visible" />
 
         <ImageView
@@ -57,11 +57,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:fontFamily="@font/zillaslab"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/txt_profile_edit_data_alert"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorAlertMessage"
-            android:textSize="20dp"
+            android:textSize="18sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toTopOf="@+id/btnLogout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +79,8 @@
             android:editable="false"
             android:ems="10"
             android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="center|center_horizontal|center_vertical"
             android:hint="@string/txt_profile_age"
             android:inputType="textPersonName"
@@ -100,6 +102,8 @@
             android:editable="false"
             android:ems="10"
             android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="center|center_horizontal|center_vertical"
             android:hint="@string/txt_profile_gender"
             android:inputType="textPersonName"
@@ -115,6 +119,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/btn_rounded"
+            android:shadowColor="@color/colorRed"
             android:text="@string/button_home_logout"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -126,13 +131,15 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/txt_rounded"
             android:clickable="false"
             android:editable="false"
             android:ems="10"
             android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="center|center_horizontal|center_vertical"
             android:hint="@string/txt_profile_email"
             android:inputType="textEmailAddress"
@@ -142,7 +149,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/labelProfileEmail"
-            app:layout_constraintTop_toBottomOf="@+id/imageProfileImage" />
+            app:layout_constraintTop_toBottomOf="@+id/textLevel" />
 
         <EditText
             android:id="@+id/textProfileUsername"
@@ -156,6 +163,8 @@
             android:editable="false"
             android:ems="10"
             android:enabled="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="center|center_horizontal|center_vertical"
             android:hint="@string/txt_profile_username"
             android:inputType="textPersonName"
@@ -170,15 +179,15 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/zillaslab"
+            android:layout_marginTop="30dp"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/txt_profile_email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageProfileImage" />
+            app:layout_constraintTop_toBottomOf="@+id/textLevel" />
 
         <TextView
             android:id="@+id/labelProfileUsername"
@@ -186,11 +195,11 @@
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/zillaslab"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/txt_profile_username"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/labelProfileEmail" />
@@ -201,11 +210,11 @@
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/zillaslab"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/txt_profile_age"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/labelProfileUsername" />
@@ -216,16 +225,16 @@
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/zillaslab"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/txt_profile_gender"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/labelProfileAge" />
 
-        <ImageView
+        <View
             android:id="@+id/imgSpacing"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -236,6 +245,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnBadges" />
+
+        <TextView
+            android:id="@+id/textLevel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorWhite"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/colorBlack"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageProfileImage"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

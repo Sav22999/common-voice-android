@@ -54,8 +54,7 @@ class NoConnectionActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

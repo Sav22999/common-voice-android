@@ -49,6 +49,17 @@
     <string name="txt_gender_female">Femelle</string>
     <string name="txt_gender_other">Autre</string>
     <string name="btn_badges_loggedin">Tous les badges</string>
+    <string name="txt_your_level">Level {{*{{level}}*}}</string>
+    <string name="txt_level1_name">Infant</string>
+    <string name="txt_level2_name">Baby</string>
+    <string name="txt_level3_name">Teen</string>
+    <string name="txt_level4_name">Young</string>
+    <string name="txt_level5_name">Young adult</string>
+    <string name="txt_level6_name">Adult</string>
+    <string name="txt_level7_name">Senior</string>
+    <string name="txt_level8_name">Pro</string>
+    <string name="txt_level9_name">Master</string>
+    <string name="txt_level10_name">Champion</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Ouvrir le tutoriel à nouveau</string>
     <string name="txt_project_github_settings">Projet open-source sur GitHub</string>
@@ -56,7 +67,13 @@
     <string name="txt_developed_by">développé par</string>
     <string name="toast_language_changed">La langue a été correctement changée en {{*{{lang}}*}}</string>
     <string name="settingsLanguage">Langue</string>
+    <string name="settingsListen">Listen section</string>
+    <string name="settingsSpeak">Speak section</string>
+    <string name="settingsOther">Other</string>
     <string name="txt_donate_paypal_settings">Faire un don au développeur sur PayPal</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip when it\'s loaded</string>
+    <string name="toast_autoplay_clip_on">Auto-play clip turned on</string>
+    <string name="toast_autoplay_clip_off">Auto-play clip turned off</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Chargement d\'une phrase ...</string>
     <string name="btn_skip_sentence">Passer</string>
