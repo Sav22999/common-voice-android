@@ -2,24 +2,24 @@
 
 #  <img src="images/icon.png" width="40px" alt=""></img> Common Voice 
 
-This is not the official app of the project Common Voice by Mozilla. This app is developed by Saverio Morelli, via Android Studio, because of there isn’t an official app for Android.
+This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
 
 [![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/supported%20languages-6-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 [<img src="images/googlePlayBadge.png" width="200px"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio) [<img src="images/aptoideBadge.png" height="50px"></img>](https://common-voice-android.en.aptoide.com/?store_name=sav22999) [<img src="images/crowdinBadge.png" height="50px"></img>](https://crowdin.com/project/common-voice-android)
 
-If you have any questions, please open an issue.
+If you have any questions, please open an issue (you can add the label `question` there).
 
-You can contact me also on Telegram, with the username `@Sav22999` (I speak `Italian` and `English`).
+You can contact me also on Telegram, with the username `@Sav22999` (I speak `Italian` and `English`); I’m always available to support you or to respond to your questions.
 
 ### How contribute
 
-If you want to help to develop this app, you can open an `Issue` an send feedback about the features or bugs. In the `screenshots` folder there are updated screenshots of the app status.
+If you want to help to develop this app, you can open an `Issue` an send feedback about the features or report bugs.
 
-You can contribute also to translate the app:
+You can contribute also to translate the app (follow every step, please):
 
-- **Open a new issue** (use `Translation` template), so others know you are translating the app in that language
-- Then go to [Crowdin](https://crowdin.com/project/common-voice-android), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
+1. **Open a new issue** (use `Translation` template), so others know you are translating the app in that language
+1. Then go to [Crowdin](https://crowdin.com/project/common-voice-android), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
 
 #### To do:
 
@@ -34,7 +34,7 @@ If you want screenshots of the other versions, go to the `screenshots` folder.
 
 ### Why an Android app of Common Voice?
 
-There is already the website, which is response and mobile-friendly, but actually it’s very slow, because of so many effects, which could distract you to record or validate clips. So, this app want to improve the experience of this fantastic project, you can fiend you statistics, or you can record/validate a clip just with a single click.
+There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online. You can record sentences or validate clips, with a few taps. So, the app is smart, customisable, light, but powerful.
 
 ### Translators
 
