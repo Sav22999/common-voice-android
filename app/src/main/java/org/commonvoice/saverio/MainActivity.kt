@@ -88,11 +88,10 @@ class MainActivity : AppCompatActivity() {
 
         checkConnection()
 
-        val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        this.firstRun = sharedPref.getBoolean(PREF_NAME, true)
+        this.firstRun = getSharedPreferences(PREF_NAME, PRIVATE_MODE).getBoolean(PREF_NAME, true)
 
-        val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-        this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
+        this.selectedLanguageVar =
+            getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
@@ -106,28 +105,25 @@ class MainActivity : AppCompatActivity() {
             //checkPermissions()
         }
 
-        val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-        this.logged = sharedPref3.getBoolean(LOGGED_IN_NAME, false)
+        this.logged =
+            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
 
         if (logged) {
-            val sharedPref4: SharedPreferences = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-            this.userId = sharedPref4.getString(USER_CONNECT_ID, "")
+            this.userId =
+                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
 
-            val sharedPref5: SharedPreferences = getSharedPreferences(USER_NAME, PRIVATE_MODE)
-            this.userName = sharedPref5.getString(USER_NAME, "")
+            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
         }
     }
 
     fun getHiUsernameLoggedIn(): String {
-        val sharedPref3: SharedPreferences = getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-        this.logged = sharedPref3.getBoolean(LOGGED_IN_NAME, false)
+        this.logged =
+            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
 
         if (logged) {
-            val sharedPref4: SharedPreferences = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-            this.userId = sharedPref4.getString(USER_CONNECT_ID, "")
-
-            val sharedPref5: SharedPreferences = getSharedPreferences(USER_NAME, PRIVATE_MODE)
-            this.userName = sharedPref5.getString(USER_NAME, "")
+            this.userId =
+                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
+            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
         }
 
         if (this.userName == "") {
@@ -148,21 +144,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getSavedStatistics(type: String): String {
-        var sharedPref: SharedPreferences? = null
         var returnStatistics: String = "?"
         try {
             if (type == "you") {
-                sharedPref = getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE)
-                returnStatistics = sharedPref.getString(LAST_STATS_YOU, "?")
+                returnStatistics = getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE).getString(
+                    LAST_STATS_YOU,
+                    "?"
+                )
             } else if (type == "everyone") {
-                sharedPref = getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE)
-                returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE, "?")
+                returnStatistics =
+                    getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE).getString(
+                        LAST_STATS_EVERYONE,
+                        "?"
+                    )
             } else if (type == "voices_now") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE)
-                returnStatistics = sharedPref.getString(LAST_VOICES_ONLINE_NOW, "?")
+                returnStatistics =
+                    getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).getString(
+                        LAST_VOICES_ONLINE_NOW,
+                        "?"
+                    )
             } else if (type == "voices_now") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE)
-                returnStatistics = sharedPref.getString(LAST_VOICES_ONLINE_BEFORE, "?")
+                returnStatistics =
+                    getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).getString(
+                        LAST_VOICES_ONLINE_BEFORE,
+                        "?"
+                    )
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -174,15 +180,11 @@ class MainActivity : AppCompatActivity() {
         try {
             var sharedPref: SharedPreferences? = null
             if (type == "you") {
-                sharedPref = getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE)
-                val editor = sharedPref.edit()
-                editor.putString(LAST_STATS_YOU, statistics)
-                editor.apply()
+                getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE).edit()
+                    .putString(LAST_STATS_YOU, statistics).apply()
             } else if (type == "everyone") {
-                sharedPref = getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE)
-                val editor = sharedPref.edit()
-                editor.putString(LAST_STATS_EVERYONE, statistics)
-                editor.apply()
+                getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE).edit()
+                    .putString(LAST_STATS_EVERYONE, statistics).apply()
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -190,36 +192,59 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getSavedStatisticsValue(type: String, index: Int): String {
-        var sharedPref: SharedPreferences? = null
         var returnStatistics: String = "?"
         try {
             if (type == "you") {
                 if (index == 0) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_0, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE).getString(
+                            LAST_STATS_YOU_VALUE_0,
+                            "?"
+                        )
                 } else if (index == 1) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_1, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE).getString(
+                            LAST_STATS_YOU_VALUE_1,
+                            "?"
+                        )
                 } else if (index == 2) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_2, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE).getString(
+                            LAST_STATS_YOU_VALUE_2,
+                            "?"
+                        )
                 } else if (index == 3) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_YOU_VALUE_3, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE).getString(
+                            LAST_STATS_YOU_VALUE_3,
+                            "?"
+                        )
                 }
             } else if (type == "everyone") {
                 if (index == 0) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_0, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE).getString(
+                            LAST_STATS_EVERYONE_VALUE_0,
+                            "?"
+                        )
                 } else if (index == 1) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_1, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE).getString(
+                            LAST_STATS_EVERYONE_VALUE_1,
+                            "?"
+                        )
                 } else if (index == 2) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_2, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE).getString(
+                            LAST_STATS_EVERYONE_VALUE_2,
+                            "?"
+                        )
                 } else if (index == 3) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE)
-                    returnStatistics = sharedPref.getString(LAST_STATS_EVERYONE_VALUE_3, "?")
+                    returnStatistics =
+                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE).getString(
+                            LAST_STATS_EVERYONE_VALUE_3,
+                            "?"
+                        )
                 }
             }
             //println(" --> "+type+" "+index+" "+returnStatistics)
@@ -230,7 +255,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setSavedStatisticsValue(type: String, value: String, index: Int) {
-        var sharedPref: SharedPreferences? = null
         var valueToSave = "?"
         if (value != "-1") {
             valueToSave = value
@@ -239,47 +263,31 @@ class MainActivity : AppCompatActivity() {
         try {
             if (type == "you") {
                 if (index == 0) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_YOU_VALUE_0, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_YOU_VALUE_0, valueToSave).apply()
                 } else if (index == 1) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_YOU_VALUE_1, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_YOU_VALUE_1, valueToSave).apply()
                 } else if (index == 2) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_YOU_VALUE_2, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_YOU_VALUE_2, valueToSave).apply()
                 } else if (index == 3) {
-                    sharedPref = getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_YOU_VALUE_3, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_YOU_VALUE_3, valueToSave).apply()
                 }
             } else if (type == "everyone") {
                 if (index == 0) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_EVERYONE_VALUE_0, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_EVERYONE_VALUE_0, valueToSave).apply()
                 } else if (index == 1) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_EVERYONE_VALUE_1, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_EVERYONE_VALUE_1, valueToSave).apply()
                 } else if (index == 2) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_EVERYONE_VALUE_2, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_EVERYONE_VALUE_2, valueToSave).apply()
                 } else if (index == 3) {
-                    sharedPref = getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE)
-                    val editor = sharedPref.edit()
-                    editor.putString(LAST_STATS_EVERYONE_VALUE_3, valueToSave)
-                    editor.apply()
+                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE).edit()
+                        .putString(LAST_STATS_EVERYONE_VALUE_3, valueToSave).apply()
                 }
             }
         } catch (e: Exception) {
@@ -288,21 +296,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getSavedVoicesOnline(type: String): String {
-        var sharedPref: SharedPreferences? = null
         var returnVoicesOnline: String = "?"
         try {
             if (type == "voicesNow") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE)
-                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_NOW, "?")
+                returnVoicesOnline =
+                    getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).getString(
+                        LAST_VOICES_ONLINE_NOW,
+                        "?"
+                    )
             } else if (type == "voicesBefore") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE)
-                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_BEFORE, "?")
+                returnVoicesOnline =
+                    getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).getString(
+                        LAST_VOICES_ONLINE_BEFORE,
+                        "?"
+                    )
             } else if (type == "voicesNowValue") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE)
-                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_NOW_VALUE, "?")
+                returnVoicesOnline =
+                    getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE).getString(
+                        LAST_VOICES_ONLINE_NOW_VALUE,
+                        "?"
+                    )
             } else if (type == "voicesBeforeValue") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE)
-                returnVoicesOnline = sharedPref.getString(LAST_VOICES_ONLINE_BEFORE_VALUE, "?")
+                returnVoicesOnline =
+                    getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE).getString(
+                        LAST_VOICES_ONLINE_BEFORE_VALUE,
+                        "?"
+                    )
             }
         } catch (e: Exception) {
             println("Error: " + e.toString())
@@ -315,25 +334,17 @@ class MainActivity : AppCompatActivity() {
         try {
             var sharedPref: SharedPreferences? = null
             if (type == "voicesNow") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE)
-                val editor = sharedPref.edit()
-                editor.putString(LAST_VOICES_ONLINE_NOW, voices)
-                editor.apply()
+                getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).edit()
+                    .putString(LAST_VOICES_ONLINE_NOW, voices).apply()
             } else if (type == "voicesBefore") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE)
-                val editor = sharedPref.edit()
-                editor.putString(LAST_VOICES_ONLINE_BEFORE, voices)
-                editor.apply()
+                getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).edit()
+                    .putString(LAST_VOICES_ONLINE_BEFORE, voices).apply()
             } else if (type == "voicesNowValue") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE)
-                val editor = sharedPref.edit()
-                editor.putString(LAST_VOICES_ONLINE_NOW_VALUE, voices)
-                editor.apply()
+                getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE).edit()
+                    .putString(LAST_VOICES_ONLINE_NOW_VALUE, voices).apply()
             } else if (type == "voicesBeforeValue") {
-                sharedPref = getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE)
-                val editor = sharedPref.edit()
-                editor.putString(LAST_VOICES_ONLINE_BEFORE_VALUE, voices)
-                editor.apply()
+                getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE).edit()
+                    .putString(LAST_VOICES_ONLINE_BEFORE_VALUE, voices).apply()
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -342,10 +353,8 @@ class MainActivity : AppCompatActivity() {
 
     fun setLanguageSettings(lang: String) {
         try {
-            val sharedPref: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-            val editor = sharedPref.edit()
-            editor.putString(LANGUAGE_NAME, lang)
-            editor.apply()
+            getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).edit().putString(LANGUAGE_NAME, lang)
+                .apply()
 
             var languageChanged = false
             if (this.selectedLanguageVar != lang) {
@@ -355,11 +364,8 @@ class MainActivity : AppCompatActivity() {
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                val sharedPref2: SharedPreferences =
-                    getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
-                val editor2 = sharedPref2.edit()
-                editor2.putBoolean(UI_LANGUAGE_CHANGED, true)
-                editor2.apply()
+                getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
+                    .putBoolean(UI_LANGUAGE_CHANGED, true).apply()
 
                 setLanguageUI("restart")
                 setSavedStatistics("you", "?")
@@ -473,18 +479,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setLanguageUI(type: String) {
-        val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
-        var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
-
-        val sharedPref2: SharedPreferences =
-            getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE)
-        var restart2: Boolean = sharedPref2.getBoolean(UI_LANGUAGE_CHANGED2, false)
+        var restart: Boolean = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).getBoolean(
+            UI_LANGUAGE_CHANGED,
+            true
+        )
+        var restart2: Boolean = getSharedPreferences(
+            UI_LANGUAGE_CHANGED2,
+            PRIVATE_MODE
+        ).getBoolean(UI_LANGUAGE_CHANGED2, false)
 
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
         //println("-->index: " + translations_languages.indexOf(lang))
 
         if (restart || type == "restart") {
-            val sharedPref2 = getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
+            getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
                 .putBoolean(UI_LANGUAGE_CHANGED2, true).apply()
             val intent = Intent(this, RestartActivity::class.java).also {
                 startActivity(it)
@@ -492,7 +500,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         } else {
             if (restart2) {
-                val sharedPref2 = getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
+                getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
                     .putBoolean(UI_LANGUAGE_CHANGED2, false).apply()
                 showMessage(
                     getString(R.string.toast_language_changed).replace(
@@ -566,7 +574,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 this.showMessage(getString(R.string.toast_autoplay_clip_off))
             }
-            val sharedPref = getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()
+            getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()
                 .putBoolean(AUTO_PLAY_CLIPS, status).apply()
         }
     }
@@ -655,10 +663,10 @@ class MainActivity : AppCompatActivity() {
 
     //translation-methods
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences =
-            newBase.getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-        var tempLang = sharedPref2.getString(LANGUAGE_NAME, "en")
-        var lang = tempLang.split("-")[0]
+        var lang = newBase.getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(
+            LANGUAGE_NAME,
+            "en"
+        ).split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {
             lang = langSupportedYesOrNot.getDefaultLanguage()

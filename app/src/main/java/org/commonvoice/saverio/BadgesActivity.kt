@@ -128,7 +128,7 @@ class BadgesActivity() : AppCompatActivity() {
             in 10000..49999 -> 8
             in 50000..99999 -> 9
             in 100000..100000000 -> 10
-            else -> 0
+            else -> 1
         }
     }
 
@@ -198,20 +198,19 @@ class BadgesActivity() : AppCompatActivity() {
     }
 
     fun setNewLevel(value: Int) {
-
+        //notify
     }
 
     fun setNewRecordings(value: Int) {
-
+        //notify
     }
 
     fun setNewValidations(value: Int) {
-
+        //notify
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

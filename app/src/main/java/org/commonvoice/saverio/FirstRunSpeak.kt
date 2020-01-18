@@ -178,11 +178,8 @@ class FirstRunSpeak : AppCompatActivity() {
             stopAnimation(txtEight)
             startAnimation(txtNine)
         } else if (this.status == 9) {
-            val sharedPref: SharedPreferences = getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE)
-            var editor = sharedPref.edit()
-            editor.putBoolean(FIRST_RUN_SPEAK, false)
-            editor.apply()
-
+            getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE).edit()
+                .putBoolean(FIRST_RUN_SPEAK, false).apply()
             val intent = Intent(this, SpeakActivity::class.java).also {
                 startActivity(it)
             }
@@ -201,8 +198,7 @@ class FirstRunSpeak : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

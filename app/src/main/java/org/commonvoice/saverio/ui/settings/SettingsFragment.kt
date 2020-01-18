@@ -24,6 +24,7 @@ class SettingsFragment : Fragment() {
         arrayOf("en") // don't change it manually -> it will import automatically
     var languagesList =
         arrayOf("English") // don't change it manually -> it will import automatically
+    var isAlpha: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +44,12 @@ class SettingsFragment : Fragment() {
 
         var releaseNumber: TextView = root.findViewById(R.id.textRelease)
         releaseNumber.text = BuildConfig.VERSION_NAME
+
         if (BuildConfig.VERSION_NAME.contains("a")) {
+            this.isAlpha = true
+        }
+
+        if (isAlpha) {
             //alpha
             releaseNumber.text = BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")"
         }
@@ -101,7 +107,7 @@ class SettingsFragment : Fragment() {
             main.openWebBrowserForTest()
         }
 
-        if (main.logged && (main.userName == "Sav22999" || main.userName == "Common Voice Android")) {
+        if (isAlpha) {
             btnWebBrowserForTest.isGone = false
             var separator: View = root.findViewById(R.id.separator4)
             separator.isGone = false

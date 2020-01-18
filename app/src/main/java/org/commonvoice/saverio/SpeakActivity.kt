@@ -91,8 +91,8 @@ class SpeakActivity : AppCompatActivity() {
             checkPermissions()
             checkConnection()
 
-            val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-            this.selectedLanguage = sharedPref2.getString(LANGUAGE_NAME, "en")
+            this.selectedLanguage =
+                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
             this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
             var skipButton: Button = this.findViewById(R.id.btn_skip_speak)
@@ -186,7 +186,7 @@ class SpeakActivity : AppCompatActivity() {
             nRecorded = (nRecorded.toInt() + 1).toString()
             var contributingToSave =
                 dateContributingToSave + ", " + nRecorded + ", " + contributing[2]
-            val sharedPref = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
+            getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
                 .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
         } else {
             //user no logged
@@ -250,13 +250,16 @@ class SpeakActivity : AppCompatActivity() {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
-                    val sharedPref: SharedPreferences =
-                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    var logged = getSharedPreferences(
+                        LOGGED_IN_NAME,
+                        PRIVATE_MODE
+                    ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        val sharedPref3: SharedPreferences =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                        var cookieId = sharedPref3.getString(USER_CONNECT_ID, "")
+                        var cookieId =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -561,13 +564,16 @@ class SpeakActivity : AppCompatActivity() {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
-                    val sharedPref: SharedPreferences =
-                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    var logged = getSharedPreferences(
+                        LOGGED_IN_NAME,
+                        PRIVATE_MODE
+                    ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        val sharedPref3: SharedPreferences =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                        var cookie_id = sharedPref3.getString(USER_CONNECT_ID, "")
+                        var cookie_id =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookie_id
@@ -715,8 +721,7 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

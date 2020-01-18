@@ -12,4 +12,16 @@
     <color name="colorSelected">@color/colorRed</color>
     <color name="colorSelectedBackground">#EEEEEE</color>
     <color name="colorLightRed">#FFAAAA</color>
+
+    <color name="colorLevel1">#FF0000</color>
+    <color name="colorLevel2">#C80000</color>
+    <color name="colorLevel3">#6400FF</color>
+    <color name="colorLevel4">#FF00FF</color>
+    <color name="colorLevel5">#0000FF</color>
+    <color name="colorLevel6">#FF9600</color>
+    <color name="colorLevel7">#CD7F32</color>
+    <color name="colorLevel8">#C0C0C0</color>
+    <color name="colorLevel9">#D4AF37</color>
+    <color name="colorLevel10">#E5E4E2</color>
+
 </resources>

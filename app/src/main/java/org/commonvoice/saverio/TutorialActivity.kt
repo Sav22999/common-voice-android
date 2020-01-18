@@ -81,10 +81,8 @@ class TutorialActivity : AppCompatActivity() {
             tutorialStart4()
         } else if (this.status == 6) {
             // close tutorial and open main
-            val sharedPref: SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-            var editor = sharedPref.edit()
-            editor.putBoolean(PREF_NAME, false)
-            editor.apply()
+            getSharedPreferences(PREF_NAME, PRIVATE_MODE).edit().putBoolean(PREF_NAME, false)
+                .apply()
 
             val intent = Intent(this, MainActivity::class.java).also {
                 startActivity(it)
@@ -220,10 +218,8 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     fun setLanguage(language: String) {
-        val sharedPref: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-        val editor = sharedPref.edit()
-        editor.putString(LANGUAGE_NAME, language)
-        editor.apply()
+        getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).edit().putString(LANGUAGE_NAME, language)
+            .apply()
 
         //Toast.makeText(this,"Language: "+language+" index: "+languages_list_short.indexOf(language), Toast.LENGTH_SHORT).show()
     }

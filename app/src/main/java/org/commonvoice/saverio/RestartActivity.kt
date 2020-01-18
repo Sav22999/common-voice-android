@@ -31,8 +31,10 @@ class RestartActivity : AppCompatActivity() {
             AnimationUtils.loadAnimation(applicationContext, R.anim.start)
         img.startAnimation(animation)
 
-        val sharedPref: SharedPreferences = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE)
-        var restart: Boolean = sharedPref.getBoolean(UI_LANGUAGE_CHANGED, true)
+        var restart: Boolean = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).getBoolean(
+            UI_LANGUAGE_CHANGED,
+            true
+        )
         if (restart) {
             Timer("Restart", false).schedule(1000) {
                 restart()
@@ -49,7 +51,7 @@ class RestartActivity : AppCompatActivity() {
     }
 
     fun restart() {
-        val sharedPref = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
+        getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
             .putBoolean(UI_LANGUAGE_CHANGED, false).apply()
 
         val intent = Intent(this, MainActivity::class.java).also {
@@ -63,8 +65,7 @@ class RestartActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

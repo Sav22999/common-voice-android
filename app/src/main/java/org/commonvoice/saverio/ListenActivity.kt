@@ -79,8 +79,8 @@ class ListenActivity : AppCompatActivity() {
             //checkPermissions()
             checkConnection()
 
-            val sharedPref2: SharedPreferences = getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE)
-            this.selectedLanguageVar = sharedPref2.getString(LANGUAGE_NAME, "en")
+            this.selectedLanguageVar =
+                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
             this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguageVar)
 
             var skipButton: Button = this.findViewById(R.id.btn_skip_listen)
@@ -178,7 +178,7 @@ class ListenActivity : AppCompatActivity() {
             nValidated = (nValidated.toInt() + 1).toString()
             var contributingToSave =
                 dateContributingToSave + ", " + contributing[1] + ", " + nValidated
-            val sharedPref = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
+            getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
                 .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
         } else {
             //user no logged
@@ -268,13 +268,16 @@ class ListenActivity : AppCompatActivity() {
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
                     //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                    val sharedPref: SharedPreferences =
-                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    var logged = getSharedPreferences(
+                        LOGGED_IN_NAME,
+                        PRIVATE_MODE
+                    ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        val sharedPref3: SharedPreferences =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                        var cookieId = sharedPref3.getString(USER_CONNECT_ID, "")
+                        var cookieId =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -420,13 +423,16 @@ class ListenActivity : AppCompatActivity() {
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
                     //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                    val sharedPref: SharedPreferences =
-                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE)
-                    var logged = sharedPref.getBoolean(LOGGED_IN_NAME, false)
+                    var logged = getSharedPreferences(
+                        LOGGED_IN_NAME,
+                        PRIVATE_MODE
+                    ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        val sharedPref3: SharedPreferences =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE)
-                        var cookieId = sharedPref3.getString(USER_CONNECT_ID, "")
+                        var cookieId =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -552,8 +558,7 @@ class ListenActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val sharedPref2: SharedPreferences = newBase.getSharedPreferences("LANGUAGE", 0)
-        var tempLang = sharedPref2.getString("LANGUAGE", "en")
+        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

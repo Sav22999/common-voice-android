@@ -391,7 +391,7 @@ class DashboardFragment : Fragment() {
             )
 
             var main = (activity as MainActivity)
-            if (index != -1) {
+            if (index != -1 && main.dashboard_selected) {
                 textElements[index]?.text = "..."
             }
 
@@ -401,42 +401,6 @@ class DashboardFragment : Fragment() {
             } else if (type.contains("everyone")) {
                 typeToSend = "everyone"
             }
-
-            //tempContributing-today
-            if (type == "youTodaySpeak" || type == "youTodayListen") {
-                if (type == "youTodaySpeak") {
-                    var value = main.getContributing("recordings")
-                    if (value == "?") {
-                        valueToReturn = -1
-                    } else {
-                        valueToReturn = value.toInt()
-                    }
-                } else if (type == "youTodayListen") {
-                    var value = main.getContributing("validations")
-                    if (value == "?") {
-                        valueToReturn = -1
-                    } else {
-                        valueToReturn = value.toInt()
-                    }
-                }
-                try {
-                    if (index != -1) {
-                        textElements[index]?.text = valueToReturn.toString()
-                        main.setSavedStatisticsValue(
-                            typeToSend,
-                            valueToReturn.toString(),
-                            index
-                        )
-                    }
-                } catch (e: Exception) {
-                    //error
-                    println("Exception Dashboard-004 !!")
-                }
-                if (valueToReturn == -1) {
-                    error3(type, index, viewToUse)
-                }
-            }
-            //endTempContributing-today
 
             if (requestUrl != "") {
                 try {
@@ -563,6 +527,45 @@ class DashboardFragment : Fragment() {
             } else {
                 //error3(type, index, viewToUse)
             }
+
+            //tempContributing-today
+            if (main.dashboard_selected) {
+                if (type == "youTodaySpeak" || type == "youTodayListen") {
+                    if (type == "youTodaySpeak") {
+                        var value = main.getContributing("recordings")
+                        if (value == "?") {
+                            valueToReturn = -1
+                        } else {
+                            valueToReturn = value.toInt()
+                        }
+                    } else if (type == "youTodayListen") {
+                        var value = main.getContributing("validations")
+                        if (value == "?") {
+                            valueToReturn = -1
+                        } else {
+                            valueToReturn = value.toInt()
+                        }
+                    }
+                    try {
+                        if (index != -1) {
+                            textElements[index]?.text = valueToReturn.toString()
+                            main.setSavedStatisticsValue(
+                                typeToSend,
+                                valueToReturn.toString(),
+                                index
+                            )
+                        }
+                    } catch (e: Exception) {
+                        //error
+                        println("Exception Dashboard-004 !!")
+                    }
+                    if (valueToReturn == -1) {
+                        error3(type, index, viewToUse)
+                    }
+                }
+            }
+            //endTempContributing-today
+
         } catch (e: Exception) {
             //println("Error: " + e.toString())
             println("Exception Dashboard-002 !!")
