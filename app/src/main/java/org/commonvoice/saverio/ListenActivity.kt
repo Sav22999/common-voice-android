@@ -231,6 +231,7 @@ class ListenActivity : AppCompatActivity() {
             if (this.idSentence[0] != 0 && this.opened) {
                 sentence.text = this.textSentence[0]
                 btnListen.isEnabled = true
+                btnSkip.isEnabled = true
                 msg.text = getString(R.string.txt_press_icon_below_listen_1)
 
                 this.mediaPlayer = MediaPlayer().apply {
