@@ -1,15 +1,20 @@
 package org.commonvoice.saverio.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 
@@ -62,9 +67,27 @@ class HomeFragment : Fragment() {
 
         main.checkConnection()
 
+        setTheme(main, root)
+
         main.startAnimation(btnSpeak)
         main.startAnimation(btnListen)
 
         return root
+    }
+
+    fun setTheme(view: Context, root: View) {
+        var theme: DarkLightTheme = DarkLightTheme()
+        //theme.setElements(view, root.findViewById(R.id.layoutHome))
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(
+            isDark,
+            root.findViewById(R.id.logo_cv) as ImageView,
+            R.drawable.logo_cv,
+            R.drawable.logo_cv_light
+        )
+        theme.setElement(isDark, view, root.findViewById(R.id.textLoggedUsername) as TextView)
+        theme.setElement(isDark, view, root.findViewById(R.id.btn_login) as Button)
+        theme.setElement(isDark, root.findViewById(R.id.layoutHome) as ConstraintLayout)
     }
 }

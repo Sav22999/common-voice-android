@@ -7,10 +7,31 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutSettings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:isScrollContainer="true"
         android:paddingBottom="10dp">
+
+        <Switch
+            android:id="@+id/switchDarkTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_dark_theme_settings"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_settingsOther" />
 
         <View
             android:id="@+id/separator6"
@@ -22,6 +43,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDonatePayPal" />
+
+        <View
+            android:id="@+id/separator7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchDarkTheme" />
 
         <TextView
             android:id="@+id/text_settingsOther"
@@ -161,15 +193,16 @@
             android:id="@+id/languageList"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/txt_rounded"
+            android:dropDownWidth="wrap_content"
             android:gravity="center|center_horizontal|center_vertical"
             android:popupBackground="@drawable/txt_rounded"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageLanguageIcon"
             app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage" />
 
         <TextView
@@ -232,7 +265,6 @@
             android:id="@+id/buttonOpenTutorial"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:background="@color/colorBackground"
             android:foreground="@drawable/ripple"
             android:gravity="center|clip_vertical|start"
@@ -246,7 +278,7 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_settingsOther" />
+            app:layout_constraintTop_toBottomOf="@+id/separator7" />
 
         <Button
             android:id="@+id/textProjectGitHub"
@@ -324,6 +356,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator6" />
+
+        <ImageView
+            android:id="@+id/imageLanguageIcon"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerInside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage"
+            app:srcCompat="@drawable/ic_language" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

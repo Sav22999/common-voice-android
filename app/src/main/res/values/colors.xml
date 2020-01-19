@@ -12,7 +12,10 @@
     <color name="colorSelected">@color/colorRed</color>
     <color name="colorSelectedBackground">#EEEEEE</color>
     <color name="colorLightRed">#FFAAAA</color>
+    <color name="colorLightGreen">#228822</color>
+    <color name="colorGray">#666666</color>
 
+    <!-- Level - Login -->
     <color name="colorLevel1">#FF0000</color>
     <color name="colorLevel2">#C80000</color>
     <color name="colorLevel3">#6400FF</color>
@@ -24,4 +27,10 @@
     <color name="colorLevel9">#D4AF37</color>
     <color name="colorLevel10">#E5E4E2</color>
 
+    <!-- Dark theme (DT) -->
+    <color name="colorBackgroundDT">#222222</color>
+    <color name="colorBackgroundButtonDT">#999999</color>
+    <color name="colorAlertMessageDT">#FFAAAA</color>
+    <color name="colorSelectedBackgroundDT">@color/colorBackgroundDT</color>
+    <color name="colorSelectedDT">#FF7777</color>
 </resources>

@@ -7,7 +7,7 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/layoutNoConnection"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

@@ -14,6 +14,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import java.util.*
 
@@ -33,6 +34,16 @@ class FirstRunListen : AppCompatActivity() {
         btnNext.setOnClickListener {
             goNext()
         }
+
+        setTheme(this)
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
+        theme.setElement(isDark, view, this.findViewById(R.id.btnNextListen) as Button)
     }
 
     override fun onBackPressed() {

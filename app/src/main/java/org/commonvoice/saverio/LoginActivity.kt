@@ -20,6 +20,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorLong
@@ -32,6 +33,7 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.all_badges.*
 import org.json.JSONObject
+import org.w3c.dom.Text
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -93,6 +95,7 @@ class LoginActivity : AppCompatActivity() {
             }
         } else {
             loadUserData("profile")
+            setTheme(this)
         }
     }
 
@@ -184,6 +187,36 @@ class LoginActivity : AppCompatActivity() {
                 "{{*{{level}}*}}",
                 nLevel.toString()
             ) + "\n\"" + nameLevel + "\""
+        )
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutLogin) as ConstraintLayout)
+        theme.setElement(isDark, view, this.findViewById(R.id.btnBadges) as Button)
+        theme.setElement(isDark, view, this.findViewById(R.id.btnLogout) as Button)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.labelToModifyInformation) as TextView,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
+        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileUsername) as TextView)
+        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileEmail) as TextView)
+        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileAge) as TextView)
+        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileGender) as TextView)
+        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileUsername) as TextView)
+        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileEmail) as TextView)
+        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileAge) as TextView)
+        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileGender) as TextView)
+        theme.setElement(
+            isDark,
+            this.findViewById(R.id.imageProfileImageBorder) as ImageView,
+            R.drawable.background_profile_image,
+            R.drawable.background_profile_image_darktheme
         )
     }
 

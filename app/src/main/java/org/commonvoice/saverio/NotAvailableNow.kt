@@ -6,7 +6,10 @@ import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import org.commonvoice.saverio.R
 import java.util.*
 
@@ -15,6 +18,22 @@ class NotAvailableNow : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.not_available_now)
+
+        setTheme(this)
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutNotAvailableNow) as ConstraintLayout)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.txtNotAvailableNow) as TextView,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
     }
 
     override fun attachBaseContext(newBase: Context) {

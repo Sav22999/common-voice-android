@@ -4,7 +4,6 @@ import android.Manifest
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.net.ConnectivityManager
@@ -16,6 +15,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -25,7 +25,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.fragment_settings.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -123,6 +122,23 @@ class ListenActivity : AppCompatActivity() {
             //API request
             API_request()
         }
+
+        setTheme(this)
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutListen) as ConstraintLayout)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.textMessageAlertListen) as TextView,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
+        theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_listen) as Button)
     }
 
     fun getDateToSave(savedDate: String): String {
@@ -259,13 +275,23 @@ class ListenActivity : AppCompatActivity() {
                     val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
                         Response.Listener {
                             val jsonResult = it.toString()
-                            var jsonResultArray = arrayOf(jsonResult,"")
+                            var jsonResultArray = arrayOf(jsonResult, "")
                             //println(jsonResult)
-                            if(!this.opened) {
+                            if (!this.opened) {
                                 //println("substring: "+jsonResult.substring(1,jsonResult.length-1))
-                                if (jsonResult.substring(1,jsonResult.length-1).split("},{").size == 2) {
-                                    jsonResultArray[0] = "["+jsonResult.substring(1,jsonResult.length-1).split("},{")[0]+"}]"
-                                    jsonResultArray[1] = "[{"+jsonResult.substring(1,jsonResult.length-1).split("},{")[1]+"]"
+                                if (jsonResult.substring(
+                                        1,
+                                        jsonResult.length - 1
+                                    ).split("},{").size == 2
+                                ) {
+                                    jsonResultArray[0] = "[" + jsonResult.substring(
+                                        1,
+                                        jsonResult.length - 1
+                                    ).split("},{")[0] + "}]"
+                                    jsonResultArray[1] =
+                                        "[{" + jsonResult.substring(1, jsonResult.length - 1).split(
+                                            "},{"
+                                        )[1] + "]"
                                 }
                             }
                             if (jsonResult.length > 2) {
@@ -350,12 +376,12 @@ class ListenActivity : AppCompatActivity() {
                             println("soundSentence: '" + this.soundSentence[0] + "' '" + this.soundSentence[1] + "'")
                             println("------")
 
-                            this.loading =false
+                            this.loading = false
                         }, Response.ErrorListener {
                             //println(" -->> Something wrong: "+it.toString()+" <<-- ")
                             error1()
 
-                            this.loading =false
+                            this.loading = false
                             if (!this.opened) {
                                 this.opened = true
                                 API_request() //the second request at the first load
@@ -411,7 +437,7 @@ class ListenActivity : AppCompatActivity() {
             skipText.text.toString()
         )
         skipText.isEnabled = true
-        this.loading =false
+        this.loading = false
     }
 
     fun error4() {
