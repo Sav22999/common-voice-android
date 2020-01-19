@@ -71,9 +71,12 @@
     <string name="settingsSpeak">Sezione Parla</string>
     <string name="settingsOther">Altro</string>
     <string name="txt_donate_paypal_settings">Fai una donazione allo sviluppatore su PayPal</string>
-    <string name="txt_autoplay_clips_after_loading_settings">Riproduci automatica la registrazione dopo che è stata caricata</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Riproduci automaticamente la registrazione dopo che è stata caricata</string>
     <string name="toast_autoplay_clip_on">Riproduzione automatica attivata</string>
     <string name="toast_autoplay_clip_off">Riproduzione automatica disattivata</string>
+    <string name="txt_dark_theme_settings">Tema scuro</string>
+    <string name="toast_dark_theme_on">Tema scuro attivato</string>
+    <string name="toast_dark_theme_off">Tema scuro disattivato</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase ...</string>
     <string name="btn_skip_sentence">Salta</string>

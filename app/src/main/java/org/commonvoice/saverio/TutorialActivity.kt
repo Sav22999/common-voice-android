@@ -63,37 +63,6 @@ class TutorialActivity : AppCompatActivity() {
         txtSkip.setOnClickListener {
             skipPermission()
         }
-
-        setTheme(this)
-    }
-
-    fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
-
-        var isDark = theme.getTheme(view)
-        theme.setElement(isDark, this.findViewById(R.id.layoutTutorial) as ConstraintLayout)
-        theme.setElement(
-            isDark,
-            view,
-            this.findViewById(R.id.textView_tutorial) as TextView,
-            R.color.colorBlack,
-            R.color.colorWhite
-        )
-        theme.setElement(
-            isDark,
-            view,
-            this.findViewById(R.id.textView_tutorialTerms) as TextView,
-            R.color.colorBlack,
-            R.color.colorWhite
-        )
-        theme.setElement(
-            isDark,
-            view,
-            this.findViewById(R.id.textSkipTutorial) as TextView,
-            R.color.colorBlack,
-            R.color.colorWhite
-        )
-        theme.setElement(isDark, view, this.findViewById(R.id.btn_next) as Button)
     }
 
     fun tutorialStart() {
