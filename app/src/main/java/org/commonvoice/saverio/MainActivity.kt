@@ -537,7 +537,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showMessage(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 
     fun checkConnection(): Boolean {
