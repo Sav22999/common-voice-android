@@ -1,11 +1,13 @@
 package org.commonvoice.saverio.ui.dashboard
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -15,6 +17,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.tabs.TabLayout
+import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.json.JSONObject
@@ -158,7 +161,29 @@ class DashboardFragment : Fragment() {
 
         main.checkConnection()
 
+        setTheme(main, root)
+
         return root
+    }
+
+    fun setTheme(view: Context, root: View) {
+        var theme: DarkLightTheme = DarkLightTheme()
+        theme.setElements(view, root.findViewById(R.id.layoutDashboard))
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(
+            isDark,
+            root.findViewById(R.id.imageBackgroundTab) as ImageView,
+            R.color.colorSelectedBackground,
+            R.color.colorSelectedBackgroundDT
+        )
+        theme.setTextView(isDark, view, root.findViewById(R.id.textDashboardVoicesNow) as TextView)
+        theme.setTextView(
+            isDark,
+            view,
+            root.findViewById(R.id.textDashboardVoicesBefore) as TextView
+        )
+        theme.setTabLayout(isDark, view, root.findViewById(R.id.tabDashboard) as TabLayout)
     }
 
     fun getDashboardValues(type: String): Array<Int> {

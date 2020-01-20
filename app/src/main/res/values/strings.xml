@@ -75,6 +75,9 @@
     <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip when it\'s loaded</string>
     <string name="toast_autoplay_clip_on">Auto-play clip turned on</string>
     <string name="toast_autoplay_clip_off">Auto-play clip turned off</string>
+    <string name="txt_dark_theme_settings">Dark theme</string>
+    <string name="toast_dark_theme_on">Dark theme turned on</string>
+    <string name="toast_dark_theme_off">Dark theme turned off</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence ...</string>
     <string name="btn_skip_sentence">Skip</string>

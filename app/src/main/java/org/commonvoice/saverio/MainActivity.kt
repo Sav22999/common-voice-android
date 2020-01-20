@@ -16,8 +16,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
@@ -25,6 +27,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.extensions.LayoutContainer
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -58,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
     private val TODAY_CONTRIBUTING =
         "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+    private val DARK_THEME = "DARK_THEME"
 
     var dashboard_selected = false
 
@@ -69,6 +73,8 @@ class MainActivity : AppCompatActivity() {
     var logged: Boolean = false
     var userId: String = ""
     var userName: String = ""
+    var darkTheme: Boolean = false
+    var theme: DarkLightTheme = DarkLightTheme()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,6 +102,9 @@ class MainActivity : AppCompatActivity() {
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
         this.languagesListShortArray = resources.getStringArray(R.array.languages_short)
+
+        this.darkTheme =
+            getSharedPreferences(DARK_THEME, PRIVATE_MODE).getBoolean(DARK_THEME, false)
 
         if (this.firstRun) {
             // close main and open tutorial -- first run
@@ -176,9 +185,19 @@ class MainActivity : AppCompatActivity() {
         return returnStatistics
     }
 
+    fun setDarkThemeSwitch(status: Boolean) {
+        if (status != theme.getTheme(this)) {
+            if (status) {
+                this.showMessage(getString(R.string.toast_dark_theme_on))
+            } else {
+                this.showMessage(getString(R.string.toast_dark_theme_off))
+            }
+            theme.setTheme(this, status)
+        }
+    }
+
     fun setSavedStatistics(type: String, statistics: String) {
         try {
-            var sharedPref: SharedPreferences? = null
             if (type == "you") {
                 getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE).edit()
                     .putString(LAST_STATS_YOU, statistics).apply()
@@ -518,7 +537,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showMessage(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 
     fun checkConnection(): Boolean {

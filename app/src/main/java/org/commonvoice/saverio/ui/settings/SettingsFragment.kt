@@ -1,7 +1,7 @@
 package org.commonvoice.saverio.ui.settings
 
+import android.content.Context
 import android.content.Intent
-import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,9 @@ import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.BuildConfig
+import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
-import org.w3c.dom.Text
 
 
 class SettingsFragment : Fragment() {
@@ -25,6 +25,7 @@ class SettingsFragment : Fragment() {
     var languagesList =
         arrayOf("English") // don't change it manually -> it will import automatically
     var isAlpha: Boolean = false
+    var theme: DarkLightTheme = DarkLightTheme()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -132,6 +133,31 @@ class SettingsFragment : Fragment() {
         }
         switchAutoPlaySettings.isChecked = main.getAutoPlay()
 
+        var switchDarkThemeSettings: Switch = root.findViewById(R.id.switchDarkTheme)
+        switchDarkThemeSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setDarkThemeSwitch(isChecked)
+            setTheme(main, root)
+        }
+        switchDarkThemeSettings.isChecked = theme.getTheme(main)
+
+        setTheme(main, root)
+
         return root
+    }
+
+    fun setTheme(view: Context, root: View) {
+        theme.setElements(view, root.findViewById(R.id.layoutSettings))
+
+        theme.setElement(
+            theme.getTheme(view),
+            root.findViewById(R.id.imageLanguageIcon) as ImageView,
+            R.drawable.ic_language,
+            R.drawable.ic_language_darktheme
+        )
     }
 }

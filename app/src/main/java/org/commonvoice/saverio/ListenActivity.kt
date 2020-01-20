@@ -4,7 +4,6 @@ import android.Manifest
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.net.ConnectivityManager
@@ -16,6 +15,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -52,16 +52,20 @@ class ListenActivity : AppCompatActivity() {
     val url_without_lang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
 
-    var idSentence: Int = 0
-    var textSentence: String = ""
-    var globSentence: String = ""
-    var soundSentence: String = ""
+    var idSentence = intArrayOf(0, 0)
+    var textSentence = arrayOf("", "")
+    var globSentence = arrayOf("", "")
+    var soundSentence = arrayOf("", "")
     var status: Int = 0 //1->clip stopped | 2->clip re-starting
 
     var selectedLanguageVar = ""
 
     var mediaPlayer: MediaPlayer? = null //audioplayer to play/pause clips
     var autoPlayClips: Boolean = false
+
+    var opened: Boolean =
+        false //true -> the section was already open | false -> the section wasn't opened (before)
+    var loading: Boolean = false //there is already a request at the server
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,6 +122,23 @@ class ListenActivity : AppCompatActivity() {
             //API request
             API_request()
         }
+
+        setTheme(this)
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutListen) as ConstraintLayout)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.textMessageAlertListen) as TextView,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
+        theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_listen) as Button)
     }
 
     fun getDateToSave(savedDate: String): String {
@@ -195,106 +216,216 @@ class ListenActivity : AppCompatActivity() {
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
         var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        this.idSentence = 0
-        this.textSentence = ""
-        this.globSentence = ""
-        this.soundSentence = ""
-        btnYes.isVisible = false
-        btnNo.isVisible = false
-        btnListen.isEnabled = false
+
         btnSkip.isEnabled = false
         this.status = 0
         msg.text = getText(R.string.txt_loading_clip)
         sentence.text = "..."
-        try {
-            val path = "clips" //API to get sentences
-            val params = JSONArray()
-            //params.put("")
+        btnYes.isVisible = false
+        btnNo.isVisible = false
 
+        if (!this.loading) {
+            this.loading = true
+
+            this.idSentence[0] = this.idSentence[1]
+            this.textSentence[0] = this.textSentence[1]
+            this.globSentence[0] = this.globSentence[1]
+            this.soundSentence[0] = this.soundSentence[1]
+            this.idSentence[1] = 0
+            this.textSentence[1] = ""
+            this.globSentence[1] = ""
+            this.soundSentence[1] = ""
+            btnYes.isVisible = false
+            btnNo.isVisible = false
+            btnListen.isEnabled = false
+            btnSkip.isEnabled = false
+            this.status = 0
+            msg.text = getText(R.string.txt_loading_clip)
+            sentence.text = "..."
             btnListen.setBackgroundResource(R.drawable.listen_cv)
-            val que = Volley.newRequestQueue(this)
-            val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
-                Response.Listener {
-                    val jsonResult = it.toString()
-                    if (jsonResult.length > 2) {
-                        val jsonObj = JSONObject(
-                            jsonResult.substring(
-                                jsonResult.indexOf("{"),
-                                jsonResult.lastIndexOf("}") + 1
-                            )
-                        )
-                        this.idSentence = jsonObj.getString("id").toInt()
-                        this.textSentence = jsonObj.getString("text")
-                        this.soundSentence = jsonObj.getString("sound")
-                        this.globSentence = jsonObj.getString("glob")
-                        /*println(" >>>> id:"+this.id_sentence)
-                        println(" >>>> text:"+this.text_sentence)
-                        println(" >>>> sound:"+this.sound_sentence)
-                        println(" >>>> glob:"+this.glob_sentence)*/
-                        //this.text_sentence = json_result//just for testing
-                        sentence.text = this.textSentence
-                        btnListen.isEnabled = true
-                        msg.text = getString(R.string.txt_press_icon_below_listen_1)
 
-                        this.mediaPlayer = MediaPlayer().apply {
-                            //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
-                            setDataSource(soundSentence) //to set media source and send the object to the initialized state
-                            prepare() //to send the object to the prepared state, this may take time for fetching and decoding
-                        }
-                        this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
-                        btnSkip.isEnabled = true
+            if (this.idSentence[0] != 0 && this.opened) {
+                sentence.text = this.textSentence[0]
+                btnListen.isEnabled = true
+                btnSkip.isEnabled = true
+                msg.text = getString(R.string.txt_press_icon_below_listen_1)
 
-                        btnYes.isVisible = false
-                        btnNo.isVisible = false
-
-                        if (this.autoPlayClips && !isFinishing) {
-                            StartListening()
-                        }
-                    } else {
-                        //println(" -->> Something wrong 1: "+it.toString()+" <<-- ")
-                        error4()
-                        btnSkip.isEnabled = true
-
-                        btnYes.isVisible = false
-                        btnNo.isVisible = false
-                    }
-
-                }, Response.ErrorListener {
-                    //println(" -->> Something wrong: "+it.toString()+" <<-- ")
-                    error1()
+                this.mediaPlayer = MediaPlayer().apply {
+                    //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
+                    setDataSource(soundSentence[0]) //to set media source and send the object to the initialized state
+                    prepare() //to send the object to the prepared state, this may take time for fetching and decoding
                 }
-            ) {
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                    var logged = getSharedPreferences(
-                        LOGGED_IN_NAME,
-                        PRIVATE_MODE
-                    ).getBoolean(LOGGED_IN_NAME, false)
-                    if (logged) {
-                        var cookieId =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
-                        headers.put(
-                            "Cookie",
-                            "connect.sid=" + cookieId
-                        )
-                    } else {
-                        headers.put(
-                            "Authorization",
-                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
-                        )
-                    }
-                    return headers
+                this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
+
+                if (this.autoPlayClips && !this.isFinishing) {
+                    StartListening()
                 }
             }
-            que.add(req)
-        } catch (e: Exception) {
-            error1()
-            btnSkip.isEnabled = true
+
+            if (this.idSentence[0] != 0 && this.opened || !this.opened) {
+                try {
+                    var path = "clips" //API to get sentences
+                    if (!this.opened) {
+                        path = path + "?count=2"
+                    }
+                    val params = JSONArray()
+                    //params.put("")
+
+                    val que = Volley.newRequestQueue(this)
+                    val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
+                        Response.Listener {
+                            val jsonResult = it.toString()
+                            var jsonResultArray = arrayOf(jsonResult, "")
+                            //println(jsonResult)
+                            if (!this.opened) {
+                                //println("substring: "+jsonResult.substring(1,jsonResult.length-1))
+                                if (jsonResult.substring(
+                                        1,
+                                        jsonResult.length - 1
+                                    ).split("},{").size == 2
+                                ) {
+                                    jsonResultArray[0] = "[" + jsonResult.substring(
+                                        1,
+                                        jsonResult.length - 1
+                                    ).split("},{")[0] + "}]"
+                                    jsonResultArray[1] =
+                                        "[{" + jsonResult.substring(1, jsonResult.length - 1).split(
+                                            "},{"
+                                        )[1] + "]"
+                                }
+                            }
+                            if (jsonResult.length > 2) {
+                                if (!this.opened) {
+                                    val jsonObj = JSONObject(
+                                        jsonResultArray[0].substring(
+                                            jsonResultArray[0].indexOf("{"),
+                                            jsonResultArray[0].lastIndexOf("}") + 1
+                                        )
+                                    )
+                                    //println(jsonObj.toString())
+                                    this.idSentence[0] = jsonObj.getString("id").toInt()
+                                    this.textSentence[0] = jsonObj.getString("text")
+                                    this.soundSentence[0] = jsonObj.getString("sound")
+                                    this.globSentence[0] = jsonObj.getString("glob")
+
+
+                                    val jsonObj2 = JSONObject(
+                                        jsonResultArray[1].substring(
+                                            jsonResultArray[1].indexOf("{"),
+                                            jsonResultArray[1].lastIndexOf("}") + 1
+                                        )
+                                    )
+                                    //println(jsonObj2.toString())
+                                    this.idSentence[1] = jsonObj2.getString("id").toInt()
+                                    this.textSentence[1] = jsonObj2.getString("text")
+                                    this.soundSentence[1] = jsonObj2.getString("sound")
+                                    this.globSentence[1] = jsonObj2.getString("glob")
+                                } else {
+                                    val jsonObj = JSONObject(
+                                        jsonResultArray[0].substring(
+                                            jsonResultArray[0].indexOf("{"),
+                                            jsonResultArray[0].lastIndexOf("}") + 1
+                                        )
+                                    )
+                                    //println(jsonObj.toString())
+                                    this.idSentence[1] = jsonObj.getString("id").toInt()
+                                    this.textSentence[1] = jsonObj.getString("text")
+                                    this.soundSentence[1] = jsonObj.getString("sound")
+                                    this.globSentence[1] = jsonObj.getString("glob")
+                                }
+
+                                if (!this.opened) {
+                                    this.opened = true
+                                    //API_request() //the second request at the first load
+
+                                }
+
+                                if (this.idSentence[0] != 0 && sentence.text == "...") {
+                                    sentence.text = this.textSentence[0]
+                                    msg.text = getString(R.string.txt_press_icon_below_listen_1)
+
+                                    this.mediaPlayer = MediaPlayer().apply {
+                                        //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
+                                        setDataSource(soundSentence[0]) //to set media source and send the object to the initialized state
+                                        prepare() //to send the object to the prepared state, this may take time for fetching and decoding
+                                    }
+                                    this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
+
+                                    btnYes.isVisible = false
+                                    btnNo.isVisible = false
+                                    btnListen.isEnabled = true
+
+                                    if (this.autoPlayClips && !this.isFinishing) {
+                                        StartListening()
+                                    }
+                                }
+                                btnSkip.isEnabled = true
+                            } else {
+                                //println(" -->> Something wrong 1: "+it.toString()+" <<-- ")
+                                error4()
+                                btnSkip.isEnabled = true
+
+                                btnYes.isVisible = false
+                                btnNo.isVisible = false
+                            }
+
+                            println("------")
+                            println("idSentence: " + this.idSentence[0] + " " + this.idSentence[1])
+                            println("textSentence: '" + this.textSentence[0] + "' '" + this.textSentence[1] + "'")
+                            println("globSentence: '" + this.globSentence[0] + "' '" + this.globSentence[1] + "'")
+                            println("soundSentence: '" + this.soundSentence[0] + "' '" + this.soundSentence[1] + "'")
+                            println("------")
+
+                            this.loading = false
+                        }, Response.ErrorListener {
+                            //println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                            error1()
+
+                            this.loading = false
+                            if (!this.opened) {
+                                this.opened = true
+                                API_request() //the second request at the first load
+                            }
+                        }
+                    ) {
+                        @Throws(AuthFailureError::class)
+                        override fun getHeaders(): Map<String, String> {
+                            val headers = HashMap<String, String>()
+                            //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
+                            var logged = getSharedPreferences(
+                                LOGGED_IN_NAME,
+                                PRIVATE_MODE
+                            ).getBoolean(LOGGED_IN_NAME, false)
+                            if (logged) {
+                                var cookieId =
+                                    getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                        USER_CONNECT_ID,
+                                        ""
+                                    )
+                                headers.put(
+                                    "Cookie",
+                                    "connect.sid=" + cookieId
+                                )
+                            } else {
+                                headers.put(
+                                    "Authorization",
+                                    "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                                )
+                            }
+                            return headers
+                        }
+                    }
+                    que.add(req)
+                } catch (e: Exception) {
+                    error1()
+                    btnSkip.isEnabled = true
+                }
+            } else {
+                error1()
+                btnSkip.isEnabled = true
+            }
+        } else {
+            println("Wait")
         }
     }
 
@@ -306,6 +437,7 @@ class ListenActivity : AppCompatActivity() {
             skipText.text.toString()
         )
         skipText.isEnabled = true
+        this.loading = false
     }
 
     fun error4() {
@@ -392,7 +524,7 @@ class ListenActivity : AppCompatActivity() {
             msg.text = getString(R.string.txt_sending_validation)
 
             var path = "clips/{{*{{sentence_id}}*}}/votes" //API to get sentences
-            path = path.replace("{{*{{sentence_id}}*}}", this.idSentence.toString())
+            path = path.replace("{{*{{sentence_id}}*}}", this.idSentence[0].toString())
             //println(" -->> "+path.toString())
             var params = JSONObject()
             params.put("isValid", value)
@@ -481,11 +613,11 @@ class ListenActivity : AppCompatActivity() {
         incrementContributing()
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         if (value) {
-            Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_SHORT)
+            Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_LONG)
                 .show()
             msg.text = getString(R.string.txt_clip_validated_yes)
         } else {
-            Toast.makeText(this, getString(R.string.txt_clip_validated_no), Toast.LENGTH_SHORT)
+            Toast.makeText(this, getString(R.string.txt_clip_validated_no), Toast.LENGTH_LONG)
                 .show()
             msg.text = getString(R.string.txt_clip_validated_no)
         }

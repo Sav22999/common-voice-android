@@ -8,7 +8,9 @@ import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import java.util.*
 
 class NoConnectionActivity : AppCompatActivity() {
@@ -23,6 +25,23 @@ class NoConnectionActivity : AppCompatActivity() {
         btnCheckNetwork.setOnClickListener {
             checkConnection()
         }
+
+        setTheme(this)
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutNoConnection) as ConstraintLayout)
+        theme.setElement(isDark, view, this.findViewById(R.id.btnCheckAgain) as Button)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.txtNoInternetConnection) as TextView,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
     }
 
     override fun onBackPressed() {

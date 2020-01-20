@@ -20,6 +20,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -126,6 +127,22 @@ class SpeakActivity : AppCompatActivity() {
             //API request
             API_request()
         }
+        setTheme(this)
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutSpeak) as ConstraintLayout)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.textMessageAlertSpeak) as TextView,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
+        theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_speak) as Button)
     }
 
     fun getDateToSave(savedDate: String): String {

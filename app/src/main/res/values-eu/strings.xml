@@ -74,6 +74,9 @@
     <string name="txt_autoplay_clips_after_loading_settings">Erreprodukzio automatikoko klipa kargatuta dagoenean</string>
     <string name="toast_autoplay_clip_on">Erreprodukzio automatikoko klipa aktibatuta</string>
     <string name="toast_autoplay_clip_off">Erreprodukzio automatikoko klipa desaktibatuta</string>
+    <string name="txt_dark_theme_settings">Gai iluna</string>
+    <string name="toast_dark_theme_on">Gai iluna aktibatuta</string>
+    <string name="toast_dark_theme_off">Gai iluna desaktibatuta</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>

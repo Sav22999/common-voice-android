@@ -11,8 +11,11 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.all_badges.*
 import java.util.*
 
@@ -76,6 +79,16 @@ class BadgesActivity() : AppCompatActivity() {
         loadLevels(imagesLevel)
         loadRecorded(imagesRecording)
         loadValidated(imagesValidation)
+
+        setTheme(this)
+    }
+
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutAllBadges) as ConstraintLayout)
+        theme.setElement(isDark, view, this.findViewById(R.id.btnCloseBadges) as Button)
     }
 
     fun setOff(iv: ImageView) {
