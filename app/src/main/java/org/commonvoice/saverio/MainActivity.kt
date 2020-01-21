@@ -123,6 +123,8 @@ class MainActivity : AppCompatActivity() {
 
             this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
         }
+
+        resetDashboardData()
     }
 
     fun getHiUsernameLoggedIn(): String {
@@ -387,15 +389,19 @@ class MainActivity : AppCompatActivity() {
                     .putBoolean(UI_LANGUAGE_CHANGED, true).apply()
 
                 setLanguageUI("restart")
-                setSavedStatistics("you", "?")
-                setSavedStatistics("everyone", "?")
-                setSavedVoicesOnline("voicesNow", "?")
-                setSavedVoicesOnline("voicesBefore", "?")
+                resetDashboardData()
             }
 
         } catch (e: Exception) {
             //println("Error: " + e.toString())
         }
+    }
+
+    fun resetDashboardData() {
+        setSavedStatistics("you", "?")
+        setSavedStatistics("everyone", "?")
+        setSavedVoicesOnline("voicesNow", "?")
+        setSavedVoicesOnline("voicesBefore", "?")
     }
 
     fun getLanguageList(): ArrayAdapter<String> {
