@@ -77,6 +77,7 @@
     <string name="txt_dark_theme_settings">Thème sombre</string>
     <string name="toast_dark_theme_on">Thème sombre activé</string>
     <string name="toast_dark_theme_off">Thème sombre désactivé</string>
+    <string name="contact_developer_on_telegram">Contact the developer on Telegram</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Chargement d\'une phrase ...</string>
     <string name="btn_skip_sentence">Passer</string>

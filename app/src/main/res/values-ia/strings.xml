@@ -74,9 +74,10 @@
     <string name="txt_autoplay_clips_after_loading_settings">Autoreproduction del registration al cargamento</string>
     <string name="toast_autoplay_clip_on">Autoreproduction del registration activate</string>
     <string name="toast_autoplay_clip_off">Autoreproduction del registration disactivate</string>
-    <string name="txt_dark_theme_settings">Dark theme</string>
-    <string name="toast_dark_theme_on">Dark theme turned on</string>
-    <string name="toast_dark_theme_off">Dark theme turned off</string>
+    <string name="txt_dark_theme_settings">Thema obscur</string>
+    <string name="toast_dark_theme_on">Thema obscur activate</string>
+    <string name="toast_dark_theme_off">Thema obscur extincte</string>
+    <string name="contact_developer_on_telegram">Contacta le disveloppator sur Telegram</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Cargante un phrase ...</string>
     <string name="btn_skip_sentence">Saltar</string>

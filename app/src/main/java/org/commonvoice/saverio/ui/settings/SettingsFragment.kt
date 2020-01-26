@@ -98,6 +98,13 @@ class SettingsFragment : Fragment() {
             startActivity(browserIntent)
         }
 
+        var btnContactDeveloperTelegram: Button = root.findViewById(R.id.buttonContactOnTelegram)
+        btnContactDeveloperTelegram.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Sav22999"))
+            startActivity(browserIntent)
+        }
+
         var btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btnOpenTutorial.setOnClickListener {
             main.openTutorial()

@@ -77,6 +77,7 @@
     <string name="txt_dark_theme_settings">Gai iluna</string>
     <string name="toast_dark_theme_on">Gai iluna aktibatuta</string>
     <string name="toast_dark_theme_off">Gai iluna desaktibatuta</string>
+    <string name="contact_developer_on_telegram">Jarri harremanetan garatzailearekin Telegramen</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>

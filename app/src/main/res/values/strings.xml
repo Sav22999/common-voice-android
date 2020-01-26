@@ -78,6 +78,7 @@
     <string name="txt_dark_theme_settings">Dark theme</string>
     <string name="toast_dark_theme_on">Dark theme turned on</string>
     <string name="toast_dark_theme_off">Dark theme turned off</string>
+    <string name="contact_developer_on_telegram">Contact the developer on Telegram</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence ...</string>
     <string name="btn_skip_sentence">Skip</string>
@@ -138,6 +139,7 @@
     <string-array name="languages" translatable="false">
         <item>Аԥсуа</item> <!-- ab -->
         <item>العربية</item> <!-- ar -->
+        <item>অসমীয়া</item> <!-- as -->
         <item>Brezhoneg</item> <!-- br -->
         <item>català</item> <!-- ca -->
         <item>Laiholh (Hakha)</item> <!-- cnh -->
@@ -166,8 +168,11 @@
         <item>Latviešu</item> <!-- lv -->
         <item>Монгол хэл</item> <!-- mn -->
         <item>Nederlands</item> <!-- nl -->
+        <item>ਪੰਜਾਬੀ</item> <!-- pa-IN -->
+        <item>polski</item> <!-- pl -->
         <item>Português</item> <!-- pt -->
         <item>romontsch sursilvan</item> <!-- rm-sursilv -->
+        <item>Rumantsch Vallader</item> <!-- rm-vallader -->
         <item>Română</item> <!-- ro -->
         <item>Русский</item> <!-- ru -->
         <item>Ikinyarwanda</item> <!-- rw -->
@@ -186,6 +191,7 @@
     <string-array name="languages_short" translatable="false">
         <item>ab</item>
         <item>ar</item>
+        <item>as</item>
         <item>br</item>
         <item>ca</item>
         <item>cnh</item>
@@ -214,8 +220,11 @@
         <item>lv</item>
         <item>mn</item>
         <item>nl</item>
+        <item>pa-IN</item>
+        <item>pl</item>
         <item>pt</item>
         <item>rm-sursilv</item>
+        <item>rm-vallader</item>
         <item>ro</item>
         <item>ru</item>
         <item>rw</item>
