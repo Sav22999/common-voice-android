@@ -13,7 +13,9 @@ _App release:_ (e.g. 0.2.2b)
 _App language (in English):_ (e.g. Italian)
 _Device RAM:_ (e.g. 2GB)
 _Display size (in Inches):_ (e.g. 5.9in)
-(Optional) _Device model (and brand):_ (e.g. LG G6)
+(Optional, but recommanded) _Device model (and brand):_ (e.g. LG G6 H870)
+_From what store have you installed the app?:_  Google Play Store / Aptoide / F-Droid / APKPure / GitHub / Other (specify!)
+_Are there installed Google Services on your device?_ Yes / No (specify if you have Amazon services or Huawei services, or other)
 
 **Description bug**
 
