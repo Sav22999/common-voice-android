@@ -12,6 +12,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.telecom.Call
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -64,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
 
         var btnLoginSignUp: Button = this.findViewById(R.id.btnLogout)
         btnLoginSignUp.setOnClickListener {
-            openWebBrowser("logout")
+            logoutAndExit()
         }
 
         var btnOpenBadge: Button = this.findViewById(R.id.btnBadges)
@@ -294,7 +295,7 @@ class LoginActivity : AppCompatActivity() {
                         getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
                             .putString(USER_CONNECT_ID, userId).apply()
 
-                        println(" -->> LOGGED IN <<-- ")
+                        //println(" -->> LOGGED IN <<-- ")
 
                         loadUserData("userName")
                     }
@@ -307,14 +308,16 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 webView.loadUrl(type)
             }
-        } else if (type == "logout") {
-            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
-                .putBoolean(LOGGED_IN_NAME, false).apply()
-            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
-                .putString(USER_CONNECT_ID, "").apply()
-            getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
-            openMainAfterLogin()
         }
+    }
+
+    fun logoutAndExit() {
+        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
+            .putBoolean(LOGGED_IN_NAME, false).apply()
+        getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
+            .putString(USER_CONNECT_ID, "").apply()
+        getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
+        openMainAfterLogin()
     }
 
     fun setLevelRecordingsValidations(type: Int, value: Int) {
@@ -347,17 +350,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun openMainAfterLogin() {
+        finish()
         val intent = Intent(this, MainActivity::class.java).also {
             startActivity(it)
         }
-        finish()
     }
 
     fun reopenLogin() {
-        val intent = Intent(this, LoginActivity::class.java).also {
-            startActivity(it)
-        }
         finish()
+        startActivity(intent)
     }
 
     fun doAnimation() {
@@ -388,53 +389,65 @@ class LoginActivity : AppCompatActivity() {
                 Response.Listener {
                     val jsonResult = it.toString()
                     if (jsonResult.length > 2) {
-                        val jsonObj = JSONObject(
-                            jsonResult.substring(
-                                jsonResult.indexOf("{"),
-                                jsonResult.lastIndexOf("}") + 1
+                        try {
+                            val jsonObj = JSONObject(
+                                jsonResult.substring(
+                                    jsonResult.indexOf("{"),
+                                    jsonResult.lastIndexOf("}") + 1
+                                )
                             )
-                        )
-                        if (type == "userName") {
-                            userName = jsonObj.getString("username")
-                        } else if (type == "profile") {
-                            userName = jsonObj.getString("username")
-                            var imageUrl = jsonObj.getString("avatar_url")
+                            if (type == "userName") {
+                                userName = jsonObj.getString("username")
+                            } else if (type == "profile") {
+                                userName = jsonObj.getString("username")
+                                var imageUrl = jsonObj.getString("avatar_url")
 
-                            var profileImage: ImageView = findViewById(R.id.imageProfileImage)
-                            var profileImageBorder: ImageView =
-                                findViewById(R.id.imageProfileImageBorder)
-                            //should set also the profileImage
-                            var profileEmail: EditText = findViewById(R.id.textProfileEmail)
-                            var profileUsername: EditText = findViewById(R.id.textProfileUsername)
-                            getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                                .putString(USER_NAME, userName).apply()
-                            var profileAge: EditText = findViewById(R.id.textProfileAge)
-                            var profileGender: EditText = findViewById(R.id.textProfileGender)
-                            profileEmail.setText(jsonObj.getString("email").toString())
-                            profileUsername.setText(jsonObj.getString("username").toString())
-                            profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
-                            profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
-                            if (imageUrl != "null" && imageUrl != "") {
-                                DownLoadImage(profileImage, profileImageBorder).execute(imageUrl)
-                            } else {
-                                DownLoadImage(profileImage, profileImageBorder).execute("null")
+                                var profileImage: ImageView = findViewById(R.id.imageProfileImage)
+                                var profileImageBorder: ImageView =
+                                    findViewById(R.id.imageProfileImageBorder)
+                                //should set also the profileImage
+                                var profileEmail: EditText = findViewById(R.id.textProfileEmail)
+                                var profileUsername: EditText =
+                                    findViewById(R.id.textProfileUsername)
+                                getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
+                                    .putString(USER_NAME, userName).apply()
+                                var profileAge: EditText = findViewById(R.id.textProfileAge)
+                                var profileGender: EditText = findViewById(R.id.textProfileGender)
+                                profileEmail.setText(jsonObj.getString("email").toString())
+                                profileUsername.setText(jsonObj.getString("username").toString())
+                                profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
+                                profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
+                                if (imageUrl != "null" && imageUrl != "") {
+                                    DownLoadImage(
+                                        profileImage,
+                                        profileImageBorder
+                                    ).execute(imageUrl)
+                                } else {
+                                    DownLoadImage(profileImage, profileImageBorder).execute("null")
+                                }
+                                val clips_count =
+                                    jsonObj.getString("clips_count").toInt() //recordings
+                                val votes_count =
+                                    jsonObj.getString("votes_count").toInt() //validations
+                                setLevelRecordingsValidations(0, clips_count + votes_count)
+                                setLevelRecordingsValidations(1, clips_count)
+                                setLevelRecordingsValidations(2, votes_count)
+
+                                setLevel(findViewById(R.id.textLevel))
                             }
-                            val clips_count = jsonObj.getString("clips_count").toInt() //recordings
-                            val votes_count = jsonObj.getString("votes_count").toInt() //validations
-                            setLevelRecordingsValidations(0, clips_count + votes_count)
-                            setLevelRecordingsValidations(1, clips_count)
-                            setLevelRecordingsValidations(2, votes_count)
-
-                            setLevel(findViewById(R.id.textLevel))
+                            if (userName != "") {
+                                getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
+                                    .putString(USER_NAME, userName).apply()
+                            }
+                        } catch (e: Exception) {
+                            error2(e.toString())
                         }
-                        getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                            .putString(USER_NAME, userName).apply()
                     } else {
                         error2()
                     }
                 }, Response.ErrorListener {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
-                    error2()
+                    error2(it.toString())
                 }
             ) {
                 @Throws(AuthFailureError::class)
@@ -467,7 +480,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun error2() {
+    fun error2(details: String = "") {
         //error while getting the username
         this.userName = ""
         //openMainAfterLogin()
@@ -475,6 +488,28 @@ class LoginActivity : AppCompatActivity() {
         this.textProfileUsername.setText("?")
         this.textProfileAge.setText("?")
         this.textProfileGender.setText("?")
+
+        //EXL01
+        showMessageDialog(
+            getString(R.string.messageDialogErrorTitle),
+            getString(R.string.messageDialogErrorCode),
+            errorCode = "L01",
+            details = details
+        )
+    }
+
+    fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = ""
+    ) {
+        var messageText = text
+        if (errorCode != "") {
+            messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+        }
+        val message: MessageDialog = MessageDialog(this, 0, title, messageText, details = details)
+        message.show()
     }
 
     fun getAgeString(age: String): String {

@@ -133,6 +133,11 @@
     <!-- Badges -->
     <string name="btnCloseBadges">Close</string>
     <string name="labelAllBadges">All badges</string>
+    <!-- Message dialog -->
+    <string name="btnOk">Ok</string>
+    <string name="messageDialogErrorTitle">Error</string>
+    <string name="messageDialogGenericError">I\'m so sorry. Something didn\'t worked.\nPlease, try again or contact the developer.</string>
+    <string name="messageDialogErrorCode">Something didn\'t worked. Please, try again or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
 
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->

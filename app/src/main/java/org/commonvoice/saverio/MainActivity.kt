@@ -114,15 +114,7 @@ class MainActivity : AppCompatActivity() {
             //checkPermissions()
         }
 
-        this.logged =
-            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
-
-        if (logged) {
-            this.userId =
-                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
-
-            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
-        }
+        checkUserLoggedIn()
 
         resetDashboardData()
     }
@@ -152,6 +144,18 @@ class MainActivity : AppCompatActivity() {
             ),
             Toast.LENGTH_LONG
         ).show()
+    }
+
+    fun checkUserLoggedIn() {
+        this.logged =
+            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
+
+        if (logged) {
+            this.userId =
+                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
+
+            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
+        }
     }
 
     fun getSavedStatistics(type: String): String {
@@ -412,6 +416,11 @@ class MainActivity : AppCompatActivity() {
         return this.selectedLanguageVar
     }
 
+    fun showMessageDialog(title: String, text: String) {
+        val message: MessageDialog = MessageDialog(this, 0, title, text)
+        message.show()
+    }
+
     fun openTutorial() {
         val intent = Intent(this, TutorialActivity::class.java).also {
             startActivity(it)
@@ -433,19 +442,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openLoginSection() {
+        finish()
         val intent = Intent(this, LoginActivity::class.java).also {
             startActivity(it)
-            //close the MainActivity
-            finish()
         }
     }
 
-    fun openLogoutSection() {
-        // logout -> delete USERNAME, USERID e LOGGEDIN variables (shared)
+    fun openProfileSection() {
+        // if the user logged-in, it shows profile
+        finish()
         val intent = Intent(this, LoginActivity::class.java).also {
             startActivity(it)
-            //close the MainActivity
-            finish()
         }
     }
 
