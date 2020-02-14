@@ -9,6 +9,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
@@ -288,7 +289,7 @@ class LoginActivity : AppCompatActivity() {
                             i++;
                         }
                         userId = myCookie
-                        //println(" -->> MY COOKIE -->> "+my_cookie+" <<--")
+                        //println(" -->> MY COOKIE -->> "+myCookie+" <<--")
 
                         getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
                             .putBoolean(LOGGED_IN_NAME, true).apply()
@@ -301,8 +302,6 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
-
-            //webView.loadUrl("https://accounts.firefox.com/signup?email=" + email)
             if (type == "login") {
                 webView.loadUrl("https://voice.mozilla.org/login")
             } else {
@@ -311,13 +310,18 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun logoutAndExit() {
+    fun logoutAndExit(exit: Boolean = true) {
         getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
             .putBoolean(LOGGED_IN_NAME, false).apply()
         getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
             .putString(USER_CONNECT_ID, "").apply()
         getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
-        openMainAfterLogin()
+        setLevelRecordingsValidations(0, 0)
+        setLevelRecordingsValidations(1, 0)
+        setLevelRecordingsValidations(2, 0)
+        if (exit) {
+            openMainAfterLogin()
+        }
     }
 
     fun setLevelRecordingsValidations(type: Int, value: Int) {
@@ -387,63 +391,72 @@ class LoginActivity : AppCompatActivity() {
             val que = Volley.newRequestQueue(this)
             val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
                 Response.Listener {
-                    val jsonResult = it.toString()
-                    if (jsonResult.length > 2) {
-                        try {
-                            val jsonObj = JSONObject(
-                                jsonResult.substring(
-                                    jsonResult.indexOf("{"),
-                                    jsonResult.lastIndexOf("}") + 1
+                    if (it.toString() != "null") {
+                        val jsonResult = it.toString()
+                        if (jsonResult.length > 2) {
+                            try {
+                                val jsonObj = JSONObject(
+                                    jsonResult.substring(
+                                        jsonResult.indexOf("{"),
+                                        jsonResult.lastIndexOf("}") + 1
+                                    )
                                 )
-                            )
-                            if (type == "userName") {
-                                userName = jsonObj.getString("username")
-                            } else if (type == "profile") {
-                                userName = jsonObj.getString("username")
-                                var imageUrl = jsonObj.getString("avatar_url")
+                                if (type == "userName") {
+                                    userName = jsonObj.getString("username")
+                                } else if (type == "profile") {
+                                    userName = jsonObj.getString("username")
+                                    var imageUrl = jsonObj.getString("avatar_url")
 
-                                var profileImage: ImageView = findViewById(R.id.imageProfileImage)
-                                var profileImageBorder: ImageView =
-                                    findViewById(R.id.imageProfileImageBorder)
-                                //should set also the profileImage
-                                var profileEmail: EditText = findViewById(R.id.textProfileEmail)
-                                var profileUsername: EditText =
-                                    findViewById(R.id.textProfileUsername)
-                                getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                                    .putString(USER_NAME, userName).apply()
-                                var profileAge: EditText = findViewById(R.id.textProfileAge)
-                                var profileGender: EditText = findViewById(R.id.textProfileGender)
-                                profileEmail.setText(jsonObj.getString("email").toString())
-                                profileUsername.setText(jsonObj.getString("username").toString())
-                                profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
-                                profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
-                                if (imageUrl != "null" && imageUrl != "") {
-                                    DownLoadImage(
-                                        profileImage,
-                                        profileImageBorder
-                                    ).execute(imageUrl)
-                                } else {
-                                    DownLoadImage(profileImage, profileImageBorder).execute("null")
+                                    var profileImage: ImageView =
+                                        findViewById(R.id.imageProfileImage)
+                                    var profileImageBorder: ImageView =
+                                        findViewById(R.id.imageProfileImageBorder)
+                                    //should set also the profileImage
+                                    var profileEmail: EditText = findViewById(R.id.textProfileEmail)
+                                    var profileUsername: EditText =
+                                        findViewById(R.id.textProfileUsername)
+                                    getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
+                                        .putString(USER_NAME, userName).apply()
+                                    var profileAge: EditText = findViewById(R.id.textProfileAge)
+                                    var profileGender: EditText =
+                                        findViewById(R.id.textProfileGender)
+                                    profileEmail.setText(jsonObj.getString("email").toString())
+                                    profileUsername.setText(jsonObj.getString("username").toString())
+                                    profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
+                                    profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
+                                    if (imageUrl != "null" && imageUrl != "") {
+                                        DownLoadImage(
+                                            profileImage,
+                                            profileImageBorder
+                                        ).execute(imageUrl)
+                                    } else {
+                                        DownLoadImage(
+                                            profileImage,
+                                            profileImageBorder
+                                        ).execute("null")
+                                    }
+                                    val clips_count =
+                                        jsonObj.getString("clips_count").toInt() //recordings
+                                    val votes_count =
+                                        jsonObj.getString("votes_count").toInt() //validations
+                                    setLevelRecordingsValidations(0, clips_count + votes_count)
+                                    setLevelRecordingsValidations(1, clips_count)
+                                    setLevelRecordingsValidations(2, votes_count)
+
+                                    setLevel(findViewById(R.id.textLevel))
                                 }
-                                val clips_count =
-                                    jsonObj.getString("clips_count").toInt() //recordings
-                                val votes_count =
-                                    jsonObj.getString("votes_count").toInt() //validations
-                                setLevelRecordingsValidations(0, clips_count + votes_count)
-                                setLevelRecordingsValidations(1, clips_count)
-                                setLevelRecordingsValidations(2, votes_count)
-
-                                setLevel(findViewById(R.id.textLevel))
+                                if (userName != "") {
+                                    getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
+                                        .putString(USER_NAME, userName).apply()
+                                }
+                            } catch (e: Exception) {
+                                error2(e.toString())
                             }
-                            if (userName != "") {
-                                getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                                    .putString(USER_NAME, userName).apply()
-                            }
-                        } catch (e: Exception) {
-                            error2(e.toString())
+                        } else {
+                            error2()
                         }
                     } else {
-                        error2()
+                        error4()
                     }
                 }, Response.ErrorListener {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
@@ -474,9 +487,9 @@ class LoginActivity : AppCompatActivity() {
             }
             que.add(req)
         } catch (e: Exception) {
-            println(" -->> Something wrong: " + e.toString() + " <<-- ")
+            //println(" -->> Something wrong: " + e.toString() + " <<-- ")
             hideLoading()
-            error2()
+            error2(e.toString())
         }
     }
 
@@ -484,10 +497,14 @@ class LoginActivity : AppCompatActivity() {
         //error while getting the username
         this.userName = ""
         //openMainAfterLogin()
-        this.textProfileEmail.setText("?")
-        this.textProfileUsername.setText("?")
-        this.textProfileAge.setText("?")
-        this.textProfileGender.setText("?")
+        try {
+            this.textProfileEmail.setText("?")
+            this.textProfileUsername.setText("?")
+            this.textProfileAge.setText("?")
+            this.textProfileGender.setText("?")
+        } catch (e: Exception) {
+            //
+        }
 
         //EXL01
         showMessageDialog(
@@ -496,6 +513,34 @@ class LoginActivity : AppCompatActivity() {
             errorCode = "L01",
             details = details
         )
+    }
+
+    fun error4() {
+        //User have to accept Privacy Policy on website
+        logoutAndExit(false)
+        showYouHaveToAcceptPrivacyPolicy()
+    }
+
+    fun showYouHaveToAcceptPrivacyPolicy() {
+        setContentView(R.layout.you_have_to_accept_privacy_policy)
+
+        //EXL02
+        showMessageDialog(
+            getString(R.string.youHaveToAcceptPrivacyPolicyTitle),
+            getString(R.string.youHaveToAcceptPrivacyPolicy),
+            errorCode = "L02"
+        )
+
+        var btnLoginSignUp: Button = this.findViewById(R.id.btnCloseLoginPrivacyPolicy)
+        btnLoginSignUp.setOnClickListener {
+            logoutAndExit()
+        }
+        var btnLoginOpenCommonVoice: Button = this.findViewById(R.id.btnOpenPrivacyPolicy)
+        btnLoginOpenCommonVoice.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://voice.mozilla.org/"))
+            startActivity(browserIntent)
+        }
     }
 
     fun showMessageDialog(

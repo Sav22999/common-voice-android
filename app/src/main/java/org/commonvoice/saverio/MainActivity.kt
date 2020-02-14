@@ -416,8 +416,17 @@ class MainActivity : AppCompatActivity() {
         return this.selectedLanguageVar
     }
 
-    fun showMessageDialog(title: String, text: String) {
-        val message: MessageDialog = MessageDialog(this, 0, title, text)
+    fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = ""
+    ) {
+        var messageText = text
+        if (errorCode != "") {
+            messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+        }
+        val message: MessageDialog = MessageDialog(this, 0, title, messageText, details = details)
         message.show()
     }
 
