@@ -216,48 +216,52 @@ class DashboardFragment : Fragment() {
                 loadDataOf(type, -1, root)
             }
 
-            println(" ---->>>> type: " + type + " loadStatistics: " + loadStatistics)
-            if (!loadStatistics && (type == "you" || type == "everyone") && (activity as MainActivity).dashboard_selected) {
-                var textElements: Array<TextView?> = arrayOf(
-                    root?.findViewById(R.id.textTodaySpeak),
-                    root?.findViewById(R.id.textTodayListen),
-                    root?.findViewById(R.id.textEverSpeak),
-                    root?.findViewById(R.id.textEverListen)
-                )
-                var value1 = main.getSavedStatisticsValue(type, 0)
-                var value2 = main.getSavedStatisticsValue(type, 1)
-                textElements[0]?.text = value1
-                textElements[1]?.text = value2
-                if (type == "everyone") {
-                    var value3 = truncate(
-                        main.getSavedStatisticsValue(
-                            type,
-                            3
-                        ).toDouble() / 3600
-                    ).toInt().toString() + getString(R.string.textHoursAbbreviation)
-                    var value4 = truncate(
-                        main.getSavedStatisticsValue(
-                            type,
-                            2
-                        ).toDouble() / 3600
-                    ).toInt().toString() + getString(R.string.textHoursAbbreviation)
-                    textElements[3]?.setText(value3)
-                    textElements[2]?.setText(value4)
-                } else {
-                    var value3 = main.getSavedStatisticsValue(type, 2)
-                    var value4 = main.getSavedStatisticsValue(type, 3)
-                    textElements[2]?.setText(value3)
-                    textElements[3]?.setText(value4)
-                    println("-->><<--")
+            //println(" ---->>>> type: " + type + " loadStatistics: " + loadStatistics)
+            try {
+                if (!loadStatistics && (type == "you" || type == "everyone") && (activity as MainActivity).dashboard_selected) {
+                    var textElements: Array<TextView?> = arrayOf(
+                        root?.findViewById(R.id.textTodaySpeak),
+                        root?.findViewById(R.id.textTodayListen),
+                        root?.findViewById(R.id.textEverSpeak),
+                        root?.findViewById(R.id.textEverListen)
+                    )
+                    var value1 = main.getSavedStatisticsValue(type, 0)
+                    var value2 = main.getSavedStatisticsValue(type, 1)
+                    textElements[0]?.text = value1
+                    textElements[1]?.text = value2
+                    if (type == "everyone") {
+                        var value3 = truncate(
+                            main.getSavedStatisticsValue(
+                                type,
+                                3
+                            ).toDouble() / 3600
+                        ).toInt().toString() + getString(R.string.textHoursAbbreviation)
+                        var value4 = truncate(
+                            main.getSavedStatisticsValue(
+                                type,
+                                2
+                            ).toDouble() / 3600
+                        ).toInt().toString() + getString(R.string.textHoursAbbreviation)
+                        textElements[3]?.setText(value3)
+                        textElements[2]?.setText(value4)
+                    } else {
+                        var value3 = main.getSavedStatisticsValue(type, 2)
+                        var value4 = main.getSavedStatisticsValue(type, 3)
+                        textElements[2]?.setText(value3)
+                        textElements[3]?.setText(value4)
+                        //println("-->><<--")
+                    }
+                } else if (!loadVoices && type.contains("voices") && (activity as MainActivity).dashboard_selected) {
+                    var textVoicesElements: Array<TextView?> = arrayOf(
+                        root?.findViewById(R.id.textDashboardVoicesNow),
+                        root?.findViewById(R.id.textDashboardVoicesBefore)
+                    )
+                    var main = (activity as MainActivity)
+                    textVoicesElements[0]?.text = main.getSavedVoicesOnline("voicesNowValue")
+                    textVoicesElements[1]?.text = main.getSavedVoicesOnline("voicesBeforeValue")
                 }
-            } else if (!loadVoices && type.contains("voices") && (activity as MainActivity).dashboard_selected) {
-                var textVoicesElements: Array<TextView?> = arrayOf(
-                    root?.findViewById(R.id.textDashboardVoicesNow),
-                    root?.findViewById(R.id.textDashboardVoicesBefore)
-                )
-                var main = (activity as MainActivity)
-                textVoicesElements[0]?.text = main.getSavedVoicesOnline("voicesNowValue")
-                textVoicesElements[1]?.text = main.getSavedVoicesOnline("voicesBeforeValue")
+            } catch (e: Exception) {
+                println("Exception Dashboard-009")
             }
         } catch (e: Exception) {
             println("Exception Dashboard-001 !!")
@@ -433,57 +437,61 @@ class DashboardFragment : Fragment() {
                     val req = object : StringRequest(Request.Method.GET, requestUrl,
                         Response.Listener {
                             if (main.dashboard_selected) {
-                                var jsonResult = it.toString()
-                                //println(" >>>> " + type + " -- " + jsonResult)
-                                if (type == "everyoneTodaySpeak" || type == "everyoneTodayListen") {
-                                    if (jsonResult.toInt() >= 0) {
-                                        valueToReturn = jsonResult.toInt()
-                                        //println(" >>>> YES! ")
-                                    }
-                                } else if (type == "youTodaySpeak" || type == "youTodayListen") {
-                                    //
-                                } else if (type == "youEverSpeak" || type == "youEverListen" || type == "everyoneEverSpeak" || type == "everyoneEverListen") {
-                                    if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
+                                try {
+                                    var jsonResult = it.toString()
+                                    //println(" >>>> " + type + " -- " + jsonResult)
+                                    if (type == "everyoneTodaySpeak" || type == "everyoneTodayListen") {
+                                        if (jsonResult.toInt() >= 0) {
+                                            valueToReturn = jsonResult.toInt()
+                                            //println(" >>>> YES! ")
+                                        }
+                                    } else if (type == "youTodaySpeak" || type == "youTodayListen") {
+                                        //
+                                    } else if (type == "youEverSpeak" || type == "youEverListen" || type == "everyoneEverSpeak" || type == "everyoneEverListen") {
+                                        if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
+                                            var jsonResultTemp =
+                                                jsonResult.replace("[{", "").replace("}]", "")
+                                            var jsonResultTempArray = jsonResultTemp.split("},{")
+                                            jsonResult =
+                                                "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
+                                        }
+                                        val jsonObj = JSONObject(
+                                            jsonResult.substring(
+                                                jsonResult.indexOf("{"),
+                                                jsonResult.lastIndexOf("}") + 1
+                                            )
+                                        )
+                                        if (type == "youEverSpeak") {
+                                            valueToReturn = jsonObj.getString("clips_count").toInt()
+                                        } else if (type == "youEverListen") {
+                                            valueToReturn = jsonObj.getString("votes_count").toInt()
+                                        } else if (type == "everyoneEverSpeak") {
+                                            valueToReturn = jsonObj.getString("total").toInt()
+                                        } else if (type == "everyoneEverListen") {
+                                            valueToReturn = jsonObj.getString("valid").toInt()
+                                        }
+                                        //println(jsonObj)
+                                    } else if (type == "voicesNow" || type == "voicesBefore") {
                                         var jsonResultTemp =
                                             jsonResult.replace("[{", "").replace("}]", "")
                                         var jsonResultTempArray = jsonResultTemp.split("},{")
-                                        jsonResult =
-                                            "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
-                                    }
-                                    val jsonObj = JSONObject(
-                                        jsonResult.substring(
-                                            jsonResult.indexOf("{"),
-                                            jsonResult.lastIndexOf("}") + 1
+                                        if (type == "voicesNow") {
+                                            jsonResult =
+                                                "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
+                                        } else {
+                                            jsonResult =
+                                                "[{" + jsonResultTempArray[jsonResultTempArray.size - 2] + "}]"
+                                        }
+                                        val jsonObj = JSONObject(
+                                            jsonResult.substring(
+                                                jsonResult.indexOf("{"),
+                                                jsonResult.lastIndexOf("}") + 1
+                                            )
                                         )
-                                    )
-                                    if (type == "youEverSpeak") {
-                                        valueToReturn = jsonObj.getString("clips_count").toInt()
-                                    } else if (type == "youEverListen") {
-                                        valueToReturn = jsonObj.getString("votes_count").toInt()
-                                    } else if (type == "everyoneEverSpeak") {
-                                        valueToReturn = jsonObj.getString("total").toInt()
-                                    } else if (type == "everyoneEverListen") {
-                                        valueToReturn = jsonObj.getString("valid").toInt()
+                                        valueToReturn = jsonObj.getString("value").toInt()
                                     }
-                                    //println(jsonObj)
-                                } else if (type == "voicesNow" || type == "voicesBefore") {
-                                    var jsonResultTemp =
-                                        jsonResult.replace("[{", "").replace("}]", "")
-                                    var jsonResultTempArray = jsonResultTemp.split("},{")
-                                    if (type == "voicesNow") {
-                                        jsonResult =
-                                            "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
-                                    } else {
-                                        jsonResult =
-                                            "[{" + jsonResultTempArray[jsonResultTempArray.size - 2] + "}]"
-                                    }
-                                    val jsonObj = JSONObject(
-                                        jsonResult.substring(
-                                            jsonResult.indexOf("{"),
-                                            jsonResult.lastIndexOf("}") + 1
-                                        )
-                                    )
-                                    valueToReturn = jsonObj.getString("value").toInt()
+                                } catch (e: Exception) {
+                                    println("Exception Dashboard-010")
                                 }
                                 println(" >>>> " + type + " -- " + valueToReturn + " -- " + typeToSend)
                                 try {
@@ -554,42 +562,46 @@ class DashboardFragment : Fragment() {
             }
 
             //tempContributing-today
-            if (main.dashboard_selected) {
-                if (type == "youTodaySpeak" || type == "youTodayListen") {
-                    if (type == "youTodaySpeak") {
-                        var value = main.getContributing("recordings")
-                        if (value == "?") {
-                            valueToReturn = -1
-                        } else {
-                            valueToReturn = value.toInt()
+            try {
+                if (main.dashboard_selected) {
+                    if (type == "youTodaySpeak" || type == "youTodayListen") {
+                        if (type == "youTodaySpeak") {
+                            var value = main.getContributing("recordings")
+                            if (value == "?") {
+                                valueToReturn = -1
+                            } else {
+                                valueToReturn = value.toInt()
+                            }
+                        } else if (type == "youTodayListen") {
+                            var value = main.getContributing("validations")
+                            if (value == "?") {
+                                valueToReturn = -1
+                            } else {
+                                valueToReturn = value.toInt()
+                            }
                         }
-                    } else if (type == "youTodayListen") {
-                        var value = main.getContributing("validations")
-                        if (value == "?") {
-                            valueToReturn = -1
-                        } else {
-                            valueToReturn = value.toInt()
+                        try {
+                            if (index != -1) {
+                                textElements[index]?.text = valueToReturn.toString()
+                                main.setSavedStatisticsValue(
+                                    typeToSend,
+                                    valueToReturn.toString(),
+                                    index
+                                )
+                            }
+                        } catch (e: Exception) {
+                            //error
+                            println("Exception Dashboard-004 !!")
                         }
-                    }
-                    try {
-                        if (index != -1) {
-                            textElements[index]?.text = valueToReturn.toString()
-                            main.setSavedStatisticsValue(
-                                typeToSend,
-                                valueToReturn.toString(),
-                                index
-                            )
+                        if (valueToReturn == -1) {
+                            error3(type, index, viewToUse)
                         }
-                    } catch (e: Exception) {
-                        //error
-                        println("Exception Dashboard-004 !!")
-                    }
-                    if (valueToReturn == -1) {
-                        error3(type, index, viewToUse)
                     }
                 }
+                //endTempContributing-today
+            } catch (e: Exception) {
+                println("Exception Dashboard-011")
             }
-            //endTempContributing-today
 
         } catch (e: Exception) {
             //println("Error: " + e.toString())

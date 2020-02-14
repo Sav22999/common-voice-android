@@ -132,6 +132,14 @@
     <!-- Badges -->
     <string name="btnCloseBadges">Clauder</string>
     <string name="labelAllBadges">Tote le badges</string>
+    <!-- Message dialog -->
+    <string name="btnOk">Ok</string>
+    <string name="messageDialogErrorTitle">Error</string>
+    <string name="messageDialogGenericError">I\'m so sorry. Something didn\'t worked.\nPlease, try again or contact the developer.</string>
+    <string name="messageDialogErrorCode">Something didn\'t worked. Please, try again or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
+    <string name="youHaveToAcceptPrivacyPolicy">You need to do the login on Common Voice website and you have to accept Privacy Policy.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

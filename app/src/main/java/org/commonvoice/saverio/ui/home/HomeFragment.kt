@@ -9,26 +9,24 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    //private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        /*homeViewModel =
+            ViewModelProviders.of(this).get(HomeViewModel::class.java)*/
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
         val main = activity as MainActivity
@@ -46,8 +44,10 @@ class HomeFragment : Fragment() {
             main.openListenSection()
         }
 
+        main.checkUserLoggedIn()
+
         if (main.logged) {
-            //login successful -> show username and log-out button
+            //login successful -> show username and profile button
 
             var textLoggedIn: TextView = root.findViewById(R.id.textLoggedUsername)
             textLoggedIn.isGone = false
@@ -57,11 +57,13 @@ class HomeFragment : Fragment() {
             btnLogOut.text = getString(R.string.button_home_profile)
 
             btnLogin.setOnClickListener {
-                main.openLogoutSection()
+                main.openProfileSection()
+                main.checkUserLoggedIn()
             }
         } else {
             btnLogin.setOnClickListener {
                 main.openLoginSection()
+                main.checkUserLoggedIn()
             }
         }
 

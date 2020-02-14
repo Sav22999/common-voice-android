@@ -132,6 +132,14 @@
     <!-- Badges -->
     <string name="btnCloseBadges">Chiudi</string>
     <string name="labelAllBadges">Tutti i distintivi</string>
+    <!-- Message dialog -->
+    <string name="btnOk">Ok</string>
+    <string name="messageDialogErrorTitle">Errore</string>
+    <string name="messageDialogGenericError">Spiacente. Qualcosa non ha funzionato.\nRiprova o contatta lo sviluppatore.</string>
+    <string name="messageDialogErrorCode">Qualcosa non ha funzionato. Riprova o contatta lo sviluppatore.\nCodice errore: EC-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle">Accesso non riuscito</string>
+    <string name="youHaveToAcceptPrivacyPolicy">È necessario effettuare il login sul sito web Common Voice e si deve accettare l\'Informativa sulla privacy.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Apri Common Voice</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
