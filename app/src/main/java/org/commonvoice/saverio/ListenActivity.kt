@@ -436,6 +436,15 @@ class ListenActivity : AppCompatActivity() {
             "{{*{{skip_button}}*}}",
             skipText.text.toString()
         )
+        //EXL04
+        showMessageDialog(
+            getString(R.string.messageDialogErrorTitle),
+            getString(R.string.txt_error_1_try_again_tap_skip).replace(
+                "{{*{{skip_button}}*}}",
+                skipText.text.toString()
+            ),
+            errorCode = "L04"
+        )
         skipText.isEnabled = true
         this.loading = false
     }
@@ -444,6 +453,12 @@ class ListenActivity : AppCompatActivity() {
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
         var skipText: Button = this.findViewById(R.id.btn_skip_listen)
         msg.text = getString(R.string.txt_error_4_clips_no_available)
+        //EXL05
+        showMessageDialog(
+            getString(R.string.messageDialogErrorTitle),
+            getString(R.string.txt_error_4_clips_no_available),
+            errorCode = "L05"
+        )
         skipText.isEnabled = true
     }
 
@@ -642,6 +657,15 @@ class ListenActivity : AppCompatActivity() {
             "{{*{{skip_button}}*}}",
             getString(R.string.btn_skip_sentence)
         )
+        //EXL03
+        showMessageDialog(
+            getString(R.string.messageDialogErrorTitle),
+            getString(R.string.txt_error_3_sending_validation_failed).replace(
+                "{{*{{skip_button}}*}}",
+                getString(R.string.btn_skip_sentence)
+            ),
+            errorCode = "L03"
+        )
     }
 
     override fun onRequestPermissionsResult(
@@ -656,6 +680,20 @@ class ListenActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = ""
+    ) {
+        var messageText = text
+        if (errorCode != "") {
+            messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+        }
+        val message: MessageDialog = MessageDialog(this, 0, title, messageText, details = details)
+        message.show()
     }
 
     fun checkConnection(): Boolean {

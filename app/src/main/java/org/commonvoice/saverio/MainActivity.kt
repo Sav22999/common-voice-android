@@ -194,9 +194,21 @@ class MainActivity : AppCompatActivity() {
     fun setDarkThemeSwitch(status: Boolean) {
         if (status != theme.getTheme(this)) {
             if (status) {
-                this.showMessage(getString(R.string.toast_dark_theme_on))
+                //this.showMessage(getString(R.string.toast_dark_theme_on))
+                //EXM02
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_dark_theme_on),
+                    errorCode = "M02"
+                )
             } else {
-                this.showMessage(getString(R.string.toast_dark_theme_off))
+                //this.showMessage(getString(R.string.toast_dark_theme_off))
+                //EXM03
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_dark_theme_off),
+                    errorCode = "M03"
+                )
             }
             theme.setTheme(this, status)
         }
@@ -472,11 +484,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun noLoggedInNoStatisticsYou() {
-        Toast.makeText(
-            this,
+        //EXM01
+        showMessageDialog(
+            "",
             getString(R.string.toastNoLoginNoStatistics),
-            Toast.LENGTH_LONG
-        ).show()
+            errorCode = "M01"
+        )
     }
 
     fun checkPermissions() {
@@ -543,11 +556,20 @@ class MainActivity : AppCompatActivity() {
             if (restart2) {
                 getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
                     .putBoolean(UI_LANGUAGE_CHANGED2, false).apply()
-                showMessage(
+                /*showMessage(
                     getString(R.string.toast_language_changed).replace(
                         "{{*{{lang}}*}}",
                         this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
                     )
+                )*/
+                //EXM04
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_language_changed).replace(
+                        "{{*{{lang}}*}}",
+                        this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
+                    ),
+                    errorCode = "M04"
                 )
             }
             /*if (type == "start") {
@@ -611,9 +633,21 @@ class MainActivity : AppCompatActivity() {
     fun setAutoPlay(status: Boolean) {
         if (status != this.getAutoPlay()) {
             if (status) {
-                this.showMessage(getString(R.string.toast_autoplay_clip_on))
+                //this.showMessage(getString(R.string.toast_autoplay_clip_on))
+                //EXM05
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_autoplay_clip_on),
+                    errorCode = "M05"
+                )
             } else {
-                this.showMessage(getString(R.string.toast_autoplay_clip_off))
+                //this.showMessage(getString(R.string.toast_autoplay_clip_off))
+                //EXM06
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_autoplay_clip_off),
+                    errorCode = "M06"
+                )
             }
             getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()
                 .putBoolean(AUTO_PLAY_CLIPS, status).apply()
