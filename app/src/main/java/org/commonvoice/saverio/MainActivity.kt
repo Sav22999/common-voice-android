@@ -119,6 +119,21 @@ class MainActivity : AppCompatActivity() {
         resetDashboardData()
     }
 
+    fun showHelpMeMessage() {
+        if (!getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).getBoolean(
+                "FIRST_MSG_HELP_ME",
+                false
+            )
+        ) {
+            showMessageDialog(
+                "",
+                "I\'m developing the app.\nIf you are a developer and want to help me, please go to GitHub repository or contact me on Telegram (go to Settings section).\nThanks"
+            )
+            getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).edit()
+                .putBoolean("FIRST_MSG_HELP_ME", true).apply()
+        }
+    }
+
     fun getHiUsernameLoggedIn(): String {
         this.logged =
             getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
