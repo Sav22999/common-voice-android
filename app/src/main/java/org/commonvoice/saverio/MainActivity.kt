@@ -119,6 +119,21 @@ class MainActivity : AppCompatActivity() {
         resetDashboardData()
     }
 
+    fun showHelpMeMessage() {
+        if (!getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).getBoolean(
+                "FIRST_MSG_HELP_ME",
+                false
+            )
+        ) {
+            showMessageDialog(
+                "",
+                "I\'m developing the app.\nIf you are a developer and want to help me, please go to GitHub repository or contact me on Telegram (go to Settings section).\nThanks"
+            )
+            getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).edit()
+                .putBoolean("FIRST_MSG_HELP_ME", true).apply()
+        }
+    }
+
     fun getHiUsernameLoggedIn(): String {
         this.logged =
             getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
@@ -544,12 +559,36 @@ class MainActivity : AppCompatActivity() {
 
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
         //println("-->index: " + translations_languages.indexOf(lang))
-
+        var android6 = Build.VERSION.SDK_INT <= Build.VERSION_CODES.M
+        if (android6) {
+            //Android 6.0
+            var tempLang = getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
+            var lang = tempLang.split("-")[0]
+            val langSupportedYesOrNot = TranslationsLanguages()
+            if (!langSupportedYesOrNot.isSupported(lang)) {
+                lang = langSupportedYesOrNot.getDefaultLanguage()
+            }
+            var locale: Locale = Locale(lang)
+            Locale.setDefault(locale)
+            var res: Resources = resources
+            var config: Configuration = res.configuration
+            config.setLocale(locale)
+            res.updateConfiguration(config, res.displayMetrics)
+        }
         if (restart || type == "restart") {
             getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
                 .putBoolean(UI_LANGUAGE_CHANGED2, true).apply()
-            val intent = Intent(this, RestartActivity::class.java).also {
-                startActivity(it)
+
+            if (android6) {
+                getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
+                    .putBoolean(UI_LANGUAGE_CHANGED, false).apply()
+                val intent = Intent(this, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else {
+                val intent = Intent(this, RestartActivity::class.java).also {
+                    startActivity(it)
+                }
             }
             finish()
         } else {
@@ -557,11 +596,11 @@ class MainActivity : AppCompatActivity() {
                 getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
                     .putBoolean(UI_LANGUAGE_CHANGED2, false).apply()
                 /*showMessage(
-                    getString(R.string.toast_language_changed).replace(
-                        "{{*{{lang}}*}}",
-                        this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                    )
-                )*/
+                        getString(R.string.toast_language_changed).replace(
+                            "{{*{{lang}}*}}",
+                            this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
+                        )
+                    )*/
                 //EXM04
                 showMessageDialog(
                     "",
@@ -573,10 +612,10 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             /*if (type == "start") {
-                val intent = Intent(this, RestartActivity::class.java).also {
-                    startActivity(it)
-                }
-            }*/
+                    val intent = Intent(this, RestartActivity::class.java).also {
+                        startActivity(it)
+                    }
+                }*/
         }
     }
 

@@ -4,6 +4,8 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
@@ -65,20 +67,23 @@ class RestartActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-        var lang = tempLang.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+            //Android 6.0
+        } else {
+            var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
+            var lang = tempLang.split("-")[0]
+            val langSupportedYesOrNot = TranslationsLanguages()
+            if (!langSupportedYesOrNot.isSupported(lang)) {
+                lang = langSupportedYesOrNot.getDefaultLanguage()
+            }
+            super.attachBaseContext(newBase.wrap(Locale(lang)))
         }
-        super.attachBaseContext(newBase.wrap(Locale(lang)))
     }
 
     fun Context.wrap(desiredLocale: Locale): Context {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
-            return getUpdatedContextApi23(desiredLocale)
-
-        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
+        return if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
+            getUpdatedContextApi23(desiredLocale)
+        else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
             getUpdatedContextApi24(desiredLocale)
         else
             getUpdatedContextApi25(desiredLocale)
@@ -86,6 +91,7 @@ class RestartActivity : AppCompatActivity() {
 
     @TargetApi(Build.VERSION_CODES.M)
     private fun Context.getUpdatedContextApi23(locale: Locale): Context {
+        print("\n\n>>-->>\n\n")
         val configuration = resources.configuration
         configuration.locale = locale
         return createConfigurationContext(configuration)

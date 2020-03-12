@@ -74,6 +74,8 @@ class HomeFragment : Fragment() {
         main.startAnimation(btnSpeak)
         main.startAnimation(btnListen)
 
+        main.showHelpMeMessage()
+
         return root
     }
 
