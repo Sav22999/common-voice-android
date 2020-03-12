@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language">ru</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Главная</string>
+    <string name="title_dashboard">Статистика</string>
+    <string name="title_settings">Настройки</string>
+    <!-- Home (main) -->
+    <string name="description_cv_robot">Логотип Common Voice</string>
+    <string name="description_cv_logo">Робот Common Voice</string>
+    <string name="button_home_login">Войти / Зарегистрироваться</string>
+    <string name="button_home_logout">Выйти</string>
+    <string name="button_home_profile">Профиль</string>
+    <string name="text_hi_username">Здравствуй</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Статистика</string>
+    <string name="dashboardVoicesOnline">Голосов онлайн</string>
+    <string name="dashboardTabYou">Вы</string>
+    <string name="dashboardTabEveryone">Все пользователи</string>
+    <string name="dashboardToday">За сегодня</string>
+    <string name="dashboardEver">За все время</string>
+    <string name="toastNoLoginNoStatistics">Вы должны войти, чтобы увидеть вашу статистику</string>
+    <string name="textHoursAbbreviation">ч</string>
+    <string name="textHour">Время</string>
+    <!-- Tutorial -->
+    <string name="btn_tutorial1">Начать</string>
+    <string name="btn_tutorial2">Разрешить</string>
+    <string name="btn_tutorial3">Далее</string>
+    <string name="btn_tutorial4">Попробуйте снова</string>
+    <string name="btn_tutorial5">Завершить</string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/ru/terms</string>
+    <string name="tutorial_text1">Это приложение не является официальным приложением Common Voice. Приложение было разработано Саверио Морелли без какой-либо поддержки или партнерства с Mozilla.</string>
+    <string name="tutorial_terms">Продолжая, вы соглашаетесь с условиями обслуживания Common Voice.</string>
+    <string name="tutorial_text2">Приложению Common Voice требуется доступ к микрофону для корректной работы.</string>
+    <string name="tutorial_text3">Приложению Common Voice требуется доступ к хранилищу для корректной работы.</string>
+    <string name="tutorial_text4">Выберите свой родной язык, на нем вам будут показаны предложения для записи и проверки</string>
+    <!-- Login -->
+    <string name="txt_loading_page">Загрузка ...</string>
+    <string name="txt_profile_username">Имя пользователя</string>
+    <string name="txt_profile_email">Электронная почта</string>
+    <string name="txt_profile_age">Возраст</string>
+    <string name="txt_profile_gender">Пол</string>
+    <string name="txt_profile_edit_data_alert">Чтобы отредактировать свой профиль, перейдите на официальный сайт.</string>
+    <string name="txt_login_successful_alert">Вход выполнен успешно!</string>
+    <string name="txt_gender_male">Мужской</string>
+    <string name="txt_gender_female">Женский</string>
+    <string name="txt_gender_other">Другой</string>
+    <string name="btn_badges_loggedin">Все бейджи</string>
+    <string name="txt_your_level">Уровень {{*{{level}}*}}</string>
+    <string name="txt_level1_name">Младенец</string>
+    <string name="txt_level2_name">Ребенок</string>
+    <string name="txt_level3_name">Отрок</string>
+    <string name="txt_level4_name">Юнец</string>
+    <string name="txt_level5_name">Молодежь</string>
+    <string name="txt_level6_name">Взрослый</string>
+    <string name="txt_level7_name">Старший</string>
+    <string name="txt_level8_name">Про</string>
+    <string name="txt_level9_name">Мастер</string>
+    <string name="txt_level10_name">Чемпион</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">Открыть руководство снова</string>
+    <string name="txt_project_github_settings">Исходный код проекта доступен на GitHub</string>
+    <string name="txt_contributors">главные контрибуторы</string>
+    <string name="txt_developed_by">разработано</string>
+    <string name="toast_language_changed">Язык изменен на {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">Язык</string>
+    <string name="settingsListen">Прослушивание</string>
+    <string name="settingsSpeak">Запись</string>
+    <string name="settingsOther">Другое</string>
+    <string name="txt_donate_paypal_settings">Пожертвовать разработчику через PayPal</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Проигрывать запись автоматически при загрузке</string>
+    <string name="toast_autoplay_clip_on">Автовоспроизведение включено</string>
+    <string name="toast_autoplay_clip_off">Автовоспроизведение выключено</string>
+    <string name="txt_dark_theme_settings">Темная тема</string>
+    <string name="toast_dark_theme_on">Темная тема включена</string>
+    <string name="toast_dark_theme_off">Темная тема выключена</string>
+    <string name="contact_developer_on_telegram">Связаться с разработчиком через Telegram</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence">Загрузка предложения...</string>
+    <string name="btn_skip_sentence">Пропустить</string>
+    <string name="btn_send_sentence">Отправить запись</string>
+    <string name="txt_loading_clip">Загрузка записи...</string>
+    <string name="txt_press_icon_below_speak_1">Нажмите на значок ниже, чтобы начать запись</string>
+    <string name="txt_press_icon_below_speak_2">Нажмите на значок ниже, чтобы остановить запись</string>
+    <string name="txt_sentence_recorded">Предложение записано. Прослушайте запись</string>
+    <string name="txt_sentence_record_failed">Запись не удалась. Попробуйте еще раз, пожалуйста</string>
+    <string name="txt_recorded_correct_or_wrong">Запись корректна? Отправляйте.\nЧто-то не так? Перезапишите заново</string>
+    <string name="txt_listening_stopped">Прослушайте запись целиком чтобы убедиться в ее правильности</string>
+    <string name="txt_listening_again_recording">Нажмите на значок ниже, чтобы остановить прослушивание</string>
+    <string name="txt_recording_too_long">Запись слишком длинная. Максимальная длительность 10 секунд</string>
+    <string name="txt_sending_recording">Запись отправляется...</string>
+    <string name="txt_recording_sent">Запись отправлена!</string>
+    <string name="txt_sending_recording_failed">Ошибка отправки записи!</string>
+    <string name="txt_sending_recording_failed_and_skip">Не получилось отправить запись. Попробуйте снова или нажмите кнопку {{*{{skip_button}}*}}</string>
+    <string name="txt_press_icon_below_listen_1">Нажмите на значок ниже, чтобы воспроизвести запись</string>
+    <string name="txt_press_icon_below_listen_2">Нажмите на значок ниже, чтобы остановить прослушивание</string>
+    <string name="txt_clip_correct_or_wrong">Запись корректна? Жмите палец вверх\nЧто-то не так? Жмите палец вниз</string>
+    <string name="txt_clip_again">Нажмите на значок ниже, чтобы воспроизвести запись еще раз</string>
+    <string name="txt_clip_validated_yes">Запись принята!</string>
+    <string name="txt_clip_validated_no">Запись отклонена!</string>
+    <string name="txt_error_1_try_again_tap_skip">Ошибка. Попробуйте снова, жмите на кнопку {{*{{skip_button}}*}}</string>
+    <string name="txt_error_2_sending_failed">Ошибка при отправке записи. Аудио не было отправлено на сервер</string>
+    <string name="txt_sending_validation">Отправка результатов проверки...</string>
+    <string name="txt_error_3_sending_validation_failed">Ошибка при отправке результата проверки. Попробуйте снова или нажмите кнопку {{*{{skip_button}}*}}</string>
+    <string name="txt_closing">Закрытие...</string>
+    <string name="txt_error_4_clips_no_available">Ошибка. Для этого языка кончились записи для проверки.</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection">Проверить снова</string>
+    <string name="txt_noconnection">Отсутствует подключение к Интернету. Пожалуйста, подключитесь к сети WiFi или мобильной сети, и затем нажмите на кнопку ниже</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak">Это предложение, которое вы должны записать.</string>
+    <string name="txt2_tutorial_speak_and_listen">Здесь вы найдете предложения, которые будут направлять вас каждый раз.</string>
+    <string name="txt3_tutorial_speak">Если вам не нравится предложение, вы можете нажать на эту кнопку, чтобы пропустить его и получить другое.</string>
+    <string name="txt4_tutorial_speak">Нажмите на этот значок, чтобы начать запись.</string>
+    <string name="txt5_tutorial_speak">Нажмите на этот значок, чтобы остановить запись.</string>
+    <string name="txt6_tutorial_speak">Нажмите на этот значок, чтобы прослушать запись.</string>
+    <string name="txt7_tutorial_speak">Нажмите на этот значок, чтобы перезаписать предложение, если у вас не получилось с первого раза.</string>
+    <string name="txt8_tutorial_speak">Нажмите на этот значок, чтобы прослушать запись еще раз.</string>
+    <string name="txt9_tutorial_speak">Нажмите на эту кнопку, чтобы отправить запись.</string>
+    <string name="txt1_tutorial_listen">Это предложение/запись, которое вы должны проверить.</string>
+    <string name="txt3_tutorial_listen">Если вам не нравится запись, вы можете нажать на эту кнопку, чтобы пропустить ее и получить еще одну.</string>
+    <string name="txt4_tutorial_listen">Нажмите на этот значок чтобы воспроизвести и проверить запись.</string>
+    <string name="txt5_tutorial_listen">Нажмите на этот значок, чтобы остановить прослушивание записи.</string>
+    <string name="txt6_tutorial_listen">Нажмите на этот значок, если вы хотите прослушать запись снова.</string>
+    <string name="txt7_tutorial_listen">Нажмите на этот значок, если запись совпадает с предложением и вы принимаете ее.</string>
+    <string name="txt8_tutorial_listen">Нажмите на этот значок, если запись не совпадает с предложением и вы отклоняете ее.</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow">К сожалению, эта функция сейчас недоступна.\nМы постоянно работаем над улучшением приложения.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Закрыть</string>
+    <string name="labelAllBadges">Все бейджи</string>
+    <!-- Message dialog -->
+    <string name="btnOk">Хорошо</string>
+    <string name="messageDialogErrorTitle">Ошибка</string>
+    <string name="messageDialogGenericError">Мне так жаль. Что-то пошло не так.\nПожалуйста, попробуйте еще раз или свяжитесь с разработчиком.</string>
+    <string name="messageDialogErrorCode">Что-то сработало не так. Пожалуйста, попробуйте еще раз или свяжитесь с разработчиком.\nКод ошибки: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle">Не удалось выполнить вход</string>
+    <string name="youHaveToAcceptPrivacyPolicy">Вам необходимо авторизоваться на сайте Common Voice и принять политику конфиденциальности.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Открыть Common Voice</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+</resources>
