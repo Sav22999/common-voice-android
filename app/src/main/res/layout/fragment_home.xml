@@ -36,6 +36,18 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
+            android:id="@+id/backgound_waves"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
+            app:srcCompat="@drawable/waves" />
+
+        <ImageView
             android:id="@+id/robot_cv"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -86,7 +98,7 @@
             android:gravity="center|center_horizontal|center_vertical"
             android:text="TextView"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
