@@ -33,6 +33,7 @@ class BadgesActivity() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.all_badges)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         var btnCloseBadges = this.btnCloseBadges
         btnCloseBadges.setOnClickListener {

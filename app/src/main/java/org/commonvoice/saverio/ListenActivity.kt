@@ -369,12 +369,14 @@ class ListenActivity : AppCompatActivity() {
                                 btnNo.isVisible = false
                             }
 
+                            /*
                             println("------")
                             println("idSentence: " + this.idSentence[0] + " " + this.idSentence[1])
                             println("textSentence: '" + this.textSentence[0] + "' '" + this.textSentence[1] + "'")
                             println("globSentence: '" + this.globSentence[0] + "' '" + this.globSentence[1] + "'")
                             println("soundSentence: '" + this.soundSentence[0] + "' '" + this.soundSentence[1] + "'")
                             println("------")
+                             */
 
                             this.loading = false
                         }, Response.ErrorListener {
@@ -425,7 +427,7 @@ class ListenActivity : AppCompatActivity() {
                 btnSkip.isEnabled = true
             }
         } else {
-            println("Wait")
+            //println("Wait")
         }
     }
 

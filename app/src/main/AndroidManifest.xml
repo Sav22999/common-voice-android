@@ -11,21 +11,20 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
+        android:configChanges="locale"
         android:icon="@mipmap/ic_commonvoice"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_commonvoice_round"
         android:supportsRtl="true"
-        android:configChanges="locale"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <!-- First start (TutorialActivity) -->
         <activity
             android:name=".TutorialActivity"
-            android:theme="@style/AppTheme.FullScreen"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.FullScreen"></activity>
         <!-- The actual app (MainActivity) -->
         <activity
             android:name=".MainActivity"
@@ -38,72 +37,68 @@
         <!-- SpeakActivity -->
         <activity
             android:name=".SpeakActivity"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"></activity>
         <!-- ListenActivity -->
         <activity
             android:name=".ListenActivity"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"></activity>
         <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.APP_BROWSER" />
-                <data android:scheme="https" android:host="auth.mozilla.auth0.com" />
+
+                <data
+                    android:host="auth.mozilla.auth0.com"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <!-- NoConnectionActivity -->
         <activity
             android:name=".NoConnectionActivity"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"></activity>
         <!-- FirstRunListen -->
         <activity
-            android:screenOrientation="portrait"
             android:name=".FirstRunListen"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
         <!-- FirstRunSpeak -->
         <activity
-            android:screenOrientation="portrait"
             android:name=".FirstRunSpeak"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
         <!-- Restart -->
         <activity
             android:name=".RestartActivity"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"></activity>
         <!-- NotAvailableNow -->
         <activity
             android:name=".NotAvailableNow"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme"></activity>
         <!-- Badges -->
         <activity
             android:name=".BadgesActivity"
-            android:theme="@style/AppTheme.TitleBar"
-            android:label="@string/labelAllBadges" >
-        </activity>
+            android:label="@string/labelAllBadges"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.TitleBar"></activity>
         <!-- WebBrowser - For Testings only -->
         <activity
-            android:screenOrientation="portrait"
             android:name=".WebBrowser"
-            android:theme="@style/AppTheme"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"></activity>
     </application>
 </manifest>
