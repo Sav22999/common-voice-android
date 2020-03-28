@@ -43,11 +43,11 @@ The app is officially translated in these following languages, **thank you very 
 - `en` English (main language)
 - `et` Estonian -> [**Agu Ratas**](https://crowdin.com/profile/aguratas)
 - `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
-- `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**
+- `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
 - `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
 - `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**
-- `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**
+- `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 
 ### License
 

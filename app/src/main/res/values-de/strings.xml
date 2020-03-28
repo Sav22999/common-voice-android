@@ -8,8 +8,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_settings">Einstellungen</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Gewöhnliches Sprachlogo</string>
-    <string name="description_cv_logo">Gewöhnlicher Sprachroboter</string>
+    <string name="description_cv_robot">Common Voice Logo</string>
+    <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Anmelden / Registrieren</string>
     <string name="button_home_logout">Abmelden</string>
     <string name="button_home_profile">Profil</string>
