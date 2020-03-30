@@ -258,6 +258,7 @@ class LoginActivity : AppCompatActivity() {
 
             webView.settings.javaScriptEnabled = true
             webView.settings.domStorageEnabled = true
+            webView.settings.userAgentString = webView.settings.userAgentString.replace("; wv", "")
             webView.webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                     // Loading started
