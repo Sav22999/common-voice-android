@@ -690,12 +690,17 @@ class ListenActivity : AppCompatActivity() {
         errorCode: String = "",
         details: String = ""
     ) {
-        var messageText = text
-        if (errorCode != "") {
-            messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+        try {
+            var messageText = text
+            if (errorCode != "") {
+                messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+            }
+            val message: MessageDialog =
+                MessageDialog(this, 0, title, messageText, details = details)
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: ListenActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
-        val message: MessageDialog = MessageDialog(this, 0, title, messageText, details = details)
-        message.show()
     }
 
     fun checkConnection(): Boolean {

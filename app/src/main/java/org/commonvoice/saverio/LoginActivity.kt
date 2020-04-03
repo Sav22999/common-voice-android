@@ -87,7 +87,9 @@ class LoginActivity : AppCompatActivity() {
                 val intent = intent
                 var url = intent.data
                 //println("Url: "+ url.toString())
-                if (url.toString().contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?")) {
+                if (url.toString()
+                        .contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?")
+                ) {
                     openWebBrowser(url.toString())
                 } else {
                     openWebBrowser("login")
@@ -263,15 +265,17 @@ class LoginActivity : AppCompatActivity() {
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                     // Loading started
                     showLoading()
+                    //println("-->> PageStarted - URL: " + url + "<<--")
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     // Loading finished
                     hideLoading()
+                    //println("-->> PageFinished - URL: " + url + "<<--")
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
-                    //println(" ---->> "+url+" >> "+CookieManager.getInstance().getCookie(url)+" <<---- ")
-                    if (url == "https://voice.mozilla.org/en" && cookies != null && cookies.contains(
+                    //println(" ---->> " + url + " >> " + CookieManager.getInstance().getCookie(url) + " <<---- " )
+                    if (url!!.contains("https://voice.mozilla.org/") && cookies != null && cookies.contains(
                             "connect.sid="
                         )
                     ) {
@@ -290,7 +294,7 @@ class LoginActivity : AppCompatActivity() {
                             i++;
                         }
                         userId = myCookie
-                        //println(" -->> MY COOKIE -->> "+myCookie+" <<--")
+                        //println(" -->> MY COOKIE -->> " + myCookie + " <<--")
 
                         getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
                             .putBoolean(LOGGED_IN_NAME, true).apply()
@@ -300,6 +304,8 @@ class LoginActivity : AppCompatActivity() {
                         //println(" -->> LOGGED IN <<-- ")
 
                         loadUserData("userName")
+                    } else {
+                        println("??-- I can't get cookie - Something was wrong --??")
                     }
                 }
             }
@@ -392,6 +398,7 @@ class LoginActivity : AppCompatActivity() {
             val que = Volley.newRequestQueue(this)
             val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
                 Response.Listener {
+                    // println("-->> "+it.toString()+" <<--")
                     if (it.toString() != "null") {
                         val jsonResult = it.toString()
                         if (jsonResult.length > 2) {
@@ -422,9 +429,19 @@ class LoginActivity : AppCompatActivity() {
                                     var profileGender: EditText =
                                         findViewById(R.id.textProfileGender)
                                     profileEmail.setText(jsonObj.getString("email").toString())
-                                    profileUsername.setText(jsonObj.getString("username").toString())
-                                    profileAge.setText(getAgeString(jsonObj.getString("age").toString()))
-                                    profileGender.setText(getGenderString(jsonObj.getString("gender").toString()))
+                                    profileUsername.setText(
+                                        jsonObj.getString("username").toString()
+                                    )
+                                    profileAge.setText(
+                                        getAgeString(
+                                            jsonObj.getString("age").toString()
+                                        )
+                                    )
+                                    profileGender.setText(
+                                        getGenderString(
+                                            jsonObj.getString("gender").toString()
+                                        )
+                                    )
                                     if (imageUrl != "null" && imageUrl != "") {
                                         DownLoadImage(
                                             profileImage,
@@ -488,7 +505,7 @@ class LoginActivity : AppCompatActivity() {
             }
             que.add(req)
         } catch (e: Exception) {
-            //println(" -->> Something wrong: " + e.toString() + " <<-- ")
+            println(" -->> Something wrong: " + e.toString() + " <<-- ")
             hideLoading()
             error2(e.toString())
         }
@@ -550,12 +567,17 @@ class LoginActivity : AppCompatActivity() {
         errorCode: String = "",
         details: String = ""
     ) {
-        var messageText = text
-        if (errorCode != "") {
-            messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+        try {
+            var messageText = text
+            if (errorCode != "") {
+                messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+            }
+            val message: MessageDialog =
+                MessageDialog(this, 0, title, messageText, details = details)
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: LoginActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
-        val message: MessageDialog = MessageDialog(this, 0, title, messageText, details = details)
-        message.show()
     }
 
     fun getAgeString(age: String): String {

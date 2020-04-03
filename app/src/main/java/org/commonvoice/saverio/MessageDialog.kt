@@ -31,32 +31,37 @@ class MessageDialog {
 
     fun show() {
         if (this.context != null) {
-            val dialogView =
-                LayoutInflater.from(this.context).inflate(R.layout.message_dialog, null)
-            val builder = AlertDialog.Builder(this.context!!)
-                .setView(dialogView)
-                .setTitle(message_title)
-            //show dialog
-            val alerDialog = builder.show()
-            dialogView.labelTextMessageDialog.setText(this.message_text)
-            if (this.message_details != "") {
-                dialogView.labelDetailsMessageDialog.setText(this.message_details)
-                dialogView.btnShowHideDetailsMessageDialog.isGone = false
-                dialogView.btnShowHideDetailsMessageDialog.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-                dialogView.btnShowHideDetailsMessageDialog.setText("Show details")
-                dialogView.btnShowHideDetailsMessageDialog.setOnClickListener {
-                    if (!dialogView.labelDetailsMessageDialog.isGone) {
-                        dialogView.btnShowHideDetailsMessageDialog.setText("Show details")
-                        dialogView.labelDetailsMessageDialog.isGone = true
-                    } else {
-                        dialogView.btnShowHideDetailsMessageDialog.setText("Hide details")
-                        dialogView.labelDetailsMessageDialog.isGone = false
+            try {
+                val dialogView =
+                    LayoutInflater.from(this.context).inflate(R.layout.message_dialog, null)
+                val builder = AlertDialog.Builder(this.context!!)
+                    .setView(dialogView)
+                    .setTitle(message_title)
+                //show dialog
+                val alerDialog = builder.show()
+                dialogView.labelTextMessageDialog.setText(this.message_text)
+                if (this.message_details != "") {
+                    dialogView.labelDetailsMessageDialog.setText(this.message_details)
+                    dialogView.btnShowHideDetailsMessageDialog.isGone = false
+                    dialogView.btnShowHideDetailsMessageDialog.paintFlags =
+                        Paint.UNDERLINE_TEXT_FLAG
+                    dialogView.btnShowHideDetailsMessageDialog.setText("Show details")
+                    dialogView.btnShowHideDetailsMessageDialog.setOnClickListener {
+                        if (!dialogView.labelDetailsMessageDialog.isGone) {
+                            dialogView.btnShowHideDetailsMessageDialog.setText("Show details")
+                            dialogView.labelDetailsMessageDialog.isGone = true
+                        } else {
+                            dialogView.btnShowHideDetailsMessageDialog.setText("Hide details")
+                            dialogView.labelDetailsMessageDialog.isGone = false
+                        }
                     }
                 }
-            }
-            dialogView.btnOkMessageDialog.setOnClickListener {
-                //dismiss dialog
-                alerDialog.dismiss()
+                dialogView.btnOkMessageDialog.setOnClickListener {
+                    //dismiss dialog
+                    alerDialog.dismiss()
+                }
+            } catch (exception: Exception) {
+                println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
             }
         }
     }

@@ -1,4 +1,6 @@
-# Error Code List
+# Error Code / Message code List
+
+The "EX" is the initial for "Explanation".
 
 - EX-L01: Error in LoginActivity. App failed to get the username and the data of the user.
 - EX-L02: Error in LoginActivity. App failed to login because you haven't accepted Privacy Policy
