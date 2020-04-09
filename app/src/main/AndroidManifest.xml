@@ -24,7 +24,7 @@
         <activity
             android:name=".TutorialActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.FullScreen"></activity>
+            android:theme="@style/AppTheme.FullScreen" />
         <!-- The actual app (MainActivity) -->
         <activity
             android:name=".MainActivity"
@@ -38,17 +38,18 @@
         <activity
             android:name=".SpeakActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <!-- ListenActivity -->
         <activity
             android:name=".ListenActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:label="@string/button_home_profile"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.TitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -65,40 +66,40 @@
         <activity
             android:name=".NoConnectionActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <!-- FirstRunListen -->
         <activity
             android:name=".FirstRunListen"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <!-- FirstRunSpeak -->
         <activity
             android:name=".FirstRunSpeak"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <!-- Restart -->
         <activity
             android:name=".RestartActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <!-- NotAvailableNow -->
         <activity
             android:name=".NotAvailableNow"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <!-- Badges -->
         <activity
             android:name=".BadgesActivity"
             android:label="@string/labelAllBadges"
             android:parentActivityName=".LoginActivity"
-            android:theme="@style/AppTheme.TitleBar"></activity>
+            android:theme="@style/AppTheme.TitleBar" />
         <!-- WebBrowser - For Testings only -->
         <activity
             android:name=".WebBrowser"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
     </application>
 </manifest>
