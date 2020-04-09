@@ -469,10 +469,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSpeakSection() {
-        /*val intent = Intent(this, SpeakActivity::class.java).also {
-            startActivity(it)
-        }*/
-        openNoAvailableNow()
+        if (BuildConfig.VERSION_NAME.contains("a")) {
+            val intent = Intent(this, SpeakActivity::class.java).also {
+                startActivity(it)
+            }
+            showMessageDialog(
+                "Message",
+                "You can view this section because this is an Alpha version."
+            )
+        } else {
+            openNoAvailableNow()
+        }
     }
 
     fun openListenSection() {
