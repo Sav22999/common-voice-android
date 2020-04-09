@@ -35,6 +35,17 @@ class BadgesActivity() : AppCompatActivity() {
         setContentView(R.layout.all_badges)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        try {
+            actionBar.setTitle(getString(R.string.labelAllBadges))
+        } catch (exception: Exception) {
+            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method1) -- "+exception.toString()+" !!")
+        }
+        try {
+            supportActionBar?.setTitle(getString(R.string.labelAllBadges))
+        } catch (exception: Exception) {
+            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method2) -- "+exception.toString()+" !!")
+        }
+
         var btnCloseBadges = this.btnCloseBadges
         btnCloseBadges.setOnClickListener {
             finish()

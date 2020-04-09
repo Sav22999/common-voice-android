@@ -2,18 +2,17 @@ package org.commonvoice.saverio
 
 import android.Manifest
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.Color
+import android.graphics.Paint
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
-import android.telecom.Call
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -25,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColorLong
 import androidx.core.view.isGone
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -33,9 +31,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.all_badges.*
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -77,6 +73,27 @@ class LoginActivity : AppCompatActivity() {
         }
 
         var txtLevel: TextView = this.findViewById(R.id.textLevel)
+        var txtChangeSettingsOnWebsite: TextView = this.findViewById(R.id.labelToModifyInformation)
+        txtChangeSettingsOnWebsite.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        txtChangeSettingsOnWebsite.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://voice.mozilla.org/profile/info")
+                )
+            )
+        }
+
+        try {
+            actionBar.setTitle(getString(R.string.button_home_profile))
+        } catch (exception: Exception) {
+            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method1) -- "+exception.toString()+" !!")
+        }
+        try {
+            supportActionBar?.setTitle(getString(R.string.button_home_profile))
+        } catch (exception: Exception) {
+            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method2) -- "+exception.toString()+" !!")
+        }
 
         if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
                 LOGGED_IN_NAME,
@@ -361,15 +378,22 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun openMainAfterLogin() {
+        val returnIntent = Intent()
+        //returnIntent.putExtra("key", "value")
+        setResult(Activity.RESULT_OK, returnIntent)
         finish()
-        val intent = Intent(this, MainActivity::class.java).also {
-            startActivity(it)
-        }
     }
 
     fun reopenLogin() {
+        val returnIntent = Intent()
+        setResult(Activity.RESULT_OK, returnIntent)
         finish()
         startActivity(intent)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        openMainAfterLogin()
+        return false
     }
 
     fun doAnimation() {

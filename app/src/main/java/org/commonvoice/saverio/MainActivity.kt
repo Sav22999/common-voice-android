@@ -2,6 +2,7 @@ package org.commonvoice.saverio
 
 import android.Manifest
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -16,18 +17,16 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.extensions.LayoutContainer
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -483,17 +482,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openLoginSection() {
-        finish()
+        //"110" is chosen by me to identify this request
         val intent = Intent(this, LoginActivity::class.java).also {
-            startActivity(it)
+            startActivityForResult(it, 110)
         }
     }
 
     fun openProfileSection() {
         // if the user logged-in, it shows profile
-        finish()
+        //"111" is chosen by me to identify this request
         val intent = Intent(this, LoginActivity::class.java).also {
-            startActivity(it)
+            startActivityForResult(it, 111)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == 111 || requestCode == 110) && resultCode == RESULT_OK) {
+            println("MainActivity updated")
+            //data?.extras.getString("key") //to get "putExtra" information by "key"
+            recreate()
+        } else {
+            println("MainActivity updated (2)")
+            recreate()
         }
     }
 
