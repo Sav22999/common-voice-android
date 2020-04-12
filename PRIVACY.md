@@ -6,6 +6,10 @@ The app doesn’t collect your data. Anyway, some data are saved on your device 
 
 The app requires *Storage* and *Microphone* permissions when you use *Speak section*: because the app saves your recording, but then they are deleted automatically.
 
+If you active "Save log on a file", the app requires *Storage* and will be save log on files, but it won't contains your personal data.
+
+The *Experimental features* could be unsafe and unstable, so pay attention if you use that option.
+
 If you want additional information about the Policy privacy of Common Voice project, [Read the official doc](https://voice.mozilla.org/en/privacy) by Mozilla.
 
 

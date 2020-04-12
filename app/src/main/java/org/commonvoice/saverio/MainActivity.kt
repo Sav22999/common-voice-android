@@ -451,7 +451,11 @@ class MainActivity : AppCompatActivity() {
         try {
             var messageText = text
             if (errorCode != "") {
-                messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
             }
             val message: MessageDialog =
                 MessageDialog(this, 0, title, messageText, details = details)
