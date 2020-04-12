@@ -61,6 +61,7 @@
     <string name="txt_level8_name">Pro</string>
     <string name="txt_level9_name">Master</string>
     <string name="txt_level10_name">Champion</string>
+    <string name="level_up_message">Congrats! You have just achieved the {{*{{n_level}}*}} level.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open Tutorial again</string>
     <string name="txt_project_github_settings">Project open-source on GitHub</string>
@@ -83,8 +84,8 @@
     <string name="toast_experimental_features_on">Experimental features turned on\nNew features could be unstable and unsafe</string>
     <string name="toast_experimental_featured_off">Experimental features turned off</string>
     <string name="txt_log_on_file">Save logs on a file</string>
-    <string name="toast_log_on_file">Saving logs on a file turned on\nYou can attach the log.txt file when you report an issue\nRead more on Github "Saving the log"</string>
-    <string name="toast_log_on_file">Saving logs on a file turned off</string>
+    <string name="toast_log_on_file_on">Saving logs on a file turned on\nYou can attach the log.txt file when you report an issue\nRead more on Github "Saving the log"</string>
+    <string name="toast_log_on_file_off">Saving logs on a file turned off</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence ...</string>
     <string name="btn_skip_sentence">Skip</string>
@@ -139,6 +140,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges">Close</string>
     <string name="labelAllBadges">All badges</string>
+    <string name="new_badge_earnt_message">Hooray! You have just earnt a new badge.</string>
     <!-- Message dialog -->
     <string name="btnOk">Ok</string>
     <string name="messageDialogErrorTitle">Error</string>
@@ -147,6 +149,19 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy">You need to do the login on Common Voice website and you have to accept Privacy Policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title">Daily goal</string>
+    <string name="daily_goal_is_not_set">Daily goal is not set yet</string>
+    <string name="set_daily_goal">Set goal now</string>
+    <string name="edit_daily_goal">Edit goal</string>
+    <string name="save_daily_goal">Save</string>
+    <string name="delete_daily_goal">Delete</string>
+    <string name="cancel_daily_goal">Cancel</string>
+    <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day</string>
+    <string name="daily_goal_achieved_today">Achieved today</string>
+    <string name="daily_goal_not_achieved_today">Not achieved today</string>
+    <string name="daily_goal_achieved_message">Well done! You have just achieved the daily goal.\nExactly, you validated {{*{{n_clips}}*}} and recorded {{*{{n_sentences}}*}}.\nAnyway you can continue to contribute to Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t official by Mozilla. It\'s only a feature of this app.</string>
 
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->

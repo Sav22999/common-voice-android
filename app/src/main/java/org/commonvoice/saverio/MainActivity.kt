@@ -212,16 +212,14 @@ class MainActivity : AppCompatActivity() {
                 //EXM02
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_dark_theme_on),
-                    errorCode = "M02"
+                    getString(R.string.toast_dark_theme_on)
                 )
             } else {
                 //this.showMessage(getString(R.string.toast_dark_theme_off))
                 //EXM03
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_dark_theme_off),
-                    errorCode = "M03"
+                    getString(R.string.toast_dark_theme_off)
                 )
             }
             theme.setTheme(this, status)
@@ -634,8 +632,7 @@ class MainActivity : AppCompatActivity() {
                     getString(R.string.toast_language_changed).replace(
                         "{{*{{lang}}*}}",
                         this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                    ),
-                    errorCode = "M04"
+                    )
                 )
             }
             /*if (type == "start") {
@@ -703,16 +700,14 @@ class MainActivity : AppCompatActivity() {
                 //EXM05
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_autoplay_clip_on),
-                    errorCode = "M05"
+                    getString(R.string.toast_autoplay_clip_on)
                 )
             } else {
                 //this.showMessage(getString(R.string.toast_autoplay_clip_off))
                 //EXM06
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_autoplay_clip_off),
-                    errorCode = "M06"
+                    getString(R.string.toast_autoplay_clip_off)
                 )
             }
             getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()

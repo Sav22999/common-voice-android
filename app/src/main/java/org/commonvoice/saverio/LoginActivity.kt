@@ -47,6 +47,8 @@ class LoginActivity : AppCompatActivity() {
     private val LEVEL_SAVED = "LEVEL_SAVED"
     private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
     private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
+    private val TODAY_CONTRIBUTING =
+        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
     var userId: String = ""
     var userName: String = ""
 
@@ -87,12 +89,12 @@ class LoginActivity : AppCompatActivity() {
         try {
             actionBar.setTitle(getString(R.string.button_home_profile))
         } catch (exception: Exception) {
-            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method1) -- "+exception.toString()+" !!")
+            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method1) -- " + exception.toString() + " !!")
         }
         try {
             supportActionBar?.setTitle(getString(R.string.button_home_profile))
         } catch (exception: Exception) {
-            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method2) -- "+exception.toString()+" !!")
+            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method2) -- " + exception.toString() + " !!")
         }
 
         if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
@@ -340,6 +342,8 @@ class LoginActivity : AppCompatActivity() {
         getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
             .putString(USER_CONNECT_ID, "").apply()
         getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
+        getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
+            .putString(TODAY_CONTRIBUTING, "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
