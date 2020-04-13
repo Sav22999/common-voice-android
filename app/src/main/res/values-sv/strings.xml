@@ -59,6 +59,7 @@
     <string name="txt_level8_name">Proffs</string>
     <string name="txt_level9_name">Mästare</string>
     <string name="txt_level10_name">Mästare</string>
+    <string name="level_up_message">Grattis! Du har precis uppnått {{*{{n_level}}*}} nivån.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Öppna guide igen</string>
     <string name="txt_project_github_settings">Projekt öppen kod på GitHub</string>
@@ -77,6 +78,12 @@
     <string name="toast_dark_theme_on">Mörkt tema aktiverat</string>
     <string name="toast_dark_theme_off">Mörkt tema avstängd</string>
     <string name="contact_developer_on_telegram">Kontakta utvecklaren på Telegram</string>
+    <string name="txt_experimental_features">Experimentella funktioner</string>
+    <string name="toast_experimental_features_on">Experimentella funktioner påslagna\nNya funktioner kan vara instabila och osäkra</string>
+    <string name="toast_experimental_featured_off">Experimentella funktioner avstängda</string>
+    <string name="txt_log_on_file">Spara loggar på en fil</string>
+    <string name="toast_log_on_file_on">Spara loggar på en fil som är aktiverad\nDu kan bifoga log.txt-filen när du rapporterar ett problem\nLäs mer om Github \"Saving the log\"</string>
+    <string name="toast_log_on_file_off">Sparar loggar på en fil avstängd</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Laddar en mening ...</string>
     <string name="btn_skip_sentence">Hoppa över</string>
@@ -131,6 +138,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges">Stäng</string>
     <string name="labelAllBadges">Alla märken</string>
+    <string name="new_badge_earnt_message">Hurra! Du har precis fått ett nytt märke.</string>
     <!-- Message dialog -->
     <string name="btnOk">Ok</string>
     <string name="messageDialogErrorTitle">Fel</string>
@@ -139,6 +147,19 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Inloggning misslyckades</string>
     <string name="youHaveToAcceptPrivacyPolicy">Du måste göra inloggningen på Common Voice webbplats och du måste acceptera sekretesspolicy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Öppen Common Voice</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title">Dagligt mål</string>
+    <string name="daily_goal_is_not_set">Dagligt mål är inte inställt ännu</string>
+    <string name="set_daily_goal">Ange mål nu</string>
+    <string name="edit_daily_goal">Redigera mål</string>
+    <string name="save_daily_goal">Spara</string>
+    <string name="delete_daily_goal">Radera</string>
+    <string name="cancel_daily_goal">Avbryt</string>
+    <string name="description_setting_daily_goal">Välj hur många meningar du vill spela in och klipp du vill validera (summan av dem) per dag</string>
+    <string name="daily_goal_achieved_today">Uppnådd idag</string>
+    <string name="daily_goal_not_achieved_today">Inte uppnått idag</string>
+    <string name="daily_goal_achieved_message">Bra gjort! Du har precis uppnått det dagliga målet.\nExakt validerade du {{*{{n_clips}}*}} och spelade in {{*{{n_sentences}}*}}.\nHur som helst kan du fortsätta att bidra till Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">Detta dagliga mål är inte officiellt av Mozilla. Det är bara en funktion i den här appen.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

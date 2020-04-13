@@ -59,6 +59,7 @@
     <string name="txt_level8_name">Pro</string>
     <string name="txt_level9_name">Maisua</string>
     <string name="txt_level10_name">Irabazlea</string>
+    <string name="level_up_message">Zorionak! {{*{{n_level}}*}} maila lortu duzu.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Ireki berriro tutoriala</string>
     <string name="txt_project_github_settings">Kode irekiko proiektua GitHuben</string>
@@ -77,6 +78,12 @@
     <string name="toast_dark_theme_on">Gai iluna aktibatuta</string>
     <string name="toast_dark_theme_off">Gai iluna desaktibatuta</string>
     <string name="contact_developer_on_telegram">Jarri harremanetan garatzailearekin Telegramen</string>
+    <string name="txt_experimental_features">Funtzio esperimentalak</string>
+    <string name="toast_experimental_features_on">Ezaugarri esperimentalak aktibaturik\nEzaugarri berriak ezegonkorrak eta ez-seguruak izan litezke</string>
+    <string name="toast_experimental_featured_off">Funtzio esperimentalak desaktibaturik</string>
+    <string name="txt_log_on_file">Erregistroak fitxategi batean gorde</string>
+    <string name="toast_log_on_file_on">Gorde erregistroak aktibatutako fitxategi batean\nLog.txt fitxategia erants dezakezu arazo bat adierazten duzunean\nGehiago irakurri hemen: Github \"Saving the log\"</string>
+    <string name="toast_log_on_file_off">Erregistroak desaktibatutako fitxategi batean gordetzen</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>
@@ -131,6 +138,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges">Itxi</string>
     <string name="labelAllBadges">Identifikazio-txartel guztiak</string>
+    <string name="new_badge_earnt_message">Primeran! Beste intsignia bat irabazi duzu.</string>
     <!-- Message dialog -->
     <string name="btnOk">Ados</string>
     <string name="messageDialogErrorTitle">Akatsa</string>
@@ -139,6 +147,19 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Saio-hasierak huts egin du</string>
     <string name="youHaveToAcceptPrivacyPolicy">Erabiltzaile-izena egin behar duzu Common Voice webgunean, eta pribatutasun-politika onartu behar duzu.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Ireki Common Voice</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title">Eguneko helburua</string>
+    <string name="daily_goal_is_not_set">Eguneko helburua ez da zehaztu oraindik</string>
+    <string name="set_daily_goal">Zehaztu helburua orain</string>
+    <string name="edit_daily_goal">Helburua editatu</string>
+    <string name="save_daily_goal">Gorde</string>
+    <string name="delete_daily_goal">Ezabatu</string>
+    <string name="cancel_daily_goal">Ezeztatu</string>
+    <string name="description_setting_daily_goal">Aukeratu grabatu nahi dituzun perpausak eta baliozkotu nahi dituzun klipak (horien batura) egunean</string>
+    <string name="daily_goal_achieved_today">Gaur lortua</string>
+    <string name="daily_goal_not_achieved_today">Gaur lortu gabea</string>
+    <string name="daily_goal_achieved_message">Ondo egina! Eguneroko helburua lortu duzu.\nZehazki, baieztatu dituzu {{*{{n_clips}}*}} eta {{*{{n_sentences}}*}} grabatu dituzu.\nDena den jarrai dezakezu Common Voice laguntzen.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">Eguneko helburu hau ez da ofiziala Mozillarentzat. Aplikazio honen ezaugarri bat besterik ez da.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
