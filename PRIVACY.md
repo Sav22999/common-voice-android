@@ -14,4 +14,4 @@ If you want additional information about the Policy privacy of Common Voice proj
 
 
 
-*Last update: 26th Jan in 2020*
+*Last update: 13rd Apr 2020*
