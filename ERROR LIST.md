@@ -15,3 +15,10 @@ The "EX" is the initial for "Explanation".
 - EX-L03: Error in ListenActivity. Sending validation failed
 - EX-L04: Error in ListenActivity. "Error 1": general error
 - EX-L05: Error in ListenActivity. "Error 4": clips no available
+- EX-S01: Error in SpeakActivity. Error during StartRecording
+- EX-S02: Error in SpeakActivity. Error during StopRecording
+- EX-S03: Error in SpeakActivity. "Error 2": sending failed
+- EX-S04: Error in SpeakActivity. "Error 1": try again
+- EX-S05: Error in SpeakActivity. Android version doesn't permit to send the audio
+- EX-S06: Error in SpeakActivity. Sending failed, try again.
+- MD01: Error in MessageDialog -- just in CommandLine

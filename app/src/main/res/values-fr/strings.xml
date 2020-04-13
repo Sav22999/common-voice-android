@@ -59,6 +59,7 @@
     <string name="txt_level8_name">Pro</string>
     <string name="txt_level9_name">Maître</string>
     <string name="txt_level10_name">Champion</string>
+    <string name="level_up_message">Félicitations ! Vous venez d\'atteindre le niveau {{*{{n_level}}*}} .</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Ouvrir le tutoriel à nouveau</string>
     <string name="txt_project_github_settings">Projet open-source sur GitHub</string>
@@ -77,6 +78,12 @@
     <string name="toast_dark_theme_on">Thème sombre activé</string>
     <string name="toast_dark_theme_off">Thème sombre désactivé</string>
     <string name="contact_developer_on_telegram">Contactez le développeur sur Telegram</string>
+    <string name="txt_experimental_features">Fonctionnalités expérimentales</string>
+    <string name="toast_experimental_features_on">Fonctionnalités expérimentales activées\nDe nouvelles fonctionnalités peuvent être instables et dangereuses</string>
+    <string name="toast_experimental_featured_off">Fonctionnalités expérimentales désactivées</string>
+    <string name="txt_log_on_file">Enregistrer les logs sur un fichier</string>
+    <string name="toast_log_on_file_on">Enregistrement des journaux sur un fichier activé\nVous pouvez joindre le fichier log.txt lorsque vous signalez un problème\nEn savoir plus sur Github \"Saving the log\"</string>
+    <string name="toast_log_on_file_off">La sauvegarde des journaux sur un fichier a été désactivée</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Chargement d\'une phrase ...</string>
     <string name="btn_skip_sentence">Passer</string>
@@ -131,6 +138,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges">Fermer</string>
     <string name="labelAllBadges">Tous les badges</string>
+    <string name="new_badge_earnt_message">Hourra! Vous venez de gagner un nouveau badge.</string>
     <!-- Message dialog -->
     <string name="btnOk">Ok</string>
     <string name="messageDialogErrorTitle">Erreur</string>
@@ -139,6 +147,19 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Échec de la connexion</string>
     <string name="youHaveToAcceptPrivacyPolicy">Vous devez vous connecter sur le site Web Common Voice et accepter la politique de confidentialité.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Ouvrir Common Voice</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title">Objectif quotidien</string>
+    <string name="daily_goal_is_not_set">L\'objectif quotidien n\'est pas encore défini</string>
+    <string name="set_daily_goal">Fixer l\'objectif maintenant</string>
+    <string name="edit_daily_goal">Modifier l\'objectif</string>
+    <string name="save_daily_goal">Enregistrer</string>
+    <string name="delete_daily_goal">Supprimez</string>
+    <string name="cancel_daily_goal">Abandonner</string>
+    <string name="description_setting_daily_goal">Choisissez le nombre de phrases que vous voulez enregistrer et les clips que vous voulez valider (somme d\'eux) par jour</string>
+    <string name="daily_goal_achieved_today">Atteint aujourd\'hui</string>
+    <string name="daily_goal_not_achieved_today">Pas atteint aujourd\'hui</string>
+    <string name="daily_goal_achieved_message">Bien joué ! Vous venez d\'atteindre l\'objectif quotidien.\nExactement, vous avez validé {{*{{n_clips}}*}} et enregistré {{*{{n_sentences}}*}}.\nQuoi qu\'il en soit, vous pouvez continuer à contribuer à la Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">Cet objectif quotidien n\'est pas officiel par Mozilla. Ce n\'est qu\'une fonctionnalité de cette application.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

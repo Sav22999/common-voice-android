@@ -48,9 +48,12 @@ class TutorialActivity : AppCompatActivity() {
         var txtTerms = this.textView_tutorialTerms
         txtTerms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         txtTerms.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.linkTermsCommonVoice)))
-            startActivity(browserIntent)
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse(getString(R.string.linkTermsCommonVoice))
+                )
+            )
         }
 
         this.btn_next.setOnClickListener {

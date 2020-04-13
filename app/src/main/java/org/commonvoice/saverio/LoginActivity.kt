@@ -2,18 +2,17 @@ package org.commonvoice.saverio
 
 import android.Manifest
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.Color
+import android.graphics.Paint
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
-import android.telecom.Call
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -25,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColorLong
 import androidx.core.view.isGone
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -33,9 +31,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.all_badges.*
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -51,6 +47,8 @@ class LoginActivity : AppCompatActivity() {
     private val LEVEL_SAVED = "LEVEL_SAVED"
     private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
     private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
+    private val TODAY_CONTRIBUTING =
+        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
     var userId: String = ""
     var userName: String = ""
 
@@ -77,6 +75,27 @@ class LoginActivity : AppCompatActivity() {
         }
 
         var txtLevel: TextView = this.findViewById(R.id.textLevel)
+        var txtChangeSettingsOnWebsite: TextView = this.findViewById(R.id.labelToModifyInformation)
+        txtChangeSettingsOnWebsite.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        txtChangeSettingsOnWebsite.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://voice.mozilla.org/profile/info")
+                )
+            )
+        }
+
+        try {
+            actionBar.setTitle(getString(R.string.button_home_profile))
+        } catch (exception: Exception) {
+            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method1) -- " + exception.toString() + " !!")
+        }
+        try {
+            supportActionBar?.setTitle(getString(R.string.button_home_profile))
+        } catch (exception: Exception) {
+            println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method2) -- " + exception.toString() + " !!")
+        }
 
         if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
                 LOGGED_IN_NAME,
@@ -323,6 +342,8 @@ class LoginActivity : AppCompatActivity() {
         getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
             .putString(USER_CONNECT_ID, "").apply()
         getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
+        getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
+            .putString(TODAY_CONTRIBUTING, "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
@@ -361,15 +382,22 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun openMainAfterLogin() {
+        val returnIntent = Intent()
+        //returnIntent.putExtra("key", "value")
+        setResult(Activity.RESULT_OK, returnIntent)
         finish()
-        val intent = Intent(this, MainActivity::class.java).also {
-            startActivity(it)
-        }
     }
 
     fun reopenLogin() {
+        val returnIntent = Intent()
+        setResult(Activity.RESULT_OK, returnIntent)
         finish()
         startActivity(intent)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        openMainAfterLogin()
+        return false
     }
 
     fun doAnimation() {
@@ -570,7 +598,11 @@ class LoginActivity : AppCompatActivity() {
         try {
             var messageText = text
             if (errorCode != "") {
-                messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
             }
             val message: MessageDialog =
                 MessageDialog(this, 0, title, messageText, details = details)

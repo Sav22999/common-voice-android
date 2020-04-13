@@ -2,6 +2,7 @@ package org.commonvoice.saverio
 
 import android.Manifest
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -16,18 +17,16 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.extensions.LayoutContainer
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -213,16 +212,14 @@ class MainActivity : AppCompatActivity() {
                 //EXM02
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_dark_theme_on),
-                    errorCode = "M02"
+                    getString(R.string.toast_dark_theme_on)
                 )
             } else {
                 //this.showMessage(getString(R.string.toast_dark_theme_off))
                 //EXM03
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_dark_theme_off),
-                    errorCode = "M03"
+                    getString(R.string.toast_dark_theme_off)
                 )
             }
             theme.setTheme(this, status)
@@ -452,7 +449,11 @@ class MainActivity : AppCompatActivity() {
         try {
             var messageText = text
             if (errorCode != "") {
-                messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
             }
             val message: MessageDialog =
                 MessageDialog(this, 0, title, messageText, details = details)
@@ -470,10 +471,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSpeakSection() {
-        /*val intent = Intent(this, SpeakActivity::class.java).also {
-            startActivity(it)
-        }*/
-        openNoAvailableNow()
+        if (BuildConfig.VERSION_NAME.contains("a")) {
+            val intent = Intent(this, SpeakActivity::class.java).also {
+                startActivity(it)
+            }
+            showMessageDialog(
+                "Message",
+                "You can view this section because this is an Alpha version."
+            )
+        } else {
+            openNoAvailableNow()
+        }
     }
 
     fun openListenSection() {
@@ -483,17 +491,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openLoginSection() {
-        finish()
+        //"110" is chosen by me to identify this request
         val intent = Intent(this, LoginActivity::class.java).also {
-            startActivity(it)
+            startActivityForResult(it, 110)
         }
     }
 
     fun openProfileSection() {
         // if the user logged-in, it shows profile
-        finish()
+        //"111" is chosen by me to identify this request
         val intent = Intent(this, LoginActivity::class.java).also {
-            startActivity(it)
+            startActivityForResult(it, 111)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == 111 || requestCode == 110) && resultCode == RESULT_OK) {
+            println("MainActivity updated")
+            //data?.extras.getString("key") //to get "putExtra" information by "key"
+            recreate()
+        } else {
+            println("MainActivity updated (2)")
+            recreate()
         }
     }
 
@@ -612,8 +632,7 @@ class MainActivity : AppCompatActivity() {
                     getString(R.string.toast_language_changed).replace(
                         "{{*{{lang}}*}}",
                         this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                    ),
-                    errorCode = "M04"
+                    )
                 )
             }
             /*if (type == "start") {
@@ -681,16 +700,14 @@ class MainActivity : AppCompatActivity() {
                 //EXM05
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_autoplay_clip_on),
-                    errorCode = "M05"
+                    getString(R.string.toast_autoplay_clip_on)
                 )
             } else {
                 //this.showMessage(getString(R.string.toast_autoplay_clip_off))
                 //EXM06
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_autoplay_clip_off),
-                    errorCode = "M06"
+                    getString(R.string.toast_autoplay_clip_off)
                 )
             }
             getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()

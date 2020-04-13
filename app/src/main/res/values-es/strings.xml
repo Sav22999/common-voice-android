@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language">es</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Inicio</string>
+    <string name="title_dashboard">Tablero</string>
+    <string name="title_settings">Ajustes</string>
+    <!-- Home (main) -->
+    <string name="description_cv_robot">Logo de Common Voice</string>
+    <string name="description_cv_logo">Robot de Common Voice</string>
+    <string name="button_home_login">Iniciar sesión / Registrarse</string>
+    <string name="button_home_logout">Cerrar sesión</string>
+    <string name="button_home_profile">Perfil</string>
+    <string name="text_hi_username">Hola</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Estadísticas</string>
+    <string name="dashboardVoicesOnline">Votos en línea</string>
+    <string name="dashboardTabYou">Tú</string>
+    <string name="dashboardTabEveryone">Todos</string>
+    <string name="dashboardToday">Hoy</string>
+    <string name="dashboardEver">Nunca</string>
+    <string name="toastNoLoginNoStatistics">Tienes que iniciar sesión para ver tus estadísticas</string>
+    <string name="textHoursAbbreviation">h</string>
+    <string name="textHour">Hora</string>
+    <!-- Tutorial -->
+    <string name="btn_tutorial1">Comenzar</string>
+    <string name="btn_tutorial2">Permiso</string>
+    <string name="btn_tutorial3">Siguiente</string>
+    <string name="btn_tutorial4">Inténtalo de nuevo</string>
+    <string name="btn_tutorial5">Finalizar</string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/es/terms</string>
+    <string name="tutorial_text1">Esta no es la aplicación oficial de Common Voice. Ha sido desarrollada por Saverio Morelli sin ningún apoyo o asociación con Mozilla.</string>
+    <string name="tutorial_terms">Al continuar, usted acepta los Términos de Servicio de Common Voice.</string>
+    <string name="tutorial_text2">La aplicación de Common Voice necesita el permiso de \"Micrófono\" para funcionar correctamente.</string>
+    <string name="tutorial_text3">La aplicación de Common Voice necesita el permiso de \"Almacenamiento\" para funcionar correctamente.</string>
+    <string name="tutorial_text4">Elija su idioma nativo, se utilizará para mostrar oraciones para grabar y validar</string>
+    <!-- Login -->
+    <string name="txt_loading_page">Cargando...</string>
+    <string name="txt_profile_username">Usuario</string>
+    <string name="txt_profile_email">E-mail</string>
+    <string name="txt_profile_age">Edad</string>
+    <string name="txt_profile_gender">Sexo</string>
+    <string name="txt_profile_edit_data_alert">Para modificar la información de su perfil, vaya a la página web oficial.</string>
+    <string name="txt_login_successful_alert">¡Inicio de sesión exitoso!</string>
+    <string name="txt_gender_male">Hombre</string>
+    <string name="txt_gender_female">Mujer</string>
+    <string name="txt_gender_other">Otro</string>
+    <string name="btn_badges_loggedin">Todas las insignias</string>
+    <string name="txt_your_level">Nivel {{*{{level}}*}}</string>
+    <string name="txt_level1_name">Infante</string>
+    <string name="txt_level2_name">Bebé</string>
+    <string name="txt_level3_name">Diez</string>
+    <string name="txt_level4_name">Joven</string>
+    <string name="txt_level5_name">Jóvenes adultos</string>
+    <string name="txt_level6_name">Adultos</string>
+    <string name="txt_level7_name">Senior</string>
+    <string name="txt_level8_name">Pro</string>
+    <string name="txt_level9_name">Maestro</string>
+    <string name="txt_level10_name">Campeón</string>
+    <string name="level_up_message">¡Enhorabuena! Acabas de alcanzar el nivel {{*{{n_level}}*}}.</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">Volver a abrir Tutorial</string>
+    <string name="txt_project_github_settings">Proyecto de código abierto en GitHub</string>
+    <string name="txt_contributors">colaboradores principales</string>
+    <string name="txt_developed_by">desarrollado por</string>
+    <string name="toast_language_changed">Idioma cambiado correctamente a {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">Idioma</string>
+    <string name="settingsListen">Escuchar sección</string>
+    <string name="settingsSpeak">Hablar sección</string>
+    <string name="settingsOther">Otro</string>
+    <string name="txt_donate_paypal_settings">Donar al desarrollador en PayPal</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Auto reproducir el clip cuando se carga</string>
+    <string name="toast_autoplay_clip_on">Auto-reproducción del clip activado</string>
+    <string name="toast_autoplay_clip_off">Autoreproducir clip desactivado</string>
+    <string name="txt_dark_theme_settings">Tema oscuro</string>
+    <string name="toast_dark_theme_on">Tema oscuro activado</string>
+    <string name="toast_dark_theme_off">Tema oscuro desactivado</string>
+    <string name="contact_developer_on_telegram">Contacta con el desarrollador en Telegram</string>
+    <string name="txt_experimental_features">Funciones experimentales</string>
+    <string name="toast_experimental_features_on">Características experimentales activadas\nLas nuevas características podrían ser inestables e inseguras</string>
+    <string name="toast_experimental_featured_off">Funciones experimentales desactivadas</string>
+    <string name="txt_log_on_file">Guardar registros en un archivo</string>
+    <string name="toast_log_on_file_on">Guardar registros en un archivo activado\nPuede adjuntar el archivo log.txt cuando informe un problema\nLeer más en Github \"Saving the log\"</string>
+    <string name="toast_log_on_file_off">Guardando registros en un archivo desactivado</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence">Cargando una oración...</string>
+    <string name="btn_skip_sentence">Saltar</string>
+    <string name="btn_send_sentence">Enviar grabación</string>
+    <string name="txt_loading_clip">Cargando un clip ...</string>
+    <string name="txt_press_icon_below_speak_1">Pulse el icono de abajo para iniciar la grabación</string>
+    <string name="txt_press_icon_below_speak_2">Pulse el icono de abajo para detener la grabación</string>
+    <string name="txt_sentence_recorded">Sentencia grabada. Escucha la grabación</string>
+    <string name="txt_sentence_record_failed">Grabación fallida. Inténtelo de nuevo</string>
+    <string name="txt_recorded_correct_or_wrong">¿Grabar correctamente? Envíalo.\n¿Grabar mal? Registrar la frase de nuevo</string>
+    <string name="txt_listening_stopped">Escuche la grabación completamente para asegurarse de que es correcta</string>
+    <string name="txt_listening_again_recording">Pulse el icono de abajo para detener la escucha</string>
+    <string name="txt_recording_too_long">La grabación es demasiado larga. La duración máxima es de 10 segundos</string>
+    <string name="txt_sending_recording">Enviando la grabación ...</string>
+    <string name="txt_recording_sent">¡Grabando enviado!</string>
+    <string name="txt_sending_recording_failed">¡Error al enviar la grabación!</string>
+    <string name="txt_sending_recording_failed_and_skip">¡Error al enviar la grabación! Inténtalo de nuevo para enviarla de lo contrario pulsa el botón {{*{{skip_button}}*}}</string>
+    <string name="txt_press_icon_below_listen_1">Pulse el icono de abajo para iniciar el clip</string>
+    <string name="txt_press_icon_below_listen_2">Pulse el ícono a continuación para detener el clip</string>
+    <string name="txt_clip_correct_or_wrong">¿El clip es correcto? ¿Pulsa el pulgar hacia arriba\n¿El clip está erróneo? Pulsa el pulgar hacia abajo</string>
+    <string name="txt_clip_again">Pulse el ícono a continuación para comenzar el clip nuevamente</string>
+    <string name="txt_clip_validated_yes">¡Clip aceptado!</string>
+    <string name="txt_clip_validated_no">¡Clip rechazado!</string>
+    <string name="txt_error_1_try_again_tap_skip">Error. Inténtalo de nuevo, así que pulsa el botón {{*{{skip_button}}*}}</string>
+    <string name="txt_error_2_sending_failed">Error durante el envío de la grabación. El audio no fue enviado al servidor</string>
+    <string name="txt_sending_validation">Enviando la validación...</string>
+    <string name="txt_error_3_sending_validation_failed">Error durante el envío de la validación. Inténtalo de nuevo o pulsa el botón {{*{{skip_button}}*}}</string>
+    <string name="txt_closing">Cerrando...</string>
+    <string name="txt_error_4_clips_no_available">Error. No hay ningún otro clips para validar para este idioma.</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection">Revisar de nuevo</string>
+    <string name="txt_noconnection">La conexión a Internet no está disponible. Por favor, conéctate a la red WiFi o a los datos móviles y pulsa el botón de abajo</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak">Esta es la frase que debe grabar.</string>
+    <string name="txt2_tutorial_speak_and_listen">Aquí puedes encontrar frases que te guían en todo momento.</string>
+    <string name="txt3_tutorial_speak">Si no te gusta la frase, puedes tocar este botón para saltar y obtener otra.</string>
+    <string name="txt4_tutorial_speak">Toque este icono para iniciar la grabación.</string>
+    <string name="txt5_tutorial_speak">Toque este icono para detener la grabación.</string>
+    <string name="txt6_tutorial_speak">Toque este icono para escuchar la grabación.</string>
+    <string name="txt7_tutorial_speak">Toque este icono para grabar de nuevo la frase, en caso de que haya errores en la anterior.</string>
+    <string name="txt8_tutorial_speak">Toque este icono para volver a escuchar la grabación.</string>
+    <string name="txt9_tutorial_speak">Pulse en este botón para enviar la grabación.</string>
+    <string name="txt1_tutorial_listen">Esta es la frase/clip que debe validar.</string>
+    <string name="txt3_tutorial_listen">Si no te gusta el clip, puedes tocar este botón para saltar y conseguir otro.</string>
+    <string name="txt4_tutorial_listen">Toque este icono para reproducir el clip y validarlo.</string>
+    <string name="txt5_tutorial_listen">Toque este icono para detener la escucha del clip.</string>
+    <string name="txt6_tutorial_listen">Toque este icono si quiere volver a escuchar el clip.</string>
+    <string name="txt7_tutorial_listen">Toca este icono si el clip coincide con la frase, para aceptarlo.</string>
+    <string name="txt8_tutorial_listen">Toca este icono si el clip no coincide con la frase, para rechazarlo.</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow">Lo sentimos, esta función no está disponible ahora.\nEstamos trabajando constantemente para mejorar la aplicación.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Cerrar</string>
+    <string name="labelAllBadges">Todas las insignias</string>
+    <string name="new_badge_earnt_message">¡Genial! Acabas de ganar una nueva insignia.</string>
+    <!-- Message dialog -->
+    <string name="btnOk">Ok</string>
+    <string name="messageDialogErrorTitle">Error</string>
+    <string name="messageDialogGenericError">Lo siento. Algo no funcionó.\nPor favor, inténtalo de nuevo o ponte en contacto con el desarrollador.</string>
+    <string name="messageDialogErrorCode">Algo no funcionó. Por favor, inténtalo de nuevo o ponte en contacto con el desarrollador.\nCódigo de error: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle">Error al iniciar sesión</string>
+    <string name="youHaveToAcceptPrivacyPolicy">Debe iniciar sesión en el sitio web de Common Voice y debe aceptar la Política de Privacidad.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Abrir Common Voice</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title">Objetivo diario</string>
+    <string name="daily_goal_is_not_set">El objetivo diario aún no está fijado</string>
+    <string name="set_daily_goal">Fijar objetivo ahora</string>
+    <string name="edit_daily_goal">Editar objetivo</string>
+    <string name="save_daily_goal">Guardar</string>
+    <string name="delete_daily_goal">Eliminar</string>
+    <string name="cancel_daily_goal">Cancelar</string>
+    <string name="description_setting_daily_goal">Elija cuántas oraciones desea grabar y clips que desea validar (suma de ellas) al día</string>
+    <string name="daily_goal_achieved_today">Alcanzado hoy</string>
+    <string name="daily_goal_not_achieved_today">No alcanzado hoy</string>
+    <string name="daily_goal_achieved_message">¡Bien hecho! Acabas de alcanzar el objetivo diario.\nExactamente, has validado {{*{{n_clips}}*}} y has grabado {{*{{n_sentences}}*}}.\nDe todos modos puedes seguir contribuyendo a la Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">Este objetivo diario no es oficial por Mozilla. Es sólo una característica de esta aplicación.</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+</resources>
