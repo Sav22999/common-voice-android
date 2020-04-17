@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         this.firstRun = getSharedPreferences(PREF_NAME, PRIVATE_MODE).getBoolean(PREF_NAME, true)
 
         this.selectedLanguageVar =
-            getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
+            getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en") ?: ""
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
@@ -139,8 +139,8 @@ class MainActivity : AppCompatActivity() {
 
         if (logged) {
             this.userId =
-                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
-            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
+                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "") ?: ""
+            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "") ?: ""
         }
 
         if (this.userName == "") {
@@ -166,9 +166,9 @@ class MainActivity : AppCompatActivity() {
 
         if (logged) {
             this.userId =
-                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
+                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "") ?: ""
 
-            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
+            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "") ?: ""
         }
     }
 
@@ -179,25 +179,25 @@ class MainActivity : AppCompatActivity() {
                 returnStatistics = getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE).getString(
                     LAST_STATS_YOU,
                     "?"
-                )
+                ) ?: ""
             } else if (type == "everyone") {
                 returnStatistics =
                     getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE).getString(
                         LAST_STATS_EVERYONE,
                         "?"
-                    )
+                    ) ?: ""
             } else if (type == "voices_now") {
                 returnStatistics =
                     getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).getString(
                         LAST_VOICES_ONLINE_NOW,
                         "?"
-                    )
+                    ) ?: ""
             } else if (type == "voices_now") {
                 returnStatistics =
                     getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).getString(
                         LAST_VOICES_ONLINE_BEFORE,
                         "?"
-                    )
+                    ) ?: ""
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -249,25 +249,25 @@ class MainActivity : AppCompatActivity() {
                         getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE).getString(
                             LAST_STATS_YOU_VALUE_0,
                             "?"
-                        )
+                        ) ?: ""
                 } else if (index == 1) {
                     returnStatistics =
                         getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE).getString(
                             LAST_STATS_YOU_VALUE_1,
                             "?"
-                        )
+                        ) ?: ""
                 } else if (index == 2) {
                     returnStatistics =
                         getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE).getString(
                             LAST_STATS_YOU_VALUE_2,
                             "?"
-                        )
+                        ) ?: ""
                 } else if (index == 3) {
                     returnStatistics =
                         getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE).getString(
                             LAST_STATS_YOU_VALUE_3,
                             "?"
-                        )
+                        ) ?: ""
                 }
             } else if (type == "everyone") {
                 if (index == 0) {
@@ -275,25 +275,25 @@ class MainActivity : AppCompatActivity() {
                         getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE).getString(
                             LAST_STATS_EVERYONE_VALUE_0,
                             "?"
-                        )
+                        ) ?: ""
                 } else if (index == 1) {
                     returnStatistics =
                         getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE).getString(
                             LAST_STATS_EVERYONE_VALUE_1,
                             "?"
-                        )
+                        ) ?: ""
                 } else if (index == 2) {
                     returnStatistics =
                         getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE).getString(
                             LAST_STATS_EVERYONE_VALUE_2,
                             "?"
-                        )
+                        ) ?: ""
                 } else if (index == 3) {
                     returnStatistics =
                         getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE).getString(
                             LAST_STATS_EVERYONE_VALUE_3,
                             "?"
-                        )
+                        ) ?: ""
                 }
             }
             //println(" --> "+type+" "+index+" "+returnStatistics)
@@ -352,25 +352,25 @@ class MainActivity : AppCompatActivity() {
                     getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).getString(
                         LAST_VOICES_ONLINE_NOW,
                         "?"
-                    )
+                    ) ?: ""
             } else if (type == "voicesBefore") {
                 returnVoicesOnline =
                     getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).getString(
                         LAST_VOICES_ONLINE_BEFORE,
                         "?"
-                    )
+                    ) ?: ""
             } else if (type == "voicesNowValue") {
                 returnVoicesOnline =
                     getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE).getString(
                         LAST_VOICES_ONLINE_NOW_VALUE,
                         "?"
-                    )
+                    ) ?: ""
             } else if (type == "voicesBeforeValue") {
                 returnVoicesOnline =
                     getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE).getString(
                         LAST_VOICES_ONLINE_BEFORE_VALUE,
                         "?"
-                    )
+                    ) ?: ""
             }
         } catch (e: Exception) {
             println("Error: " + e.toString())
@@ -588,7 +588,7 @@ class MainActivity : AppCompatActivity() {
         if (android6) {
             //Android 6.0
             var tempLang = getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-            var lang = tempLang.split("-")[0]
+            var lang = tempLang?.split("-")?.get(0) ?: ""
             val langSupportedYesOrNot = TranslationsLanguages()
             if (!langSupportedYesOrNot.isSupported(lang)) {
                 lang = langSupportedYesOrNot.getDefaultLanguage()
@@ -763,7 +763,7 @@ class MainActivity : AppCompatActivity() {
             var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
                 TODAY_CONTRIBUTING,
                 "?, ?, ?"
-            ).split(", ")
+            )?.split(", ") ?: listOf()
             var dateContributing = contributing[0]
             var dateContributingToSave = getDateToSave(dateContributing)
             var nValidated: String = "?"
@@ -802,7 +802,7 @@ class MainActivity : AppCompatActivity() {
         var lang = newBase.getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(
             LANGUAGE_NAME,
             "en"
-        ).split("-")[0]
+        )?.split("-")?.get(0) ?: ""
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {
             lang = langSupportedYesOrNot.getDefaultLanguage()
@@ -837,7 +837,7 @@ class MainActivity : AppCompatActivity() {
     private fun Context.getUpdatedContextApi25(locale: Locale): Context {
         val localeList = LocaleList(locale)
         val configuration = resources.configuration
-        configuration.locales = localeList
+        //configuration.locales = localeList
         return createConfigurationContext(configuration)
     }
 }

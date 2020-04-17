@@ -74,7 +74,7 @@ class NoConnectionActivity : AppCompatActivity() {
 
     override fun attachBaseContext(newBase: Context) {
         var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-        var lang = tempLang.split("-")[0]
+        var lang = tempLang?.split("-")?.get(0) ?: ""
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {
             lang = langSupportedYesOrNot.getDefaultLanguage()
@@ -109,7 +109,7 @@ class NoConnectionActivity : AppCompatActivity() {
     private fun Context.getUpdatedContextApi25(locale: Locale): Context {
         val localeList = LocaleList(locale)
         val configuration = resources.configuration
-        configuration.locales = localeList
+        //configuration.locales = localeList
         return createConfigurationContext(configuration)
     }
 }

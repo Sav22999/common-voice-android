@@ -15,6 +15,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.util.Log
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.TextView
@@ -26,12 +27,15 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import org.commonvoice.saverio.util.viewModels.ClipViewModel
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
@@ -78,9 +82,13 @@ class SpeakActivity : AppCompatActivity() {
 
     var listened_first_time: Boolean = false
 
+    private lateinit var clipViewModel: ClipViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speak)
+
+        clipViewModel = ViewModelProvider(this).get(ClipViewModel::class.java)
 
         var firstRun: Boolean =
             getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE).getBoolean(FIRST_RUN_SPEAK, true)
@@ -95,7 +103,7 @@ class SpeakActivity : AppCompatActivity() {
             checkConnection()
 
             this.selectedLanguage =
-                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
+                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en") ?: ""
             this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
             var skipButton: Button = this.findViewById(R.id.btn_skip_speak)
@@ -188,7 +196,7 @@ class SpeakActivity : AppCompatActivity() {
             var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
                 TODAY_CONTRIBUTING,
                 "?, ?, ?"
-            ).split(", ")
+            )?.split(", ") ?: listOf()
             var dateContributing = contributing[0]
             var dateContributingToSave = getDateToSave(dateContributing)
             var nRecorded: String = "?"
@@ -386,20 +394,12 @@ class SpeakActivity : AppCompatActivity() {
         try {
             this.listened_first_time = false
             mediaRecorder = MediaRecorder()
-            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".mp3"
+            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".ogg"
             mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
-            if (Build.VERSION.SDK_INT < 26) {
-                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-                //println(" -->> Versione API < 26")
-            } else {
-                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                //println(" -->> Versione API >= 26")
-            }
-            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.HE_AAC)
-            mediaRecorder?.setMaxDuration(10001)
+            mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.OGG)
+            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.OPUS)
             mediaRecorder?.setOutputFile(output)
-            mediaRecorder?.setAudioEncodingBitRate(16 * 44100)
-            mediaRecorder?.setAudioSamplingRate(44100)
+            mediaRecorder?.setAudioSamplingRate(48000)
             mediaRecorder?.prepare()
             mediaRecorder?.start()
 
@@ -486,7 +486,7 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     fun DeleteRecording() {
-        val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".mp3"
+        val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".ogg"
         var file = File(path)
         if (this.idSentence != "" && file.exists()) {
             file.delete()
@@ -589,9 +589,7 @@ class SpeakActivity : AppCompatActivity() {
         btnListenAgain.isVisible = false
         msg.text = getString(R.string.txt_sending_recording)
 
-        var encoded: ByteArray? = null
-        var encoded2: String? = null
-        if (Build.VERSION.SDK_INT < 26) {
+        val encoded: ByteArray = if (Build.VERSION.SDK_INT < 26) {
             msg.text =
                 "Error: your android version doesn't permit to send the recording to server. Sorry."
             //EXS05
@@ -600,123 +598,23 @@ class SpeakActivity : AppCompatActivity() {
                 "Error: your android version doesn't permit to send the recording to server. Sorry.",
                 errorCode = "S05"
             )
+            return
         } else {
-            println("output: " + output)
-            //encoded = Files.readAllBytes(Paths.get(this.output!!))
-            encoded = Files.readAllBytes(Paths.get(this.output))
-
-            val byteArray = output?.let { it.toByteArray() }
-
-            //println(" -->> byteArray -->>" + byteArray)
-            //println(" -->> encoded -->> " + encoded.toString())
-
-            encoded2 = readFileAsLinesUsingBufferedReader(output!!)
-            //println(" -->> fileReadStream: " + encoded2.toString())
-
-            /*
-            File file = new File(path);
-            int size = (int) file.length();
-            byte[] bytes = new byte[size];
-            try {
-                BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
-                buf.read(bytes, 0, bytes.length);
-                buf.close();
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            */
+            Files.readAllBytes(Paths.get(this.output))
         }
 
-        try {
-            val path = "clips" //API to get sentences
-            val params: String? = encoded2
+        val token = "Basic OWNlYzFlZTgtZGZmYS00YWU1LWI3M2MtYjg3NjM1OThjYmVjOjAxOTdmODU2NjhlMDQ3NTlhOWUxNzZkM2Q2MDdkOTEzNDE3ZGZkMjA="
 
-            tempUrl = tempUrl.replace("{{*{{lang}}*}}", this.selectedLanguage)
+        Log.i("sentence", textSentence)
+        Log.i("sentence_id", idSentence)
 
-            val que = Volley.newRequestQueue(this)
-            val req = object : StringRequest(Request.Method.POST, tempUrl + path,
-                Response.Listener {
-                    val json_result = it.toString()
-                    println(">> Successful: " + it.toString())
-                    RecordingSent()
-                }, Response.ErrorListener {
-                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                    error2()
-                    println(">> Error: " + it.message.toString())
-                    RecordingError()
-                    btnSkip.isEnabled = true
-                }
-            ) {
-                /*override fun getBodyContentType(): String {
-                    return "application/octet-stream"//Use this function to set Content-Type for Volley
-                }*/
-
-                @Throws(AuthFailureError::class)
-                override fun getBody(): ByteArray? {
-                    var returnValue = encoded2
-                    println("--->>--->>: " + returnValue)
-                    return returnValue?.toByteArray(Charset.defaultCharset())
-                }
-
-
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    var logged = getSharedPreferences(
-                        LOGGED_IN_NAME,
-                        PRIVATE_MODE
-                    ).getBoolean(LOGGED_IN_NAME, false)
-                    if (logged) {
-                        var cookie_id =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
-                        headers.put(
-                            "Cookie",
-                            "connect.sid=" + cookie_id
-                        )
-                    } else {
-                        headers.put(
-                            "Authorization",
-                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
-                        )
-                    }
-                    /*headers.put("Accept-Encoding", "gzip, deflate, br")
-                    headers.put("channel", "null")
-                    headers.put("DNT", "1")*/
-                    headers.put("Content-Type", "application/octet-stream")
-                    headers.put("sentence", encode(textSentence, "UTF-8").replace("+", "%20"))
-                    headers.put("sentence_id", idSentence)
-                    var formatted = ""
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        val current = LocalDateTime.now()
-                        val formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")
-                        formatted = current.format(formatter)
-                    } else {
-                        formatted = SimpleDateFormat("yyyyMMddhhmmssSSS").format(Date()).toString()
-                    }
-                    headers.put("client_id", formatted + "CVAndroidUnofficialSav")
-                    println(
-                        " >> text_sentence >> " + encode(textSentence, "UTF-8").replace(
-                            "+",
-                            "%20"
-                        )
-                    )
-                    println(" >> id_sentence >> " + idSentence)
-                    return headers
-                }
+        clipViewModel.sendClip(textSentence, idSentence, token, encoded).observe(this, androidx.lifecycle.Observer {
+            if (it != null) {
+                RecordingSent()
+                Log.i("FilePrefix", it.filePrefix ?: "")
             }
-            que.add(req)
-        } catch (e: Exception) {
-            error2()
-            println(">> Exception: " + e.toString())
-            btnSkip.isEnabled = true
-        }
+            else RecordingError()
+        })
     }
 
     fun getFileBytes(context: Context, path: String): ByteArray {
@@ -837,7 +735,7 @@ class SpeakActivity : AppCompatActivity() {
 
     override fun attachBaseContext(newBase: Context) {
         var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-        var lang = tempLang.split("-")[0]
+        var lang = tempLang?.split("-")?.get(0) ?: ""
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {
             lang = langSupportedYesOrNot.getDefaultLanguage()
@@ -872,7 +770,7 @@ class SpeakActivity : AppCompatActivity() {
     private fun Context.getUpdatedContextApi25(locale: Locale): Context {
         val localeList = LocaleList(locale)
         val configuration = resources.configuration
-        configuration.locales = localeList
+        //configuration.locales = localeList
         return createConfigurationContext(configuration)
     }
 }
