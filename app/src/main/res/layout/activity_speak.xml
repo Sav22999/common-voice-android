@@ -12,23 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textMessageAlertSpeakRemove"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center|top|center_vertical"
-            android:text="&quot;SEND RECORDING&quot; button doesn't send an actual request, so now you can do every test you want"
-            android:textColor="@color/colorBlack"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
-
         <Button
             android:id="@+id/btn_listen_again"
             android:layout_width="60dp"

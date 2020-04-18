@@ -458,8 +458,7 @@ class ListenActivity : AppCompatActivity() {
         //EXL05
         showMessageDialog(
             getString(R.string.messageDialogErrorTitle),
-            getString(R.string.txt_error_4_clips_no_available),
-            errorCode = "L05"
+            getString(R.string.txt_error_4_clips_no_available)
         )
         skipText.isEnabled = true
     }

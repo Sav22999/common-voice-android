@@ -471,16 +471,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSpeakSection() {
-        if (BuildConfig.VERSION_NAME.contains("a")) {
-            val intent = Intent(this, SpeakActivity::class.java).also {
-                startActivity(it)
-            }
-            showMessageDialog(
-                "Message",
-                "You can view this section because this is an Alpha version."
-            )
-        } else {
-            openNoAvailableNow()
+        val intent = Intent(this, SpeakActivity::class.java).also {
+            startActivity(it)
         }
     }
 
