@@ -587,21 +587,7 @@ class SpeakActivity : AppCompatActivity() {
         btnListenAgain.isVisible = false
         msg.text = getString(R.string.txt_sending_recording)
 
-        var encoded: ByteArray? = if (Build.VERSION.SDK_INT < 26) {
-            msg.text =
-                "Error: your android version doesn't permit to send the recording to server. Sorry."
-            //EXS05
-            showMessageDialog(
-                getString(R.string.messageDialogErrorTitle),
-                "Error: your android version doesn't permit to send the recording to server. Sorry.",
-                errorCode = "S05"
-            )
-            null
-        } else {
-            println("output: " + output)
-            //encoded = Files.readAllBytes(Paths.get(this.output!!))
-            Files.readAllBytes(Paths.get(this.output))
-        }
+        val encoded = File(externalCacheDir, "$idSentence.aac").readBytes()
 
         try {
             val path = "clips" //API to get sentences
