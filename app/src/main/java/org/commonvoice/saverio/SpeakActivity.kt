@@ -65,7 +65,7 @@ class SpeakActivity : AppCompatActivity() {
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
     var tempUrl: String =
-        "https://voice.allizom.org/api/v1/{{*{{lang}}*}}/" //TEST API url
+        "https://voice-web.mone27.net/api/v1/{{*{{lang}}*}}/" //TEST API url
 
     val urlWithoutLang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
@@ -393,15 +393,18 @@ class SpeakActivity : AppCompatActivity() {
         checkPermissions()
         try {
             this.listened_first_time = false
-            mediaRecorder = MediaRecorder()
-            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".ogg"
-            mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
-            mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.OGG)
-            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.OPUS)
-            mediaRecorder?.setOutputFile(output)
-            mediaRecorder?.setAudioSamplingRate(48000)
-            mediaRecorder?.prepare()
-            mediaRecorder?.start()
+            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
+            mediaRecorder = MediaRecorder().apply {
+                setAudioSource(MediaRecorder.AudioSource.MIC)
+                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+                setMaxDuration(10001)
+                setOutputFile(output)
+                setAudioEncodingBitRate(16 * 44100)
+                setAudioSamplingRate(44100)
+                prepare()
+                start()
+            }
 
             var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
             var btnSend: Button = this.findViewById(R.id.btn_send_speak)
@@ -486,7 +489,7 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     fun DeleteRecording() {
-        val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".ogg"
+        val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
         var file = File(path)
         if (this.idSentence != "" && file.exists()) {
             file.delete()
@@ -589,7 +592,7 @@ class SpeakActivity : AppCompatActivity() {
         btnListenAgain.isVisible = false
         msg.text = getString(R.string.txt_sending_recording)
 
-        val encoded: ByteArray = if (Build.VERSION.SDK_INT < 26) {
+        var encoded: ByteArray? = if (Build.VERSION.SDK_INT < 26) {
             msg.text =
                 "Error: your android version doesn't permit to send the recording to server. Sorry."
             //EXS05
@@ -598,23 +601,84 @@ class SpeakActivity : AppCompatActivity() {
                 "Error: your android version doesn't permit to send the recording to server. Sorry.",
                 errorCode = "S05"
             )
-            return
+            null
         } else {
+            println("output: " + output)
+            //encoded = Files.readAllBytes(Paths.get(this.output!!))
             Files.readAllBytes(Paths.get(this.output))
         }
 
-        val token = "Basic OWNlYzFlZTgtZGZmYS00YWU1LWI3M2MtYjg3NjM1OThjYmVjOjAxOTdmODU2NjhlMDQ3NTlhOWUxNzZkM2Q2MDdkOTEzNDE3ZGZkMjA="
+        try {
+            val path = "clips" //API to get sentences
 
-        Log.i("sentence", textSentence)
-        Log.i("sentence_id", idSentence)
+            tempUrl = tempUrl.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
-        clipViewModel.sendClip(textSentence, idSentence, token, encoded).observe(this, androidx.lifecycle.Observer {
-            if (it != null) {
-                RecordingSent()
-                Log.i("FilePrefix", it.filePrefix ?: "")
+            val que = Volley.newRequestQueue(this)
+            val req = object : StringRequest(Request.Method.POST, tempUrl + path,
+                Response.Listener {
+                    val json_result = it.toString()
+                    println(">> Successful: " + it.toString())
+                    RecordingSent()
+                }, Response.ErrorListener {
+                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    error2()
+                    println(">> Error: " + it.message.toString())
+                    RecordingError()
+                    btnSkip.isEnabled = true
+                }
+            ) {
+                override fun getBodyContentType(): String {
+                    return "audio/mpeg; codecs=aac"//Use this function to set Content-Type for Volley
+                }
+
+                override fun getBody(): ByteArray? = encoded
+
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    val logged = getSharedPreferences(
+                        LOGGED_IN_NAME,
+                        PRIVATE_MODE
+                    ).getBoolean(LOGGED_IN_NAME, false)
+                    if (logged) {
+                        var cookie_id =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
+                        headers.put(
+                            "Cookie",
+                            "connect.sid=" + cookie_id
+                        )
+                    } else {
+                        headers.put(
+                            "Authorization",
+                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                        )
+                    }
+                    headers.put("sentence", encode(textSentence, "UTF-8").replace("+", "%20"))
+                    headers.put("sentence_id", idSentence)
+                    var formatted = ""
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        val current = LocalDateTime.now()
+                        val formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")
+                        formatted = current.format(formatter)
+                    } else {
+                        formatted = SimpleDateFormat("yyyyMMddhhmmssSSS").format(Date()).toString()
+                    }
+                    headers.put("client_id", formatted + "CVAndroidUnofficialSav")
+                    println(
+                        " >> text_sentence >> " + encode(textSentence, "UTF-8").replace(
+                            "+",
+                            "%20"
+                        )
+                    )
+                    println(" >> id_sentence >> " + idSentence)
+                    return headers
+                }
             }
-            else RecordingError()
-        })
+        } catch (e: Exception) {
+            RecordingError()
+        }
     }
 
     fun getFileBytes(context: Context, path: String): ByteArray {
