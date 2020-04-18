@@ -385,23 +385,19 @@ class SpeakActivity : AppCompatActivity() {
         checkPermissions()
         try {
             this.listened_first_time = false
-            mediaRecorder = MediaRecorder()
             output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
-            mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
-            if (Build.VERSION.SDK_INT < 26) {
-                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-                //println(" -->> Versione API < 26")
-            } else {
-                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                //println(" -->> Versione API >= 26")
+            mediaRecorder = MediaRecorder().apply {
+                setAudioSource(MediaRecorder.AudioSource.MIC)
+                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+                setMaxDuration(10001)
+                setOutputFile(output)
+                setAudioEncodingBitRate(16 * 44100)
+                setAudioSamplingRate(44100)
+                prepare()
+                start()
             }
-            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.HE_AAC)
-            mediaRecorder?.setMaxDuration(10001)
-            mediaRecorder?.setOutputFile(output)
-            mediaRecorder?.setAudioEncodingBitRate(16 * 44100)
-            mediaRecorder?.setAudioSamplingRate(44100)
-            mediaRecorder?.prepare()
-            mediaRecorder?.start()
+
 
             var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
             var btnSend: Button = this.findViewById(R.id.btn_send_speak)
