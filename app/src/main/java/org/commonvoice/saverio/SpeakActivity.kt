@@ -60,8 +60,6 @@ class SpeakActivity : AppCompatActivity() {
 
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
-    var tempUrl: String =
-        "https://voice.allizom.org/api/v1/{{*{{lang}}*}}/" //TEST API url
 
     val urlWithoutLang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
@@ -343,7 +341,7 @@ class SpeakActivity : AppCompatActivity() {
         )
     }
 
-    fun error2() {
+    fun error2(show: Boolean = true) {
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         msg.text = getString(R.string.txt_error_2_sending_failed)
 
@@ -355,12 +353,14 @@ class SpeakActivity : AppCompatActivity() {
         this.status = 3
         this.listened_first_time = false
 
-        //EXS03
-        showMessageDialog(
-            getString(R.string.messageDialogErrorTitle),
-            getString(R.string.txt_error_2_sending_failed),
-            errorCode = "S03"
-        )
+        if (show) {
+            //EXS03
+            showMessageDialog(
+                getString(R.string.messageDialogErrorTitle),
+                getString(R.string.txt_error_2_sending_failed),
+                errorCode = "S03"
+            )
+        }
     }
 
     override fun onBackPressed() {
@@ -385,23 +385,19 @@ class SpeakActivity : AppCompatActivity() {
         checkPermissions()
         try {
             this.listened_first_time = false
-            mediaRecorder = MediaRecorder()
-            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".mp3"
-            mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
-            if (Build.VERSION.SDK_INT < 26) {
-                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-                //println(" -->> Versione API < 26")
-            } else {
-                mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                //println(" -->> Versione API >= 26")
+            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
+            mediaRecorder = MediaRecorder().apply {
+                setAudioSource(MediaRecorder.AudioSource.MIC)
+                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+                setMaxDuration(10001)
+                setOutputFile(output)
+                setAudioEncodingBitRate(16 * 44100)
+                setAudioSamplingRate(44100)
+                prepare()
+                start()
             }
-            mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.HE_AAC)
-            mediaRecorder?.setMaxDuration(10001)
-            mediaRecorder?.setOutputFile(output)
-            mediaRecorder?.setAudioEncodingBitRate(16 * 44100)
-            mediaRecorder?.setAudioSamplingRate(44100)
-            mediaRecorder?.prepare()
-            mediaRecorder?.start()
+
 
             var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
             var btnSend: Button = this.findViewById(R.id.btn_send_speak)
@@ -486,10 +482,14 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     fun DeleteRecording() {
-        val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".mp3"
-        var file = File(path)
-        if (this.idSentence != "" && file.exists()) {
-            file.delete()
+        try {
+            val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
+            var file = File(path)
+            if (this.idSentence != "" && file.exists()) {
+                file.delete()
+            }
+        } catch (e: Exception) {
+            println("!!-- Exception: S09 - Deleting failed --!!")
         }
     }
 
@@ -501,76 +501,88 @@ class SpeakActivity : AppCompatActivity() {
 
     fun ListenRecording() {
         //listen recording
-        val outputListening = this.output
-        if (outputListening != null) {
-            val sampleUri: Uri = outputListening.toUri() // your uri here
-            mediaPlayer = MediaPlayer().apply {
-                //setAudioStreamType(AudioManager.)
-                setDataSource(
-                    applicationContext,
-                    sampleUri
-                )
-                prepare()
-                seekTo(0)
-                start()
+        try {
+            val outputListening = this.output
+            if (outputListening != null) {
+                val sampleUri: Uri = outputListening.toUri() // your uri here
+                mediaPlayer = MediaPlayer().apply {
+                    //setAudioStreamType(AudioManager.)
+                    setDataSource(
+                        applicationContext,
+                        sampleUri
+                    )
+                    prepare()
+                    seekTo(0)
+                    start()
 
-                setOnCompletionListener {
-                    FinishListening()
+                    setOnCompletionListener {
+                        FinishListening()
+                    }
                 }
             }
+            var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            btnRecord.setBackgroundResource(R.drawable.stop_cv)
+            btnListenAgain.isGone = true
+            btnListenAgain.isVisible = false
+            this.status = 5
+            msg.text = getString(R.string.txt_listening_again_recording)
+        } catch (e: Exception) {
+            println("!!-- Exception S11 - ListeningRecording --!!")
         }
-        var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
-        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        btnRecord.setBackgroundResource(R.drawable.stop_cv)
-        btnListenAgain.isGone = true
-        btnListenAgain.isVisible = false
-        this.status = 5
-        msg.text = getString(R.string.txt_listening_again_recording)
     }
 
     fun StopListening() {
         //stop listening
-        if (this.mediaPlayer?.isPlaying == true) {
-            var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
-            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
-            btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
-            if (this.listened_first_time) {
-                btnRecord.setBackgroundResource(R.drawable.speak2_cv)
-                btnListenAgain.isVisible = true
-            } else {
-                btnRecord.setBackgroundResource(R.drawable.listen2_cv)
+        try {
+            if (this.mediaPlayer?.isPlaying == true) {
+                var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+                var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+                var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+                btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+                if (this.listened_first_time) {
+                    btnRecord.setBackgroundResource(R.drawable.speak2_cv)
+                    btnListenAgain.isVisible = true
+                } else {
+                    btnRecord.setBackgroundResource(R.drawable.listen2_cv)
+                }
+                btnRecord.isEnabled = true
+                btnListenAgain.isEnabled = true
+                var btnSendRecording: Button = this.findViewById(R.id.btn_send_speak)
+                if (!btnSendRecording.isVisible) {
+                    this.status = 2 //re-listening recording -> because it's stopped
+                    msg.text = getString(R.string.txt_listening_stopped)
+                } else {
+                    FinishListening()
+                }
+                this.mediaPlayer?.stop()
             }
-            btnRecord.isEnabled = true
-            btnListenAgain.isEnabled = true
-            var btnSendRecording: Button = this.findViewById(R.id.btn_send_speak)
-            if (!btnSendRecording.isVisible) {
-                this.status = 2 //re-listening recording -> because it's stopped
-                msg.text = getString(R.string.txt_listening_stopped)
-            } else {
-                FinishListening()
-            }
-            this.mediaPlayer?.stop()
+        } catch (e: Exception) {
+            println("!!-- Exception S07 - StopListening --!!")
         }
     }
 
     fun FinishListening() {
         //finish listening
-        var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
-        var btnSend: Button = this.findViewById(R.id.btn_send_speak)
-        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-        if (this.mediaPlayer?.isPlaying == false) {
-            this.listened_first_time = true
-            btnRecord.setBackgroundResource(R.drawable.speak2_cv)
-            btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+        try {
+            var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+            var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            if (this.mediaPlayer?.isPlaying == false) {
+                this.listened_first_time = true
+                btnRecord.setBackgroundResource(R.drawable.speak2_cv)
+                btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+            }
+            this.status = 3 //listened the recording
+            btnSend.isVisible = true
+            btnListenAgain.isGone = false
+            btnListenAgain.isVisible = true
+            msg.text = getString(R.string.txt_recorded_correct_or_wrong)
+        } catch (e: Exception) {
+            println("!!-- Exception S10 - FinishListening --!!")
         }
-        this.status = 3 //listened the recording
-        btnSend.isVisible = true
-        btnListenAgain.isGone = false
-        btnListenAgain.isVisible = true
-        msg.text = getString(R.string.txt_recorded_correct_or_wrong)
     }
 
     fun SendRecording() {
@@ -589,81 +601,32 @@ class SpeakActivity : AppCompatActivity() {
         btnListenAgain.isVisible = false
         msg.text = getString(R.string.txt_sending_recording)
 
-        var encoded: ByteArray? = null
-        var encoded2: String? = null
-        if (Build.VERSION.SDK_INT < 26) {
-            msg.text =
-                "Error: your android version doesn't permit to send the recording to server. Sorry."
-            //EXS05
-            showMessageDialog(
-                getString(R.string.messageDialogErrorTitle),
-                "Error: your android version doesn't permit to send the recording to server. Sorry.",
-                errorCode = "S05"
-            )
-        } else {
-            println("output: " + output)
-            //encoded = Files.readAllBytes(Paths.get(this.output!!))
-            encoded = Files.readAllBytes(Paths.get(this.output))
-
-            val byteArray = output?.let { it.toByteArray() }
-
-            //println(" -->> byteArray -->>" + byteArray)
-            //println(" -->> encoded -->> " + encoded.toString())
-
-            encoded2 = readFileAsLinesUsingBufferedReader(output!!)
-            //println(" -->> fileReadStream: " + encoded2.toString())
-
-            /*
-            File file = new File(path);
-            int size = (int) file.length();
-            byte[] bytes = new byte[size];
-            try {
-                BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
-                buf.read(bytes, 0, bytes.length);
-                buf.close();
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            */
-        }
+        val encoded = File(externalCacheDir, "$idSentence.aac").readBytes()
 
         try {
             val path = "clips" //API to get sentences
-            val params: String? = encoded2
 
-            tempUrl = tempUrl.replace("{{*{{lang}}*}}", this.selectedLanguage)
+            url = url.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
             val que = Volley.newRequestQueue(this)
-            val req = object : StringRequest(Request.Method.POST, tempUrl + path,
+            val req = object : StringRequest(Request.Method.POST, url + path,
                 Response.Listener {
                     val json_result = it.toString()
                     println(">> Successful: " + it.toString())
                     RecordingSent()
                 }, Response.ErrorListener {
                     println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                    error2()
-                    println(">> Error: " + it.message.toString())
+                    error2(false)
                     RecordingError()
                     btnSkip.isEnabled = true
                 }
             ) {
-                /*override fun getBodyContentType(): String {
-                    return "application/octet-stream"//Use this function to set Content-Type for Volley
-                }*/
-
-                @Throws(AuthFailureError::class)
-                override fun getBody(): ByteArray? {
-                    var returnValue = encoded2
-                    println("--->>--->>: " + returnValue)
-                    return returnValue?.toByteArray(Charset.defaultCharset())
+                override fun getBodyContentType(): String {
+                    return "audio/mpeg; codecs=aac"//Use this function to set Content-Type for Volley
                 }
 
+                override fun getBody(): ByteArray? = encoded
 
-                @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
                     var logged = getSharedPreferences(
@@ -686,21 +649,9 @@ class SpeakActivity : AppCompatActivity() {
                             "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
                         )
                     }
-                    /*headers.put("Accept-Encoding", "gzip, deflate, br")
-                    headers.put("channel", "null")
-                    headers.put("DNT", "1")*/
-                    headers.put("Content-Type", "application/octet-stream")
                     headers.put("sentence", encode(textSentence, "UTF-8").replace("+", "%20"))
                     headers.put("sentence_id", idSentence)
-                    var formatted = ""
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        val current = LocalDateTime.now()
-                        val formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")
-                        formatted = current.format(formatter)
-                    } else {
-                        formatted = SimpleDateFormat("yyyyMMddhhmmssSSS").format(Date()).toString()
-                    }
-                    headers.put("client_id", formatted + "CVAndroidUnofficialSav")
+                    //headers.put("challenge", "null")
                     println(
                         " >> text_sentence >> " + encode(textSentence, "UTF-8").replace(
                             "+",
@@ -757,8 +708,7 @@ class SpeakActivity : AppCompatActivity() {
             getString(R.string.txt_sending_recording_failed_and_skip).replace(
                 "{{*{{skip_button}}*}}",
                 getString(R.string.btn_skip_sentence)
-            ),
-            errorCode = "S06"
+            )
         )
     }
 
