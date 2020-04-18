@@ -386,7 +386,7 @@ class SpeakActivity : AppCompatActivity() {
         try {
             this.listened_first_time = false
             mediaRecorder = MediaRecorder()
-            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".mp3"
+            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
             mediaRecorder?.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
             if (Build.VERSION.SDK_INT < 26) {
                 mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -486,7 +486,7 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     fun DeleteRecording() {
-        val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".mp3"
+        val path = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
         var file = File(path)
         if (this.idSentence != "" && file.exists()) {
             file.delete()
@@ -589,9 +589,7 @@ class SpeakActivity : AppCompatActivity() {
         btnListenAgain.isVisible = false
         msg.text = getString(R.string.txt_sending_recording)
 
-        var encoded: ByteArray? = null
-        var encoded2: String? = null
-        if (Build.VERSION.SDK_INT < 26) {
+        var encoded: ByteArray? = if (Build.VERSION.SDK_INT < 26) {
             msg.text =
                 "Error: your android version doesn't permit to send the recording to server. Sorry."
             //EXS05
@@ -600,40 +598,15 @@ class SpeakActivity : AppCompatActivity() {
                 "Error: your android version doesn't permit to send the recording to server. Sorry.",
                 errorCode = "S05"
             )
+            null
         } else {
             println("output: " + output)
             //encoded = Files.readAllBytes(Paths.get(this.output!!))
-            encoded = Files.readAllBytes(Paths.get(this.output))
-
-            val byteArray = output?.let { it.toByteArray() }
-
-            //println(" -->> byteArray -->>" + byteArray)
-            //println(" -->> encoded -->> " + encoded.toString())
-
-            encoded2 = readFileAsLinesUsingBufferedReader(output!!)
-            //println(" -->> fileReadStream: " + encoded2.toString())
-
-            /*
-            File file = new File(path);
-            int size = (int) file.length();
-            byte[] bytes = new byte[size];
-            try {
-                BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
-                buf.read(bytes, 0, bytes.length);
-                buf.close();
-            } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            */
+            Files.readAllBytes(Paths.get(this.output))
         }
 
         try {
             val path = "clips" //API to get sentences
-            val params: String? = encoded2
 
             tempUrl = tempUrl.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
@@ -651,19 +624,12 @@ class SpeakActivity : AppCompatActivity() {
                     btnSkip.isEnabled = true
                 }
             ) {
-                /*override fun getBodyContentType(): String {
-                    return "application/octet-stream"//Use this function to set Content-Type for Volley
-                }*/
-
-                @Throws(AuthFailureError::class)
-                override fun getBody(): ByteArray? {
-                    var returnValue = encoded2
-                    println("--->>--->>: " + returnValue)
-                    return returnValue?.toByteArray(Charset.defaultCharset())
+                override fun getBodyContentType(): String {
+                    return "audio/mpeg; codecs=aac"//Use this function to set Content-Type for Volley
                 }
 
+                override fun getBody(): ByteArray? = encoded
 
-                @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
                     val headers = HashMap<String, String>()
                     var logged = getSharedPreferences(
@@ -686,10 +652,6 @@ class SpeakActivity : AppCompatActivity() {
                             "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
                         )
                     }
-                    /*headers.put("Accept-Encoding", "gzip, deflate, br")
-                    headers.put("channel", "null")
-                    headers.put("DNT", "1")*/
-                    headers.put("Content-Type", "application/octet-stream")
                     headers.put("sentence", encode(textSentence, "UTF-8").replace("+", "%20"))
                     headers.put("sentence_id", idSentence)
                     var formatted = ""
