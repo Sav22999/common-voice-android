@@ -343,7 +343,7 @@ class SpeakActivity : AppCompatActivity() {
         )
     }
 
-    fun error2() {
+    fun error2(show: Boolean = true) {
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         msg.text = getString(R.string.txt_error_2_sending_failed)
 
@@ -355,12 +355,14 @@ class SpeakActivity : AppCompatActivity() {
         this.status = 3
         this.listened_first_time = false
 
-        //EXS03
-        showMessageDialog(
-            getString(R.string.messageDialogErrorTitle),
-            getString(R.string.txt_error_2_sending_failed),
-            errorCode = "S03"
-        )
+        if (show) {
+            //EXS03
+            showMessageDialog(
+                getString(R.string.messageDialogErrorTitle),
+                getString(R.string.txt_error_2_sending_failed),
+                errorCode = "S03"
+            )
+        }
     }
 
     override fun onBackPressed() {
@@ -614,8 +616,7 @@ class SpeakActivity : AppCompatActivity() {
                     RecordingSent()
                 }, Response.ErrorListener {
                     println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                    error2()
-                    println(">> Error: " + it.message.toString())
+                    error2(false)
                     RecordingError()
                     btnSkip.isEnabled = true
                 }
@@ -650,7 +651,8 @@ class SpeakActivity : AppCompatActivity() {
                     }
                     headers.put("sentence", encode(textSentence, "UTF-8").replace("+", "%20"))
                     headers.put("sentence_id", idSentence)
-                    var formatted = ""
+                    headers.put("challenge", "null")
+                    /*var formatted = ""
                     if (Build.VERSION.SDK_INT >= 26) {
                         val current = LocalDateTime.now()
                         val formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")
@@ -658,7 +660,7 @@ class SpeakActivity : AppCompatActivity() {
                     } else {
                         formatted = SimpleDateFormat("yyyyMMddhhmmssSSS").format(Date()).toString()
                     }
-                    headers.put("client_id", formatted + "CVAndroidUnofficialSav")
+                    headers.put("client_id", formatted + "CVAndroidUnofficialSav")*/
                     println(
                         " >> text_sentence >> " + encode(textSentence, "UTF-8").replace(
                             "+",
