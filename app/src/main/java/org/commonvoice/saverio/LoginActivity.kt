@@ -337,10 +337,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun logoutAndExit(exit: Boolean = true) {
-        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
-            .putBoolean(LOGGED_IN_NAME, false).apply()
         getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
             .putString(USER_CONNECT_ID, "").apply()
+        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
+            .putBoolean(LOGGED_IN_NAME, false).apply()
         getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
         getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
             .putString(TODAY_CONTRIBUTING, "?, ?, ?").apply()
@@ -350,6 +350,8 @@ class LoginActivity : AppCompatActivity() {
         if (exit) {
             openMainAfterLogin()
         }
+        CookieManager.getInstance().flush()
+        CookieManager.getInstance().removeAllCookies(null)
     }
 
     fun setLevelRecordingsValidations(type: Int, value: Int) {
@@ -428,10 +430,10 @@ class LoginActivity : AppCompatActivity() {
             }
 
             val que = Volley.newRequestQueue(this)
-            SystemClock.sleep(1000L);
+            //SystemClock.sleep(1000L);
             val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
                 Response.Listener {
-                    println("-->> " + it.toString() + " <<--")
+                    //println("-->> " + it.toString() + " <<--")
                     if (it.toString() != "null") {
                         val jsonResult = it.toString()
                         if (jsonResult.length > 2) {
@@ -517,7 +519,7 @@ class LoginActivity : AppCompatActivity() {
             ) {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
-                    //println(">>1>>" + userId)
+                    println(">>1>>" + userId)
                     val headers = HashMap<String, String>()
                     headers.put(
                         "Cookie",
@@ -558,8 +560,8 @@ class LoginActivity : AppCompatActivity() {
 
     fun error4() {
         //User have to accept Privacy Policy on website
-        //logoutAndExit(false)
-        //showYouHaveToAcceptPrivacyPolicy()
+        logoutAndExit(false)
+        showYouHaveToAcceptPrivacyPolicy()
     }
 
     fun showYouHaveToAcceptPrivacyPolicy() {
