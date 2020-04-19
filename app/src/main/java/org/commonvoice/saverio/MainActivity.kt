@@ -315,6 +315,7 @@ class MainActivity : AppCompatActivity() {
                     "",
                     getString(R.string.toast_anonymous_statistics_on)
                 )
+                statisticsAPI()
             } else {
                 //EXM08
                 showMessageDialog(
