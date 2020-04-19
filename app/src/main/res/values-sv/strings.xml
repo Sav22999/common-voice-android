@@ -84,6 +84,12 @@
     <string name="txt_log_on_file">Spara loggar på en fil</string>
     <string name="toast_log_on_file_on">Spara loggar på en fil som är aktiverad\nDu kan bifoga log.txt-filen när du rapporterar ett problem\nLäs mer om Github \"Saving the log\"</string>
     <string name="toast_log_on_file_off">Sparar loggar på en fil avstängd</string>
+    <string name="txt_anonymous_statistics">Anonymous statistics</string>
+    <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We will use statistics only to understand the amount of app users per day.</string>
+    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off.</string>
+    <string name="txt_skip_recording_confirmation">Skip recording confirmation</string>
+    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nNow you will no longer forced to listen your recording before sending it, so you can send directly.</string>
+    <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Laddar en mening ...</string>
     <string name="btn_skip_sentence">Hoppa över</string>

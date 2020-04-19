@@ -59,7 +59,7 @@
     <string name="txt_level8_name">Pro</string>
     <string name="txt_level9_name">Meister</string>
     <string name="txt_level10_name">Champion</string>
-    <string name="level_up_message">Glückwunsch! Du hast soeben das {{*{{n_level}}*}} Level erreicht.</string>
+    <string name="level_up_message">Glückwunsch! Du hast soeben Level {{*{{n_level}}*}} erreicht.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Tutorial erneut öffnen</string>
     <string name="txt_project_github_settings">Open-Source-Projekt auf GitHub</string>
@@ -82,8 +82,14 @@
     <string name="toast_experimental_features_on">Experimentelle Funktionen aktiviert\nNeue Funktionen könnten instabil und unsicher sein</string>
     <string name="toast_experimental_featured_off">Experimentelle Funktionen deaktiviert</string>
     <string name="txt_log_on_file">Protokolle in einer Datei speichern</string>
-    <string name="toast_log_on_file_on">Speichern von Protokollen in einer Datei aktiviert\nDu kannst die Datei log.txt anhängen, wenn Du ein Problem meldest.\nLies mehr über Github \"Saving the log\"</string>
+    <string name="toast_log_on_file_on">Speichern von Protokollen in einer Datei aktiviert\nDu kannst die Datei log.txt anhängen, wenn Du ein Problem meldest.\nLies mehr darüber im Github-Repository in der Datei \"SAVING THE LOG.md\".</string>
     <string name="toast_log_on_file_off">Speichern von Protokollen in eine Datei deaktiviert</string>
+    <string name="txt_anonymous_statistics">Anonymous statistics</string>
+    <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We will use statistics only to understand the amount of app users per day.</string>
+    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off.</string>
+    <string name="txt_skip_recording_confirmation">Aufnahmebestätigung überspringen</string>
+    <string name="toast_skip_recording_confirmation_on">Aufnahmebestätigung überspringen aktiviert.\nDu brauchst Deine eigene Aufnahme nicht anzuhören, bevor Du sie senden kannst, sondern kannst sie direkt senden.</string>
+    <string name="toast_skip_recording_confirmation_off">Überspringen der Aufnahmebestätigung deaktiviert.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Lade einen Satz ...</string>
     <string name="btn_skip_sentence">Überspringen</string>

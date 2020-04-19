@@ -12,6 +12,20 @@ The *Experimental features* could be unsafe and unstable, so pay attention if yo
 
 If you want additional information about the Policy privacy of Common Voice project, [Read the official doc](https://voice.mozilla.org/en/privacy) by Mozilla.
 
+### Anonymous statistics
+
+**YOU CAN DISABLE ANONYMOUS STATISTICS ALWAYS, GO TO SETTINGS**
+
+These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language** and **logged_status**.
+
+**unique_id**: It's a unique string generated the first time you run the app, and it is like "UserYYYYMMDDHHMMSSMMMM::CVAppSav", so it doesn't contain any your data
+
+**language**: it's just the variable, like _en_ or _it_, ect.
+
+**logged_status**: it's a integer value: 0 if you are not logged, 1 if you logged-in
+
+You can see statistics on website: https://saveriomorelli.com/app/common-voice-android/statistics.
 
 
-*Last update: 13rd Apr 2020*
+
+*Last update: 19th Apr 2020*

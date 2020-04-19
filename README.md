@@ -4,11 +4,13 @@
 
 This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
 
-[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-11-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-12-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 [<img src="images/googlePlayBadge.png" width="200px"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio) [<img src="images/fDroidBadge.png" width="200px"></img>](https://f-droid.org/it/packages/org.commonvoice.saverio) [<img src="images/aptoideBadge.png" height="50px"></img>](https://common-voice-android.en.aptoide.com/?store_name=sav22999) [<img src="images/crowdinBadge.png" height="50px"></img>](https://crowdin.com/project/common-voice-android)
 
 If you have any questions, please open an issue (you can add the label `question` there).
+
+[**You can see Anonymous Statistics**](https://www.saveriomorelli.com/app/common-voice-android/statistics/)
 
 You can contact me also on Telegram, with the username `@Sav22999` (I speak `Italian` and `English`); I’m always available to support you or to respond to your questions.
 
@@ -29,13 +31,11 @@ You can contribute also to translate the app (follow every step, please):
 
 #### To do:
 
-- **PRIORITY**: Create `POST` request to send the recording (Now it saves the audio on device, but I don’t know how to send the audio file to CV server) -> to do tests use voice.allizom.org instead of the main server -> You should send as `opus codecs` (probably)
-
-For the full to-do-list see *Issues* section on *GitHub*
+Go to *Issues* section of this repository on *GitHub*.
 
 ### Screenshots
 
-<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200px"></img> 
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="200px"></img>
 
 If you want screenshots of the other versions, go to the `screenshots` folder.
 
@@ -56,6 +56,7 @@ The app is officially translated in these following languages, **thank you very 
 - `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi)
 - `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
 - `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
+- `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
 - `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**
 - `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 

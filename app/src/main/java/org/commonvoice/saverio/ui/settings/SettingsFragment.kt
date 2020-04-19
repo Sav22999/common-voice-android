@@ -152,6 +152,17 @@ class SettingsFragment : Fragment() {
         }
         switchDarkThemeSettings.isChecked = theme.getTheme(main)
 
+        var switchStatisticsSettings: Switch = root.findViewById(R.id.switchAnonymousStatistics)
+        switchStatisticsSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setStatisticsSwitch(isChecked)
+        }
+        switchStatisticsSettings.isChecked = main.getStatisticsSwitch()
+
         setTheme(main, root)
 
         return root

@@ -84,6 +84,12 @@
     <string name="txt_log_on_file">Salva i log su file</string>
     <string name="toast_log_on_file_on">Salvataggio dei log su file attivato\nPuoi allegare il file log.txt se dovessi segnalare un problema\nPer sapere di più leggi \"Saving the log\" su Github</string>
     <string name="toast_log_on_file_off">Salvataggio dei log su file disattivato</string>
+    <string name="txt_anonymous_statistics">Statistiche anonime</string>
+    <string name="toast_anonymous_statistics_on">Statistiche anonime attivate.\nNon raccogliamo tuoi dati personali. Useremo le statistiche solo per capire il numero di utenti dell\'app al giorno.</string>
+    <string name="toast_anonymous_statistics_off">Statistiche anonime disattivate.</string>
+    <string name="txt_skip_recording_confirmation">Salta conferma registrazione</string>
+    <string name="toast_skip_recording_confirmation_on">Salta conferma registrazione attivata.\nOra non sarai più obbligato ad ascoltare la registrazione prima di inviarla, quindi potrai inviarla direttamente.</string>
+    <string name="toast_skip_recording_confirmation_off">Salta conferma registrazione disattivata.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase ...</string>
     <string name="btn_skip_sentence">Salta</string>
@@ -143,7 +149,7 @@
     <string name="btnOk">Ok</string>
     <string name="messageDialogErrorTitle">Errore</string>
     <string name="messageDialogGenericError">Spiacente. Qualcosa non ha funzionato.\nRiprova o contatta lo sviluppatore.</string>
-    <string name="messageDialogErrorCode">Qualcosa non ha funzionato. Riprova o contatta lo sviluppatore.\nCodice errore: EC-{{*{{error_code}}*}}</string>
+    <string name="messageDialogErrorCode">Qualcosa non ha funzionato. Riprova o contatta lo sviluppatore.\nCodice errore: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle">Accesso non riuscito</string>
     <string name="youHaveToAcceptPrivacyPolicy">È necessario effettuare il login sul sito web Common Voice e si deve accettare l\'Informativa sulla privacy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Apri Common Voice</string>

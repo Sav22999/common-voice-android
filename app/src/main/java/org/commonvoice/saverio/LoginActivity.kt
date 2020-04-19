@@ -13,6 +13,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.os.SystemClock
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -298,7 +299,6 @@ class LoginActivity : AppCompatActivity() {
                             "connect.sid="
                         )
                     ) {
-                        loginSuccessful()
                         showLoading()
                         openProfileSection()
                         var arrayCookies = cookies.split("; ")
@@ -372,15 +372,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun loginSuccessful() {
-        //login successful -> show username and log-out button
-        Toast.makeText(
-            this,
-            getString(R.string.txt_login_successful_alert),
-            Toast.LENGTH_LONG
-        ).show()
-    }
-
     fun openMainAfterLogin() {
         val returnIntent = Intent()
         //returnIntent.putExtra("key", "value")
@@ -423,10 +414,24 @@ class LoginActivity : AppCompatActivity() {
         try {
             val path = "user_client" //API to get sentences
 
+            if (userId == "") {
+                if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
+                        LOGGED_IN_NAME,
+                        false
+                    )
+                ) {
+                    userId = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                        USER_CONNECT_ID,
+                        ""
+                    )
+                }
+            }
+
             val que = Volley.newRequestQueue(this)
+            SystemClock.sleep(1000L);
             val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
                 Response.Listener {
-                    // println("-->> "+it.toString()+" <<--")
+                    println("-->> " + it.toString() + " <<--")
                     if (it.toString() != "null") {
                         val jsonResult = it.toString()
                         if (jsonResult.length > 2) {
@@ -496,6 +501,7 @@ class LoginActivity : AppCompatActivity() {
                                         .putString(USER_NAME, userName).apply()
                                 }
                             } catch (e: Exception) {
+                                println(" -->> Something wrong: " + it.toString() + " <<-- ")
                                 error2(e.toString())
                             }
                         } else {
@@ -505,24 +511,13 @@ class LoginActivity : AppCompatActivity() {
                         error4()
                     }
                 }, Response.ErrorListener {
-                    //println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
                     error2(it.toString())
                 }
             ) {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
-                    if (userId == "") {
-                        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
-                                LOGGED_IN_NAME,
-                                false
-                            )
-                        ) {
-                            userId = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
-                        }
-                    }
+                    //println(">>1>>" + userId)
                     val headers = HashMap<String, String>()
                     headers.put(
                         "Cookie",
@@ -563,8 +558,8 @@ class LoginActivity : AppCompatActivity() {
 
     fun error4() {
         //User have to accept Privacy Policy on website
-        logoutAndExit(false)
-        showYouHaveToAcceptPrivacyPolicy()
+        //logoutAndExit(false)
+        //showYouHaveToAcceptPrivacyPolicy()
     }
 
     fun showYouHaveToAcceptPrivacyPolicy() {
@@ -573,8 +568,7 @@ class LoginActivity : AppCompatActivity() {
         //EXL02
         showMessageDialog(
             getString(R.string.youHaveToAcceptPrivacyPolicyTitle),
-            getString(R.string.youHaveToAcceptPrivacyPolicy),
-            errorCode = "L02"
+            getString(R.string.youHaveToAcceptPrivacyPolicy)
         )
 
         var btnLoginSignUp: Button = this.findViewById(R.id.btnCloseLoginPrivacyPolicy)

@@ -550,7 +550,7 @@ class ListenActivity : AppCompatActivity() {
             val que = Volley.newRequestQueue(this)
             val req = object : JsonObjectRequest(Request.Method.POST, url + path, params,
                 Response.Listener {
-                    val json_result = it.toString()
+                    //val json_result = it.toString()
                     //println(" -->> Votes -->> "+json_result)
                     /*if (json_result.length > 2) {
                         val jsonObj = JSONObject(
