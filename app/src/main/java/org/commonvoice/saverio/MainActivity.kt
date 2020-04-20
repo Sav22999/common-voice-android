@@ -2,7 +2,6 @@ package org.commonvoice.saverio
 
 import android.Manifest
 import android.annotation.TargetApi
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -21,12 +20,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.android.volley.AuthFailureError
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -58,9 +62,12 @@ class MainActivity : AppCompatActivity() {
     private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
     private val UI_LANGUAGE_CHANGED2 = "UI_LANGUAGE_CHANGED2"
     private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
+    private val ANONYMOUS_STATISTICS = "ANONYMOUS_STATISTICS"
     private val TODAY_CONTRIBUTING =
         "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
     private val DARK_THEME = "DARK_THEME"
+    private val UNIQUE_USER_ID = "UNIQUE_USER_ID"
+    var uniqueUserId = ""
 
     var dashboard_selected = false
 
@@ -113,9 +120,83 @@ class MainActivity : AppCompatActivity() {
             //checkPermissions()
         }
 
+        if(getStatisticsSwitch()) {
+            statisticsAPI()
+        }
+
         checkUserLoggedIn()
 
         resetDashboardData()
+    }
+
+    fun statisticsAPI() {
+        generateUniqueUserId()
+        try {
+            var url_statistics =
+                "https://saveriomorelli.com/api/common-voice-android/?username={{*{{username}}*}}&language={{*{{language}}*}}&logged={{*{{logged}}*}}" //API to send the request
+            var loggedYesNotInt = 0
+            if (this.logged) loggedYesNotInt = 1
+            var params = JSONObject()
+            /*params.put("username", this.uniqueUserId)
+            params.put("logged", loggedYesNotInt)
+            params.put("language", this.selectedLanguageVar)*/
+
+            //println(">> params: " + params + "<<")
+
+            url_statistics = url_statistics.replace("{{*{{username}}*}}", this.uniqueUserId)
+            url_statistics = url_statistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
+            url_statistics = url_statistics.replace("{{*{{language}}*}}", this.selectedLanguageVar)
+
+            val que = Volley.newRequestQueue(this)
+            val req = object : JsonObjectRequest(Request.Method.POST, url_statistics, params,
+                Response.Listener {
+                    val jsonResult = it.toString()
+                    var jsonResultArray = arrayOf(jsonResult, "")
+                    val jsonObj = JSONObject(
+                        jsonResultArray[0].substring(
+                            jsonResultArray[0].indexOf("{"),
+                            jsonResultArray[0].lastIndexOf("}") + 1
+                        )
+                    )
+                    //println(jsonObj.toString())
+                    if (jsonObj.getString("code").toInt() == 200) {
+                        println("-->> Record added to the database <<--")
+                    } else {
+                        println("!!-- Record is already in the database --!!")
+                    }
+                    println(jsonResult)
+                }, Response.ErrorListener {
+                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                }
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers.put("Content-Type", "application/json")
+                    return headers
+                }
+            }
+            //Content-Type: application/json
+            que.add(req)
+        } catch (e: Exception) {
+            println("!!-- Exception M09 - Statistics --!!")
+        }
+    }
+
+    fun generateUniqueUserId() {
+        this.uniqueUserId =
+            getSharedPreferences(UNIQUE_USER_ID, PRIVATE_MODE).getString(UNIQUE_USER_ID, "")
+        if (this.uniqueUserId == "") {
+            var datetime = ""
+            val dateTemp = SimpleDateFormat("yyyyMMddHHmmssSSSS")
+            datetime = dateTemp.format(Date()).toString()
+            this.uniqueUserId = "User" + datetime + "::CVAppSav"
+            println(">> New -- uniqueUserId: " + this.uniqueUserId + " <<")
+            getSharedPreferences(UNIQUE_USER_ID, PRIVATE_MODE).edit()
+                .putString(UNIQUE_USER_ID, this.uniqueUserId).apply()
+        } else {
+            println(">> Exists -- uniqueUserId: " + this.uniqueUserId + " <<")
+        }
     }
 
     fun showHelpMeMessage() {
@@ -224,6 +305,34 @@ class MainActivity : AppCompatActivity() {
             }
             theme.setTheme(this, status)
         }
+    }
+
+    fun setStatisticsSwitch(status: Boolean) {
+        if (status != this.getStatisticsSwitch()) {
+            if (status) {
+                //EXM07
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_anonymous_statistics_on)
+                )
+                statisticsAPI()
+            } else {
+                //EXM08
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_anonymous_statistics_off)
+                )
+            }
+            getSharedPreferences(ANONYMOUS_STATISTICS, PRIVATE_MODE).edit()
+                .putBoolean(ANONYMOUS_STATISTICS, status).apply()
+        }
+    }
+
+    fun getStatisticsSwitch(): Boolean {
+        return getSharedPreferences(ANONYMOUS_STATISTICS, PRIVATE_MODE).getBoolean(
+            ANONYMOUS_STATISTICS,
+            true
+        )
     }
 
     fun setSavedStatistics(type: String, statistics: String) {
@@ -471,16 +580,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openSpeakSection() {
-        if (BuildConfig.VERSION_NAME.contains("a")) {
-            val intent = Intent(this, SpeakActivity::class.java).also {
-                startActivity(it)
-            }
-            showMessageDialog(
-                "Message",
-                "You can view this section because this is an Alpha version."
-            )
-        } else {
-            openNoAvailableNow()
+        val intent = Intent(this, SpeakActivity::class.java).also {
+            startActivity(it)
         }
     }
 

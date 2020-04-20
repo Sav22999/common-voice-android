@@ -23,6 +23,7 @@
         <!-- First start (TutorialActivity) -->
         <activity
             android:name=".TutorialActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.FullScreen" />
         <!-- The actual app (MainActivity) -->
@@ -37,17 +38,20 @@
         <!-- SpeakActivity -->
         <activity
             android:name=".SpeakActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
         <!-- ListenActivity -->
         <activity
             android:name=".ListenActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
         <!-- LoginActivity -->
         <activity
             android:name=".LoginActivity"
-            android:label="@string/button_home_profile"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.TitleBar">
             <intent-filter>

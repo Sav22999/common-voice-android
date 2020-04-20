@@ -458,8 +458,7 @@ class ListenActivity : AppCompatActivity() {
         //EXL05
         showMessageDialog(
             getString(R.string.messageDialogErrorTitle),
-            getString(R.string.txt_error_4_clips_no_available),
-            errorCode = "L05"
+            getString(R.string.txt_error_4_clips_no_available)
         )
         skipText.isEnabled = true
     }
@@ -551,7 +550,7 @@ class ListenActivity : AppCompatActivity() {
             val que = Volley.newRequestQueue(this)
             val req = object : JsonObjectRequest(Request.Method.POST, url + path, params,
                 Response.Listener {
-                    val json_result = it.toString()
+                    //val json_result = it.toString()
                     //println(" -->> Votes -->> "+json_result)
                     /*if (json_result.length > 2) {
                         val jsonObj = JSONObject(

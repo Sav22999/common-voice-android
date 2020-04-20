@@ -59,7 +59,7 @@
     <string name="txt_level8_name">Про</string>
     <string name="txt_level9_name">Мастер</string>
     <string name="txt_level10_name">Чемпион</string>
-    <string name="level_up_message">Congrats! You have just achieved the {{*{{n_level}}*}} level.</string>
+    <string name="level_up_message">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Открыть руководство снова</string>
     <string name="txt_project_github_settings">Исходный код проекта доступен на GitHub</string>
@@ -84,6 +84,12 @@
     <string name="txt_log_on_file">Save logs on a file</string>
     <string name="toast_log_on_file_on">Saving logs on a file turned on\nYou can attach the log.txt file when you report an issue\nRead more on Github \"Saving the log\"</string>
     <string name="toast_log_on_file_off">Saving logs on a file turned off</string>
+    <string name="txt_anonymous_statistics">Anonymous statistics</string>
+    <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We will use statistics only to understand the amount of app users per day.</string>
+    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off.</string>
+    <string name="txt_skip_recording_confirmation">Skip recording confirmation</string>
+    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nNow you will no longer forced to listen your recording before sending it, so you can send directly.</string>
+    <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Загрузка предложения...</string>
     <string name="btn_skip_sentence">Пропустить</string>
@@ -142,8 +148,8 @@
     <!-- Message dialog -->
     <string name="btnOk">Хорошо</string>
     <string name="messageDialogErrorTitle">Ошибка</string>
-    <string name="messageDialogGenericError">Мне так жаль. Что-то пошло не так.\nПожалуйста, попробуйте еще раз или свяжитесь с разработчиком.</string>
-    <string name="messageDialogErrorCode">Что-то сработало не так. Пожалуйста, попробуйте еще раз или свяжитесь с разработчиком.\nКод ошибки: EX-{{*{{error_code}}*}}</string>
+    <string name="messageDialogGenericError">I\'m so sorry. Something didn\'t work.\nPlease, try again or contact the developer.</string>
+    <string name="messageDialogErrorCode">Something didn\'t work. Please, try again or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle">Не удалось выполнить вход</string>
     <string name="youHaveToAcceptPrivacyPolicy">Вам необходимо авторизоваться на сайте Common Voice и принять политику конфиденциальности.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Открыть Common Voice</string>
