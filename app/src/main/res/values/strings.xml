@@ -12,7 +12,7 @@
     <!-- Home (main) -->
     <string name="description_cv_robot">Common Voice logo</string>
     <string name="description_cv_logo">Common Voice robot</string>
-    <string name="button_home_login">Login / Sign up</string>
+    <string name="button_home_login">Log in / Sign up</string>
     <string name="button_home_logout">Log out</string>
     <string name="button_home_profile">Profile</string>
     <string name="text_hi_username">Hi</string>
