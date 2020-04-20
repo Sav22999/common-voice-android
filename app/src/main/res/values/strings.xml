@@ -37,7 +37,7 @@
     <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
     <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
     <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
-    <string name="tutorial_text4">Choose your native language, it will use to show sentences to record and to validate</string>
+    <string name="tutorial_text4">Select your native language. The sentences that you will record and validate will be in this language.</string>
     <!-- Login -->
     <string name="txt_loading_page">Loading ...</string>
     <string name="txt_profile_username">Username</string>
