@@ -4,3 +4,4 @@
 - Updated languages
 - Added anonymous statistics for the app, you can turn off in Settings
 - Optimised code
+- Added Anonymous statistics
