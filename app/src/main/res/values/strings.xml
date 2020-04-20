@@ -166,7 +166,7 @@
     <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
     <string name="daily_goal_achieved_today">Achieved today</string>
     <string name="daily_goal_not_achieved_today">Not achieved today</string>
-    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} and recorded {{*{{n_sentences}}*}}.\nThank you for contributing to Common Voice!</string>
+    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} and recorded {{*{{n_sentences}}*}}.\nFeel free to continue contributing to Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
 
     <!-- Others -->
