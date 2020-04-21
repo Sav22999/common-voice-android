@@ -14,9 +14,7 @@ import android.os.Bundle
 import android.os.LocaleList
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -28,6 +26,7 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONObject
@@ -120,12 +119,12 @@ class MainActivity : AppCompatActivity() {
             //checkPermissions()
         }
 
-        if(getStatisticsSwitch()) {
+        if (getStatisticsSwitch()) {
             statisticsAPI()
         }
 
         checkUserLoggedIn()
-
+        checkNewVersionAvailable()
         resetDashboardData()
     }
 
@@ -199,18 +198,57 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showHelpMeMessage() {
-        if (!getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).getBoolean(
-                "FIRST_MSG_HELP_ME",
+    fun checkNewVersionAvailable() {
+        val code: String = BuildConfig.VERSION_CODE.toString()
+        val currentVersion: String = BuildConfig.VERSION_NAME
+        var serverVersion: String = currentVersion
+        if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
+                "NEW_VERSION_" + code,
                 false
             )
         ) {
-            showMessageDialog(
-                "",
-                "I\'m developing the app.\nIf you are a developer and want to help me, please go to GitHub repository or contact me on Telegram (go to Settings section).\nThanks"
-            )
-            getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).edit()
-                .putBoolean("FIRST_MSG_HELP_ME", true).apply()
+            try {
+                val urlApiGithub =
+                    "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
+                val que = Volley.newRequestQueue(this)
+                val req = object : StringRequest(Request.Method.GET, urlApiGithub,
+                    Response.Listener {
+                        println("-->> " + it.toString() + " <<--")
+                        val jsonResult = it.toString()
+                        if (jsonResult.length > 2) {
+                            try {
+                                val jsonObj = JSONObject(
+                                    jsonResult.substring(
+                                        jsonResult.indexOf("{"),
+                                        jsonResult.lastIndexOf("}") + 1
+                                    )
+                                )
+                                serverVersion = jsonObj.getString("tag_name")
+                                if (currentVersion != serverVersion) {
+                                    showMessageDialog(
+                                        "",
+                                        getString(R.string.message_dialog_new_version_available).replace(
+                                            "{{*{{n_version}}*}}",
+                                            serverVersion
+                                        )
+                                    )
+                                    getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).edit()
+                                        .putBoolean("NEW_VERSION_" + code, true).apply()
+                                }
+                            } catch (e: Exception) {
+                                println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                            }
+                        } else {
+                            //
+                        }
+                    }, Response.ErrorListener {
+                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    }
+                ) {}
+                que.add(req)
+            } catch (e: Exception) {
+                println(" -->> Something wrong: " + e.toString() + " <<-- ")
+            }
         }
     }
 
@@ -628,8 +666,7 @@ class MainActivity : AppCompatActivity() {
         //EXM01
         showMessageDialog(
             "",
-            getString(R.string.toastNoLoginNoStatistics),
-            errorCode = "M01"
+            getString(R.string.toastNoLoginNoStatistics)
         )
     }
 
@@ -786,12 +823,6 @@ class MainActivity : AppCompatActivity() {
 
     fun stopAnimation(img: Button) {
         img.clearAnimation()
-    }
-
-    fun openWebBrowserForTest() {
-        val intent = Intent(this, WebBrowser::class.java).also {
-            startActivity(it)
-        }
     }
 
     fun setAutoPlay(status: Boolean) {

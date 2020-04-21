@@ -46,14 +46,7 @@ class SettingsFragment : Fragment() {
         var releaseNumber: TextView = root.findViewById(R.id.textRelease)
         releaseNumber.text = BuildConfig.VERSION_NAME
 
-        if (BuildConfig.VERSION_NAME.contains("a")) {
-            this.isAlpha = true
-        }
-
-        if (isAlpha) {
-            //alpha
-            releaseNumber.text = BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")"
-        }
+        releaseNumber.text = BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")"
 
         // import the languages list (short and "standard" from mainactivity)
         this.languagesListShort = main.languagesListShortArray
@@ -108,17 +101,6 @@ class SettingsFragment : Fragment() {
         var btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btnOpenTutorial.setOnClickListener {
             main.openTutorial()
-        }
-
-        var btnWebBrowserForTest: Button = root.findViewById(R.id.buttonOpenWBTests)
-        btnWebBrowserForTest.setOnClickListener {
-            main.openWebBrowserForTest()
-        }
-
-        if (isAlpha) {
-            btnWebBrowserForTest.isGone = false
-            var separator: View = root.findViewById(R.id.separator4)
-            separator.isGone = false
         }
 
         var txtContributors: TextView = root.findViewById(R.id.textContributors)

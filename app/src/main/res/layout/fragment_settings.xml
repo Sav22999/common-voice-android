@@ -148,19 +148,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textProjectGitHub" />
 
         <View
-            android:id="@+id/separator4"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/colorSeparator"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonOpenWBTests"
-            tools:visibility="visible" />
-
-        <View
             android:id="@+id/separator3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -199,27 +186,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchAutoPlayClips" />
-
-        <Button
-            android:id="@+id/buttonOpenWBTests"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorBackground"
-            android:foreground="@drawable/ripple"
-            android:gravity="center|clip_vertical|start"
-            android:padding="20dp"
-            android:stateListAnimator="@null"
-            android:text="Show Web Browser (FOR TESTS)"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:textStyle="normal"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator3"
-            tools:visibility="visible" />
 
         <Button
             android:id="@+id/textDonatePayPal"
@@ -360,7 +326,7 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator4" />
+            app:layout_constraintTop_toBottomOf="@+id/separator3" />
 
         <TextView
             android:id="@+id/textContributors"
