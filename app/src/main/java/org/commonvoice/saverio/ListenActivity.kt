@@ -260,11 +260,12 @@ class ListenActivity : AppCompatActivity() {
         }
         var contributingToSave =
             dateContributingToSave + ", " + this.sentencesRecordedYouToday + ", " + this.sentencesValidatedYouToday
-        println("loadStatisticsYouToday: " + this.sentencesRecordedYouToday + " -- " + this.sentencesValidatedYouToday)
+        //println("loadStatisticsYouToday: " + this.sentencesRecordedYouToday + " -- " + this.sentencesValidatedYouToday)
     }
 
     fun checkDailyGoal() {
         if (dailyGoal.checkDailyGoal()) {
+            loadStatisticsYouToday()
             showMessageDialog(
                 "",
                 getString(R.string.daily_goal_achieved_message).replace(
@@ -326,7 +327,7 @@ class ListenActivity : AppCompatActivity() {
                 }
                 this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
 
-                if (this.autoPlayClips && !this.isFinishing) {
+                if (this.autoPlayClips && !this.isFinishing && !dailyGoal.checkDailyGoal()) {
                     StartListening()
                 }
             }

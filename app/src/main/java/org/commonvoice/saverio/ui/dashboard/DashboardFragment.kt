@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -125,7 +126,24 @@ class DashboardFragment : Fragment() {
                 println("Error: " + e.toString())
             }
 
-            //loadYouValues()//it doesn't load
+            val btnSetGoal: Button = root.findViewById(R.id.buttonDashboardSetDailyGoal)
+            btnSetGoal.setOnClickListener {
+                main.openDailyGoalDialog()
+            }
+
+            if (main.getDailyGoal() == 0) {
+                root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
+                    .setText(getString(R.string.daily_goal_is_not_set))
+                root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
+                    .setText(getString(R.string.set_daily_goal))
+                println("Daily goal is not set")
+            } else {
+                root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
+                    .setText(main.getDailyGoal().toString())
+                root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
+                    .setText(getString(R.string.edit_daily_goal))
+                println("Daily goal is set")
+            }
 
             tabDashboard.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -184,6 +202,11 @@ class DashboardFragment : Fragment() {
             root.findViewById(R.id.textDashboardVoicesBefore) as TextView
         )
         theme.setTabLayout(isDark, view, root.findViewById(R.id.tabDashboard) as TabLayout)
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonDashboardSetDailyGoal) as Button
+        )
     }
 
     fun getDashboardValues(type: String): Array<Int> {
@@ -493,11 +516,12 @@ class DashboardFragment : Fragment() {
                                 } catch (e: Exception) {
                                     println("Exception Dashboard-010")
                                 }
-                                println(" >>>> " + type + " -- " + valueToReturn + " -- " + typeToSend)
+                                //println(" >>>> " + type + " -- " + valueToReturn + " -- " + typeToSend)
                                 try {
                                     if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
                                         textElements[index]?.text =
-                                            truncate(valueToReturn.toDouble() / 3600).toInt().toString() + getString(
+                                            truncate(valueToReturn.toDouble() / 3600).toInt()
+                                                .toString() + getString(
                                                 R.string.textHoursAbbreviation
                                             )
                                         main.setSavedStatisticsValue(

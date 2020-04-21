@@ -12,6 +12,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.util.DisplayMetrics
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
     private val DARK_THEME = "DARK_THEME"
     private val UNIQUE_USER_ID = "UNIQUE_USER_ID"
+    private val DAILY_GOAL = "DAILY_GOAL"
     var uniqueUserId = ""
 
     var dashboard_selected = false
@@ -142,9 +144,12 @@ class MainActivity : AppCompatActivity() {
 
             //println(">> params: " + params + "<<")
 
+            var languageTemp = this.selectedLanguageVar
+            if (languageTemp == "") languageTemp = "en"
+
             url_statistics = url_statistics.replace("{{*{{username}}*}}", this.uniqueUserId)
             url_statistics = url_statistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
-            url_statistics = url_statistics.replace("{{*{{language}}*}}", this.selectedLanguageVar)
+            url_statistics = url_statistics.replace("{{*{{language}}*}}", languageTemp)
 
             val que = Volley.newRequestQueue(this)
             val req = object : JsonObjectRequest(Request.Method.POST, url_statistics, params,
@@ -572,6 +577,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun getDailyGoal(): Int {
+        return getSharedPreferences(DAILY_GOAL, PRIVATE_MODE).getInt(
+            DAILY_GOAL,
+            0
+        )
+    }
+
     fun resetDashboardData() {
         setSavedStatistics("you", "?")
         setSavedStatistics("everyone", "?")
@@ -585,6 +597,37 @@ class MainActivity : AppCompatActivity() {
 
     fun getSelectedLanguage(): String {
         return this.selectedLanguageVar
+    }
+
+    fun openDailyGoalDialog() {
+        try {
+            val metrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(metrics)
+            val width = metrics.widthPixels
+            //val height = metrics.heightPixels
+            val message: MessageDialog =
+                MessageDialog(this, this, 1, value = getDailyGoal(), width = width)
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: MainActivity - OPEN DAILY GOAL DIALOG: " + exception.toString() + " --!!")
+        }
+    }
+
+    fun refreshDailyGoalDataInDashboard() {
+        //refresh data of Daily goal in Dashboard
+        if (getDailyGoal() == 0) {
+            this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
+                .setText(getString(R.string.daily_goal_is_not_set))
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
+                .setText(getString(R.string.set_daily_goal))
+            println("Daily goal is not set")
+        } else {
+            this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
+                .setText(getDailyGoal().toString())
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
+                .setText(getString(R.string.edit_daily_goal))
+            println("Daily goal is set")
+        }
     }
 
     fun showMessageDialog(

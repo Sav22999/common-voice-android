@@ -11,25 +11,59 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/labelTextAlertDailyGoalFeature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="10dp"
+            android:text="@string/daily_goal_is_not_official_by_mozilla"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorAlertMessage"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelTextMessageDialog" />
+
+        <TextView
+            android:id="@+id/labelDailyGoalValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="10dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="30sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelTextAlertDailyGoalFeature" />
+
         <Button
             android:id="@+id/btnDailyGoalDelete"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/btn_rounded"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:text="@string/delete_daily_goal"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dailyGoalValue" />
+            app:layout_constraintTop_toBottomOf="@+id/seekDailyGoalValue" />
 
         <Button
             android:id="@+id/btnDailyGoalCancel"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/btn_rounded"
             android:paddingStart="30dp"
@@ -37,7 +71,7 @@
             android:text="@string/cancel_daily_goal"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toStartOf="@+id/btnDailyGoalSave"
-            app:layout_constraintTop_toBottomOf="@+id/dailyGoalValue" />
+            app:layout_constraintTop_toBottomOf="@+id/seekDailyGoalValue" />
 
         <View
             android:id="@+id/viewSeparatorTop"
@@ -79,7 +113,7 @@
             android:textAlignment="viewStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorBlack"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +123,7 @@
             android:id="@+id/btnDailyGoalSave"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/btn_rounded"
             android:paddingStart="30dp"
@@ -97,22 +131,24 @@
             android:text="@string/save_daily_goal"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dailyGoalValue" />
+            app:layout_constraintTop_toBottomOf="@+id/seekDailyGoalValue" />
 
         <SeekBar
-            android:id="@+id/dailyGoalValue"
+            android:id="@+id/seekDailyGoalValue"
             style="@style/Widget.AppCompat.SeekBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:max="100"
+            android:max="200"
             android:progress="10"
+            android:progressBackgroundTint="@color/colorAccent"
             android:progressTint="@color/colorAccent"
+            android:thumbTint="@color/colorBlack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelTextMessageDialog" />
+            app:layout_constraintTop_toBottomOf="@+id/labelDailyGoalValue" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
