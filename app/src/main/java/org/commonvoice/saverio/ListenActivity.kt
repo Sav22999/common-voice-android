@@ -45,6 +45,11 @@ class ListenActivity : AppCompatActivity() {
     private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
     private val TODAY_CONTRIBUTING =
         "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+    private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
+    private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
+    private val DAILY_GOAL = "DAILY_GOAL"
+    var sentencesRecordedYouToday = 0
+    var sentencesValidatedYouToday = 0
 
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
@@ -66,6 +71,9 @@ class ListenActivity : AppCompatActivity() {
     var opened: Boolean =
         false //true -> the section was already open | false -> the section wasn't opened (before)
     var loading: Boolean = false //there is already a request at the server
+
+    var dailyGoal: BadgeLevelDailyGoal = BadgeLevelDailyGoal(0, 0)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,6 +126,16 @@ class ListenActivity : AppCompatActivity() {
                     false
                 )
 
+            loadStatisticsYouToday()
+            dailyGoal.setDailyGoal(
+                getSharedPreferences(DAILY_GOAL, PRIVATE_MODE).getInt(
+                    DAILY_GOAL,
+                    0
+                )
+            )//just to test
+            this.dailyGoal.setRecordings(this.sentencesRecordedYouToday)
+            this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
+            this.dailyGoal.checkDailyGoal()
 
             //API request
             API_request()
@@ -186,23 +204,74 @@ class ListenActivity : AppCompatActivity() {
             var dateContributing = contributing[0]
             var dateContributingToSave = getDateToSave(dateContributing)
             var nValidated: String = "?"
+            var nRecorded: String = "?"
             if (dateContributingToSave == dateContributing) {
                 //same date
+                nRecorded = contributing[1]
                 nValidated = contributing[2]
                 if (nValidated == "?") {
                     nValidated = "0"
                 }
+                if (nRecorded == "?") {
+                    nRecorded = "0"
+                }
             } else {
                 //new date
                 nValidated = "0"
+                nRecorded = "0"
             }
             nValidated = (nValidated.toInt() + 1).toString()
             var contributingToSave =
-                dateContributingToSave + ", " + contributing[1] + ", " + nValidated
+                dateContributingToSave + ", " + nRecorded + ", " + nValidated
             getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
                 .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
+
+            this.dailyGoal.setRecordings(nRecorded.toInt())
+            this.dailyGoal.setValidations(nValidated.toInt())
+            this.checkDailyGoal()
         } else {
             //user no logged
+        }
+    }
+
+    fun loadStatisticsYouToday() {
+        var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
+            TODAY_CONTRIBUTING,
+            "?, ?, ?"
+        ).split(", ")
+        var dateContributing = contributing[0]
+        var dateContributingToSave = getDateToSave(dateContributing)
+        if (dateContributingToSave == dateContributing) {
+            //same date
+            if (contributing[2] == "?") {
+                this.sentencesValidatedYouToday = 0
+            } else {
+                this.sentencesValidatedYouToday = contributing[2].toInt()
+            }
+            if (contributing[1] == "?") {
+                this.sentencesRecordedYouToday = 0
+            } else {
+                this.sentencesRecordedYouToday = contributing[1].toInt()
+            }
+        } else {
+            //new date
+            this.sentencesValidatedYouToday = 0
+            this.sentencesRecordedYouToday = 0
+        }
+        var contributingToSave =
+            dateContributingToSave + ", " + this.sentencesRecordedYouToday + ", " + this.sentencesValidatedYouToday
+        println("loadStatisticsYouToday: " + this.sentencesRecordedYouToday + " -- " + this.sentencesValidatedYouToday)
+    }
+
+    fun checkDailyGoal() {
+        if (dailyGoal.checkDailyGoal()) {
+            showMessageDialog(
+                "",
+                getString(R.string.daily_goal_achieved_message).replace(
+                    "{{*{{n_clips}}*}}",
+                    this.sentencesValidatedYouToday.toString()
+                ).replace("{{*{{n_sentences}}*}}", this.sentencesRecordedYouToday.toString())
+            )
         }
     }
 
@@ -289,9 +358,10 @@ class ListenActivity : AppCompatActivity() {
                                         jsonResult.length - 1
                                     ).split("},{")[0] + "}]"
                                     jsonResultArray[1] =
-                                        "[{" + jsonResult.substring(1, jsonResult.length - 1).split(
-                                            "},{"
-                                        )[1] + "]"
+                                        "[{" + jsonResult.substring(1, jsonResult.length - 1)
+                                            .split(
+                                                "},{"
+                                            )[1] + "]"
                                 }
                             }
                             if (jsonResult.length > 2) {
@@ -400,7 +470,10 @@ class ListenActivity : AppCompatActivity() {
                             ).getBoolean(LOGGED_IN_NAME, false)
                             if (logged) {
                                 var cookieId =
-                                    getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                    getSharedPreferences(
+                                        USER_CONNECT_ID,
+                                        PRIVATE_MODE
+                                    ).getString(
                                         USER_CONNECT_ID,
                                         ""
                                     )
@@ -717,7 +790,8 @@ class ListenActivity : AppCompatActivity() {
 
     companion object {
         fun checkInternet(context: Context): Boolean {
-            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val cm =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
             if (networkInfo != null && networkInfo.isConnected) {
                 //Connection OK

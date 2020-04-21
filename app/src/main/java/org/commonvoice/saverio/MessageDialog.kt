@@ -16,7 +16,7 @@ class MessageDialog {
 
     constructor(context: Context, title: String, text: String) {
         this.context = context
-        message_type = 0
+        this.message_type = 0
         this.message_title = title
         this.message_text = text
     }

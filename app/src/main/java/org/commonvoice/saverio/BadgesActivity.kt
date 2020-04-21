@@ -25,7 +25,7 @@ class BadgesActivity() : AppCompatActivity() {
     var level: Int = 0
     var recorded: Int = 0
     var validated: Int = 0
-    private var PRIVATE_MODE = 0
+    private val PRIVATE_MODE = 0
     private val LEVEL_SAVED = "LEVEL_SAVED"
     private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
     private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
@@ -188,50 +188,6 @@ class BadgesActivity() : AppCompatActivity() {
             in 10000..100000000 -> 7
             else -> 0
         }
-    }
-
-    fun checkNewBadges(newLevel: Int, newRecorded: Int, newValidated: Int) {
-        //check if it's reached a new badge, in that case show a push-notification
-        //call this method also from external class
-        //parameters are necessary because compare savedInt with the newInt
-
-        //sendNotification("Example", "Title", 1)
-    }
-
-    private fun sendNotification(
-        message: String,
-        title: String,
-        id: Int
-    ) {
-        val intent = Intent(this, BadgesActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(
-            this, 0 /* Request code */,
-            intent, PendingIntent.FLAG_ONE_SHOT
-        )
-        val notificationBuilder: Notification.Builder? = Notification.Builder(this)
-            .setSmallIcon(R.drawable.icon)
-            .setContentTitle(title)
-            .setContentText(message)
-            .setAutoCancel(false)
-            .setContentIntent(pendingIntent)
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(
-            id /* ID of notification */,
-            notificationBuilder?.build()
-        )
-    }
-
-    fun setNewLevel(value: Int) {
-        //notify
-    }
-
-    fun setNewRecordings(value: Int) {
-        //notify
-    }
-
-    fun setNewValidations(value: Int) {
-        //notify
     }
 
     override fun attachBaseContext(newBase: Context) {
