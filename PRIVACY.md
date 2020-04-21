@@ -6,7 +6,7 @@ The app doesn’t collect your data. Anyway, some data are saved on your device 
 
 The app requires *Storage* and *Microphone* permissions when you use *Speak section*: because the app saves your recording, but then they are deleted automatically.
 
-If you active "Save log on a file", the app requires *Storage* and will be save log on files, but it won't contains your personal data.
+If you active "Save log on a file", the app requires *Storage* and will be save log on files, but it won't contains your personal data. Read more about this [**here**](./SAVING THE LOG.md).
 
 The *Experimental features* could be unsafe and unstable, so pay attention if you use that option.
 
@@ -18,7 +18,7 @@ If you want additional information about the Policy privacy of Common Voice proj
 
 These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language** and **logged_status**.
 
-**unique_id**: It's a unique string generated the first time you run the app, and it is like "UserYYYYMMDDHHMMSSMMMM::CVAppSav", so it doesn't contain any your data
+**unique_id**: It's a unique string generated the first time you run the app, and it is like "UserYYYYMMDDHHMMSSMMMM::CVAppSav", so it doesn't contain any your personal data
 
 **language**: it's just the variable, like _en_ or _it_, ect.
 
@@ -28,4 +28,4 @@ You can see statistics on website: https://saveriomorelli.com/app/common-voice-a
 
 
 
-*Last update: 19th Apr 2020*
+*Last update: 22nd Apr 2020*

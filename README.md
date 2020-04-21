@@ -59,7 +59,7 @@ The app is officially translated in these following languages, **thank you very 
 - `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
 - `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**
 - `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
-- `tr` -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)
+- `tr` Turkish -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)
 
 ### License
 
