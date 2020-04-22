@@ -72,7 +72,7 @@
     <string name="settingsListen">Listen</string>
     <string name="settingsSpeak">Speak</string>
     <string name="settingsOther">Other</string>
-    <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
+    <string name="txt_donate_paypal_settings">Support my work. Buy me a coffee 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip when it\'s loaded</string>
     <string name="toast_autoplay_clip_on">Auto-play clip is now turned on.</string>
     <string name="toast_autoplay_clip_off">Auto-play clip is now turned off.</string>
@@ -173,7 +173,7 @@
     <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-droid, Google Play Store, Aptoide) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store, Aptoide) or directly from GitHub.</string>
 
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->

@@ -87,7 +87,7 @@ class SettingsFragment : Fragment() {
         var textDonatePaypal: Button = root.findViewById(R.id.textDonatePayPal)
         textDonatePaypal.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.me/saveriomorelli"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/app/common-voice-android/redirect/coffee"))
             startActivity(browserIntent)
         }
 
