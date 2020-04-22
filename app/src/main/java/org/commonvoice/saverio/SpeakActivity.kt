@@ -161,6 +161,7 @@ class SpeakActivity : AppCompatActivity() {
             R.color.colorAlertMessageDT
         )
         theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_speak) as Button)
+        theme.setElement(isDark, view, this.findViewById(R.id.btn_send_speak) as Button)
     }
 
     fun getDateToSave(savedDate: String): String {

@@ -42,7 +42,7 @@
             android:textAlignment="gravity"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:textStyle="normal"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"

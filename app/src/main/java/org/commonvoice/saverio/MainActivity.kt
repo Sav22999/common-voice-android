@@ -8,6 +8,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.graphics.Typeface
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
@@ -19,6 +20,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -336,14 +338,16 @@ class MainActivity : AppCompatActivity() {
                 //EXM02
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_dark_theme_on)
+                    getString(R.string.toast_dark_theme_on),
+                    type = 2
                 )
             } else {
                 //this.showMessage(getString(R.string.toast_dark_theme_off))
                 //EXM03
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_dark_theme_off)
+                    getString(R.string.toast_dark_theme_off),
+                    type = 2
                 )
             }
             theme.setTheme(this, status)
@@ -615,15 +619,16 @@ class MainActivity : AppCompatActivity() {
 
     fun refreshDailyGoalDataInDashboard() {
         //refresh data of Daily goal in Dashboard
+        val goalText = this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
         if (getDailyGoal() == 0) {
-            this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-                .setText(getString(R.string.daily_goal_is_not_set))
+            goalText.setText(getString(R.string.daily_goal_is_not_set))
+            goalText.typeface = Typeface.DEFAULT
             this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                 .setText(getString(R.string.set_daily_goal))
             println("Daily goal is not set")
         } else {
-            this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-                .setText(getDailyGoal().toString())
+            goalText.setText(getDailyGoal().toString())
+            goalText.typeface = ResourcesCompat.getFont(this, R.font.sourcecodepro)
             this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                 .setText(getString(R.string.edit_daily_goal))
             println("Daily goal is set")
@@ -634,7 +639,8 @@ class MainActivity : AppCompatActivity() {
         title: String,
         text: String,
         errorCode: String = "",
-        details: String = ""
+        details: String = "",
+        type: Int = 1
     ) {
         try {
             var messageText = text
@@ -647,6 +653,7 @@ class MainActivity : AppCompatActivity() {
             }
             val message: MessageDialog =
                 MessageDialog(this, 0, title, messageText, details = details)
+            if (type != 1) message.setMessageType(type)
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
