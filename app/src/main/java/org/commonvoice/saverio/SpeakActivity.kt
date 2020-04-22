@@ -57,6 +57,11 @@ class SpeakActivity : AppCompatActivity() {
     private val FIRST_RUN_SPEAK = "FIRST_RUN_SPEAK"
     private val TODAY_CONTRIBUTING =
         "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+    private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
+    private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
+    private val DAILY_GOAL = "DAILY_GOAL"
+    var sentencesRecordedYouToday = 0
+    var sentencesValidatedYouToday = 0
 
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
@@ -75,6 +80,7 @@ class SpeakActivity : AppCompatActivity() {
     var mediaPlayer: MediaPlayer? = null //audio player
 
     var listened_first_time: Boolean = false
+    var dailyGoal: BadgeLevelDailyGoal = BadgeLevelDailyGoal(0, 0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,6 +130,18 @@ class SpeakActivity : AppCompatActivity() {
             listenAgain.setOnClickListener {
                 ListenRecording()
             }
+
+            loadStatisticsYouToday()
+            dailyGoal.setDailyGoal(
+                getSharedPreferences(DAILY_GOAL, PRIVATE_MODE).getInt(
+                    DAILY_GOAL,
+                    0
+                )
+            )//just to test
+            this.dailyGoal.setRecordings(this.sentencesRecordedYouToday)
+            this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
+            this.dailyGoal.checkDailyGoal()
+
             //API request
             API_request()
         }
@@ -189,24 +207,76 @@ class SpeakActivity : AppCompatActivity() {
             ).split(", ")
             var dateContributing = contributing[0]
             var dateContributingToSave = getDateToSave(dateContributing)
+            var nValidated: String = "?"
             var nRecorded: String = "?"
             if (dateContributingToSave == dateContributing) {
                 //same date
                 nRecorded = contributing[1]
+                nValidated = contributing[2]
+                if (nValidated == "?") {
+                    nValidated = "0"
+                }
                 if (nRecorded == "?") {
                     nRecorded = "0"
                 }
             } else {
                 //new date
+                nValidated = "0"
                 nRecorded = "0"
             }
             nRecorded = (nRecorded.toInt() + 1).toString()
             var contributingToSave =
-                dateContributingToSave + ", " + nRecorded + ", " + contributing[2]
+                dateContributingToSave + ", " + nRecorded + ", " + nValidated
             getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
                 .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
+
+            this.dailyGoal.setRecordings(nRecorded.toInt())
+            this.dailyGoal.setValidations(nValidated.toInt())
+            this.checkDailyGoal()
         } else {
             //user no logged
+        }
+    }
+
+    fun loadStatisticsYouToday() {
+        var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
+            TODAY_CONTRIBUTING,
+            "?, ?, ?"
+        ).split(", ")
+        var dateContributing = contributing[0]
+        var dateContributingToSave = getDateToSave(dateContributing)
+        if (dateContributingToSave == dateContributing) {
+            //same date
+            if (contributing[2] == "?") {
+                this.sentencesValidatedYouToday = 0
+            } else {
+                this.sentencesValidatedYouToday = contributing[2].toInt()
+            }
+            if (contributing[1] == "?") {
+                this.sentencesRecordedYouToday = 0
+            } else {
+                this.sentencesRecordedYouToday = contributing[1].toInt()
+            }
+        } else {
+            //new date
+            this.sentencesValidatedYouToday = 0
+            this.sentencesRecordedYouToday = 0
+        }
+        var contributingToSave =
+            dateContributingToSave + ", " + this.sentencesRecordedYouToday + ", " + this.sentencesValidatedYouToday
+        //println("loadStatisticsYouToday: " + this.sentencesRecordedYouToday + " -- " + this.sentencesValidatedYouToday)
+    }
+
+    fun checkDailyGoal() {
+        if (dailyGoal.checkDailyGoal()) {
+            loadStatisticsYouToday()
+            showMessageDialog(
+                "",
+                getString(R.string.daily_goal_achieved_message).replace(
+                    "{{*{{n_clips}}*}}",
+                    this.sentencesValidatedYouToday.toString()
+                ).replace("{{*{{n_sentences}}*}}", this.sentencesRecordedYouToday.toString())
+            )
         }
     }
 

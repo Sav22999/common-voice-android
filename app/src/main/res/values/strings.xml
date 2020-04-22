@@ -72,7 +72,7 @@
     <string name="settingsListen">Listen</string>
     <string name="settingsSpeak">Speak</string>
     <string name="settingsOther">Other</string>
-    <string name="txt_donate_paypal_settings">Donate to the developer on PayPal</string>
+    <string name="txt_donate_paypal_settings">Support my work. Buy me a coffee 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip when it\'s loaded</string>
     <string name="toast_autoplay_clip_on">Auto-play clip is now turned on.</string>
     <string name="toast_autoplay_clip_off">Auto-play clip is now turned off.</string>
@@ -84,13 +84,13 @@
     <string name="toast_experimental_features_on">Experimental features turned on\nNew features could be unstable and unsafe</string>
     <string name="toast_experimental_featured_off">Experimental features turned off</string>
     <string name="txt_log_on_file">Save logs to a file</string>
-    <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub: \"Saving the log\"</string>
+    <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
     <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
     <string name="txt_anonymous_statistics">Anonymous statistics</string>
     <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off">Anonymous statistics turned off.</string>
     <string name="txt_skip_recording_confirmation">Skip recording confirmation</string>
-    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nYour recordings will be sent directly without the opportunity to listen to them first.</string>
+    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on. You will now be able to send recordings without having to listen to them first.</string>
     <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
@@ -115,12 +115,16 @@
     <string name="txt_clip_again">Press the icon below to play the clip again.</string>
     <string name="txt_clip_validated_yes">Clip marked as correct!</string>
     <string name="txt_clip_validated_no">Clip marked as incorrect!</string>
-    <string name="txt_error_1_try_again_tap_skip">Error. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
+    <string name="txt_error_1_try_again_tap_skip">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
     <string name="txt_error_2_sending_failed">Failed to send the recording.</string>
     <string name="txt_sending_validation">Sending...</string>
     <string name="txt_error_3_sending_validation_failed">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
     <string name="txt_closing">Closing...</string>
     <string name="txt_error_4_clips_no_available">Error. There are no more available clips for this language.</string>
+    <string name="button_report">Report</string>
+    <string name="title_report_clip">Report clip:</string>
+    <string name="title_report_sentence">Report sentence:</string>
+    <string name="button_send_report">Send report</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Check again</string>
     <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
@@ -166,8 +170,10 @@
     <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
     <string name="daily_goal_achieved_today">Achieved today</string>
     <string name="daily_goal_not_achieved_today">Not achieved today</string>
-    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} and recorded {{*{{n_sentences}}*}}.\nFeel free to continue contributing to Common Voice.</string>
+    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store, Aptoide) or directly from GitHub.</string>
 
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->

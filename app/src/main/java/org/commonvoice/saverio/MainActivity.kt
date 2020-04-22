@@ -12,11 +12,10 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.util.DisplayMetrics
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -28,6 +27,7 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.json.JSONObject
@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
     private val DARK_THEME = "DARK_THEME"
     private val UNIQUE_USER_ID = "UNIQUE_USER_ID"
+    private val DAILY_GOAL = "DAILY_GOAL"
     var uniqueUserId = ""
 
     var dashboard_selected = false
@@ -120,12 +121,12 @@ class MainActivity : AppCompatActivity() {
             //checkPermissions()
         }
 
-        if(getStatisticsSwitch()) {
+        if (getStatisticsSwitch()) {
             statisticsAPI()
         }
 
         checkUserLoggedIn()
-
+        checkNewVersionAvailable()
         resetDashboardData()
     }
 
@@ -143,9 +144,12 @@ class MainActivity : AppCompatActivity() {
 
             //println(">> params: " + params + "<<")
 
+            var languageTemp = this.selectedLanguageVar
+            if (languageTemp == "") languageTemp = "en"
+
             url_statistics = url_statistics.replace("{{*{{username}}*}}", this.uniqueUserId)
             url_statistics = url_statistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
-            url_statistics = url_statistics.replace("{{*{{language}}*}}", this.selectedLanguageVar)
+            url_statistics = url_statistics.replace("{{*{{language}}*}}", languageTemp)
 
             val que = Volley.newRequestQueue(this)
             val req = object : JsonObjectRequest(Request.Method.POST, url_statistics, params,
@@ -199,18 +203,57 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showHelpMeMessage() {
-        if (!getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).getBoolean(
-                "FIRST_MSG_HELP_ME",
+    fun checkNewVersionAvailable() {
+        val code: String = BuildConfig.VERSION_CODE.toString()
+        val currentVersion: String = BuildConfig.VERSION_NAME
+        var serverVersion: String = currentVersion
+        if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
+                "NEW_VERSION_" + code,
                 false
             )
         ) {
-            showMessageDialog(
-                "",
-                "I\'m developing the app.\nIf you are a developer and want to help me, please go to GitHub repository or contact me on Telegram (go to Settings section).\nThanks"
-            )
-            getSharedPreferences("FIRST_MSG_HELP_ME", PRIVATE_MODE).edit()
-                .putBoolean("FIRST_MSG_HELP_ME", true).apply()
+            try {
+                val urlApiGithub =
+                    "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
+                val que = Volley.newRequestQueue(this)
+                val req = object : StringRequest(Request.Method.GET, urlApiGithub,
+                    Response.Listener {
+                        println("-->> " + it.toString() + " <<--")
+                        val jsonResult = it.toString()
+                        if (jsonResult.length > 2) {
+                            try {
+                                val jsonObj = JSONObject(
+                                    jsonResult.substring(
+                                        jsonResult.indexOf("{"),
+                                        jsonResult.lastIndexOf("}") + 1
+                                    )
+                                )
+                                serverVersion = jsonObj.getString("tag_name")
+                                if (currentVersion != serverVersion) {
+                                    showMessageDialog(
+                                        "",
+                                        getString(R.string.message_dialog_new_version_available).replace(
+                                            "{{*{{n_version}}*}}",
+                                            serverVersion
+                                        )
+                                    )
+                                    getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).edit()
+                                        .putBoolean("NEW_VERSION_" + code, true).apply()
+                                }
+                            } catch (e: Exception) {
+                                println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                            }
+                        } else {
+                            //
+                        }
+                    }, Response.ErrorListener {
+                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    }
+                ) {}
+                que.add(req)
+            } catch (e: Exception) {
+                println(" -->> Something wrong: " + e.toString() + " <<-- ")
+            }
         }
     }
 
@@ -534,6 +577,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun getDailyGoal(): Int {
+        return getSharedPreferences(DAILY_GOAL, PRIVATE_MODE).getInt(
+            DAILY_GOAL,
+            0
+        )
+    }
+
     fun resetDashboardData() {
         setSavedStatistics("you", "?")
         setSavedStatistics("everyone", "?")
@@ -547,6 +597,37 @@ class MainActivity : AppCompatActivity() {
 
     fun getSelectedLanguage(): String {
         return this.selectedLanguageVar
+    }
+
+    fun openDailyGoalDialog() {
+        try {
+            val metrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(metrics)
+            val width = metrics.widthPixels
+            //val height = metrics.heightPixels
+            val message: MessageDialog =
+                MessageDialog(this, this, 1, value = getDailyGoal(), width = width)
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: MainActivity - OPEN DAILY GOAL DIALOG: " + exception.toString() + " --!!")
+        }
+    }
+
+    fun refreshDailyGoalDataInDashboard() {
+        //refresh data of Daily goal in Dashboard
+        if (getDailyGoal() == 0) {
+            this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
+                .setText(getString(R.string.daily_goal_is_not_set))
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
+                .setText(getString(R.string.set_daily_goal))
+            println("Daily goal is not set")
+        } else {
+            this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
+                .setText(getDailyGoal().toString())
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
+                .setText(getString(R.string.edit_daily_goal))
+            println("Daily goal is set")
+        }
     }
 
     fun showMessageDialog(
@@ -628,8 +709,7 @@ class MainActivity : AppCompatActivity() {
         //EXM01
         showMessageDialog(
             "",
-            getString(R.string.toastNoLoginNoStatistics),
-            errorCode = "M01"
+            getString(R.string.toastNoLoginNoStatistics)
         )
     }
 
@@ -786,12 +866,6 @@ class MainActivity : AppCompatActivity() {
 
     fun stopAnimation(img: Button) {
         img.clearAnimation()
-    }
-
-    fun openWebBrowserForTest() {
-        val intent = Intent(this, WebBrowser::class.java).also {
-            startActivity(it)
-        }
     }
 
     fun setAutoPlay(status: Boolean) {

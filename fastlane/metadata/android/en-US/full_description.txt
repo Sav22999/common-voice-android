@@ -2,6 +2,7 @@
 <p>There is already the <a href="https://voice.mozilla.org/">website</a>, which is responsive and mobile-friendly, but it is actually very slow, because of so many animations/graphic effects, which could distract you to record or validate clips. So, this app want to improve the experience of this fantastic project. In it you can find your statistics, or you can record/validate a clip just with a single click.</p>
 <p>This app is developed by Saverio Morelli, a volunteer of Mozilla Italia. It's not developed by or for Mozilla.</p>
 <p><b>App features:</b><br>
-(1) Log-in to your Common Voice account, (2) Validate clips, (3) Record senteces, (4) Badges and Levels based on sentences recorded/validated, (5) Multi-languages supported, (6) Statistics of the selected language, filtered by Today and Ever, and by You and Everyone, (7) Voices online of the selected language, (8) Dark theme supported</p>
+(1) Log-in to your Common Voice account, (2) Validate clips, (3) Record senteces, (4) Badges and Levels based on sentences recorded/validated, (5) Multi-languages supported, (6) Statistics of the selected language, filtered by Today and Ever, and by You and Everyone, (7) Voices online of the selected language, (8) Dark theme supported</p>, (9) Daily goal
 <p><b>What is Common Voice?</b><br>
 Common Voice is Mozilla's initiative to help teach machines how real people speak. <a href="https://voice.mozilla.org/about">Read more on the offical website</a></p>
+<p>In the app there are also "Anonymous statistics". We don't collect your personal data. We only use statistics to see how many people use the app each day. You can see those statistics here: https://www.saveriomorelli.com/app/common-voice-android/statistics/</p>

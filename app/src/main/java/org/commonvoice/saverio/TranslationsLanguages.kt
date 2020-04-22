@@ -6,7 +6,7 @@ class TranslationsLanguages {
     constructor() {
         // Change manually
         this.translations_languages =
-            arrayOf("cs", "de", "en", "es", "eu", "fr", "ia", "it", "nl", "ru", "sv")
+            arrayOf("cs", "de", "en", "es", "eu", "fr", "ia", "it", "nl", "ru", "sv", "tr")
     }
 
     fun getAll(): Array<String>? {
