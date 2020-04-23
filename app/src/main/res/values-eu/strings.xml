@@ -171,7 +171,7 @@
     <string name="daily_goal_achieved_message">Ongi! zure eguneko helburua lortu duzu.|nBaieztatu dituzu {{*{{n_clips}}*}} klip(s) eta {{*{{n_sentences}}*}} esaldi grabatu(s).\nLibre sentitu zaitez Common Voice laguntzen jarraitzeko.</string>
     <string name="daily_goal_is_not_official_by_mozilla">Eguneko helburu hau ez da ezaugarri ofiziala Mozillarentzat. Aplikazio honen ezaugarri bat besterik ez da.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">Aplikazioaren bertsio berri bat eskuragarri dago (release {{*{{n_version}}*}}). Zure denda gogokoenetik (F-Droid, Google Play Store, Aptoide) edo zuzenean GitHubetik eguneratu dezakezu.</string>
+    <string name="message_dialog_new_version_available">Aplikazioaren bertsio berri bat eskuragarri dago (release {{*{{n_version}}*}}). Zure denda gogokoenetik (F-Droid, Google Play Store) edo zuzenean GitHubetik eguneratu dezakezu.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

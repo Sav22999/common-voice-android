@@ -171,7 +171,7 @@
     <string name="daily_goal_achieved_message">Ben fatto! Hai raggiunto l\'obiettivo giornaliero.\nHai convalidato {{*{{n_clips}}*}} registrazioni e registrato {{*{{n_sentences}}*}} frasi.\nPuoi continuare comunque a contribuire a Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">Questo obiettivo giornaliero non è una funzionalità ufficiale di Mozilla. È una funzione di questa app.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">È disponibile una nuova versione dell\'app (release {{*{{n_version}}*}}). Puoi aggiornarla dal tuo store preferito (F-Droid, Google Play Store, Aptoide) oppure direttamente da GitHub.</string>
+    <string name="message_dialog_new_version_available">È disponibile una nuova versione dell\'app (release {{*{{n_version}}*}}). Puoi aggiornarla dal tuo store preferito (F-Droid, Google Play Store) oppure direttamente da GitHub.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
