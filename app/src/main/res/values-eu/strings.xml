@@ -70,7 +70,7 @@
     <string name="settingsListen">Entzun</string>
     <string name="settingsSpeak">Hitz egin</string>
     <string name="settingsOther">Beste bat</string>
-    <string name="txt_donate_paypal_settings">Support my work. Buy me a coffee 😄</string>
+    <string name="txt_donate_paypal_settings">Babestu nire lana. Ordain iezadazu kafe bat 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings">Erreprodukzio automatikoko klipa kargatuta dagoenean</string>
     <string name="toast_autoplay_clip_on">Erreprodukzio automatikoko klipa aktibatu da.</string>
     <string name="toast_autoplay_clip_off">Erreprodukzio automatikoko klipa desaktibatu da.</string>
