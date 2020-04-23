@@ -1,6 +1,7 @@
 package org.commonvoice.saverio.ui.dashboard
 
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.webkit.WebView
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.android.volley.AuthFailureError
@@ -131,15 +133,16 @@ class DashboardFragment : Fragment() {
                 main.openDailyGoalDialog()
             }
 
+            val goalText = root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
             if (main.getDailyGoal() == 0) {
-                root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-                    .setText(getString(R.string.daily_goal_is_not_set))
+                goalText.setText(getString(R.string.daily_goal_is_not_set))
+                goalText.typeface = Typeface.DEFAULT
                 root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                     .setText(getString(R.string.set_daily_goal))
                 println("Daily goal is not set")
             } else {
-                root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-                    .setText(main.getDailyGoal().toString())
+                goalText.setText(main.getDailyGoal().toString())
+                goalText.typeface = ResourcesCompat.getFont(main, R.font.sourcecodepro)
                 root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                     .setText(getString(R.string.edit_daily_goal))
                 println("Daily goal is set")

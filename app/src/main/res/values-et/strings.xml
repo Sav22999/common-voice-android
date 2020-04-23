@@ -10,7 +10,7 @@
     <!-- Home (main) -->
     <string name="description_cv_robot">Common Voice logo</string>
     <string name="description_cv_logo">Common Voice robot</string>
-    <string name="button_home_login">Log in / Sign up</string>
+    <string name="button_home_login">Logi sisse / Registreeru</string>
     <string name="button_home_logout">Logi välja</string>
     <string name="button_home_profile">Profiil</string>
     <string name="text_hi_username">Tere</string>
@@ -91,7 +91,7 @@
     <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on. You will now be able to send recordings without having to listen to them first.</string>
     <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Loading a sentence...</string>
+    <string name="txt_loading_sentence">Rakenduse laadimine...</string>
     <string name="btn_skip_sentence">Jäta vahele</string>
     <string name="btn_send_sentence">Saada salvestus</string>
     <string name="txt_loading_clip">Loading clip...</string>
@@ -103,7 +103,7 @@
     <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
     <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_sending_recording">Sending the recording...</string>
+    <string name="txt_sending_recording">Salvestust saadetakse...</string>
     <string name="txt_recording_sent">Salvestus saadetud!</string>
     <string name="txt_sending_recording_failed">Failed to send recording!</string>
     <string name="txt_sending_recording_failed_and_skip">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>

@@ -31,6 +31,7 @@
     <!-- Dark theme (DT) -->
     <color name="colorBackgroundDT">#222222</color>
     <color name="colorBackgroundButtonDT">#999999</color>
+    <color name="colorAccentDT">#999999</color>
     <color name="colorAlertMessageDT">#FFAAAA</color>
     <color name="colorSelectedBackgroundDT">@color/colorBackgroundDT</color>
     <color name="colorSelectedDT">#FF7777</color>

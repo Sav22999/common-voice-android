@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -133,6 +134,18 @@ class DarkLightTheme {
         } else {
             element.setBackgroundResource(R.drawable.btn_rounded)
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
+        }
+    }
+
+    fun setElement(theme: Boolean, view: Context, element: SeekBar) {
+        if (theme) {
+            element.progressTintList = ContextCompat.getColorStateList(view, R.color.colorAccentDT)
+            element.progressBackgroundTintList = ContextCompat.getColorStateList(view, R.color.colorAccentDT)
+            element.thumbTintList = ContextCompat.getColorStateList(view, R.color.colorWhite)
+        } else {
+            element.progressTintList = ContextCompat.getColorStateList(view, R.color.colorAccent)
+            element.progressBackgroundTintList = ContextCompat.getColorStateList(view, R.color.colorAccent)
+            element.thumbTintList = ContextCompat.getColorStateList(view, R.color.colorBlack)
         }
     }
 

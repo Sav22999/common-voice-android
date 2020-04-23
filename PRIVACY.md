@@ -14,7 +14,7 @@ If you want additional information about the Policy privacy of Common Voice proj
 
 ### Anonymous statistics
 
-**YOU CAN DISABLE ANONYMOUS STATISTICS ALWAYS, GO TO SETTINGS**
+*You can disable Anonymous Statistics always, in Settings. __I recommend leaving it active, because it does NOT send personal data but only serves to understand the daily user. __*
 
 These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language** and **logged_status**.
 
