@@ -760,27 +760,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openTutorial() {
-        val intent = Intent(this, TutorialActivity::class.java).also {
+        Intent(this, TutorialActivity::class.java).also {
             startActivity(it)
             finish()
         }
     }
 
     fun openSpeakSection() {
-        val intent = Intent(this, SpeakActivity::class.java).also {
+        Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }
     }
 
     fun openListenSection() {
-        val intent = Intent(this, ListenActivity::class.java).also {
+        Intent(this, ListenActivity::class.java).also {
             startActivity(it)
         }
     }
 
     fun openLoginSection() {
         //"110" is chosen by me to identify this request
-        val intent = Intent(this, LoginActivity::class.java).also {
+        Intent(this, LoginActivity::class.java).also {
             startActivityForResult(it, 110)
         }
     }

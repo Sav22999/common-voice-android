@@ -73,6 +73,7 @@ class ListenActivity : AppCompatActivity() {
     var loading: Boolean = false //there is already a request at the server
 
     var dailyGoal: BadgeLevelDailyGoal = BadgeLevelDailyGoal(0, 0)
+    var isDailyGoalJustAchieved: Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -273,6 +274,7 @@ class ListenActivity : AppCompatActivity() {
                     this.sentencesValidatedYouToday.toString()
                 ).replace("{{*{{n_sentences}}*}}", this.sentencesRecordedYouToday.toString())
             )
+            this.isDailyGoalJustAchieved = true
         }
     }
 
@@ -280,6 +282,7 @@ class ListenActivity : AppCompatActivity() {
         checkConnection()
 
         StopListening()
+        this.mediaPlayer?.reset()
         var sentence: TextView = this.findViewById(R.id.textListenSentence)
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
@@ -327,9 +330,10 @@ class ListenActivity : AppCompatActivity() {
                 }
                 this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
 
-                if (this.autoPlayClips && !this.isFinishing && !dailyGoal.checkDailyGoal()) {
+                if (this.autoPlayClips && !this.isFinishing && !this.isDailyGoalJustAchieved) {
                     StartListening()
                 }
+                this.isDailyGoalJustAchieved = false
             }
 
             if (this.idSentence[0] != 0 && this.opened || !this.opened) {
