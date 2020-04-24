@@ -71,6 +71,14 @@ class MainActivity : AppCompatActivity() {
     private val DARK_THEME = "DARK_THEME"
     private val UNIQUE_USER_ID = "UNIQUE_USER_ID"
     private val DAILY_GOAL = "DAILY_GOAL"
+    private val EXPERIMENTAL_FEATURES = "EXPERIMENTAL_FEATURES"
+    private val SAVING_LOGS = "SAVING_LOGS"
+    private val CHECK_FOR_UPDATES = "CHECK_FOR_UPDATES"
+    private val SKIP_RECORDING_CONFIRMATION = "SKIP_RECORDING_CONFIRMATION"
+    private val RECORDING_INDICATOR_SOUND = "RECORDING_INDICATOR_SOUND"
+
+    var isExperimentalFeaturesActived: Boolean? = null
+
     var uniqueUserId = ""
 
     var dashboard_selected = false
@@ -118,19 +126,17 @@ class MainActivity : AppCompatActivity() {
 
         if (this.firstRun) {
             // close main and open tutorial -- first run
-            openTutorial()
+            this.openTutorial()
         } else {
-            setLanguageUI("start")
+            this.setLanguageUI("start")
             //checkPermissions()
         }
 
-        if (getStatisticsSwitch()) {
-            statisticsAPI()
+        this.checkUserLoggedIn()
+        this.resetDashboardData()
+        if (this.getCheckForUpdatesSwitch()) {
+            this.checkNewVersionAvailable()
         }
-
-        checkUserLoggedIn()
-        checkNewVersionAvailable()
-        resetDashboardData()
     }
 
     fun statisticsAPI() {
@@ -210,6 +216,7 @@ class MainActivity : AppCompatActivity() {
         val code: String = BuildConfig.VERSION_CODE.toString()
         val currentVersion: String = BuildConfig.VERSION_NAME
         var serverVersion: String = currentVersion
+        println(">> current: " + currentVersion + " - new: " + serverVersion)
         if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
                 "NEW_VERSION_" + code,
                 false
@@ -376,11 +383,102 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun getExperimentalFeaturesSwitch(): Boolean {
+        return getSharedPreferences(EXPERIMENTAL_FEATURES, PRIVATE_MODE).getBoolean(
+            EXPERIMENTAL_FEATURES,
+            false
+        )
+    }
+
+    fun getExperimentalFeaturesValue(): Boolean {
+        if (this.isExperimentalFeaturesActived == null) {
+            this.isExperimentalFeaturesActived = getExperimentalFeaturesSwitch()
+        }
+        return this.isExperimentalFeaturesActived!!
+    }
+
+    fun setExperimentalFeaturesSwitch(status: Boolean) {
+        if (status != this.getExperimentalFeaturesSwitch()) {
+            if (status) {
+                //EXM07
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_experimental_features_on)
+                )
+                statisticsAPI()
+            } else {
+                //EXM08
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_experimental_featured_off)
+                )
+            }
+            getSharedPreferences(EXPERIMENTAL_FEATURES, PRIVATE_MODE).edit()
+                .putBoolean(EXPERIMENTAL_FEATURES, status).apply()
+        }
+    }
+
     fun getStatisticsSwitch(): Boolean {
         return getSharedPreferences(ANONYMOUS_STATISTICS, PRIVATE_MODE).getBoolean(
             ANONYMOUS_STATISTICS,
             true
         )
+    }
+
+    fun getRecordingIndicatorSoundSwitch(): Boolean {
+        return getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).getBoolean(
+            RECORDING_INDICATOR_SOUND,
+            false
+        )
+    }
+
+    fun setRecordingIndicatorSoundSwitch(status: Boolean) {
+        if (status != this.getRecordingIndicatorSoundSwitch()) {
+            if (status) {
+                //EXM07
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_recording_indicator_sound_on)
+                )
+                statisticsAPI()
+            } else {
+                //EXM08
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_recording_indicator_sound_off)
+                )
+            }
+            getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).edit()
+                .putBoolean(RECORDING_INDICATOR_SOUND, status).apply()
+        }
+    }
+
+    fun getCheckForUpdatesSwitch(): Boolean {
+        return getSharedPreferences(CHECK_FOR_UPDATES, PRIVATE_MODE).getBoolean(
+            CHECK_FOR_UPDATES,
+            true
+        )
+    }
+
+    fun setCheckForUpdatesSwitch(status: Boolean) {
+        if (status != this.getCheckForUpdatesSwitch()) {
+            if (status) {
+                //EXM07
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_check_for_updated_on)
+                )
+                statisticsAPI()
+            } else {
+                //EXM08
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_check_for_updated_off)
+                )
+            }
+            getSharedPreferences(CHECK_FOR_UPDATES, PRIVATE_MODE).edit()
+                .putBoolean(CHECK_FOR_UPDATES, status).apply()
+        }
     }
 
     fun setSavedStatistics(type: String, statistics: String) {

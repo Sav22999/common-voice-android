@@ -84,13 +84,6 @@ class SettingsFragment : Fragment() {
             startActivity(browserIntent)
         }
 
-        var textDonatePaypal: Button = root.findViewById(R.id.textDonatePayPal)
-        textDonatePaypal.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/app/common-voice-android/redirect/coffee"))
-            startActivity(browserIntent)
-        }
-
         var btnContactDeveloperTelegram: Button = root.findViewById(R.id.buttonContactOnTelegram)
         btnContactDeveloperTelegram.setOnClickListener {
             val browserIntent =
@@ -144,6 +137,53 @@ class SettingsFragment : Fragment() {
             main.setStatisticsSwitch(isChecked)
         }
         switchStatisticsSettings.isChecked = main.getStatisticsSwitch()
+
+        var switchExperimentalFeaturesSettings: Switch = root.findViewById(R.id.switchExperimentalFeatures)
+        switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setExperimentalFeaturesSwitch(isChecked)
+        }
+        switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
+
+        var btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
+        btnTranslateTheApp.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://crowdin.com/project/common-voice-android"))
+            startActivity(browserIntent)
+        }
+
+        var btnSeeStatistics: Button = root.findViewById(R.id.buttonSeeStatistics)
+        btnSeeStatistics.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/app/common-voice-android/statistics/"))
+            startActivity(browserIntent)
+        }
+
+        var recordingIndicatorSoundSettings: Switch = root.findViewById(R.id.switchRecordingSound)
+        recordingIndicatorSoundSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setRecordingIndicatorSoundSwitch(isChecked)
+        }
+        recordingIndicatorSoundSettings.isChecked = main.getRecordingIndicatorSoundSwitch()
+
+        var checkForUpdatesSettings: Switch = root.findViewById(R.id.switchCheckForUpdates)
+        checkForUpdatesSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setCheckForUpdatesSwitch(isChecked)
+        }
+        checkForUpdatesSettings.isChecked = main.getCheckForUpdatesSwitch()
 
         setTheme(main, root)
 

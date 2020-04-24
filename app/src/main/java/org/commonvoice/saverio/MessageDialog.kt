@@ -66,7 +66,11 @@ class MessageDialog {
                         .setTitle(message_title)
                     //show dialog
                     val alertDialog = builder.show()
-                    dialogView.labelTextMessageDialog.setText(this.message_text)
+                    var message_to_show = this.message_text
+                    if (this.message_title != "") {
+                        message_to_show = this.message_title + "\n" + message_to_show
+                    }
+                    dialogView.labelTextMessageDialog.setText(message_to_show)
                     if (this.message_details != "") {
                         dialogView.labelDetailsMessageDialog.setText(this.message_details)
                         dialogView.btnShowHideDetailsMessageDialog.isGone = false
@@ -92,7 +96,7 @@ class MessageDialog {
                     println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
                 }
             } else if (this.message_type == 1) {
-                println("Daily goal")
+                //println("Daily goal")
                 try {
                     val dialogView =
                         LayoutInflater.from(this.context).inflate(R.layout.daily_goal, null)

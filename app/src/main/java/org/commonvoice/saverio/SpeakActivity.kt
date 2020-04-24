@@ -60,6 +60,8 @@ class SpeakActivity : AppCompatActivity() {
     private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
     private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
     private val DAILY_GOAL = "DAILY_GOAL"
+    private val SKIP_RECORDING_CONFIRMATION = "SKIP_RECORDING_CONFIRMATION"
+    private val RECORDING_INDICATOR_SOUND = "RECORDING_INDICATOR_SOUND"
     var sentencesRecordedYouToday = 0
     var sentencesValidatedYouToday = 0
 
@@ -146,6 +148,13 @@ class SpeakActivity : AppCompatActivity() {
             API_request()
         }
         setTheme(this)
+    }
+
+    fun getRecordingIndicatorSoundSwitch(): Boolean {
+        return getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).getBoolean(
+            RECORDING_INDICATOR_SOUND,
+            false
+        )
     }
 
     fun setTheme(view: Context) {
@@ -442,8 +451,8 @@ class SpeakActivity : AppCompatActivity() {
         var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
         var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
         if (btnSkip.isEnabled || txtSentence.text == "...") {
-            StopRecording()
-            DeleteRecording()
+            //StopRecording()
+            //DeleteRecording()
             var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
             btnSkip.isEnabled = false
             msg.text = getString(R.string.txt_closing)
@@ -455,31 +464,17 @@ class SpeakActivity : AppCompatActivity() {
         //start or re-start recording
         checkPermissions()
         try {
-            this.listened_first_time = false
-            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
-            mediaRecorder = MediaRecorder().apply {
-                setAudioSource(MediaRecorder.AudioSource.MIC)
-                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-                setMaxDuration(10001)
-                setOutputFile(output)
-                setAudioEncodingBitRate(16 * 44100)
-                setAudioSamplingRate(44100)
-                prepare()
-                start()
-            }
-
-
-            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-            var btnSend: Button = this.findViewById(R.id.btn_send_speak)
             var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
             btnRecord.setBackgroundResource(R.drawable.stop_cv)
-            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
-            btnSend.isVisible = false
-            btnListenAgain.isGone = true
-            btnListenAgain.isVisible = false
-            msg.text = getString(R.string.txt_press_icon_below_speak_2)
-            this.status = 1
+            if (this.getRecordingIndicatorSoundSwitch()) {
+                val startedSound: MediaPlayer = MediaPlayer.create(this, R.raw.started)
+                startedSound.setOnCompletionListener {
+                    StartRecordingAfterSound()
+                }
+                startedSound.start()
+            } else {
+                StartRecordingAfterSound()
+            }
         } catch (e: Exception) {
             //println(" -->> Something wrong: "+e.toString()+" <<-- ")
             //EXS01
@@ -492,6 +487,32 @@ class SpeakActivity : AppCompatActivity() {
         }
     }
 
+    fun StartRecordingAfterSound() {
+        this.listened_first_time = false
+        output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
+        mediaRecorder = MediaRecorder().apply {
+            setAudioSource(MediaRecorder.AudioSource.MIC)
+            setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            setMaxDuration(10001)
+            setOutputFile(output)
+            setAudioEncodingBitRate(16 * 44100)
+            setAudioSamplingRate(44100)
+            prepare()
+            start()
+        }
+
+
+        var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+        var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+        btnSend.isVisible = false
+        btnListenAgain.isGone = true
+        btnListenAgain.isVisible = false
+        msg.text = getString(R.string.txt_press_icon_below_speak_2)
+        this.status = 1
+    }
+
     @SuppressLint("RestrictedApi", "SetTextI18n")
     @TargetApi(Build.VERSION_CODES.N)
     fun StopRecording() {
@@ -500,6 +521,12 @@ class SpeakActivity : AppCompatActivity() {
             try {
                 mediaRecorder?.stop()
                 mediaRecorder?.release()
+                if (this.getRecordingIndicatorSoundSwitch()) {
+                    val finishedSound: MediaPlayer = MediaPlayer.create(this, R.raw.finished)
+                    finishedSound.setOnCompletionListener {
+                    }
+                    finishedSound.start()
+                }
             } catch (exception_temp: Exception) {
                 //
             }
