@@ -511,12 +511,12 @@ class MainActivity : AppCompatActivity() {
         if (status != this.getAbortConfirmationDialogsInSettingsSwitch()) {
             if (status) {
                 //EXM07
-                if (!isAbortConfirmation) {
+                /*
                     showMessageDialog(
                         "",
                         getString(R.string.toast_abort_confirmation_dialogs_in_settings_on)
                     )
-                }
+                */
             } else {
                 //EXM08
                 showMessageDialog(
@@ -524,6 +524,7 @@ class MainActivity : AppCompatActivity() {
                     getString(R.string.toast_abort_confirmation_dialogs_in_settings_off)
                 )
             }
+            this.isAbortConfirmation = status
             getSharedPreferences(ABORT_CONFIRMATION_DIALOGS_SETTINGS, PRIVATE_MODE).edit()
                 .putBoolean(ABORT_CONFIRMATION_DIALOGS_SETTINGS, status).apply()
         }
