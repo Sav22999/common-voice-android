@@ -185,6 +185,18 @@ class SettingsFragment : Fragment() {
         }
         checkForUpdatesSettings.isChecked = main.getCheckForUpdatesSwitch()
 
+        var abortConfirmationDialogsSettings: Switch = root.findViewById(R.id.switchAbortConfirmationDialogsInSettings)
+        abortConfirmationDialogsSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setAbortConfirmationDialogsInSettingsSwitch(isChecked)
+        }
+        abortConfirmationDialogsSettings.isChecked = main.getAbortConfirmationDialogsInSettingsSwitch()
+        main.isAbortConfirmation = abortConfirmationDialogsSettings.isChecked
+
         setTheme(main, root)
 
         return root

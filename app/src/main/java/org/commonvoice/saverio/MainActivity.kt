@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
     private val CHECK_FOR_UPDATES = "CHECK_FOR_UPDATES"
     private val SKIP_RECORDING_CONFIRMATION = "SKIP_RECORDING_CONFIRMATION"
     private val RECORDING_INDICATOR_SOUND = "RECORDING_INDICATOR_SOUND"
+    private val ABORT_CONFIRMATION_DIALOGS_SETTINGS = "ABORT_CONFIRMATION_DIALOGS_SETTINGS"
 
     var isExperimentalFeaturesActived: Boolean? = null
 
@@ -93,6 +94,7 @@ class MainActivity : AppCompatActivity() {
     var userName: String = ""
     var darkTheme: Boolean = false
     var theme: DarkLightTheme = DarkLightTheme()
+    var isAbortConfirmation: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -344,19 +346,23 @@ class MainActivity : AppCompatActivity() {
             if (status) {
                 //this.showMessage(getString(R.string.toast_dark_theme_on))
                 //EXM02
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_dark_theme_on),
-                    type = 2
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_dark_theme_on),
+                        type = 2
+                    )
+                }
             } else {
                 //this.showMessage(getString(R.string.toast_dark_theme_off))
                 //EXM03
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_dark_theme_off),
-                    type = 2
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_dark_theme_off),
+                        type = 2
+                    )
+                }
             }
             theme.setTheme(this, status)
         }
@@ -366,17 +372,21 @@ class MainActivity : AppCompatActivity() {
         if (status != this.getStatisticsSwitch()) {
             if (status) {
                 //EXM07
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_anonymous_statistics_on)
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_anonymous_statistics_on)
+                    )
+                }
                 statisticsAPI()
             } else {
                 //EXM08
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_anonymous_statistics_off)
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_anonymous_statistics_off)
+                    )
+                }
             }
             getSharedPreferences(ANONYMOUS_STATISTICS, PRIVATE_MODE).edit()
                 .putBoolean(ANONYMOUS_STATISTICS, status).apply()
@@ -401,17 +411,20 @@ class MainActivity : AppCompatActivity() {
         if (status != this.getExperimentalFeaturesSwitch()) {
             if (status) {
                 //EXM07
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_experimental_features_on)
-                )
-                statisticsAPI()
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_experimental_features_on)
+                    )
+                }
             } else {
                 //EXM08
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_experimental_featured_off)
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_experimental_featured_off)
+                    )
+                }
             }
             getSharedPreferences(EXPERIMENTAL_FEATURES, PRIVATE_MODE).edit()
                 .putBoolean(EXPERIMENTAL_FEATURES, status).apply()
@@ -436,17 +449,20 @@ class MainActivity : AppCompatActivity() {
         if (status != this.getRecordingIndicatorSoundSwitch()) {
             if (status) {
                 //EXM07
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_recording_indicator_sound_on)
-                )
-                statisticsAPI()
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_recording_indicator_sound_on)
+                    )
+                }
             } else {
                 //EXM08
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_recording_indicator_sound_off)
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_recording_indicator_sound_off)
+                    )
+                }
             }
             getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).edit()
                 .putBoolean(RECORDING_INDICATOR_SOUND, status).apply()
@@ -464,20 +480,52 @@ class MainActivity : AppCompatActivity() {
         if (status != this.getCheckForUpdatesSwitch()) {
             if (status) {
                 //EXM07
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_check_for_updated_on)
-                )
-                statisticsAPI()
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_check_for_updated_on)
+                    )
+                }
+            } else {
+                //EXM08
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_check_for_updated_off)
+                    )
+                }
+            }
+            getSharedPreferences(CHECK_FOR_UPDATES, PRIVATE_MODE).edit()
+                .putBoolean(CHECK_FOR_UPDATES, status).apply()
+        }
+    }
+
+    fun getAbortConfirmationDialogsInSettingsSwitch(): Boolean {
+        return getSharedPreferences(ABORT_CONFIRMATION_DIALOGS_SETTINGS, PRIVATE_MODE).getBoolean(
+            ABORT_CONFIRMATION_DIALOGS_SETTINGS,
+            false
+        )
+    }
+
+    fun setAbortConfirmationDialogsInSettingsSwitch(status: Boolean) {
+        if (status != this.getAbortConfirmationDialogsInSettingsSwitch()) {
+            if (status) {
+                //EXM07
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_abort_confirmation_dialogs_in_settings_on)
+                    )
+                }
             } else {
                 //EXM08
                 showMessageDialog(
                     "",
-                    getString(R.string.toast_check_for_updated_off)
+                    getString(R.string.toast_abort_confirmation_dialogs_in_settings_off)
                 )
             }
-            getSharedPreferences(CHECK_FOR_UPDATES, PRIVATE_MODE).edit()
-                .putBoolean(CHECK_FOR_UPDATES, status).apply()
+            getSharedPreferences(ABORT_CONFIRMATION_DIALOGS_SETTINGS, PRIVATE_MODE).edit()
+                .putBoolean(ABORT_CONFIRMATION_DIALOGS_SETTINGS, status).apply()
         }
     }
 
@@ -979,17 +1027,21 @@ class MainActivity : AppCompatActivity() {
             if (status) {
                 //this.showMessage(getString(R.string.toast_autoplay_clip_on))
                 //EXM05
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_autoplay_clip_on)
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_autoplay_clip_on)
+                    )
+                }
             } else {
                 //this.showMessage(getString(R.string.toast_autoplay_clip_off))
                 //EXM06
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_autoplay_clip_off)
-                )
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_autoplay_clip_off)
+                    )
+                }
             }
             getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()
                 .putBoolean(AUTO_PLAY_CLIPS, status).apply()

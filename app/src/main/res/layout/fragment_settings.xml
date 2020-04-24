@@ -97,6 +97,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator4" />
 
+        <Switch
+            android:id="@+id/switchAbortConfirmationDialogsInSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_abort_confirmation_dialogs_in_settings"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator10" />
+
+        <View
+            android:id="@+id/separator13"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchAbortConfirmationDialogsInSettings" />
+
         <View
             android:id="@+id/separator12"
             android:layout_width="match_parent"
@@ -529,7 +562,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textDevelopedBy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator10" />
+            app:layout_constraintTop_toBottomOf="@+id/separator13" />
 
         <ImageView
             android:id="@+id/imageLanguageIcon"

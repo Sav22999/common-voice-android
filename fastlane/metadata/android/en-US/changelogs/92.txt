@@ -1,0 +1,7 @@
+- Fixed many bugs
+- Added "Check for updates" in Settings
+- Added "Recording indicator sound" in Settings
+- Added "Experimental features" in Settings
+- Added "Translate the app on Crowdin" and "See app statistics" in Settings
+- Removed "Donate" button in Settings
+- Added "Abort confirmation dialogs in Settings" in Settings
