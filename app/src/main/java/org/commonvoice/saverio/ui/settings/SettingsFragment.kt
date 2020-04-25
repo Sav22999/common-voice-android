@@ -36,26 +36,26 @@ class SettingsFragment : Fragment() {
             ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
 
-        var main = (activity as MainActivity)
+        val main = (activity as MainActivity)
         main.dashboard_selected = false
 
         val textLanguage: TextView = root.findViewById(R.id.text_settingsLanguage)
         textLanguage.text = getText(R.string.settingsLanguage)
         //val model = ViewModelProviders.of(activity!!).get(SettingsViewModel::class.java)
 
-        var releaseNumber: TextView = root.findViewById(R.id.textRelease)
+        val releaseNumber: TextView = root.findViewById(R.id.textRelease)
         releaseNumber.text = BuildConfig.VERSION_NAME
 
-        releaseNumber.text = BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")"
+        releaseNumber.text = (BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")")
 
         // import the languages list (short and "standard" from mainactivity)
         this.languagesListShort = main.languagesListShortArray
         this.languagesList = main.languagesListArray
 
-        var language: Spinner = root.findViewById(R.id.languageList)
+        val language: Spinner = root.findViewById(R.id.languageList)
         language.adapter = main.getLanguageList()
 
-        var selectedLanguage: String = main.getSelectedLanguage()
+        val selectedLanguage: String = main.getSelectedLanguage()
 
         language.setSelection(languagesListShort.indexOf(selectedLanguage))
 
@@ -74,7 +74,7 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        var textProjectGithub: Button = root.findViewById(R.id.textProjectGitHub)
+        val textProjectGithub: Button = root.findViewById(R.id.textProjectGitHub)
         textProjectGithub.setOnClickListener {
             val browserIntent =
                 Intent(
@@ -84,27 +84,27 @@ class SettingsFragment : Fragment() {
             startActivity(browserIntent)
         }
 
-        var btnContactDeveloperTelegram: Button = root.findViewById(R.id.buttonContactOnTelegram)
+        val btnContactDeveloperTelegram: Button = root.findViewById(R.id.buttonContactOnTelegram)
         btnContactDeveloperTelegram.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Sav22999"))
             startActivity(browserIntent)
         }
 
-        var btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
+        val btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
         btnOpenTutorial.setOnClickListener {
             main.openTutorial()
         }
 
-        var txtContributors: TextView = root.findViewById(R.id.textContributors)
+        val txtContributors: TextView = root.findViewById(R.id.textContributors)
         txtContributors.text = getString(R.string.txt_contributors)
 
-        var txtDevelopedBy: TextView = root.findViewById(R.id.textDevelopedBy)
+        val txtDevelopedBy: TextView = root.findViewById(R.id.textDevelopedBy)
         txtDevelopedBy.text = getString(R.string.txt_developed_by)
 
         main.checkConnection()
 
-        var switchAutoPlaySettings: Switch = root.findViewById(R.id.switchAutoPlayClips)
+        val switchAutoPlaySettings: Switch = root.findViewById(R.id.switchAutoPlayClips)
         switchAutoPlaySettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -115,7 +115,7 @@ class SettingsFragment : Fragment() {
         }
         switchAutoPlaySettings.isChecked = main.getAutoPlay()
 
-        var switchDarkThemeSettings: Switch = root.findViewById(R.id.switchDarkTheme)
+        val switchDarkThemeSettings: Switch = root.findViewById(R.id.switchDarkTheme)
         switchDarkThemeSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -127,7 +127,7 @@ class SettingsFragment : Fragment() {
         }
         switchDarkThemeSettings.isChecked = theme.getTheme(main)
 
-        var switchStatisticsSettings: Switch = root.findViewById(R.id.switchAnonymousStatistics)
+        val switchStatisticsSettings: Switch = root.findViewById(R.id.switchAnonymousStatistics)
         switchStatisticsSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -138,7 +138,7 @@ class SettingsFragment : Fragment() {
         }
         switchStatisticsSettings.isChecked = main.getStatisticsSwitch()
 
-        var switchExperimentalFeaturesSettings: Switch = root.findViewById(R.id.switchExperimentalFeatures)
+        val switchExperimentalFeaturesSettings: Switch = root.findViewById(R.id.switchExperimentalFeatures)
         switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -149,21 +149,21 @@ class SettingsFragment : Fragment() {
         }
         switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
 
-        var btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
+        val btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
         btnTranslateTheApp.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://crowdin.com/project/common-voice-android"))
             startActivity(browserIntent)
         }
 
-        var btnSeeStatistics: Button = root.findViewById(R.id.buttonSeeStatistics)
+        val btnSeeStatistics: Button = root.findViewById(R.id.buttonSeeStatistics)
         btnSeeStatistics.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/app/common-voice-android/statistics/"))
             startActivity(browserIntent)
         }
 
-        var recordingIndicatorSoundSettings: Switch = root.findViewById(R.id.switchRecordingSound)
+        val recordingIndicatorSoundSettings: Switch = root.findViewById(R.id.switchRecordingSound)
         recordingIndicatorSoundSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -174,7 +174,7 @@ class SettingsFragment : Fragment() {
         }
         recordingIndicatorSoundSettings.isChecked = main.getRecordingIndicatorSoundSwitch()
 
-        var checkForUpdatesSettings: Switch = root.findViewById(R.id.switchCheckForUpdates)
+        val checkForUpdatesSettings: Switch = root.findViewById(R.id.switchCheckForUpdates)
         checkForUpdatesSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -185,7 +185,7 @@ class SettingsFragment : Fragment() {
         }
         checkForUpdatesSettings.isChecked = main.getCheckForUpdatesSwitch()
 
-        var abortConfirmationDialogsSettings: Switch = root.findViewById(R.id.switchAbortConfirmationDialogsInSettings)
+        val abortConfirmationDialogsSettings: Switch = root.findViewById(R.id.switchAbortConfirmationDialogsInSettings)
         abortConfirmationDialogsSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON

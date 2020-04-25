@@ -37,46 +37,53 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
+import kotlin.collections.HashMap
 
 
 class MainActivity : AppCompatActivity() {
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
-    private val PREF_NAME = "FIRST_RUN"
-    private val LANGUAGE_NAME = "LANGUAGE"
-    private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
-    private val USER_CONNECT_ID = "USER_CONNECT_ID"
-    private val USER_NAME = "USERNAME"
-    private val LAST_STATS_EVERYONE = "LAST_STATS_EVERYONE" //yyyy/mm/dd hh:mm:ss
-    private val LAST_STATS_YOU = "LAST_STATS_YOU" //yyyy/mm/dd hh:mm:ss
-    private val LAST_STATS_EVERYONE_VALUE_0 = "LAST_STATS_EVERYONE_VALUE_0"
-    private val LAST_STATS_EVERYONE_VALUE_1 = "LAST_STATS_EVERYONE_VALUE_1"
-    private val LAST_STATS_EVERYONE_VALUE_2 = "LAST_STATS_EVERYONE_VALUE_2"
-    private val LAST_STATS_EVERYONE_VALUE_3 = "LAST_STATS_EVERYONE_VALUE_3"
-    private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
-    private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
-    private val LAST_STATS_YOU_VALUE_2 = "LAST_STATS_YOU_VALUE_2"
-    private val LAST_STATS_YOU_VALUE_3 = "LAST_STATS_YOU_VALUE_3"
-    private val LAST_VOICES_ONLINE_NOW = "LAST_VOICES_ONLINE_NOW"
-    private val LAST_VOICES_ONLINE_BEFORE = "LAST_VOICES_ONLINE_BEFORE"
-    private val LAST_VOICES_ONLINE_NOW_VALUE = "LAST_VOICES_ONLINE_NOW_VALUE"
-    private val LAST_VOICES_ONLINE_BEFORE_VALUE = "LAST_VOICES_ONLINE_BEFORE_VALUE"
-    private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
-    private val UI_LANGUAGE_CHANGED2 = "UI_LANGUAGE_CHANGED2"
-    private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
-    private val ANONYMOUS_STATISTICS = "ANONYMOUS_STATISTICS"
-    private val TODAY_CONTRIBUTING =
-        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
-    private val DARK_THEME = "DARK_THEME"
-    private val UNIQUE_USER_ID = "UNIQUE_USER_ID"
-    private val DAILY_GOAL = "DAILY_GOAL"
-    private val EXPERIMENTAL_FEATURES = "EXPERIMENTAL_FEATURES"
-    private val SAVING_LOGS = "SAVING_LOGS"
-    private val CHECK_FOR_UPDATES = "CHECK_FOR_UPDATES"
-    private val SKIP_RECORDING_CONFIRMATION = "SKIP_RECORDING_CONFIRMATION"
-    private val RECORDING_INDICATOR_SOUND = "RECORDING_INDICATOR_SOUND"
-    private val ABORT_CONFIRMATION_DIALOGS_SETTINGS = "ABORT_CONFIRMATION_DIALOGS_SETTINGS"
+    //"LOGGED" //false->no logged-in || true -> logged-in
+    //"LAST_STATS_EVERYONE" //yyyy/mm/dd hh:mm:ss
+    //"LAST_STATS_YOU" //yyyy/mm/dd hh:mm:ss
+    //"TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+
+    private val settingsSwitchData: HashMap<String, String> =
+        hashMapOf(
+            "PREF_NAME" to "FIRST_RUN",
+            "LANGUAGE_NAME" to "LANGUAGE",
+            "LOGGED_IN_NAME" to "LOGGED",
+            "USER_CONNECT_ID" to "USER_CONNECT_ID",
+            "USER_NAME" to "USERNAME",
+            "LAST_STATS_EVERYONE" to "LAST_STATS_EVERYONE",
+            "LAST_STATS_YOU" to "LAST_STATS_YOU",
+            "LAST_STATS_EVERYONE_VALUE_0" to "LAST_STATS_EVERYONE_VALUE_0",
+            "LAST_STATS_EVERYONE_VALUE_1" to "LAST_STATS_EVERYONE_VALUE_1",
+            "LAST_STATS_EVERYONE_VALUE_2" to "LAST_STATS_EVERYONE_VALUE_2",
+            "LAST_STATS_EVERYONE_VALUE_3" to "LAST_STATS_EVERYONE_VALUE_3",
+            "LAST_STATS_YOU_VALUE_0" to "LAST_STATS_YOU_VALUE_0",
+            "LAST_STATS_YOU_VALUE_1" to "LAST_STATS_YOU_VALUE_1",
+            "LAST_STATS_YOU_VALUE_2" to "LAST_STATS_YOU_VALUE_2",
+            "LAST_STATS_YOU_VALUE_3" to "LAST_STATS_YOU_VALUE_3",
+            "LAST_VOICES_ONLINE_NOW" to "LAST_VOICES_ONLINE_NOW",
+            "LAST_VOICES_ONLINE_NOW_VALUE" to "LAST_VOICES_ONLINE_NOW_VALUE",
+            "LAST_VOICES_ONLINE_BEFORE_VALUE" to "LAST_VOICES_ONLINE_BEFORE_VALUE",
+            "UI_LANGUAGE_CHANGED" to "UI_LANGUAGE_CHANGED",
+            "UI_LANGUAGE_CHANGED2" to "UI_LANGUAGE_CHANGED2",
+            "AUTO_PLAY_CLIPS" to "AUTO_PLAY_CLIPS",
+            "ANONYMOUS_STATISTICS" to "ANONYMOUS_STATISTICS",
+            "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
+            "DARK_THEME" to "DARK_THEME",
+            "UNIQUE_USER_ID" to "UNIQUE_USER_ID",
+            "DAILY_GOAL" to "DAILY_GOAL",
+            "EXPERIMENTAL_FEATURES" to "EXPERIMENTAL_FEATURES",
+            "SAVING_LOGS" to "SAVING_LOGS",
+            "CHECK_FOR_UPDATES" to "CHECK_FOR_UPDATES",
+            "SKIP_RECORDING_CONFIRMATION" to "SKIP_RECORDING_CONFIRMATION",
+            "RECORDING_INDICATOR_SOUND" to "RECORDING_INDICATOR_SOUND",
+            "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS"
+        )
 
     var isExperimentalFeaturesActived: Boolean? = null
 
@@ -114,17 +121,27 @@ class MainActivity : AppCompatActivity() {
 
         checkConnection()
 
-        this.firstRun = getSharedPreferences(PREF_NAME, PRIVATE_MODE).getBoolean(PREF_NAME, true)
+        this.firstRun =
+            getSharedPreferences(settingsSwitchData["PREF_NAME"], PRIVATE_MODE).getBoolean(
+                settingsSwitchData["PREF_NAME"],
+                true
+            )
 
         this.selectedLanguageVar =
-            getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
+            getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE).getString(
+                settingsSwitchData["LANGUAGE_NAME"],
+                "en"
+            )!!
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
         this.languagesListShortArray = resources.getStringArray(R.array.languages_short)
 
         this.darkTheme =
-            getSharedPreferences(DARK_THEME, PRIVATE_MODE).getBoolean(DARK_THEME, false)
+            getSharedPreferences(settingsSwitchData["DARK_THEME"], PRIVATE_MODE).getBoolean(
+                settingsSwitchData["DARK_THEME"],
+                false
+            )
 
         if (this.firstRun) {
             // close main and open tutorial -- first run
@@ -144,11 +161,11 @@ class MainActivity : AppCompatActivity() {
     fun statisticsAPI() {
         generateUniqueUserId()
         try {
-            var url_statistics =
+            var urlStatistics =
                 "https://saveriomorelli.com/api/common-voice-android/?username={{*{{username}}*}}&language={{*{{language}}*}}&logged={{*{{logged}}*}}" //API to send the request
             var loggedYesNotInt = 0
             if (this.logged) loggedYesNotInt = 1
-            var params = JSONObject()
+            val params = JSONObject()
             /*params.put("username", this.uniqueUserId)
             params.put("logged", loggedYesNotInt)
             params.put("language", this.selectedLanguageVar)*/
@@ -158,15 +175,15 @@ class MainActivity : AppCompatActivity() {
             var languageTemp = this.selectedLanguageVar
             if (languageTemp == "") languageTemp = "en"
 
-            url_statistics = url_statistics.replace("{{*{{username}}*}}", this.uniqueUserId)
-            url_statistics = url_statistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
-            url_statistics = url_statistics.replace("{{*{{language}}*}}", languageTemp)
+            urlStatistics = urlStatistics.replace("{{*{{username}}*}}", this.uniqueUserId)
+            urlStatistics = urlStatistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
+            urlStatistics = urlStatistics.replace("{{*{{language}}*}}", languageTemp)
 
             val que = Volley.newRequestQueue(this)
-            val req = object : JsonObjectRequest(Request.Method.POST, url_statistics, params,
+            val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
                 Response.Listener {
                     val jsonResult = it.toString()
-                    var jsonResultArray = arrayOf(jsonResult, "")
+                    val jsonResultArray = arrayOf(jsonResult, "")
                     val jsonObj = JSONObject(
                         jsonResultArray[0].substring(
                             jsonResultArray[0].indexOf("{"),
@@ -174,12 +191,14 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                     //println(jsonObj.toString())
+                    /*
                     if (jsonObj.getString("code").toInt() == 200) {
-                        println("-->> Record added to the database <<--")
+                        //println("-->> Record added to the database <<--")
                     } else {
-                        println("!!-- Record is already in the database --!!")
+                        //println("!!-- Record is already in the database --!!")
                     }
-                    println(jsonResult)
+                    */
+                    //println(jsonResult)
                 }, Response.ErrorListener {
                     println(" -->> Something wrong: " + it.toString() + " <<-- ")
                 }
@@ -200,17 +219,20 @@ class MainActivity : AppCompatActivity() {
 
     fun generateUniqueUserId() {
         this.uniqueUserId =
-            getSharedPreferences(UNIQUE_USER_ID, PRIVATE_MODE).getString(UNIQUE_USER_ID, "")
+            getSharedPreferences(settingsSwitchData["UNIQUE_USER_ID"], PRIVATE_MODE).getString(
+                settingsSwitchData["UNIQUE_USER_ID"],
+                ""
+            )!!
         if (this.uniqueUserId == "") {
             var datetime = ""
             val dateTemp = SimpleDateFormat("yyyyMMddHHmmssSSSS")
             datetime = dateTemp.format(Date()).toString()
             this.uniqueUserId = "User" + datetime + "::CVAppSav"
-            println(">> New -- uniqueUserId: " + this.uniqueUserId + " <<")
-            getSharedPreferences(UNIQUE_USER_ID, PRIVATE_MODE).edit()
-                .putString(UNIQUE_USER_ID, this.uniqueUserId).apply()
+            //println(">> New -- uniqueUserId: " + this.uniqueUserId + " <<")
+            getSharedPreferences(settingsSwitchData["UNIQUE_USER_ID"], PRIVATE_MODE).edit()
+                .putString(settingsSwitchData["UNIQUE_USER_ID"], this.uniqueUserId).apply()
         } else {
-            println(">> Exists -- uniqueUserId: " + this.uniqueUserId + " <<")
+            //println(">> Exists -- uniqueUserId: " + this.uniqueUserId + " <<")
         }
     }
 
@@ -218,7 +240,7 @@ class MainActivity : AppCompatActivity() {
         val code: String = BuildConfig.VERSION_CODE.toString()
         val currentVersion: String = BuildConfig.VERSION_NAME
         var serverVersion: String = currentVersion
-        println(">> current: " + currentVersion + " - new: " + serverVersion)
+        //println(">> current: " + currentVersion + " - new: " + serverVersion)
         if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
                 "NEW_VERSION_" + code,
                 false
@@ -230,7 +252,7 @@ class MainActivity : AppCompatActivity() {
                 val que = Volley.newRequestQueue(this)
                 val req = object : StringRequest(Request.Method.GET, urlApiGithub,
                     Response.Listener {
-                        println("-->> " + it.toString() + " <<--")
+                        //println("-->> " + it.toString() + " <<--")
                         val jsonResult = it.toString()
                         if (jsonResult.length > 2) {
                             try {
@@ -255,8 +277,6 @@ class MainActivity : AppCompatActivity() {
                             } catch (e: Exception) {
                                 println(" -->> Something wrong: " + it.toString() + " <<-- ")
                             }
-                        } else {
-                            //
                         }
                     }, Response.ErrorListener {
                         println(" -->> Something wrong: " + it.toString() + " <<-- ")
@@ -271,12 +291,22 @@ class MainActivity : AppCompatActivity() {
 
     fun getHiUsernameLoggedIn(): String {
         this.logged =
-            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
+            getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
+                settingsSwitchData["LOGGED_IN_NAME"],
+                false
+            )
 
         if (logged) {
             this.userId =
-                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
-            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
+                getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).getString(
+                    settingsSwitchData["USER_CONNECT_ID"],
+                    ""
+                )!!
+            this.userName =
+                getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
+                    settingsSwitchData["USER_NAME"],
+                    ""
+                )!!
         }
 
         if (this.userName == "") {
@@ -298,13 +328,23 @@ class MainActivity : AppCompatActivity() {
 
     fun checkUserLoggedIn() {
         this.logged =
-            getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)
+            getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
+                settingsSwitchData["LOGGED_IN_NAME"],
+                false
+            )
 
         if (logged) {
             this.userId =
-                getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(USER_CONNECT_ID, "")
+                getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).getString(
+                    settingsSwitchData["USER_CONNECT_ID"],
+                    ""
+                )!!
 
-            this.userName = getSharedPreferences(USER_NAME, PRIVATE_MODE).getString(USER_NAME, "")
+            this.userName =
+                getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
+                    settingsSwitchData["USER_NAME"],
+                    ""
+                )!!
         }
     }
 
@@ -312,28 +352,40 @@ class MainActivity : AppCompatActivity() {
         var returnStatistics: String = "?"
         try {
             if (type == "you") {
-                returnStatistics = getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE).getString(
-                    LAST_STATS_YOU,
+                returnStatistics = getSharedPreferences(
+                    settingsSwitchData["LAST_STATS_YOU"],
+                    PRIVATE_MODE
+                ).getString(
+                    settingsSwitchData["LAST_STATS_YOU"],
                     "?"
-                )
+                )!!
             } else if (type == "everyone") {
                 returnStatistics =
-                    getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE).getString(
-                        LAST_STATS_EVERYONE,
+                    getSharedPreferences(
+                        settingsSwitchData["LAST_STATS_EVERYONE"],
+                        PRIVATE_MODE
+                    ).getString(
+                        settingsSwitchData["LAST_STATS_EVERYONE"],
                         "?"
-                    )
+                    )!!
             } else if (type == "voices_now") {
                 returnStatistics =
-                    getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).getString(
-                        LAST_VOICES_ONLINE_NOW,
+                    getSharedPreferences(
+                        settingsSwitchData["LAST_VOICES_ONLINE_NOW"],
+                        PRIVATE_MODE
+                    ).getString(
+                        settingsSwitchData["LAST_VOICES_ONLINE_NOW"],
                         "?"
-                    )
+                    )!!
             } else if (type == "voices_now") {
                 returnStatistics =
-                    getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).getString(
-                        LAST_VOICES_ONLINE_BEFORE,
+                    getSharedPreferences(
+                        settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"],
+                        PRIVATE_MODE
+                    ).getString(
+                        settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"],
                         "?"
-                    )
+                    )!!
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -388,14 +440,17 @@ class MainActivity : AppCompatActivity() {
                 )
                 //}
             }
-            getSharedPreferences(ANONYMOUS_STATISTICS, PRIVATE_MODE).edit()
-                .putBoolean(ANONYMOUS_STATISTICS, status).apply()
+            getSharedPreferences(settingsSwitchData["ANONYMOUS_STATISTICS"], PRIVATE_MODE).edit()
+                .putBoolean(settingsSwitchData["ANONYMOUS_STATISTICS"], status).apply()
         }
     }
 
     fun getExperimentalFeaturesSwitch(): Boolean {
-        return getSharedPreferences(EXPERIMENTAL_FEATURES, PRIVATE_MODE).getBoolean(
-            EXPERIMENTAL_FEATURES,
+        return getSharedPreferences(
+            settingsSwitchData["EXPERIMENTAL_FEATURES"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["EXPERIMENTAL_FEATURES"],
             false
         )
     }
@@ -426,21 +481,27 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
             }
-            getSharedPreferences(EXPERIMENTAL_FEATURES, PRIVATE_MODE).edit()
-                .putBoolean(EXPERIMENTAL_FEATURES, status).apply()
+            getSharedPreferences(settingsSwitchData["EXPERIMENTAL_FEATURES"], PRIVATE_MODE).edit()
+                .putBoolean(settingsSwitchData["EXPERIMENTAL_FEATURES"], status).apply()
         }
     }
 
     fun getStatisticsSwitch(): Boolean {
-        return getSharedPreferences(ANONYMOUS_STATISTICS, PRIVATE_MODE).getBoolean(
-            ANONYMOUS_STATISTICS,
+        return getSharedPreferences(
+            settingsSwitchData["ANONYMOUS_STATISTICS"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["ANONYMOUS_STATISTICS"],
             true
         )
     }
 
     fun getRecordingIndicatorSoundSwitch(): Boolean {
-        return getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).getBoolean(
-            RECORDING_INDICATOR_SOUND,
+        return getSharedPreferences(
+            settingsSwitchData["RECORDING_INDICATOR_SOUND"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["RECORDING_INDICATOR_SOUND"],
             false
         )
     }
@@ -464,14 +525,20 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
             }
-            getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).edit()
-                .putBoolean(RECORDING_INDICATOR_SOUND, status).apply()
+            getSharedPreferences(
+                settingsSwitchData["RECORDING_INDICATOR_SOUND"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["RECORDING_INDICATOR_SOUND"], status).apply()
         }
     }
 
     fun getCheckForUpdatesSwitch(): Boolean {
-        return getSharedPreferences(CHECK_FOR_UPDATES, PRIVATE_MODE).getBoolean(
-            CHECK_FOR_UPDATES,
+        return getSharedPreferences(
+            settingsSwitchData["CHECK_FOR_UPDATES"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["CHECK_FOR_UPDATES"],
             true
         )
     }
@@ -495,14 +562,17 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
             }
-            getSharedPreferences(CHECK_FOR_UPDATES, PRIVATE_MODE).edit()
-                .putBoolean(CHECK_FOR_UPDATES, status).apply()
+            getSharedPreferences(settingsSwitchData["CHECK_FOR_UPDATES"], PRIVATE_MODE).edit()
+                .putBoolean(settingsSwitchData["CHECK_FOR_UPDATES"], status).apply()
         }
     }
 
     fun getAbortConfirmationDialogsInSettingsSwitch(): Boolean {
-        return getSharedPreferences(ABORT_CONFIRMATION_DIALOGS_SETTINGS, PRIVATE_MODE).getBoolean(
-            ABORT_CONFIRMATION_DIALOGS_SETTINGS,
+        return getSharedPreferences(
+            settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"],
             false
         )
     }
@@ -525,19 +595,23 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             this.isAbortConfirmation = status
-            getSharedPreferences(ABORT_CONFIRMATION_DIALOGS_SETTINGS, PRIVATE_MODE).edit()
-                .putBoolean(ABORT_CONFIRMATION_DIALOGS_SETTINGS, status).apply()
+            getSharedPreferences(
+                settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"], status)
+                .apply()
         }
     }
 
     fun setSavedStatistics(type: String, statistics: String) {
         try {
             if (type == "you") {
-                getSharedPreferences(LAST_STATS_YOU, PRIVATE_MODE).edit()
-                    .putString(LAST_STATS_YOU, statistics).apply()
+                getSharedPreferences(settingsSwitchData["LAST_STATS_YOU"], PRIVATE_MODE).edit()
+                    .putString(settingsSwitchData["LAST_STATS_YOU"], statistics).apply()
             } else if (type == "everyone") {
-                getSharedPreferences(LAST_STATS_EVERYONE, PRIVATE_MODE).edit()
-                    .putString(LAST_STATS_EVERYONE, statistics).apply()
+                getSharedPreferences(settingsSwitchData["LAST_STATS_EVERYONE"], PRIVATE_MODE).edit()
+                    .putString(settingsSwitchData["LAST_STATS_EVERYONE"], statistics).apply()
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -548,56 +622,90 @@ class MainActivity : AppCompatActivity() {
         var returnStatistics: String = "?"
         try {
             if (type == "you") {
-                if (index == 0) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE).getString(
-                            LAST_STATS_YOU_VALUE_0,
-                            "?"
-                        )
-                } else if (index == 1) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE).getString(
-                            LAST_STATS_YOU_VALUE_1,
-                            "?"
-                        )
-                } else if (index == 2) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE).getString(
-                            LAST_STATS_YOU_VALUE_2,
-                            "?"
-                        )
-                } else if (index == 3) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE).getString(
-                            LAST_STATS_YOU_VALUE_3,
-                            "?"
-                        )
+                when (index) {
+                    0 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_0"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_0"],
+                                "?"
+                            )!!
+                    }
+                    1 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_1"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_1"],
+                                "?"
+                            )!!
+                    }
+                    2 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_2"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_2"],
+                                "?"
+                            )!!
+                    }
+                    3 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_3"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_3"],
+                                "?"
+                            )!!
+                    }
                 }
             } else if (type == "everyone") {
-                if (index == 0) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE).getString(
-                            LAST_STATS_EVERYONE_VALUE_0,
-                            "?"
-                        )
-                } else if (index == 1) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE).getString(
-                            LAST_STATS_EVERYONE_VALUE_1,
-                            "?"
-                        )
-                } else if (index == 2) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE).getString(
-                            LAST_STATS_EVERYONE_VALUE_2,
-                            "?"
-                        )
-                } else if (index == 3) {
-                    returnStatistics =
-                        getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE).getString(
-                            LAST_STATS_EVERYONE_VALUE_3,
-                            "?"
-                        )
+                when (index) {
+                    0 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_0"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_0"],
+                                "?"
+                            )!!
+                    }
+                    1 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_1"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_1"],
+                                "?"
+                            )!!
+                    }
+                    2 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_2"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_2"],
+                                "?"
+                            )!!
+                    }
+                    3 -> {
+                        returnStatistics =
+                            getSharedPreferences(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_3"],
+                                PRIVATE_MODE
+                            ).getString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_3"],
+                                "?"
+                            )!!
+                    }
                 }
             }
             //println(" --> "+type+" "+index+" "+returnStatistics)
@@ -615,32 +723,86 @@ class MainActivity : AppCompatActivity() {
         //println(" --> "+type+" "+index+" "+value+" "+valueToSave)
         try {
             if (type == "you") {
-                if (index == 0) {
-                    getSharedPreferences(LAST_STATS_YOU_VALUE_0, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_YOU_VALUE_0, valueToSave).apply()
-                } else if (index == 1) {
-                    getSharedPreferences(LAST_STATS_YOU_VALUE_1, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_YOU_VALUE_1, valueToSave).apply()
-                } else if (index == 2) {
-                    getSharedPreferences(LAST_STATS_YOU_VALUE_2, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_YOU_VALUE_2, valueToSave).apply()
-                } else if (index == 3) {
-                    getSharedPreferences(LAST_STATS_YOU_VALUE_3, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_YOU_VALUE_3, valueToSave).apply()
+                when (index) {
+                    0 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_YOU_VALUE_0"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_0"], valueToSave)
+                            .apply()
+                    }
+                    1 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_YOU_VALUE_1"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_1"], valueToSave)
+                            .apply()
+                    }
+                    2 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_YOU_VALUE_2"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_2"], valueToSave)
+                            .apply()
+                    }
+                    3 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_YOU_VALUE_3"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_3"], valueToSave)
+                            .apply()
+                    }
                 }
             } else if (type == "everyone") {
-                if (index == 0) {
-                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_0, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_EVERYONE_VALUE_0, valueToSave).apply()
-                } else if (index == 1) {
-                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_1, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_EVERYONE_VALUE_1, valueToSave).apply()
-                } else if (index == 2) {
-                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_2, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_EVERYONE_VALUE_2, valueToSave).apply()
-                } else if (index == 3) {
-                    getSharedPreferences(LAST_STATS_EVERYONE_VALUE_3, PRIVATE_MODE).edit()
-                        .putString(LAST_STATS_EVERYONE_VALUE_3, valueToSave).apply()
+                when (index) {
+                    0 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_EVERYONE_VALUE_0"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_0"],
+                                valueToSave
+                            )
+                            .apply()
+                    }
+                    1 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_EVERYONE_VALUE_1"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_1"],
+                                valueToSave
+                            )
+                            .apply()
+                    }
+                    2 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_EVERYONE_VALUE_2"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_2"],
+                                valueToSave
+                            )
+                            .apply()
+                    }
+                    3 -> {
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_STATS_EVERYONE_VALUE_3"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(
+                                settingsSwitchData["LAST_STATS_EVERYONE_VALUE_3"],
+                                valueToSave
+                            )
+                            .apply()
+                    }
                 }
             }
         } catch (e: Exception) {
@@ -651,53 +813,89 @@ class MainActivity : AppCompatActivity() {
     fun getSavedVoicesOnline(type: String): String {
         var returnVoicesOnline: String = "?"
         try {
-            if (type == "voicesNow") {
-                returnVoicesOnline =
-                    getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).getString(
-                        LAST_VOICES_ONLINE_NOW,
-                        "?"
-                    )
-            } else if (type == "voicesBefore") {
-                returnVoicesOnline =
-                    getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).getString(
-                        LAST_VOICES_ONLINE_BEFORE,
-                        "?"
-                    )
-            } else if (type == "voicesNowValue") {
-                returnVoicesOnline =
-                    getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE).getString(
-                        LAST_VOICES_ONLINE_NOW_VALUE,
-                        "?"
-                    )
-            } else if (type == "voicesBeforeValue") {
-                returnVoicesOnline =
-                    getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE).getString(
-                        LAST_VOICES_ONLINE_BEFORE_VALUE,
-                        "?"
-                    )
+            when (type) {
+                "voicesNow" -> {
+                    returnVoicesOnline =
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_VOICES_ONLINE_NOW"],
+                            PRIVATE_MODE
+                        ).getString(
+                            settingsSwitchData["LAST_VOICES_ONLINE_NOW"],
+                            "?"
+                        )!!
+                }
+                "voicesBefore" -> {
+                    returnVoicesOnline =
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"],
+                            PRIVATE_MODE
+                        ).getString(
+                            settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"],
+                            "?"
+                        )!!
+                }
+                "voicesNowValue" -> {
+                    returnVoicesOnline =
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_VOICES_ONLINE_NOW_VALUE"],
+                            PRIVATE_MODE
+                        ).getString(
+                            settingsSwitchData["LAST_VOICES_ONLINE_NOW_VALUE"],
+                            "?"
+                        )!!
+                }
+                "voicesBeforeValue" -> {
+                    returnVoicesOnline =
+                        getSharedPreferences(
+                            settingsSwitchData["LAST_VOICES_ONLINE_BEFORE_VALUE"],
+                            PRIVATE_MODE
+                        ).getString(
+                            settingsSwitchData["LAST_VOICES_ONLINE_BEFORE_VALUE"],
+                            "?"
+                        )!!
+                }
             }
         } catch (e: Exception) {
             println("Error: " + e.toString())
         }
-        println(type + " -> " + returnVoicesOnline)
+        //println(type + " -> " + returnVoicesOnline)
         return returnVoicesOnline
     }
 
     fun setSavedVoicesOnline(type: String, voices: String) {
         try {
             var sharedPref: SharedPreferences? = null
-            if (type == "voicesNow") {
-                getSharedPreferences(LAST_VOICES_ONLINE_NOW, PRIVATE_MODE).edit()
-                    .putString(LAST_VOICES_ONLINE_NOW, voices).apply()
-            } else if (type == "voicesBefore") {
-                getSharedPreferences(LAST_VOICES_ONLINE_BEFORE, PRIVATE_MODE).edit()
-                    .putString(LAST_VOICES_ONLINE_BEFORE, voices).apply()
-            } else if (type == "voicesNowValue") {
-                getSharedPreferences(LAST_VOICES_ONLINE_NOW_VALUE, PRIVATE_MODE).edit()
-                    .putString(LAST_VOICES_ONLINE_NOW_VALUE, voices).apply()
-            } else if (type == "voicesBeforeValue") {
-                getSharedPreferences(LAST_VOICES_ONLINE_BEFORE_VALUE, PRIVATE_MODE).edit()
-                    .putString(LAST_VOICES_ONLINE_BEFORE_VALUE, voices).apply()
+            when (type) {
+                "voicesNow" -> {
+                    getSharedPreferences(
+                        settingsSwitchData["LAST_VOICES_ONLINE_NOW"],
+                        PRIVATE_MODE
+                    ).edit()
+                        .putString(settingsSwitchData["LAST_VOICES_ONLINE_NOW"], voices).apply()
+                }
+                "voicesBefore" -> {
+                    getSharedPreferences(
+                        settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"],
+                        PRIVATE_MODE
+                    ).edit()
+                        .putString(settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"], voices).apply()
+                }
+                "voicesNowValue" -> {
+                    getSharedPreferences(
+                        settingsSwitchData["LAST_VOICES_ONLINE_NOW_VALUE"],
+                        PRIVATE_MODE
+                    ).edit()
+                        .putString(settingsSwitchData["LAST_VOICES_ONLINE_NOW_VALUE"], voices)
+                        .apply()
+                }
+                "voicesBeforeValue" -> {
+                    getSharedPreferences(
+                        settingsSwitchData["LAST_VOICES_ONLINE_BEFORE_VALUE"],
+                        PRIVATE_MODE
+                    ).edit()
+                        .putString(settingsSwitchData["LAST_VOICES_ONLINE_BEFORE_VALUE"], voices)
+                        .apply()
+                }
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -706,7 +904,8 @@ class MainActivity : AppCompatActivity() {
 
     fun setLanguageSettings(lang: String) {
         try {
-            getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).edit().putString(LANGUAGE_NAME, lang)
+            getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE).edit()
+                .putString(settingsSwitchData["LANGUAGE_NAME"], lang)
                 .apply()
 
             var languageChanged = false
@@ -717,8 +916,8 @@ class MainActivity : AppCompatActivity() {
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
-                    .putBoolean(UI_LANGUAGE_CHANGED, true).apply()
+                getSharedPreferences(settingsSwitchData["UI_LANGUAGE_CHANGED"], PRIVATE_MODE).edit()
+                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
 
                 setLanguageUI("restart")
                 resetDashboardData()
@@ -730,8 +929,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getDailyGoal(): Int {
-        return getSharedPreferences(DAILY_GOAL, PRIVATE_MODE).getInt(
-            DAILY_GOAL,
+        return getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).getInt(
+            settingsSwitchData["DAILY_GOAL"],
             0
         )
     }
@@ -773,13 +972,13 @@ class MainActivity : AppCompatActivity() {
             goalText.typeface = Typeface.DEFAULT
             this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                 .setText(getString(R.string.set_daily_goal))
-            println("Daily goal is not set")
+            //println("Daily goal is not set")
         } else {
             goalText.setText(getDailyGoal().toString())
             goalText.typeface = ResourcesCompat.getFont(this, R.font.sourcecodepro)
             this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                 .setText(getString(R.string.edit_daily_goal))
-            println("Daily goal is set")
+            //println("Daily goal is set")
         }
     }
 
@@ -837,7 +1036,7 @@ class MainActivity : AppCompatActivity() {
     fun openProfileSection() {
         // if the user logged-in, it shows profile
         //"111" is chosen by me to identify this request
-        val intent = Intent(this, LoginActivity::class.java).also {
+        Intent(this, LoginActivity::class.java).also {
             startActivityForResult(it, 111)
         }
     }
@@ -845,17 +1044,17 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if ((requestCode == 111 || requestCode == 110) && resultCode == RESULT_OK) {
-            println("MainActivity updated")
+            //println("MainActivity updated")
             //data?.extras.getString("key") //to get "putExtra" information by "key"
             recreate()
         } else {
-            println("MainActivity updated (2)")
+            //println("MainActivity updated (2)")
             recreate()
         }
     }
 
     fun openNoAvailableNow() {
-        val intent = Intent(this, NotAvailableNow::class.java).also {
+        Intent(this, NotAvailableNow::class.java).also {
             startActivity(it)
         }
     }
@@ -868,7 +1067,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    fun checkPermissions() {
+    private fun checkPermissions() {
         try {
             val PERMISSIONS = arrayOf(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -908,54 +1107,60 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setLanguageUI(type: String) {
-        var restart: Boolean = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).getBoolean(
-            UI_LANGUAGE_CHANGED,
+    private fun setLanguageUI(type: String) {
+        val restart: Boolean = getSharedPreferences(
+            settingsSwitchData["UI_LANGUAGE_CHANGED"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["UI_LANGUAGE_CHANGED"],
             true
         )
-        var restart2: Boolean = getSharedPreferences(
-            UI_LANGUAGE_CHANGED2,
+        val restart2: Boolean = getSharedPreferences(
+            settingsSwitchData["UI_LANGUAGE_CHANGED2"],
             PRIVATE_MODE
-        ).getBoolean(UI_LANGUAGE_CHANGED2, false)
+        ).getBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], false)
 
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
         //println("-->index: " + translations_languages.indexOf(lang))
-        var android6 = Build.VERSION.SDK_INT <= Build.VERSION_CODES.M
+        val android6 = Build.VERSION.SDK_INT <= Build.VERSION_CODES.M
         if (android6) {
             //Android 6.0
-            var tempLang = getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-            var lang = tempLang.split("-")[0]
+            val tempLang = getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
+            var lang = tempLang!!.split("-")[0]
             val langSupportedYesOrNot = TranslationsLanguages()
             if (!langSupportedYesOrNot.isSupported(lang)) {
                 lang = langSupportedYesOrNot.getDefaultLanguage()
             }
-            var locale: Locale = Locale(lang)
+            val locale: Locale = Locale(lang)
             Locale.setDefault(locale)
-            var res: Resources = resources
-            var config: Configuration = res.configuration
+            val res: Resources = resources
+            val config: Configuration = res.configuration
             config.setLocale(locale)
             res.updateConfiguration(config, res.displayMetrics)
         }
         if (restart || type == "restart") {
-            getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
-                .putBoolean(UI_LANGUAGE_CHANGED2, true).apply()
+            getSharedPreferences(settingsSwitchData["UI_LANGUAGE_CHANGED2"], PRIVATE_MODE).edit()
+                .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], true).apply()
 
             if (android6) {
-                getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
-                    .putBoolean(UI_LANGUAGE_CHANGED, false).apply()
-                val intent = Intent(this, MainActivity::class.java).also {
+                getSharedPreferences(settingsSwitchData["UI_LANGUAGE_CHANGED"], PRIVATE_MODE).edit()
+                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], false).apply()
+                Intent(this, MainActivity::class.java).also {
                     startActivity(it)
                 }
             } else {
-                val intent = Intent(this, RestartActivity::class.java).also {
+                Intent(this, RestartActivity::class.java).also {
                     startActivity(it)
                 }
             }
             finish()
         } else {
             if (restart2) {
-                getSharedPreferences(UI_LANGUAGE_CHANGED2, PRIVATE_MODE).edit()
-                    .putBoolean(UI_LANGUAGE_CHANGED2, false).apply()
+                getSharedPreferences(
+                    settingsSwitchData["UI_LANGUAGE_CHANGED2"],
+                    PRIVATE_MODE
+                ).edit()
+                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], false).apply()
                 /*showMessage(
                         getString(R.string.toast_language_changed).replace(
                             "{{*{{lang}}*}}",
@@ -972,7 +1177,7 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             /*if (type == "start") {
-                    val intent = Intent(this, RestartActivity::class.java).also {
+                    Intent(this, RestartActivity::class.java).also {
                         startActivity(it)
                     }
                 }*/
@@ -996,25 +1201,18 @@ class MainActivity : AppCompatActivity() {
         fun checkInternet(context: Context): Boolean {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
-            if (networkInfo != null && networkInfo.isConnected) {
-                //Connection OK
-                return true
-            } else {
-                //No connection
-                return false
-            }
-
+            return networkInfo != null && networkInfo.isConnected
         }
     }
 
     fun openNoConnection() {
-        val intent = Intent(this, NoConnectionActivity::class.java).also {
+        Intent(this, NoConnectionActivity::class.java).also {
             startActivity(it)
         }
     }
 
     fun startAnimation(img: Button) {
-        var animation: Animation =
+        val animation: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_out)
         img.startAnimation(animation)
     }
@@ -1044,14 +1242,14 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
             }
-            getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).edit()
-                .putBoolean(AUTO_PLAY_CLIPS, status).apply()
+            getSharedPreferences(settingsSwitchData["AUTO_PLAY_CLIPS"], PRIVATE_MODE).edit()
+                .putBoolean(settingsSwitchData["AUTO_PLAY_CLIPS"], status).apply()
         }
     }
 
     fun getAutoPlay(): Boolean {
-        return getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).getBoolean(
-            AUTO_PLAY_CLIPS,
+        return getSharedPreferences(settingsSwitchData["AUTO_PLAY_CLIPS"], PRIVATE_MODE).getBoolean(
+            settingsSwitchData["AUTO_PLAY_CLIPS"],
             false
         )
     }
@@ -1075,18 +1273,25 @@ class MainActivity : AppCompatActivity() {
 
     fun checkDateToday(todayDate: String, savedDate: String): Boolean {
         //true -> savedDate is OK, false -> savedDate is old
-        if (todayDate == "?" || savedDate == "?") {
-            return false
-        } else if (todayDate == savedDate) {
-            return true
-        } else if (todayDate.split("/")[0] > savedDate.split("/")[0]) {
-            return false
-        } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
-            return false
-        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
-            return false
-        } else {
-            return true
+        when {
+            todayDate == "?" || savedDate == "?" -> {
+                return false
+            }
+            todayDate == savedDate -> {
+                return true
+            }
+            todayDate.split("/")[0] > savedDate.split("/")[0] -> {
+                return false
+            }
+            todayDate.split("/")[1] > savedDate.split("/")[1] -> {
+                return false
+            }
+            todayDate.split("/")[2] > savedDate.split("/")[2] -> {
+                return false
+            }
+            else -> {
+                return true
+            }
         }
     }
 
@@ -1094,12 +1299,15 @@ class MainActivity : AppCompatActivity() {
         //just if the user is logged-in
         if (this.logged) {
             //user logged
-            var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
-                TODAY_CONTRIBUTING,
+            val contributing = getSharedPreferences(
+                settingsSwitchData["TODAY_CONTRIBUTING"],
+                PRIVATE_MODE
+            ).getString(
+                settingsSwitchData["TODAY_CONTRIBUTING"],
                 "?, ?, ?"
-            ).split(", ")
-            var dateContributing = contributing[0]
-            var dateContributingToSave = getDateToSave(dateContributing)
+            )!!.split(", ")
+            val dateContributing = contributing[0]
+            val dateContributingToSave = getDateToSave(dateContributing)
             var nValidated: String = "?"
             var nRecorded: String = "?"
             if (dateContributingToSave == dateContributing) {
@@ -1117,12 +1325,16 @@ class MainActivity : AppCompatActivity() {
                 nValidated = "0"
                 nRecorded = "0"
             }
-            if (type == "validations") {
-                return nValidated
-            } else if (type == "recordings") {
-                return nRecorded
-            } else {
-                return "?"
+            when (type) {
+                "validations" -> {
+                    return nValidated
+                }
+                "recordings" -> {
+                    return nRecorded
+                }
+                else -> {
+                    return "?"
+                }
             }
         } else {
             //user no logged
@@ -1133,10 +1345,11 @@ class MainActivity : AppCompatActivity() {
 
     //translation-methods
     override fun attachBaseContext(newBase: Context) {
-        var lang = newBase.getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(
-            LANGUAGE_NAME,
-            "en"
-        ).split("-")[0]
+        var lang = newBase.getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE)
+            .getString(
+                settingsSwitchData["LANGUAGE_NAME"],
+                "en"
+            )!!.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {
             lang = langSupportedYesOrNot.getDefaultLanguage()

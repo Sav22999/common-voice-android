@@ -49,11 +49,11 @@ class HomeFragment : Fragment() {
         if (main.logged) {
             //login successful -> show username and profile button
 
-            var textLoggedIn: TextView = root.findViewById(R.id.textLoggedUsername)
+            val textLoggedIn: TextView = root.findViewById(R.id.textLoggedUsername)
             textLoggedIn.isGone = false
             textLoggedIn.isVisible = true
             textLoggedIn.text = main.getHiUsernameLoggedIn()
-            var btnLogOut: Button = root.findViewById(R.id.btn_login)
+            val btnLogOut: Button = root.findViewById(R.id.btn_login)
             btnLogOut.text = getString(R.string.button_home_profile)
 
             btnLogin.setOnClickListener {
@@ -82,10 +82,10 @@ class HomeFragment : Fragment() {
     }
 
     fun setTheme(view: Context, root: View) {
-        var theme: DarkLightTheme = DarkLightTheme()
+        val theme = DarkLightTheme()
         //theme.setElements(view, root.findViewById(R.id.layoutHome))
 
-        var isDark = theme.getTheme(view)
+        val isDark = theme.getTheme(view)
         theme.setElement(
             isDark,
             root.findViewById(R.id.logo_cv) as ImageView,

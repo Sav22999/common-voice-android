@@ -1,14 +1,9 @@
 package org.commonvoice.saverio
 
-class BadgeLevelDailyGoal {
-    private var recordingsToday: Int = 0
-    private var validationsToday: Int = 0
+class DailyGoal(recordings: Int, validations: Int) {
+    private var recordingsToday: Int = recordings
+    private var validationsToday: Int = validations
     private var dailyGoal: Int = 0
-
-    constructor(recordings: Int, validations: Int) {
-        this.recordingsToday = recordings
-        this.validationsToday = validations
-    }
 
     fun setRecordings(recordings: Int) {
         this.recordingsToday = recordings

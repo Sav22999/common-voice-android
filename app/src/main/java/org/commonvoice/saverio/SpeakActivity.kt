@@ -77,7 +77,7 @@ class SpeakActivity : AppCompatActivity() {
     var mediaPlayer: MediaPlayer? = null //audio player
 
     var isListenedFirstTime: Boolean = false
-    var dailyGoal: BadgeLevelDailyGoal = BadgeLevelDailyGoal(0, 0)
+    var dailyGoal: DailyGoal = DailyGoal(0, 0)
 
     var startedRecordingAudio: MediaPlayer? = null
     var finishedRecordingAudio: MediaPlayer? = null

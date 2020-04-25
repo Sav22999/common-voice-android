@@ -72,7 +72,7 @@ class ListenActivity : AppCompatActivity() {
         false //true -> the section was already open | false -> the section wasn't opened (before)
     var loading: Boolean = false //there is already a request at the server
 
-    var dailyGoal: BadgeLevelDailyGoal = BadgeLevelDailyGoal(0, 0)
+    var dailyGoal: DailyGoal = DailyGoal(0, 0)
     var isDailyGoalJustAchieved: Boolean = false
 
 
