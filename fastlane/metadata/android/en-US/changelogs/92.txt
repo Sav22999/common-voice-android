@@ -5,3 +5,5 @@
 - Added "Translate the app on Crowdin" and "See app statistics" in Settings
 - Removed "Donate" button in Settings
 - Added "Abort confirmation dialogs in Settings" in Settings
+- Added "Record again" icon in Speak after stop the recording
+- Re-disegned "Listen" and "Speak" landscape mode

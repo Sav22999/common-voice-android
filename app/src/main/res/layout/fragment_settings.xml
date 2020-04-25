@@ -48,6 +48,7 @@
             android:textSize="20sp"
             android:thumbTint="@drawable/thumb_switch"
             android:trackTint="@drawable/track_switch"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator7" />
@@ -60,6 +61,7 @@
             android:layout_marginTop="1dp"
             android:layout_marginEnd="16dp"
             android:background="@color/colorSeparator"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchExperimentalFeatures" />
