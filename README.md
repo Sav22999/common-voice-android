@@ -4,7 +4,7 @@
 
 This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
 
-[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-13-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-14-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 [<img src="images/googlePlayBadge.png" width="200px"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio) [<img src="images/fDroidBadge.png" width="200px"></img>](https://f-droid.org/it/packages/org.commonvoice.saverio)  [<img src="images/crowdinBadge.png" height="50px"></img>](https://crowdin.com/project/common-voice-android)
 
@@ -29,6 +29,8 @@ You can contribute also to translate the app (follow every step, please):
 1. **Open a new issue** (use `Translation` template), so others know you are translating the app in that language
 1. Then go to [Crowdin](https://crowdin.com/project/common-voice-android), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
 
+_If your language is not now supported by [Common Voice](https://voice.mozilla.org/it), **don't worry!** You can translate the app anyway, when it will be supported, the app will be already translated in your language!_
+
 #### To do:
 
 Go to *Issues* section of this repository on *GitHub*.
@@ -49,7 +51,8 @@ The app is officially translated in these following languages, **thank you very 
 
 - `cs` Czech -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - `de` German -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini)
-- `en` English (main language)
+- `en` English (main language) -> Also thanks to [**Cadence Ember**](https://github.com/cloudrac3r)
+- `eo` Esperanto -> [**tuxayo**](https://github.com/tuxayo)
 - `es` Spanish -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - `et` Estonian -> [**Agu Ratas**](https://crowdin.com/profile/aguratas)
 - `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
