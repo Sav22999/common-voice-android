@@ -381,12 +381,12 @@ class MainActivity : AppCompatActivity() {
                 statisticsAPI()
             } else {
                 //EXM08
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_anonymous_statistics_off)
-                    )
-                }
+                //if (!isAbortConfirmation) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_anonymous_statistics_off)
+                )
+                //}
             }
             getSharedPreferences(ANONYMOUS_STATISTICS, PRIVATE_MODE).edit()
                 .putBoolean(ANONYMOUS_STATISTICS, status).apply()
