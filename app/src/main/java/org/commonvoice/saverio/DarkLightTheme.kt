@@ -95,9 +95,11 @@ class DarkLightTheme {
         if (theme) {
             element.setBackgroundResource(R.drawable.txt_rounded_darktheme)
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
+            element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccentDT))
         } else {
             element.setBackgroundResource(R.drawable.txt_rounded)
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
+            element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccent))
         }
     }
 
@@ -127,6 +129,16 @@ class DarkLightTheme {
         }
     }
 
+    fun setElement(theme: Boolean, view: Context, element: CheckBox) {
+        if (theme) {
+            element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
+            element.buttonTintList = ContextCompat.getColorStateList(view, R.color.colorWhite)
+        } else {
+            element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
+            element.buttonTintList = ContextCompat.getColorStateList(view, R.color.colorBlack)
+        }
+    }
+
     fun setElement(theme: Boolean, view: Context, element: Switch) {
         if (theme) {
             element.setBackgroundResource(R.drawable.btn_rounded_darktheme)
@@ -140,11 +152,13 @@ class DarkLightTheme {
     fun setElement(theme: Boolean, view: Context, element: SeekBar) {
         if (theme) {
             element.progressTintList = ContextCompat.getColorStateList(view, R.color.colorAccentDT)
-            element.progressBackgroundTintList = ContextCompat.getColorStateList(view, R.color.colorAccentDT)
+            element.progressBackgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorAccentDT)
             element.thumbTintList = ContextCompat.getColorStateList(view, R.color.colorWhite)
         } else {
             element.progressTintList = ContextCompat.getColorStateList(view, R.color.colorAccent)
-            element.progressBackgroundTintList = ContextCompat.getColorStateList(view, R.color.colorAccent)
+            element.progressBackgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorAccent)
             element.thumbTintList = ContextCompat.getColorStateList(view, R.color.colorBlack)
         }
     }

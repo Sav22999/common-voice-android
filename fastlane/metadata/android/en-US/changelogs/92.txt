@@ -7,3 +7,6 @@
 - Added "Abort confirmation dialogs in Settings" in Settings
 - Added "Record again" icon in Speak after stop the recording
 - Re-disegned "Listen" and "Speak" landscape mode
+- Added "Report" features in Listen and Speak
+- Improved performance
+- Added translation in "Esperanto"

@@ -1018,6 +1018,7 @@ class MainActivity : AppCompatActivity() {
         Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }
+        println("Opened")
     }
 
     fun openListenSection() {
