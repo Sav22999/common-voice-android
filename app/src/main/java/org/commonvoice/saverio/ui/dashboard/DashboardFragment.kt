@@ -1,5 +1,6 @@
 package org.commonvoice.saverio.ui.dashboard
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Build
@@ -51,6 +52,8 @@ class DashboardFragment : Fragment() {
         0
     ) //(todaySpeak, todayListen, everSpeak, everListen); "-1" indicates an error -> show "?"
 
+    var todaySelected: Boolean = false
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -60,12 +63,12 @@ class DashboardFragment : Fragment() {
             ViewModelProviders.of(this).get(DashboardViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-        var main = activity as MainActivity
+        val main = activity as MainActivity
         main.dashboard_selected = true
 
         val textStatistics: TextView = root.findViewById(R.id.textDashboardStatistics)
         textStatistics.text = getText(R.string.dashboardStatistics)
-        var tabDashboard: TabLayout = root.findViewById(R.id.tabDashboard)
+        val tabDashboard: TabLayout = root.findViewById(R.id.tabDashboard)
 
         //load "you" values -> loadYouValues() doesn't work here
         try {
@@ -73,6 +76,7 @@ class DashboardFragment : Fragment() {
                 tabDashboard.getTabAt(0)?.select() //set YOU tab -> logged-in
                 try {
                     loadData("you", root)
+                    this.todaySelected = true
                 } catch (e: Exception) {
                     //println("Error: " + e.toString())
                 }
@@ -81,6 +85,7 @@ class DashboardFragment : Fragment() {
                     ?.select() //set EVERYONE tab -> no-logged-in (YOU section disabled)
                 try {
                     loadData("everyone", root)
+                    this.todaySelected = false
                 } catch (e: Exception) {
                     //println("Error: " + e.toString())
                 }
@@ -105,12 +110,12 @@ class DashboardFragment : Fragment() {
                     labelBefore = "23"
                 }
             }
-            var labelDashboardNow: TextView = root.findViewById(R.id.labelDashboardVoicesNow)
-            labelDashboardNow.text = getString(R.string.textHour) + " " + labelNow + ":00"
-            var labelDashboardBefore: TextView =
+            val labelDashboardNow: TextView = root.findViewById(R.id.labelDashboardVoicesNow)
+            labelDashboardNow.text = (getString(R.string.textHour) + " " + labelNow + ":00")
+            val labelDashboardBefore: TextView =
                 root.findViewById(R.id.labelDashboardVoicesBefore)
-            labelDashboardBefore.text = getString(R.string.textHour) + " " + labelBefore + ":00"
-            var textVoicesElements: Array<TextView?> = arrayOf(
+            labelDashboardBefore.text = (getString(R.string.textHour) + " " + labelBefore + ":00")
+            val textVoicesElements: Array<TextView?> = arrayOf(
                 root.findViewById(R.id.textDashboardVoicesNow),
                 root.findViewById(R.id.textDashboardVoicesBefore)
             )
@@ -139,13 +144,13 @@ class DashboardFragment : Fragment() {
                 goalText.typeface = Typeface.DEFAULT
                 root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                     .setText(getString(R.string.set_daily_goal))
-                println("Daily goal is not set")
+                //println("Daily goal is not set")
             } else {
                 goalText.setText(main.getDailyGoal().toString())
                 goalText.typeface = ResourcesCompat.getFont(main, R.font.sourcecodepro)
                 root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
                     .setText(getString(R.string.edit_daily_goal))
-                println("Daily goal is set")
+                //println("Daily goal is set")
             }
 
             tabDashboard.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -154,6 +159,7 @@ class DashboardFragment : Fragment() {
                         if (main.logged) {
                             try {
                                 loadData("you", root)
+                                todaySelected = true
                             } catch (e: Exception) {
                                 //println("Error: " + e.toString())
                             }
@@ -164,6 +170,7 @@ class DashboardFragment : Fragment() {
                     } else if (tab?.position == 1) {
                         try {
                             loadData("everyone", root)
+                            todaySelected = false
                         } catch (e: Exception) {
                             //println("Error: " + e.toString())
                         }
@@ -188,10 +195,10 @@ class DashboardFragment : Fragment() {
     }
 
     fun setTheme(view: Context, root: View) {
-        var theme: DarkLightTheme = DarkLightTheme()
+        val theme = DarkLightTheme()
         theme.setElements(view, root.findViewById(R.id.layoutDashboard))
 
-        var isDark = theme.getTheme(view)
+        val isDark = theme.getTheme(view)
         theme.setElement(
             isDark,
             root.findViewById(R.id.imageBackgroundTab) as ImageView,
@@ -224,9 +231,9 @@ class DashboardFragment : Fragment() {
     fun loadData(type: String, root: View?) {
         //load statistics
         try {
-            var loadStatistics: Boolean = loadStatisticsYesOrNot(type)
-            var loadVoices: Boolean = loadVoicesOnlineYesOrNot(type)
-            var main = (activity as MainActivity)
+            val loadStatistics: Boolean = loadStatisticsYesOrNot(type)
+            val loadVoices: Boolean = loadVoicesOnlineYesOrNot(type)
+            val main = (activity as MainActivity)
 
             if (type == "you" && loadStatistics) {
                 loadDataOf("youTodaySpeak", 0, root)
@@ -245,36 +252,36 @@ class DashboardFragment : Fragment() {
             //println(" ---->>>> type: " + type + " loadStatistics: " + loadStatistics)
             try {
                 if (!loadStatistics && (type == "you" || type == "everyone") && (activity as MainActivity).dashboard_selected) {
-                    var textElements: Array<TextView?> = arrayOf(
+                    val textElements: Array<TextView?> = arrayOf(
                         root?.findViewById(R.id.textTodaySpeak),
                         root?.findViewById(R.id.textTodayListen),
                         root?.findViewById(R.id.textEverSpeak),
                         root?.findViewById(R.id.textEverListen)
                     )
-                    var value1 = main.getSavedStatisticsValue(type, 0)
-                    var value2 = main.getSavedStatisticsValue(type, 1)
+                    val value1 = main.getSavedStatisticsValue(type, 0)
+                    val value2 = main.getSavedStatisticsValue(type, 1)
                     textElements[0]?.text = value1
                     textElements[1]?.text = value2
                     if (type == "everyone") {
-                        var value3 = truncate(
+                        val value3 = truncate(
                             main.getSavedStatisticsValue(
                                 type,
                                 3
                             ).toDouble() / 3600
                         ).toInt().toString() + getString(R.string.textHoursAbbreviation)
-                        var value4 = truncate(
+                        val value4 = truncate(
                             main.getSavedStatisticsValue(
                                 type,
                                 2
                             ).toDouble() / 3600
                         ).toInt().toString() + getString(R.string.textHoursAbbreviation)
-                        textElements[3]?.setText(value3)
-                        textElements[2]?.setText(value4)
+                        textElements[3]?.text = value3
+                        textElements[2]?.text = value4
                     } else {
-                        var value3 = main.getSavedStatisticsValue(type, 2)
-                        var value4 = main.getSavedStatisticsValue(type, 3)
-                        textElements[2]?.setText(value3)
-                        textElements[3]?.setText(value4)
+                        val value3 = main.getSavedStatisticsValue(type, 2)
+                        val value4 = main.getSavedStatisticsValue(type, 3)
+                        textElements[2]?.text = value3
+                        textElements[3]?.text = value4
                         //println("-->><<--")
                     }
                 } else if (!loadVoices && type.contains("voices") && (activity as MainActivity).dashboard_selected) {
@@ -294,11 +301,12 @@ class DashboardFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun loadStatisticsYesOrNot(type: String): Boolean {
-        var main = (activity as MainActivity)
-        var savedStats = main.getSavedStatistics(type)
+        val main = (activity as MainActivity)
+        val savedStats = main.getSavedStatistics(type)
 
-        var oldStats: String = savedStats
+        val oldStats: String = savedStats
         var newStats: String = "?"
         if (Build.VERSION.SDK_INT < 26) {
             val dateTemp = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
@@ -312,11 +320,11 @@ class DashboardFragment : Fragment() {
         var returnTrueOrFalse: Boolean = true
 
         if (savedStats != "?") {
-            var oldDate: List<String> = oldStats.split(" ")[0].split("/") //year/month/day
-            var oldTime: List<String> = oldStats.split(" ")[1].split(":") //hours:minutes:seconds
+            val oldDate: List<String> = oldStats.split(" ")[0].split("/") //year/month/day
+            val oldTime: List<String> = oldStats.split(" ")[1].split(":") //hours:minutes:seconds
 
-            var newDate: List<String> = newStats.split(" ")[0].split("/") //year/month/day
-            var newTime: List<String> = newStats.split(" ")[1].split(":") //hours:minutes:seconds
+            val newDate: List<String> = newStats.split(" ")[0].split("/") //year/month/day
+            val newTime: List<String> = newStats.split(" ")[1].split(":") //hours:minutes:seconds
 
             returnTrueOrFalse = passedThirtySeconds(oldDate, oldTime, newDate, newTime)
         }
@@ -330,11 +338,12 @@ class DashboardFragment : Fragment() {
         return returnTrueOrFalse
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun loadVoicesOnlineYesOrNot(type: String): Boolean {
-        var main = (activity as MainActivity)
-        var savedVoices = main.getSavedVoicesOnline(type)
+        val main = (activity as MainActivity)
+        val savedVoices = main.getSavedVoicesOnline(type)
 
-        var oldVoices: String = savedVoices
+        val oldVoices: String = savedVoices
         var newVoices: String = "?"
         if (Build.VERSION.SDK_INT < 26) {
             val dateTemp = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
@@ -348,11 +357,11 @@ class DashboardFragment : Fragment() {
         var returnTrueOrFalse: Boolean = true
 
         if (savedVoices != "?") {
-            var oldDate: List<String> = oldVoices.split(" ")[0].split("/") //year/month/day
-            var oldTime: List<String> = oldVoices.split(" ")[1].split(":") //hours:minutes:seconds
+            val oldDate: List<String> = oldVoices.split(" ")[0].split("/") //year/month/day
+            val oldTime: List<String> = oldVoices.split(" ")[1].split(":") //hours:minutes:seconds
 
-            var newDate: List<String> = newVoices.split(" ")[0].split("/") //year/month/day
-            var newTime: List<String> = newVoices.split(" ")[1].split(":") //hours:minutes:seconds
+            val newDate: List<String> = newVoices.split(" ")[0].split("/") //year/month/day
+            val newTime: List<String> = newVoices.split(" ")[1].split(":") //hours:minutes:seconds
 
             returnTrueOrFalse = passedThirtySeconds(oldDate, oldTime, newDate, newTime)
         }
@@ -366,7 +375,7 @@ class DashboardFragment : Fragment() {
         return returnTrueOrFalse
     }
 
-    fun passedThirtySeconds(
+    private fun passedThirtySeconds(
         oldDate: List<String>,
         oldTime: List<String>,
         newDate: List<String>,
@@ -408,13 +417,15 @@ class DashboardFragment : Fragment() {
         return returnTrueOrFalse
     }
 
-    fun loadDataOf(type: String, index: Int, root: View?) {
+    private fun loadDataOf(type: String, index: Int, root: View?) {
         try {
             var valueToReturn = -1
+            /*
             var speakOrListen = true //true->speak, false->listen
             if (type.contains("Listen")) {
                 speakOrListen = false
             }
+            */
 
             val requestUrl = when (type) {
                 "youTodaySpeak" -> "" //?
@@ -434,18 +445,18 @@ class DashboardFragment : Fragment() {
                 viewToUse = root
             }
 
-            var textElements: Array<TextView?> = arrayOf(
+            val textElements: Array<TextView?> = arrayOf(
                 viewToUse?.findViewById(R.id.textTodaySpeak),
                 viewToUse?.findViewById(R.id.textTodayListen),
                 viewToUse?.findViewById(R.id.textEverSpeak),
                 viewToUse?.findViewById(R.id.textEverListen)
             )
-            var textVoicesElements: Array<TextView?> = arrayOf(
+            val textVoicesElements: Array<TextView?> = arrayOf(
                 viewToUse?.findViewById(R.id.textDashboardVoicesNow),
                 viewToUse?.findViewById(R.id.textDashboardVoicesBefore)
             )
 
-            var main = (activity as MainActivity)
+            val main = (activity as MainActivity)
             if (index != -1 && main.dashboard_selected) {
                 textElements[index]?.text = "..."
             }
@@ -475,9 +486,9 @@ class DashboardFragment : Fragment() {
                                         //
                                     } else if (type == "youEverSpeak" || type == "youEverListen" || type == "everyoneEverSpeak" || type == "everyoneEverListen") {
                                         if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
-                                            var jsonResultTemp =
+                                            val jsonResultTemp =
                                                 jsonResult.replace("[{", "").replace("}]", "")
-                                            var jsonResultTempArray = jsonResultTemp.split("},{")
+                                            val jsonResultTempArray = jsonResultTemp.split("},{")
                                             jsonResult =
                                                 "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
                                         }
@@ -487,20 +498,26 @@ class DashboardFragment : Fragment() {
                                                 jsonResult.lastIndexOf("}") + 1
                                             )
                                         )
-                                        if (type == "youEverSpeak") {
-                                            valueToReturn = jsonObj.getString("clips_count").toInt()
-                                        } else if (type == "youEverListen") {
-                                            valueToReturn = jsonObj.getString("votes_count").toInt()
-                                        } else if (type == "everyoneEverSpeak") {
-                                            valueToReturn = jsonObj.getString("total").toInt()
-                                        } else if (type == "everyoneEverListen") {
-                                            valueToReturn = jsonObj.getString("valid").toInt()
+                                        when (type) {
+                                            "youEverSpeak" -> {
+                                                valueToReturn = jsonObj.getString("clips_count").toInt()
+                                            }
+                                            "youEverListen" -> {
+                                                valueToReturn = jsonObj.getString("votes_count").toInt()
+                                            }
+                                            "everyoneEverSpeak" -> {
+                                                valueToReturn = jsonObj.getString("total").toInt()
+                                            }
+                                            "everyoneEverListen" -> {
+                                                valueToReturn = jsonObj.getString("valid").toInt()
+                                            }
+                                            //println(jsonObj)
                                         }
                                         //println(jsonObj)
                                     } else if (type == "voicesNow" || type == "voicesBefore") {
-                                        var jsonResultTemp =
+                                        val jsonResultTemp =
                                             jsonResult.replace("[{", "").replace("}]", "")
-                                        var jsonResultTempArray = jsonResultTemp.split("},{")
+                                        val jsonResultTempArray = jsonResultTemp.split("},{")
                                         if (type == "voicesNow") {
                                             jsonResult =
                                                 "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
@@ -520,13 +537,15 @@ class DashboardFragment : Fragment() {
                                     println("Exception Dashboard-010")
                                 }
                                 //println(" >>>> " + type + " -- " + valueToReturn + " -- " + typeToSend)
+
+                                //Set text to the value
                                 try {
-                                    if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
+                                    if ((type == "everyoneEverSpeak" || type == "everyoneEverListen") && !this.todaySelected) {
                                         textElements[index]?.text =
-                                            truncate(valueToReturn.toDouble() / 3600).toInt()
+                                            (truncate(valueToReturn.toDouble() / 3600).toInt()
                                                 .toString() + getString(
                                                 R.string.textHoursAbbreviation
-                                            )
+                                            ))
                                         main.setSavedStatisticsValue(
                                             typeToSend,
                                             valueToReturn.toString(),
@@ -546,7 +565,8 @@ class DashboardFragment : Fragment() {
                                         )
                                     } else {
                                         if (index != -1) {
-                                            textElements[index]?.text = valueToReturn.toString()
+                                            if (typeToSend == "you" && this.todaySelected || typeToSend == "everyone" && !this.todaySelected)
+                                                textElements[index]?.text = valueToReturn.toString()
                                             main.setSavedStatisticsValue(
                                                 typeToSend,
                                                 valueToReturn.toString(),
@@ -592,19 +612,23 @@ class DashboardFragment : Fragment() {
             try {
                 if (main.dashboard_selected) {
                     if (type == "youTodaySpeak" || type == "youTodayListen") {
-                        if (type == "youTodaySpeak") {
-                            var value = main.getContributing("recordings")
-                            if (value == "?") {
-                                valueToReturn = -1
-                            } else {
-                                valueToReturn = value.toInt()
+                        //error
+                        when (type) {
+                            "youTodaySpeak" -> {
+                                val value = main.getContributing("recordings")
+                                if (value == "?") {
+                                    valueToReturn = -1
+                                } else {
+                                    valueToReturn = value.toInt()
+                                }
                             }
-                        } else if (type == "youTodayListen") {
-                            var value = main.getContributing("validations")
-                            if (value == "?") {
-                                valueToReturn = -1
-                            } else {
-                                valueToReturn = value.toInt()
+                            "youTodayListen" -> {
+                                val value = main.getContributing("validations")
+                                if (value == "?") {
+                                    valueToReturn = -1
+                                } else {
+                                    valueToReturn = value.toInt()
+                                }
                             }
                         }
                         try {
@@ -638,7 +662,7 @@ class DashboardFragment : Fragment() {
 
     fun error3(type: String, index: Int, root: View?) {
         try {
-            var main = (activity as MainActivity)
+            val main = (activity as MainActivity)
             var typeToSend: String = ""
             if (type.contains("you")) {
                 typeToSend = "you"
@@ -646,7 +670,7 @@ class DashboardFragment : Fragment() {
                 typeToSend = "everyone"
             }
             if (typeToSend == "you" || typeToSend == "everyone") {
-                var textElements: Array<TextView?> = arrayOf(
+                val textElements: Array<TextView?> = arrayOf(
                     root?.findViewById(R.id.textTodaySpeak),
                     root?.findViewById(R.id.textTodayListen),
                     root?.findViewById(R.id.textEverSpeak),
@@ -659,7 +683,7 @@ class DashboardFragment : Fragment() {
                     index
                 )
             } else {
-                var textVoicesElements: Array<TextView?> = arrayOf(
+                val textVoicesElements: Array<TextView?> = arrayOf(
                     root?.findViewById(R.id.textDashboardVoicesNow),
                     root?.findViewById(R.id.textDashboardVoicesBefore)
                 )

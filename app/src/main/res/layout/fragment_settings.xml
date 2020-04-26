@@ -32,6 +32,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator9" />
 
+        <Switch
+            android:id="@+id/switchExperimentalFeatures"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_experimental_features"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator7" />
+
+        <View
+            android:id="@+id/separator4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchExperimentalFeatures" />
+
         <View
             android:id="@+id/separator9"
             android:layout_width="match_parent"
@@ -43,6 +77,72 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchAnonymousStatistics" />
+
+        <Switch
+            android:id="@+id/switchCheckForUpdates"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_check_for_updates"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator4" />
+
+        <Switch
+            android:id="@+id/switchAbortConfirmationDialogsInSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_abort_confirmation_dialogs_in_settings"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator10" />
+
+        <View
+            android:id="@+id/separator13"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchAbortConfirmationDialogsInSettings" />
+
+        <View
+            android:id="@+id/separator12"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchCheckForUpdates" />
 
         <Switch
             android:id="@+id/switchAnonymousStatistics"
@@ -97,17 +197,6 @@
             app:layout_constraintTop_toBottomOf="@+id/text_settingsOther" />
 
         <View
-            android:id="@+id/separator6"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDonatePayPal" />
-
-        <View
             android:id="@+id/separator7"
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -134,7 +223,7 @@
             android:textStyle="normal|bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator2" />
+            app:layout_constraintTop_toBottomOf="@+id/separator11" />
 
         <View
             android:id="@+id/separator5"
@@ -176,6 +265,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator" />
 
+        <TextView
+            android:id="@+id/text_settingsSpeak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/settingsSpeak"
+            android:textAlignment="textStart"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="normal|bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
         <View
             android:id="@+id/separator2"
             android:layout_width="match_parent"
@@ -187,24 +294,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchAutoPlayClips" />
 
-        <Button
-            android:id="@+id/textDonatePayPal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorBackground"
-            android:foreground="@drawable/ripple"
-            android:gravity="center|clip_vertical|start"
-            android:padding="20dp"
-            android:stateListAnimator="@null"
-            android:text="@string/txt_donate_paypal_settings"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:textStyle="normal"
+        <View
+            android:id="@+id/separator11"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator5" />
+            app:layout_constraintTop_toBottomOf="@+id/switchRecordingSound" />
 
         <View
             android:id="@+id/separator"
@@ -307,7 +406,37 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator7" />
+            app:layout_constraintTop_toBottomOf="@+id/separator12" />
+
+        <Button
+            android:id="@+id/buttonTranslateTheApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:stateListAnimator="@null"
+            android:text="@string/txt_translate_the_app_on_crowdin"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator5" />
+
+        <View
+            android:id="@+id/separator6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonTranslateTheApp" />
 
         <Button
             android:id="@+id/textProjectGitHub"
@@ -327,6 +456,36 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator3" />
+
+        <View
+            android:id="@+id/separator10"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSeeStatistics" />
+
+        <Button
+            android:id="@+id/buttonSeeStatistics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:stateListAnimator="@null"
+            android:text="@string/txt_see_statistics_of_the_app"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator6" />
 
         <TextView
             android:id="@+id/textContributors"
@@ -375,6 +534,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_settingsListen" />
 
+        <Switch
+            android:id="@+id/switchRecordingSound"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_recording_indicator_sound"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_settingsSpeak" />
+
         <View
             android:id="@+id/viewSeparator"
             android:layout_width="0dp"
@@ -384,7 +564,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textDevelopedBy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator6" />
+            app:layout_constraintTop_toBottomOf="@+id/separator13" />
 
         <ImageView
             android:id="@+id/imageLanguageIcon"

@@ -12,16 +12,58 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/buttonReportListen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:foregroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:padding="6dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/button_report"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/viewSeparatorListen1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_start_listen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
+
+        <View
+            android:id="@+id/viewSeparatorListen2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_skip_listen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_listen" />
+
         <Button
             android:id="@+id/btn_yes_thumb"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="50dp"
             android:layout_marginEnd="200dp"
-            android:layout_marginBottom="30dp"
             android:background="@drawable/yes_thumb_cv"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/btn_skip_listen"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />
@@ -31,11 +73,9 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="200dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
             android:background="@drawable/no_thumb_cv"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/btn_skip_listen"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />
@@ -64,7 +104,7 @@
             android:background="@drawable/btn_rounded"
             android:text="@string/btn_skip_sentence"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonReportListen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -72,11 +112,9 @@
             android:id="@+id/btn_start_listen"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
             android:background="@drawable/listen_cv"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/btn_skip_listen"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonReportListen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />

@@ -8,6 +8,5 @@ assignees: ''
 ---
 
 _Language name in English:_ (e.g. Italian, Swedish, ...)
-_Language name (long, in native language):_ (e.g. Italiano, Svenska, ...)
-_Language code in Common Voice:_ (e.g. it, sv-SE, ...)
-_Language code in [Android Studio](https://android.googlesource.com/platform/frameworks/base/+/android-9.0.0_r1/core/res/res/values/locale_config.xml):_ (e.g. it, sv, ...)
+_Language name (long, in the same native language):_ (e.g. Italiano, Svenska, ...)
+_Language code in [Common Voice](https://voice.mozilla.org/):_ (e.g. it, sv-SE, ...) -> The URL should be like `https://voice.mozilla.org/YOUR_CODE_LANGUAGE/`

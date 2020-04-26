@@ -5,11 +5,13 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Paint
 import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.util.DisplayMetrics
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.TextView
@@ -18,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -54,7 +57,7 @@ class ListenActivity : AppCompatActivity() {
     var url: String =
         "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
 
-    val url_without_lang: String =
+    val urlWithoutLang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
 
     var idSentence = intArrayOf(0, 0)
@@ -72,7 +75,8 @@ class ListenActivity : AppCompatActivity() {
         false //true -> the section was already open | false -> the section wasn't opened (before)
     var loading: Boolean = false //there is already a request at the server
 
-    var dailyGoal: BadgeLevelDailyGoal = BadgeLevelDailyGoal(0, 0)
+    var dailyGoal: DailyGoal = DailyGoal(0, 0)
+    var isDailyGoalJustAchieved: Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,8 +101,7 @@ class ListenActivity : AppCompatActivity() {
 
             var skipButton: Button = this.findViewById(R.id.btn_skip_listen)
             skipButton.setOnClickListener {
-                StopListening()
-                API_request()
+                skipClip()
             }
 
             var startStopListening: Button = this.findViewById(R.id.btn_start_listen)
@@ -119,6 +122,11 @@ class ListenActivity : AppCompatActivity() {
                 NoClip()
             }
 
+            val buttonReport: TextView = this.findViewById(R.id.buttonReportListen)
+            buttonReport.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            buttonReport.setOnClickListener {
+                openReportDialog()
+            }
 
             this.autoPlayClips =
                 getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).getBoolean(
@@ -144,6 +152,11 @@ class ListenActivity : AppCompatActivity() {
         setTheme(this)
     }
 
+    fun skipClip() {
+        StopListening()
+        API_request()
+    }
+
     fun setTheme(view: Context) {
         var theme: DarkLightTheme = DarkLightTheme()
 
@@ -155,6 +168,13 @@ class ListenActivity : AppCompatActivity() {
             this.findViewById(R.id.textMessageAlertListen) as TextView,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
+        )
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.buttonReportListen) as TextView,
+            R.color.colorBlack,
+            R.color.colorWhite
         )
         theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_listen) as Button)
     }
@@ -273,6 +293,7 @@ class ListenActivity : AppCompatActivity() {
                     this.sentencesValidatedYouToday.toString()
                 ).replace("{{*{{n_sentences}}*}}", this.sentencesRecordedYouToday.toString())
             )
+            this.isDailyGoalJustAchieved = true
         }
     }
 
@@ -280,12 +301,14 @@ class ListenActivity : AppCompatActivity() {
         checkConnection()
 
         StopListening()
+        this.mediaPlayer?.reset()
         var sentence: TextView = this.findViewById(R.id.textListenSentence)
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
         var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
         var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
+        var btnReport: TextView = this.findViewById(R.id.buttonReportListen)
 
         btnSkip.isEnabled = false
         this.status = 0
@@ -293,6 +316,7 @@ class ListenActivity : AppCompatActivity() {
         sentence.text = "..."
         btnYes.isVisible = false
         btnNo.isVisible = false
+        btnReport.isGone = true
 
         if (!this.loading) {
             this.loading = true
@@ -309,6 +333,7 @@ class ListenActivity : AppCompatActivity() {
             btnNo.isVisible = false
             btnListen.isEnabled = false
             btnSkip.isEnabled = false
+            btnReport.isGone = true
             this.status = 0
             msg.text = getText(R.string.txt_loading_clip)
             sentence.text = "..."
@@ -327,9 +352,10 @@ class ListenActivity : AppCompatActivity() {
                 }
                 this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
 
-                if (this.autoPlayClips && !this.isFinishing && !dailyGoal.checkDailyGoal()) {
+                if (this.autoPlayClips && !this.isFinishing && !this.isDailyGoalJustAchieved) {
                     StartListening()
                 }
+                this.isDailyGoalJustAchieved = false
             }
 
             if (this.idSentence[0] != 0 && this.opened || !this.opened) {
@@ -439,6 +465,7 @@ class ListenActivity : AppCompatActivity() {
                                 btnYes.isVisible = false
                                 btnNo.isVisible = false
                             }
+                            btnReport.isGone = false
 
                             /*
                             println("------")
@@ -607,11 +634,13 @@ class ListenActivity : AppCompatActivity() {
             var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
             var btnListen: Button = this.findViewById(R.id.btn_start_listen)
             var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
+            var btnReport: TextView = this.findViewById(R.id.buttonReportListen)
             btnNo.isVisible = false
             btnYes.isVisible = false
             btnListen.isEnabled = false
             btnSkip.isEnabled = false
             msg.text = getString(R.string.txt_sending_validation)
+            btnReport.isGone = false
 
             var path = "clips/{{*{{sentence_id}}*}}/votes" //API to get sentences
             path = path.replace("{{*{{sentence_id}}*}}", this.idSentence[0].toString())
@@ -639,6 +668,77 @@ class ListenActivity : AppCompatActivity() {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
                     //error1()
                     ValidationError(value)
+                }
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
+                    var logged = getSharedPreferences(
+                        LOGGED_IN_NAME,
+                        PRIVATE_MODE
+                    ).getBoolean(LOGGED_IN_NAME, false)
+                    if (logged) {
+                        var cookieId =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
+                        headers.put(
+                            "Cookie",
+                            "connect.sid=" + cookieId
+                        )
+                    } else {
+                        headers.put(
+                            "Authorization",
+                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                        )
+                    }
+                    return headers
+                }
+            }
+            que.add(req)
+        } catch (e: Exception) {
+            error1()
+        }
+    }
+
+    fun openReportDialog() {
+        try {
+            val metrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(metrics)
+            val message: MessageDialog =
+                MessageDialog(this, "clip", this as ListenActivity)
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: ListenActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+        }
+    }
+
+    fun reportClip(reasons: JSONArray) {
+        try {
+            StopListening()
+
+            var path = "reports"
+
+            //println(" -->> "+path.toString())
+            val params = JSONObject()
+            params.put("kind", "clip")
+            params.put("id", this.idSentence[0])
+            params.put("reasons", reasons)
+            //println(" -->> " + params.toString())
+
+            skipClip()
+
+            val que = Volley.newRequestQueue(this)
+            val req = object : JsonObjectRequest(Request.Method.POST, urlWithoutLang + path, params,
+                Response.Listener {
+                    //val json_result = it.toString()
+                    //println(" -->> Reporting sent! -> " + it.toString() + " <<-- ")
+                }, Response.ErrorListener {
+                    //println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    //error1()
+                    //println("!! Error: Report not sent !!")
                 }
             ) {
                 @Throws(AuthFailureError::class)

@@ -5,8 +5,8 @@ import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.graphics.Paint
 import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
 import android.media.MediaRecorder
@@ -15,6 +15,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
+import android.util.DisplayMetrics
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.TextView
@@ -30,18 +31,15 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.net.URLEncoder.encode
-import java.nio.charset.Charset
-import java.nio.file.Files
-import java.nio.file.Paths
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -60,6 +58,8 @@ class SpeakActivity : AppCompatActivity() {
     private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
     private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
     private val DAILY_GOAL = "DAILY_GOAL"
+    private val SKIP_RECORDING_CONFIRMATION = "SKIP_RECORDING_CONFIRMATION"
+    private val RECORDING_INDICATOR_SOUND = "RECORDING_INDICATOR_SOUND"
     var sentencesRecordedYouToday = 0
     var sentencesValidatedYouToday = 0
 
@@ -79,8 +79,14 @@ class SpeakActivity : AppCompatActivity() {
     var output: String? = null //path of the recording
     var mediaPlayer: MediaPlayer? = null //audio player
 
-    var listened_first_time: Boolean = false
-    var dailyGoal: BadgeLevelDailyGoal = BadgeLevelDailyGoal(0, 0)
+    var isListenedFirstTime: Boolean = false
+    var dailyGoal: DailyGoal = DailyGoal(0, 0)
+
+    var startedRecordingAudio: MediaPlayer? = null
+    var finishedRecordingAudio: MediaPlayer? = null
+
+    var isDailyGoalJustAchieved: Boolean = false
+    var isAppRecording: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,7 +96,7 @@ class SpeakActivity : AppCompatActivity() {
             getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE).getBoolean(FIRST_RUN_SPEAK, true)
         if (firstRun) {
             //First-run
-            val intent = Intent(this, FirstRunSpeak::class.java).also {
+            Intent(this, FirstRunSpeak::class.java).also {
                 startActivity(it)
                 finish()
             }
@@ -99,36 +105,46 @@ class SpeakActivity : AppCompatActivity() {
             checkConnection()
 
             this.selectedLanguage =
-                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
+                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")!!
             this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
-            var skipButton: Button = this.findViewById(R.id.btn_skip_speak)
+            val skipButton: Button = this.findViewById(R.id.btn_skip_speak)
             skipButton.setOnClickListener {
-                StopRecording()
-                StopListening()
-                API_request()
+                skipSentence()
             }
 
-            var startStopRecording: Button = this.findViewById(R.id.btn_start_speak)
+
+            val buttonReport: TextView = this.findViewById(R.id.buttonReportSpeak)
+            buttonReport.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            buttonReport.setOnClickListener {
+                openReportDialog()
+            }
+
+            val startStopRecording: Button = this.findViewById(R.id.btn_start_speak)
             startStopRecording.setOnClickListener {
-                if (this.status == 0 || this.status == 3)
+                if (this.status == 0 || this.status == 3) {
                     StartRecording() //0->record | 3->record again
-                else if (this.status == 1)
+                } else if (this.status == 1) {
                     StopRecording()
-                else if (this.status == 2)
+                } else if (this.status == 2) {
                     ListenRecording()
-                else if (this.status == 5)
+                } else if (this.status == 5) {
                     StopListening()
+                }
             }
 
-            var sendRecording: Button = this.findViewById(R.id.btn_send_speak)
+            val sendRecording: Button = this.findViewById(R.id.btn_send_speak)
             sendRecording.setOnClickListener {
                 SendRecording()
             }
 
-            var listenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            val listenAgain: Button = this.findViewById(R.id.btn_listen_again)
             listenAgain.setOnClickListener {
-                ListenRecording()
+                if (this.status == 2) {
+                    StartRecording()
+                } else {
+                    ListenRecording()
+                }
             }
 
             loadStatisticsYouToday()
@@ -148,6 +164,19 @@ class SpeakActivity : AppCompatActivity() {
         setTheme(this)
     }
 
+    fun skipSentence() {
+        StopRecording()
+        StopListening()
+        API_request()
+    }
+
+    fun getRecordingIndicatorSoundSwitch(): Boolean {
+        return getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).getBoolean(
+            RECORDING_INDICATOR_SOUND,
+            false
+        )
+    }
+
     fun setTheme(view: Context) {
         var theme: DarkLightTheme = DarkLightTheme()
 
@@ -162,6 +191,13 @@ class SpeakActivity : AppCompatActivity() {
         )
         theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_speak) as Button)
         theme.setElement(isDark, view, this.findViewById(R.id.btn_send_speak) as Button)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.buttonReportSpeak) as TextView,
+            R.color.colorBlack,
+            R.color.colorWhite
+        )
     }
 
     fun getDateToSave(savedDate: String): String {
@@ -278,6 +314,7 @@ class SpeakActivity : AppCompatActivity() {
                     this.sentencesValidatedYouToday.toString()
                 ).replace("{{*{{n_sentences}}*}}", this.sentencesRecordedYouToday.toString())
             )
+            isDailyGoalJustAchieved = true
         }
     }
 
@@ -307,7 +344,8 @@ class SpeakActivity : AppCompatActivity() {
     fun API_request() {
         DeleteRecording()
         checkConnection()
-        this.listened_first_time = false
+
+        this.isListenedFirstTime = false
 
         var sentence: TextView = this.findViewById(R.id.textSpeakSentence)
         var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
@@ -315,6 +353,7 @@ class SpeakActivity : AppCompatActivity() {
         var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
         var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
+        var btnReport: TextView = this.findViewById(R.id.buttonReportSpeak)
         this.idSentence = ""
         this.textSentence = ""
         btnRecord.isEnabled = false
@@ -326,7 +365,9 @@ class SpeakActivity : AppCompatActivity() {
         msg.text = getText(R.string.txt_loading_sentence)
         sentence.text = "..."
         btnRecord.setBackgroundResource(R.drawable.speak_cv)
+        btnReport.isGone = true
 
+        this.isDailyGoalJustAchieved = false
         try {
             val path = "sentences" //API to get sentences
             val params = JSONArray()
@@ -353,6 +394,7 @@ class SpeakActivity : AppCompatActivity() {
                         error1()
                     }
                     btnSkip.isEnabled = true
+                    btnReport.isGone = false
                 }, Response.ErrorListener {
                     //println(" -->> Something wrong: "+it.toString()+" <<-- ")
                     error1()
@@ -400,7 +442,7 @@ class SpeakActivity : AppCompatActivity() {
             skipText.text.toString()
         )
         skipText.isEnabled = true
-        this.listened_first_time = false
+        this.isListenedFirstTime = false
         //EXS04
         showMessageDialog(
             "",
@@ -422,7 +464,7 @@ class SpeakActivity : AppCompatActivity() {
         btnRecord.setBackgroundResource(R.drawable.speak2_cv)
         btnRecord.isEnabled = true
         this.status = 3
-        this.listened_first_time = false
+        this.isListenedFirstTime = false
 
         if (show) {
             //EXS03
@@ -449,37 +491,44 @@ class SpeakActivity : AppCompatActivity() {
             msg.text = getString(R.string.txt_closing)
             finish()
         }
+        this.mediaPlayer?.reset()
+        StopSmallAudios()
+    }
+
+    fun StopSmallAudios() {
+        try {
+            if (startedRecordingAudio?.isPlaying == true) {
+                startedRecordingAudio?.prepare()
+                startedRecordingAudio?.stop()
+                startedRecordingAudio?.reset()
+            }
+            if (finishedRecordingAudio?.isPlaying == true) {
+                finishedRecordingAudio?.prepare()
+                finishedRecordingAudio?.stop()
+                finishedRecordingAudio?.reset()
+            }
+        } catch (e: Exception) {
+            //
+        }
     }
 
     fun StartRecording() {
         //start or re-start recording
         checkPermissions()
         try {
-            this.listened_first_time = false
-            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
-            mediaRecorder = MediaRecorder().apply {
-                setAudioSource(MediaRecorder.AudioSource.MIC)
-                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-                setMaxDuration(10001)
-                setOutputFile(output)
-                setAudioEncodingBitRate(16 * 44100)
-                setAudioSamplingRate(44100)
-                prepare()
-                start()
-            }
-
-
-            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-            var btnSend: Button = this.findViewById(R.id.btn_send_speak)
             var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
             btnRecord.setBackgroundResource(R.drawable.stop_cv)
-            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
-            btnSend.isVisible = false
-            btnListenAgain.isGone = true
-            btnListenAgain.isVisible = false
-            msg.text = getString(R.string.txt_press_icon_below_speak_2)
-            this.status = 1
+            if (this.getRecordingIndicatorSoundSwitch()) {
+                StopSmallAudios()
+                startedRecordingAudio = MediaPlayer.create(this, R.raw.started)
+                startedRecordingAudio?.setOnCompletionListener {
+                    StartRecordingAfterSound()
+                    StopSmallAudios()
+                }
+                startedRecordingAudio?.start()
+            } else {
+                StartRecordingAfterSound()
+            }
         } catch (e: Exception) {
             //println(" -->> Something wrong: "+e.toString()+" <<-- ")
             //EXS01
@@ -492,43 +541,100 @@ class SpeakActivity : AppCompatActivity() {
         }
     }
 
+    fun StartRecordingAfterSound() {
+        try {
+            this.isAppRecording = true
+            this.isListenedFirstTime = false
+            output = externalCacheDir?.absolutePath + "/" + this.idSentence + ".aac"
+            mediaRecorder = MediaRecorder().apply {
+                setAudioSource(MediaRecorder.AudioSource.MIC)
+                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+                setMaxDuration(10001)
+                setOutputFile(output)
+                setAudioEncodingBitRate(16 * 44100)
+                setAudioSamplingRate(44100)
+                prepare()
+                start()
+            }
+            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+            var btnSend: Button = this.findViewById(R.id.btn_send_speak)
+            var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
+            btnSend.isVisible = false
+            btnListenAgain.isGone = true
+            btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+            msg.text = getString(R.string.txt_press_icon_below_speak_2)
+            this.status = 1
+        } catch (e: Exception) {
+            println("Here")
+            var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+            btnRecord.setBackgroundResource(R.drawable.speak_cv)
+            //EXS12
+            showMessageDialog(
+                getString(R.string.messageDialogErrorTitle),
+                "General error in SpeakActivity\nPlease, contact the developer and attach this screen-error.",
+                errorCode = "S12",
+                details = e.toString()
+            )
+        }
+    }
+
     @SuppressLint("RestrictedApi", "SetTextI18n")
     @TargetApi(Build.VERSION_CODES.N)
     fun StopRecording() {
         //stop recording
-        try {
+        if (isAppRecording) {
+            this.isAppRecording = false
             try {
-                mediaRecorder?.stop()
-                mediaRecorder?.release()
-            } catch (exception_temp: Exception) {
-                //
-            }
+                try {
+                    mediaRecorder?.stop()
+                    mediaRecorder?.release()
+                    if (this.getRecordingIndicatorSoundSwitch()) {
+                        StopSmallAudios()
+                        finishedRecordingAudio = MediaPlayer.create(this, R.raw.finished)
+                        finishedRecordingAudio?.setOnCompletionListener {
+                            StopSmallAudios()
+                        }
+                        finishedRecordingAudio?.start()
+                    }
+                } catch (exception_temp: Exception) {
+                    println(" !! Error exception - StopRecording1 !! ")
+                }
 
-            val sampleUri2: String? = this.output // your uri here
-            var metaRetriever: MediaMetadataRetriever = MediaMetadataRetriever()
-            metaRetriever.setDataSource(sampleUri2)
-            var duration: String =
-                metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
-            //println(" >>>> " + duration.toLong())
-            if (duration.toLong() > 10000) {
-                RecordingTooLong()
-            } else {
-                var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
-                var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-                btnRecord.setBackgroundResource(R.drawable.listen2_cv)
-                msg.text = getString(R.string.txt_sentence_recorded)
-                this.status = 2 //recording successful
-            }
-        } catch (e: Exception) {
-            //println(" -->> Something wrong: "+e.toString()+" <<-- ")
-            //EXS02
-            /*showMessageDialog(
+                val sampleUri2: String? = this.output // your uri here
+                var metaRetriever: MediaMetadataRetriever = MediaMetadataRetriever()
+                metaRetriever.setDataSource(sampleUri2)
+                var duration: String =
+                    metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+                //println(" >>>> " + duration.toLong())
+                if (duration.toLong() > 10000) {
+                    RecordingTooLong()
+                } else {
+                    var btnRecord: Button = this.findViewById(R.id.btn_start_speak)
+                    var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+                    btnRecord.setBackgroundResource(R.drawable.listen2_cv)
+                    var btnRecordAgain: Button = this.findViewById(R.id.btn_listen_again)
+                    btnRecordAgain.setBackgroundResource(R.drawable.speak2_cv)
+                    btnRecordAgain.isGone = false
+                    msg.text = getString(R.string.txt_sentence_recorded)
+                    this.status = 2 //recording successful
+                }
+            } catch (e: Exception) {
+                //println(" -->> Something wrong: "+e.toString()+" <<-- ")
+                //EXS02
+                /*showMessageDialog(
                 getString(R.string.messageDialogErrorTitle),
                 "General error in SpeakActivity\nPlease, contact the developer and attach this screen-error.",
                 errorCode = "S02",
                 details = e.toString()
             )*/
-            //RecordingFailed()
+                //RecordingFailed()
+                println(" !! Error exception - StopRecording 2 !! ")
+            }
+        } else {
+            println(
+                " !! The app isn't recording now !! "
+            )
         }
     }
 
@@ -595,6 +701,7 @@ class SpeakActivity : AppCompatActivity() {
             var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
             var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
             btnRecord.setBackgroundResource(R.drawable.stop_cv)
+            btnRecord.isEnabled = true
             btnListenAgain.isGone = true
             btnListenAgain.isVisible = false
             this.status = 5
@@ -612,7 +719,7 @@ class SpeakActivity : AppCompatActivity() {
                 var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
                 var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
                 btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
-                if (this.listened_first_time) {
+                if (this.isListenedFirstTime) {
                     btnRecord.setBackgroundResource(R.drawable.speak2_cv)
                     btnListenAgain.isVisible = true
                 } else {
@@ -624,10 +731,15 @@ class SpeakActivity : AppCompatActivity() {
                 if (!btnSendRecording.isVisible) {
                     this.status = 2 //re-listening recording -> because it's stopped
                     msg.text = getString(R.string.txt_listening_stopped)
+
+                    var btnRecordAgain: Button = this.findViewById(R.id.btn_listen_again)
+                    btnRecordAgain.setBackgroundResource(R.drawable.speak2_cv)
+                    btnRecordAgain.isGone = false
                 } else {
                     FinishListening()
                 }
                 this.mediaPlayer?.stop()
+                this.mediaPlayer?.release()
             }
         } catch (e: Exception) {
             println("!!-- Exception S07 - StopListening --!!")
@@ -642,7 +754,7 @@ class SpeakActivity : AppCompatActivity() {
             var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
             var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
             if (this.mediaPlayer?.isPlaying == false) {
-                this.listened_first_time = true
+                this.isListenedFirstTime = true
                 btnRecord.setBackgroundResource(R.drawable.speak2_cv)
                 btnListenAgain.setBackgroundResource(R.drawable.listen2_cv)
             }
@@ -664,6 +776,7 @@ class SpeakActivity : AppCompatActivity() {
         var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
         var btnListenAgain: Button = this.findViewById(R.id.btn_listen_again)
         var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+        var btnReport: TextView = this.findViewById(R.id.buttonReportSpeak)
         btnRecord.setBackgroundResource(R.drawable.speak_cv)
         btnRecord.isEnabled = false
         this.status = 4
@@ -671,6 +784,7 @@ class SpeakActivity : AppCompatActivity() {
         btnSkip.isEnabled = false
         btnListenAgain.isVisible = false
         msg.text = getString(R.string.txt_sending_recording)
+        btnReport.isGone = true
 
         val encoded = File(externalCacheDir, "$idSentence.aac").readBytes()
 
@@ -783,8 +897,77 @@ class SpeakActivity : AppCompatActivity() {
         )
     }
 
-    fun readFileAsLinesUsingBufferedReader(fileName: String): String =
-        File(fileName).inputStream().readBytes().toString(Charsets.UTF_8)
+    fun openReportDialog() {
+        try {
+            val metrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(metrics)
+            val message: MessageDialog =
+                MessageDialog(this, "sentence", this as SpeakActivity)
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: SpeakActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+        }
+    }
+
+    fun reportSentence(reasons: JSONArray) {
+        try {
+            StopRecording()
+            StopListening()
+
+            var path = "reports"
+
+            //println(" -->> "+path.toString())
+            val params = JSONObject()
+            params.put("kind", "sentence")
+            params.put("id", this.idSentence)
+            params.put("reasons", reasons)
+            //println(" -->> " + params.toString())
+
+            skipSentence()
+
+            val que = Volley.newRequestQueue(this)
+            val req = object : JsonObjectRequest(Request.Method.POST, urlWithoutLang + path, params,
+                Response.Listener {
+                    //val json_result = it.toString()
+                    //println(" -->> Reporting sent! -> " + it.toString() + " <<-- ")
+                }, Response.ErrorListener {
+                    //println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    //error1()
+                    //println("!! Error: Report not sent !!")
+                }
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
+                    var logged = getSharedPreferences(
+                        LOGGED_IN_NAME,
+                        PRIVATE_MODE
+                    ).getBoolean(LOGGED_IN_NAME, false)
+                    if (logged) {
+                        var cookieId =
+                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
+                                USER_CONNECT_ID,
+                                ""
+                            )
+                        headers.put(
+                            "Cookie",
+                            "connect.sid=" + cookieId
+                        )
+                    } else {
+                        headers.put(
+                            "Authorization",
+                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+                        )
+                    }
+                    return headers
+                }
+            }
+            que.add(req)
+        } catch (e: Exception) {
+            error1()
+        }
+    }
 
     fun checkPermissions() {
         try {

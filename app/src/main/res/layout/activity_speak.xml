@@ -12,6 +12,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/buttonReportSpeak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:foregroundTint="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:padding="6dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/button_report"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <Button
             android:id="@+id/btn_listen_again"
             android:layout_width="60dp"
@@ -30,14 +50,35 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="71dp"
             android:background="@drawable/btn_rounded"
             android:text="@string/btn_send_sentence"
             android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_speak"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/viewSeparatorSpeak"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_skip_speak"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_speak" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_send_speak" />
+
+        <View
+            android:id="@+id/viewSeparatorSpeak2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_listen_again"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
 
         <Button
             android:id="@+id/btn_skip_speak"
@@ -47,7 +88,7 @@
             android:background="@drawable/btn_rounded"
             android:text="@string/btn_skip_sentence"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonReportSpeak"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -55,8 +96,6 @@
             android:id="@+id/btn_start_speak"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="60dp"
             android:background="@drawable/speak_cv"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
