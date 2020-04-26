@@ -344,6 +344,7 @@ class ListenActivity : AppCompatActivity() {
                 btnListen.isEnabled = true
                 btnSkip.isEnabled = true
                 msg.text = getString(R.string.txt_press_icon_below_listen_1)
+                btnReport.isGone = false
 
                 this.mediaPlayer = MediaPlayer().apply {
                     //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
@@ -433,7 +434,7 @@ class ListenActivity : AppCompatActivity() {
 
                                 if (!this.opened) {
                                     this.opened = true
-                                    //API_request() //the second request at the first load
+                                    //API_request() //the second request at the first load //it's not necessary anymore, because the app request 2 clips the first-time (?count=2)
 
                                 }
 
@@ -457,6 +458,7 @@ class ListenActivity : AppCompatActivity() {
                                     }
                                 }
                                 btnSkip.isEnabled = true
+                                btnReport.isGone = false
                             } else {
                                 //println(" -->> Something wrong 1: "+it.toString()+" <<-- ")
                                 error4()
@@ -464,8 +466,8 @@ class ListenActivity : AppCompatActivity() {
 
                                 btnYes.isVisible = false
                                 btnNo.isVisible = false
+                                btnReport.isGone = true
                             }
-                            btnReport.isGone = false
 
                             /*
                             println("------")
