@@ -153,9 +153,7 @@ class MainActivity : AppCompatActivity() {
 
         this.checkUserLoggedIn()
         this.resetDashboardData()
-        if (this.getCheckForUpdatesSwitch()) {
-            this.checkNewVersionAvailable()
-        }
+        this.checkNewVersionAvailable()
     }
 
     fun statisticsAPI() {
@@ -236,55 +234,60 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun checkNewVersionAvailable() {
-        val code: String = BuildConfig.VERSION_CODE.toString()
-        val currentVersion: String = BuildConfig.VERSION_NAME
-        var serverVersion: String = currentVersion
-        //println(">> current: " + currentVersion + " - new: " + serverVersion)
-        if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
-                "NEW_VERSION_" + code,
-                false
-            )
-        ) {
-            try {
-                val urlApiGithub =
-                    "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
-                val que = Volley.newRequestQueue(this)
-                val req = object : StringRequest(Request.Method.GET, urlApiGithub,
-                    Response.Listener {
-                        //println("-->> " + it.toString() + " <<--")
-                        val jsonResult = it.toString()
-                        if (jsonResult.length > 2) {
-                            try {
-                                val jsonObj = JSONObject(
-                                    jsonResult.substring(
-                                        jsonResult.indexOf("{"),
-                                        jsonResult.lastIndexOf("}") + 1
-                                    )
-                                )
-                                serverVersion = jsonObj.getString("tag_name")
-                                if (currentVersion != serverVersion) {
-                                    showMessageDialog(
-                                        "",
-                                        getString(R.string.message_dialog_new_version_available).replace(
-                                            "{{*{{n_version}}*}}",
-                                            serverVersion
+    fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
+        if (this.getCheckForUpdatesSwitch() or forcedCheck == true) {
+            val code: String = BuildConfig.VERSION_CODE.toString()
+            val currentVersion: String = BuildConfig.VERSION_NAME
+            var serverVersion: String = currentVersion
+            //println(">> current: " + currentVersion + " - new: " + serverVersion)
+            if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
+                    "NEW_VERSION_" + code,
+                    false
+                )
+            ) {
+                try {
+                    val urlApiGithub =
+                        "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
+                    val que = Volley.newRequestQueue(this)
+                    val req = object : StringRequest(Request.Method.GET, urlApiGithub,
+                        Response.Listener {
+                            //println("-->> " + it.toString() + " <<--")
+                            val jsonResult = it.toString()
+                            if (jsonResult.length > 2) {
+                                try {
+                                    val jsonObj = JSONObject(
+                                        jsonResult.substring(
+                                            jsonResult.indexOf("{"),
+                                            jsonResult.lastIndexOf("}") + 1
                                         )
                                     )
-                                    getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).edit()
-                                        .putBoolean("NEW_VERSION_" + code, true).apply()
+                                    serverVersion = jsonObj.getString("tag_name")
+                                    if (currentVersion != serverVersion) {
+                                        showMessageDialog(
+                                            "",
+                                            getString(R.string.message_dialog_new_version_available).replace(
+                                                "{{*{{n_version}}*}}",
+                                                serverVersion
+                                            )
+                                        )
+                                        getSharedPreferences(
+                                            "NEW_VERSION_" + code,
+                                            PRIVATE_MODE
+                                        ).edit()
+                                            .putBoolean("NEW_VERSION_" + code, true).apply()
+                                    }
+                                } catch (e: Exception) {
+                                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
                                 }
-                            } catch (e: Exception) {
-                                println(" -->> Something wrong: " + it.toString() + " <<-- ")
                             }
+                        }, Response.ErrorListener {
+                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
                         }
-                    }, Response.ErrorListener {
-                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                    }
-                ) {}
-                que.add(req)
-            } catch (e: Exception) {
-                println(" -->> Something wrong: " + e.toString() + " <<-- ")
+                    ) {}
+                    que.add(req)
+                } catch (e: Exception) {
+                    println(" -->> Something wrong: " + e.toString() + " <<-- ")
+                }
             }
         }
     }
@@ -298,7 +301,10 @@ class MainActivity : AppCompatActivity() {
 
         if (logged) {
             this.userId =
-                getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).getString(
+                getSharedPreferences(
+                    settingsSwitchData["USER_CONNECT_ID"],
+                    PRIVATE_MODE
+                ).getString(
                     settingsSwitchData["USER_CONNECT_ID"],
                     ""
                 )!!
@@ -335,7 +341,10 @@ class MainActivity : AppCompatActivity() {
 
         if (logged) {
             this.userId =
-                getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).getString(
+                getSharedPreferences(
+                    settingsSwitchData["USER_CONNECT_ID"],
+                    PRIVATE_MODE
+                ).getString(
                     settingsSwitchData["USER_CONNECT_ID"],
                     ""
                 )!!
@@ -440,7 +449,10 @@ class MainActivity : AppCompatActivity() {
                 )
                 //}
             }
-            getSharedPreferences(settingsSwitchData["ANONYMOUS_STATISTICS"], PRIVATE_MODE).edit()
+            getSharedPreferences(
+                settingsSwitchData["ANONYMOUS_STATISTICS"],
+                PRIVATE_MODE
+            ).edit()
                 .putBoolean(settingsSwitchData["ANONYMOUS_STATISTICS"], status).apply()
         }
     }
@@ -481,7 +493,10 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
             }
-            getSharedPreferences(settingsSwitchData["EXPERIMENTAL_FEATURES"], PRIVATE_MODE).edit()
+            getSharedPreferences(
+                settingsSwitchData["EXPERIMENTAL_FEATURES"],
+                PRIVATE_MODE
+            ).edit()
                 .putBoolean(settingsSwitchData["EXPERIMENTAL_FEATURES"], status).apply()
         }
     }
@@ -610,7 +625,10 @@ class MainActivity : AppCompatActivity() {
                 getSharedPreferences(settingsSwitchData["LAST_STATS_YOU"], PRIVATE_MODE).edit()
                     .putString(settingsSwitchData["LAST_STATS_YOU"], statistics).apply()
             } else if (type == "everyone") {
-                getSharedPreferences(settingsSwitchData["LAST_STATS_EVERYONE"], PRIVATE_MODE).edit()
+                getSharedPreferences(
+                    settingsSwitchData["LAST_STATS_EVERYONE"],
+                    PRIVATE_MODE
+                ).edit()
                     .putString(settingsSwitchData["LAST_STATS_EVERYONE"], statistics).apply()
             }
         } catch (e: Exception) {
@@ -729,7 +747,10 @@ class MainActivity : AppCompatActivity() {
                             settingsSwitchData["LAST_STATS_YOU_VALUE_0"],
                             PRIVATE_MODE
                         ).edit()
-                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_0"], valueToSave)
+                            .putString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_0"],
+                                valueToSave
+                            )
                             .apply()
                     }
                     1 -> {
@@ -737,7 +758,10 @@ class MainActivity : AppCompatActivity() {
                             settingsSwitchData["LAST_STATS_YOU_VALUE_1"],
                             PRIVATE_MODE
                         ).edit()
-                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_1"], valueToSave)
+                            .putString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_1"],
+                                valueToSave
+                            )
                             .apply()
                     }
                     2 -> {
@@ -745,7 +769,10 @@ class MainActivity : AppCompatActivity() {
                             settingsSwitchData["LAST_STATS_YOU_VALUE_2"],
                             PRIVATE_MODE
                         ).edit()
-                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_2"], valueToSave)
+                            .putString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_2"],
+                                valueToSave
+                            )
                             .apply()
                     }
                     3 -> {
@@ -753,7 +780,10 @@ class MainActivity : AppCompatActivity() {
                             settingsSwitchData["LAST_STATS_YOU_VALUE_3"],
                             PRIVATE_MODE
                         ).edit()
-                            .putString(settingsSwitchData["LAST_STATS_YOU_VALUE_3"], valueToSave)
+                            .putString(
+                                settingsSwitchData["LAST_STATS_YOU_VALUE_3"],
+                                valueToSave
+                            )
                             .apply()
                     }
                 }
@@ -878,7 +908,8 @@ class MainActivity : AppCompatActivity() {
                         settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"],
                         PRIVATE_MODE
                     ).edit()
-                        .putString(settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"], voices).apply()
+                        .putString(settingsSwitchData["LAST_VOICES_ONLINE_BEFORE"], voices)
+                        .apply()
                 }
                 "voicesNowValue" -> {
                     getSharedPreferences(
@@ -893,7 +924,10 @@ class MainActivity : AppCompatActivity() {
                         settingsSwitchData["LAST_VOICES_ONLINE_BEFORE_VALUE"],
                         PRIVATE_MODE
                     ).edit()
-                        .putString(settingsSwitchData["LAST_VOICES_ONLINE_BEFORE_VALUE"], voices)
+                        .putString(
+                            settingsSwitchData["LAST_VOICES_ONLINE_BEFORE_VALUE"],
+                            voices
+                        )
                         .apply()
                 }
             }
@@ -916,7 +950,10 @@ class MainActivity : AppCompatActivity() {
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                getSharedPreferences(settingsSwitchData["UI_LANGUAGE_CHANGED"], PRIVATE_MODE).edit()
+                getSharedPreferences(
+                    settingsSwitchData["UI_LANGUAGE_CHANGED"],
+                    PRIVATE_MODE
+                ).edit()
                     .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
 
                 setLanguageUI("restart")
@@ -943,7 +980,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getLanguageList(): ArrayAdapter<String> {
-        return ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languagesListArray)
+        return ArrayAdapter<String>(
+            this,
+            android.R.layout.simple_list_item_1,
+            languagesListArray
+        )
     }
 
     fun getSelectedLanguage(): String {
@@ -1140,11 +1181,17 @@ class MainActivity : AppCompatActivity() {
             res.updateConfiguration(config, res.displayMetrics)
         }
         if (restart || type == "restart") {
-            getSharedPreferences(settingsSwitchData["UI_LANGUAGE_CHANGED2"], PRIVATE_MODE).edit()
+            getSharedPreferences(
+                settingsSwitchData["UI_LANGUAGE_CHANGED2"],
+                PRIVATE_MODE
+            ).edit()
                 .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], true).apply()
 
             if (android6) {
-                getSharedPreferences(settingsSwitchData["UI_LANGUAGE_CHANGED"], PRIVATE_MODE).edit()
+                getSharedPreferences(
+                    settingsSwitchData["UI_LANGUAGE_CHANGED"],
+                    PRIVATE_MODE
+                ).edit()
                     .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], false).apply()
                 Intent(this, MainActivity::class.java).also {
                     startActivity(it)
@@ -1200,7 +1247,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         fun checkInternet(context: Context): Boolean {
-            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val cm =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
             return networkInfo != null && networkInfo.isConnected
         }
@@ -1249,7 +1297,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getAutoPlay(): Boolean {
-        return getSharedPreferences(settingsSwitchData["AUTO_PLAY_CLIPS"], PRIVATE_MODE).getBoolean(
+        return getSharedPreferences(
+            settingsSwitchData["AUTO_PLAY_CLIPS"],
+            PRIVATE_MODE
+        ).getBoolean(
             settingsSwitchData["AUTO_PLAY_CLIPS"],
             false
         )
@@ -1346,11 +1397,12 @@ class MainActivity : AppCompatActivity() {
 
     //translation-methods
     override fun attachBaseContext(newBase: Context) {
-        var lang = newBase.getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE)
-            .getString(
-                settingsSwitchData["LANGUAGE_NAME"],
-                "en"
-            )!!.split("-")[0]
+        var lang =
+            newBase.getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE)
+                .getString(
+                    settingsSwitchData["LANGUAGE_NAME"],
+                    "en"
+                )!!.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {
             lang = langSupportedYesOrNot.getDefaultLanguage()
