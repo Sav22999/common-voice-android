@@ -93,7 +93,7 @@
     <string name="txt_translate_the_app_on_crowdin">Traduci l\'app su Crowdin</string>
     <string name="txt_see_statistics_of_the_app">Vedi le statistiche dell\'app</string>
     <string name="txt_recording_indicator_sound">Indicatore suono per le registrazioni</string>
-    <string name="toast_recording_indicator_sound_on">L\'indicatore suono per le registrazioni è ora attivato.\nQuando inizi o fermi di registrare una frase sarà riprodotto un suono.</string>
+    <string name="toast_recording_indicator_sound_on">L\'indicatore suono per le registrazioni è ora attivato.\nQuando inizi o fermi la registrazione di una frase sarà riprodotto un suono.</string>
     <string name="toast_recording_indicator_sound_off">Indicatore suono per le registrazioni disattivato.</string>
     <string name="txt_check_for_updates">Ricerca aggiornamenti</string>
     <string name="toast_check_for_updated_on">Ricerca aggiornamenti attivata.</string>
