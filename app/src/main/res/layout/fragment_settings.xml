@@ -30,7 +30,7 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator9" />
+            app:layout_constraintTop_toBottomOf="@+id/separator8" />
 
         <Switch
             android:id="@+id/switchExperimentalFeatures"
@@ -163,7 +163,7 @@
             android:trackTint="@drawable/track_switch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switchDarkTheme" />
+            app:layout_constraintTop_toBottomOf="@+id/separator13" />
 
         <View
             android:id="@+id/separator8"
@@ -564,7 +564,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textDevelopedBy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator13" />
+            app:layout_constraintTop_toBottomOf="@+id/separator9" />
 
         <ImageView
             android:id="@+id/imageLanguageIcon"

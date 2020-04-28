@@ -79,7 +79,7 @@ class SettingsFragment : Fragment() {
             val browserIntent =
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/Sav22999/common-voice-android")
+                    Uri.parse("http://bit.ly/2PeOGRg")
                 )
             startActivity(browserIntent)
         }
@@ -87,7 +87,7 @@ class SettingsFragment : Fragment() {
         val btnContactDeveloperTelegram: Button = root.findViewById(R.id.buttonContactOnTelegram)
         btnContactDeveloperTelegram.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Sav22999"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/359wgbg"))
             startActivity(browserIntent)
         }
 
@@ -152,14 +152,14 @@ class SettingsFragment : Fragment() {
         val btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
         btnTranslateTheApp.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://crowdin.com/project/common-voice-android"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3bNBoUU"))
             startActivity(browserIntent)
         }
 
         val btnSeeStatistics: Button = root.findViewById(R.id.buttonSeeStatistics)
         btnSeeStatistics.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/app/common-voice-android/statistics/"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/35d2dza"))
             startActivity(browserIntent)
         }
 
