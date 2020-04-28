@@ -26,7 +26,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.volley.AuthFailureError
-import com.android.volley.BuildConfig
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             "UI_LANGUAGE_CHANGED" to "UI_LANGUAGE_CHANGED",
             "UI_LANGUAGE_CHANGED2" to "UI_LANGUAGE_CHANGED2",
             "AUTO_PLAY_CLIPS" to "AUTO_PLAY_CLIPS",
-            "ANONYMOUS_STATISTICS" to "ANONYMOUS_STATISTICS",
+            "APP_ANONYMOUS_STATISTICS" to "APP_ANONYMOUS_STATISTICS",
             "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
             "DARK_THEME" to "DARK_THEME",
             "UNIQUE_USER_ID" to "UNIQUE_USER_ID",
@@ -153,7 +152,6 @@ class MainActivity : AppCompatActivity() {
 
         this.checkUserLoggedIn()
         this.resetDashboardData()
-        this.checkNewVersionAvailable()
     }
 
     fun statisticsAPI() {
@@ -237,9 +235,6 @@ class MainActivity : AppCompatActivity() {
     fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
         if (this.getCheckForUpdatesSwitch() or forcedCheck == true) {
             val code: String = BuildConfig.VERSION_CODE.toString()
-            val currentVersion: String = BuildConfig.VERSION_NAME
-            var serverVersion: String = currentVersion
-            //println(">> current: " + currentVersion + " - new: " + serverVersion)
             if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
                     "NEW_VERSION_" + code,
                     false
@@ -252,6 +247,8 @@ class MainActivity : AppCompatActivity() {
                     val req = object : StringRequest(Request.Method.GET, urlApiGithub,
                         Response.Listener {
                             //println("-->> " + it.toString() + " <<--")
+                            val currentVersion: String = BuildConfig.VERSION_NAME
+                            var serverVersion: String = currentVersion
                             val jsonResult = it.toString()
                             if (jsonResult.length > 2) {
                                 try {
@@ -262,6 +259,7 @@ class MainActivity : AppCompatActivity() {
                                         )
                                     )
                                     serverVersion = jsonObj.getString("tag_name")
+                                    //println(">> current: " + currentVersion + " - new: " + serverVersion)
                                     if (currentVersion != serverVersion) {
                                         showMessageDialog(
                                             "",
@@ -450,10 +448,10 @@ class MainActivity : AppCompatActivity() {
                 //}
             }
             getSharedPreferences(
-                settingsSwitchData["ANONYMOUS_STATISTICS"],
+                settingsSwitchData["APP_ANONYMOUS_STATISTICS"],
                 PRIVATE_MODE
             ).edit()
-                .putBoolean(settingsSwitchData["ANONYMOUS_STATISTICS"], status).apply()
+                .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
         }
     }
 
@@ -503,10 +501,10 @@ class MainActivity : AppCompatActivity() {
 
     fun getStatisticsSwitch(): Boolean {
         return getSharedPreferences(
-            settingsSwitchData["ANONYMOUS_STATISTICS"],
+            settingsSwitchData["APP_ANONYMOUS_STATISTICS"],
             PRIVATE_MODE
         ).getBoolean(
-            settingsSwitchData["ANONYMOUS_STATISTICS"],
+            settingsSwitchData["APP_ANONYMOUS_STATISTICS"],
             true
         )
     }

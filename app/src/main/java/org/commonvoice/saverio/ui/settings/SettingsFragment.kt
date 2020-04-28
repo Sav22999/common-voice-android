@@ -44,8 +44,6 @@ class SettingsFragment : Fragment() {
         //val model = ViewModelProviders.of(activity!!).get(SettingsViewModel::class.java)
 
         val releaseNumber: TextView = root.findViewById(R.id.textRelease)
-        releaseNumber.text = BuildConfig.VERSION_NAME
-
         releaseNumber.text = (BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")")
 
         // import the languages list (short and "standard" from mainactivity)

@@ -78,6 +78,8 @@ class HomeFragment : Fragment() {
             main.statisticsAPI()
         }
 
+        main.checkNewVersionAvailable()
+
         return root
     }
 
