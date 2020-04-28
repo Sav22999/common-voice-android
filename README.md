@@ -6,11 +6,11 @@ This is not the official app of the Common Voice project by Mozilla. This app is
 
 [![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-15-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
-[<img src="images/googlePlayBadge.png" width="200px"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio) [<img src="images/fDroidBadge.png" width="200px"></img>](https://f-droid.org/it/packages/org.commonvoice.saverio)  [<img src="images/crowdinBadge.png" height="50px"></img>](https://crowdin.com/project/common-voice-android)
+[<img src="images/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ)  [<img src="images/crowdinBadge.png" height="50px"></img>](https://bit.ly/3bNBoUU)
 
 If you have any questions, please open an issue (you can add the label `question` there).
 
-[**You can see Anonymous Statistics**](https://www.saveriomorelli.com/app/common-voice-android/statistics/)
+[**You can see Anonymous Statistics**](https://bit.ly/35d2dza)
 
 You can contact me also on Telegram, with the username `@Sav22999` (I speak `Italian` and `English`); I’m always available to support you or to respond to your questions.
 
@@ -18,7 +18,7 @@ If you like this project, leave a *Star* to receive updates on your *GitHub dash
 
 To support me, you can do a donation :smile: with PayPal:
 
-[<img src="images/donatePayPal.png" width="200px"></img>](https://www.paypal.me/saveriomorelli)
+[<img src="images/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7)
 
 ### How contribute
 
@@ -27,7 +27,7 @@ If you want to help to develop this app, you can open an `Issue` an send feedbac
 You can contribute also to translate the app (follow every step, please):
 
 1. **Open a new issue** (use `Translation` template), so others know you are translating the app in that language
-1. Then go to [Crowdin](https://crowdin.com/project/common-voice-android), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
+1. Then go to [Crowdin](https://bit.ly/3bNBoUU), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
 
 _If your language is not now supported by [Common Voice](https://voice.mozilla.org/it), **don't worry!** You can translate the app anyway, when it will be supported, the app will be already translated in your language!_
 
@@ -49,21 +49,23 @@ There is already the website, which is responsive and mobile-friendly, but actua
 
 The app is officially translated in these following languages, **thank you very much** to the contributors who translated the app.
 
-- `cs` Czech -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
-- `de` German -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini)
-- `en` English (main language) -> Also thanks to [**Cadence Ember**](https://github.com/cloudrac3r)
-- `eo` Esperanto -> [**tuxayo**](https://github.com/tuxayo)
-- `es` Spanish -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
-- `et` Estonian -> [**Agu Ratas**](https://crowdin.com/profile/aguratas)
-- `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
-- `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi)
-- `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
-- `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
-- `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
-- `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**
-- `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha)
-- `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
-- `tr` Turkish -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)
+✅ = Full translation, 🔶 = Partial translation, 🔴 = Not yet available for the Common Voice project
+
+- 🔶 `cs` Czech -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
+- 🔶 `de` German -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini)
+- ✅ `en` English (main language) -> Also thanks to [**Cadence Ember**](https://github.com/cloudrac3r)
+- 🔶 `eo` Esperanto -> [**tuxayo**](https://github.com/tuxayo)
+- 🔶 `es` Spanish -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
+- 🔶 `et` Estonian -> [**Agu Ratas**](https://crowdin.com/profile/aguratas)
+- ✅ `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
+- 🔶 `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi)
+- 🔶 `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
+- ✅ `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
+- 🔶 `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
+- 🔶 `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**
+- 🔶🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha)
+- 🔶 `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
+- 🔶 `tr` Turkish -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)
 
 ### License
 

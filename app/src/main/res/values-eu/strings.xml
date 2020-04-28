@@ -79,17 +79,28 @@
     <string name="toast_dark_theme_off">Gai iluna desaktibatu da.</string>
     <string name="contact_developer_on_telegram">Jarri harremanetan garatzailearekin Telegramen</string>
     <string name="txt_experimental_features">Funtzio esperimentalak</string>
-    <string name="toast_experimental_features_on">Ezaugarri esperimentalak aktibaturik\nEzaugarri berriak ezegonkorrak eta ez-seguruak izan litezke</string>
-    <string name="toast_experimental_featured_off">Funtzio esperimentalak desaktibaturik</string>
+    <string name="toast_experimental_features_on">Ezaugarri esperimentalak aktibaturik.\nEzaugarri berriak ezegonkorrak eta ez-seguruak izan litezke.</string>
+    <string name="toast_experimental_featured_off">Funtzio esperimentalak desaktibaturik.</string>
     <string name="txt_log_on_file">Erregistroak fitxategi batean gorde</string>
     <string name="toast_log_on_file_on">Gorde erregistroak aktibatutako artxibategi batean.\nLog.txt fitxategia erants dezakezu arazo baten berri ematen duzunean.\nGehiago irakurri GitHub.</string>
     <string name="toast_log_on_file_off">Erregistroak desaktibatutako fitxategi batean gordetzen.</string>
     <string name="txt_anonymous_statistics">Estatistika anonimoak</string>
     <string name="toast_anonymous_statistics_on">Aktibatutako estatistika anonimoak.\nEz ditugu zure datu pertsonalak biltzen. Estatistikak baino ez ditugu erabiltzen aplikazioa egunero zenbat pertsonak erabiltzen duten ikusteko.</string>
-    <string name="toast_anonymous_statistics_off">Estatistika anonimoak desaktibatuta.</string>
+    <string name="toast_anonymous_statistics_off">Estatistika anonimo desaktibatuak. Kontuan izan estatistikak baino ez ditugula erabiltzen aplikazioa egunero zenbat pertsonak erabiltzen duten ikusteko. Ez dugu datu pertsonalik biltzen. Estatistikak berriz aktibatzea ausnartu.</string>
     <string name="txt_skip_recording_confirmation">Utzi alde batera grabazioaren baieztapena</string>
-    <string name="toast_skip_recording_confirmation_on">Ez baieztatu aktibatutako grabazioa. Orain grabazioak bidali ahal izango dituzu entzun beharrik gabe.</string>
+    <string name="toast_skip_recording_confirmation_on">Ez baieztatu aktibatutako grabazioa.\nOrain grabazioak bidali ahal izango dituzu entzun beharrik gabe.</string>
     <string name="toast_skip_recording_confirmation_off">Desaktibatu utzi alde batera grabazioaren baieztapena.</string>
+    <string name="txt_translate_the_app_on_crowdin">Itzuli aplikazioa Crowdin</string>
+    <string name="txt_see_statistics_of_the_app">Ikusi aplikazioaren estatistikak</string>
+    <string name="txt_recording_indicator_sound">Soinu-grabaketaren adierazlea</string>
+    <string name="toast_recording_indicator_sound_on">Grabazio-adierazlearen soinua orain aktibatuta dago.\nSoinu bat erreproduzituko da grabazioa hasi eta gelditzen denean.</string>
+    <string name="toast_recording_indicator_sound_off">Soinu-grabaketaren adierazlea desgaituta dago.</string>
+    <string name="txt_check_for_updates">Bilatu eguneraketak</string>
+    <string name="toast_check_for_updated_on">Bilatu eguneraketak aktibatuta dago.</string>
+    <string name="toast_check_for_updated_off">Bilatu eguneraketak desaktibatuta dago.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings">Ezeztatu berresteko elkarrizketa-koadroak Ezarpenetan</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on">Ezeztapena berresteko elkarrizketa-taulak aktibatuta daude orain.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off">Ezeztapena berresteko elkarrizketa-taulak desaktibatuta daude orain.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>
@@ -123,6 +134,13 @@
     <string name="title_report_clip">Salatu klipa:</string>
     <string name="title_report_sentence">Esaldiaren berri eman:</string>
     <string name="button_send_report">Txostena bidali</string>
+    <string name="checkbox_reason1_report_sentence">Hizkuntza mingarria</string>
+    <string name="checkbox_reason1_report_clip">Hizketaldi mingarria</string>
+    <string name="checkbox_reason2_report">Gramatika edo ortografia errorea</string>
+    <string name="checkbox_reason3_report">Hizkuntza desberdina</string>
+    <string name="checkbox_reason4_report">Ahoskatzeko zaila</string>
+    <string name="checkbox_reason5_report">Beste bat</string>
+    <string name="checkbox_reason5_comment_report">Iruzkinak</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Berriz begiratu</string>
     <string name="txt_noconnection">Ez zaude Internetera konektatuta. Konektatu Wi-Fi edo datu mugikorrekin, ondoren sakatu botoia.</string>
