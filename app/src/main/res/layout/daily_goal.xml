@@ -83,7 +83,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:minHeight="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/labelTextMessageDialog"
+            app:layout_constraintBottom_toTopOf="@+id/labelTextDailyGoal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
