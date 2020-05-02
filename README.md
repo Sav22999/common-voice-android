@@ -58,11 +58,11 @@ The app is officially translated in these following languages, **thank you very 
 - 🔶 `es` Spanish -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `et` Estonian -> [**Agu Ratas**](https://crowdin.com/profile/aguratas)
 - ✅ `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
-- 🔶 `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi)
-- 🔶 `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
+- ✅ `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi)
+- ✅ `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
 - ✅ `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
 - 🔶 `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
-- 🔶 `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**
+- 🔶 `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100)
 - 🔶🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha)
 - 🔶 `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `tr` Turkish -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)
