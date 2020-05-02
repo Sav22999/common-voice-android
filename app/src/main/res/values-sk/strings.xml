@@ -2,7 +2,7 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">sk</string>
+    <string name="language">en</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Domov</string>
     <string name="title_dashboard">Prehľad</string>
@@ -85,9 +85,9 @@
     <string name="toast_log_on_file_on">Ukladanie záznamov do súboru je zapnuté.\nTeraz môžeš priložit log.txt súbor keď budeš odosielať problém.\nPrečítaj si viac na GitHub.</string>
     <string name="toast_log_on_file_off">Ukladanie záznamov do súboru je vypnuté.</string>
     <string name="txt_anonymous_statistics">Anonymné štatistiky používania</string>
-    <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    <string name="txt_skip_recording_confirmation">Skip recording confirmation</string>
+    <string name="toast_anonymous_statistics_on">Anonymné štatistiky používania sú zapnuté.\nNezbierame vaše osobné dáta. Tieto štatistiky používame, aby sme vedeli koľko používateľov aplikáciu používa denne.</string>
+    <string name="toast_anonymous_statistics_off">Anonymné štatistiky používania sú vypnuté. Prosím berte na vedomie, že štatistiky sú používané iba aby sme zistili koľko denných používateľov máme. Nezbierame žiadne osobné informácie. Prosím zvážte opätovné zapnutie štatistík používania.</string>
+    <string name="txt_skip_recording_confirmation">Preskočiť potvrdenie nahrávky</string>
     <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
     <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
     <string name="txt_translate_the_app_on_crowdin">Translate the app on Crowdin</string>

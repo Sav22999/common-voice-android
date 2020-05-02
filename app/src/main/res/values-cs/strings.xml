@@ -79,17 +79,28 @@
     <string name="toast_dark_theme_off">Dark theme is now turned off.</string>
     <string name="contact_developer_on_telegram">Kontaktujte vývojáře na Telegram</string>
     <string name="txt_experimental_features">Experimentální funkce</string>
-    <string name="toast_experimental_features_on">Experimentální funkce zapnuty\nNové funkce mohou být nestabilní a nebezpečné</string>
-    <string name="toast_experimental_featured_off">Experimentální funkce vypnuty</string>
+    <string name="toast_experimental_features_on">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
+    <string name="toast_experimental_featured_off">Experimentální funkce vypnuty.</string>
     <string name="txt_log_on_file">Save logs to a file</string>
     <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
     <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
     <string name="txt_anonymous_statistics">Anonymous statistics</string>
     <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off.</string>
+    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     <string name="txt_skip_recording_confirmation">Skip recording confirmation</string>
-    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on. You will now be able to send recordings without having to listen to them first.</string>
+    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
     <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
+    <string name="txt_translate_the_app_on_crowdin">Translate the app on Crowdin</string>
+    <string name="txt_see_statistics_of_the_app">See app statistics</string>
+    <string name="txt_recording_indicator_sound">Recording indicator sound</string>
+    <string name="toast_recording_indicator_sound_on">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
+    <string name="toast_recording_indicator_sound_off">Recording indicator sound is now turned off.</string>
+    <string name="txt_check_for_updates">Check for updates</string>
+    <string name="toast_check_for_updated_on">Check for updates turned on.</string>
+    <string name="toast_check_for_updated_off">Check for updates turned off.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings">Abort confirmation dialogs in Settings</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Přeskočit</string>
@@ -123,6 +134,13 @@
     <string name="title_report_clip">Report clip:</string>
     <string name="title_report_sentence">Report sentence:</string>
     <string name="button_send_report">Send report</string>
+    <string name="checkbox_reason1_report_sentence">Offensive language</string>
+    <string name="checkbox_reason1_report_clip">Offensive speech</string>
+    <string name="checkbox_reason2_report">Grammatical / spelling error</string>
+    <string name="checkbox_reason3_report">Different language</string>
+    <string name="checkbox_reason4_report">Difficult to pronounce</string>
+    <string name="checkbox_reason5_report">Ostatní</string>
+    <string name="checkbox_reason5_comment_report">Comment</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Zkontrolovat znovu</string>
     <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
