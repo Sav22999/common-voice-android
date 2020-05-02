@@ -24,8 +24,10 @@ These statistics are absolutely anonymous. I don't collect your personal data. T
 
 **logged_status**: it's a integer value: 0 if you are not logged, 1 if you logged-in
 
+**version**: it's the version_code, it's useful to know if users use the latest releases
+
 You can see statistics on website: https://saveriomorelli.com/app/common-voice-android/statistics.
 
 
 
-*Last update: 22nd Apr 2020*
+*Last update: 3rd May 2020*

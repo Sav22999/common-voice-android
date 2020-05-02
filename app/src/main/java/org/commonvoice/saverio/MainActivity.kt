@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity() {
         generateUniqueUserId()
         try {
             var urlStatistics =
-                "https://saveriomorelli.com/api/common-voice-android/?username={{*{{username}}*}}&language={{*{{language}}*}}&logged={{*{{logged}}*}}" //API to send the request
+                "https://saveriomorelli.com/api/common-voice-android/?username={{*{{username}}*}}&language={{*{{language}}*}}&logged={{*{{logged}}*}}&version={{*{{version}}*}}" //API to send the request
             var loggedYesNotInt = 0
             if (this.logged) loggedYesNotInt = 1
             val params = JSONObject()
@@ -171,9 +171,12 @@ class MainActivity : AppCompatActivity() {
             var languageTemp = this.selectedLanguageVar
             if (languageTemp == "") languageTemp = "en"
 
+            val appVersion = BuildConfig.VERSION_CODE.toString()
+
             urlStatistics = urlStatistics.replace("{{*{{username}}*}}", this.uniqueUserId)
             urlStatistics = urlStatistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
             urlStatistics = urlStatistics.replace("{{*{{language}}*}}", languageTemp)
+            urlStatistics = urlStatistics.replace("{{*{{version}}*}}", appVersion)
 
             val que = Volley.newRequestQueue(this)
             val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
