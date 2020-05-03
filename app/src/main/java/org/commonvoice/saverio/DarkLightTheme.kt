@@ -37,10 +37,10 @@ class DarkLightTheme {
             var el = activity.getChildAt(count)
             if (el is TextView) {
                 this.setElement(this.isDark, view, el)
-                println("TextView")
+                //tln("TextView")
             } else if (el is Button) {
                 this.setElement(this.isDark, view, el)
-                println("Button")
+                //println("Button")
             } else if (el is Spinner) {
                 //println("Spinner")
             } else if (el is ImageView) {
@@ -49,9 +49,9 @@ class DarkLightTheme {
                 //println("View")
             } else if (el is Switch) {
                 setElement(isDark, view, el as Switch)
-                println("Switch")//it doesn't found anything (?)
+                //println("Switch")//it doesn't found anything (?)
             } else {
-                println("Other found:" + el.id)
+                //println("Other found:" + el.id)
             }
             count++
         }

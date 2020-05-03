@@ -1,6 +1,6 @@
 
 
-#  <img src="images/icon.png" width="40px" alt=""></img> Common Voice 
+#  <img src="images/icon.png" width="40px" alt=""></img> Common Voice Android
 
 This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
 
@@ -45,7 +45,7 @@ If you want screenshots of the other versions, go to the `screenshots` folder.
 
 There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online. You can record sentences or validate clips, with a few taps. So, the app is smart, customisable, light, but powerful.
 
-### Translators
+### Translations
 
 The app is officially translated in these following languages, **thank you very much** to the contributors who translated the app.
 
