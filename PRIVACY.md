@@ -1,8 +1,8 @@
 
 
-#  <img src="images/icon.png" width="40px" alt=""></img> Privacy: Common Voice Android App
+#  <img src="images/icon.png" width="40px" alt=""></img> Privacy: Common Voice Android
 
-The app doesn’t collect your data. Anyway, some data are saved on your device (*user_id* of CV, *selected language*, *validations and recordings number*). You can clear them just *Clear data* of the app (but they are necessary to use Common Voice Android App).
+The app doesn’t collect your data. Anyway, some data are saved on your device (*user_id* of CV, *selected language*, *validations and recordings number*, and others data). You can clear them just *Clear data* of the app (but they are necessary to use Common Voice Android).
 
 The app requires *Storage* and *Microphone* permissions when you use *Speak section*: because the app saves your recording, but then they are deleted automatically.
 
@@ -14,9 +14,9 @@ If you want additional information about the Policy privacy of Common Voice proj
 
 ### Anonymous statistics
 
-*You can disable Anonymous Statistics always, in Settings. __I recommend leaving it active, because it does NOT send personal data but only serves to understand the daily user. __*
+*You can disable Anonymous Statistics always, in Settings. If you disable statistics, you will not be in public statistics, but app sent anyway data to my database.*
 
-These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language** and **logged_status**.
+These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language**, **logged_status**, **version** and **status_statistics**.
 
 **unique_id**: It's a unique string generated the first time you run the app, and it is like "UserYYYYMMDDHHMMSSMMMM::CVAppSav", so it doesn't contain any your personal data
 
@@ -26,7 +26,9 @@ These statistics are absolutely anonymous. I don't collect your personal data. T
 
 **version**: it's the version_code, it's useful to know if users use the latest releases
 
-You can see statistics on website: https://saveriomorelli.com/app/common-voice-android/statistics.
+**status_statistics**: it's a flag "true" or "false". If the statistics are turned on in the app, it's true, otherwise it's false.
+
+You can see public statistics on website: https://saveriomorelli.com/app/common-voice-android/statistics.
 
 
 

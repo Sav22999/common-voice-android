@@ -74,9 +74,7 @@ class HomeFragment : Fragment() {
         main.startAnimation(btnSpeak)
         main.startAnimation(btnListen)
 
-        if (main.getStatisticsSwitch()) {
-            main.statisticsAPI()
-        }
+        main.statisticsAPI()
 
         main.checkNewVersionAvailable()
 

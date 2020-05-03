@@ -155,64 +155,66 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun statisticsAPI() {
-        generateUniqueUserId()
-        try {
-            var urlStatistics =
-                "https://saveriomorelli.com/api/common-voice-android/?username={{*{{username}}*}}&language={{*{{language}}*}}&logged={{*{{logged}}*}}&version={{*{{version}}*}}" //API to send the request
-            var loggedYesNotInt = 0
-            if (this.logged) loggedYesNotInt = 1
-            val params = JSONObject()
-            /*params.put("username", this.uniqueUserId)
-            params.put("logged", loggedYesNotInt)
-            params.put("language", this.selectedLanguageVar)*/
+        if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
+            generateUniqueUserId()
+            try {
+                var urlStatistics =
+                    "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request
+                var loggedYesNotInt = 0
+                if (this.logged) loggedYesNotInt = 1
 
-            //println(">> params: " + params + "<<")
+                var languageTemp = this.selectedLanguageVar
+                if (languageTemp == "") languageTemp = "en"
 
-            var languageTemp = this.selectedLanguageVar
-            if (languageTemp == "") languageTemp = "en"
+                var appVersion = BuildConfig.VERSION_CODE.toString()
+                if (appVersion == "") appVersion = "n.d."
 
-            val appVersion = BuildConfig.VERSION_CODE.toString()
+                val params = JSONObject()
+                params.put("username", this.uniqueUserId)
+                params.put("logged", loggedYesNotInt.toString())
+                params.put("language", languageTemp)
+                params.put("version", appVersion)
+                params.put("public", this.getStatisticsSwitch().toString())
 
-            urlStatistics = urlStatistics.replace("{{*{{username}}*}}", this.uniqueUserId)
-            urlStatistics = urlStatistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
-            urlStatistics = urlStatistics.replace("{{*{{language}}*}}", languageTemp)
-            urlStatistics = urlStatistics.replace("{{*{{version}}*}}", appVersion)
+                //println(">> params: " + params + "<<")
 
-            val que = Volley.newRequestQueue(this)
-            val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
-                Response.Listener {
-                    val jsonResult = it.toString()
-                    val jsonResultArray = arrayOf(jsonResult, "")
-                    val jsonObj = JSONObject(
-                        jsonResultArray[0].substring(
-                            jsonResultArray[0].indexOf("{"),
-                            jsonResultArray[0].lastIndexOf("}") + 1
+                val que = Volley.newRequestQueue(this)
+                val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
+                    Response.Listener {
+                        //println(" >> " + it.toString())
+                        val jsonResult = it.toString()
+                        val jsonResultArray = arrayOf(jsonResult, "")
+                        val jsonObj = JSONObject(
+                            jsonResultArray[0].substring(
+                                jsonResultArray[0].indexOf("{"),
+                                jsonResultArray[0].lastIndexOf("}") + 1
+                            )
                         )
-                    )
-                    //println(jsonObj.toString())
-                    /*
-                    if (jsonObj.getString("code").toInt() == 200) {
-                        //println("-->> Record added to the database <<--")
-                    } else {
-                        //println("!!-- Record is already in the database --!!")
+                        //println(jsonObj.toString())
+                        /*
+                        if (jsonObj.getString("code").toInt() == 200) {
+                            //println("-->> Record added to the database <<--")
+                        } else {
+                            //println("!!-- Record is already in the database --!!")
+                        }
+                        */
+                        //println(jsonResult)
+                    }, Response.ErrorListener {
+                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
                     }
-                    */
-                    //println(jsonResult)
-                }, Response.ErrorListener {
-                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                ) {
+                    @Throws(AuthFailureError::class)
+                    override fun getHeaders(): Map<String, String> {
+                        val headers = HashMap<String, String>()
+                        headers.put("Content-Type", "application/json")
+                        return headers
+                    }
                 }
-            ) {
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    headers.put("Content-Type", "application/json")
-                    return headers
-                }
+                //Content-Type: application/json
+                que.add(req)
+            } catch (e: Exception) {
+                println("!!-- Exception M09 - Statistics --!!")
             }
-            //Content-Type: application/json
-            que.add(req)
-        } catch (e: Exception) {
-            println("!!-- Exception M09 - Statistics --!!")
         }
     }
 
@@ -440,7 +442,6 @@ class MainActivity : AppCompatActivity() {
                         getString(R.string.toast_anonymous_statistics_on)
                     )
                 }
-                statisticsAPI()
             } else {
                 //EXM08
                 //if (!isAbortConfirmation) {
@@ -455,6 +456,7 @@ class MainActivity : AppCompatActivity() {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
+            statisticsAPI()
         }
     }
 
