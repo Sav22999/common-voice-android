@@ -113,9 +113,9 @@
     <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
     <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_sending_recording">Sending the recording...</string>
-    <string name="txt_recording_sent">Recording sent!</string>
-    <string name="txt_sending_recording_failed">Failed to send recording!</string>
+    <string name="txt_sending_recording">பதிவை அனுப்புகிறது ...</string>
+    <string name="txt_recording_sent">பதிவு அனுப்பப்பட்டது!</string>
+    <string name="txt_sending_recording_failed">பதிவு அனுப்புவதில் தோல்வி!</string>
     <string name="txt_sending_recording_failed_and_skip">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
     <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip.</string>
     <string name="txt_press_icon_below_listen_2">Press the icon below to stop the clip.</string>
@@ -125,23 +125,23 @@
     <string name="txt_clip_validated_no">Clip marked as incorrect!</string>
     <string name="txt_error_1_try_again_tap_skip">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
     <string name="txt_error_2_sending_failed">Failed to send the recording.</string>
-    <string name="txt_sending_validation">Sending...</string>
+    <string name="txt_sending_validation">அனுப்புகிறது ...</string>
     <string name="txt_error_3_sending_validation_failed">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_closing">Closing...</string>
+    <string name="txt_closing">மூடப்படுகிறது...</string>
     <string name="txt_error_4_clips_no_available">Error. There are no more available clips for this language.</string>
-    <string name="button_report">Report</string>
+    <string name="button_report">அறிக்கை</string>
     <string name="title_report_clip">Report clip:</string>
     <string name="title_report_sentence">Report sentence:</string>
-    <string name="button_send_report">Send report</string>
+    <string name="button_send_report">அறிக்கை அனுப்ப</string>
     <string name="checkbox_reason1_report_sentence">Offensive language</string>
     <string name="checkbox_reason1_report_clip">Offensive speech</string>
     <string name="checkbox_reason2_report">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report">Different language</string>
-    <string name="checkbox_reason4_report">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report">Other</string>
-    <string name="checkbox_reason5_comment_report">Comment</string>
+    <string name="checkbox_reason3_report">வேறு மொழி</string>
+    <string name="checkbox_reason4_report">உச்சரிக்க கடினம்</string>
+    <string name="checkbox_reason5_report">மற்றவை</string>
+    <string name="checkbox_reason5_comment_report">கருத்து</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">Check again</string>
+    <string name="btn_check_again_noconnection">மீண்டும் சரிபார்க்கவும்</string>
     <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
     <!-- First-run Speak & Listen -->
     <string name="txt1_tutorial_speak">This is the sentence you must record.</string>
@@ -163,28 +163,28 @@
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges">Close</string>
+    <string name="btnCloseBadges">மூடு</string>
     <string name="labelAllBadges">All badges</string>
     <string name="new_badge_earnt_message">Hooray! You have just earned a new badge.</string>
     <!-- Message dialog -->
-    <string name="btnOk">Ok</string>
-    <string name="messageDialogErrorTitle">Error</string>
+    <string name="btnOk">சரி</string>
+    <string name="messageDialogErrorTitle">பிழை</string>
     <string name="messageDialogGenericError">That didn\'t work.\nPlease try again, or contact the developer.</string>
     <string name="messageDialogErrorCode">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title">Daily goal</string>
-    <string name="daily_goal_is_not_set">No goal set</string>
-    <string name="set_daily_goal">Set a goal</string>
-    <string name="edit_daily_goal">Edit goal</string>
-    <string name="save_daily_goal">Save</string>
-    <string name="delete_daily_goal">Delete</string>
-    <string name="cancel_daily_goal">Cancel</string>
+    <string name="daily_goal_title">தினசரி இலக்கு</string>
+    <string name="daily_goal_is_not_set">இலக்கு நிர்ணயிக்கப்படவில்லை</string>
+    <string name="set_daily_goal">இலக்கை நிர்ணயம் செய்</string>
+    <string name="edit_daily_goal">இலக்கைத் திருத்து</string>
+    <string name="save_daily_goal">சேமி</string>
+    <string name="delete_daily_goal">நீக்கு</string>
+    <string name="cancel_daily_goal">ரத்துசெய்</string>
     <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
-    <string name="daily_goal_achieved_today">Achieved today</string>
-    <string name="daily_goal_not_achieved_today">Not achieved today</string>
+    <string name="daily_goal_achieved_today">இன்று சாதித்தது</string>
+    <string name="daily_goal_not_achieved_today">இன்று ஏதும் சாதிக்கவில்லை</string>
     <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
     <!-- Message dialog (unspecified category) -->
