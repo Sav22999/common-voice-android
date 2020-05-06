@@ -239,33 +239,36 @@ class MainActivity : AppCompatActivity() {
 
     fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
         if (this.getCheckForUpdatesSwitch() or forcedCheck == true) {
-            val code: String = BuildConfig.VERSION_CODE.toString()
-            if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
-                    "NEW_VERSION_" + code,
-                    false
-                )
-            ) {
-                try {
-                    val urlApiGithub =
-                        "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
-                    val que = Volley.newRequestQueue(this)
-                    val req = object : StringRequest(Request.Method.GET, urlApiGithub,
-                        Response.Listener {
-                            //println("-->> " + it.toString() + " <<--")
-                            val currentVersion: String = BuildConfig.VERSION_NAME
-                            var serverVersion: String = currentVersion
-                            val jsonResult = it.toString()
-                            if (jsonResult.length > 2) {
-                                try {
-                                    val jsonObj = JSONObject(
-                                        jsonResult.substring(
-                                            jsonResult.indexOf("{"),
-                                            jsonResult.lastIndexOf("}") + 1
-                                        )
+            try {
+                val urlApiGithub =
+                    "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
+                val que = Volley.newRequestQueue(this)
+                val req = object : StringRequest(Request.Method.GET, urlApiGithub,
+                    Response.Listener {
+                        //println("-->> " + it.toString() + " <<--")
+                        val currentVersion: String = BuildConfig.VERSION_NAME
+                        var serverVersion: String = currentVersion
+                        val jsonResult = it.toString()
+                        if (jsonResult.length > 2) {
+                            try {
+                                val jsonObj = JSONObject(
+                                    jsonResult.substring(
+                                        jsonResult.indexOf("{"),
+                                        jsonResult.lastIndexOf("}") + 1
                                     )
-                                    serverVersion = jsonObj.getString("tag_name")
-                                    //println(">> current: " + currentVersion + " - new: " + serverVersion)
-                                    if (currentVersion != serverVersion) {
+                                )
+                                serverVersion = jsonObj.getString("tag_name")
+                                val code: String = serverVersion.replace(".", "_")
+                                //println(">> current: " + currentVersion + " - new: " + serverVersion)
+                                if (currentVersion != serverVersion) {
+                                    if (!getSharedPreferences(
+                                            "NEW_VERSION_" + code,
+                                            PRIVATE_MODE
+                                        ).getBoolean(
+                                            "NEW_VERSION_" + code,
+                                            false
+                                        )
+                                    ) {
                                         showMessageDialog(
                                             "",
                                             getString(R.string.message_dialog_new_version_available).replace(
@@ -279,18 +282,18 @@ class MainActivity : AppCompatActivity() {
                                         ).edit()
                                             .putBoolean("NEW_VERSION_" + code, true).apply()
                                     }
-                                } catch (e: Exception) {
-                                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
                                 }
+                            } catch (e: Exception) {
+                                println(" -->> Something wrong: " + it.toString() + " <<-- ")
                             }
-                        }, Response.ErrorListener {
-                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
                         }
-                    ) {}
-                    que.add(req)
-                } catch (e: Exception) {
-                    println(" -->> Something wrong: " + e.toString() + " <<-- ")
-                }
+                    }, Response.ErrorListener {
+                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    }
+                ) {}
+                que.add(req)
+            } catch (e: Exception) {
+                println(" -->> Something wrong: " + e.toString() + " <<-- ")
             }
         }
     }
@@ -980,6 +983,8 @@ class MainActivity : AppCompatActivity() {
         setSavedStatistics("everyone", "?")
         setSavedVoicesOnline("voicesNow", "?")
         setSavedVoicesOnline("voicesBefore", "?")
+        this.getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
     }
 
     fun getLanguageList(): ArrayAdapter<String> {
@@ -1109,6 +1114,14 @@ class MainActivity : AppCompatActivity() {
         showMessageDialog(
             "",
             getString(R.string.toastNoLoginNoStatistics)
+        )
+    }
+
+    fun noLoggedInNoDailyGoal() {
+        //EXM20
+        showMessageDialog(
+            "",
+            getString(R.string.toastNoLoginNoDailyGoal)
         )
     }
 

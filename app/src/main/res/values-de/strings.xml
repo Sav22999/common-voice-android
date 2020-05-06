@@ -10,7 +10,7 @@
     <!-- Home (main) -->
     <string name="description_cv_robot">Common-Voice-Logo</string>
     <string name="description_cv_logo">Common-Voice-Roboter</string>
-    <string name="button_home_login">Log in / Sign up</string>
+    <string name="button_home_login">Einloggen / Registrieren</string>
     <string name="button_home_logout">Abmelden</string>
     <string name="button_home_profile">Profil</string>
     <string name="text_hi_username">Hallo</string>
@@ -21,7 +21,8 @@
     <string name="dashboardTabEveryone">Alle</string>
     <string name="dashboardToday">Heute</string>
     <string name="dashboardEver">Jemals</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
+    <string name="toastNoLoginNoStatistics">Du musst Dich anmelden, um Deine Statistiken anzusehen</string>
+    <string name="toastNoLoginNoDailyGoal">Du musst dich anmelden, um dein tägliches Ziel zu setzen</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Uhrzeit</string>
     <!-- Tutorial -->
@@ -35,14 +36,14 @@
     <string name="tutorial_terms">Indem Du fortfährst, erklärst Du Dich mit den Nutzungsbedingungen von Common Voice einverstanden.</string>
     <string name="tutorial_text2">Die Common-Voice-App benötigt die \"Mikrofon\"-Berechtigung, um korrekt zu funktionieren.</string>
     <string name="tutorial_text3">Die Common-Voice-App benötigt die \"Speicher\"-Berechtigung, um korrekt zu funktionieren.</string>
-    <string name="tutorial_text4">Select your native language. The sentences that you will record and validate will be in this language.</string>
+    <string name="tutorial_text4">Wähle deine Muttersprache. Die Sätze, die Du aufzeichnen und überprüfen wirst, werden in dieser Sprache sein.</string>
     <!-- Login -->
     <string name="txt_loading_page">Laden ...</string>
     <string name="txt_profile_username">Benutzername</string>
     <string name="txt_profile_email">E-Mail</string>
     <string name="txt_profile_age">Alter</string>
     <string name="txt_profile_gender">Geschlecht</string>
-    <string name="txt_profile_edit_data_alert">To modify your profile information, go to the Common Voice website.</string>
+    <string name="txt_profile_edit_data_alert">Um deine Profilinformationen zu ändern, besuche die Common Voice-Website.</string>
     <string name="txt_login_successful_alert">Anmeldung erfolgreich!</string>
     <string name="txt_gender_male">Männlich</string>
     <string name="txt_gender_female">Weiblich</string>
@@ -61,38 +62,38 @@
     <string name="txt_level10_name">Champion</string>
     <string name="level_up_message">Glückwunsch! Du hast soeben Level {{*{{n_level}}*}} erreicht.</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings">Open tutorial again</string>
+    <string name="btn_open_tutorial_settings">Tutorial erneut öffnen</string>
     <string name="txt_project_github_settings">Open-Source-Projekt auf GitHub</string>
     <string name="txt_contributors">Hauptbeitragende</string>
     <string name="txt_developed_by">entwickelt von</string>
     <string name="toast_language_changed">Sprache wurde erfolgreich zu {{*{{lang}}*}} geändert.</string>
     <string name="settingsLanguage">Sprache</string>
-    <string name="settingsListen">Listen</string>
-    <string name="settingsSpeak">Speak</string>
+    <string name="settingsListen">Anhören</string>
+    <string name="settingsSpeak">Sprechen</string>
     <string name="settingsOther">Andere</string>
-    <string name="txt_donate_paypal_settings">Support my work. Buy me a coffee 😄</string>
+    <string name="txt_donate_paypal_settings">Meine Arbeit unterstützen. Kaufe mir einen Kaffee 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings">Clip nach dem Laden automatisch abspielen</string>
-    <string name="toast_autoplay_clip_on">Auto-play clip is now turned on.</string>
-    <string name="toast_autoplay_clip_off">Auto-play clip is now turned off.</string>
+    <string name="toast_autoplay_clip_on">Clip automatisch abspielen ist jetzt aktiviert.</string>
+    <string name="toast_autoplay_clip_off">Clip automatisch abspielen ist jetzt deaktiviert.</string>
     <string name="txt_dark_theme_settings">Dunkles Design</string>
-    <string name="toast_dark_theme_on">Dark theme is now turned on.</string>
-    <string name="toast_dark_theme_off">Dark theme is now turned off.</string>
+    <string name="toast_dark_theme_on">Dunkles Theme ist jetzt aktiviert.</string>
+    <string name="toast_dark_theme_off">Dunkles Theme ist jetzt deaktiviert.</string>
     <string name="contact_developer_on_telegram">Kontaktiere den Entwickler über Telegram</string>
     <string name="txt_experimental_features">Experimentelle Funktionen</string>
-    <string name="toast_experimental_features_on">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="toast_experimental_featured_off">Experimental features turned off.</string>
-    <string name="txt_log_on_file">Save logs to a file</string>
-    <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
-    <string name="txt_anonymous_statistics">Anonymous statistics</string>
-    <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    <string name="toast_experimental_features_on">Experimentelle Funktionen aktiviert.\nNeue Funktionen könnten instabil und unsicher sein.</string>
+    <string name="toast_experimental_featured_off">Experimentelle Funktionen deaktiviert.</string>
+    <string name="txt_log_on_file">Protokolle in einer Datei speichern</string>
+    <string name="toast_log_on_file_on">Speichern von Protokollen in einer Datei aktiviert\nDu kannst die Datei log.txt anhängen, wenn Du ein Problem meldest.\nWeitere Infos auf Github.</string>
+    <string name="toast_log_on_file_off">Speichern von Protokollen in eine Datei deaktiviert.</string>
+    <string name="txt_anonymous_statistics">Anonyme Statistiken senden</string>
+    <string name="toast_anonymous_statistics_on">Anonyme Statistiken aktiviert.\nWir sammeln keine persönlichen Daten. Wir verwenden nur Statistiken, um zu sehen, wie viele Benutzer die App täglich nutzen.</string>
+    <string name="toast_anonymous_statistics_off">Anonyme Statistiken deaktiviert. Bitte beachte, dass wir nur Statistiken verwenden, um zu sehen, wie viele Benutzer die App täglich benutzen. Wir erfassen keine persönlichen Daten. Bitte überlege dir, die Statistik wieder einzuschalten.</string>
     <string name="txt_skip_recording_confirmation">Aufnahmebestätigung überspringen</string>
-    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
+    <string name="toast_skip_recording_confirmation_on">Überspringen der Aufnahmebestätigung aktiviert.\nSie können nun Aufnahmen senden, ohne sie zuerst hören zu müssen.</string>
     <string name="toast_skip_recording_confirmation_off">Überspringen der Aufnahmebestätigung deaktiviert.</string>
-    <string name="txt_translate_the_app_on_crowdin">Translate the app on Crowdin</string>
-    <string name="txt_see_statistics_of_the_app">See app statistics</string>
-    <string name="txt_recording_indicator_sound">Recording indicator sound</string>
+    <string name="txt_translate_the_app_on_crowdin">Übersetze die App auf Crowdin</string>
+    <string name="txt_see_statistics_of_the_app">Nutzungsstatistiken ansehen</string>
+    <string name="txt_recording_indicator_sound">Ton bei Aufname abspielen</string>
     <string name="toast_recording_indicator_sound_on">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
     <string name="toast_recording_indicator_sound_off">Recording indicator sound is now turned off.</string>
     <string name="txt_check_for_updates">Check for updates</string>
@@ -139,7 +140,7 @@
     <string name="checkbox_reason2_report">Grammatical / spelling error</string>
     <string name="checkbox_reason3_report">Different language</string>
     <string name="checkbox_reason4_report">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report">Other</string>
+    <string name="checkbox_reason5_report">Andere</string>
     <string name="checkbox_reason5_comment_report">Comment</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Erneut prüfen</string>
