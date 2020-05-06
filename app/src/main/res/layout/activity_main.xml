@@ -9,7 +9,7 @@
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/colorPrimaryDark"
         android:backgroundTint="@color/colorPrimaryDark"
         android:foregroundTint="@color/colorWhite"
         app:itemIconTint="@drawable/navbar_style"
