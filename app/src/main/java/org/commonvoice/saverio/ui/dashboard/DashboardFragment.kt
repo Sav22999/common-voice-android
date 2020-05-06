@@ -135,7 +135,11 @@ class DashboardFragment : Fragment() {
 
             val btnSetGoal: Button = root.findViewById(R.id.buttonDashboardSetDailyGoal)
             btnSetGoal.setOnClickListener {
-                main.openDailyGoalDialog()
+                if (main.logged) {
+                    main.openDailyGoalDialog()
+                } else {
+                    main.noLoggedInNoDailyGoal()
+                }
             }
 
             val goalText = root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
@@ -500,10 +504,12 @@ class DashboardFragment : Fragment() {
                                         )
                                         when (type) {
                                             "youEverSpeak" -> {
-                                                valueToReturn = jsonObj.getString("clips_count").toInt()
+                                                valueToReturn =
+                                                    jsonObj.getString("clips_count").toInt()
                                             }
                                             "youEverListen" -> {
-                                                valueToReturn = jsonObj.getString("votes_count").toInt()
+                                                valueToReturn =
+                                                    jsonObj.getString("votes_count").toInt()
                                             }
                                             "everyoneEverSpeak" -> {
                                                 valueToReturn = jsonObj.getString("total").toInt()

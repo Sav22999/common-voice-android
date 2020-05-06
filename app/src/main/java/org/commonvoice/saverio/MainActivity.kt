@@ -980,6 +980,8 @@ class MainActivity : AppCompatActivity() {
         setSavedStatistics("everyone", "?")
         setSavedVoicesOnline("voicesNow", "?")
         setSavedVoicesOnline("voicesBefore", "?")
+        this.getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
     }
 
     fun getLanguageList(): ArrayAdapter<String> {
@@ -1109,6 +1111,14 @@ class MainActivity : AppCompatActivity() {
         showMessageDialog(
             "",
             getString(R.string.toastNoLoginNoStatistics)
+        )
+    }
+
+    fun noLoggedInNoDailyGoal() {
+        //EXM20
+        showMessageDialog(
+            "",
+            getString(R.string.toastNoLoginNoDailyGoal)
         )
     }
 

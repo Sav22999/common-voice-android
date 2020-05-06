@@ -24,6 +24,7 @@
     <string name="dashboardToday">Today</string>
     <string name="dashboardEver">Ever</string>
     <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
+    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hour</string>
     <!-- Tutorial -->
