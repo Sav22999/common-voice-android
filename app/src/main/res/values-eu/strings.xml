@@ -22,6 +22,7 @@
     <string name="dashboardToday">Gaur</string>
     <string name="dashboardEver">Hasieratik</string>
     <string name="toastNoLoginNoStatistics">Saioa hasi behar duzu zure estatistikak ikusteko</string>
+    <string name="toastNoLoginNoDailyGoal">Saioa hasi behar duzu eguneroko helburua zehazteko</string>
     <string name="textHoursAbbreviation">ord</string>
     <string name="textHour">Orduak</string>
     <!-- Tutorial -->
