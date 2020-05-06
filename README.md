@@ -52,7 +52,7 @@ The app is officially translated in these following languages, **thank you very 
 ✅ = Full translation, 🔶 = Partial translation, 🔴 = Not yet available for the Common Voice project
 
 - 🔶 `cs` Czech -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
-- 🔶 `de` German -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini)
+- 🔶 `de` German -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd)
 - ✅ `en` English (main language) -> Also thanks to [**Cadence Ember**](https://github.com/cloudrac3r)
 - 🔶 `eo` Esperanto -> [**tuxayo**](https://github.com/tuxayo)
 - 🔶 `es` Spanish -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
