@@ -155,61 +155,66 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun statisticsAPI() {
-        generateUniqueUserId()
-        try {
-            var urlStatistics =
-                "https://saveriomorelli.com/api/common-voice-android/?username={{*{{username}}*}}&language={{*{{language}}*}}&logged={{*{{logged}}*}}" //API to send the request
-            var loggedYesNotInt = 0
-            if (this.logged) loggedYesNotInt = 1
-            val params = JSONObject()
-            /*params.put("username", this.uniqueUserId)
-            params.put("logged", loggedYesNotInt)
-            params.put("language", this.selectedLanguageVar)*/
+        if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
+            generateUniqueUserId()
+            try {
+                var urlStatistics =
+                    "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request
+                var loggedYesNotInt = 0
+                if (this.logged) loggedYesNotInt = 1
 
-            //println(">> params: " + params + "<<")
+                var languageTemp = this.selectedLanguageVar
+                if (languageTemp == "") languageTemp = "en"
 
-            var languageTemp = this.selectedLanguageVar
-            if (languageTemp == "") languageTemp = "en"
+                var appVersion = BuildConfig.VERSION_CODE.toString()
+                if (appVersion == "") appVersion = "n.d."
 
-            urlStatistics = urlStatistics.replace("{{*{{username}}*}}", this.uniqueUserId)
-            urlStatistics = urlStatistics.replace("{{*{{logged}}*}}", loggedYesNotInt.toString())
-            urlStatistics = urlStatistics.replace("{{*{{language}}*}}", languageTemp)
+                val params = JSONObject()
+                params.put("username", this.uniqueUserId)
+                params.put("logged", loggedYesNotInt.toString())
+                params.put("language", languageTemp)
+                params.put("version", appVersion)
+                params.put("public", this.getStatisticsSwitch().toString())
 
-            val que = Volley.newRequestQueue(this)
-            val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
-                Response.Listener {
-                    val jsonResult = it.toString()
-                    val jsonResultArray = arrayOf(jsonResult, "")
-                    val jsonObj = JSONObject(
-                        jsonResultArray[0].substring(
-                            jsonResultArray[0].indexOf("{"),
-                            jsonResultArray[0].lastIndexOf("}") + 1
+                //println(">> params: " + params + "<<")
+
+                val que = Volley.newRequestQueue(this)
+                val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
+                    Response.Listener {
+                        //println(" >> " + it.toString())
+                        val jsonResult = it.toString()
+                        val jsonResultArray = arrayOf(jsonResult, "")
+                        val jsonObj = JSONObject(
+                            jsonResultArray[0].substring(
+                                jsonResultArray[0].indexOf("{"),
+                                jsonResultArray[0].lastIndexOf("}") + 1
+                            )
                         )
-                    )
-                    //println(jsonObj.toString())
-                    /*
-                    if (jsonObj.getString("code").toInt() == 200) {
-                        //println("-->> Record added to the database <<--")
-                    } else {
-                        //println("!!-- Record is already in the database --!!")
+                        //println(jsonObj.toString())
+                        /*
+                        if (jsonObj.getString("code").toInt() == 200) {
+                            //println("-->> Record added to the database <<--")
+                        } else {
+                            //println("!!-- Record is already in the database --!!")
+                        }
+                        */
+                        //println(jsonResult)
+                    }, Response.ErrorListener {
+                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
                     }
-                    */
-                    //println(jsonResult)
-                }, Response.ErrorListener {
-                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                ) {
+                    @Throws(AuthFailureError::class)
+                    override fun getHeaders(): Map<String, String> {
+                        val headers = HashMap<String, String>()
+                        headers.put("Content-Type", "application/json")
+                        return headers
+                    }
                 }
-            ) {
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    headers.put("Content-Type", "application/json")
-                    return headers
-                }
+                //Content-Type: application/json
+                que.add(req)
+            } catch (e: Exception) {
+                println("!!-- Exception M09 - Statistics --!!")
             }
-            //Content-Type: application/json
-            que.add(req)
-        } catch (e: Exception) {
-            println("!!-- Exception M09 - Statistics --!!")
         }
     }
 
@@ -234,33 +239,36 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
         if (this.getCheckForUpdatesSwitch() or forcedCheck == true) {
-            val code: String = BuildConfig.VERSION_CODE.toString()
-            if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
-                    "NEW_VERSION_" + code,
-                    false
-                )
-            ) {
-                try {
-                    val urlApiGithub =
-                        "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
-                    val que = Volley.newRequestQueue(this)
-                    val req = object : StringRequest(Request.Method.GET, urlApiGithub,
-                        Response.Listener {
-                            //println("-->> " + it.toString() + " <<--")
-                            val currentVersion: String = BuildConfig.VERSION_NAME
-                            var serverVersion: String = currentVersion
-                            val jsonResult = it.toString()
-                            if (jsonResult.length > 2) {
-                                try {
-                                    val jsonObj = JSONObject(
-                                        jsonResult.substring(
-                                            jsonResult.indexOf("{"),
-                                            jsonResult.lastIndexOf("}") + 1
-                                        )
+            try {
+                val urlApiGithub =
+                    "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
+                val que = Volley.newRequestQueue(this)
+                val req = object : StringRequest(Request.Method.GET, urlApiGithub,
+                    Response.Listener {
+                        //println("-->> " + it.toString() + " <<--")
+                        val currentVersion: String = BuildConfig.VERSION_NAME
+                        var serverVersion: String = currentVersion
+                        val jsonResult = it.toString()
+                        if (jsonResult.length > 2) {
+                            try {
+                                val jsonObj = JSONObject(
+                                    jsonResult.substring(
+                                        jsonResult.indexOf("{"),
+                                        jsonResult.lastIndexOf("}") + 1
                                     )
-                                    serverVersion = jsonObj.getString("tag_name")
-                                    //println(">> current: " + currentVersion + " - new: " + serverVersion)
-                                    if (currentVersion != serverVersion) {
+                                )
+                                serverVersion = jsonObj.getString("tag_name")
+                                val code: String = serverVersion.replace(".", "_")
+                                //println(">> current: " + currentVersion + " - new: " + serverVersion)
+                                if (currentVersion != serverVersion) {
+                                    if (!getSharedPreferences(
+                                            "NEW_VERSION_" + code,
+                                            PRIVATE_MODE
+                                        ).getBoolean(
+                                            "NEW_VERSION_" + code,
+                                            false
+                                        )
+                                    ) {
                                         showMessageDialog(
                                             "",
                                             getString(R.string.message_dialog_new_version_available).replace(
@@ -274,18 +282,18 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                                         ).edit()
                                             .putBoolean("NEW_VERSION_" + code, true).apply()
                                     }
-                                } catch (e: Exception) {
-                                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
                                 }
+                            } catch (e: Exception) {
+                                println(" -->> Something wrong: " + it.toString() + " <<-- ")
                             }
-                        }, Response.ErrorListener {
-                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
                         }
-                    ) {}
-                    que.add(req)
-                } catch (e: Exception) {
-                    println(" -->> Something wrong: " + e.toString() + " <<-- ")
-                }
+                    }, Response.ErrorListener {
+                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    }
+                ) {}
+                que.add(req)
+            } catch (e: Exception) {
+                println(" -->> Something wrong: " + e.toString() + " <<-- ")
             }
         }
     }
@@ -437,7 +445,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         getString(R.string.toast_anonymous_statistics_on)
                     )
                 }
-                statisticsAPI()
             } else {
                 //EXM08
                 //if (!isAbortConfirmation) {
@@ -452,6 +459,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
+            statisticsAPI()
         }
     }
 
@@ -975,6 +983,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setSavedStatistics("everyone", "?")
         setSavedVoicesOnline("voicesNow", "?")
         setSavedVoicesOnline("voicesBefore", "?")
+        this.getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
     }
 
     fun getLanguageList(): ArrayAdapter<String> {
@@ -1104,6 +1114,14 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         showMessageDialog(
             "",
             getString(R.string.toastNoLoginNoStatistics)
+        )
+    }
+
+    fun noLoggedInNoDailyGoal() {
+        //EXM20
+        showMessageDialog(
+            "",
+            getString(R.string.toastNoLoginNoDailyGoal)
         )
     }
 

@@ -22,6 +22,7 @@
     <string name="dashboardToday">Oggi</string>
     <string name="dashboardEver">Di sempre</string>
     <string name="toastNoLoginNoStatistics">Devi effettuare l\'accesso per vedere le statistiche</string>
+    <string name="toastNoLoginNoDailyGoal">Devi effettuare l\'accesso per poter impostare l\'obiettivo giornaliero</string>
     <string name="textHoursAbbreviation">o</string>
     <string name="textHour">Ora</string>
     <!-- Tutorial -->
@@ -117,17 +118,17 @@
     <string name="txt_sending_recording">Invio della registrazione in corso...</string>
     <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
     <string name="txt_sending_recording_failed">Invio della registrazione fallito!</string>
-    <string name="txt_sending_recording_failed_and_skip">Errore durante l\'invio della registrazione. Riprova oppure premi sul bottone {{*{{skip_button}}*}}.</string>
+    <string name="txt_sending_recording_failed_and_skip">Errore durante l\'invio della registrazione. Riprova oppure premi sul pulsante {{*{{skip_button}}*}}.</string>
     <string name="txt_press_icon_below_listen_1">Premi l\'icona sotto per iniziare ad ascoltare la registrazione.</string>
     <string name="txt_press_icon_below_listen_2">Premi l\'icona sotto per fermare l\'audio.</string>
     <string name="txt_clip_correct_or_wrong">Se l\'audio è corretto, premi pollice in su.\nSe l\'audio è sbagliato, premi pollice in giù.</string>
     <string name="txt_clip_again">Premi l\'icona sotto per ascoltare nuovamente l\'audio.</string>
     <string name="txt_clip_validated_yes">Registrazione accettata!</string>
     <string name="txt_clip_validated_no">Registrazione rifiutata!</string>
-    <string name="txt_error_1_try_again_tap_skip">Errore. Premi il bottone {{*{{skip_button}}*}} per continuare.</string>
+    <string name="txt_error_1_try_again_tap_skip">Errore. Premi il pulsante {{*{{skip_button}}*}} per continuare.</string>
     <string name="txt_error_2_sending_failed">Invio della registrazione fallito.</string>
     <string name="txt_sending_validation">Invio in corso...</string>
-    <string name="txt_error_3_sending_validation_failed">Errore durante l\'invio della convalida. Riprova oppure premi sul bottone {{*{{skip_button}}*}}.</string>
+    <string name="txt_error_3_sending_validation_failed">Errore durante l\'invio della convalida. Riprova oppure premi sul pulsante {{*{{skip_button}}*}}.</string>
     <string name="txt_closing">Chiusura in corso...</string>
     <string name="txt_error_4_clips_no_available">Errore. Non ci sono più registrazioni disponibili per questa lingua.</string>
     <string name="button_report">Segnala</string>
@@ -143,19 +144,19 @@
     <string name="checkbox_reason5_comment_report">Commento</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Verifica nuovamente</string>
-    <string name="txt_noconnection">Non sei connesso a Internet. Connettiti al Wi-Fi o alla rete dati, poi premi il bottone sottostante.</string>
+    <string name="txt_noconnection">Non sei connesso a Internet. Connettiti al Wi-Fi o alla rete dati, poi premi il pulsante sottostante.</string>
     <!-- First-run Speak & Listen -->
     <string name="txt1_tutorial_speak">Questa è la frase che devi registrare.</string>
     <string name="txt2_tutorial_speak_and_listen">Qui apparirà un messaggio per guidarti.</string>
-    <string name="txt3_tutorial_speak">Se non ti piace la frase, puoi premere questo bottone per saltarla e caricarne una nuova.</string>
+    <string name="txt3_tutorial_speak">Se non ti piace la frase, puoi premere questo pulsante per saltarla e caricarne una nuova.</string>
     <string name="txt4_tutorial_speak">Premi su questa icona per iniziare la registrazione.</string>
     <string name="txt5_tutorial_speak">Premi su questa icona per fermare la registrazione.</string>
     <string name="txt6_tutorial_speak">Premi su questa icona per ascoltare la tua registrazione.</string>
     <string name="txt7_tutorial_speak">Se hai commesso degli errori, premi su questa icona per registrare nuovamente.</string>
     <string name="txt8_tutorial_speak">Premi su questa icona per ascoltare di nuovo la tua registrazione.</string>
-    <string name="txt9_tutorial_speak">Premi questo bottone per inviare la tua registrazione.</string>
+    <string name="txt9_tutorial_speak">Premi questo pulsante per inviare la tua registrazione.</string>
     <string name="txt1_tutorial_listen">Questa è la frase che devi convalidare.</string>
-    <string name="txt3_tutorial_listen">Se non ti piace la frase, puoi premere su questo bottone per saltarla e caricarne una nuova.</string>
+    <string name="txt3_tutorial_listen">Se non ti piace la frase, puoi premere su questo pulsante per saltarla e caricarne una nuova.</string>
     <string name="txt4_tutorial_listen">Premi questa icona per iniziare ad ascoltare la registrazione.</string>
     <string name="txt5_tutorial_listen">Premi su questa icona per fermare la riproduzione della registrazione.</string>
     <string name="txt6_tutorial_listen">Premi su questa icona se vuoi ascoltare la registrazione di nuovo.</string>
