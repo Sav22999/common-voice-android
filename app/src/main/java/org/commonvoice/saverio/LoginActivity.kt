@@ -39,14 +39,21 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
     private var PRIVATE_MODE = 0
-    private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
-    private val USER_CONNECT_ID = "USER_CONNECT_ID"
-    private val USER_NAME = "USERNAME"
-    private val LEVEL_SAVED = "LEVEL_SAVED"
-    private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
-    private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
-    private val TODAY_CONTRIBUTING =
-        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+    //private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
+    //private val TODAY_CONTRIBUTING = "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+
+    private val settingsSwitchData: HashMap<String, String> =
+        hashMapOf(
+            "LOGGED_IN_NAME" to "LOGGED",
+            "USER_CONNECT_ID" to "USER_CONNECT_ID",
+            "USER_NAME" to "USERNAME",
+            "LEVEL_SAVED" to "LEVEL_SAVED",
+            "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
+            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
+            "DAILY_GOAL" to "DAILY_GOAL",
+            "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING"
+        )
+
     var userId: String = ""
     var userName: String = ""
 
@@ -94,8 +101,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method2) -- " + exception.toString() + " !!")
         }
 
-        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
-                LOGGED_IN_NAME,
+        if (getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
+                settingsSwitchData["LOGGED_IN_NAME"],
                 false
             ) == false
         ) {
@@ -124,7 +131,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun getSavedLevel(): Int {
-        var value = getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0)
+        var value = getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).getInt(settingsSwitchData["LEVEL_SAVED"], 0)
         println("level: " + value)
         return when (value) {
             in 0..20 -> 1
@@ -311,10 +318,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         userId = myCookie
                         //println(" -->> MY COOKIE -->> " + myCookie + " <<--")
 
-                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
-                            .putBoolean(LOGGED_IN_NAME, true).apply()
-                        getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
-                            .putString(USER_CONNECT_ID, userId).apply()
+                        getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
+                            .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], true).apply()
+                        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
+                            .putString(settingsSwitchData["USER_CONNECT_ID"], userId).apply()
 
                         //println(" -->> LOGGED IN <<-- ")
 
@@ -333,16 +340,18 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun logoutAndExit(exit: Boolean = true) {
-        getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
-            .putString(USER_CONNECT_ID, "").apply()
-        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
-            .putBoolean(LOGGED_IN_NAME, false).apply()
-        getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
-        getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
-            .putString(TODAY_CONTRIBUTING, "?, ?, ?").apply()
+        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
+            .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
+        getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit().putString(settingsSwitchData["USER_NAME"], "").apply()
+        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
+        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
         if (exit) {
             openMainAfterLogin()
         }
@@ -354,18 +363,18 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         when (type) {
             0 -> {
                 //level
-                getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).edit()
-                    .putInt(LEVEL_SAVED, value).apply()
+                getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["LEVEL_SAVED"], value).apply()
             }
             1 -> {
                 //recordings
-                getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).edit()
-                    .putInt(RECORDINGS_SAVED, value).apply()
+                getSharedPreferences(settingsSwitchData["RECORDINGS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["RECORDINGS_SAVED"], value).apply()
             }
             2 -> {
                 //validations
-                getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).edit()
-                    .putInt(VALIDATIONS_SAVED, value).apply()
+                getSharedPreferences(settingsSwitchData["VALIDATIONS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["VALIDATIONS_SAVED"], value).apply()
             }
         }
     }
@@ -413,13 +422,13 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             val path = "user_client" //API to get sentences
 
             if (userId == "") {
-                if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
-                        LOGGED_IN_NAME,
+                if (getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
+                        settingsSwitchData["LOGGED_IN_NAME"],
                         false
                     )
                 ) {
-                    userId = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                        USER_CONNECT_ID,
+                    userId = getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).getString(
+                        settingsSwitchData["USER_CONNECT_ID"],
                         ""
                     )
                 }
@@ -454,8 +463,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                     var profileEmail: EditText = findViewById(R.id.textProfileEmail)
                                     var profileUsername: EditText =
                                         findViewById(R.id.textProfileUsername)
-                                    getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                                        .putString(USER_NAME, userName).apply()
+                                    getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
+                                        .putString(settingsSwitchData["USER_NAME"], userName).apply()
                                     var profileAge: EditText = findViewById(R.id.textProfileAge)
                                     var profileGender: EditText =
                                         findViewById(R.id.textProfileGender)
@@ -495,8 +504,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                     setLevel(findViewById(R.id.textLevel))
                                 }
                                 if (userName != "") {
-                                    getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                                        .putString(USER_NAME, userName).apply()
+                                    getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
+                                        .putString(settingsSwitchData["USER_NAME"], userName).apply()
                                 }
                             } catch (e: Exception) {
                                 println(" -->> Something wrong: " + it.toString() + " <<-- ")

@@ -983,8 +983,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setSavedStatistics("everyone", "?")
         setSavedVoicesOnline("voicesNow", "?")
         setSavedVoicesOnline("voicesBefore", "?")
-        this.getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
-            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
     }
 
     fun getLanguageList(): ArrayAdapter<String> {
