@@ -29,7 +29,6 @@ class TutorialActivity : AppCompatActivity() {
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
     private val LANGUAGE_NAME = "LANGUAGE"
-    private val GESTURES = "GESTURES"
     var languages_list_short =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     var languages_list =
@@ -64,56 +63,44 @@ class TutorialActivity : AppCompatActivity() {
             skipPermission()
         }
 
-        if(getGestures()) {
-            nestedScrollTutorial.setOnTouchListener(object :
-                OnSwipeTouchListener(this@TutorialActivity) {
-                override fun onSwipeLeft() {
-                    if (status < 6) {
-                        if (status == 0 || status == 1) {
-                            microphonePermission()
-                            status = 2
-                        } else if (status == 2 || status == 3) {
-                            storagePermission()
-                            status = 4
-                        } else if (status == 4 || status == 5) {
-                            tutorialStart4()
-                        }
-                    }
-                }
-
-                override fun onSwipeRight() {
-                    if (status > 0) {
-                        if (status == 1 || status == 2 || status == 3) {
-                            tutorialStart0()
-                            status = 1
-                        } else if (status == 4 || status == 5) {
-                            microphonePermission()
-                            status = 2
-                        } else if (status == 6) {
-                            storagePermission()
-                            status = 4
-                        }
-                    }
-                }
-
-                override fun onSwipeTop() {
-                    super.onSwipeTop()
+        nestedScrollTutorial.setOnTouchListener(object :
+            OnSwipeTouchListener(this@TutorialActivity) {
+            override fun onSwipeLeft() {
+                if (status < 6) {
                     if (status == 0 || status == 1) {
-                        openTerms()
+                        microphonePermission()
+                        status = 2
+                    } else if (status == 2 || status == 3) {
+                        storagePermission()
+                        status = 4
+                    } else if (status == 4 || status == 5) {
+                        tutorialStart4()
                     }
                 }
-            })
-        }
-    }
+            }
 
-    fun getGestures(): Boolean {
-        return getSharedPreferences(
-            GESTURES,
-            PRIVATE_MODE
-        ).getBoolean(
-            GESTURES,
-            true
-        )
+            override fun onSwipeRight() {
+                if (status > 0) {
+                    if (status == 1 || status == 2 || status == 3) {
+                        tutorialStart0()
+                        status = 1
+                    } else if (status == 4 || status == 5) {
+                        microphonePermission()
+                        status = 2
+                    } else if (status == 6) {
+                        storagePermission()
+                        status = 4
+                    }
+                }
+            }
+
+            override fun onSwipeTop() {
+                super.onSwipeTop()
+                if (status == 0 || status == 1) {
+                    openTerms()
+                }
+            }
+        })
     }
 
     fun openTerms() {

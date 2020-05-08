@@ -7,6 +7,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <SeekBar
+        android:id="@+id/seekBarFirstRunSpeak"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="200dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="@color/colorBackground"
+        android:clickable="false"
+        android:focusable="false"
+        android:foregroundTint="@color/colorBackground"
+        android:indeterminate="false"
+        android:indeterminateTint="@color/colorBackground"
+        android:max="8"
+        android:progress="0"
+        android:progressBackgroundTint="@color/colorBackground"
+        android:progressTint="@color/colorBackground"
+        android:secondaryProgressTint="@color/colorBackground"
+        android:thumbTint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tickMarkTint="@color/colorPrimaryDark" />
+
     <Button
         android:id="@+id/btnNextSpeak"
         android:layout_width="250dp"

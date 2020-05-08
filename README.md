@@ -4,7 +4,7 @@
 
 This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
 
-[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-16-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-17-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 [<img src="images/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ)  [<img src="images/crowdinBadge.png" height="50px"></img>](https://bit.ly/3bNBoUU)
 
@@ -59,7 +59,7 @@ You can turn on "Gestures" in Settings. These are the supported gestures (now):
 
 The app is officially translated in these following languages, **thank you very much** to the contributors who translated the app.
 
-✅ = Full translation, 🔶 = Partial translation, 🔴 = Not yet available for the Common Voice project
+✅ = Full translation (95%+ translated), 🔶 = Partial translation, 🔴 = Not yet available for the Common Voice project
 
 - 🔶 `cs` Czech -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `de` German -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd)
@@ -68,12 +68,13 @@ The app is officially translated in these following languages, **thank you very 
 - 🔶 `es` Spanish -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `et` Estonian -> [**Agu Ratas**](https://crowdin.com/profile/aguratas)
 - ✅ `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
+- 🔶 `fa` Persian -> [****]()
 - ✅ `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi)
 - ✅ `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
 - ✅ `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
 - 🔶 `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
 - 🔶 `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100)
-- ✅🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha)
+- ✅🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha), [**xrup**](https://crowdin.com/profile/xrup)
 - 🔶 `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `ta` Tamil -> [**Manimaran.K**](https://crowdin.com/profile/manimaran96)
 - 🔶 `tr` Turkish -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)

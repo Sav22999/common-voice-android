@@ -8,10 +8,13 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
+import kotlinx.android.synthetic.main.activity_tutorial.*
 import kotlinx.android.synthetic.main.first_run_listen.*
+import kotlinx.android.synthetic.main.first_run_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 
 
@@ -20,10 +23,12 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
     var status: Int = 0
     private var PRIVATE_MODE = 0
     private val FIRST_RUN_LISTEN = "FIRST_RUN_LISTEN"
-    private val GESTURES = "GESTURES"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        this.seekBarFirstRunListen.isEnabled = false
+        this.seekBarFirstRunListen.progress = 0
 
         goNextOrBack()
         var btnNext: Button = this.findViewById(R.id.btnNextListen)
@@ -31,30 +36,18 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             goNextOrBack()
         }
 
-        if (getGestures()) {
-            layoutFirstRunListen.setOnTouchListener(object :
-                OnSwipeTouchListener(this@FirstRunListen) {
-                override fun onSwipeLeft() {
-                    goNextOrBack(true)
-                }
+        layoutFirstRunListen.setOnTouchListener(object :
+            OnSwipeTouchListener(this@FirstRunListen) {
+            override fun onSwipeLeft() {
+                goNextOrBack(true)
+            }
 
-                override fun onSwipeRight() {
-                    goNextOrBack(false)
-                }
-            })
-        }
+            override fun onSwipeRight() {
+                goNextOrBack(false)
+            }
+        })
 
         setTheme(this)
-    }
-
-    fun getGestures(): Boolean {
-        return getSharedPreferences(
-            GESTURES,
-            PRIVATE_MODE
-        ).getBoolean(
-            GESTURES,
-            false
-        )
     }
 
     fun setTheme(view: Context) {
@@ -63,6 +56,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
         var isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
         theme.setElement(isDark, view, this.findViewById(R.id.btnNextListen) as Button)
+        theme.setElement(isDark, view, this.findViewById(R.id.seekBarFirstRunListen) as SeekBar, R.color.colorBackground, R.color.colorBackgroundDT)
     }
 
     override fun onBackPressed() {
@@ -99,6 +93,9 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnYes.isGone = true
             btnNo.isGone = true
         }
+
+        if (next) this.seekBarFirstRunListen.progress = this.status
+        else if (!next && this.status > 1) this.seekBarFirstRunListen.progress = this.status - 2
 
         if (this.status == 0 && next || this.status == 2 && !next || this.status == 1 && !next) {
             this.status = 1

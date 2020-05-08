@@ -136,7 +136,8 @@ class SettingsFragment : Fragment() {
         }
         switchStatisticsSettings.isChecked = main.getStatisticsSwitch()
 
-        val switchExperimentalFeaturesSettings: Switch = root.findViewById(R.id.switchExperimentalFeatures)
+        val switchExperimentalFeaturesSettings: Switch =
+            root.findViewById(R.id.switchExperimentalFeatures)
         switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -183,7 +184,8 @@ class SettingsFragment : Fragment() {
         }
         checkForUpdatesSettings.isChecked = main.getCheckForUpdatesSwitch()
 
-        val abortConfirmationDialogsSettings: Switch = root.findViewById(R.id.switchAbortConfirmationDialogsInSettings)
+        val abortConfirmationDialogsSettings: Switch =
+            root.findViewById(R.id.switchAbortConfirmationDialogsInSettings)
         abortConfirmationDialogsSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
@@ -192,7 +194,8 @@ class SettingsFragment : Fragment() {
             }
             main.setAbortConfirmationDialogsInSettingsSwitch(isChecked)
         }
-        abortConfirmationDialogsSettings.isChecked = main.getAbortConfirmationDialogsInSettingsSwitch()
+        abortConfirmationDialogsSettings.isChecked =
+            main.getAbortConfirmationDialogsInSettingsSwitch()
         main.isAbortConfirmation = abortConfirmationDialogsSettings.isChecked
 
         val gesturesSettings: Switch = root.findViewById(R.id.switchGestures)
@@ -205,6 +208,18 @@ class SettingsFragment : Fragment() {
             main.setGesturesSettingsSwitch(isChecked)
         }
         gesturesSettings.isChecked = main.getGesturesSettingsSwitch()
+
+        val skipRecordingsConfirmationSettings: Switch =
+            root.findViewById(R.id.switchSkipRecordingsConfirmation)
+        skipRecordingsConfirmationSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setSkipRecordingsConfirmationSwitch(isChecked)
+        }
+        skipRecordingsConfirmationSettings.isChecked = main.getSkipRecordingsConfirmationSwitch()
 
         setTheme(main, root)
 

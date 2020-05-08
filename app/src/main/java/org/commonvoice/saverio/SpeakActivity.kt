@@ -210,6 +210,16 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         )
     }
 
+    fun getSkipRecordingsConfirmationSwitch(): Boolean {
+        return getSharedPreferences(
+            SKIP_RECORDING_CONFIRMATION,
+            PRIVATE_MODE
+        ).getBoolean(
+            SKIP_RECORDING_CONFIRMATION,
+            false
+        )
+    }
+
     fun setTheme(view: Context) {
         var theme: DarkLightTheme = DarkLightTheme()
 
@@ -514,18 +524,22 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     fun closeSpeak() {
-        var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
-        var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
-        if (btnSkip.isEnabled || txtSentence.text == "...") {
-            StopRecording()
-            DeleteRecording()
-            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-            btnSkip.isEnabled = false
-            msg.text = getString(R.string.txt_closing)
-            finish()
+        try {
+            var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
+            var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
+            if (btnSkip.isEnabled || txtSentence.text == "...") {
+                StopRecording()
+                DeleteRecording()
+                var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+                btnSkip.isEnabled = false
+                msg.text = getString(R.string.txt_closing)
+                finish()
+            }
+            this.mediaPlayer?.reset()
+            StopSmallAudios()
+        } catch (e: Exception) {
+
         }
-        this.mediaPlayer?.reset()
-        StopSmallAudios()
     }
 
     fun StopSmallAudios() {
@@ -651,6 +665,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     btnRecordAgain.isGone = false
                     msg.text = getString(R.string.txt_sentence_recorded)
                     this.status = 2 //recording successful
+
+                    if (getSkipRecordingsConfirmationSwitch()) {
+                        skipRecordingsConfirmation()
+                    }
                 }
             } catch (e: Exception) {
                 //println(" -->> Something wrong: "+e.toString()+" <<-- ")
@@ -669,6 +687,24 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 " !! The app isn't recording now !! "
             )
         }
+    }
+
+    fun skipRecordingsConfirmation() {
+        val outputListening = this.output
+        if (outputListening != null) {
+            val sampleUri: Uri = outputListening.toUri() // your uri here
+            mediaPlayer = MediaPlayer().apply {
+                //setAudioStreamType(AudioManager.)
+                setDataSource(
+                    applicationContext,
+                    sampleUri
+                )
+                prepare()
+                seekTo(0)
+            }
+        }
+        this.status = 5
+        FinishListening()
     }
 
     fun RecordingFailed() {
