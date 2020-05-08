@@ -2,7 +2,6 @@ package org.commonvoice.saverio
 
 import android.content.Context
 import android.os.Build
-import android.os.Build.VERSION.SDK_INT
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -173,7 +172,7 @@ class DarkLightTheme {
             element.indeterminateTintList = ContextCompat.getColorStateList(view, color_dark)
             element.secondaryProgressTintList = ContextCompat.getColorStateList(view, color_dark)
             element.thumbTintList = ContextCompat.getColorStateList(view, color_light)
-            if (SDK_INT >= Build.VERSION_CODES.N) {
+            if (Build.VERSION.SDK_INT > 23) {
                 element.tickMarkTintList = ContextCompat.getColorStateList(view, color_light)
             }
         } else {
@@ -184,7 +183,7 @@ class DarkLightTheme {
             element.indeterminateTintList = ContextCompat.getColorStateList(view, color_light)
             element.secondaryProgressTintList = ContextCompat.getColorStateList(view, color_light)
             element.thumbTintList = ContextCompat.getColorStateList(view, color_dark)
-            if (SDK_INT >= Build.VERSION_CODES.N) {
+            if (Build.VERSION.SDK_INT > 23) {
                 element.tickMarkTintList = ContextCompat.getColorStateList(view, color_dark)
             }
         }
