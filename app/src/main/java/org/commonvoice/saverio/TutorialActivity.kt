@@ -68,7 +68,7 @@ class TutorialActivity : AppCompatActivity() {
             nestedScrollTutorial.setOnTouchListener(object :
                 OnSwipeTouchListener(this@TutorialActivity) {
                 override fun onSwipeLeft() {
-                    if (status < 5) {
+                    if (status < 6) {
                         if (status == 0 || status == 1) {
                             microphonePermission()
                             status = 2
@@ -77,7 +77,6 @@ class TutorialActivity : AppCompatActivity() {
                             status = 4
                         } else if (status == 4 || status == 5) {
                             tutorialStart4()
-                            status = 5
                         }
                     }
                 }
@@ -113,7 +112,7 @@ class TutorialActivity : AppCompatActivity() {
             PRIVATE_MODE
         ).getBoolean(
             GESTURES,
-            false
+            true
         )
     }
 
