@@ -22,6 +22,7 @@
     <string name="dashboardToday">Today</string>
     <string name="dashboardEver">Ever</string>
     <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
+    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hour</string>
     <!-- Tutorial -->
@@ -101,6 +102,9 @@
     <string name="txt_abort_confirmation_dialogs_in_settings">Abort confirmation dialogs in Settings</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
+    <string name="txt_gestures">Gestures</string>
+    <string name="toast_gestures_on">Gestures are now turned on.</string>
+    <string name="toast_gestures_off">Gestures are now turned off.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Skip</string>

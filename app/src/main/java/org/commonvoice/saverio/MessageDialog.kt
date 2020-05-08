@@ -165,8 +165,7 @@ class MessageDialog {
                         val alertDialog = builder.show()
                         buttonSave.setOnClickListener {
                             //save the daily goal
-                            context!!.getSharedPreferences(DAILY_GOAL, REQUEST_CODE.toInt()).edit()
-                                .putInt(DAILY_GOAL, this.dailyGoalValue).apply()
+                            main?.setDailyGoal(this.dailyGoalValue)
                             alertDialog.dismiss()
                             main?.refreshDailyGoalDataInDashboard()
                         }
@@ -177,8 +176,7 @@ class MessageDialog {
                         }
                         buttonDelete.setOnClickListener {
                             //it delete (set to 0) the daily goal
-                            context!!.getSharedPreferences(DAILY_GOAL, REQUEST_CODE.toInt()).edit()
-                                .putInt(DAILY_GOAL, 0).apply()
+                            main?.setDailyGoal(0)
                             alertDialog.dismiss()
                             main?.refreshDailyGoalDataInDashboard()
                         }

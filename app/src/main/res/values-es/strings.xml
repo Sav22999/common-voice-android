@@ -22,6 +22,7 @@
     <string name="dashboardToday">Hoy</string>
     <string name="dashboardEver">Nunca</string>
     <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
+    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hora</string>
     <!-- Tutorial -->
@@ -80,7 +81,7 @@
     <string name="contact_developer_on_telegram">Contacta con el desarrollador en Telegram</string>
     <string name="txt_experimental_features">Funciones experimentales</string>
     <string name="toast_experimental_features_on">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="toast_experimental_featured_off">Experimental features turned off.</string>
+    <string name="toast_experimental_featured_off">Funciones experimentales desactivadas.</string>
     <string name="txt_log_on_file">Save logs to a file</string>
     <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
     <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
@@ -101,6 +102,9 @@
     <string name="txt_abort_confirmation_dialogs_in_settings">Abort confirmation dialogs in Settings</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
+    <string name="txt_gestures">Gestures</string>
+    <string name="toast_gestures_on">Gestures are now turned on.</string>
+    <string name="toast_gestures_off">Gestures are now turned off.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Saltar</string>
@@ -139,7 +143,7 @@
     <string name="checkbox_reason2_report">Grammatical / spelling error</string>
     <string name="checkbox_reason3_report">Different language</string>
     <string name="checkbox_reason4_report">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report">Other</string>
+    <string name="checkbox_reason5_report">Otro</string>
     <string name="checkbox_reason5_comment_report">Comment</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Revisar de nuevo</string>

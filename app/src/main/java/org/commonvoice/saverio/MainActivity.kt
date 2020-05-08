@@ -82,7 +82,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "CHECK_FOR_UPDATES" to "CHECK_FOR_UPDATES",
             "SKIP_RECORDING_CONFIRMATION" to "SKIP_RECORDING_CONFIRMATION",
             "RECORDING_INDICATOR_SOUND" to "RECORDING_INDICATOR_SOUND",
-            "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS"
+            "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS",
+            "GESTURES" to "GESTURES"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -625,6 +626,78 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
+    fun getGesturesSettingsSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["GESTURES"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["GESTURES"],
+            false
+        )
+    }
+
+    fun setGesturesSettingsSwitch(status: Boolean) {
+        if (status != this.getGesturesSettingsSwitch()) {
+            if (status) {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_gestures_on)
+                    )
+                }
+            } else {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_gestures_off)
+                    )
+                }
+            }
+            getSharedPreferences(
+                settingsSwitchData["GESTURES"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["GESTURES"], status)
+                .apply()
+        }
+    }
+
+    fun getSkipRecordingsConfirmationSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
+            false
+        )
+    }
+
+    fun setSkipRecordingsConfirmationSwitch(status: Boolean) {
+        if (status != this.getSkipRecordingsConfirmationSwitch()) {
+            if (status) {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_skip_recording_confirmation_on)
+                    )
+                }
+            } else {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_skip_recording_confirmation_off)
+                    )
+                }
+            }
+            getSharedPreferences(
+                settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["SKIP_RECORDING_CONFIRMATION"], status)
+                .apply()
+        }
+    }
+
     fun setSavedStatistics(type: String, statistics: String) {
         try {
             if (type == "you") {
@@ -1029,6 +1102,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
+    fun setDailyGoal(dailyGoalValue: Int = 0) {
+        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE.toInt())
+            .edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], dailyGoalValue).apply()
+    }
+
     fun showMessageDialog(
         title: String,
         text: String,
@@ -1065,7 +1144,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }
-        println("Opened")
     }
 
     fun openListenSection() {

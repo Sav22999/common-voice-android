@@ -4,7 +4,7 @@
 
 This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
 
-[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-16-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+[![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![Generic badge](https://img.shields.io/badge/translations%20number-17-green.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 [<img src="images/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ)  [<img src="images/crowdinBadge.png" height="50px"></img>](https://bit.ly/3bNBoUU)
 
@@ -45,11 +45,21 @@ If you want screenshots of the other versions, go to the `screenshots` folder.
 
 There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online. You can record sentences or validate clips, with a few taps. So, the app is smart, customisable, light, but powerful.
 
+### Gestures
+
+You can turn on "Gestures" in Settings. These are the supported gestures (now):
+
+|                         **Swipe-up**                         |                        **Swipe-left**                        |                       **Swipe-right**                        |
+| :--: | :--: | :--: |
+| <img src="images/icons/swipe-up.png" height="100px"></img> | <img src="images/icons/swipe-left.png" height="100px"></img> | <img src="images/icons/swipe-right.png" height="100px"></img> |
+| In **Speak** and **Listen** you can swipe-up to *Report* a clip/sentence |In **Speak**, **Listen**, **Login**, **Profile**, **All badges** you can swipe-left to go back (so, it's the some action of "back button")| In **Speak** and **Listen** you can swipe-right to *Skip* the clip/sentence |
+| In **Tutorial** you can swipe-up to see *Terms* (just the first view of tutorial) | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-left to go back to the previous view ("to navigate") | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-right to go forward to the next view ("to navigate") |
+
 ### Translations
 
 The app is officially translated in these following languages, **thank you very much** to the contributors who translated the app.
 
-✅ = Full translation, 🔶 = Partial translation, 🔴 = Not yet available for the Common Voice project
+✅ = Full translation (95%+ translated), 🔶 = Partial translation, 🔴 = Not yet available for the Common Voice project
 
 - 🔶 `cs` Czech -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `de` German -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd)
@@ -58,12 +68,13 @@ The app is officially translated in these following languages, **thank you very 
 - 🔶 `es` Spanish -> [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `et` Estonian -> [**Agu Ratas**](https://crowdin.com/profile/aguratas)
 - ✅ `eu` Basque -> **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)**
+- 🔶 `fa` Persian -> [****]()
 - ✅ `fr` French -> **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi)
 - ✅ `ia` Interlingua -> **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**
 - ✅ `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
 - 🔶 `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
 - 🔶 `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100)
-- 🔶🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha)
+- ✅🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha), [**xrup**](https://crowdin.com/profile/xrup)
 - 🔶 `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `ta` Tamil -> [**Manimaran.K**](https://crowdin.com/profile/manimaran96)
 - 🔶 `tr` Turkish -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)

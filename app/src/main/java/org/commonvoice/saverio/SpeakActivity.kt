@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.Manifest
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -32,6 +33,7 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.json.JSONArray
 import org.json.JSONObject
@@ -59,6 +61,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private val DAILY_GOAL = "DAILY_GOAL"
     private val SKIP_RECORDING_CONFIRMATION = "SKIP_RECORDING_CONFIRMATION"
     private val RECORDING_INDICATOR_SOUND = "RECORDING_INDICATOR_SOUND"
+    private val GESTURES = "GESTURES"
     var sentencesRecordedYouToday = 0
     var sentencesValidatedYouToday = 0
 
@@ -156,10 +159,42 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
             this.dailyGoal.checkDailyGoal()
 
+            if (getGestures()) {
+                nestedScrollSpeak.setOnTouchListener(object :
+                    OnSwipeTouchListener(this@SpeakActivity) {
+                    override fun onSwipeLeft() {
+                        skipSentence()
+                    }
+
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+
+                    override fun onSwipeTop() {
+                        if (getResources().getConfiguration().orientation == 1) {
+                            openReportDialog()
+                        }
+                    }
+
+                    override fun onSwipeBottom() {
+                    }
+                })
+            }
+
             //API request
             API_request()
         }
         setTheme(this)
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
     }
 
     fun skipSentence() {
@@ -171,6 +206,16 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     fun getRecordingIndicatorSoundSwitch(): Boolean {
         return getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).getBoolean(
             RECORDING_INDICATOR_SOUND,
+            false
+        )
+    }
+
+    fun getSkipRecordingsConfirmationSwitch(): Boolean {
+        return getSharedPreferences(
+            SKIP_RECORDING_CONFIRMATION,
+            PRIVATE_MODE
+        ).getBoolean(
+            SKIP_RECORDING_CONFIRMATION,
             false
         )
     }
@@ -479,18 +524,22 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     fun closeSpeak() {
-        var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
-        var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
-        if (btnSkip.isEnabled || txtSentence.text == "...") {
-            StopRecording()
-            DeleteRecording()
-            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-            btnSkip.isEnabled = false
-            msg.text = getString(R.string.txt_closing)
-            finish()
+        try {
+            var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
+            var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
+            if (btnSkip.isEnabled || txtSentence.text == "...") {
+                StopRecording()
+                DeleteRecording()
+                var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+                btnSkip.isEnabled = false
+                msg.text = getString(R.string.txt_closing)
+                finish()
+            }
+            this.mediaPlayer?.reset()
+            StopSmallAudios()
+        } catch (e: Exception) {
+
         }
-        this.mediaPlayer?.reset()
-        StopSmallAudios()
     }
 
     fun StopSmallAudios() {
@@ -616,6 +665,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     btnRecordAgain.isGone = false
                     msg.text = getString(R.string.txt_sentence_recorded)
                     this.status = 2 //recording successful
+
+                    if (getSkipRecordingsConfirmationSwitch()) {
+                        skipRecordingsConfirmation()
+                    }
                 }
             } catch (e: Exception) {
                 //println(" -->> Something wrong: "+e.toString()+" <<-- ")
@@ -634,6 +687,24 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 " !! The app isn't recording now !! "
             )
         }
+    }
+
+    fun skipRecordingsConfirmation() {
+        val outputListening = this.output
+        if (outputListening != null) {
+            val sampleUri: Uri = outputListening.toUri() // your uri here
+            mediaPlayer = MediaPlayer().apply {
+                //setAudioStreamType(AudioManager.)
+                setDataSource(
+                    applicationContext,
+                    sampleUri
+                )
+                prepare()
+                seekTo(0)
+            }
+        }
+        this.status = 5
+        FinishListening()
     }
 
     fun RecordingFailed() {
@@ -896,14 +967,16 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     fun openReportDialog() {
-        try {
-            val metrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(metrics)
-            val message: MessageDialog =
-                MessageDialog(this, "sentence", this as SpeakActivity)
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: SpeakActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+        if (this.idSentence != "") {
+            try {
+                val metrics = DisplayMetrics()
+                windowManager.defaultDisplay.getMetrics(metrics)
+                val message: MessageDialog =
+                    MessageDialog(this, "sentence", this as SpeakActivity)
+                message.show()
+            } catch (exception: Exception) {
+                println("!!-- Exception: SpeakActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+            }
         }
     }
 
