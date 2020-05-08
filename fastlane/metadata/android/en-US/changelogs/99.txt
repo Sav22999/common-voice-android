@@ -1,0 +1,2 @@
+- Improved performance
+- Implemented "gestures": you can swipe-up to Report sentence/clip, you can swipe-right to Skip the current sentence/clip, you can swipe-left to "go back". Read more about gestures added on GitHub > README.md

@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.Manifest
 import android.content.Context
 import android.content.Intent
@@ -25,6 +26,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_listen.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.json.JSONArray
 import org.json.JSONObject
@@ -49,6 +51,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
     private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
     private val DAILY_GOAL = "DAILY_GOAL"
+    private val GESTURES = "GESTURES"
     var sentencesRecordedYouToday = 0
     var sentencesValidatedYouToday = 0
 
@@ -142,11 +145,44 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
             this.dailyGoal.checkDailyGoal()
 
+            if (getGestures()) {
+                nestedScrollListen.setOnTouchListener(object :
+                    OnSwipeTouchListener(this@ListenActivity) {
+                    override fun onSwipeLeft() {
+                        skipClip()
+                    }
+
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+
+                    override fun onSwipeTop() {
+                        if (getResources().getConfiguration().orientation == 1) {
+                            openReportDialog()
+                        }
+                    }
+
+                    override fun onSwipeBottom() {
+
+                    }
+                })
+            }
+
             //API request
             API_request()
         }
 
         setTheme(this)
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
     }
 
     fun skipClip() {
@@ -703,14 +739,16 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     fun openReportDialog() {
-        try {
-            val metrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(metrics)
-            val message: MessageDialog =
-                MessageDialog(this, "clip", this as ListenActivity)
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: ListenActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+        if (this.idSentence[0] != 0) {
+            try {
+                val metrics = DisplayMetrics()
+                windowManager.defaultDisplay.getMetrics(metrics)
+                val message: MessageDialog =
+                    MessageDialog(this, "clip", this as ListenActivity)
+                message.show()
+            } catch (exception: Exception) {
+                println("!!-- Exception: ListenActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+            }
         }
     }
 

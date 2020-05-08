@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.Manifest
 import android.content.Context
 import android.content.Intent
@@ -28,6 +29,7 @@ class TutorialActivity : AppCompatActivity() {
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
     private val LANGUAGE_NAME = "LANGUAGE"
+    private val GESTURES = "GESTURES"
     var languages_list_short =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     var languages_list =
@@ -48,12 +50,7 @@ class TutorialActivity : AppCompatActivity() {
         var txtTerms = this.textView_tutorialTerms
         txtTerms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         txtTerms.setOnClickListener {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse(getString(R.string.linkTermsCommonVoice))
-                )
-            )
+            openTerms()
         }
 
         this.btn_next.setOnClickListener {
@@ -66,6 +63,67 @@ class TutorialActivity : AppCompatActivity() {
         txtSkip.setOnClickListener {
             skipPermission()
         }
+
+        if(getGestures()) {
+            nestedScrollTutorial.setOnTouchListener(object :
+                OnSwipeTouchListener(this@TutorialActivity) {
+                override fun onSwipeLeft() {
+                    if (status < 5) {
+                        if (status == 0 || status == 1) {
+                            microphonePermission()
+                            status = 2
+                        } else if (status == 2 || status == 3) {
+                            storagePermission()
+                            status = 4
+                        } else if (status == 4 || status == 5) {
+                            tutorialStart4()
+                            status = 5
+                        }
+                    }
+                }
+
+                override fun onSwipeRight() {
+                    if (status > 0) {
+                        if (status == 1 || status == 2 || status == 3) {
+                            tutorialStart0()
+                            status = 1
+                        } else if (status == 4 || status == 5) {
+                            microphonePermission()
+                            status = 2
+                        } else if (status == 6) {
+                            storagePermission()
+                            status = 4
+                        }
+                    }
+                }
+
+                override fun onSwipeTop() {
+                    super.onSwipeTop()
+                    if (status == 0 || status == 1) {
+                        openTerms()
+                    }
+                }
+            })
+        }
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
+    }
+
+    fun openTerms() {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(getString(R.string.linkTermsCommonVoice))
+            )
+        )
     }
 
     fun tutorialStart() {
@@ -97,6 +155,14 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     fun tutorialStart0() {
+        this.textTutorialMessage.text = getString(R.string.tutorial_terms)
+        this.seekBar.progress = 0
+        this.textView_tutorialTerms.isGone = false
+        this.textView_tutorial.text = getString(R.string.tutorial_text1)
+        var txtSkip = this.textSkipTutorial
+        txtSkip.isGone = true
+        this.textTutorialMessage.isVisible = false
+        this.btn_next.text = getString(R.string.btn_tutorial1) // next
         this.status = 1
     }
 
@@ -164,6 +230,7 @@ class TutorialActivity : AppCompatActivity() {
         this.seekBar.progress = 2
         var txtSkip = this.textSkipTutorial
         txtSkip.isGone = false
+        this.languageListTutorial.isGone = true
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -197,7 +264,7 @@ class TutorialActivity : AppCompatActivity() {
         this.seekBar.progress = 3
         this.textView_tutorial.text = getString(R.string.tutorial_text4)
         this.btn_next.text = getString(R.string.btn_tutorial5)
-        this.languageListTutorial.isVisible = true
+        this.languageListTutorial.isGone = false
         var txtSkip = this.textSkipTutorial
         txtSkip.isGone = true
 

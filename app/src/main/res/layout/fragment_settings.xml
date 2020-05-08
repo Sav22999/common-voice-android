@@ -30,7 +30,7 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator8" />
+            app:layout_constraintTop_toBottomOf="@+id/separator14" />
 
         <Switch
             android:id="@+id/switchExperimentalFeatures"
@@ -176,6 +176,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchDarkTheme" />
 
+        <View
+            android:id="@+id/separator14"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchGestures" />
+
         <Switch
             android:id="@+id/switchDarkTheme"
             android:layout_width="0dp"
@@ -195,6 +206,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_settingsOther" />
+
+        <Switch
+            android:id="@+id/switchGestures"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_gestures"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator8" />
 
         <View
             android:id="@+id/separator7"

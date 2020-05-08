@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
+import kotlinx.android.synthetic.main.first_run_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 
 class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
@@ -17,17 +19,41 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
     var status: Int = 0
     private var PRIVATE_MODE = 0
     private val FIRST_RUN_SPEAK = "FIRST_RUN_SPEAK"
+    private val GESTURES = "GESTURES"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        goNext()
+        goNextOrBack()
         var btnNext: Button = this.findViewById(R.id.btnNextSpeak)
         btnNext.setOnClickListener {
-            goNext()
+            goNextOrBack()
+        }
+
+        if (getGestures()) {
+            layoutFirstRunSpeak.setOnTouchListener(object :
+                OnSwipeTouchListener(this@FirstRunSpeak) {
+                override fun onSwipeLeft() {
+                    goNextOrBack(true)
+                }
+
+                override fun onSwipeRight() {
+                    goNextOrBack(false)
+                }
+            })
         }
 
         setTheme(this)
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
     }
 
     fun setTheme(view: Context) {
@@ -42,7 +68,7 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
         finish()
     }
 
-    fun goNext() {
+    fun goNextOrBack(next: Boolean = true) {
         var btnNext: Button = this.findViewById(R.id.btnNextSpeak)
         var txtNumberBottom: Button = this.findViewById(R.id.btnNumberBottomSpeak)
         var txtTextBottom: TextView = this.findViewById(R.id.txtTutorialMessageBottomSpeak)
@@ -75,7 +101,7 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtSend.isGone = true
         }
 
-        if (this.status == 0) {
+        if (this.status == 0 || this.status == 2 && !next || this.status == 1 && !next) {
             this.status = 1
             btnNext.setText(getString(R.string.btn_tutorial1))
             txtNumberBottom.setText("1")
@@ -83,8 +109,9 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtNumberBottom.isGone = false
             txtTextBottom.isGone = false
             txtOne.isGone = false
+            stopAnimation(txtTwo)
             startAnimation(txtOne)
-        } else if (this.status == 1) {
+        } else if (this.status == 1 || this.status == 3 && !next) {
             this.status = 2
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberTop.setText("2")
@@ -93,8 +120,9 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtTextTop.isGone = false
             txtTwo.isGone = false
             stopAnimation(txtOne)
+            stopAnimation(txtThree)
             startAnimation(txtTwo)
-        } else if (this.status == 2) {
+        } else if (this.status == 2 || this.status == 4 && !next) {
             this.status = 3
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberTop.setText("3")
@@ -103,8 +131,9 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtTextTop.isGone = false
             txtThree.isGone = false
             stopAnimation(txtTwo)
+            stopAnimation(txtFour)
             startAnimation(txtThree)
-        } else if (this.status == 3) {
+        } else if (this.status == 3 || this.status == 5 && !next) {
             this.status = 4
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberTop.setText("4")
@@ -114,8 +143,9 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtFour.isGone = false
             txtFour.setText("4")
             stopAnimation(txtThree)
+            stopAnimation(txtFour)
             startAnimation(txtFour)
-        } else if (this.status == 4) {
+        } else if (this.status == 4 || this.status == 6 && !next) {
             this.status = 5
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberTop.setText("5")
@@ -127,7 +157,7 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             btnRecord.setImageResource(R.drawable.stop_cv)
             stopAnimation(txtFour)
             startAnimation(txtFour)
-        } else if (this.status == 5) {
+        } else if (this.status == 5 || this.status == 7 && !next) {
             this.status = 6
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberTop.setText("6")
@@ -139,7 +169,7 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             btnRecord.setImageResource(R.drawable.listen2_cv)
             stopAnimation(txtFour)
             startAnimation(txtFour)
-        } else if (this.status == 6) {
+        } else if (this.status == 6 || this.status == 8 && !next) {
             this.status = 7
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberTop.setText("7")
@@ -153,8 +183,9 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtSend.isGone = false
             btnRecord.setImageResource(R.drawable.speak2_cv)
             stopAnimation(txtFour)
+            stopAnimation(txtEight)
             startAnimation(txtFour)
-        } else if (this.status == 7) {
+        } else if (this.status == 7 || this.status == 9 && !next) {
             this.status = 8
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberBottom.setText("8")
@@ -167,8 +198,9 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtSend.isGone = false
             btnRecord.setImageResource(R.drawable.speak2_cv)
             stopAnimation(txtFour)
+            stopAnimation(txtNine)
             startAnimation(txtEight)
-        } else if (this.status == 8) {
+        } else if (this.status == 8 || this.status == 10 && !next) {
             this.status = 9
             btnNext.setText(getString(R.string.btn_tutorial5))
             txtNumberTop.setText("9")

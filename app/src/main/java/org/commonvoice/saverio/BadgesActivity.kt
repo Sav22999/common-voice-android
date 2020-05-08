@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -19,6 +20,7 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
     private val LEVEL_SAVED = "LEVEL_SAVED"
     private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
     private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
+    private val GESTURES = "GESTURES"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +29,12 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         try {
             actionBar?.title = getString(R.string.labelAllBadges)
         } catch (exception: Exception) {
-            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method1) -- "+exception.toString()+" !!")
+            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method1) -- " + exception.toString() + " !!")
         }
         try {
             supportActionBar?.setTitle(getString(R.string.labelAllBadges))
         } catch (exception: Exception) {
-            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method2) -- "+exception.toString()+" !!")
+            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method2) -- " + exception.toString() + " !!")
         }
 
         val btnCloseBadges = this.btnCloseBadges
@@ -44,6 +46,24 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         this.validated = this.getSavedValidation()
         loadBadges()
         //checkNewBadges(2, 2, 2)//remove this
+
+        if (getGestures()) {
+            layoutAllBadges.setOnTouchListener(object : OnSwipeTouchListener(this@BadgesActivity) {
+                override fun onSwipeRight() {
+                    onBackPressed()
+                }
+            })
+        }
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
     }
 
     fun loadBadges() {

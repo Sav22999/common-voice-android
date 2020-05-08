@@ -25,7 +25,6 @@ import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -52,7 +51,7 @@ class DashboardFragment : Fragment() {
         0
     ) //(todaySpeak, todayListen, everSpeak, everListen); "-1" indicates an error -> show "?"
 
-    var todaySelected: Boolean = false
+    var youSelected: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,7 +75,7 @@ class DashboardFragment : Fragment() {
                 tabDashboard.getTabAt(0)?.select() //set YOU tab -> logged-in
                 try {
                     loadData("you", root)
-                    this.todaySelected = true
+                    this.youSelected = true
                 } catch (e: Exception) {
                     //println("Error: " + e.toString())
                 }
@@ -85,7 +84,7 @@ class DashboardFragment : Fragment() {
                     ?.select() //set EVERYONE tab -> no-logged-in (YOU section disabled)
                 try {
                     loadData("everyone", root)
-                    this.todaySelected = false
+                    this.youSelected = false
                 } catch (e: Exception) {
                     //println("Error: " + e.toString())
                 }
@@ -163,7 +162,7 @@ class DashboardFragment : Fragment() {
                         if (main.logged) {
                             try {
                                 loadData("you", root)
-                                todaySelected = true
+                                youSelected = true
                             } catch (e: Exception) {
                                 //println("Error: " + e.toString())
                             }
@@ -174,7 +173,7 @@ class DashboardFragment : Fragment() {
                     } else if (tab?.position == 1) {
                         try {
                             loadData("everyone", root)
-                            todaySelected = false
+                            youSelected = false
                         } catch (e: Exception) {
                             //println("Error: " + e.toString())
                         }
@@ -546,7 +545,7 @@ class DashboardFragment : Fragment() {
 
                                 //Set text to the value
                                 try {
-                                    if ((type == "everyoneEverSpeak" || type == "everyoneEverListen") && !this.todaySelected) {
+                                    if ((type == "everyoneEverSpeak" || type == "everyoneEverListen") && !this.youSelected) {
                                         textElements[index]?.text =
                                             (truncate(valueToReturn.toDouble() / 3600).toInt()
                                                 .toString() + getString(
@@ -571,7 +570,7 @@ class DashboardFragment : Fragment() {
                                         )
                                     } else {
                                         if (index != -1) {
-                                            if (typeToSend == "you" && this.todaySelected || typeToSend == "everyone" && !this.todaySelected)
+                                            if (typeToSend == "you" && this.youSelected || typeToSend == "everyone" && !this.youSelected)
                                                 textElements[index]?.text = valueToReturn.toString()
                                             main.setSavedStatisticsValue(
                                                 typeToSend,

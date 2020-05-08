@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.Manifest
 import android.app.Activity
 import android.content.Context
@@ -30,6 +31,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_webbrowser.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.json.JSONObject
 
@@ -51,7 +53,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
             "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
             "DAILY_GOAL" to "DAILY_GOAL",
-            "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING"
+            "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
+            "GESTURES" to "GESTURES"
         )
 
     var userId: String = ""
@@ -120,10 +123,37 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             } catch (e: Exception) {
                 openWebBrowser("login")
             }
+
+            if (getGestures()) {
+                layoutWebBrowser.setOnTouchListener(object :
+                    OnSwipeTouchListener(this@LoginActivity) {
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+                })
+            }
         } else {
             loadUserData("profile")
             setTheme(this)
+
+            if (getGestures()) {
+                layoutLogin.setOnTouchListener(object : OnSwipeTouchListener(this@LoginActivity) {
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+                })
+            }
         }
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["GESTURES"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["GESTURES"],
+            false
+        )
     }
 
     override fun onBackPressed() {
@@ -131,7 +161,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun getSavedLevel(): Int {
-        var value = getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).getInt(settingsSwitchData["LEVEL_SAVED"], 0)
+        var value = getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).getInt(
+            settingsSwitchData["LEVEL_SAVED"],
+            0
+        )
         println("level: " + value)
         return when (value) {
             in 0..20 -> 1
@@ -318,9 +351,15 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         userId = myCookie
                         //println(" -->> MY COOKIE -->> " + myCookie + " <<--")
 
-                        getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
+                        getSharedPreferences(
+                            settingsSwitchData["LOGGED_IN_NAME"],
+                            PRIVATE_MODE
+                        ).edit()
                             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], true).apply()
-                        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
+                        getSharedPreferences(
+                            settingsSwitchData["USER_CONNECT_ID"],
+                            PRIVATE_MODE
+                        ).edit()
                             .putString(settingsSwitchData["USER_CONNECT_ID"], userId).apply()
 
                         //println(" -->> LOGGED IN <<-- ")
@@ -344,7 +383,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
-        getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit().putString(settingsSwitchData["USER_NAME"], "").apply()
+        getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_NAME"], "").apply()
         getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
             .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
@@ -422,12 +462,18 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             val path = "user_client" //API to get sentences
 
             if (userId == "") {
-                if (getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
+                if (getSharedPreferences(
+                        settingsSwitchData["LOGGED_IN_NAME"],
+                        PRIVATE_MODE
+                    ).getBoolean(
                         settingsSwitchData["LOGGED_IN_NAME"],
                         false
                     )
                 ) {
-                    userId = getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).getString(
+                    userId = getSharedPreferences(
+                        settingsSwitchData["USER_CONNECT_ID"],
+                        PRIVATE_MODE
+                    ).getString(
                         settingsSwitchData["USER_CONNECT_ID"],
                         ""
                     )
@@ -463,8 +509,12 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                     var profileEmail: EditText = findViewById(R.id.textProfileEmail)
                                     var profileUsername: EditText =
                                         findViewById(R.id.textProfileUsername)
-                                    getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
-                                        .putString(settingsSwitchData["USER_NAME"], userName).apply()
+                                    getSharedPreferences(
+                                        settingsSwitchData["USER_NAME"],
+                                        PRIVATE_MODE
+                                    ).edit()
+                                        .putString(settingsSwitchData["USER_NAME"], userName)
+                                        .apply()
                                     var profileAge: EditText = findViewById(R.id.textProfileAge)
                                     var profileGender: EditText =
                                         findViewById(R.id.textProfileGender)
@@ -504,8 +554,12 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                     setLevel(findViewById(R.id.textLevel))
                                 }
                                 if (userName != "") {
-                                    getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
-                                        .putString(settingsSwitchData["USER_NAME"], userName).apply()
+                                    getSharedPreferences(
+                                        settingsSwitchData["USER_NAME"],
+                                        PRIVATE_MODE
+                                    ).edit()
+                                        .putString(settingsSwitchData["USER_NAME"], userName)
+                                        .apply()
                                 }
                             } catch (e: Exception) {
                                 println(" -->> Something wrong: " + it.toString() + " <<-- ")

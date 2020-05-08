@@ -195,6 +195,17 @@ class SettingsFragment : Fragment() {
         abortConfirmationDialogsSettings.isChecked = main.getAbortConfirmationDialogsInSettingsSwitch()
         main.isAbortConfirmation = abortConfirmationDialogsSettings.isChecked
 
+        val gesturesSettings: Switch = root.findViewById(R.id.switchGestures)
+        gesturesSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            main.setGesturesSettingsSwitch(isChecked)
+        }
+        gesturesSettings.isChecked = main.getGesturesSettingsSwitch()
+
         setTheme(main, root)
 
         return root

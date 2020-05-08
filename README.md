@@ -45,6 +45,16 @@ If you want screenshots of the other versions, go to the `screenshots` folder.
 
 There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online. You can record sentences or validate clips, with a few taps. So, the app is smart, customisable, light, but powerful.
 
+### Gestures
+
+You can turn on "Gestures" in Settings. These are the supported gestures (now):
+
+|                         **Swipe-up**                         |                        **Swipe-left**                        |                       **Swipe-right**                        |
+| :--: | :--: | :--: |
+| <img src="images/icons/swipe-up.png" height="100px"></img> | <img src="images/icons/swipe-left.png" height="100px"></img> | <img src="images/icons/swipe-right.png" height="100px"></img> |
+| In **Speak** and **Listen** you can swipe-up to *Report* a clip/sentence |In **Speak**, **Listen**, **Login**, **Profile**, **All badges** you can swipe-left to go back (so, it's the some action of "back button")| In **Speak** and **Listen** you can swipe-right to *Skip* the clip/sentence |
+| In **Tutorial** you can swipe-up to see *Terms* (just the first view of tutorial) | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-left to go back to the previous view ("to navigate") | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-right to go forward to the next view ("to navigate") |
+
 ### Translations
 
 The app is officially translated in these following languages, **thank you very much** to the contributors who translated the app.
@@ -63,7 +73,7 @@ The app is officially translated in these following languages, **thank you very 
 - ✅ `it` Italian -> **[Saverio Morelli](https://github.com/Sav22999)**
 - 🔶 `nl` Dutch -> [**Pander**](https://github.com/PanderMusubi)
 - 🔶 `ru` Russian -> **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100)
-- 🔶🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha)
+- ✅🔴 `sk` Slovak -> [**tadeasbucha**](https://github.com/tadeasbucha)
 - 🔶 `sv-SE` Swedish -> **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy)
 - 🔶 `ta` Tamil -> [**Manimaran.K**](https://crowdin.com/profile/manimaran96)
 - 🔶 `tr` Turkish -> [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)
