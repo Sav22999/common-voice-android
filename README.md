@@ -63,25 +63,25 @@ The app is officially translated in these following languages, **thank you very 
 
 ✅ = Full translation (95%+ translated), 🔶 = Partial translation, 🔴 = Not yet available for the Common Voice project
 
-| Status | Percent  | Language (code) | Language (name) | Translators                                                  | Link                                                         |
-| ------ | -------- | --------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 🔶      | 24%      | `cs`            | Czech           | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/cs)** |
-| 🔶      | 43%      | `de`            | German          | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
-| ✅      | *(main)* | `en`            | English         | [**Saverio Morelli**](https://github.com/Sav22999), [**Cadence Ember**](https://github.com/cloudrac3r) | _(nothing)_                                                  |
-| 🔶      | 1%       | `eo`            | Esperanto       | [**tuxayo**](https://github.com/tuxayo)                      | **[Translate](https://crowdin.com/project/common-voice-android/eo)** |
-| 🔶      | 25%      | `es`            | Spanish         | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/es-ES)** |
-| 🔶      | 14%      | `et`            | Estonian        | [**Agu Ratas**](https://crowdin.com/profile/aguratas)        | **[Translate](https://crowdin.com/project/common-voice-android/et)** |
-| ✅      | 100%     | `eu`            | Basque          | **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)** | **[Translate](https://crowdin.com/project/common-voice-android/eu)** |
-| 🔶      | 72%      | `fa`            | Persian         | [**Danial Behzadi**](https://crowdin.com/profile/danialbehzadi) | **[Translate](https://crowdin.com/project/common-voice-android/fa)** |
-| ✅      | 100%     | `fr`            | French          | **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi), [**grrgui**](https://crowdin.com/profile/pascaloulou) | **[Translate](https://crowdin.com/project/common-voice-android/fr)** |
-| ✅      | 100%     | `ia`            | Interlingua     | **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**   | **[Translate](https://crowdin.com/project/common-voice-android/ia)** |
-| ✅      | 100%     | `it`            | Italian         | [**Saverio Morelli**](https://github.com/Sav22999)           | **[Translate](https://crowdin.com/project/common-voice-android/it#)** |
-| 🔶      | 20%      | `nl`            | Dutch           | [**Pander**](https://github.com/PanderMusubi)                | **[Translate](https://crowdin.com/project/common-voice-android/nl)** |
-| 🔶      | 25%      | `ru`            | Russian         | **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100) | **[Translate](https://crowdin.com/project/common-voice-android/ru)** |
-| ✅🔴     | 99%      | `sk`            | Slovak          | [**tadeasbucha**](https://github.com/tadeasbucha), [**xrup**](https://crowdin.com/profile/xrup) | **[Translate](https://crowdin.com/project/common-voice-android/sk)** |
-| 🔶      | 25%      | `sv-SE`         | Swedish         | **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/sv-SE)** |
-| 🔶      | 3%       | `ta`            | Tamil           | [**Manimaran.K**](https://crowdin.com/profile/manimaran96)   | **[Translate](https://crowdin.com/project/common-voice-android/ta)** |
-| 🔶      | 11%      | `tr`            | Turkish         | [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)  | **[Translate](https://crowdin.com/project/common-voice-android/tr)** |
+| Status | Percentage | Language (code) | Language (name) | Translators                                                  | Link                                                         |
+| ------ | ---------- | --------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 🔶      | 24%        | `cs`            | Czech           | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/cs)** |
+| 🔶      | 43%        | `de`            | German          | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
+| ✅      | *(main)*   | `en`            | English         | [**Saverio Morelli**](https://github.com/Sav22999), [**Cadence Ember**](https://github.com/cloudrac3r) | _(nothing)_                                                  |
+| 🔶      | 1%         | `eo`            | Esperanto       | [**tuxayo**](https://github.com/tuxayo)                      | **[Translate](https://crowdin.com/project/common-voice-android/eo)** |
+| 🔶      | 25%        | `es`            | Spanish         | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/es-ES)** |
+| 🔶      | 14%        | `et`            | Estonian        | [**Agu Ratas**](https://crowdin.com/profile/aguratas)        | **[Translate](https://crowdin.com/project/common-voice-android/et)** |
+| ✅      | 100%       | `eu`            | Basque          | **[Mielanjel Iraeta](https://crowdin.com/profile/pospolos)** | **[Translate](https://crowdin.com/project/common-voice-android/eu)** |
+| 🔶      | 72%        | `fa`            | Persian         | [**Danial Behzadi**](https://crowdin.com/profile/danialbehzadi) | **[Translate](https://crowdin.com/project/common-voice-android/fa)** |
+| ✅      | 100%       | `fr`            | French          | **[PoorPockets McNewHold](https://crowdin.com/profile/IfiwFR)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Lexane**](https://github.com/exilexi), [**grrgui**](https://crowdin.com/profile/pascaloulou) | **[Translate](https://crowdin.com/project/common-voice-android/fr)** |
+| ✅      | 100%       | `ia`            | Interlingua     | **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**   | **[Translate](https://crowdin.com/project/common-voice-android/ia)** |
+| ✅      | 100%       | `it`            | Italian         | [**Saverio Morelli**](https://github.com/Sav22999)           | **[Translate](https://crowdin.com/project/common-voice-android/it#)** |
+| 🔶      | 20%        | `nl`            | Dutch           | [**Pander**](https://github.com/PanderMusubi)                | **[Translate](https://crowdin.com/project/common-voice-android/nl)** |
+| 🔶      | 25%        | `ru`            | Russian         | **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100) | **[Translate](https://crowdin.com/project/common-voice-android/ru)** |
+| ✅🔴     | 99%        | `sk`            | Slovak          | [**tadeasbucha**](https://github.com/tadeasbucha), [**xrup**](https://crowdin.com/profile/xrup) | **[Translate](https://crowdin.com/project/common-voice-android/sk)** |
+| 🔶      | 25%        | `sv-SE`         | Swedish         | **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/sv-SE)** |
+| 🔶      | 3%         | `ta`            | Tamil           | [**Manimaran.K**](https://crowdin.com/profile/manimaran96)   | **[Translate](https://crowdin.com/project/common-voice-android/ta)** |
+| 🔶      | 11%        | `tr`            | Turkish         | [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)  | **[Translate](https://crowdin.com/project/common-voice-android/tr)** |
 
 ### License
 
