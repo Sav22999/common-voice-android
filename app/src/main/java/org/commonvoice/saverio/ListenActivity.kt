@@ -79,7 +79,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     var dailyGoal: DailyGoal = DailyGoal(0, 0)
     var isDailyGoalJustAchieved: Boolean = false
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

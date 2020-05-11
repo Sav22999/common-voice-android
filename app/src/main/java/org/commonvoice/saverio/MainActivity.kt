@@ -1408,34 +1408,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             todayDate =
                 dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString()
         }
-        if (checkDateToday(todayDate, savedDate)) {
+        //println("todayDate: " + todayDate + " savedDate: " + savedDate)
+        if (todayDate == savedDate) {
             return savedDate
         } else {
             return todayDate
-        }
-    }
-
-    fun checkDateToday(todayDate: String, savedDate: String): Boolean {
-        //true -> savedDate is OK, false -> savedDate is old
-        when {
-            todayDate == "?" || savedDate == "?" -> {
-                return false
-            }
-            todayDate == savedDate -> {
-                return true
-            }
-            todayDate.split("/")[0] > savedDate.split("/")[0] -> {
-                return false
-            }
-            todayDate.split("/")[1] > savedDate.split("/")[1] -> {
-                return false
-            }
-            todayDate.split("/")[2] > savedDate.split("/")[2] -> {
-                return false
-            }
-            else -> {
-                return true
-            }
         }
     }
 
@@ -1456,6 +1433,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             var nRecorded: String = "?"
             if (dateContributingToSave == dateContributing) {
                 //same date
+                //println("Same date")
                 nValidated = contributing[2]
                 nRecorded = contributing[1]
                 if (nValidated == "?") {
@@ -1466,9 +1444,16 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 }
             } else {
                 //new date
+                //println("New date")
                 nValidated = "0"
                 nRecorded = "0"
+
             }
+            var contributingToSave =
+                dateContributingToSave + ", " + nRecorded + ", " + nValidated
+            getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
+                .putString(settingsSwitchData["TODAY_CONTRIBUTING"], contributingToSave).apply()
+            //println("dateSaved: " + dateContributing + " dateToSave: " + dateContributingToSave)
             when (type) {
                 "validations" -> {
                     return nValidated
