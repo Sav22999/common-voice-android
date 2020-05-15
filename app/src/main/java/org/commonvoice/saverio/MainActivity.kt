@@ -53,7 +53,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
 
     private val SOURCE_STORE =
-        "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+        "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
