@@ -16,6 +16,7 @@
     <string name="button_home_logout">Log out</string>
     <string name="button_home_profile">Profile</string>
     <string name="text_hi_username">Hi</string>
+    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
     <string name="dashboardVoicesOnline">Voices online</string>

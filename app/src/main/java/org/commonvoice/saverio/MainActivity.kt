@@ -49,6 +49,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     //"LAST_STATS_YOU" //yyyy/mm/dd hh:mm:ss
     //"TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
 
+    val urlWithoutLang: String =
+        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+
     private val SOURCE_STORE =
         "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
@@ -87,7 +90,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "RECORDING_INDICATOR_SOUND" to "RECORDING_INDICATOR_SOUND",
             "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS",
             "GESTURES" to "GESTURES",
-            "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE"
+            "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE",
+            "LEVEL_SAVED" to "LEVEL_SAVED",
+            "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
+            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -157,6 +163,78 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         this.checkUserLoggedIn()
         this.resetDashboardData()
+
+        this.checkIfSessionIsExpired()
+    }
+
+    fun checkIfSessionIsExpired() {
+        val path = "user_client" //API to get sentences
+        val que = Volley.newRequestQueue(this)
+        //SystemClock.sleep(1000L);
+        val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
+            Response.Listener {
+                //println("-->> " + it.toString() + " <<--")
+                if (it.toString() != "null") {
+                    val jsonResult = it.toString()
+                } else {
+                    logoutUser()
+                }
+            }, Response.ErrorListener {
+                println(" -->> Something wrong: " + it.toString() + " <<-- ")
+            }
+        ) {
+            @Throws(AuthFailureError::class)
+            override fun getHeaders(): Map<String, String> {
+                println(">>1>>" + userId)
+                val headers = HashMap<String, String>()
+                headers.put(
+                    "Cookie",
+                    "connect.sid=" + userId
+                )
+                return headers
+            }
+        }
+        que.add(req)
+    }
+
+    fun logoutUser() {
+        showMessageDialog(
+            "",
+            getString(R.string.message_log_in_again)
+        )
+        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
+            .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
+        getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_NAME"], "").apply()
+        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
+        setLevelRecordingsValidations(0, 0)
+        setLevelRecordingsValidations(1, 0)
+        setLevelRecordingsValidations(2, 0)
+        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
+    }
+
+    fun setLevelRecordingsValidations(type: Int, value: Int) {
+        when (type) {
+            0 -> {
+                //level
+                getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["LEVEL_SAVED"], value).apply()
+            }
+            1 -> {
+                //recordings
+                getSharedPreferences(settingsSwitchData["RECORDINGS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["RECORDINGS_SAVED"], value).apply()
+            }
+            2 -> {
+                //validations
+                getSharedPreferences(settingsSwitchData["VALIDATIONS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["VALIDATIONS_SAVED"], value).apply()
+            }
+        }
     }
 
     fun reviewOnPlayStore() {
@@ -174,9 +252,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 getString(R.string.message_review_app_on_play_store)
             )
         }
-        println(
-            " >> >> " + counter.toString()
-        )
         getSharedPreferences(settingsSwitchData["REVIEW_ON_PLAY_STORE"], PRIVATE_MODE).edit()
             .putInt(
                 settingsSwitchData["REVIEW_ON_PLAY_STORE"],
