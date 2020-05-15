@@ -162,6 +162,19 @@ class SettingsFragment : Fragment() {
             startActivity(browserIntent)
         }
 
+        val btnBuyMeACoffee: Button = root.findViewById(R.id.buttonBuyMeACoffee)
+        btnBuyMeACoffee.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7"))
+            startActivity(browserIntent)
+        }
+
+        if (main.getSourceStore() == "GPS") {
+            btnBuyMeACoffee.isGone = true
+            val separator17: View = root.findViewById(R.id.separator17)
+            separator17.isGone = true
+        }
+
         val recordingIndicatorSoundSettings: Switch = root.findViewById(R.id.switchRecordingSound)
         recordingIndicatorSoundSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {

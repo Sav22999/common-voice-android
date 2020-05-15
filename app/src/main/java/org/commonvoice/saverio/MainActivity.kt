@@ -43,11 +43,14 @@ import kotlin.collections.HashMap
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
-    private var PRIVATE_MODE = 0
+    private val PRIVATE_MODE = 0
     //"LOGGED" //false->no logged-in || true -> logged-in
     //"LAST_STATS_EVERYONE" //yyyy/mm/dd hh:mm:ss
     //"LAST_STATS_YOU" //yyyy/mm/dd hh:mm:ss
     //"TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+
+    private val SOURCE_STORE =
+        "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
@@ -83,7 +86,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "SKIP_RECORDING_CONFIRMATION" to "SKIP_RECORDING_CONFIRMATION",
             "RECORDING_INDICATOR_SOUND" to "RECORDING_INDICATOR_SOUND",
             "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS",
-            "GESTURES" to "GESTURES"
+            "GESTURES" to "GESTURES",
+            "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -155,6 +159,35 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         this.resetDashboardData()
     }
 
+    fun reviewOnPlayStore() {
+        val counter = getSharedPreferences(
+            settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+            PRIVATE_MODE
+        ).getInt(
+            settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+            0
+        )
+        if (((counter % 50) == 0 || (counter % 50) == 50) && getSourceStore() == "GPS"
+        ) {
+            showMessageDialog(
+                "",
+                getString(R.string.message_review_app_on_play_store)
+            )
+        }
+        println(
+            " >> >> " + counter.toString()
+        )
+        getSharedPreferences(settingsSwitchData["REVIEW_ON_PLAY_STORE"], PRIVATE_MODE).edit()
+            .putInt(
+                settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+                counter + 1
+            ).apply()
+    }
+
+    fun getSourceStore(): String {
+        return this.SOURCE_STORE
+    }
+
     fun statisticsAPI() {
         if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
             generateUniqueUserId()
@@ -176,6 +209,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 params.put("language", languageTemp)
                 params.put("version", appVersion)
                 params.put("public", this.getStatisticsSwitch().toString())
+                params.put("source", this.SOURCE_STORE)
 
                 //println(">> params: " + params + "<<")
 
@@ -1308,12 +1342,17 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         )
                     )*/
                 //EXM04
+                val tl = TranslationsLanguages()
+                var detailsMessage = ""
+                if (tl.isUncompleted(this.getSelectedLanguage())) {
+                    detailsMessage = "\n" + getString(R.string.message_app_not_completed_translated)
+                }
                 showMessageDialog(
                     "",
                     getString(R.string.toast_language_changed).replace(
                         "{{*{{lang}}*}}",
                         this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                    )
+                    ) + detailsMessage
                 )
             }
             /*if (type == "start") {

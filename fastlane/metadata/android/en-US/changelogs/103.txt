@@ -1,0 +1,4 @@
+- Fixed many bugs
+- Added "Buy me a coffee" in F-Droid and GitHub version
+- Added message "Review the app on Google Play Store" for Play Store version
+- Added message "The app is not (completed) translated …"
