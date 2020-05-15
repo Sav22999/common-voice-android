@@ -14,6 +14,7 @@
     <string name="button_home_logout">Disconnetti</string>
     <string name="button_home_profile">Profilo</string>
     <string name="text_hi_username">Ciao</string>
+    <string name="message_log_in_again">L\'id della sessione è scaduto, è necessario effettuare nuovamente l\'accesso</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiche</string>
     <string name="dashboardVoicesOnline">Voci online</string>
@@ -105,6 +106,8 @@
     <string name="txt_gestures">Gesti</string>
     <string name="toast_gestures_on">Gesti attivati.</string>
     <string name="toast_gestures_off">Gesti disattivati.</string>
+    <string name="message_review_app_on_play_store">Se ti piace questa app, ricordati di scrivere una recensione su Google Play Store.</string>
+    <string name="message_app_not_completed_translated">L\'app non è tradotta (completamente) in questa lingua.\nPuoi contribuire alla traduzione dell\'app su Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>

@@ -65,6 +65,7 @@ The app is officially translated in these following languages, **thank you very 
 
 | Status | Percentage | Language (code) | Language (name) | Translators                                                  | Link                                                         |
 | ------ | ---------- | --------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 🔶      | 6%         | `ca`            | Catalan         | [**Carles Paredes Lanau**](https://crowdin.com/profile/carlesparedes) | **[Translate](https://crowdin.com/project/common-voice-android/ca)** |
 | 🔶      | 24%        | `cs`            | Czech           | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/cs)** |
 | 🔶      | 43%        | `de`            | German          | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
 | ✅      | *(main)*   | `en`            | English         | [**Saverio Morelli**](https://github.com/Sav22999), [**Cadence Ember**](https://github.com/cloudrac3r) | _(nothing)_                                                  |
