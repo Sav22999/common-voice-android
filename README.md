@@ -41,7 +41,7 @@ If you want screenshots of the other versions, go to the `screenshots` folder.
 
 ### Why an Android app of Common Voice?
 
-There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online. You can record sentences or validate clips, with a few taps. So, the app is smart, customisable, light, but powerful.
+There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online; you can set the daily goal (it's not the same of Common Voice website); you can record sentences and validate clips, with a few taps. So, the app is smart, customisable, light, but powerful.
 
 ### Gestures
 

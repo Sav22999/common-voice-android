@@ -229,11 +229,14 @@
         <item>Bahasa Indonesia</item> <!-- id -->
         <item>Italiano</item> <!-- it -->
         <item>日本語</item> <!-- ja -->
+        <item>ქართული</item> <!-- ka -->
         <item>Taqbaylit</item> <!-- kab -->
         <item>Кыргызча</item> <!-- ky -->
         <item>Latviešu</item> <!-- lv -->
         <item>Монгол хэл</item> <!-- mn -->
+        <item>Malti</item> <!-- mt -->
         <item>Nederlands</item> <!-- nl -->
+        <item>ଓଡ଼ିଆ</item> <!-- or -->
         <item>ਪੰਜਾਬੀ</item> <!-- pa-IN -->
         <item>polski</item> <!-- pl -->
         <item>Português</item> <!-- pt -->
@@ -248,6 +251,8 @@
         <item>தமிழ்</item> <!-- ta -->
         <item>Türkçe</item> <!-- tr -->
         <item>Татарча</item> <!-- tt -->
+        <item>Українська</item> <!-- uk -->
+        <item>Việt</item> <!-- vi -->
         <item>vad̕d̕a</item> <!-- vot -->
         <item>汉语（中国大陆）</item> <!-- zh-CN -->
         <item>中文（香港）</item> <!-- zh-HK -->
@@ -281,11 +286,14 @@
         <item>id</item>
         <item>it</item>
         <item>ja</item>
+        <item>k1</item>
         <item>kab</item>
         <item>ky</item>
         <item>lv</item>
         <item>mn</item>
+        <item>mt</item>
         <item>nl</item>
+        <item>or</item>
         <item>pa-IN</item>
         <item>pl</item>
         <item>pt</item>
@@ -300,6 +308,8 @@
         <item>ta</item>
         <item>tr</item>
         <item>tt</item>
+        <item>uk</item>
+        <item>vi</item>
         <item>vot</item>
         <item>zh-CN</item>
         <item>zh-HK</item>
