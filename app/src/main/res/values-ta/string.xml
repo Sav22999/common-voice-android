@@ -144,12 +144,12 @@
     <string name="btn_check_again_noconnection">மீண்டும் சரிபார்க்கவும்</string>
     <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">This is the sentence you must record.</string>
-    <string name="txt2_tutorial_speak_and_listen">A message to guide you will appear here.</string>
-    <string name="txt3_tutorial_speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
-    <string name="txt4_tutorial_speak">Tap on this icon to start recording.</string>
-    <string name="txt5_tutorial_speak">Tap on this icon to stop recording.</string>
-    <string name="txt6_tutorial_speak">Tap on this icon to play back your recording.</string>
+    <string name="txt1_tutorial_speak">இது நீங்கள் பதிவு செய்ய வேண்டிய வாக்கியம்.</string>
+    <string name="txt2_tutorial_speak_and_listen">உங்களுக்கு வழிகாட்டும் செய்தி இங்கே தோன்றும்.</string>
+    <string name="txt3_tutorial_speak">நீங்கள் இவ்வாக்கியத்தை விரும்பவில்லை என்றால்,இதை தவிர்த்து இன்னொன்றைப் பெற இங்கே தட்டலாம்.</string>
+    <string name="txt4_tutorial_speak">பதிவு செய்ய இந்த ஐகானைத் தட்டவும்.</string>
+    <string name="txt5_tutorial_speak">பதிவு செய்வதை நிறுத்த இந்த ஐகானைத் தட்டவும்.</string>
+    <string name="txt6_tutorial_speak">உங்கள் பதிவை மீண்டும் இயக்க இந்த ஐகானைத் தட்டவும்.</string>
     <string name="txt7_tutorial_speak">Tap on this icon to re-record if you made a mistake.</string>
     <string name="txt8_tutorial_speak">Tap on this icon to play back your recording again.</string>
     <string name="txt9_tutorial_speak">Tap on this button to send your recording.</string>
@@ -164,12 +164,12 @@
     <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
     <!-- Badges -->
     <string name="btnCloseBadges">மூடு</string>
-    <string name="labelAllBadges">All badges</string>
-    <string name="new_badge_earnt_message">Hooray! You have just earned a new badge.</string>
+    <string name="labelAllBadges">அனைத்து பேட்ஜ்கள்</string>
+    <string name="new_badge_earnt_message">தோழரே! நீங்கள் ஒரு புதிய பேட்ஜைப் பெற்றுள்ளீர்கள்.</string>
     <!-- Message dialog -->
     <string name="btnOk">சரி</string>
     <string name="messageDialogErrorTitle">பிழை</string>
-    <string name="messageDialogGenericError">That didn\'t work.\nPlease try again, or contact the developer.</string>
+    <string name="messageDialogGenericError">அது வேலை செய்யவில்லை.\nதயவுசெய்து மீண்டும் முயற்சிக்கவும் அல்லது டெவலப்பரைத் தொடர்பு கொள்ளவும்.</string>
     <string name="messageDialogErrorCode">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
