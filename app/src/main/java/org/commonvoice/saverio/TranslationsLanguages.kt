@@ -8,6 +8,7 @@ class TranslationsLanguages {
         // Change manually
         this.translations_languages =
             arrayOf(
+                "ca",
                 "cs",
                 "de",
                 "en",
@@ -27,6 +28,7 @@ class TranslationsLanguages {
             )
         this.not_completed_translated =
             arrayOf(
+                "ca",
                 "cs",
                 "de",
                 "eo",

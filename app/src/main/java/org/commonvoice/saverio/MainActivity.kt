@@ -41,6 +41,9 @@ import kotlin.collections.HashMap
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
+    private val SOURCE_STORE =
+        "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
     private val PRIVATE_MODE = 0
@@ -51,9 +54,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     val urlWithoutLang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
-
-    private val SOURCE_STORE =
-        "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
@@ -165,36 +165,39 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         this.resetDashboardData()
 
         this.checkIfSessionIsExpired()
+        this.reviewOnPlayStore()
     }
 
     fun checkIfSessionIsExpired() {
-        val path = "user_client" //API to get sentences
-        val que = Volley.newRequestQueue(this)
-        //SystemClock.sleep(1000L);
-        val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
-            Response.Listener {
-                //println("-->> " + it.toString() + " <<--")
-                if (it.toString() != "null") {
-                    val jsonResult = it.toString()
-                } else {
-                    logoutUser()
+        //if the userid returns "null", to the user have to log in again
+        if (logged) {
+            val path = "user_client" //API to get sentences
+            val que = Volley.newRequestQueue(this)
+            //SystemClock.sleep(1000L);
+            val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
+                Response.Listener {
+                    //println("-->> " + it.toString() + " <<--")
+                    if (it.toString() != "null") {
+                        val jsonResult = it.toString()
+                    } else {
+                        logoutUser()
+                    }
+                }, Response.ErrorListener {
+                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
                 }
-            }, Response.ErrorListener {
-                println(" -->> Something wrong: " + it.toString() + " <<-- ")
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers.put(
+                        "Cookie",
+                        "connect.sid=" + userId
+                    )
+                    return headers
+                }
             }
-        ) {
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): Map<String, String> {
-                println(">>1>>" + userId)
-                val headers = HashMap<String, String>()
-                headers.put(
-                    "Cookie",
-                    "connect.sid=" + userId
-                )
-                return headers
-            }
+            que.add(req)
         }
-        que.add(req)
     }
 
     fun logoutUser() {
@@ -202,6 +205,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "",
             getString(R.string.message_log_in_again)
         )
+        logged = false
         getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
             .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
@@ -238,25 +242,28 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun reviewOnPlayStore() {
-        val counter = getSharedPreferences(
-            settingsSwitchData["REVIEW_ON_PLAY_STORE"],
-            PRIVATE_MODE
-        ).getInt(
-            settingsSwitchData["REVIEW_ON_PLAY_STORE"],
-            0
-        )
-        if (((counter % 50) == 0 || (counter % 50) == 50) && getSourceStore() == "GPS"
-        ) {
-            showMessageDialog(
-                "",
-                getString(R.string.message_review_app_on_play_store)
-            )
-        }
-        getSharedPreferences(settingsSwitchData["REVIEW_ON_PLAY_STORE"], PRIVATE_MODE).edit()
-            .putInt(
+        //just if it's the GPS version
+        if (getSourceStore() == "GPS") {
+            val counter = getSharedPreferences(
                 settingsSwitchData["REVIEW_ON_PLAY_STORE"],
-                counter + 1
-            ).apply()
+                PRIVATE_MODE
+            ).getInt(
+                settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+                0
+            )
+            val times = 100 //after this times it will show the message
+            if (((counter % times) == 0 || (counter % times) == times)) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.message_review_app_on_play_store)
+                )
+            }
+            getSharedPreferences(settingsSwitchData["REVIEW_ON_PLAY_STORE"], PRIVATE_MODE).edit()
+                .putInt(
+                    settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+                    counter + 1
+                ).apply()
+        }
     }
 
     fun getSourceStore(): String {

@@ -10,6 +10,8 @@ If you turn on "Save logs to a file", the app requires *Storage* and will be sav
 
 The *Experimental features* could be unsafe and unstable, so pay attention if you use that option.
 
+There are "two" versions: one for "Google Play Store", and another for "F-Droid/GitHub". In the first one the app show, sometimes a message "Review the app ... on Google Play Store", in the second one there is a button, in Settings, which permits you to "buy me a coffee". But the rest of the code is absolutely the same.
+
 If you want additional information about the Policy privacy of Common Voice project, [read the official doc](https://voice.mozilla.org/en/privacy).
 
 ### Anonymous statistics
@@ -21,10 +23,11 @@ These statistics are absolutely anonymous. I don't collect your personal data. T
 | Key         | Value                              | Explanation                                                  |
 | ----------- | ---------------------------------- | ------------------------------------------------------------ |
 | `unique_id` | `UserYYYYMMDDHHMMSSMMMM::CVAppSav` | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data |
-| `language`  | `en`, `it`, _ect._                 | It's the language code you are using the app                 |
+| `language`  | `en`, `it`, _ect._ (or `n.d.`)     | It's the language code you are using the app                 |
 | `logged`    | `0` or `1`                         | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
-| `version`   | `98`,`100`, *ect.*                 | It's the version code of the app                             |
+| `version`   | `98`,`100`, *ect.* (or `n.d.`)     | It's the version code of the app                             |
 | `public`    | `true` or `false`                  | It's a flag: `true` if the statistics are public, so are shown in the graph, `false` if you have turned off the statistics |
+| `source`    | `GPS` or `FD-GH` (or also `n.d.`)  | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
 
 You can see public statistics on website: [https://saveriomorelli.com/app/common-voice-android/statistics](https://bit.ly/35d2dza).
 
@@ -44,4 +47,4 @@ This option is useful when you want to report a bug, so you can attach this file
 
 
 
-*Last update: 10th May 2020*
+*Last update: 15th May 2020*
