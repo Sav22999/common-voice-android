@@ -2,15 +2,15 @@
 
 #  <img src="images/icon.png" width="40px" alt=""></img> Privacy: Common Voice Android
 
-The app doesn’t collect your data. Anyway, some data are saved on your device (*user_id* of CV, *selected language*, *validations and recordings number*, and others data). You can clear them just *Clear data* of the app (but they are necessary to use Common Voice Android).
+The app doesn’t collect your personal data. Anyway, some data are saved on your device (*user_id* of Common Voice, *selected language*, *validations and recordings number*, and others data). You can clear them just *Clear data* of the app (but they are necessary to use Common Voice Android).
 
-The app requires *Storage* and *Microphone* permissions when you use *Speak section*: because the app saves your recording, but then they are deleted automatically.
+The app requires *Storage* and *Microphone* permissions when you use *Speak section*: because the app saves your recordings, and the app deletes automatically them (after sent to the Common Voice server).
 
-If you active "Save log on a file", the app requires *Storage* and will be save log on files, but it won't contains your personal data. Read more about this [**here**](./SAVING THE LOG.md).
+If you turn on "Save logs to a file", the app requires *Storage* and will be save logs to files, but they won't contain your personal data. Read more about this in *Saving the logs* section (below).
 
 The *Experimental features* could be unsafe and unstable, so pay attention if you use that option.
 
-If you want additional information about the Policy privacy of Common Voice project, [Read the official doc](https://voice.mozilla.org/en/privacy) by Mozilla.
+If you want additional information about the Policy privacy of Common Voice project, [read the official doc](https://voice.mozilla.org/en/privacy).
 
 ### Anonymous statistics
 
@@ -18,18 +18,30 @@ If you want additional information about the Policy privacy of Common Voice proj
 
 These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language**, **logged_status**, **version** and **status_statistics**.
 
-**unique_id**: It's a unique string generated the first time you run the app, and it is like "UserYYYYMMDDHHMMSSMMMM::CVAppSav", so it doesn't contain any your personal data
+| Key         | Value                              | Explanation                                                  |
+| ----------- | ---------------------------------- | ------------------------------------------------------------ |
+| `unique_id` | `UserYYYYMMDDHHMMSSMMMM::CVAppSav` | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data |
+| `language`  | `en`, `it`, _ect._                 | It's the language code you are using the app                 |
+| `logged`    | `0` or `1`                         | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
+| `version`   | `98`,`100`, *ect.*                 | It's the version code of the app                             |
+| `public`    | `true` or `false`                  | It's a flag: `true` if the statistics are public, so are shown in the graph, `false` if you have turned off the statistics |
 
-**language**: it's just the variable, like _en_ or _it_, ect.
+You can see public statistics on website: [https://saveriomorelli.com/app/common-voice-android/statistics](https://bit.ly/35d2dza).
 
-**logged_status**: it's a integer value: 0 if you are not logged, 1 if you logged-in
+### Saving the logs
 
-**version**: it's the version_code, it's useful to know if users use the latest releases
+*This option may slow down app performance, so turn on just when it's necessary.*
 
-**status_statistics**: it's a flag "true" or "false". If the statistics are turned on in the app, it's true, otherwise it's false.
+*You can turn on/off in Settings.*
 
-You can see public statistics on website: https://saveriomorelli.com/app/common-voice-android/statistics.
+**This feature needs "Storage" permission.**
+
+Logs are saved in the `common-voice-android.log` file, so in that file will be all exception, warning or error messages. The file will contain max 1000 rows.
+
+Your data, of course, will **not** be saved. <u>The logs file will contain messages about the app, not about you.</u>
+
+This option is useful when you want to report a bug, so you can attach this file and the developer can see more details.
 
 
 
-*Last update: 3rd May 2020*
+*Last update: 10th May 2020*

@@ -1,26 +1,17 @@
 package org.commonvoice.saverio
 
-import android.annotation.TargetApi
-import android.app.Notification
-import android.app.NotificationManager
-import android.app.PendingIntent
+import OnSwipeTouchListener
 import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.all_badges.*
-import java.util.*
+import org.commonvoice.saverio.ui.VariableLanguageActivity
 
 
-class BadgesActivity() : AppCompatActivity() {
+class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
 
     var level: Int = 0
     var recorded: Int = 0
@@ -29,21 +20,21 @@ class BadgesActivity() : AppCompatActivity() {
     private val LEVEL_SAVED = "LEVEL_SAVED"
     private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
     private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
+    private val GESTURES = "GESTURES"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.all_badges)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         try {
             actionBar?.title = getString(R.string.labelAllBadges)
         } catch (exception: Exception) {
-            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method1) -- "+exception.toString()+" !!")
+            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method1) -- " + exception.toString() + " !!")
         }
         try {
             supportActionBar?.setTitle(getString(R.string.labelAllBadges))
         } catch (exception: Exception) {
-            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method2) -- "+exception.toString()+" !!")
+            println("!! Exception: (BadgesActivity) I can't set Title in ActionBar (method2) -- " + exception.toString() + " !!")
         }
 
         val btnCloseBadges = this.btnCloseBadges
@@ -55,6 +46,24 @@ class BadgesActivity() : AppCompatActivity() {
         this.validated = this.getSavedValidation()
         loadBadges()
         //checkNewBadges(2, 2, 2)//remove this
+
+        if (getGestures()) {
+            layoutAllBadges.setOnTouchListener(object : OnSwipeTouchListener(this@BadgesActivity) {
+                override fun onSwipeRight() {
+                    onBackPressed()
+                }
+            })
+        }
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
     }
 
     fun loadBadges() {
@@ -188,46 +197,5 @@ class BadgesActivity() : AppCompatActivity() {
             in 10000..100000000 -> 7
             else -> 0
         }
-    }
-
-    override fun attachBaseContext(newBase: Context) {
-        val tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-        var lang = tempLang!!.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
-        }
-        super.attachBaseContext(newBase.wrap(Locale(lang)))
-    }
-
-    fun Context.wrap(desiredLocale: Locale): Context {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
-            return getUpdatedContextApi23(desiredLocale)
-
-        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
-            getUpdatedContextApi24(desiredLocale)
-        else
-            getUpdatedContextApi25(desiredLocale)
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.locale = locale
-        return createConfigurationContext(configuration)
-    }
-
-    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.setLocale(locale)
-        return createConfigurationContext(configuration)
-    }
-
-    @TargetApi(Build.VERSION_CODES.N_MR1)
-    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
-        val localeList = LocaleList(locale)
-        val configuration = resources.configuration
-        configuration.locales = localeList
-        return createConfigurationContext(configuration)
     }
 }

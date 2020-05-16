@@ -22,6 +22,7 @@
     <string name="dashboardToday">Hodie</string>
     <string name="dashboardEver">Sempre</string>
     <string name="toastNoLoginNoStatistics">Tu debe acceder pro vider tu statistica</string>
+    <string name="toastNoLoginNoDailyGoal">Tu debe acceder pro definir le objectivo quotidian</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hora</string>
     <!-- Tutorial -->
@@ -101,6 +102,9 @@
     <string name="txt_abort_confirmation_dialogs_in_settings">Abortar dialogos de confirmation in Parametros</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Aborto del dialogos de confirmation es ora activate.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Aborto del dialogos de confirmation es ora disactivate.</string>
+    <string name="txt_gestures">Gestos</string>
+    <string name="toast_gestures_on">Le gestos es ora activate.</string>
+    <string name="toast_gestures_off">Le gestos es ora disactivate.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Cargante un phrase...</string>
     <string name="btn_skip_sentence">Saltar</string>

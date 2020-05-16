@@ -1,7 +1,7 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.Manifest
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -10,18 +10,17 @@ import android.graphics.Bitmap
 import android.graphics.Paint
 import android.net.ConnectivityManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
-import android.os.SystemClock
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -32,24 +31,32 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_webbrowser.*
+import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.json.JSONObject
-import java.util.*
-import kotlin.collections.HashMap
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
     private var PRIVATE_MODE = 0
-    private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
-    private val USER_CONNECT_ID = "USER_CONNECT_ID"
-    private val USER_NAME = "USERNAME"
-    private val LEVEL_SAVED = "LEVEL_SAVED"
-    private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
-    private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
-    private val TODAY_CONTRIBUTING =
-        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+    //private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
+    //private val TODAY_CONTRIBUTING = "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+
+    private val settingsSwitchData: HashMap<String, String> =
+        hashMapOf(
+            "LOGGED_IN_NAME" to "LOGGED",
+            "USER_CONNECT_ID" to "USER_CONNECT_ID",
+            "USER_NAME" to "USERNAME",
+            "LEVEL_SAVED" to "LEVEL_SAVED",
+            "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
+            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
+            "DAILY_GOAL" to "DAILY_GOAL",
+            "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
+            "GESTURES" to "GESTURES"
+        )
+
     var userId: String = ""
     var userName: String = ""
 
@@ -58,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
         //checkPermissions()
         checkConnection()
@@ -98,8 +104,8 @@ class LoginActivity : AppCompatActivity() {
             println("!! Exception: (LoginActivity) I can't set Title in ActionBar (method2) -- " + exception.toString() + " !!")
         }
 
-        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
-                LOGGED_IN_NAME,
+        if (getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
+                settingsSwitchData["LOGGED_IN_NAME"],
                 false
             ) == false
         ) {
@@ -117,10 +123,37 @@ class LoginActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 openWebBrowser("login")
             }
+
+            if (getGestures()) {
+                layoutWebBrowser.setOnTouchListener(object :
+                    OnSwipeTouchListener(this@LoginActivity) {
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+                })
+            }
         } else {
             loadUserData("profile")
             setTheme(this)
+
+            if (getGestures()) {
+                layoutLogin.setOnTouchListener(object : OnSwipeTouchListener(this@LoginActivity) {
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+                })
+            }
         }
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["GESTURES"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["GESTURES"],
+            false
+        )
     }
 
     override fun onBackPressed() {
@@ -128,7 +161,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun getSavedLevel(): Int {
-        var value = getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0)
+        var value = getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).getInt(
+            settingsSwitchData["LEVEL_SAVED"],
+            0
+        )
         println("level: " + value)
         return when (value) {
             in 0..20 -> 1
@@ -315,10 +351,16 @@ class LoginActivity : AppCompatActivity() {
                         userId = myCookie
                         //println(" -->> MY COOKIE -->> " + myCookie + " <<--")
 
-                        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
-                            .putBoolean(LOGGED_IN_NAME, true).apply()
-                        getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
-                            .putString(USER_CONNECT_ID, userId).apply()
+                        getSharedPreferences(
+                            settingsSwitchData["LOGGED_IN_NAME"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], true).apply()
+                        getSharedPreferences(
+                            settingsSwitchData["USER_CONNECT_ID"],
+                            PRIVATE_MODE
+                        ).edit()
+                            .putString(settingsSwitchData["USER_CONNECT_ID"], userId).apply()
 
                         //println(" -->> LOGGED IN <<-- ")
 
@@ -337,16 +379,19 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun logoutAndExit(exit: Boolean = true) {
-        getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).edit()
-            .putString(USER_CONNECT_ID, "").apply()
-        getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).edit()
-            .putBoolean(LOGGED_IN_NAME, false).apply()
-        getSharedPreferences(USER_NAME, PRIVATE_MODE).edit().putString(USER_NAME, "").apply()
-        getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
-            .putString(TODAY_CONTRIBUTING, "?, ?, ?").apply()
+        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
+            .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
+        getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_NAME"], "").apply()
+        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
+        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
         if (exit) {
             openMainAfterLogin()
         }
@@ -358,18 +403,18 @@ class LoginActivity : AppCompatActivity() {
         when (type) {
             0 -> {
                 //level
-                getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).edit()
-                    .putInt(LEVEL_SAVED, value).apply()
+                getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["LEVEL_SAVED"], value).apply()
             }
             1 -> {
                 //recordings
-                getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).edit()
-                    .putInt(RECORDINGS_SAVED, value).apply()
+                getSharedPreferences(settingsSwitchData["RECORDINGS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["RECORDINGS_SAVED"], value).apply()
             }
             2 -> {
                 //validations
-                getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).edit()
-                    .putInt(VALIDATIONS_SAVED, value).apply()
+                getSharedPreferences(settingsSwitchData["VALIDATIONS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["VALIDATIONS_SAVED"], value).apply()
             }
         }
     }
@@ -417,13 +462,19 @@ class LoginActivity : AppCompatActivity() {
             val path = "user_client" //API to get sentences
 
             if (userId == "") {
-                if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(
-                        LOGGED_IN_NAME,
+                if (getSharedPreferences(
+                        settingsSwitchData["LOGGED_IN_NAME"],
+                        PRIVATE_MODE
+                    ).getBoolean(
+                        settingsSwitchData["LOGGED_IN_NAME"],
                         false
                     )
                 ) {
-                    userId = getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                        USER_CONNECT_ID,
+                    userId = getSharedPreferences(
+                        settingsSwitchData["USER_CONNECT_ID"],
+                        PRIVATE_MODE
+                    ).getString(
+                        settingsSwitchData["USER_CONNECT_ID"],
                         ""
                     )
                 }
@@ -458,8 +509,12 @@ class LoginActivity : AppCompatActivity() {
                                     var profileEmail: EditText = findViewById(R.id.textProfileEmail)
                                     var profileUsername: EditText =
                                         findViewById(R.id.textProfileUsername)
-                                    getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                                        .putString(USER_NAME, userName).apply()
+                                    getSharedPreferences(
+                                        settingsSwitchData["USER_NAME"],
+                                        PRIVATE_MODE
+                                    ).edit()
+                                        .putString(settingsSwitchData["USER_NAME"], userName)
+                                        .apply()
                                     var profileAge: EditText = findViewById(R.id.textProfileAge)
                                     var profileGender: EditText =
                                         findViewById(R.id.textProfileGender)
@@ -499,8 +554,12 @@ class LoginActivity : AppCompatActivity() {
                                     setLevel(findViewById(R.id.textLevel))
                                 }
                                 if (userName != "") {
-                                    getSharedPreferences(USER_NAME, PRIVATE_MODE).edit()
-                                        .putString(USER_NAME, userName).apply()
+                                    getSharedPreferences(
+                                        settingsSwitchData["USER_NAME"],
+                                        PRIVATE_MODE
+                                    ).edit()
+                                        .putString(settingsSwitchData["USER_NAME"], userName)
+                                        .apply()
                                 }
                             } catch (e: Exception) {
                                 println(" -->> Something wrong: " + it.toString() + " <<-- ")
@@ -713,45 +772,4 @@ class LoginActivity : AppCompatActivity() {
         img.clearAnimation()
     }
 
-
-    override fun attachBaseContext(newBase: Context) {
-        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-        var lang = tempLang.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
-        }
-        super.attachBaseContext(newBase.wrap(Locale(lang)))
-    }
-
-    fun Context.wrap(desiredLocale: Locale): Context {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
-            return getUpdatedContextApi23(desiredLocale)
-
-        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
-            getUpdatedContextApi24(desiredLocale)
-        else
-            getUpdatedContextApi25(desiredLocale)
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.locale = locale
-        return createConfigurationContext(configuration)
-    }
-
-    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.setLocale(locale)
-        return createConfigurationContext(configuration)
-    }
-
-    @TargetApi(Build.VERSION_CODES.N_MR1)
-    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
-        val localeList = LocaleList(locale)
-        val configuration = resources.configuration
-        configuration.locales = localeList
-        return createConfigurationContext(configuration)
-    }
 }

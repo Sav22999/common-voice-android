@@ -7,6 +7,6 @@ assignees: ''
 
 ---
 
-_Language name in English:_ (e.g. Italian, Swedish, ...)
-_Language name (long, in the same native language):_ (e.g. Italiano, Svenska, ...)
-_Language code in [Common Voice](https://voice.mozilla.org/):_ (e.g. it, sv-SE, ...) -> The URL should be like `https://voice.mozilla.org/YOUR_CODE_LANGUAGE/`
+_Language name in English:_ (e.g. `Italian`, `French`, `Swedish`, ...)
+_Language name (long, in the same native language):_ (e.g. `Italiano`, `Français`, `Svenska`, ...)
+_Language code in [Common Voice](https://voice.mozilla.org/):_ (e.g. `it`, `fr`, `sv-SE`, ...) -> The URL should be like `https://voice.mozilla.org/YOUR_CODE_LANGUAGE/`

@@ -1,7 +1,6 @@
 package org.commonvoice.saverio
 
 import android.Manifest
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -12,12 +11,13 @@ import android.graphics.Typeface
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import android.util.DisplayMetrics
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -32,6 +32,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -39,7 +40,7 @@ import java.util.*
 import kotlin.collections.HashMap
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
@@ -81,7 +82,8 @@ class MainActivity : AppCompatActivity() {
             "CHECK_FOR_UPDATES" to "CHECK_FOR_UPDATES",
             "SKIP_RECORDING_CONFIRMATION" to "SKIP_RECORDING_CONFIRMATION",
             "RECORDING_INDICATOR_SOUND" to "RECORDING_INDICATOR_SOUND",
-            "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS"
+            "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS",
+            "GESTURES" to "GESTURES"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -105,7 +107,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
@@ -239,33 +240,36 @@ class MainActivity : AppCompatActivity() {
 
     fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
         if (this.getCheckForUpdatesSwitch() or forcedCheck == true) {
-            val code: String = BuildConfig.VERSION_CODE.toString()
-            if (!getSharedPreferences("NEW_VERSION_" + code, PRIVATE_MODE).getBoolean(
-                    "NEW_VERSION_" + code,
-                    false
-                )
-            ) {
-                try {
-                    val urlApiGithub =
-                        "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
-                    val que = Volley.newRequestQueue(this)
-                    val req = object : StringRequest(Request.Method.GET, urlApiGithub,
-                        Response.Listener {
-                            //println("-->> " + it.toString() + " <<--")
-                            val currentVersion: String = BuildConfig.VERSION_NAME
-                            var serverVersion: String = currentVersion
-                            val jsonResult = it.toString()
-                            if (jsonResult.length > 2) {
-                                try {
-                                    val jsonObj = JSONObject(
-                                        jsonResult.substring(
-                                            jsonResult.indexOf("{"),
-                                            jsonResult.lastIndexOf("}") + 1
-                                        )
+            try {
+                val urlApiGithub =
+                    "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
+                val que = Volley.newRequestQueue(this)
+                val req = object : StringRequest(Request.Method.GET, urlApiGithub,
+                    Response.Listener {
+                        //println("-->> " + it.toString() + " <<--")
+                        val currentVersion: String = BuildConfig.VERSION_NAME
+                        var serverVersion: String = currentVersion
+                        val jsonResult = it.toString()
+                        if (jsonResult.length > 2) {
+                            try {
+                                val jsonObj = JSONObject(
+                                    jsonResult.substring(
+                                        jsonResult.indexOf("{"),
+                                        jsonResult.lastIndexOf("}") + 1
                                     )
-                                    serverVersion = jsonObj.getString("tag_name")
-                                    //println(">> current: " + currentVersion + " - new: " + serverVersion)
-                                    if (currentVersion != serverVersion) {
+                                )
+                                serverVersion = jsonObj.getString("tag_name")
+                                val code: String = serverVersion.replace(".", "_")
+                                //println(">> current: " + currentVersion + " - new: " + serverVersion)
+                                if (currentVersion != serverVersion) {
+                                    if (!getSharedPreferences(
+                                            "NEW_VERSION_" + code,
+                                            PRIVATE_MODE
+                                        ).getBoolean(
+                                            "NEW_VERSION_" + code,
+                                            false
+                                        )
+                                    ) {
                                         showMessageDialog(
                                             "",
                                             getString(R.string.message_dialog_new_version_available).replace(
@@ -279,18 +283,18 @@ class MainActivity : AppCompatActivity() {
                                         ).edit()
                                             .putBoolean("NEW_VERSION_" + code, true).apply()
                                     }
-                                } catch (e: Exception) {
-                                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
                                 }
+                            } catch (e: Exception) {
+                                println(" -->> Something wrong: " + it.toString() + " <<-- ")
                             }
-                        }, Response.ErrorListener {
-                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
                         }
-                    ) {}
-                    que.add(req)
-                } catch (e: Exception) {
-                    println(" -->> Something wrong: " + e.toString() + " <<-- ")
-                }
+                    }, Response.ErrorListener {
+                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                    }
+                ) {}
+                que.add(req)
+            } catch (e: Exception) {
+                println(" -->> Something wrong: " + e.toString() + " <<-- ")
             }
         }
     }
@@ -618,6 +622,78 @@ class MainActivity : AppCompatActivity() {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"], status)
+                .apply()
+        }
+    }
+
+    fun getGesturesSettingsSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["GESTURES"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["GESTURES"],
+            false
+        )
+    }
+
+    fun setGesturesSettingsSwitch(status: Boolean) {
+        if (status != this.getGesturesSettingsSwitch()) {
+            if (status) {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_gestures_on)
+                    )
+                }
+            } else {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_gestures_off)
+                    )
+                }
+            }
+            getSharedPreferences(
+                settingsSwitchData["GESTURES"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["GESTURES"], status)
+                .apply()
+        }
+    }
+
+    fun getSkipRecordingsConfirmationSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
+            false
+        )
+    }
+
+    fun setSkipRecordingsConfirmationSwitch(status: Boolean) {
+        if (status != this.getSkipRecordingsConfirmationSwitch()) {
+            if (status) {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_skip_recording_confirmation_on)
+                    )
+                }
+            } else {
+                if (!isAbortConfirmation) {
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toast_skip_recording_confirmation_off)
+                    )
+                }
+            }
+            getSharedPreferences(
+                settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["SKIP_RECORDING_CONFIRMATION"], status)
                 .apply()
         }
     }
@@ -1026,6 +1102,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun setDailyGoal(dailyGoalValue: Int = 0) {
+        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE.toInt())
+            .edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], dailyGoalValue).apply()
+    }
+
     fun showMessageDialog(
         title: String,
         text: String,
@@ -1062,7 +1144,6 @@ class MainActivity : AppCompatActivity() {
         Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }
-        println("Opened")
     }
 
     fun openListenSection() {
@@ -1109,6 +1190,14 @@ class MainActivity : AppCompatActivity() {
         showMessageDialog(
             "",
             getString(R.string.toastNoLoginNoStatistics)
+        )
+    }
+
+    fun noLoggedInNoDailyGoal() {
+        //EXM20
+        showMessageDialog(
+            "",
+            getString(R.string.toastNoLoginNoDailyGoal)
         )
     }
 
@@ -1319,34 +1408,11 @@ class MainActivity : AppCompatActivity() {
             todayDate =
                 dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString()
         }
-        if (checkDateToday(todayDate, savedDate)) {
+        //println("todayDate: " + todayDate + " savedDate: " + savedDate)
+        if (todayDate == savedDate) {
             return savedDate
         } else {
             return todayDate
-        }
-    }
-
-    fun checkDateToday(todayDate: String, savedDate: String): Boolean {
-        //true -> savedDate is OK, false -> savedDate is old
-        when {
-            todayDate == "?" || savedDate == "?" -> {
-                return false
-            }
-            todayDate == savedDate -> {
-                return true
-            }
-            todayDate.split("/")[0] > savedDate.split("/")[0] -> {
-                return false
-            }
-            todayDate.split("/")[1] > savedDate.split("/")[1] -> {
-                return false
-            }
-            todayDate.split("/")[2] > savedDate.split("/")[2] -> {
-                return false
-            }
-            else -> {
-                return true
-            }
         }
     }
 
@@ -1367,6 +1433,7 @@ class MainActivity : AppCompatActivity() {
             var nRecorded: String = "?"
             if (dateContributingToSave == dateContributing) {
                 //same date
+                //println("Same date")
                 nValidated = contributing[2]
                 nRecorded = contributing[1]
                 if (nValidated == "?") {
@@ -1377,9 +1444,16 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 //new date
+                //println("New date")
                 nValidated = "0"
                 nRecorded = "0"
+
             }
+            var contributingToSave =
+                dateContributingToSave + ", " + nRecorded + ", " + nValidated
+            getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
+                .putString(settingsSwitchData["TODAY_CONTRIBUTING"], contributingToSave).apply()
+            //println("dateSaved: " + dateContributing + " dateToSave: " + dateContributingToSave)
             when (type) {
                 "validations" -> {
                     return nValidated
@@ -1397,50 +1471,4 @@ class MainActivity : AppCompatActivity() {
         return "?"
     }
 
-
-    //translation-methods
-    override fun attachBaseContext(newBase: Context) {
-        var lang =
-            newBase.getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE)
-                .getString(
-                    settingsSwitchData["LANGUAGE_NAME"],
-                    "en"
-                )!!.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
-        }
-        super.attachBaseContext(newBase.wrap(Locale(lang)))
-    }
-
-    fun Context.wrap(desiredLocale: Locale): Context {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
-            return getUpdatedContextApi23(desiredLocale)
-
-        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
-            getUpdatedContextApi24(desiredLocale)
-        else
-            getUpdatedContextApi25(desiredLocale)
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.locale = locale
-        return createConfigurationContext(configuration)
-    }
-
-    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.setLocale(locale)
-        return createConfigurationContext(configuration)
-    }
-
-    @TargetApi(Build.VERSION_CODES.N_MR1)
-    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
-        val localeList = LocaleList(locale)
-        val configuration = resources.configuration
-        configuration.locales = localeList
-        return createConfigurationContext(configuration)
-    }
 }

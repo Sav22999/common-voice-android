@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language">ta</string>
-
     <!-- Buttons (nav) -->
     <string name="title_home">முகப்பு</string>
     <string name="title_dashboard">டாஷ்போர்டு</string>
@@ -21,6 +22,7 @@
     <string name="dashboardToday">இன்று</string>
     <string name="dashboardEver">எப்போதும்</string>
     <string name="toastNoLoginNoStatistics">உங்கள் புள்ளிவிவரங்களைக் காண நீங்கள் உள்நுழைய வேண்டும்</string>
+    <string name="toastNoLoginNoDailyGoal">தினசரி இலக்கை நிர்ணயிக்க நீங்கள் உள்நுழைய வேண்டும்</string>
     <string name="textHoursAbbreviation">ம. நே</string>
     <string name="textHour">மணி நேரம்</string>
     <!-- Tutorial -->
@@ -89,7 +91,7 @@
     <string name="txt_skip_recording_confirmation">பதிவு உறுதிப்படுத்தலைத் தவிர்க்கவும்</string>
     <string name="toast_skip_recording_confirmation_on">பதிவுசெய்தல் உறுதிப்படுத்தலை தவிர்க்கபட்டது.\nஇப்போது நீங்கள், அவற்றைக் கேட்காமல் பதிவுகளை அனுப்ப முடியும்.</string>
     <string name="toast_skip_recording_confirmation_off">பதிவுசெய்தல் உறுதிப்படுத்தல் முடக்கப்பட்டுள்ளது.</string>
-    <string name="txt_translate_the_app_on_crowdin">சCrowdin-ல் செயலியை மொழிபெயர்க்க</string>
+    <string name="txt_translate_the_app_on_crowdin">Crowdin-ல் செயலியை மொழிபெயர்க்க</string>
     <string name="txt_see_statistics_of_the_app">செயலியின் புள்ளிவிவரங்களைக் காண்க</string>
     <string name="txt_recording_indicator_sound">ஒலிபதிவு செய்தலை உறுதிபடுத்தும் ஒலி</string>
     <string name="toast_recording_indicator_sound_on">ஒலிபதிவு செய்தலை உறுதிபடுத்தும் ஒலி இப்போது இயக்கப்பட்டது.\nநீங்கள் பதிவுசெய்ய தொடங்கும்போதும், நிறுத்தும்போதும் ஒலிக்கும்…</string>
@@ -98,8 +100,11 @@
     <string name="toast_check_for_updated_on">செயலி புதுப்பிப்புகள் சரிபார்ப்பு இயக்கப்பட்டது.</string>
     <string name="toast_check_for_updated_off">செயலி புதுப்பிப்புகள் சரிபார்ப்பு முடக்கபட்டது.</string>
     <string name="txt_abort_confirmation_dialogs_in_settings">அமைப்புகளில் உறுதிப்படுத்தல் திரையை நிறுத்த</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on">உறுதிப்படுத்தல் திரை இப்போது இயக்கப்பட்டன..</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off">உறுதிப்படுத்தல் திரை இப்போது .</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on">உறுதிப்படுத்தல் திரை இப்போது இயக்கப்பட்டன.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off">உறுதிப்படுத்தல் திரை இப்போது முடக்கபட்டது.</string>
+    <string name="txt_gestures">சைகைகள்</string>
+    <string name="toast_gestures_on">சைகைகள் இப்போது இயக்கப்பட்டன.</string>
+    <string name="toast_gestures_off">சைகைகள் இப்போது முடக்கபட்டது.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">ஒரு வாக்கியம் பெறப்படுகிறது…</string>
     <string name="btn_skip_sentence">தவிர்</string>
@@ -176,7 +181,7 @@
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">திற Common Voice</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">தினசரி இலக்கு</string>
-    <string name="daily_goal_is_not_set">இலக்கு நிர்ணயிக்கப்படவில்லை</string>
+    <string name="daily_goal_is_not_set">இலக்கு நிர்ணயிக்கவில்லை</string>
     <string name="set_daily_goal">இலக்கை நிர்ணயம் செய்</string>
     <string name="edit_daily_goal">இலக்கைத் திருத்து</string>
     <string name="save_daily_goal">சேமி</string>

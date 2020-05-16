@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.Manifest
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -14,13 +15,11 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import android.util.DisplayMetrics
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -34,6 +33,8 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_speak.*
+import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
@@ -44,7 +45,7 @@ import java.util.*
 import kotlin.collections.HashMap
 
 
-class SpeakActivity : AppCompatActivity() {
+class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
@@ -60,6 +61,7 @@ class SpeakActivity : AppCompatActivity() {
     private val DAILY_GOAL = "DAILY_GOAL"
     private val SKIP_RECORDING_CONFIRMATION = "SKIP_RECORDING_CONFIRMATION"
     private val RECORDING_INDICATOR_SOUND = "RECORDING_INDICATOR_SOUND"
+    private val GESTURES = "GESTURES"
     var sentencesRecordedYouToday = 0
     var sentencesValidatedYouToday = 0
 
@@ -90,7 +92,6 @@ class SpeakActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_speak)
 
         var firstRun: Boolean =
             getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE).getBoolean(FIRST_RUN_SPEAK, true)
@@ -158,10 +159,42 @@ class SpeakActivity : AppCompatActivity() {
             this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
             this.dailyGoal.checkDailyGoal()
 
+            if (getGestures()) {
+                nestedScrollSpeak.setOnTouchListener(object :
+                    OnSwipeTouchListener(this@SpeakActivity) {
+                    override fun onSwipeLeft() {
+                        skipSentence()
+                    }
+
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+
+                    override fun onSwipeTop() {
+                        if (getResources().getConfiguration().orientation == 1) {
+                            openReportDialog()
+                        }
+                    }
+
+                    override fun onSwipeBottom() {
+                    }
+                })
+            }
+
             //API request
             API_request()
         }
         setTheme(this)
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
     }
 
     fun skipSentence() {
@@ -173,6 +206,16 @@ class SpeakActivity : AppCompatActivity() {
     fun getRecordingIndicatorSoundSwitch(): Boolean {
         return getSharedPreferences(RECORDING_INDICATOR_SOUND, PRIVATE_MODE).getBoolean(
             RECORDING_INDICATOR_SOUND,
+            false
+        )
+    }
+
+    fun getSkipRecordingsConfirmationSwitch(): Boolean {
+        return getSharedPreferences(
+            SKIP_RECORDING_CONFIRMATION,
+            PRIVATE_MODE
+        ).getBoolean(
+            SKIP_RECORDING_CONFIRMATION,
             false
         )
     }
@@ -481,18 +524,22 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     fun closeSpeak() {
-        var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
-        var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
-        if (btnSkip.isEnabled || txtSentence.text == "...") {
-            StopRecording()
-            DeleteRecording()
-            var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
-            btnSkip.isEnabled = false
-            msg.text = getString(R.string.txt_closing)
-            finish()
+        try {
+            var btnSkip: Button = this.findViewById(R.id.btn_skip_speak)
+            var txtSentence: TextView = this.findViewById(R.id.textSpeakSentence)
+            if (btnSkip.isEnabled || txtSentence.text == "...") {
+                StopRecording()
+                DeleteRecording()
+                var msg: TextView = this.findViewById(R.id.textMessageAlertSpeak)
+                btnSkip.isEnabled = false
+                msg.text = getString(R.string.txt_closing)
+                finish()
+            }
+            this.mediaPlayer?.reset()
+            StopSmallAudios()
+        } catch (e: Exception) {
+
         }
-        this.mediaPlayer?.reset()
-        StopSmallAudios()
     }
 
     fun StopSmallAudios() {
@@ -618,6 +665,10 @@ class SpeakActivity : AppCompatActivity() {
                     btnRecordAgain.isGone = false
                     msg.text = getString(R.string.txt_sentence_recorded)
                     this.status = 2 //recording successful
+
+                    if (getSkipRecordingsConfirmationSwitch()) {
+                        skipRecordingsConfirmation()
+                    }
                 }
             } catch (e: Exception) {
                 //println(" -->> Something wrong: "+e.toString()+" <<-- ")
@@ -636,6 +687,24 @@ class SpeakActivity : AppCompatActivity() {
                 " !! The app isn't recording now !! "
             )
         }
+    }
+
+    fun skipRecordingsConfirmation() {
+        val outputListening = this.output
+        if (outputListening != null) {
+            val sampleUri: Uri = outputListening.toUri() // your uri here
+            mediaPlayer = MediaPlayer().apply {
+                //setAudioStreamType(AudioManager.)
+                setDataSource(
+                    applicationContext,
+                    sampleUri
+                )
+                prepare()
+                seekTo(0)
+            }
+        }
+        this.status = 5
+        FinishListening()
     }
 
     fun RecordingFailed() {
@@ -898,14 +967,16 @@ class SpeakActivity : AppCompatActivity() {
     }
 
     fun openReportDialog() {
-        try {
-            val metrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(metrics)
-            val message: MessageDialog =
-                MessageDialog(this, "sentence", this as SpeakActivity)
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: SpeakActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+        if (this.idSentence != "") {
+            try {
+                val metrics = DisplayMetrics()
+                windowManager.defaultDisplay.getMetrics(metrics)
+                val message: MessageDialog =
+                    MessageDialog(this, "sentence", this as SpeakActivity)
+                message.show()
+            } catch (exception: Exception) {
+                println("!!-- Exception: SpeakActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+            }
         }
     }
 
@@ -1039,44 +1110,4 @@ class SpeakActivity : AppCompatActivity() {
         }
     }
 
-    override fun attachBaseContext(newBase: Context) {
-        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-        var lang = tempLang.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
-        }
-        super.attachBaseContext(newBase.wrap(Locale(lang)))
-    }
-
-    fun Context.wrap(desiredLocale: Locale): Context {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
-            return getUpdatedContextApi23(desiredLocale)
-
-        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
-            getUpdatedContextApi24(desiredLocale)
-        else
-            getUpdatedContextApi25(desiredLocale)
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.locale = locale
-        return createConfigurationContext(configuration)
-    }
-
-    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.setLocale(locale)
-        return createConfigurationContext(configuration)
-    }
-
-    @TargetApi(Build.VERSION_CODES.N_MR1)
-    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
-        val localeList = LocaleList(locale)
-        val configuration = resources.configuration
-        configuration.locales = localeList
-        return createConfigurationContext(configuration)
-    }
 }

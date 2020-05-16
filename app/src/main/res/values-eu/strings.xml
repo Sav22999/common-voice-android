@@ -22,6 +22,7 @@
     <string name="dashboardToday">Gaur</string>
     <string name="dashboardEver">Hasieratik</string>
     <string name="toastNoLoginNoStatistics">Saioa hasi behar duzu zure estatistikak ikusteko</string>
+    <string name="toastNoLoginNoDailyGoal">Saioa hasi behar duzu eguneroko helburua zehazteko</string>
     <string name="textHoursAbbreviation">ord</string>
     <string name="textHour">Orduak</string>
     <!-- Tutorial -->
@@ -101,6 +102,9 @@
     <string name="txt_abort_confirmation_dialogs_in_settings">Ezeztatu berresteko elkarrizketa-koadroak Ezarpenetan</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Ezeztapena berresteko elkarrizketa-taulak aktibatuta daude orain.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Ezeztapena berresteko elkarrizketa-taulak desaktibatuta daude orain.</string>
+    <string name="txt_gestures">Gestures</string>
+    <string name="toast_gestures_on">Gestures are now turned on.</string>
+    <string name="toast_gestures_off">Gestures are now turned off.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>

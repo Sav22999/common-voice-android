@@ -1,7 +1,7 @@
 package org.commonvoice.saverio
 
+import OnSwipeTouchListener
 import android.Manifest
-import android.annotation.TargetApi
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,13 +10,11 @@ import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import android.util.DisplayMetrics
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -28,6 +26,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_listen.*
+import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -36,7 +36,7 @@ import java.util.*
 import kotlin.collections.HashMap
 
 
-class ListenActivity : AppCompatActivity() {
+class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
@@ -51,6 +51,7 @@ class ListenActivity : AppCompatActivity() {
     private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
     private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
     private val DAILY_GOAL = "DAILY_GOAL"
+    private val GESTURES = "GESTURES"
     var sentencesRecordedYouToday = 0
     var sentencesValidatedYouToday = 0
 
@@ -78,10 +79,8 @@ class ListenActivity : AppCompatActivity() {
     var dailyGoal: DailyGoal = DailyGoal(0, 0)
     var isDailyGoalJustAchieved: Boolean = false
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_listen)
 
         var firstRun: Boolean =
             getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE).getBoolean(FIRST_RUN_LISTEN, true)
@@ -145,11 +144,44 @@ class ListenActivity : AppCompatActivity() {
             this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
             this.dailyGoal.checkDailyGoal()
 
+            if (getGestures()) {
+                nestedScrollListen.setOnTouchListener(object :
+                    OnSwipeTouchListener(this@ListenActivity) {
+                    override fun onSwipeLeft() {
+                        skipClip()
+                    }
+
+                    override fun onSwipeRight() {
+                        onBackPressed()
+                    }
+
+                    override fun onSwipeTop() {
+                        if (getResources().getConfiguration().orientation == 1) {
+                            openReportDialog()
+                        }
+                    }
+
+                    override fun onSwipeBottom() {
+
+                    }
+                })
+            }
+
             //API request
             API_request()
         }
 
         setTheme(this)
+    }
+
+    fun getGestures(): Boolean {
+        return getSharedPreferences(
+            GESTURES,
+            PRIVATE_MODE
+        ).getBoolean(
+            GESTURES,
+            false
+        )
     }
 
     fun skipClip() {
@@ -706,14 +738,16 @@ class ListenActivity : AppCompatActivity() {
     }
 
     fun openReportDialog() {
-        try {
-            val metrics = DisplayMetrics()
-            windowManager.defaultDisplay.getMetrics(metrics)
-            val message: MessageDialog =
-                MessageDialog(this, "clip", this as ListenActivity)
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: ListenActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+        if (this.idSentence[0] != 0) {
+            try {
+                val metrics = DisplayMetrics()
+                windowManager.defaultDisplay.getMetrics(metrics)
+                val message: MessageDialog =
+                    MessageDialog(this, "clip", this as ListenActivity)
+                message.show()
+            } catch (exception: Exception) {
+                println("!!-- Exception: ListenActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
+            }
         }
     }
 
@@ -914,44 +948,4 @@ class ListenActivity : AppCompatActivity() {
         }
     }
 
-    override fun attachBaseContext(newBase: Context) {
-        var tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
-        var lang = tempLang.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
-        }
-        super.attachBaseContext(newBase.wrap(Locale(lang)))
-    }
-
-    fun Context.wrap(desiredLocale: Locale): Context {
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M)
-            return getUpdatedContextApi23(desiredLocale)
-
-        return if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N)
-            getUpdatedContextApi24(desiredLocale)
-        else
-            getUpdatedContextApi25(desiredLocale)
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private fun Context.getUpdatedContextApi23(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.locale = locale
-        return createConfigurationContext(configuration)
-    }
-
-    private fun Context.getUpdatedContextApi24(locale: Locale): Context {
-        val configuration = resources.configuration
-        configuration.setLocale(locale)
-        return createConfigurationContext(configuration)
-    }
-
-    @TargetApi(Build.VERSION_CODES.N_MR1)
-    private fun Context.getUpdatedContextApi25(locale: Locale): Context {
-        val localeList = LocaleList(locale)
-        val configuration = resources.configuration
-        configuration.locales = localeList
-        return createConfigurationContext(configuration)
-    }
 }
