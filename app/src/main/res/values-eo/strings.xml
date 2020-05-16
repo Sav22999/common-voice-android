@@ -14,6 +14,7 @@
     <string name="button_home_logout">Log out</string>
     <string name="button_home_profile">Profile</string>
     <string name="text_hi_username">Hi</string>
+    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
     <string name="dashboardVoicesOnline">Voices online</string>
@@ -105,6 +106,8 @@
     <string name="txt_gestures">Gestures</string>
     <string name="toast_gestures_on">Gestures are now turned on.</string>
     <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
+    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Skip</string>

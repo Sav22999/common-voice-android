@@ -14,6 +14,7 @@
     <string name="button_home_logout">Odhlásiť sa</string>
     <string name="button_home_profile">Profil</string>
     <string name="text_hi_username">Ahoj</string>
+    <string name="message_log_in_again">Session-id je exspirované, potrebuješ sa znova prihlásiť</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Štatistiky</string>
     <string name="dashboardVoicesOnline">Hlasy online</string>
@@ -103,8 +104,10 @@
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Prerušenie potvrdzovacích dialógových okien je zapnuté.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Prerušenie potvrdzovacích dialógových okien je vypnuté.</string>
     <string name="txt_gestures">Gestá</string>
-    <string name="toast_gestures_on">Gestures are now turned on.</string>
-    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="toast_gestures_on">Gestá sú zapnuté.</string>
+    <string name="toast_gestures_off">Gestá sú vypnuté.</string>
+    <string name="message_review_app_on_play_store">Prosím, ak sa ti táto appka páči, nezabudni ju ohodnotiť v Google Play Store.</string>
+    <string name="message_app_not_completed_translated">Aplikácia nie je (úplne) preložená do tohoto jazyka.\nMôžeš pomôcť ju preložiť na Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Načítavam vetu...</string>
     <string name="btn_skip_sentence">Preskočiť</string>

@@ -14,6 +14,7 @@
     <string name="button_home_logout">Logi välja</string>
     <string name="button_home_profile">Profiil</string>
     <string name="text_hi_username">Tere</string>
+    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistika</string>
     <string name="dashboardVoicesOnline">Voices online</string>
@@ -105,6 +106,8 @@
     <string name="txt_gestures">Gestures</string>
     <string name="toast_gestures_on">Gestures are now turned on.</string>
     <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
+    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Rakenduse laadimine...</string>
     <string name="btn_skip_sentence">Jäta vahele</string>

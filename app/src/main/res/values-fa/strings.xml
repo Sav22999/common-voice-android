@@ -14,6 +14,7 @@
     <string name="button_home_logout">خروج</string>
     <string name="button_home_profile">نمایه</string>
     <string name="text_hi_username">سلام</string>
+    <string name="message_log_in_again">شناسهٔ نشست منقضی شده. باید دوباره وارد شوید</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">آمار</string>
     <string name="dashboardVoicesOnline">صداهای برخط</string>
@@ -105,6 +106,8 @@
     <string name="txt_gestures">اشاره‌ها</string>
     <string name="toast_gestures_on">Gestures are now turned on.</string>
     <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="message_review_app_on_play_store">اگر این کاره را دوست دارید، لطفاً روی فروشگاه پلی گوگل بازبینیش کنید.</string>
+    <string name="message_app_not_completed_translated">این کاره (کاملاً) به این زبان ترجمه نشده است.\nمی‌توانید روی کرودین در ترجمه‌اش مشارکت کنید.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">در حال بار کردن یک جمله…</string>
     <string name="btn_skip_sentence">پرش</string>

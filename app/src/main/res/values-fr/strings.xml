@@ -14,6 +14,7 @@
     <string name="button_home_logout">Se déconnecter</string>
     <string name="button_home_profile">Profil</string>
     <string name="text_hi_username">Salut</string>
+    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiques</string>
     <string name="dashboardVoicesOnline">Voix en ligne</string>
@@ -102,9 +103,11 @@
     <string name="txt_abort_confirmation_dialogs_in_settings">Abandonner les textes de confirmation dans les paramètres</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Les textes de confirmation sont maintenant désactivés.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Les textes de confirmation sont maintenant activés.</string>
-    <string name="txt_gestures">Gestures</string>
-    <string name="toast_gestures_on">Gestures are now turned on.</string>
-    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="txt_gestures">Gestes</string>
+    <string name="toast_gestures_on">Les gestes sont maintenant activés.</string>
+    <string name="toast_gestures_off">Les gestes sont maintenant désactivés.</string>
+    <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
+    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Chargement d\'une phrase...</string>
     <string name="btn_skip_sentence">Passer</string>

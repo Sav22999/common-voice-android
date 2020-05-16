@@ -14,6 +14,7 @@
     <string name="button_home_logout">Amaitu saioa</string>
     <string name="button_home_profile">Profila</string>
     <string name="text_hi_username">Kaixo</string>
+    <string name="message_log_in_again">Saioa iraungi egin da, berriz hasi behar da</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Estatistikak</string>
     <string name="dashboardVoicesOnline">Ahotsak linean</string>
@@ -102,9 +103,11 @@
     <string name="txt_abort_confirmation_dialogs_in_settings">Ezeztatu berresteko elkarrizketa-koadroak Ezarpenetan</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Ezeztapena berresteko elkarrizketa-taulak aktibatuta daude orain.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Ezeztapena berresteko elkarrizketa-taulak desaktibatuta daude orain.</string>
-    <string name="txt_gestures">Gestures</string>
-    <string name="toast_gestures_on">Gestures are now turned on.</string>
-    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="txt_gestures">Keinuak</string>
+    <string name="toast_gestures_on">Keinuak gaituta daude orain.</string>
+    <string name="toast_gestures_off">Keinuak desgaituta daude orain.</string>
+    <string name="message_review_app_on_play_store">Mesedez, aplikazio hau gustatzen bazaizu, gogoratu Google Play Storen berrikustea.</string>
+    <string name="message_app_not_completed_translated">Aplikazioa ez dago hizkuntza honetara itzulita (osatuta).\Aplikazioa Crowdin-en itzultzen lagun dezakezu.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>
