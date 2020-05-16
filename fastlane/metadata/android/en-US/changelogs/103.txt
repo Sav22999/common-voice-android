@@ -3,4 +3,7 @@
 - Added message "Review the app on Google Play Store" for Play Store version
 - Added message "The app is not (completed) translated …"
 - Added check when you run the app if the session id of the user is expired
-- Added "Catalan" translation
+- Fix a bug with gestures
+- Added Arabic and Catalan
+- Translation in Tamil (ta) completed.
+- Updated all translations
