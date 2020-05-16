@@ -274,7 +274,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
             generateUniqueUserId()
             try {
-                var urlStatistics =
+                val urlStatistics =
                     "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request
                 var loggedYesNotInt = 0
                 if (this.logged) loggedYesNotInt = 1
