@@ -193,5 +193,5 @@
     <string name="daily_goal_achieved_message">நல்லது! உங்கள் தினசரி இலக்கை நீங்கள் அடைந்துவிட்டீர்கள்.\nநீங்கள் {{*{{n_clips}}*}} உச்சரிப்புகளை சரிபார்த்துள்ளீர்கள் மற்றும் {{*{{n_sentences}}*}} வாக்கியங்களுக்கு உச்சரிப்புகளை பங்களித்துள்ளீர்கள்.\nதCommon Voice-ல் தொடர்ந்து பங்களிக்கவும்.</string>
     <string name="daily_goal_is_not_official_by_mozilla">இந்த தினசரி இலக்கு அதிகாரப்பூர்வ Mozilla அம்சம் அல்ல. இது இந்த செயலியின் ஒரு அம்சம் மட்டுமே.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">செயலியின் புதிய பதிப்பு(வெளியீடு : {{*{{n_version}}*}}) கிடைக்கிறது. நீங்கள் Playstore/F-Droid அல்லது நேரடியாக Github-ல் இருந்து புதுப்பிக்கலாம்.</string>
+    <string name="message_dialog_new_version_available">செயலியின் புதிய பதிப்பு(வெளியீடு : {{*{{n_version}}*}}) கிடைக்கிறது. நீங்கள் Google Play Store அல்லது F-Droid அல்லது நேரடியாக Github-ல் இருந்து புதுப்பிக்கலாம்.</string>
 </resources>
