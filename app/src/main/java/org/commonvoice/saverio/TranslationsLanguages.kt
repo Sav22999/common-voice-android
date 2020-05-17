@@ -2,11 +2,14 @@ package org.commonvoice.saverio
 
 class TranslationsLanguages {
     private var translations_languages: Array<String>? = null
+    private var not_completed_translated: Array<String>? = null
 
     constructor() {
         // Change manually
         this.translations_languages =
             arrayOf(
+                "ar",
+                "ca",
                 "cs",
                 "de",
                 "en",
@@ -24,6 +27,21 @@ class TranslationsLanguages {
                 "ta",
                 "tr"
             )
+        this.not_completed_translated =
+            arrayOf(
+                "ar",
+                "ca",
+                "cs",
+                "de",
+                "eo",
+                "es",
+                "et",
+                "fa",
+                "nl",
+                "ru",
+                "sv",
+                "tr"
+            )
     }
 
     fun getAll(): Array<String>? {
@@ -32,6 +50,14 @@ class TranslationsLanguages {
 
     fun isSupported(lang: String): Boolean {
         if (this.translations_languages?.indexOf(lang) != -1) return true
+        return false
+    }
+
+    fun isUncompleted(lang: String): Boolean {
+        if (this.not_completed_translated?.indexOf(lang) != -1 || this.translations_languages?.indexOf(
+                lang
+            ) == -1
+        ) return true
         return false
     }
 

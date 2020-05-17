@@ -137,7 +137,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             setTheme(this)
 
             if (getGestures()) {
-                layoutLogin.setOnTouchListener(object : OnSwipeTouchListener(this@LoginActivity) {
+                nestedScrollLogin.setOnTouchListener(object : OnSwipeTouchListener(this@LoginActivity) {
                     override fun onSwipeRight() {
                         onBackPressed()
                     }

@@ -78,6 +78,8 @@ class HomeFragment : Fragment() {
 
         main.checkNewVersionAvailable()
 
+        main.reviewOnPlayStore()
+
         return root
     }
 

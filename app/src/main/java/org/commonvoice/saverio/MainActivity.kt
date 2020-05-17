@@ -41,13 +41,23 @@ import kotlin.collections.HashMap
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
+    private val SOURCE_STORE =
+        "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
-    private var PRIVATE_MODE = 0
+    private val PRIVATE_MODE = 0
     //"LOGGED" //false->no logged-in || true -> logged-in
     //"LAST_STATS_EVERYONE" //yyyy/mm/dd hh:mm:ss
     //"LAST_STATS_YOU" //yyyy/mm/dd hh:mm:ss
     //"TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
+
+    val urlWithoutLang: String =
+        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+
+    val urlStatistics =
+        "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request for anonymous statistics
+    var lastStatisticsSending: String = "?"
 
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
@@ -83,7 +93,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "SKIP_RECORDING_CONFIRMATION" to "SKIP_RECORDING_CONFIRMATION",
             "RECORDING_INDICATOR_SOUND" to "RECORDING_INDICATOR_SOUND",
             "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS",
-            "GESTURES" to "GESTURES"
+            "GESTURES" to "GESTURES",
+            "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE",
+            "LEVEL_SAVED" to "LEVEL_SAVED",
+            "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
+            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -151,70 +165,213 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             //checkPermissions()
         }
 
+        this.statisticsAPI()
+
         this.checkUserLoggedIn()
         this.resetDashboardData()
+
+        this.checkIfSessionIsExpired()
+        this.reviewOnPlayStore()
+    }
+
+    fun checkIfSessionIsExpired() {
+        //if the userid returns "null", to the user have to log in again
+        if (logged) {
+            val path = "user_client" //API to get sentences
+            val que = Volley.newRequestQueue(this)
+            //SystemClock.sleep(1000L);
+            val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
+                Response.Listener {
+                    //println("-->> " + it.toString() + " <<--")
+                    if (it.toString() != "null") {
+                        val jsonResult = it.toString()
+                    } else {
+                        logoutUser()
+                    }
+                }, Response.ErrorListener {
+                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                }
+            ) {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val headers = HashMap<String, String>()
+                    headers.put(
+                        "Cookie",
+                        "connect.sid=" + userId
+                    )
+                    return headers
+                }
+            }
+            que.add(req)
+        }
+    }
+
+    fun logoutUser() {
+        showMessageDialog(
+            "",
+            getString(R.string.message_log_in_again)
+        )
+        logged = false
+        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
+            .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
+        getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["USER_NAME"], "").apply()
+        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
+            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
+        setLevelRecordingsValidations(0, 0)
+        setLevelRecordingsValidations(1, 0)
+        setLevelRecordingsValidations(2, 0)
+        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
+            .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
+    }
+
+    fun setLevelRecordingsValidations(type: Int, value: Int) {
+        when (type) {
+            0 -> {
+                //level
+                getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["LEVEL_SAVED"], value).apply()
+            }
+            1 -> {
+                //recordings
+                getSharedPreferences(settingsSwitchData["RECORDINGS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["RECORDINGS_SAVED"], value).apply()
+            }
+            2 -> {
+                //validations
+                getSharedPreferences(settingsSwitchData["VALIDATIONS_SAVED"], PRIVATE_MODE).edit()
+                    .putInt(settingsSwitchData["VALIDATIONS_SAVED"], value).apply()
+            }
+        }
+    }
+
+    fun reviewOnPlayStore() {
+        //just if it's the GPS version
+        if (getSourceStore() == "GPS") {
+            val counter = getSharedPreferences(
+                settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+                PRIVATE_MODE
+            ).getInt(
+                settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+                0
+            )
+            val times = 100 //after this times it will show the message
+            if (((counter % times) == 0 || (counter % times) == times)) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.message_review_app_on_play_store)
+                )
+            }
+            getSharedPreferences(settingsSwitchData["REVIEW_ON_PLAY_STORE"], PRIVATE_MODE).edit()
+                .putInt(
+                    settingsSwitchData["REVIEW_ON_PLAY_STORE"],
+                    counter + 1
+                ).apply()
+        }
+    }
+
+    fun getSourceStore(): String {
+        return this.SOURCE_STORE
     }
 
     fun statisticsAPI() {
         if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
-            generateUniqueUserId()
-            try {
-                var urlStatistics =
-                    "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request
-                var loggedYesNotInt = 0
-                if (this.logged) loggedYesNotInt = 1
+            val oldStats: String = lastStatisticsSending
+            var newStats: String = "?"
+            if (Build.VERSION.SDK_INT < 26) {
+                val dateTemp = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
+                newStats = dateTemp.format(Date()).toString()
+            } else {
+                val dateTemp = LocalDateTime.now()
+                newStats =
+                    dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString() + " " + dateTemp.hour.toString() + ":" + dateTemp.minute.toString() + ":" + dateTemp.second.toString()
+            }
+            var oldDate: List<String>? = null
+            var oldTime: List<String>? = null
+            var newDate: List<String>? = null
+            var newTime: List<String>? = null
 
-                var languageTemp = this.selectedLanguageVar
-                if (languageTemp == "") languageTemp = "en"
+            if (oldStats != "?") {
+                oldDate = oldStats.split(" ")[0].split("/") //year/month/day
+                oldTime =
+                    oldStats.split(" ")[1].split(":") //hours:minutes:seconds
 
-                var appVersion = BuildConfig.VERSION_CODE.toString()
-                if (appVersion == "") appVersion = "n.d."
+                newDate = newStats.split(" ")[0].split("/") //year/month/day
+                newTime =
+                    newStats.split(" ")[1].split(":") //hours:minutes:seconds
+            }
 
-                val params = JSONObject()
-                params.put("username", this.uniqueUserId)
-                params.put("logged", loggedYesNotInt.toString())
-                params.put("language", languageTemp)
-                params.put("version", appVersion)
-                params.put("public", this.getStatisticsSwitch().toString())
+            if (lastStatisticsSending == "?" || passedThirtySeconds(
+                    oldDate!!,
+                    oldTime!!,
+                    newDate!!,
+                    newTime!!
+                )
+            ) {
+                println("30 seconds passed")
+                lastStatisticsSending = newStats
+                generateUniqueUserId()
+                try {
+                    var loggedYesNotInt = 0
+                    if (this.logged) loggedYesNotInt = 1
 
-                //println(">> params: " + params + "<<")
+                    var languageTemp = this.selectedLanguageVar
+                    if (languageTemp == "") languageTemp = "en"
 
-                val que = Volley.newRequestQueue(this)
-                val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
-                    Response.Listener {
-                        //println(" >> " + it.toString())
-                        val jsonResult = it.toString()
-                        val jsonResultArray = arrayOf(jsonResult, "")
-                        val jsonObj = JSONObject(
-                            jsonResultArray[0].substring(
-                                jsonResultArray[0].indexOf("{"),
-                                jsonResultArray[0].lastIndexOf("}") + 1
+                    var appVersion = BuildConfig.VERSION_CODE.toString()
+                    if (appVersion == "") appVersion = "n.d."
+
+                    val params = JSONObject()
+                    params.put("username", this.uniqueUserId)
+                    params.put("logged", loggedYesNotInt.toString())
+                    params.put("language", languageTemp)
+                    params.put("version", appVersion)
+                    params.put("public", this.getStatisticsSwitch().toString())
+                    params.put("source", this.SOURCE_STORE)
+
+                    //println(">> params: " + params + "<<")
+
+                    val que = Volley.newRequestQueue(this)
+                    val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
+                        Response.Listener {
+                            //println(" >> " + it.toString())
+                            val jsonResult = it.toString()
+                            val jsonResultArray = arrayOf(jsonResult, "")
+                            val jsonObj = JSONObject(
+                                jsonResultArray[0].substring(
+                                    jsonResultArray[0].indexOf("{"),
+                                    jsonResultArray[0].lastIndexOf("}") + 1
+                                )
                             )
-                        )
-                        //println(jsonObj.toString())
-                        /*
+                            //println(jsonObj.toString())
+                            /*
                         if (jsonObj.getString("code").toInt() == 200) {
                             //println("-->> Record added to the database <<--")
                         } else {
                             //println("!!-- Record is already in the database --!!")
                         }
                         */
-                        //println(jsonResult)
-                    }, Response.ErrorListener {
-                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                            //println(jsonResult)
+                        }, Response.ErrorListener {
+                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                        }
+                    ) {
+                        @Throws(AuthFailureError::class)
+                        override fun getHeaders(): Map<String, String> {
+                            val headers = HashMap<String, String>()
+                            headers.put("Content-Type", "application/json")
+                            return headers
+                        }
                     }
-                ) {
-                    @Throws(AuthFailureError::class)
-                    override fun getHeaders(): Map<String, String> {
-                        val headers = HashMap<String, String>()
-                        headers.put("Content-Type", "application/json")
-                        return headers
-                    }
+                    //Content-Type: application/json
+                    que.add(req)
+                } catch (e: Exception) {
+                    println("!!-- Exception M09 - Statistics --!!")
                 }
-                //Content-Type: application/json
-                que.add(req)
-            } catch (e: Exception) {
-                println("!!-- Exception M09 - Statistics --!!")
+            } else {
+                println("30 seconds didn't pass")
             }
         }
     }
@@ -1108,6 +1265,52 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             .putInt(settingsSwitchData["DAILY_GOAL"], dailyGoalValue).apply()
     }
 
+    fun passedThirtySeconds(
+        oldDate: List<String>,
+        oldTime: List<String>,
+        newDate: List<String>,
+        newTime: List<String>
+    ): Boolean {
+        var returnTrueOrFalse: Boolean = true
+
+        try {
+            // the else-clause indicates the "==", because it shouldn't be never old>new
+            if (oldDate[0].toInt() < newDate[0].toInt()) {
+                returnTrueOrFalse = true
+            } else {
+                if (oldDate[1].toInt() < newDate[1].toInt()) {
+                    returnTrueOrFalse = true
+                } else {
+                    if (oldTime[0].toInt() < newTime[0].toInt()) {
+                        returnTrueOrFalse = true
+                    } else {
+                        if (oldTime[1].toInt() < newTime[1].toInt()) {
+                            if (newTime[1].toInt() - 1 > oldTime[1].toInt()) {
+                                returnTrueOrFalse = true
+                            } else {
+                                returnTrueOrFalse =
+                                    newTime[2].toInt() + 60 - oldTime[2].toInt() > 30
+                            }
+                        } else {
+                            if (oldTime[2].toInt() < newTime[2].toInt()) {
+                                if (newTime[2].toInt() > 30) {
+                                    returnTrueOrFalse = newTime[2].toInt() - oldTime[2].toInt() > 30
+                                } else {
+                                    returnTrueOrFalse = false
+                                }
+                            } else {
+                                returnTrueOrFalse = false
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (ex: Exception) {
+            println("Exception: " + ex.toString())
+        }
+        return returnTrueOrFalse
+    }
+
     fun showMessageDialog(
         title: String,
         text: String,
@@ -1308,12 +1511,17 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         )
                     )*/
                 //EXM04
+                val tl = TranslationsLanguages()
+                var detailsMessage = ""
+                if (tl.isUncompleted(this.getSelectedLanguage())) {
+                    detailsMessage = "\n" + getString(R.string.message_app_not_completed_translated)
+                }
                 showMessageDialog(
                     "",
                     getString(R.string.toast_language_changed).replace(
                         "{{*{{lang}}*}}",
                         this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                    )
+                    ) + detailsMessage
                 )
             }
             /*if (type == "start") {

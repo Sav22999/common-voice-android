@@ -32,6 +32,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separator14" />
 
+        <Button
+            android:id="@+id/buttonBuyMeACoffee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:stateListAnimator="@null"
+            android:text="@string/txt_donate_paypal_settings"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator7" />
+
         <Switch
             android:id="@+id/switchExperimentalFeatures"
             android:layout_width="0dp"
@@ -97,7 +116,7 @@
             android:trackTint="@drawable/track_switch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator4" />
+            app:layout_constraintTop_toBottomOf="@+id/separator17" />
 
         <Switch
             android:id="@+id/switchAbortConfirmationDialogsInSettings"
@@ -237,6 +256,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonContactOnTelegram" />
+
+        <View
+            android:id="@+id/separator17"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonBuyMeACoffee" />
 
         <TextView
             android:id="@+id/text_settingsOther"

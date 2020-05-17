@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language">ar</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">الرئيسية</string>
+    <string name="title_dashboard">لوحة التحكم</string>
+    <string name="title_settings">الإعدادات</string>
+    <!-- Home (main) -->
+    <string name="description_cv_robot">شعار Common Voice</string>
+    <string name="description_cv_logo">روبوت Common Voice</string>
+    <string name="button_home_login">تسجيل الدخول / حساب جدبد</string>
+    <string name="button_home_logout">تسجيل الخروج</string>
+    <string name="button_home_profile">الملف الشخصي</string>
+    <string name="text_hi_username">أهلاً،</string>
+    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">إحصائيات</string>
+    <string name="dashboardVoicesOnline">الأصوات الأونلاين</string>
+    <string name="dashboardTabYou">أنت</string>
+    <string name="dashboardTabEveryone">الجميع</string>
+    <string name="dashboardToday">اليوم</string>
+    <string name="dashboardEver">كل الوقت</string>
+    <string name="toastNoLoginNoStatistics">يجب عليك تسجيل الدخول لترى إحصائياتك</string>
+    <string name="toastNoLoginNoDailyGoal">يجب عليك تسجيل الدخول لتحدّد الهدف اليومي</string>
+    <string name="textHoursAbbreviation">س</string>
+    <string name="textHour">ساعة</string>
+    <!-- Tutorial -->
+    <string name="btn_tutorial1">ابدأ</string>
+    <string name="btn_tutorial2">تصريح</string>
+    <string name="btn_tutorial3">التالي</string>
+    <string name="btn_tutorial4">حاول مجددًا</string>
+    <string name="btn_tutorial5">إنهاء</string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
+    <string name="tutorial_text1">هذا ليس التطبيق الرسمي لCommon Voice. لقد تمّ تطويره من طرف Saverio Morelli بدون أي دعم أو شراكة مع موزيلا.</string>
+    <string name="tutorial_terms">من خلال المتابعة فأنت توافق على شروط خدمة Common Voice.</string>
+    <string name="tutorial_text2">تطبيق Common Voice يحتاج إلى تصريح \"الميكروفون\" للعمل بشكل صحيح.</string>
+    <string name="tutorial_text3">تطبيق Common Voice يحتاج إلى تصريح \"التخزين\" للعمل بشكل صحيح.</string>
+    <string name="tutorial_text4">حدد لغتك الأم، الجمل التي ستسجّلها و تتحقق منها ستكون بهذه اللغة.</string>
+    <!-- Login -->
+    <string name="txt_loading_page">جاري التحميل...</string>
+    <string name="txt_profile_username">اسم المستخدم</string>
+    <string name="txt_profile_email">الايميل</string>
+    <string name="txt_profile_age">العمر</string>
+    <string name="txt_profile_gender">الجنس</string>
+    <string name="txt_profile_edit_data_alert">لتّعديل على معلومات ملفط الشخصي، توجه إلى موقع Common Voice.</string>
+    <string name="txt_login_successful_alert">تم تسجيل الدخول بنجاح!</string>
+    <string name="txt_gender_male">ذكر</string>
+    <string name="txt_gender_female">أنثى</string>
+    <string name="txt_gender_other">فئة أحرى</string>
+    <string name="btn_badges_loggedin">جميع الشارات</string>
+    <string name="txt_your_level">المستوى {{*{{level}}*}}</string>
+    <string name="txt_level1_name">رضيع</string>
+    <string name="txt_level2_name">طفل</string>
+    <string name="txt_level3_name">مراهق</string>
+    <string name="txt_level4_name">شاب</string>
+    <string name="txt_level5_name">شاب بالغ</string>
+    <string name="txt_level6_name">بالغ</string>
+    <string name="txt_level7_name">خبير</string>
+    <string name="txt_level8_name">محترف</string>
+    <string name="txt_level9_name">بارع</string>
+    <string name="txt_level10_name">بطل</string>
+    <string name="level_up_message">تهانينا! لقد وصلت للتو إلى مستوى {{*{{n_level}}*}}.</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">فتح التعليمات مجدداُ</string>
+    <string name="txt_project_github_settings">المشروع مفتوح المصدر في GitHub</string>
+    <string name="txt_contributors">المساهمون الرئيسيون</string>
+    <string name="txt_developed_by">تم تطويره من طرف</string>
+    <string name="toast_language_changed">تم تغيير اللغة بشكل صحيح إلى {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">اللغة</string>
+    <string name="settingsListen">الاستماع</string>
+    <string name="settingsSpeak">التحدّث</string>
+    <string name="settingsOther">أخرى</string>
+    <string name="txt_donate_paypal_settings">ادعم عملي، Buy me a coffee 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip when it\'s loaded</string>
+    <string name="toast_autoplay_clip_on">Auto-play clip is now turned on.</string>
+    <string name="toast_autoplay_clip_off">Auto-play clip is now turned off.</string>
+    <string name="txt_dark_theme_settings">المظهر الأسود</string>
+    <string name="toast_dark_theme_on">المظهر الأسود مفعل الآن.</string>
+    <string name="toast_dark_theme_off">تم الآن إلغاء تفعيل المظهر الأسود.</string>
+    <string name="contact_developer_on_telegram">التواصل مع المطور على التيليجرام</string>
+    <string name="txt_experimental_features">Experimental features</string>
+    <string name="toast_experimental_features_on">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
+    <string name="toast_experimental_featured_off">Experimental features turned off.</string>
+    <string name="txt_log_on_file">Save logs to a file</string>
+    <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
+    <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
+    <string name="txt_anonymous_statistics">إحصائيات مجهولة</string>
+    <string name="toast_anonymous_statistics_on">تم تفعيل الإحصائيات المجهولة.\n لا نجمع بياناتك الشخصية بل نستخدم الإحصائيات فقط من أجل معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم.</string>
+    <string name="toast_anonymous_statistics_off">تم إلغاء تفعيل الإحصائيات المجهولة، يرجى الملاحظة أننا نستخدم الإحصائيات فقط لغرض معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم، لا نجمع أي بيانات شخصية، يرجى إعادة النظر بشأن إعادة تفعيل الإحصائيات.</string>
+    <string name="txt_skip_recording_confirmation">تخطّي تأكيد التسجيل</string>
+    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
+    <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
+    <string name="txt_translate_the_app_on_crowdin">Translate the app on Crowdin</string>
+    <string name="txt_see_statistics_of_the_app">See app statistics</string>
+    <string name="txt_recording_indicator_sound">Recording indicator sound</string>
+    <string name="toast_recording_indicator_sound_on">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
+    <string name="toast_recording_indicator_sound_off">Recording indicator sound is now turned off.</string>
+    <string name="txt_check_for_updates">Check for updates</string>
+    <string name="toast_check_for_updated_on">Check for updates turned on.</string>
+    <string name="toast_check_for_updated_off">Check for updates turned off.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings">Abort confirmation dialogs in Settings</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
+    <string name="txt_gestures">Gestures</string>
+    <string name="toast_gestures_on">Gestures are now turned on.</string>
+    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
+    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence">Loading a sentence...</string>
+    <string name="btn_skip_sentence">Skip</string>
+    <string name="btn_send_sentence">Send recording</string>
+    <string name="txt_loading_clip">Loading clip...</string>
+    <string name="txt_press_icon_below_speak_1">Press the icon below to start recording.</string>
+    <string name="txt_press_icon_below_speak_2">Press the icon below to stop recording.</string>
+    <string name="txt_sentence_recorded">Sentence recorded. Listen to the recording.</string>
+    <string name="txt_sentence_record_failed">Recording failed. Please try again.</string>
+    <string name="txt_recorded_correct_or_wrong">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
+    <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
+    <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
+    <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
+    <string name="txt_sending_recording">Sending the recording...</string>
+    <string name="txt_recording_sent">Recording sent!</string>
+    <string name="txt_sending_recording_failed">Failed to send recording!</string>
+    <string name="txt_sending_recording_failed_and_skip">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
+    <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip.</string>
+    <string name="txt_press_icon_below_listen_2">Press the icon below to stop the clip.</string>
+    <string name="txt_clip_correct_or_wrong">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
+    <string name="txt_clip_again">Press the icon below to play the clip again.</string>
+    <string name="txt_clip_validated_yes">Clip marked as correct!</string>
+    <string name="txt_clip_validated_no">Clip marked as incorrect!</string>
+    <string name="txt_error_1_try_again_tap_skip">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
+    <string name="txt_error_2_sending_failed">Failed to send the recording.</string>
+    <string name="txt_sending_validation">Sending...</string>
+    <string name="txt_error_3_sending_validation_failed">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
+    <string name="txt_closing">Closing...</string>
+    <string name="txt_error_4_clips_no_available">Error. There are no more available clips for this language.</string>
+    <string name="button_report">Report</string>
+    <string name="title_report_clip">Report clip:</string>
+    <string name="title_report_sentence">Report sentence:</string>
+    <string name="button_send_report">Send report</string>
+    <string name="checkbox_reason1_report_sentence">Offensive language</string>
+    <string name="checkbox_reason1_report_clip">Offensive speech</string>
+    <string name="checkbox_reason2_report">Grammatical / spelling error</string>
+    <string name="checkbox_reason3_report">Different language</string>
+    <string name="checkbox_reason4_report">Difficult to pronounce</string>
+    <string name="checkbox_reason5_report">Other</string>
+    <string name="checkbox_reason5_comment_report">Comment</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection">Check again</string>
+    <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak">This is the sentence you must record.</string>
+    <string name="txt2_tutorial_speak_and_listen">A message to guide you will appear here.</string>
+    <string name="txt3_tutorial_speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
+    <string name="txt4_tutorial_speak">Tap on this icon to start recording.</string>
+    <string name="txt5_tutorial_speak">Tap on this icon to stop recording.</string>
+    <string name="txt6_tutorial_speak">Tap on this icon to play back your recording.</string>
+    <string name="txt7_tutorial_speak">Tap on this icon to re-record if you made a mistake.</string>
+    <string name="txt8_tutorial_speak">Tap on this icon to play back your recording again.</string>
+    <string name="txt9_tutorial_speak">Tap on this button to send your recording.</string>
+    <string name="txt1_tutorial_listen">This is the sentence/clip you must validate.</string>
+    <string name="txt3_tutorial_listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
+    <string name="txt4_tutorial_listen">Tap on this icon to play the clip.</string>
+    <string name="txt5_tutorial_listen">Tap on this icon to stop playing the clip.</string>
+    <string name="txt6_tutorial_listen">Tap on this icon if you want to listen to the clip again.</string>
+    <string name="txt7_tutorial_listen">If the clip matches the sentence, tap on this icon to accept it.</string>
+    <string name="txt8_tutorial_listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Close</string>
+    <string name="labelAllBadges">All badges</string>
+    <string name="new_badge_earnt_message">Hooray! You have just earned a new badge.</string>
+    <!-- Message dialog -->
+    <string name="btnOk">Ok</string>
+    <string name="messageDialogErrorTitle">Error</string>
+    <string name="messageDialogGenericError">That didn\'t work.\nPlease try again, or contact the developer.</string>
+    <string name="messageDialogErrorCode">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
+    <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title">Daily goal</string>
+    <string name="daily_goal_is_not_set">No goal set</string>
+    <string name="set_daily_goal">Set a goal</string>
+    <string name="edit_daily_goal">Edit goal</string>
+    <string name="save_daily_goal">Save</string>
+    <string name="delete_daily_goal">Delete</string>
+    <string name="cancel_daily_goal">Cancel</string>
+    <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
+    <string name="daily_goal_achieved_today">Achieved today</string>
+    <string name="daily_goal_not_achieved_today">Not achieved today</string>
+    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+</resources>

@@ -329,7 +329,7 @@ class DashboardFragment : Fragment() {
             val newDate: List<String> = newStats.split(" ")[0].split("/") //year/month/day
             val newTime: List<String> = newStats.split(" ")[1].split(":") //hours:minutes:seconds
 
-            returnTrueOrFalse = passedThirtySeconds(oldDate, oldTime, newDate, newTime)
+            returnTrueOrFalse = main.passedThirtySeconds(oldDate, oldTime, newDate, newTime)
         }
         //println(" >> " + returnTrueOrFalse.toString() + " >> " + type + " >> new >> " + newStats)
         //println(" >> " + returnTrueOrFalse.toString() + " >> " + type + " >> old >> " + oldStats)
@@ -366,7 +366,7 @@ class DashboardFragment : Fragment() {
             val newDate: List<String> = newVoices.split(" ")[0].split("/") //year/month/day
             val newTime: List<String> = newVoices.split(" ")[1].split(":") //hours:minutes:seconds
 
-            returnTrueOrFalse = passedThirtySeconds(oldDate, oldTime, newDate, newTime)
+            returnTrueOrFalse = main.passedThirtySeconds(oldDate, oldTime, newDate, newTime)
         }
         //println(" >> " + returnTrueOrFalse.toString() + " >> " + type + " >> new >> " + newVoices)
         //println(" >> " + returnTrueOrFalse.toString() + " >> " + type + " >> old >> " + oldVoices)
@@ -375,48 +375,6 @@ class DashboardFragment : Fragment() {
             main.setSavedVoicesOnline(type, newVoices)
         }
 
-        return returnTrueOrFalse
-    }
-
-    private fun passedThirtySeconds(
-        oldDate: List<String>,
-        oldTime: List<String>,
-        newDate: List<String>,
-        newTime: List<String>
-    ): Boolean {
-        var returnTrueOrFalse: Boolean = true
-
-        // the else-clause indicates the "==", because it shouldn't be never old>new
-        if (oldDate[0].toInt() < newDate[0].toInt()) {
-            returnTrueOrFalse = true
-        } else {
-            if (oldDate[1].toInt() < newDate[1].toInt()) {
-                returnTrueOrFalse = true
-            } else {
-                if (oldTime[0].toInt() < newTime[0].toInt()) {
-                    returnTrueOrFalse = true
-                } else {
-                    if (oldTime[1].toInt() < newTime[1].toInt()) {
-                        if (newTime[1].toInt() - 1 > oldTime[1].toInt()) {
-                            returnTrueOrFalse = true
-                        } else {
-                            returnTrueOrFalse =
-                                newTime[2].toInt() + 60 - oldTime[2].toInt() > 30
-                        }
-                    } else {
-                        if (oldTime[2].toInt() < newTime[2].toInt()) {
-                            if (newTime[2].toInt() > 30) {
-                                returnTrueOrFalse = newTime[2].toInt() - oldTime[2].toInt() > 30
-                            } else {
-                                returnTrueOrFalse = false
-                            }
-                        } else {
-                            returnTrueOrFalse = false
-                        }
-                    }
-                }
-            }
-        }
         return returnTrueOrFalse
     }
 
