@@ -7,3 +7,4 @@
 - Added Arabic and Catalan
 - Translation in Tamil (ta) completed.
 - Updated all translations
+- Added 5 new languages supported: "ka", "mt", "or", "uk" and "vi" (added also on Crowdin)

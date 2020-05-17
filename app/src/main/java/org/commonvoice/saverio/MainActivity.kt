@@ -42,7 +42,7 @@ import kotlin.collections.HashMap
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val SOURCE_STORE =
-        "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+        "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
