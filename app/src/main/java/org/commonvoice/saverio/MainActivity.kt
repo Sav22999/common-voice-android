@@ -55,6 +55,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     val urlWithoutLang: String =
         "https://voice.mozilla.org/api/v1/" //API url (without lang)
 
+    val urlStatistics =
+        "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request for anonymous statistics
+    var lastStatisticsSending: String = "?"
+
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
             "PREF_NAME" to "FIRST_RUN",
@@ -160,6 +164,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             this.setLanguageUI("start")
             //checkPermissions()
         }
+
+        this.statisticsAPI()
 
         this.checkUserLoggedIn()
         this.resetDashboardData()
@@ -272,65 +278,100 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun statisticsAPI() {
         if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
-            generateUniqueUserId()
-            try {
-                val urlStatistics =
-                    "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request
-                var loggedYesNotInt = 0
-                if (this.logged) loggedYesNotInt = 1
+            val oldStats: String = lastStatisticsSending
+            var newStats: String = "?"
+            if (Build.VERSION.SDK_INT < 26) {
+                val dateTemp = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
+                newStats = dateTemp.format(Date()).toString()
+            } else {
+                val dateTemp = LocalDateTime.now()
+                newStats =
+                    dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString() + " " + dateTemp.hour.toString() + ":" + dateTemp.minute.toString() + ":" + dateTemp.second.toString()
+            }
+            var oldDate: List<String>? = null
+            var oldTime: List<String>? = null
+            var newDate: List<String>? = null
+            var newTime: List<String>? = null
 
-                var languageTemp = this.selectedLanguageVar
-                if (languageTemp == "") languageTemp = "en"
+            if (oldStats != "?") {
+                oldDate = oldStats.split(" ")[0].split("/") //year/month/day
+                oldTime =
+                    oldStats.split(" ")[1].split(":") //hours:minutes:seconds
 
-                var appVersion = BuildConfig.VERSION_CODE.toString()
-                if (appVersion == "") appVersion = "n.d."
+                newDate = newStats.split(" ")[0].split("/") //year/month/day
+                newTime =
+                    newStats.split(" ")[1].split(":") //hours:minutes:seconds
+            }
 
-                val params = JSONObject()
-                params.put("username", this.uniqueUserId)
-                params.put("logged", loggedYesNotInt.toString())
-                params.put("language", languageTemp)
-                params.put("version", appVersion)
-                params.put("public", this.getStatisticsSwitch().toString())
-                params.put("source", this.SOURCE_STORE)
+            if (lastStatisticsSending == "?" || passedThirtySeconds(
+                    oldDate!!,
+                    oldTime!!,
+                    newDate!!,
+                    newTime!!
+                )
+            ) {
+                println("30 seconds passed")
+                lastStatisticsSending = newStats
+                generateUniqueUserId()
+                try {
+                    var loggedYesNotInt = 0
+                    if (this.logged) loggedYesNotInt = 1
 
-                //println(">> params: " + params + "<<")
+                    var languageTemp = this.selectedLanguageVar
+                    if (languageTemp == "") languageTemp = "en"
 
-                val que = Volley.newRequestQueue(this)
-                val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
-                    Response.Listener {
-                        //println(" >> " + it.toString())
-                        val jsonResult = it.toString()
-                        val jsonResultArray = arrayOf(jsonResult, "")
-                        val jsonObj = JSONObject(
-                            jsonResultArray[0].substring(
-                                jsonResultArray[0].indexOf("{"),
-                                jsonResultArray[0].lastIndexOf("}") + 1
+                    var appVersion = BuildConfig.VERSION_CODE.toString()
+                    if (appVersion == "") appVersion = "n.d."
+
+                    val params = JSONObject()
+                    params.put("username", this.uniqueUserId)
+                    params.put("logged", loggedYesNotInt.toString())
+                    params.put("language", languageTemp)
+                    params.put("version", appVersion)
+                    params.put("public", this.getStatisticsSwitch().toString())
+                    params.put("source", this.SOURCE_STORE)
+
+                    //println(">> params: " + params + "<<")
+
+                    val que = Volley.newRequestQueue(this)
+                    val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
+                        Response.Listener {
+                            //println(" >> " + it.toString())
+                            val jsonResult = it.toString()
+                            val jsonResultArray = arrayOf(jsonResult, "")
+                            val jsonObj = JSONObject(
+                                jsonResultArray[0].substring(
+                                    jsonResultArray[0].indexOf("{"),
+                                    jsonResultArray[0].lastIndexOf("}") + 1
+                                )
                             )
-                        )
-                        //println(jsonObj.toString())
-                        /*
+                            //println(jsonObj.toString())
+                            /*
                         if (jsonObj.getString("code").toInt() == 200) {
                             //println("-->> Record added to the database <<--")
                         } else {
                             //println("!!-- Record is already in the database --!!")
                         }
                         */
-                        //println(jsonResult)
-                    }, Response.ErrorListener {
-                        println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                            //println(jsonResult)
+                        }, Response.ErrorListener {
+                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
+                        }
+                    ) {
+                        @Throws(AuthFailureError::class)
+                        override fun getHeaders(): Map<String, String> {
+                            val headers = HashMap<String, String>()
+                            headers.put("Content-Type", "application/json")
+                            return headers
+                        }
                     }
-                ) {
-                    @Throws(AuthFailureError::class)
-                    override fun getHeaders(): Map<String, String> {
-                        val headers = HashMap<String, String>()
-                        headers.put("Content-Type", "application/json")
-                        return headers
-                    }
+                    //Content-Type: application/json
+                    que.add(req)
+                } catch (e: Exception) {
+                    println("!!-- Exception M09 - Statistics --!!")
                 }
-                //Content-Type: application/json
-                que.add(req)
-            } catch (e: Exception) {
-                println("!!-- Exception M09 - Statistics --!!")
+            } else {
+                println("30 seconds didn't pass")
             }
         }
     }
@@ -1222,6 +1263,52 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE.toInt())
             .edit()
             .putInt(settingsSwitchData["DAILY_GOAL"], dailyGoalValue).apply()
+    }
+
+    fun passedThirtySeconds(
+        oldDate: List<String>,
+        oldTime: List<String>,
+        newDate: List<String>,
+        newTime: List<String>
+    ): Boolean {
+        var returnTrueOrFalse: Boolean = true
+
+        try {
+            // the else-clause indicates the "==", because it shouldn't be never old>new
+            if (oldDate[0].toInt() < newDate[0].toInt()) {
+                returnTrueOrFalse = true
+            } else {
+                if (oldDate[1].toInt() < newDate[1].toInt()) {
+                    returnTrueOrFalse = true
+                } else {
+                    if (oldTime[0].toInt() < newTime[0].toInt()) {
+                        returnTrueOrFalse = true
+                    } else {
+                        if (oldTime[1].toInt() < newTime[1].toInt()) {
+                            if (newTime[1].toInt() - 1 > oldTime[1].toInt()) {
+                                returnTrueOrFalse = true
+                            } else {
+                                returnTrueOrFalse =
+                                    newTime[2].toInt() + 60 - oldTime[2].toInt() > 30
+                            }
+                        } else {
+                            if (oldTime[2].toInt() < newTime[2].toInt()) {
+                                if (newTime[2].toInt() > 30) {
+                                    returnTrueOrFalse = newTime[2].toInt() - oldTime[2].toInt() > 30
+                                } else {
+                                    returnTrueOrFalse = false
+                                }
+                            } else {
+                                returnTrueOrFalse = false
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (ex: Exception) {
+            println("Exception: " + ex.toString())
+        }
+        return returnTrueOrFalse
     }
 
     fun showMessageDialog(

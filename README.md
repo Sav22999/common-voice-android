@@ -67,7 +67,7 @@ Legend:
 
 | Status | Percentage | Language (code) | Language (name) | Translators                                                  |                             Link                             |
 | :----: | :--------: | :-------------: | :-------------- | :----------------------------------------------------------- | :----------------------------------------------------------: |
-|   🔶    |    14%     |      `ar`       | Arabic          | [**ABDELGHANI HOURANI**](https://crowdin.com/profile/abdelghani.me) | **[Translate](https://crowdin.com/project/common-voice-android/ar)** |
+|   🔶    |    25%     |      `ar`       | Arabic          | [**ABDELGHANI HOURANI**](https://crowdin.com/profile/abdelghani.me) | **[Translate](https://crowdin.com/project/common-voice-android/ar)** |
 |   🔶    |    12%     |      `ca`       | Catalan         | [**Carles Paredes Lanau**](https://crowdin.com/profile/carlesparedes) | **[Translate](https://crowdin.com/project/common-voice-android/ca)** |
 |   🔶    |    24%     |      `cs`       | Czech           | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/cs)** |
 |   🔶    |    43%     |      `de`       | German          | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
