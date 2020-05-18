@@ -406,7 +406,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                             try {
                                 val jsonResult = it.toString()
                                 var jsonResultArray = arrayOf(jsonResult, "")
-                                //println(jsonResult)
+                                println(jsonResult)
                                 if (!this.opened) {
                                     //println("substring: "+jsonResult.substring(1,jsonResult.length-1))
                                     if (jsonResult.substring(
@@ -433,18 +433,32 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                                 jsonResultArray[0].lastIndexOf("}") + 1
                                             )
                                         )
-                                        val sentence = JSONObject(
-                                            jsonObj.getString("sentence").substring(
-                                                jsonObj.getString("sentence").indexOf("{"),
-                                                jsonObj.getString("sentence").lastIndexOf("}") + 1
+                                        var newApiResponse = false;
+                                        var sentence: JSONObject? = null;
+                                        if (jsonObj.has("sentence")) {
+                                            newApiResponse = true;
+                                            sentence = JSONObject(
+                                                jsonObj.getString("sentence").substring(
+                                                    jsonObj.getString("sentence").indexOf("{"),
+                                                    jsonObj.getString("sentence")
+                                                        .lastIndexOf("}") + 1
+                                                )
                                             )
-                                        )
+                                            //println(sentence.toString())
+                                        }
                                         //println(jsonObj.toString())
-                                        //println(sentence.toString())
                                         this.idSentence[0] = jsonObj.getString("id").toInt()
-                                        this.textSentence[0] = sentence.getString("text").toString()
-                                        this.soundSentence[0] =
-                                            jsonObj.getString("audioSrc").toString()
+                                        if (newApiResponse) {
+                                            this.textSentence[0] =
+                                                sentence?.getString("text").toString()
+                                            this.soundSentence[0] =
+                                                jsonObj.getString("audioSrc").toString()
+                                        } else {
+                                            this.textSentence[0] =
+                                                jsonObj.getString("text").toString()
+                                            this.soundSentence[0] =
+                                                jsonObj.getString("sound").toString()
+                                        }
                                         this.globSentence[0] = jsonObj.getString("glob").toString()
 
 
@@ -454,17 +468,30 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                                 jsonResultArray[1].lastIndexOf("}") + 1
                                             )
                                         )
-                                        val sentence2 = JSONObject(
-                                            jsonObj2.getString("sentence").substring(
-                                                jsonObj2.getString("sentence").indexOf("{"),
-                                                jsonObj2.getString("sentence").lastIndexOf("}") + 1
+                                        var sentence2: JSONObject? = null
+                                        if (newApiResponse) {
+                                            sentence2 = JSONObject(
+                                                jsonObj2.getString("sentence").substring(
+                                                    jsonObj2.getString("sentence").indexOf("{"),
+                                                    jsonObj2.getString("sentence")
+                                                        .lastIndexOf("}") + 1
+                                                )
                                             )
-                                        )
+                                        }
                                         //println(jsonObj2.toString())
                                         this.idSentence[1] = jsonObj2.getString("id").toInt()
-                                        this.textSentence[1] = sentence2.getString("text")
-                                        this.soundSentence[1] = jsonObj2.getString("audioSrc")
-                                        this.globSentence[1] = jsonObj2.getString("glob")
+                                        if (newApiResponse) {
+                                            this.textSentence[1] =
+                                                sentence2?.getString("text").toString()
+                                            this.soundSentence[1] =
+                                                jsonObj2.getString("audioSrc").toString()
+                                        } else {
+                                            this.textSentence[1] =
+                                                jsonObj2.getString("text").toString()
+                                            this.soundSentence[1] =
+                                                jsonObj2.getString("sound").toString()
+                                        }
+                                        this.globSentence[1] = jsonObj2.getString("glob").toString()
                                     } else {
                                         val jsonObj = JSONObject(
                                             jsonResultArray[0].substring(
@@ -472,17 +499,33 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                                 jsonResultArray[0].lastIndexOf("}") + 1
                                             )
                                         )
-                                        val sentence = JSONObject(
-                                            jsonObj.getString("sentence").substring(
-                                                jsonObj.getString("sentence").indexOf("{"),
-                                                jsonObj.getString("sentence").lastIndexOf("}") + 1
+                                        var newApiResponse = false;
+                                        var sentence: JSONObject? = null;
+                                        if (jsonObj.has("sentence")) {
+                                            newApiResponse = true;
+                                            sentence = JSONObject(
+                                                jsonObj.getString("sentence").substring(
+                                                    jsonObj.getString("sentence").indexOf("{"),
+                                                    jsonObj.getString("sentence")
+                                                        .lastIndexOf("}") + 1
+                                                )
                                             )
-                                        )
+                                            //println(sentence.toString())
+                                        }
                                         //println(jsonObj.toString())
                                         this.idSentence[1] = jsonObj.getString("id").toInt()
-                                        this.textSentence[1] = sentence.getString("text")
-                                        this.soundSentence[1] = jsonObj.getString("audioSrc")
-                                        this.globSentence[1] = jsonObj.getString("glob")
+                                        if (newApiResponse) {
+                                            this.textSentence[1] =
+                                                sentence?.getString("text").toString()
+                                            this.soundSentence[1] =
+                                                jsonObj.getString("audioSrc").toString()
+                                        } else {
+                                            this.textSentence[1] =
+                                                jsonObj.getString("text").toString()
+                                            this.soundSentence[1] =
+                                                jsonObj.getString("sound").toString()
+                                        }
+                                        this.globSentence[1] = jsonObj.getString("glob").toString()
                                     }
 
                                     if (!this.opened) {
