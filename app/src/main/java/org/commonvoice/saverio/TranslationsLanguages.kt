@@ -29,7 +29,6 @@ class TranslationsLanguages {
             )
         this.not_completed_translated =
             arrayOf(
-                "ar",
                 "ca",
                 "cs",
                 "de",
