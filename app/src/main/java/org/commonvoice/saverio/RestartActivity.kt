@@ -12,7 +12,6 @@ import kotlin.concurrent.schedule
 class RestartActivity : VariableLanguageActivity(R.layout.activity_restart) {
 
     private var PRIVATE_MODE = 0
-    private val LANGUAGE_NAME = "LANGUAGE"
     private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
 
     override fun onCreate(savedInstanceState: Bundle?) {

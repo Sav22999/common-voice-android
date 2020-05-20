@@ -7,6 +7,8 @@ import android.os.LocaleList
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import org.commonvoice.saverio.TranslationsLanguages
+import org.commonvoice.saverio_api.utils.PrefManager
+import org.koin.android.ext.android.inject
 import java.util.*
 
 /**
@@ -18,16 +20,18 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     /**
      * Empty constructor
      */
-    constructor(): super()
+    constructor() : super()
 
     /**
      * This constructor extends the superclass AppCompatActivity(@LayoutRes layout: Int),
      * which provides automatic inflation of the layout resource, if valid.
      */
-    constructor(@LayoutRes layout: Int): super(layout)
+    constructor(@LayoutRes layout: Int) : super(layout)
+
+    val prefManager: PrefManager by inject()
 
     override fun attachBaseContext(newBase: Context) {
-        val tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
+        val tempLang = prefManager.language
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {

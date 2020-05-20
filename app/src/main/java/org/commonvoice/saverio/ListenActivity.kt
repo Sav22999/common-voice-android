@@ -41,9 +41,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
     private var PRIVATE_MODE = 0
-    private val LANGUAGE_NAME = "LANGUAGE"
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
-    private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val FIRST_RUN_LISTEN = "FIRST_RUN_LISTEN"
     private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
     private val TODAY_CONTRIBUTING =
@@ -67,7 +65,11 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     var soundSentence = arrayOf("", "")
     var status: Int = 0 //1->clip stopped | 2->clip re-starting
 
-    var selectedLanguageVar = ""
+    var selectedLanguageVar: String
+        get() = prefManager.language
+        set(value) {
+            prefManager.language = value
+        }
 
     var mediaPlayer: MediaPlayer? = null //audioplayer to play/pause clips
     var autoPlayClips: Boolean = false
@@ -94,8 +96,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             //checkPermissions()
             checkConnection()
 
-            this.selectedLanguageVar =
-                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
             this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguageVar)
 
             var skipButton: Button = this.findViewById(R.id.btn_skip_listen)
@@ -156,7 +156,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                     }
 
                     override fun onSwipeTop() {
-                        if (getResources().getConfiguration().orientation == 1) {
+                        if (resources.configuration.orientation == 1) {
                             openReportDialog()
                         }
                     }
@@ -238,11 +238,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             return false
         } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
             return false
-        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
-            return false
-        } else {
-            return true
-        }
+        } else return todayDate.split("/")[2] <= savedDate.split("/")[2]
     }
 
     fun incrementContributing() {
@@ -433,10 +429,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                                 jsonResultArray[0].lastIndexOf("}") + 1
                                             )
                                         )
-                                        var newApiResponse = false;
-                                        var sentence: JSONObject? = null;
+                                        var newApiResponse = false
+                                        var sentence: JSONObject? = null
                                         if (jsonObj.has("sentence")) {
-                                            newApiResponse = true;
+                                            newApiResponse = true
                                             sentence = JSONObject(
                                                 jsonObj.getString("sentence").substring(
                                                     jsonObj.getString("sentence").indexOf("{"),
@@ -499,10 +495,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                                 jsonResultArray[0].lastIndexOf("}") + 1
                                             )
                                         )
-                                        var newApiResponse = false;
-                                        var sentence: JSONObject? = null;
+                                        var newApiResponse = false
+                                        var sentence: JSONObject? = null
                                         if (jsonObj.has("sentence")) {
-                                            newApiResponse = true;
+                                            newApiResponse = true
                                             sentence = JSONObject(
                                                 jsonObj.getString("sentence").substring(
                                                     jsonObj.getString("sentence").indexOf("{"),
@@ -599,14 +595,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                 PRIVATE_MODE
                             ).getBoolean(LOGGED_IN_NAME, false)
                             if (logged) {
-                                var cookieId =
-                                    getSharedPreferences(
-                                        USER_CONNECT_ID,
-                                        PRIVATE_MODE
-                                    ).getString(
-                                        USER_CONNECT_ID,
-                                        ""
-                                    )
+                                var cookieId = prefManager.sessIdCookie
                                 headers.put(
                                     "Cookie",
                                     "connect.sid=" + cookieId
@@ -781,11 +770,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                         PRIVATE_MODE
                     ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        var cookieId =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
+                        var cookieId = prefManager.sessIdCookie
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -811,7 +796,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                 val metrics = DisplayMetrics()
                 windowManager.defaultDisplay.getMetrics(metrics)
                 val message: MessageDialog =
-                    MessageDialog(this, "clip", this as ListenActivity)
+                    MessageDialog(this, "clip", this)
                 message.show()
             } catch (exception: Exception) {
                 println("!!-- Exception: ListenActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
@@ -854,11 +839,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                         PRIVATE_MODE
                     ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        var cookieId =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
+                        var cookieId = prefManager.sessIdCookie
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -998,13 +979,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             val cm =
                 context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
-            if (networkInfo != null && networkInfo.isConnected) {
-                //Connection OK
-                return true
-            } else {
-                //No connection
-                return false
-            }
+            return networkInfo != null && networkInfo.isConnected
 
         }
     }

@@ -62,9 +62,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
             "PREF_NAME" to "FIRST_RUN",
-            "LANGUAGE_NAME" to "LANGUAGE",
             "LOGGED_IN_NAME" to "LOGGED",
-            "USER_CONNECT_ID" to "USER_CONNECT_ID",
             "USER_NAME" to "USERNAME",
             "LAST_STATS_EVERYONE" to "LAST_STATS_EVERYONE",
             "LAST_STATS_YOU" to "LAST_STATS_YOU",
@@ -110,7 +108,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     var languagesListArray =
         arrayOf("English") // don't change manually -> it's imported from strings.xml
-    var selectedLanguageVar = "en"
+    var selectedLanguageVar = prefManager.language
     var logged: Boolean = false
     var userId: String = ""
     var userName: String = ""
@@ -140,12 +138,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 settingsSwitchData["PREF_NAME"],
                 true
             )
-
-        this.selectedLanguageVar =
-            getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE).getString(
-                settingsSwitchData["LANGUAGE_NAME"],
-                "en"
-            )!!
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
@@ -212,8 +204,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             getString(R.string.message_log_in_again)
         )
         logged = false
-        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        prefManager.sessIdCookie = null
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
         getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
@@ -464,14 +455,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
 
         if (logged) {
-            this.userId =
-                getSharedPreferences(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    PRIVATE_MODE
-                ).getString(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    ""
-                )!!
+            this.userId = prefManager.sessIdCookie!!
             this.userName =
                 getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
                     settingsSwitchData["USER_NAME"],
@@ -504,14 +488,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
 
         if (logged) {
-            this.userId =
-                getSharedPreferences(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    PRIVATE_MODE
-                ).getString(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    ""
-                )!!
+            this.userId = prefManager.sessIdCookie ?: ""
 
             this.userName =
                 getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
@@ -1174,9 +1151,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun setLanguageSettings(lang: String) {
         try {
-            getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE).edit()
-                .putString(settingsSwitchData["LANGUAGE_NAME"], lang)
-                .apply()
+            prefManager.language = lang
 
             var languageChanged = false
             if (this.selectedLanguageVar != lang) {
@@ -1245,16 +1220,16 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         //refresh data of Daily goal in Dashboard
         val goalText = this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
         if (getDailyGoal() == 0) {
-            goalText.setText(getString(R.string.daily_goal_is_not_set))
+            goalText.text = getString(R.string.daily_goal_is_not_set)
             goalText.typeface = Typeface.DEFAULT
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
-                .setText(getString(R.string.set_daily_goal))
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
+                getString(R.string.set_daily_goal)
             //println("Daily goal is not set")
         } else {
-            goalText.setText(getDailyGoal().toString())
+            goalText.text = getDailyGoal().toString()
             goalText.typeface = ResourcesCompat.getFont(this, R.font.sourcecodepro)
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
-                .setText(getString(R.string.edit_daily_goal))
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
+                getString(R.string.edit_daily_goal)
             //println("Daily goal is set")
         }
     }

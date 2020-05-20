@@ -47,7 +47,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
             "LOGGED_IN_NAME" to "LOGGED",
-            "USER_CONNECT_ID" to "USER_CONNECT_ID",
             "USER_NAME" to "USERNAME",
             "LEVEL_SAVED" to "LEVEL_SAVED",
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
@@ -242,12 +241,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
             }
         }
-        txtLevel.setText(
-            getString(R.string.txt_your_level).replace(
-                "{{*{{level}}*}}",
-                nLevel.toString()
-            ) + "\n\"" + nameLevel + "\""
-        )
+        txtLevel.text = getString(R.string.txt_your_level).replace(
+            "{{*{{level}}*}}",
+            nLevel.toString()
+        ) + "\n\"" + nameLevel + "\""
     }
 
     fun setTheme(view: Context) {
@@ -346,7 +343,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         while (i < arrayCookies.count() || myCookie == "") {
                             if (arrayCookies[i].contains("connect.sid=")) myCookie =
                                 arrayCookies[i].substring(12, arrayCookies[i].length - 1)
-                            i++;
+                            i++
                         }
                         userId = myCookie
                         //println(" -->> MY COOKIE -->> " + myCookie + " <<--")
@@ -356,11 +353,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                             PRIVATE_MODE
                         ).edit()
                             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], true).apply()
-                        getSharedPreferences(
-                            settingsSwitchData["USER_CONNECT_ID"],
-                            PRIVATE_MODE
-                        ).edit()
-                            .putString(settingsSwitchData["USER_CONNECT_ID"], userId).apply()
+
+                        prefManager.sessIdCookie = userId
 
                         //println(" -->> LOGGED IN <<-- ")
 
@@ -379,8 +373,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun logoutAndExit(exit: Boolean = true) {
-        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        prefManager.sessIdCookie = null
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
         getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
@@ -470,13 +463,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         false
                     )
                 ) {
-                    userId = getSharedPreferences(
-                        settingsSwitchData["USER_CONNECT_ID"],
-                        PRIVATE_MODE
-                    ).getString(
-                        settingsSwitchData["USER_CONNECT_ID"],
-                        ""
-                    )
+                    userId = prefManager.sessIdCookie ?: ""
                 }
             }
 
@@ -744,13 +731,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         fun checkInternet(context: Context): Boolean {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
-            if (networkInfo != null && networkInfo.isConnected) {
-                //Connection OK
-                return true
-            } else {
-                //No connection
-                return false
-            }
+            return networkInfo != null && networkInfo.isConnected
 
         }
     }

@@ -2,33 +2,35 @@ package org.commonvoice.saverio
 
 import OnSwipeTouchListener
 import android.Manifest
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_tutorial.*
+import org.commonvoice.saverio_api.utils.PrefManager
+import org.koin.android.ext.android.inject
 
 
 class TutorialActivity : AppCompatActivity() {
+
+    private val prefManager: PrefManager by inject()
 
     private lateinit var webView: WebView
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
     private val PREF_NAME = "FIRST_RUN"
-    private val LANGUAGE_NAME = "LANGUAGE"
     var languages_list_short =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     var languages_list =
@@ -254,7 +256,7 @@ class TutorialActivity : AppCompatActivity() {
         var txtSkip = this.textSkipTutorial
         txtSkip.isGone = true
 
-        var languages = findViewById(R.id.languageListTutorial) as Spinner
+        var languages = findViewById<Spinner>(R.id.languageListTutorial)
         languages.adapter =
             ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languages_list)
         languages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -276,8 +278,7 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     fun setLanguage(language: String) {
-        getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).edit().putString(LANGUAGE_NAME, language)
-            .apply()
+        prefManager.language = language
 
         //Toast.makeText(this,"Language: "+language+" index: "+languages_list_short.indexOf(language), Toast.LENGTH_SHORT).show()
     }

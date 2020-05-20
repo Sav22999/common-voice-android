@@ -71,4 +71,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     //https://developer.android.com/topic/libraries/architecture/viewmodel
+
+    implementation project(":api")
 }

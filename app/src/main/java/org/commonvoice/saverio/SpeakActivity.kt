@@ -26,19 +26,20 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_api.viewmodels.SpeakViewModel
 import org.json.JSONArray
 import org.json.JSONObject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
-import java.net.URLEncoder.encode
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -47,12 +48,12 @@ import kotlin.collections.HashMap
 
 class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
+    private val speakViewModel: SpeakViewModel by viewModel()
+
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
     private var PRIVATE_MODE = 0
-    private val LANGUAGE_NAME = "LANGUAGE"
     private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
-    private val USER_CONNECT_ID = "USER_CONNECT_ID"
     private val FIRST_RUN_SPEAK = "FIRST_RUN_SPEAK"
     private val TODAY_CONTRIBUTING =
         "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
@@ -76,7 +77,11 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     var status: Int =
         0 //1->recording started | 2->recording finished | 3->recording listened | 4->recording sent | 5->listening stopped | 6->recording too long
 
-    var selectedLanguage = ""
+    var selectedLanguage: String
+        get() = prefManager.language
+        set(value) {
+            prefManager.language = value
+        }
     var mediaRecorder: MediaRecorder? = null //audio recorder
     var output: String? = null //path of the recording
     var mediaPlayer: MediaPlayer? = null //audio player
@@ -105,8 +110,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             checkPermissions()
             checkConnection()
 
-            this.selectedLanguage =
-                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")!!
             this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguage)
 
             val skipButton: Button = this.findViewById(R.id.btn_skip_speak)
@@ -171,7 +174,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     }
 
                     override fun onSwipeTop() {
-                        if (getResources().getConfiguration().orientation == 1) {
+                        if (resources.configuration.orientation == 1) {
                             openReportDialog()
                         }
                     }
@@ -270,11 +273,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             return false
         } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
             return false
-        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
-            return false
-        } else {
-            return true
-        }
+        } else return todayDate.split("/")[2] <= savedDate.split("/")[2]
     }
 
     fun incrementContributing() {
@@ -452,11 +451,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                         PRIVATE_MODE
                     ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        var cookieId =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
+                        val cookieId = prefManager.sessIdCookie!!
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -855,77 +850,11 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         msg.text = getString(R.string.txt_sending_recording)
         btnReport.isGone = true
 
-        val encoded = File(externalCacheDir, "$idSentence.aac").readBytes()
+        val file = File(externalCacheDir, "$idSentence.aac")
 
-        try {
-            val path = "clips" //API to get sentences
-
-            url = url.replace("{{*{{lang}}*}}", this.selectedLanguage)
-
-            val que = Volley.newRequestQueue(this)
-            val req = object : StringRequest(Request.Method.POST, url + path,
-                Response.Listener {
-                    val json_result = it.toString()
-                    println(">> Successful: " + it.toString())
-                    RecordingSent()
-                }, Response.ErrorListener {
-                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                    error2(false)
-                    RecordingError()
-                    btnSkip.isEnabled = true
-                }
-            ) {
-                override fun getBodyContentType(): String {
-                    return "audio/mpeg; codecs=aac"//Use this function to set Content-Type for Volley
-                }
-
-                override fun getBody(): ByteArray? = encoded
-
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    var logged = getSharedPreferences(
-                        LOGGED_IN_NAME,
-                        PRIVATE_MODE
-                    ).getBoolean(LOGGED_IN_NAME, false)
-                    if (logged) {
-                        var cookie_id =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
-                        headers.put(
-                            "Cookie",
-                            "connect.sid=" + cookie_id
-                        )
-                    } else {
-                        headers.put(
-                            "Authorization",
-                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
-                        )
-                    }
-                    headers.put("sentence", encode(textSentence, "UTF-8").replace("+", "%20"))
-                    headers.put("sentence_id", idSentence)
-                    //headers.put("challenge", "null")
-                    println(
-                        " >> text_sentence >> " + encode(textSentence, "UTF-8").replace(
-                            "+",
-                            "%20"
-                        )
-                    )
-                    println(" >> id_sentence >> " + idSentence)
-                    return headers
-                }
-            }
-            que.add(req)
-        } catch (e: Exception) {
-            error2()
-            println(">> Exception: " + e.toString())
-            btnSkip.isEnabled = true
-        }
-    }
-
-    fun getFileBytes(context: Context, path: String): ByteArray {
-        return File(path).readBytes()
+        speakViewModel.sendRecording(textSentence, idSentence, file).observe(this, Observer {
+            RecordingSent()
+        })
     }
 
     fun RecordingSent() {
@@ -972,7 +901,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 val metrics = DisplayMetrics()
                 windowManager.defaultDisplay.getMetrics(metrics)
                 val message: MessageDialog =
-                    MessageDialog(this, "sentence", this as SpeakActivity)
+                    MessageDialog(this, "sentence", this)
                 message.show()
             } catch (exception: Exception) {
                 println("!!-- Exception: SpeakActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
@@ -1016,11 +945,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                         PRIVATE_MODE
                     ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        var cookieId =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
+                        var cookieId = prefManager.sessIdCookie
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -1092,13 +1017,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         fun checkInternet(context: Context): Boolean {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
-            if (networkInfo != null && networkInfo.isConnected) {
-                //Connection OK
-                return true
-            } else {
-                //No connection
-                return false
-            }
+            return networkInfo != null && networkInfo.isConnected
 
         }
     }

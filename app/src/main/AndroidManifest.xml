@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".CommonVoice"
         android:allowBackup="true"
         android:configChanges="locale"
         android:icon="@mipmap/ic_commonvoice"
