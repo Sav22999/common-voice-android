@@ -33,6 +33,20 @@ You can contribute also to translate the app (follow every step, please):
 
 _If your language is not now supported by [Common Voice](https://voice.mozilla.org/it), **don't worry!** You can translate the app anyway, when it will be supported, the app will be already translated in your language!_
 
+### In development...
+
+These features/options aren't available now, but probably the will be available in a future release of the app.
+
+- [priority] Sending validations/recordings in background: so you won't wait anymore that the sending is finished
+- Offline mode (or "Airplane mode"): you will be able to validate clips and record sentences offline, and in a second moment they will be send to the server
+- Customisable gestures: you will be able to customise gestures
+- New themes: at least "Light", "Dark" and "Auto mode" (but maybe you will be able to create your theme)
+- Settings reorganised
+- Save logs to file
+- Some animations in Listen and Speak
+- Gestures guide
+- "Top contributors" in Dashboard
+
 ### Screenshots
 
 <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200px"></img><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="200px"></img>

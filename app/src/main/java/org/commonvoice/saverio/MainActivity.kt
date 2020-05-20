@@ -165,10 +165,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             //checkPermissions()
         }
 
-        this.statisticsAPI()
-
         this.checkUserLoggedIn()
         this.resetDashboardData()
+
+        this.statisticsAPI()
 
         this.checkIfSessionIsExpired()
         this.reviewOnPlayStore()
