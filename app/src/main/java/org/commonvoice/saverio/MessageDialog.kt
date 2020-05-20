@@ -275,7 +275,7 @@ class MessageDialog {
                             if (this.message_type == 3) {
                                 listen?.reportClip(reasons)
                             } else if (this.message_type == 4) {
-                                speak?.reportSentence(reasons)
+                                //speak?.reportSentence(reasons)
                             }
                             alertDialog.dismiss()
                         }

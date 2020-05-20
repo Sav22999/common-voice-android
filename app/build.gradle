@@ -72,5 +72,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     //https://developer.android.com/topic/libraries/architecture/viewmodel
 
-    implementation project(":api")
+    implementation project(":lib")
+
+    //Splitties
+    implementation 'com.louiscad.splitties:splitties-fun-pack-android-base:3.0.0-alpha06'
+    //https://github.com/LouisCAD/Splitties
+
 }

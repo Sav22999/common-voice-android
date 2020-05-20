@@ -7,7 +7,7 @@ import android.os.LocaleList
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import org.commonvoice.saverio.TranslationsLanguages
-import org.commonvoice.saverio_api.utils.PrefManager
+import org.commonvoice.saverio_lib.utils.PrefManager
 import org.koin.android.ext.android.inject
 import java.util.*
 

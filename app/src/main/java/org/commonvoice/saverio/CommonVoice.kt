@@ -1,10 +1,12 @@
 package org.commonvoice.saverio
 
 import android.app.Application
-import org.commonvoice.saverio_api.RetrofitFactory
-import org.commonvoice.saverio_api.repositories.SentenceRepository
-import org.commonvoice.saverio_api.utils.PrefManager
-import org.commonvoice.saverio_api.viewmodels.SpeakViewModel
+import android.media.MediaRecorder
+import org.commonvoice.saverio_lib.api.RetrofitFactory
+import org.commonvoice.saverio_lib.repositories.SentenceRepository
+import org.commonvoice.saverio_lib.repositories.SoundRecordingRepository
+import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -26,10 +28,11 @@ class CommonVoice : Application() {
 
     private val mvvmRepos = module {
         single { SentenceRepository(get()) }
+        single { SoundRecordingRepository(MediaRecorder()) }
     }
 
     private val mvvmViewmodels = module {
-        viewModel { SpeakViewModel(get()) }
+        viewModel { SpeakViewModel(get(), get()) }
     }
 
     override fun onCreate() {
