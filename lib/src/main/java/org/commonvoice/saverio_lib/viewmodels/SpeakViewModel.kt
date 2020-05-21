@@ -51,6 +51,7 @@ class SpeakViewModel(
     }
 
     fun startListening() {
+        resetListeningRepository()
         listeningRepository.playRecording(currentRecording)
         state.postValue(State.LISTENING)
     }
