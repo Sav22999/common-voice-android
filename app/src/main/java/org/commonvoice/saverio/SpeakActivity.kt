@@ -1,15 +1,18 @@
 package org.commonvoice.saverio
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
-
 
 class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
@@ -19,6 +22,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         super.onCreate(savedInstanceState)
 
         setupInitialUIState()
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 8573)
+        }
 
         speakViewModel.state.observe(this, Observer {
             when(it) {
@@ -148,6 +155,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonDoItAgain.onClick {
             speakViewModel.startListening()
         }
+    }
+
+    private fun obtainPermissions() {
+
     }
 
 }

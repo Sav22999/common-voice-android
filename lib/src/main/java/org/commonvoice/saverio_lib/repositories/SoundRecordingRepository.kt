@@ -2,20 +2,18 @@ package org.commonvoice.saverio_lib.repositories
 
 import android.media.MediaRecorder
 import org.commonvoice.saverio_lib.models.RecordableSentence
+import java.lang.RuntimeException
 
 class SoundRecordingRepository() {
 
     private var recorder: MediaRecorder? = MediaRecorder()
-
-    init {
-        setupRecorder()
-    }
 
     private fun setupRecorder() {
         if (recorder == null) {
             recorder = MediaRecorder()
         }
         recorder!!.apply {
+            reset()
             setAudioSource(MediaRecorder.AudioSource.MIC)
             setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
@@ -27,7 +25,6 @@ class SoundRecordingRepository() {
 
     fun startRecording(recordableSentence: RecordableSentence) {
         recorder?.apply {
-            reset()
             setupRecorder()
             setOutputFile(recordableSentence.file.outputStream().fd)
             prepare()
