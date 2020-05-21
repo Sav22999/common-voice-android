@@ -1,21 +1,16 @@
 package org.commonvoice.saverio_lib.api.services
 
-import okhttp3.RequestBody
-import org.commonvoice.saverio_lib.api.responses.RecordingSent
+import org.commonvoice.saverio_lib.models.RecordableSentence
 import retrofit2.Response
-import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface SentenceService {
 
-    @POST("clips")
-    @Headers("Content-Type: audio/mpeg; codecs=aac")
-    suspend fun sendRecording(
-        @Header("sentence") sentence: String,
-        @Header("sentence_id") id: String,
-        @Body rawBody: RequestBody
-    ): Response<RecordingSent>
+    @Headers("Accept-Type: application/json")
+    @GET("sentences")
+    suspend fun getSentence(): Response<List<RecordableSentence>>
 
 }

@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId 'org.commonvoice.saverio'
+        applicationId 'org.commonvoice.saaverio'
         minSdkVersion 23
         targetSdkVersion 29
         versionCode = 107
@@ -60,7 +60,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
     //Koin
-    implementation "org.koin:koin-android:2.1.5"
+    implementation "org.koin:koin-core:2.1.5"
     implementation "org.koin:koin-androidx-viewmodel:2.1.5"
     //https://github.com/InsertKoinIO/koin
 
@@ -73,9 +73,4 @@ dependencies {
     //https://developer.android.com/topic/libraries/architecture/viewmodel
 
     implementation project(":lib")
-
-    //Splitties
-    implementation 'com.louiscad.splitties:splitties-fun-pack-android-base:3.0.0-alpha06'
-    //https://github.com/LouisCAD/Splitties
-
 }

@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/buttonReportSpeak"
+            android:id="@+id/buttonReportSentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -34,20 +34,20 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btn_listen_again"
+            android:id="@+id/buttonDoItAgain"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/listen2_cv"
+            android:background="@drawable/speak2_cv"
             android:textColor="@color/colorWhite"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/btn_start_speak"
+            app:layout_constraintBottom_toTopOf="@+id/buttonToggleRecording"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/btn_send_speak"
+            android:id="@+id/buttonSendRecording"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -56,7 +56,7 @@
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_speak"
+            app:layout_constraintTop_toBottomOf="@+id/buttonToggleRecording"
             tools:visibility="visible" />
 
         <View
@@ -65,10 +65,10 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_skip_speak"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSkipSentence"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_send_speak" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSendRecording" />
 
         <View
             android:id="@+id/viewSeparatorSpeak2"
@@ -76,25 +76,25 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_listen_again"
+            app:layout_constraintBottom_toTopOf="@+id/buttonDoItAgain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewAlert" />
 
         <Button
-            android:id="@+id/btn_skip_speak"
+            android:id="@+id/buttonSkipSentence"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/btn_rounded"
             android:text="@string/btn_skip_sentence"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/buttonReportSpeak"
+            app:layout_constraintBottom_toTopOf="@+id/buttonReportSentence"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btn_start_speak"
+            android:id="@+id/buttonToggleRecording"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@drawable/speak_cv"
@@ -102,10 +102,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSpeakSentence" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewSentence" />
 
         <TextView
-            android:id="@+id/textSpeakSentence"
+            android:id="@+id/textViewSentence"
             android:layout_width="0dp"
             android:layout_height="300dp"
             android:layout_marginStart="8dp"
@@ -126,7 +126,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textMessageAlertSpeak"
+            android:id="@+id/textViewAlert"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -139,7 +139,7 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSpeakSentence" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewSentence" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

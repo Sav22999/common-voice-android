@@ -1,16 +1,21 @@
 package org.commonvoice.saverio_lib.repositories
 
 import android.media.MediaRecorder
-import org.commonvoice.saverio_lib.models.Recording
+import org.commonvoice.saverio_lib.models.RecordableSentence
 
-class SoundRecordingRepository(private val recorder: MediaRecorder) {
+class SoundRecordingRepository() {
+
+    private var recorder: MediaRecorder? = MediaRecorder()
 
     init {
         setupRecorder()
     }
 
     private fun setupRecorder() {
-        recorder.apply {
+        if (recorder == null) {
+            recorder = MediaRecorder()
+        }
+        recorder!!.apply {
             setAudioSource(MediaRecorder.AudioSource.MIC)
             setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
@@ -20,22 +25,28 @@ class SoundRecordingRepository(private val recorder: MediaRecorder) {
         }
     }
 
-    fun startRecording(recording: Recording) {
-        recorder.apply {
+    fun startRecording(recordableSentence: RecordableSentence) {
+        recorder?.apply {
             reset()
             setupRecorder()
-            setOutputFile(recording.file.outputStream().fd)
+            setOutputFile(recordableSentence.file.outputStream().fd)
             prepare()
             start()
         }
     }
 
     fun stopRecording() {
-        recorder.stop()
+        recorder?.stop()
+    }
+
+    fun redoRecording(recordableSentence: RecordableSentence) {
+        recordableSentence.resetFile()
+        startRecording(recordableSentence)
     }
 
     fun clean() {
-        recorder.release()
+        recorder?.release()
+        recorder = null
     }
 
 }
