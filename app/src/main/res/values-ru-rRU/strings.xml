@@ -107,7 +107,7 @@
     <string name="toast_gestures_on">Gestures are now turned on.</string>
     <string name="toast_gestures_off">Gestures are now turned off.</string>
     <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="message_app_not_completely_translated">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Пропустить</string>

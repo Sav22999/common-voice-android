@@ -107,7 +107,7 @@
     <string name="toast_gestures_on">Gesti attivati.</string>
     <string name="toast_gestures_off">Gesti disattivati.</string>
     <string name="message_review_app_on_play_store">Se ti piace questa app, ricordati di scrivere una recensione su Google Play Store.</string>
-    <string name="message_app_not_completed_translated">L\'app non è tradotta (completamente) in questa lingua.\nPuoi contribuire alla traduzione dell\'app su Crowdin.</string>
+    <string name="message_app_not_completely_translated">L\'app non è tradotta (completamente) in questa lingua.\nPuoi contribuire alla traduzione dell\'app su Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>

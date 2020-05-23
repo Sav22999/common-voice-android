@@ -107,7 +107,7 @@
     <string name="toast_gestures_on">Gestá sú zapnuté.</string>
     <string name="toast_gestures_off">Gestá sú vypnuté.</string>
     <string name="message_review_app_on_play_store">Prosím, ak sa ti táto appka páči, nezabudni ju ohodnotiť v Google Play Store.</string>
-    <string name="message_app_not_completed_translated">Aplikácia nie je (úplne) preložená do tohoto jazyka.\nMôžeš pomôcť ju preložiť na Crowdin.</string>
+    <string name="message_app_not_completely_translated">Aplikácia nie je (úplne) preložená do tohoto jazyka.\nMôžeš pomôcť ju preložiť na Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Načítavam vetu...</string>
     <string name="btn_skip_sentence">Preskočiť</string>

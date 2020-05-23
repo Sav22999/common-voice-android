@@ -103,11 +103,11 @@
     <string name="txt_abort_confirmation_dialogs_in_settings">إلغاء تأكيد الحوارات في الإعدادات</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">تم الآن تشغيل إلغاء تأكيد الحوارات.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">تم الآن إيقاف تشغيل تأكيد الحوارات.</string>
-    <string name="txt_gestures">Gestures</string>
-    <string name="toast_gestures_on">Gestures are now turned on.</string>
-    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="txt_gestures">الإيماءات</string>
+    <string name="toast_gestures_on">تم الآن تشغيل الإيماءات.</string>
+    <string name="toast_gestures_off">تم الآن إيقاف تشغيل الإيماءات.</string>
     <string name="message_review_app_on_play_store">رجاءاُ، إذا أعجبك التطبيق، تذكر أن تعمل له مراجعة في متجر Google Play.</string>
-    <string name="message_app_not_completed_translated">التطبيق غير مترجم إلى هذه اللغة (أو ترجمة غير مكتملة).\n يمكنك المساهمة في ترجمة التطبيق على منصة Crowdin.</string>
+    <string name="message_app_not_completely_translated">التطبيق غير مترجم إلى هذه اللغة (أو ترجمة غير مكتملة).\n يمكنك المساهمة في ترجمة التطبيق على منصة Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">جاري تحميل الجملة...</string>
     <string name="btn_skip_sentence">تخطي</string>

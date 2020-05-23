@@ -14,7 +14,7 @@
     <string name="button_home_logout">Se déconnecter</string>
     <string name="button_home_profile">Profil</string>
     <string name="text_hi_username">Salut</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="message_log_in_again">L\'identifiant de session a expiré, vous devez vous reconnecter</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiques</string>
     <string name="dashboardVoicesOnline">Voix en ligne</string>
@@ -106,8 +106,8 @@
     <string name="txt_gestures">Gestes</string>
     <string name="toast_gestures_on">Les gestes sont maintenant activés.</string>
     <string name="toast_gestures_off">Les gestes sont maintenant désactivés.</string>
-    <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="message_review_app_on_play_store">Si vous aimez cette application, n’oubliez pas de la noter sur Google Play.</string>
+    <string name="message_app_not_completely_translated">Cette application n’est pas (entièrement) traduite dans cette langue.\nVous pouvez aider à traduire l’application sur Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Chargement d\'une phrase...</string>
     <string name="btn_skip_sentence">Passer</string>

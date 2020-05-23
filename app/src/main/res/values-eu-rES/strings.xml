@@ -107,7 +107,7 @@
     <string name="toast_gestures_on">Keinuak gaituta daude orain.</string>
     <string name="toast_gestures_off">Keinuak desgaituta daude orain.</string>
     <string name="message_review_app_on_play_store">Mesedez, aplikazio hau gustatzen bazaizu, gogoratu Google Play Storen berrikustea.</string>
-    <string name="message_app_not_completed_translated">Aplikazioa ez dago hizkuntza honetara itzulita (osatuta).\Aplikazioa Crowdin-en itzultzen lagun dezakezu.</string>
+    <string name="message_app_not_completely_translated">Aplikazioa ez dago hizkuntza honetara itzulita (osatuta).\Aplikazioa Crowdin-en itzultzen lagun dezakezu.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>

@@ -35,7 +35,7 @@ _If your language is not now supported by [Common Voice](https://voice.mozilla.o
 
 ### In development...
 
-These features/options aren't available now, but probably the will be available in a future release of the app.
+These features/options aren't available now, but probably they will be available in a future release of the app.
 
 - [priority] Sending validations/recordings in background: so you won't wait anymore that the sending is finished
 - Offline mode (or "Airplane mode"): you will be able to validate clips and record sentences offline, and in a second moment they will be send to the server
@@ -82,6 +82,7 @@ Legend:
 | Status | Percentage | Language (code) | Language (name) | Translators                                                  |                             Link                             |
 | :----: | :--------: | :-------------: | :-------------- | :----------------------------------------------------------- | :----------------------------------------------------------: |
 |   ✅    |    98%     |      `ar`       | Arabic          | [**ABDELGHANI HOURANI**](https://crowdin.com/profile/abdelghani.me) | **[Translate](https://crowdin.com/project/common-voice-android/ar)** |
+|   🔶🔴   |     1%     |      `bn`       | Bengali         | [**Oymate**](https://crowdin.com/profile/Oymate)             | **[Translate](https://crowdin.com/project/common-voice-android/bn)** |
 |   🔶    |    12%     |      `ca`       | Catalan         | [**Carles Paredes Lanau**](https://crowdin.com/profile/carlesparedes) | **[Translate](https://crowdin.com/project/common-voice-android/ca)** |
 |   🔶    |    24%     |      `cs`       | Czech           | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/cs)** |
 |   🔶    |    43%     |      `de`       | German          | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
@@ -95,6 +96,7 @@ Legend:
 |   ✅    |    100%    |      `ia`       | Interlingua     | **[Carmelo Serraino](https://crowdin.com/profile/Melo46)**   | **[Translate](https://crowdin.com/project/common-voice-android/ia)** |
 |   ✅    |    100%    |      `it`       | Italian         | [**Saverio Morelli**](https://github.com/Sav22999)           | **[Translate](https://crowdin.com/project/common-voice-android/it#)** |
 |   🔶    |    20%     |      `nl`       | Dutch           | [**Pander**](https://github.com/PanderMusubi)                | **[Translate](https://crowdin.com/project/common-voice-android/nl)** |
+|   ✅    |    100%    |      `pl`       | Polish          | [**Sobsz**](https://crowdin.com/profile/Sobsz)               | **[Translate](https://crowdin.com/project/common-voice-android/pl)** |
 |   🔶    |    25%     |      `ru`       | Russian         | **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100) | **[Translate](https://crowdin.com/project/common-voice-android/ru)** |
 |   ✅🔴   |    100%    |      `sk`       | Slovak          | [**tadeasbucha**](https://github.com/tadeasbucha), [**xrup**](https://crowdin.com/profile/xrup) | **[Translate](https://crowdin.com/project/common-voice-android/sk)** |
 |   🔶    |    25%     |     `sv-SE`     | Swedish         | **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/sv-SE)** |
