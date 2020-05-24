@@ -42,7 +42,7 @@ import kotlin.collections.HashMap
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val SOURCE_STORE =
-        "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+        "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
@@ -1514,7 +1514,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 val tl = TranslationsLanguages()
                 var detailsMessage = ""
                 if (tl.isUncompleted(this.getSelectedLanguage())) {
-                    detailsMessage = "\n" + getString(R.string.message_app_not_completed_translated)
+                    detailsMessage = "\n" + getString(R.string.message_app_not_completely_translated)
                 }
                 showMessageDialog(
                     "",
