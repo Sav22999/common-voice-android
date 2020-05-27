@@ -4,10 +4,10 @@ import android.app.Application
 import android.media.MediaRecorder
 import androidx.lifecycle.SavedStateHandle
 import org.commonvoice.saverio_lib.api.RetrofitFactory
-import org.commonvoice.saverio_lib.repositories.ClipRepository
-import org.commonvoice.saverio_lib.repositories.SentenceRepository
-import org.commonvoice.saverio_lib.repositories.SoundListeningRepository
-import org.commonvoice.saverio_lib.repositories.SoundRecordingRepository
+import org.commonvoice.saverio_lib.db.AppDB
+import org.commonvoice.saverio_lib.repositories.*
+//import org.commonvoice.saverio_lib.repositories.ClipRepository
+//import org.commonvoice.saverio_lib.repositories.SentenceRepository
 import org.commonvoice.saverio_lib.utils.PrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.koin.androidContext
@@ -21,6 +21,10 @@ import org.koin.dsl.module
  */
 class CommonVoice : Application() {
 
+    private val dbModule = module {
+        single { AppDB.build(androidContext()) }
+    }
+
     private val utilsModule = module {
         single { PrefManager(androidContext()) }
     }
@@ -30,14 +34,16 @@ class CommonVoice : Application() {
     }
 
     private val mvvmRepos = module {
-        single { ClipRepository(get()) }
         single { SoundRecordingRepository() }
-        single { SentenceRepository(get()) }
         single { SoundListeningRepository(androidContext()) }
+        single { ClipsRepository(get(), get()) }
+        single { RecordingsRepository(get()) }
+        single { SentenceRepository(get(), get()) }
+        single { ValidationsRepository(get()) }
     }
 
     private val mvvmViewmodels = module {
-        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get()) }
+        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get()) }
     }
 
     override fun onCreate() {
@@ -46,7 +52,7 @@ class CommonVoice : Application() {
         startKoin {
             androidContext(this@CommonVoice)
             androidLogger()
-            modules(listOf(utilsModule, apiModules, mvvmRepos, mvvmViewmodels))
+            modules(listOf(dbModule, utilsModule, apiModules, mvvmRepos, mvvmViewmodels))
         }
     }
 

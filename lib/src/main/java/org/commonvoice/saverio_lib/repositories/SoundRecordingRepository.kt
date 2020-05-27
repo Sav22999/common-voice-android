@@ -1,7 +1,7 @@
 package org.commonvoice.saverio_lib.repositories
 
 import android.media.MediaRecorder
-import org.commonvoice.saverio_lib.models.RecordableSentence
+//import org.commonvoice.saverio_lib.models.RecordableSentence
 import java.lang.RuntimeException
 
 class SoundRecordingRepository() {
@@ -23,22 +23,22 @@ class SoundRecordingRepository() {
         }
     }
 
-    fun startRecording(recordableSentence: RecordableSentence) {
-        recorder?.apply {
+    fun startRecording(/*recordableSentence: RecordableSentence*/) {
+        /*recorder?.apply {
             setupRecorder()
             setOutputFile(recordableSentence.file.outputStream().fd)
             prepare()
             start()
-        }
+        }*/
     }
 
     fun stopRecording() {
         recorder?.stop()
     }
 
-    fun redoRecording(recordableSentence: RecordableSentence) {
-        recordableSentence.resetFile()
-        startRecording(recordableSentence)
+    fun redoRecording(/*recordableSentence: RecordableSentence*/) {
+        /*recordableSentence.resetFile()
+        startRecording(recordableSentence)*/
     }
 
     fun clean() {

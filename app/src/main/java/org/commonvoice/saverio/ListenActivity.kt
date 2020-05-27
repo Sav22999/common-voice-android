@@ -238,7 +238,11 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             return false
         } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
             return false
-        } else return todayDate.split("/")[2] <= savedDate.split("/")[2]
+        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
+            return false
+        } else {
+            return true
+        }
     }
 
     fun incrementContributing() {
@@ -979,8 +983,12 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             val cm =
                 context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
-
+            if (networkInfo != null && networkInfo.isConnected) {
+                return true
+            } else {
+                //No connection
+                return false
+            }
         }
     }
 

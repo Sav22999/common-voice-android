@@ -31,10 +31,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             when(it) {
                 SpeakViewModel.Companion.State.STANDBY -> {
                     loadUIStateLoading()
-                    speakViewModel.getSentence().observe(this, Observer {
+                    speakViewModel.getSentence()/*.observe(this, Observer {
                         speakViewModel.currentRecording = it
                         setupUIStateStandy()
-                    })
+                    })*/
                 }
                 SpeakViewModel.Companion.State.RECORDING -> {
                     loadUIStateRecording()
@@ -57,15 +57,15 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             speakViewModel.state.postValue(SpeakViewModel.Companion.State.STANDBY)
         }
 
-        buttonReportSentence.onClick {
+        buttonReportSpeak.onClick {
 
         }
 
-        buttonDoItAgain.onClick {
+        buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
         }
 
-        buttonSendRecording.onClick {
+        buttonSendSpeak.onClick {
             speakViewModel.sendRecording().observe(this, Observer {
                 if (it) {
                     Toast.makeText(this, "Registrazione inviata", Toast.LENGTH_LONG).show()
@@ -80,79 +80,79 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         textViewAlert.setText(R.string.txt_loading_sentence)
         textViewSentence.text = "..."
 
-        buttonToggleRecording.setBackgroundResource(R.drawable.speak_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
 
-        buttonReportSentence.visibility = View.GONE
-        buttonDoItAgain.visibility = View.GONE
+        buttonReportSpeak.visibility = View.GONE
+        buttonRecordOrListenAgain.visibility = View.GONE
         buttonSkipSentence.visibility = View.GONE
-        buttonSendRecording.visibility = View.GONE
-        buttonToggleRecording.visibility = View.GONE
+        buttonSendSpeak.visibility = View.GONE
+        buttonStartStopSpeak.visibility = View.GONE
     }
 
     private fun setupUIStateStandy() {
-        buttonToggleRecording.visibility = View.VISIBLE
+        buttonStartStopSpeak.visibility = View.VISIBLE
         buttonSkipSentence.visibility = View.VISIBLE
-        buttonReportSentence.visibility = View.VISIBLE
+        buttonReportSpeak.visibility = View.VISIBLE
 
-        textViewSentence.text = speakViewModel.currentRecording.sentence
+        //textViewSentence.text = speakViewModel.currentRecording.sentence
         textViewAlert.setText(R.string.txt_press_icon_below_speak_1)
 
-        buttonToggleRecording.onClick {
+        buttonStartStopSpeak.onClick {
             speakViewModel.startRecording()
         }
     }
 
     private fun loadUIStateRecording() {
-        buttonToggleRecording.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
 
         textViewAlert.setText(R.string.txt_press_icon_below_speak_2)
 
-        buttonToggleRecording.onClick {
+        buttonStartStopSpeak.onClick {
             speakViewModel.stopRecording()
         }
     }
 
     private fun loadUIStateRecorded() {
-        buttonDoItAgain.visibility = View.VISIBLE
+        buttonRecordOrListenAgain.visibility = View.VISIBLE
 
-        buttonToggleRecording.setBackgroundResource(R.drawable.listen_cv)
-        buttonDoItAgain.setBackgroundResource(R.drawable.speak2_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.listen_cv)
+        buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
         textViewAlert.setText(R.string.txt_press_icon_below_listen_1)
 
-        buttonToggleRecording.onClick {
+        buttonStartStopSpeak.onClick {
             speakViewModel.startListening()
         }
 
-        buttonDoItAgain.onClick {
+        buttonRecordOrListenAgain.onClick {
             speakViewModel.redoRecording()
         }
     }
 
     private fun loadUIStateListening() {
-        buttonDoItAgain.visibility = View.GONE
+        buttonRecordOrListenAgain.visibility = View.GONE
 
-        buttonToggleRecording.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
         textViewAlert.setText(R.string.txt_press_icon_below_listen_2)
 
-        buttonToggleRecording.onClick {
+        buttonStartStopSpeak.onClick {
             speakViewModel.stopListening()
         }
     }
 
     private fun loadUIStateListened() {
         buttonSkipSentence.visibility = View.VISIBLE
-        buttonSendRecording.visibility = View.VISIBLE
-        buttonDoItAgain.visibility = View.VISIBLE
+        buttonSendSpeak.visibility = View.VISIBLE
+        buttonRecordOrListenAgain.visibility = View.VISIBLE
 
         textViewAlert.setText(R.string.txt_recorded_correct_or_wrong)
-        buttonToggleRecording.setBackgroundResource(R.drawable.speak2_cv)
-        buttonDoItAgain.setBackgroundResource(R.drawable.listen2_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
+        buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
 
-        buttonToggleRecording.onClick {
+        buttonStartStopSpeak.onClick {
             speakViewModel.redoRecording()
         }
 
-        buttonDoItAgain.onClick {
+        buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
         }
     }

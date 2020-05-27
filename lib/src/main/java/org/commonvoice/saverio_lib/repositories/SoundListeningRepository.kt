@@ -3,7 +3,7 @@ package org.commonvoice.saverio_lib.repositories
 import android.content.Context
 import android.media.MediaPlayer
 import androidx.core.net.toUri
-import org.commonvoice.saverio_lib.models.RecordableSentence
+//import org.commonvoice.saverio_lib.models.RecordableSentence
 
 class SoundListeningRepository(private val ctx: Context) {
 
@@ -22,12 +22,12 @@ class SoundListeningRepository(private val ctx: Context) {
         mediaPlayer?.reset()
     }
 
-    fun playRecording(recording: RecordableSentence) {
-        mediaPlayer?.apply {
+    fun playRecording(/*recording: RecordableSentence*/) {
+        /*mediaPlayer?.apply {
             setDataSource(ctx, recording.file.toUri())
             prepare()
             start()
-        }
+        }*/
     }
 
     fun stopPlaying() {

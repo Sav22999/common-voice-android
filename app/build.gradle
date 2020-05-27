@@ -60,7 +60,6 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
     //Koin
-    implementation "org.koin:koin-core:2.1.5"
     implementation "org.koin:koin-androidx-viewmodel:2.1.5"
     //https://github.com/InsertKoinIO/koin
 

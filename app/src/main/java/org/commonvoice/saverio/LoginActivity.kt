@@ -731,8 +731,12 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         fun checkInternet(context: Context): Boolean {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
-
+            if (networkInfo != null && networkInfo.isConnected) {
+                return true
+            } else {
+                //No connection
+                return false
+            }
         }
     }
 

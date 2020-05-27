@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.commonvoice.saverio_lib.api.okhttp.AuthenticationInterceptor
 import org.commonvoice.saverio_lib.api.services.ClipService
 import org.commonvoice.saverio_lib.api.services.ReportsService
-import org.commonvoice.saverio_lib.api.services.SentenceService
+import org.commonvoice.saverio_lib.api.services.RecordingsService
 import org.commonvoice.saverio_lib.utils.PrefManager
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -30,11 +30,10 @@ class RetrofitFactory(prefManager: PrefManager) {
 
     private val langRetrofit = baseRetrofit.baseUrl(langURL).build()
     private val genericRetrofit = baseRetrofit.baseUrl(genericURL).build()
-    private val testingRetrofit = baseRetrofit.baseUrl("http://192.168.1.227:5000/").build()
 
     fun makeClipService(): ClipService = langRetrofit.create(ClipService::class.java)
 
-    fun makeSentenceService(): SentenceService = langRetrofit.create(SentenceService::class.java)
+    fun makeRecordingsService(): RecordingsService = langRetrofit.create(RecordingsService::class.java)
 
     fun makeReportsService(): ReportsService = genericRetrofit.create(ReportsService::class.java)
 

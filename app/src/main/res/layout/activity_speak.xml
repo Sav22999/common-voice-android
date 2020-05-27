@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/buttonReportSentence"
+            android:id="@+id/buttonReportSpeak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -34,20 +34,20 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/buttonDoItAgain"
+            android:id="@+id/buttonRecordOrListenAgain"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/speak2_cv"
+            android:background="@drawable/listen2_cv"
             android:textColor="@color/colorWhite"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/buttonToggleRecording"
+            app:layout_constraintBottom_toTopOf="@+id/buttonStartStopSpeak"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible" />
 
         <Button
-            android:id="@+id/buttonSendRecording"
+            android:id="@+id/buttonSendSpeak"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -56,7 +56,7 @@
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonToggleRecording"
+            app:layout_constraintTop_toBottomOf="@+id/buttonStartStopSpeak"
             tools:visibility="visible" />
 
         <View
@@ -68,7 +68,7 @@
             app:layout_constraintBottom_toTopOf="@+id/buttonSkipSentence"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonSendRecording" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSendSpeak" />
 
         <View
             android:id="@+id/viewSeparatorSpeak2"
@@ -76,7 +76,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonDoItAgain"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRecordOrListenAgain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewAlert" />
@@ -89,12 +89,12 @@
             android:background="@drawable/btn_rounded"
             android:text="@string/btn_skip_sentence"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/buttonReportSentence"
+            app:layout_constraintBottom_toTopOf="@+id/buttonReportSpeak"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/buttonToggleRecording"
+            android:id="@+id/buttonStartStopSpeak"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@drawable/speak_cv"

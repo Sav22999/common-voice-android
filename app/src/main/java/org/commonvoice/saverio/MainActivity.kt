@@ -1489,7 +1489,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 val tl = TranslationsLanguages()
                 var detailsMessage = ""
                 if (tl.isUncompleted(this.getSelectedLanguage())) {
-                    detailsMessage = "\n" + getString(R.string.message_app_not_completed_translated)
+                    detailsMessage = "\n" + getString(R.string.message_app_not_completely_translated)
                 }
                 showMessageDialog(
                     "",

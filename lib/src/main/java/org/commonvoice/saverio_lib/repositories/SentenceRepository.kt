@@ -1,18 +1,36 @@
 package org.commonvoice.saverio_lib.repositories
 
-import okhttp3.ResponseBody.Companion.toResponseBody
+import androidx.annotation.WorkerThread
 import org.commonvoice.saverio_lib.api.RetrofitFactory
-import org.commonvoice.saverio_lib.models.RecordableSentence
-import retrofit2.Response
+import org.commonvoice.saverio_lib.db.AppDB
+import org.commonvoice.saverio_lib.models.Sentence
+import java.sql.Timestamp
 
-class SentenceRepository(retrofitFactory: RetrofitFactory) {
+class SentenceRepository(database: AppDB, retrofitFactory: RetrofitFactory) {
 
-    private val sentenceClient = retrofitFactory.makeSentenceService()
+    private val sentenceDao = database.sentences()
 
-    suspend fun getSentences(): Response<List<RecordableSentence>> = try {
-        sentenceClient.getSentence()
-    } catch (e: Exception) {
-        Response.error(500, "".toResponseBody())
-    }
+    @WorkerThread
+    suspend fun insertSentence(sentence: Sentence) = sentenceDao.insertSentence(sentence)
+
+    @WorkerThread
+    suspend fun insertSentences(sentences: List<Sentence>) = sentenceDao.insertSentences(sentences)
+
+    @WorkerThread
+    suspend fun deleteSentence(sentence: Sentence) = sentenceDao.deleteSentence(sentence)
+
+    @WorkerThread
+    suspend fun getSentenceCount() = sentenceDao.getCount()
+
+    fun getLiveSentenceCount() = sentenceDao.getLiveCount()
+
+    @WorkerThread
+    suspend fun getOldestSentence() = sentenceDao.getOldestSentence()
+
+    @WorkerThread
+    suspend fun getOldSentences(dateOfToday: Timestamp) = sentenceDao.getOldSentences(dateOfToday.time)
+
+    @WorkerThread
+    suspend fun deleteOldSentences(dateOfToday: Timestamp) = sentenceDao.deleteOldSentences(dateOfToday.time)
 
 }
