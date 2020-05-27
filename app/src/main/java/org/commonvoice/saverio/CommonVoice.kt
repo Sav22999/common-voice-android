@@ -9,6 +9,7 @@ import org.commonvoice.saverio_lib.repositories.*
 //import org.commonvoice.saverio_lib.repositories.ClipRepository
 //import org.commonvoice.saverio_lib.repositories.SentenceRepository
 import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -44,6 +45,7 @@ class CommonVoice : Application() {
 
     private val mvvmViewmodels = module {
         viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get()) }
+        viewModel { MainActivityViewModel(get()) }
     }
 
     override fun onCreate() {

@@ -33,7 +33,9 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -41,6 +43,9 @@ import kotlin.collections.HashMap
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
+
+    private val viewModel: MainActivityViewModel by viewModel()
+
     private val SOURCE_STORE =
         "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
@@ -130,6 +135,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        viewModel.refreshLocalDatabase()
 
         checkConnection()
 
