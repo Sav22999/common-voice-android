@@ -107,7 +107,7 @@
     <string name="toast_gestures_on">சைகைகள் இப்போது இயக்கப்பட்டன.</string>
     <string name="toast_gestures_off">சைகைகள் இப்போது முடக்கபட்டது.</string>
     <string name="message_review_app_on_play_store">தயவுசெய்து, இந்த செயலியை நீங்கள் விரும்பினால், அதை Google Play Store இல் மதிப்பாய்வு செய்யவும்.</string>
-    <string name="message_app_not_completed_translated">இந்த மொழியில் செயலி மொழிபெயர்க்கப்படவில்லை(முழுமையாக). \nCrowdin-ல் மொழிபெயர்க்க நீங்கள் பங்களிக்க முடியும்.</string>
+    <string name="message_app_not_completely_translated">இந்த மொழியில் செயலி மொழிபெயர்க்கப்படவில்லை(முழுமையாக). \nCrowdin-ல் மொழிபெயர்க்க நீங்கள் பங்களிக்க முடியும்.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">ஒரு வாக்கியம் பெறப்படுகிறது…</string>
     <string name="btn_skip_sentence">தவிர்</string>

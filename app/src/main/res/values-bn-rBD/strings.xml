@@ -2,18 +2,18 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">en</string>
+    <string name="language">bn</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_home">মূল পাতা</string>
+    <string name="title_dashboard">ড্যাশবোর্ড</string>
+    <string name="title_settings">সেটিংস</string>
     <!-- Home (main) -->
     <string name="description_cv_robot">Common Voice logo</string>
     <string name="description_cv_logo">Common Voice robot</string>
-    <string name="button_home_login">Log in / Sign up</string>
-    <string name="button_home_logout">Log out</string>
-    <string name="button_home_profile">Profile</string>
-    <string name="text_hi_username">Hi</string>
+    <string name="button_home_login">লগ ইন/ সাইন আপ</string>
+    <string name="button_home_logout">লগ আউট</string>
+    <string name="button_home_profile">প্রোফাইল</string>
+    <string name="text_hi_username">হাই</string>
     <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
@@ -107,7 +107,7 @@
     <string name="toast_gestures_on">Gestures are now turned on.</string>
     <string name="toast_gestures_off">Gestures are now turned off.</string>
     <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="message_app_not_completely_translated">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading a sentence...</string>
     <string name="btn_skip_sentence">Skip</string>
