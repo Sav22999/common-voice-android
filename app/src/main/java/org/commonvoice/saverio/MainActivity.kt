@@ -12,6 +12,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
@@ -21,10 +22,13 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -33,6 +37,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
+import org.commonvoice.saverio_lib.background.RecordingsUploadWorker.Companion.enqueueRecordingsUploadWorker
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -137,6 +143,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         navView.setupWithNavController(navController)
 
         viewModel.refreshLocalDatabase()
+
+        WorkManager.getInstance(this).enqueueRecordingsUploadWorker()
 
         checkConnection()
 

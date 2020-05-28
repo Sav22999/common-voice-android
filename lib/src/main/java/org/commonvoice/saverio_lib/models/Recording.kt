@@ -2,6 +2,7 @@ package org.commonvoice.saverio_lib.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody
@@ -24,18 +25,13 @@ data class Recording(
     val language: String,
 
     @ColumnInfo(name = "audio")
-    val audio: String,
+    val audio: ByteArray,
 
     @ColumnInfo(name = "expiry")
-    @Transient
-    var expiryDate: Timestamp = getTimestampOfNowPlus(15)
+    val expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
 
 ) {
 
-    val requestBody: RequestBody
-        get() {
-            val file = File(audio)
-            return file.asRequestBody("audio/mpeg".toMediaType())
-        }
+    fun toFailedRecording() = FailedRecording(sentenceId, sentenceText, language, audio, expiryDate, 0)
 
 }

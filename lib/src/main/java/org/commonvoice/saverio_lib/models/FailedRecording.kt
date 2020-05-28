@@ -1,35 +1,36 @@
 package org.commonvoice.saverio_lib.models
 
-import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.Parcelize
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
 
-@Entity(tableName = "sentences")
-@Parcelize
-@JsonClass(generateAdapter = true)
-data class Sentence(
+@Entity(tableName = "failedRecordings")
+data class FailedRecording(
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    @Json(name = "id")
     val sentenceId: String,
 
     @ColumnInfo(name = "text")
-    @Json(name = "text")
     val sentenceText: String,
 
     @ColumnInfo(name = "lang")
-    @Transient
-    var language: String = "en",
+    val language: String,
+
+    @ColumnInfo(name = "audio")
+    val audio: ByteArray,
 
     @ColumnInfo(name = "expiry")
-    @Transient
-    var expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
+    val expiryDate: Timestamp,
 
-) : Parcelable
+    @ColumnInfo(name = "tries")
+    var failedPostsNumber: Int
+
+) {
+
+    fun toRecording(): Recording = Recording(sentenceId, sentenceText, language, audio, expiryDate)
+
+}

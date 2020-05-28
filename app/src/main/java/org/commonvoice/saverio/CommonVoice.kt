@@ -38,14 +38,14 @@ class CommonVoice : Application() {
         single { SoundRecordingRepository() }
         single { SoundListeningRepository(androidContext()) }
         single { ClipsRepository(get(), get()) }
-        single { RecordingsRepository(get()) }
+        single { RecordingsRepository(get(), get()) }
         single { SentenceRepository(get(), get()) }
         single { ValidationsRepository(get()) }
     }
 
     private val mvvmViewmodels = module {
         viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get()) }
-        viewModel { MainActivityViewModel(get()) }
+        viewModel { MainActivityViewModel(get(), get()) }
     }
 
     override fun onCreate() {

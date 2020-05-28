@@ -13,14 +13,21 @@ class PrefManager(ctx: Context) {
         }
 
     var sessIdCookie: String?
-        get() = preferences.getString(Keys.SESSIDCOOKIE.name, null)
+        get() = preferences.getString(Keys.SESSID_COOKIE.name, null)
         set(value) {
-            preferences.edit().putString(Keys.SESSIDCOOKIE.name, value).apply()
+            preferences.edit().putString(Keys.SESSID_COOKIE.name, value).apply()
+        }
+
+    var requiredSentencesCount: Int
+        get() = preferences.getInt(Keys.REQUIRED_SENTENCES_COUNT.name, 50)
+        set(value) {
+            preferences.edit().putInt(Keys.REQUIRED_SENTENCES_COUNT.name, value).apply()
         }
 
     private enum class Keys {
         LANGUAGE,
-        SESSIDCOOKIE
+        SESSID_COOKIE,
+        REQUIRED_SENTENCES_COUNT
     }
 
 }

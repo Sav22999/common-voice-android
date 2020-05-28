@@ -26,7 +26,7 @@ interface SentencesDAO {
     fun getLiveCount(): LiveData<Int>
 
     @Query("SELECT * FROM sentences ORDER BY expiry ASC LIMIT 1")
-    suspend fun getOldestSentence(): Sentence
+    suspend fun getOldestSentence(): Sentence?
 
     @Query("SELECT * FROM sentences WHERE expiry <= :dateOfToday")
     suspend fun getOldSentences(dateOfToday: Long): List<Sentence>

@@ -3,8 +3,7 @@ package org.commonvoice.saverio_lib.api
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.commonvoice.saverio_lib.api.okhttp.AuthenticationInterceptor
-import org.commonvoice.saverio_lib.api.services.ClipService
-import org.commonvoice.saverio_lib.api.services.ReportsService
+import org.commonvoice.saverio_lib.api.services.RecordingService
 import org.commonvoice.saverio_lib.api.services.SentencesService
 import org.commonvoice.saverio_lib.utils.PrefManager
 import retrofit2.Retrofit
@@ -31,7 +30,7 @@ class RetrofitFactory(prefManager: PrefManager) {
     private val langRetrofit = baseRetrofit.baseUrl(langURL).build()
     private val genericRetrofit = baseRetrofit.baseUrl(genericURL).build()
 
-    //fun makeClipService(): ClipService = langRetrofit.create(ClipService::class.java)
+    fun makeRecordingService(): RecordingService = langRetrofit.create(RecordingService::class.java)
 
     fun makeSentenceService(): SentencesService = langRetrofit.create(SentencesService::class.java)
 

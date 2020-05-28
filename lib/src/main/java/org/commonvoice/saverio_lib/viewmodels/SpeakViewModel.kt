@@ -1,12 +1,9 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import org.commonvoice.saverio_lib.api.responses.RecordingSent
 import org.commonvoice.saverio_lib.repositories.SoundListeningRepository
 import org.commonvoice.saverio_lib.repositories.SoundRecordingRepository
 

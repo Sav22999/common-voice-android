@@ -21,6 +21,6 @@ data class Validation(
 
     @ColumnInfo(name = "expiry")
     @Transient
-    var expiryDate: Timestamp = getTimestampOfNowPlus(15)
+    var expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
 
 )

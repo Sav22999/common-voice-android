@@ -26,6 +26,6 @@ interface RecordingsDAO {
     suspend fun deleteOldRecordings(dateOfToday: Long)
 
     @Query("SELECT * FROM recordings ORDER BY expiry ASC")
-    fun getAllRecordings(): LiveData<List<Recording>>
+    suspend fun getAllRecordings(): List<Recording>
 
 }
