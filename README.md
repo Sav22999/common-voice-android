@@ -22,6 +22,12 @@ To support me, you can do a donation :smile: with PayPal:
 
 [<img src="images/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7)
 
+### Beta version
+
+You can download and test also the last features using the Beta version. It's available officially just on Google Play Store:
+
+[<img src="images/googlePlayBadge.png" width="200px"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio.beta)
+
 ### How contribute
 
 If you want to help to develop this app, you can open an `Issue` an send feedback about the features or report bugs.
