@@ -76,15 +76,15 @@ class RecordingsUploadWorker(
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        private fun getRequest() = OneTimeWorkRequestBuilder<RecordingsUploadWorker>()
+        private val request = OneTimeWorkRequestBuilder<RecordingsUploadWorker>()
             .setConstraints(constraint)
             .build()
 
-        fun WorkManager.enqueueRecordingsUploadWorker() {
-            this.enqueueUniqueWork(
+        fun attachToWorkManager(wm: WorkManager) {
+            wm.enqueueUniqueWork(
                 TAG,
                 ExistingWorkPolicy.KEEP,
-                getRequest()
+                request
             )
         }
 

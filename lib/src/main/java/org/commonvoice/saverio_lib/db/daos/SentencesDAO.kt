@@ -1,19 +1,16 @@
 package org.commonvoice.saverio_lib.db.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import org.commonvoice.saverio_lib.models.Sentence
 
 @Dao
 interface SentencesDAO {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSentence(sentence: Sentence)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSentences(sentences: List<Sentence>)
 
     @Delete

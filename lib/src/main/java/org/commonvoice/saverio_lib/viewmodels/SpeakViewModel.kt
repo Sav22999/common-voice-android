@@ -4,22 +4,25 @@ import android.os.Parcelable
 import androidx.lifecycle.*
 import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.commonvoice.saverio_lib.models.Sentence
+import org.commonvoice.saverio_lib.repositories.RecordingsRepository
+import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.repositories.SoundListeningRepository
 import org.commonvoice.saverio_lib.repositories.SoundRecordingRepository
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
-    /*private val clipRepository: ClipRepository,
-    private val sentenceRepository: SentenceRepository,*/
+    private val sentencesRepository: SentencesRepository,
+    private val recordingsRepository: RecordingsRepository,
     private val recordingRepository: SoundRecordingRepository,
-    private val listeningRepository: SoundListeningRepository
+    private val soundListeningRepository: SoundListeningRepository
 ) : ViewModel() {
 
     var state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
 
-    /*var currentRecording: RecordableSentence
-        get() = savedStateHandle.get("currentRecording") ?: RecordableSentence("", "")
-        set(value) { savedStateHandle.set("currentRecording", value) }*/
+    private val _currentSentence: MutableLiveData<Sentence> = savedStateHandle.getLiveData("sentence")
+    val currentSentence: LiveData<Sentence> get() = _currentSentence
 
     init {
         /*listeningRepository.setup {
@@ -51,7 +54,7 @@ class SpeakViewModel(
     }
 
     fun stopListening() {
-        listeningRepository.stopPlaying()
+        //listeningRepository.stopPlaying()
         state.postValue(State.RECORDED)
     }
 
@@ -68,9 +71,13 @@ class SpeakViewModel(
         recordingRepository.redoRecording(currentRecording)*/
     }
 
-    fun getSentence()/*: LiveData<RecordableSentence> = liveData(Dispatchers.IO)*/ {
-        /*val response = sentenceRepository.getSentences()
-        response.body()?.let { emit(it.first()) }*/
+    fun loadNewSentence() = viewModelScope.launch(Dispatchers.IO) {
+        val sentence = sentencesRepository.getOldestSentence()
+        if (sentence != null) {
+            _currentSentence.postValue(sentence)
+        } else {
+            state.postValue(State.STANDBY)
+        }
     }
 
     fun reportSentence(): LiveData<Boolean> = liveData(Dispatchers.IO) {

@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
@@ -27,14 +28,15 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 8573)
         }
 
+        speakViewModel.currentSentence.observe(this, Observer { sentence ->
+            setupUIStateStandby(sentence)
+        })
+
         speakViewModel.state.observe(this, Observer {
             when(it) {
                 SpeakViewModel.Companion.State.STANDBY -> {
                     loadUIStateLoading()
-                    speakViewModel.getSentence()/*.observe(this, Observer {
-                        speakViewModel.currentRecording = it
-                        setupUIStateStandy()
-                    })*/
+                    speakViewModel.loadNewSentence()
                 }
                 SpeakViewModel.Companion.State.RECORDING -> {
                     loadUIStateRecording()
@@ -89,12 +91,12 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonStartStopSpeak.visibility = View.GONE
     }
 
-    private fun setupUIStateStandy() {
+    private fun setupUIStateStandby(sentence: Sentence) {
         buttonStartStopSpeak.visibility = View.VISIBLE
         buttonSkipSentence.visibility = View.VISIBLE
         buttonReportSpeak.visibility = View.VISIBLE
 
-        //textViewSentence.text = speakViewModel.currentRecording.sentence
+        textViewSentence.text = sentence.sentenceText
         textViewAlert.setText(R.string.txt_press_icon_below_speak_1)
 
         buttonStartStopSpeak.onClick {

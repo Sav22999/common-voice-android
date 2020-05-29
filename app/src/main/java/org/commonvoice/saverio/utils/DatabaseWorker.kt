@@ -2,7 +2,7 @@ package org.commonvoice.saverio.utils
 
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
-import org.commonvoice.saverio_lib.repositories.SentenceRepository
+import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -16,7 +16,7 @@ class DatabaseWorker: KoinComponent {
     private val recordingsRepository: RecordingsRepository by inject()
 
     private var isSentencesDoingWork = false
-    private val sentenceRepository: SentenceRepository by inject()
+    private val sentencesRepository: SentencesRepository by inject()
 
     private var isValidationsDoingWork = false
     private val validationsRepository: ValidationsRepository by inject()

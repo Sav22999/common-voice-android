@@ -5,7 +5,7 @@ import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Sentence
 import java.sql.Timestamp
 
-class SentenceRepository(database: AppDB, retrofitFactory: RetrofitFactory) {
+class SentencesRepository(database: AppDB, retrofitFactory: RetrofitFactory) {
 
     private val sentenceDao = database.sentences()
     private val sentenceClient = retrofitFactory.makeSentenceService()

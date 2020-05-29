@@ -24,10 +24,17 @@ class PrefManager(ctx: Context) {
             preferences.edit().putInt(Keys.REQUIRED_SENTENCES_COUNT.name, value).apply()
         }
 
+    var periodicallyRefreshSentences: Boolean
+        get() = preferences.getBoolean(Keys.PERIODICALLY_REFRESH_SENTENCES.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.PERIODICALLY_REFRESH_SENTENCES.name, value).apply()
+        }
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
-        REQUIRED_SENTENCES_COUNT
+        REQUIRED_SENTENCES_COUNT,
+        PERIODICALLY_REFRESH_SENTENCES,
     }
 
 }
