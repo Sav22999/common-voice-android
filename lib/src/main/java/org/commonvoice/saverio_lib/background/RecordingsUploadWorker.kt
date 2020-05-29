@@ -26,6 +26,7 @@ class RecordingsUploadWorker(
         recordingsRepository.deleteOldRecordings(getTimestampOfNowPlus(seconds = 0))
 
         if (recordingsRepository.getRecordingsCount() == 0) {
+            db.close()
             return Result.success()
         }
 
@@ -40,6 +41,7 @@ class RecordingsUploadWorker(
         }
 
         if (failedRecordingsRepository.getNonCriticalFailedRecordingsCount() == 0) {
+            db.close()
             return Result.success()
         }
 
@@ -56,11 +58,8 @@ class RecordingsUploadWorker(
             }
         }
 
-        return if (failedRecordingsRepository.getNonCriticalFailedRecordingsCount() == 0) {
-            Result.success()
-        } else {
-            Result.retry()
-        }
+        db.close()
+        return Result.success()
     }
 
     private suspend fun sendRecording(recording: Recording): Boolean {

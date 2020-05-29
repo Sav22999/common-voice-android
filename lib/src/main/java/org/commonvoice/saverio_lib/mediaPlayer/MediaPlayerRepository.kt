@@ -1,18 +1,16 @@
-package org.commonvoice.saverio_lib.repositories
+package org.commonvoice.saverio_lib.mediaPlayer
 
 import android.content.Context
 import android.media.MediaPlayer
-import androidx.core.net.toUri
-//import org.commonvoice.saverio_lib.models.RecordableSentence
+import org.commonvoice.saverio_lib.models.Recording
 
-class SoundListeningRepository(private val ctx: Context) {
+class MediaPlayerRepository(private val ctx: Context) {
 
     private var mediaPlayer: MediaPlayer? = MediaPlayer()
 
     fun setup(callback: () -> Unit) {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer()
-        }
+        mediaPlayer?.release()
+        mediaPlayer = MediaPlayer()
         mediaPlayer!!.setOnCompletionListener {
             callback()
         }
@@ -22,12 +20,12 @@ class SoundListeningRepository(private val ctx: Context) {
         mediaPlayer?.reset()
     }
 
-    fun playRecording(/*recording: RecordableSentence*/) {
-        /*mediaPlayer?.apply {
-            setDataSource(ctx, recording.file.toUri())
+    fun playRecording(recording: Recording) {
+        mediaPlayer?.apply {
+            setDataSource(ByteArrayDataSource(recording))
             prepare()
             start()
-        }*/
+        }
     }
 
     fun stopPlaying() {

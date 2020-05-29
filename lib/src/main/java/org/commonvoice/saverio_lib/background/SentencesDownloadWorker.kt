@@ -32,25 +32,23 @@ class SentencesDownloadWorker(
         val numberDifference = requiredSentences - sentenceRepository.getSentenceCount()
 
         return if (numberDifference < 0) {
+            db.close()
             Result.failure()
         } else if (numberDifference == 0) {
+            db.close()
             Result.success()
         } else {
             val newSentences = sentenceRepository.getNewSentences(numberDifference)
             if (!newSentences.isSuccessful) {
+                db.close()
                 Result.retry()
             } else {
                 newSentences.body()?.let { sentences ->
                     sentenceRepository.insertSentences(sentences.map { it.setLanguage(currentLanguage) })
                 }
                 val newDifference = requiredSentences - sentenceRepository.getSentenceCount()
-                if (newDifference < 0) {
-                    Result.failure()
-                } else if(newDifference > 0) {
-                    Result.retry()
-                } else {
-                    Result.success()
-                }
+                db.close()
+                return Result.success()
             }
         }
 

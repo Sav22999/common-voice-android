@@ -1,12 +1,15 @@
 package org.commonvoice.saverio_lib.models
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
 
 @Suppress("ArrayInDataClass")
+@Parcelize
 @Entity(tableName = "recordings")
 data class Recording(
 
@@ -26,7 +29,7 @@ data class Recording(
     @ColumnInfo(name = "expiry")
     val expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
 
-) {
+) : Parcelable {
 
     fun toFailedRecording() = FailedRecording(sentenceId, sentenceText, language, audio, expiryDate, 0)
 

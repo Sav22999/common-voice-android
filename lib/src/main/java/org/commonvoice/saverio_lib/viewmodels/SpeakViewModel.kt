@@ -2,21 +2,27 @@ package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
 import androidx.lifecycle.*
+import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
-import org.commonvoice.saverio_lib.repositories.SoundListeningRepository
-import org.commonvoice.saverio_lib.repositories.SoundRecordingRepository
+import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
+import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
+import org.commonvoice.saverio_lib.models.Recording
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
     private val sentencesRepository: SentencesRepository,
     private val recordingsRepository: RecordingsRepository,
-    private val recordingRepository: SoundRecordingRepository,
-    private val soundListeningRepository: SoundListeningRepository
+    private val mediaRecorderRepository: MediaRecorderRepository,
+    private val mediaPlayerRepository: MediaPlayerRepository,
+    private val workManager: WorkManager
 ) : ViewModel() {
 
     var state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
@@ -24,51 +30,69 @@ class SpeakViewModel(
     private val _currentSentence: MutableLiveData<Sentence> = savedStateHandle.getLiveData("sentence")
     val currentSentence: LiveData<Sentence> get() = _currentSentence
 
-    init {
-        /*listeningRepository.setup {
-            state.postValue(State.LISTENED)
-        }*/
-    }
+    private var currentRecording: Recording?
+        get() = savedStateHandle["currentRecording"]
+        set(value) { savedStateHandle["currentRecording"] = value }
 
-    private fun resetListeningRepository() {
-        /*listeningRepository.reset()
-        listeningRepository.setup {
-            state.postValue(State.LISTENED)
-        }*/
+    init {
+        mediaRecorderRepository.setupRecorder()
     }
 
     fun startRecording() {
-        /*recordingRepository.startRecording(currentRecording)
-        state.postValue(State.RECORDING)*/
+        mediaRecorderRepository.startRecording()
+        state.postValue(State.RECORDING)
     }
 
     fun stopRecording() {
-        /*recordingRepository.stopRecording()
-        state.postValue(State.RECORDED)*/
+        _currentSentence.value?.let { sentence ->
+            currentRecording = mediaRecorderRepository.stopRecordingAndReadData(sentence)
+            state.postValue(State.RECORDED)
+        }
+    }
+
+    fun skipSentence() = viewModelScope.launch(Dispatchers.IO) {
+        currentSentence.value?.let {
+            sentencesRepository.deleteSentence(it)
+        }
+        withContext(Dispatchers.Main) {
+            state.postValue(State.STANDBY)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+        }
     }
 
     fun startListening() {
-        /*resetListeningRepository()
-        listeningRepository.playRecording(currentRecording)
-        state.postValue(State.LISTENING)*/
+        currentRecording?.let { recording ->
+            mediaPlayerRepository.setup {
+                state.postValue(State.LISTENED)
+            }
+            mediaPlayerRepository.playRecording(recording)
+            state.postValue(State.LISTENING)
+        }
     }
 
     fun stopListening() {
-        //listeningRepository.stopPlaying()
+        mediaPlayerRepository.stopPlaying()
         state.postValue(State.RECORDED)
     }
 
-    fun sendRecording(): LiveData<Boolean> = liveData(Dispatchers.IO) {
-        /*val copyOfRecording = currentRecording.copy()
-        state.postValue(State.STANDBY)
-        val response = clipRepository.sendRecording(copyOfRecording.sentence, copyOfRecording.sentence_id, copyOfRecording.file)
-        emit(response.isSuccessful)
-        resetListeningRepository()*/
+    fun redoRecording() {
+        state.postValue(State.RECORDING)
+        mediaRecorderRepository.redoRecording()
     }
 
-    fun redoRecording() {
-        /*state.postValue(State.RECORDING)
-        recordingRepository.redoRecording(currentRecording)*/
+    fun sendRecording() = viewModelScope.launch(Dispatchers.IO) {
+        currentRecording?.let { recording ->
+            recordingsRepository.insertRecording(recording)
+            currentSentence.value?.let {
+                sentencesRepository.deleteSentence(it)
+            }
+            currentRecording = null
+            withContext(Dispatchers.Main) {
+                state.postValue(State.STANDBY)
+                RecordingsUploadWorker.attachToWorkManager(workManager)
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            }
+        }
     }
 
     fun loadNewSentence() = viewModelScope.launch(Dispatchers.IO) {
@@ -80,12 +104,9 @@ class SpeakViewModel(
         }
     }
 
-    fun reportSentence(): LiveData<Boolean> = liveData(Dispatchers.IO) {
-
-    }
-
     override fun onCleared() {
-        recordingRepository.clean()
+        mediaRecorderRepository.clean()
+        mediaPlayerRepository.clean()
         super.onCleared()
     }
 

@@ -38,4 +38,12 @@ data class Sentence(
         language = lang
     }
 
+    fun toRecording(array: ByteArray) = Recording(
+        sentenceId,
+        sentenceText,
+        language,
+        array,
+        expiryDate
+    )
+
 }

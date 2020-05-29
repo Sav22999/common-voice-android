@@ -56,7 +56,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun setupInitialUIState() {
         buttonSkipSentence.onClick {
-            speakViewModel.state.postValue(SpeakViewModel.Companion.State.STANDBY)
+            speakViewModel.skipSentence()
         }
 
         buttonReportSpeak.onClick {
@@ -68,13 +68,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
 
         buttonSendSpeak.onClick {
-            speakViewModel.sendRecording().observe(this, Observer {
-                if (it) {
-                    Toast.makeText(this, "Registrazione inviata", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(this, "Errore", Toast.LENGTH_LONG).show()
-                }
-            })
+            speakViewModel.sendRecording()
         }
     }
 

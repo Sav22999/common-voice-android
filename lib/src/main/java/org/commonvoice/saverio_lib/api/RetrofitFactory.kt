@@ -33,7 +33,7 @@ class RetrofitFactory(prefManager: PrefManager) {
 
     private val genericRetrofit = baseRetrofit.baseUrl(genericURL).build()
 
-    
+
     fun makeRecordingService(): RecordingsService = genericRetrofit.create(RecordingsService::class.java)
 
     fun makeSentenceService(): SentencesService = langRetrofit.create(SentencesService::class.java)

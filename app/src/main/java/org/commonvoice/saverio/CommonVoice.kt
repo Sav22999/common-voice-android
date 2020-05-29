@@ -2,8 +2,12 @@ package org.commonvoice.saverio
 
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
+import androidx.work.WorkManager
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
+import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
+import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
+import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.repositories.*
 import org.commonvoice.saverio_lib.utils.PrefManager
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
@@ -24,7 +28,9 @@ class CommonVoice : Application() {
     }
 
     private val utilsModule = module {
+        factory { WorkManager.getInstance(androidContext()) }
         single { PrefManager(androidContext()) }
+        single { FileHolder(androidContext()) }
     }
 
     private val apiModules = module {
@@ -32,8 +38,12 @@ class CommonVoice : Application() {
     }
 
     private val mvvmRepos = module {
-        single { SoundRecordingRepository() }
-        single { SoundListeningRepository(androidContext()) }
+        single { MediaRecorderRepository(get()) }
+        single {
+            MediaPlayerRepository(
+                androidContext()
+            )
+        }
         single { ClipsRepository(get(), get()) }
         single { RecordingsRepository(get(), get()) }
         single { SentencesRepository(get(), get()) }
@@ -41,7 +51,7 @@ class CommonVoice : Application() {
     }
 
     private val mvvmViewmodels = module {
-        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get()) }
+        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get(), get()) }
         viewModel { MainActivityViewModel(get(), get()) }
     }
 

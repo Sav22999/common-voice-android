@@ -9,11 +9,12 @@ fun File.openDirectory(dirName: String): File {
     }
 
     return this.resolve(dirName).also {
-        if (!it.isDirectory) {
-            throw RuntimeException("$dirName is not a directory")
-        }
         if (!it.exists()) {
             it.mkdir()
+        }
+
+        if (!it.isDirectory) {
+            throw RuntimeException("$dirName is not a directory")
         }
     }
 }
@@ -25,6 +26,10 @@ fun File.openFile(fileName: String): File {
     }
 
     return this.resolve(fileName).also {
+        if (!it.exists()) {
+            it.createNewFile()
+        }
+
         if (!it.isFile) {
             throw RuntimeException("$fileName is not a file")
         }
