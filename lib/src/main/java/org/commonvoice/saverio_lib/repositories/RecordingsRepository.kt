@@ -21,7 +21,7 @@ class RecordingsRepository(
     suspend fun postRecording(recording: Recording): Response<RecordingResult> {
         val encodedSentence = URLEncoder.encode(recording.sentenceText, "UTF-8").replace("+", "%20")
         val requestBody = recording.audio.toRequestBody()
-        return recordingsClient.sendRecording(encodedSentence, recording.sentenceId, requestBody)
+        return recordingsClient.sendRecording(recording.language, encodedSentence, recording.sentenceId, requestBody)
     }
 
     @WorkerThread

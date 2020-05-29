@@ -21,6 +21,8 @@ class SentencesDownloadWorker(
 
     private val requiredSentences: Int = prefManager.requiredSentencesCount
 
+    private val currentLanguage = prefManager.language
+
     private val sentenceRepository = SentencesRepository(db, retrofitFactory)
 
     override suspend fun doWork(): Result {
@@ -39,7 +41,7 @@ class SentencesDownloadWorker(
                 Result.retry()
             } else {
                 newSentences.body()?.let { sentences ->
-                    sentenceRepository.insertSentences(sentences)
+                    sentenceRepository.insertSentences(sentences.map { it.setLanguage(currentLanguage) })
                 }
                 val newDifference = requiredSentences - sentenceRepository.getSentenceCount()
                 if (newDifference < 0) {

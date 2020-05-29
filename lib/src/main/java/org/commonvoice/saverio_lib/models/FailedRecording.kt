@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
 
+@Suppress("ArrayInDataClass")
 @Entity(tableName = "failedRecordings")
 data class FailedRecording(
 
@@ -20,7 +21,7 @@ data class FailedRecording(
     @ColumnInfo(name = "lang")
     val language: String,
 
-    @ColumnInfo(name = "audio")
+    @ColumnInfo(name = "audio", typeAffinity = ColumnInfo.BLOB)
     val audio: ByteArray,
 
     @ColumnInfo(name = "expiry")

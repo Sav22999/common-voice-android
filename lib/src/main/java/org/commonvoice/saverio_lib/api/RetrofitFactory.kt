@@ -3,7 +3,7 @@ package org.commonvoice.saverio_lib.api
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.commonvoice.saverio_lib.api.okhttp.AuthenticationInterceptor
-import org.commonvoice.saverio_lib.api.services.RecordingService
+import org.commonvoice.saverio_lib.api.services.RecordingsService
 import org.commonvoice.saverio_lib.api.services.SentencesService
 import org.commonvoice.saverio_lib.utils.PrefManager
 import retrofit2.Retrofit
@@ -16,7 +16,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class RetrofitFactory(prefManager: PrefManager) {
 
     private val genericURL = "https://voice.allizom.org/api/v1/"
+
     private val langURL = genericURL + prefManager.language + "/"
+
 
     private val baseRetrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
@@ -28,9 +30,11 @@ class RetrofitFactory(prefManager: PrefManager) {
         )
 
     private val langRetrofit = baseRetrofit.baseUrl(langURL).build()
+
     private val genericRetrofit = baseRetrofit.baseUrl(genericURL).build()
 
-    fun makeRecordingService(): RecordingService = langRetrofit.create(RecordingService::class.java)
+    
+    fun makeRecordingService(): RecordingsService = genericRetrofit.create(RecordingsService::class.java)
 
     fun makeSentenceService(): SentencesService = langRetrofit.create(SentencesService::class.java)
 

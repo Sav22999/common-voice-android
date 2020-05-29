@@ -2,15 +2,11 @@ package org.commonvoice.saverio_lib.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.asRequestBody
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
-import java.io.File
 import java.sql.Timestamp
 
+@Suppress("ArrayInDataClass")
 @Entity(tableName = "recordings")
 data class Recording(
 
@@ -24,7 +20,7 @@ data class Recording(
     @ColumnInfo(name = "lang")
     val language: String,
 
-    @ColumnInfo(name = "audio")
+    @ColumnInfo(name = "audio", typeAffinity = ColumnInfo.BLOB)
     val audio: ByteArray,
 
     @ColumnInfo(name = "expiry")

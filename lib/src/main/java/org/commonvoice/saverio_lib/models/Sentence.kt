@@ -30,6 +30,12 @@ data class Sentence(
 
     @ColumnInfo(name = "expiry")
     @Transient
-    var expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
+    val expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
 
-) : Parcelable
+) : Parcelable {
+
+    fun setLanguage(lang: String) = this.also {
+        language = lang
+    }
+
+}
