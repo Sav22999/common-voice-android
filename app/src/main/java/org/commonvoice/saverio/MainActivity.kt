@@ -36,8 +36,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
-import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -47,7 +47,7 @@ import kotlin.collections.HashMap
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
-    private val viewModel: MainActivityViewModel by viewModel()
+    private val workManager: WorkManager by inject()
 
     private val SOURCE_STORE =
         "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
@@ -139,13 +139,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        viewModel.refreshLocalDatabase()
-
-        val workManager = WorkManager.getInstance(this)
         RecordingsUploadWorker.attachToWorkManager(workManager)
         SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
-        checkConnection()
+        //checkConnection()
 
         this.firstRun =
             getSharedPreferences(settingsSwitchData["PREF_NAME"], PRIVATE_MODE).getBoolean(
@@ -1544,9 +1541,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun openNoConnection() {
-        Intent(this, NoConnectionActivity::class.java).also {
+        /*Intent(this, NoConnectionActivity::class.java).also {
             startActivity(it)
-        }
+        }*/
     }
 
     fun startAnimation(img: Button) {

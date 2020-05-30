@@ -1,4 +1,4 @@
-package org.commonvoice.saverio_lib.api.okhttp
+package org.commonvoice.saverio_lib.api.auth
 
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -12,9 +12,19 @@ class AuthenticationInterceptor(
     private val prefManager: PrefManager
 ) : Interceptor {
 
-    companion object {
-        const val token =
-            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
+    private val token: String
+
+    init {
+        if (prefManager.tokenUserId == "" || prefManager.tokenAuth == "") {
+            val pair = AuthPairManager.generateAuthPair()
+            val (userId, authToken) = pair
+            prefManager.tokenUserId = userId
+            prefManager.tokenAuth = authToken
+            token = "Basic ${AuthPairManager.encodeAuthPair(pair)}"
+        } else {
+            val pair = Pair(prefManager.tokenUserId, prefManager.tokenAuth)
+            token = "Basic ${AuthPairManager.encodeAuthPair(pair)}"
+        }
     }
 
     //We recreate the request changing the headers
@@ -25,7 +35,9 @@ class AuthenticationInterceptor(
                 addHeader("Cookie", "connect.sid=${prefManager.sessIdCookie}")
             } else {
                 //If the user isn't authenticated we use a generic token
-                addHeader("Authorization", token)
+                addHeader("Authorization",
+                    token
+                )
             }
         }.build())
     }

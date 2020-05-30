@@ -12,6 +12,18 @@ class PrefManager(ctx: Context) {
             preferences.edit().putString(Keys.LANGUAGE.name, value).apply()
         }
 
+    var tokenUserId: String
+        get() = preferences.getString(Keys.TOKEN_USERID.name, "") ?: ""
+        set(value) {
+            preferences.edit().putString(Keys.TOKEN_USERID.name, value).apply()
+        }
+
+    var tokenAuth: String
+        get() = preferences.getString(Keys.TOKEN_AUTH.name, "") ?: ""
+        set(value) {
+            preferences.edit().putString(Keys.TOKEN_AUTH.name, value).apply()
+        }
+
     var sessIdCookie: String?
         get() = preferences.getString(Keys.SESSID_COOKIE.name, null)
         set(value) {
@@ -33,6 +45,8 @@ class PrefManager(ctx: Context) {
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
+        TOKEN_USERID,
+        TOKEN_AUTH,
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
     }
