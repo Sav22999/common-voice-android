@@ -2,7 +2,7 @@ package org.commonvoice.saverio_lib.utils
 
 import android.content.Context
 
-class PrefManager(ctx: Context) {
+class PrefManager(private val ctx: Context) {
 
     private val preferences = ctx.getSharedPreferences("mainPreferences", Context.MODE_PRIVATE)
 
@@ -42,6 +42,15 @@ class PrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.PERIODICALLY_REFRESH_SENTENCES.name, value).apply()
         }
 
+    var areGesturesEnabled: Boolean
+        get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.GESTURES_ENABLED.name, value).apply()
+        }
+
+    val deviceOrientation: Int
+        get() = ctx.resources.configuration.orientation
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
@@ -49,6 +58,7 @@ class PrefManager(ctx: Context) {
         TOKEN_AUTH,
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
+        GESTURES_ENABLED
     }
 
 }

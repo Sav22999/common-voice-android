@@ -1,16 +1,15 @@
 package org.commonvoice.saverio_lib.api.services
 
-import retrofit2.http.Header
+import org.commonvoice.saverio_lib.models.Report
+import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface ReportsService {
 
-    @Headers("Accept-Type: application/json", "kind: sentence")
+    @Headers("Accept-Type: application/json")
     @POST("reports")
-    suspend fun reportSentence(
-        @Header("reasons") reasons: List<String>,
-        @Header("id") id: String
-    )
+    suspend fun sendReport(@Body reportData: Report)
+
 
 }

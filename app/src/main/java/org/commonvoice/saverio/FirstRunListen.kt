@@ -1,6 +1,5 @@
 package org.commonvoice.saverio
 
-import OnSwipeTouchListener
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -12,9 +11,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
-import kotlinx.android.synthetic.main.activity_tutorial.*
 import kotlinx.android.synthetic.main.first_run_listen.*
-import kotlinx.android.synthetic.main.first_run_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 
 

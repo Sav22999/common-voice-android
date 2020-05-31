@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.commonvoice.saverio_lib.api.auth.AuthenticationInterceptor
 import org.commonvoice.saverio_lib.api.services.RecordingsService
+import org.commonvoice.saverio_lib.api.services.ReportsService
 import org.commonvoice.saverio_lib.api.services.SentencesService
 import org.commonvoice.saverio_lib.utils.PrefManager
 import retrofit2.Retrofit
@@ -42,6 +43,6 @@ class RetrofitFactory(prefManager: PrefManager) {
 
     fun makeSentenceService(): SentencesService = langRetrofit.create(SentencesService::class.java)
 
-    //fun makeReportsService(): ReportsService = genericRetrofit.create(ReportsService::class.java)
+    fun makeReportsService(): ReportsService = genericRetrofit.create(ReportsService::class.java)
 
 }

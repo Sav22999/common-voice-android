@@ -1,6 +1,5 @@
 package org.commonvoice.saverio
 
-import OnSwipeTouchListener
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle

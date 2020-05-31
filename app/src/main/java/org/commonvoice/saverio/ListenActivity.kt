@@ -1,6 +1,5 @@
 package org.commonvoice.saverio
 
-import OnSwipeTouchListener
 import android.Manifest
 import android.content.Context
 import android.content.Intent

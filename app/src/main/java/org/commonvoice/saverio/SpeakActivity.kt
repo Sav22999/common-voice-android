@@ -1,10 +1,11 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -14,23 +15,34 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import kotlin.random.Random
 
 class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private val speakViewModel: SpeakViewModel by stateViewModel()
+
+    private val permissionRequestCode by lazy {
+        Random.nextInt(10000)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupInitialUIState()
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 8573)
+        if (obtainPermissions()) {
+            setupUI()
         }
+    }
 
+    private fun setupUI() {
         speakViewModel.currentSentence.observe(this, Observer { sentence ->
             setupUIStateStandby(sentence)
         })
+
+        if (prefManager.areGesturesEnabled) {
+            setupGestures()
+        }
 
         speakViewModel.state.observe(this, Observer {
             when(it) {
@@ -54,13 +66,35 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         })
     }
 
+    private fun setupGestures() {
+        nestedScrollSpeak.setOnTouchListener(object: OnSwipeTouchListener(this@SpeakActivity) {
+            override fun onSwipeLeft() {
+                speakViewModel.skipSentence()
+            }
+
+            override fun onSwipeRight() {
+                onBackPressed()
+            }
+
+            override fun onSwipeTop() {
+                if (prefManager.deviceOrientation == ORIENTATION_PORTRAIT) {
+                    openReportDialog()
+                }
+            }
+        })
+    }
+
+    private fun openReportDialog() {
+
+    }
+
     private fun setupInitialUIState() {
         buttonSkipSentence.onClick {
             speakViewModel.skipSentence()
         }
 
         buttonReportSpeak.onClick {
-
+            openReportDialog()
         }
 
         buttonRecordOrListenAgain.onClick {
@@ -153,8 +187,29 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun obtainPermissions() {
+    private fun obtainPermissions(): Boolean {
+        return if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), permissionRequestCode)
+            false
+        } else {
+            true
+        }
+    }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == permissionRequestCode) {
+            if (grantResults.firstOrNull() != PackageManager.PERMISSION_GRANTED) {
+                Intent(this, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else {
+                setupUI()
+            }
+        } else super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
 }
