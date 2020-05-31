@@ -13,4 +13,12 @@ object DBTypeConverters {
     @TypeConverter
     fun longToTimestamp(timeMillis: Long) = Timestamp(timeMillis)
 
+    @JvmStatic
+    @TypeConverter
+    fun stringListToString(list: List<String>) = list.joinToString(",")
+
+    @JvmStatic
+    @TypeConverter
+    fun stringToStringList(list: String) = list.split(',')
+
 }

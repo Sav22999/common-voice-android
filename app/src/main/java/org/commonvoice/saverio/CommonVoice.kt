@@ -47,7 +47,7 @@ class CommonVoice : Application() {
     }
 
     private val mvvmViewmodels = module {
-        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get(), get()) }
+        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get(), get(), get()) }
     }
 
     override fun onCreate() {

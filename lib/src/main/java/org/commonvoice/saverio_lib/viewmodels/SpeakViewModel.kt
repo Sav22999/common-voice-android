@@ -15,6 +15,9 @@ import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.models.Recording
+import org.commonvoice.saverio_lib.models.Report
+import org.commonvoice.saverio_lib.repositories.ReportsRepository
+import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
@@ -22,6 +25,7 @@ class SpeakViewModel(
     private val recordingsRepository: RecordingsRepository,
     private val mediaRecorderRepository: MediaRecorderRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,
+    private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager
 ) : ViewModel() {
 

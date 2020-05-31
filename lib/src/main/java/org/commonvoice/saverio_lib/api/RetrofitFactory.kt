@@ -20,7 +20,6 @@ class RetrofitFactory(prefManager: PrefManager) {
 
     private val langURL = genericURL + prefManager.language + "/"
 
-
     private val baseRetrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
         .client(

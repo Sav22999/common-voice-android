@@ -3,29 +3,31 @@ package org.commonvoice.saverio_lib.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
+import java.sql.Timestamp
 
 @Entity(tableName = "reports")
-@JsonClass(generateAdapter = true)
 data class Report(
 
-    @PrimaryKey
-    @Json(name = "id")
-    val sentenceId: String,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
+
+    @ColumnInfo(name = "sentence_id")
+    var sentenceId: String = "",
 
     @ColumnInfo(name = "kind")
-    @Json(name = "kind")
-    val name: String,
+    var kind: String = "",
 
     @ColumnInfo(name = "reasons")
-    @Json(name = "reasons")
-    val reasons: List<String>
+    var reasons: List<String> = listOf(),
+
+    @ColumnInfo(name = "expiry_date")
+    var expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
 
 ) {
 
-    constructor(sentence: Sentence, reasons: List<String>) : this(sentence.sentenceId, "sentence", reasons)
+    constructor(sentence: Sentence, reasons: List<String>) : this(0, sentence.sentenceId, "sentence", reasons, getTimestampOfNowPlus(days = 7))
 
-    constructor(clip: Clip, reasons: List<String>) : this(clip.id, "clip", reasons)
+    constructor(clip: Clip, reasons: List<String>) : this(0, clip.id, "clip", reasons, getTimestampOfNowPlus(days = 7))
 
 }
