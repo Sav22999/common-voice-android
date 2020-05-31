@@ -8,9 +8,11 @@ This is not the official app of the Common Voice project by Mozilla. This app is
 
 [![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
-[<img src="images/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ)  [<img src="images/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
+[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/badges/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ)  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
 
 If you have any questions, please open an issue (you can add the label `question` there).
+
+[<img src="images/icons/telegram.png" height="50px"></img>](https://bit.ly/3clgfkg) You can join the [Telegram group](https://bit.ly/3clgfkg) of the app [English], where you can ask for support or if you want to know news and updates about the app.
 
 [**You can see Anonymous Statistics**](https://bit.ly/35d2dza)
 
@@ -20,13 +22,13 @@ If you like this project, leave a *Star* to receive updates on your *GitHub dash
 
 To support me, you can do a donation :smile: with PayPal:
 
-[<img src="images/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7)
+[<img src="images/badges/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7)
 
 ### Beta version
 
 You can download and test also the last features using the Beta version. It's available officially just on Google Play Store:
 
-[<img src="images/googlePlayBadge.png" width="200px"></img>](https://play.google.com/store/apps/details?id=org.commonvoice.saverio.beta)
+[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/36KgQep)
 
 ### How contribute
 
@@ -113,7 +115,7 @@ Legend:
 
 The license of *Common Voice Android* is GPLv3.
 
-<img src="images/gpl.png" width="100px"></img>
+<img src="images/icons/gpl.png" width="100px"></img>
 
 
 
