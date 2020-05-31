@@ -115,7 +115,7 @@
             android:backgroundTintMode="screen"
             android:gravity="center|center_horizontal|center_vertical"
             android:padding="16px"
-            android:text="Sentence to record ..."
+            android:text="..."
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
             android:textSize="30dp"
