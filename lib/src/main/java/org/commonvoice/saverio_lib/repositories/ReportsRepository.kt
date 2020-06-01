@@ -2,7 +2,7 @@ package org.commonvoice.saverio_lib.repositories
 
 import androidx.annotation.WorkerThread
 import org.commonvoice.saverio_lib.api.RetrofitFactory
-import org.commonvoice.saverio_lib.api.retrofitModels.RetrofitReport
+import org.commonvoice.saverio_lib.api.requestBodies.RetrofitReport
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Report
 
@@ -16,7 +16,11 @@ class ReportsRepository(
     private val reportsClient = retrofitFactory.makeReportsService()
 
     suspend fun postReport(report: Report) {
-        reportsClient.sendReport(RetrofitReport(report))
+        reportsClient.sendReport(
+            RetrofitReport(
+                report
+            )
+        )
     }
 
     @WorkerThread

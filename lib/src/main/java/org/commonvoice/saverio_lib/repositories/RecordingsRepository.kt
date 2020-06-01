@@ -3,7 +3,7 @@ package org.commonvoice.saverio_lib.repositories
 import androidx.annotation.WorkerThread
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.commonvoice.saverio_lib.api.RetrofitFactory
-import org.commonvoice.saverio_lib.api.responses.RecordingResult
+import org.commonvoice.saverio_lib.api.responseBodies.RetrofitRecordingResult
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Recording
 import retrofit2.Response
@@ -18,7 +18,7 @@ class RecordingsRepository(
     private val recordingsDao = database.recordings()
     private val recordingsClient = retrofitFactory.makeRecordingService()
 
-    suspend fun postRecording(recording: Recording): Response<RecordingResult> {
+    suspend fun postRecording(recording: Recording): Response<RetrofitRecordingResult> {
         val encodedSentence = URLEncoder.encode(recording.sentenceText, "UTF-8").replace("+", "%20")
         val requestBody = recording.audio.toRequestBody()
         return recordingsClient.sendRecording(recording.language, encodedSentence, recording.sentenceId, requestBody)

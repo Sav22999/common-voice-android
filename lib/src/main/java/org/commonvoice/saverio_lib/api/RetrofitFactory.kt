@@ -6,6 +6,7 @@ import org.commonvoice.saverio_lib.api.auth.AuthenticationInterceptor
 import org.commonvoice.saverio_lib.api.services.RecordingsService
 import org.commonvoice.saverio_lib.api.services.ReportsService
 import org.commonvoice.saverio_lib.api.services.SentencesService
+import org.commonvoice.saverio_lib.api.services.StatsService
 import org.commonvoice.saverio_lib.utils.PrefManager
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -20,6 +21,8 @@ class RetrofitFactory(prefManager: PrefManager) {
 
     private val langURL = genericURL + prefManager.language + "/"
 
+    private val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/v2/"
+
     private val baseRetrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
         .client(
@@ -33,6 +36,14 @@ class RetrofitFactory(prefManager: PrefManager) {
                 .build()
         )
 
+    private val statsRetrofit = Retrofit.Builder()
+        .addConverterFactory(MoshiConverterFactory.create())
+        .client(OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            .build())
+        .baseUrl(statsURL)
+        .build()
+
     private val langRetrofit = baseRetrofit.baseUrl(langURL).build()
 
     private val genericRetrofit = baseRetrofit.baseUrl(genericURL).build()
@@ -43,5 +54,7 @@ class RetrofitFactory(prefManager: PrefManager) {
     fun makeSentenceService(): SentencesService = langRetrofit.create(SentencesService::class.java)
 
     fun makeReportsService(): ReportsService = genericRetrofit.create(ReportsService::class.java)
+
+    fun makeStatsService(): StatsService = statsRetrofit.create(StatsService::class.java)
 
 }

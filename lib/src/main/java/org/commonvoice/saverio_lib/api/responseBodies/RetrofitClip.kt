@@ -1,4 +1,4 @@
-package org.commonvoice.saverio_lib.api.retrofitModels
+package org.commonvoice.saverio_lib.api.responseBodies
 
 import androidx.room.*
 import com.squareup.moshi.Json

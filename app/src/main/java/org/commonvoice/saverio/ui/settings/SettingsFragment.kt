@@ -15,9 +15,13 @@ import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio_lib.utils.PrefManager
+import org.koin.android.ext.android.inject
 
 
 class SettingsFragment : Fragment() {
+
+    private val prefManager: PrefManager by inject()
 
     private lateinit var settingsViewModel: SettingsViewModel
     var languagesListShort =
@@ -218,6 +222,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            prefManager.areGesturesEnabled = isChecked
             main.setGesturesSettingsSwitch(isChecked)
         }
         gesturesSettings.isChecked = main.getGesturesSettingsSwitch()

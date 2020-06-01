@@ -1,4 +1,4 @@
-package org.commonvoice.saverio_lib.api.retrofitModels
+package org.commonvoice.saverio_lib.api.requestBodies
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

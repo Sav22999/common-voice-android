@@ -1,6 +1,6 @@
 package org.commonvoice.saverio_lib.api.services
 
-import org.commonvoice.saverio_lib.api.retrofitModels.RetrofitReport
+import org.commonvoice.saverio_lib.api.requestBodies.RetrofitReport
 import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
