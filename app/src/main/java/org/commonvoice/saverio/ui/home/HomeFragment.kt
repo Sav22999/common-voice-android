@@ -12,13 +12,16 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    //private lateinit var homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,13 +77,17 @@ class HomeFragment : Fragment() {
         main.startAnimation(btnSpeak)
         main.startAnimation(btnListen)
 
-        main.statisticsAPI()
-
         main.checkNewVersionAvailable()
 
         main.reviewOnPlayStore()
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        homeViewModel.postStats(BuildConfig.VERSION_NAME, MainActivity.SOURCE_STORE)
     }
 
     fun setTheme(view: Context, root: View) {

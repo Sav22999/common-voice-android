@@ -19,7 +19,7 @@ data class RetrofitStatsUpdate(
     val appVersion: String,
 
     @Json(name = "public")
-    val isPublic: Boolean,
+    val isPublic: String,
 
     @Json(name = "source")
     val appSource: String

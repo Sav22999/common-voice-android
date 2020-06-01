@@ -51,6 +51,20 @@ class PrefManager(private val ctx: Context) {
     val deviceOrientation: Int
         get() = ctx.resources.configuration.orientation
 
+
+
+    var statsUserId: String
+        get() = preferences.getString(Keys.STATS_USERID.name, "") ?: ""
+        set(value) {
+            preferences.edit().putString(Keys.STATS_USERID.name, value).apply()
+        }
+
+    var areStatsAnonymous: Boolean
+        get() = preferences.getBoolean(Keys.ARE_STATS_ANONYMOUS.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.ARE_STATS_ANONYMOUS.name, value).apply()
+        }
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
@@ -58,7 +72,10 @@ class PrefManager(private val ctx: Context) {
         TOKEN_AUTH,
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
-        GESTURES_ENABLED
+        GESTURES_ENABLED,
+
+        STATS_USERID,
+        ARE_STATS_ANONYMOUS,
     }
 
 }

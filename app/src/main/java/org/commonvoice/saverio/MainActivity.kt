@@ -29,13 +29,13 @@ import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -48,9 +48,18 @@ import kotlin.collections.HashMap
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val workManager: WorkManager by inject()
+    private val mainActivityViewModel: MainActivityViewModel by viewModel()
 
-    private val SOURCE_STORE =
-        "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+    companion object {
+        const val SOURCE_STORE = "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+
+        fun checkInternet(context: Context): Boolean {
+            val cm =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = cm.activeNetworkInfo
+            return networkInfo != null && networkInfo.isConnected
+        }
+    }
 
     private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
@@ -142,6 +151,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         RecordingsUploadWorker.attachToWorkManager(workManager)
         SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
+        mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
+
         //checkConnection()
 
         this.firstRun =
@@ -170,8 +181,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         this.checkUserLoggedIn()
         this.resetDashboardData()
-
-        this.statisticsAPI()
 
         this.checkIfSessionIsExpired()
         this.reviewOnPlayStore()
@@ -275,126 +284,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun getSourceStore(): String {
-        return this.SOURCE_STORE
-    }
-
-    fun statisticsAPI() {
-        if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
-            val oldStats: String = lastStatisticsSending
-            var newStats: String = "?"
-            if (Build.VERSION.SDK_INT < 26) {
-                val dateTemp = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
-                newStats = dateTemp.format(Date()).toString()
-            } else {
-                val dateTemp = LocalDateTime.now()
-                newStats =
-                    dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString() + " " + dateTemp.hour.toString() + ":" + dateTemp.minute.toString() + ":" + dateTemp.second.toString()
-            }
-            var oldDate: List<String>? = null
-            var oldTime: List<String>? = null
-            var newDate: List<String>? = null
-            var newTime: List<String>? = null
-
-            if (oldStats != "?") {
-                oldDate = oldStats.split(" ")[0].split("/") //year/month/day
-                oldTime =
-                    oldStats.split(" ")[1].split(":") //hours:minutes:seconds
-
-                newDate = newStats.split(" ")[0].split("/") //year/month/day
-                newTime =
-                    newStats.split(" ")[1].split(":") //hours:minutes:seconds
-            }
-
-            if (lastStatisticsSending == "?" || passedThirtySeconds(
-                    oldDate!!,
-                    oldTime!!,
-                    newDate!!,
-                    newTime!!
-                )
-            ) {
-                println("30 seconds passed")
-                lastStatisticsSending = newStats
-                generateUniqueUserId()
-                try {
-                    var loggedYesNotInt = 0
-                    if (this.logged) loggedYesNotInt = 1
-
-                    var languageTemp = this.selectedLanguageVar
-                    if (languageTemp == "") languageTemp = "en"
-
-                    var appVersion = BuildConfig.VERSION_CODE.toString()
-                    if (appVersion == "") appVersion = "n.d."
-
-                    val params = JSONObject()
-                    params.put("username", this.uniqueUserId)
-                    params.put("logged", loggedYesNotInt.toString())
-                    params.put("language", languageTemp)
-                    params.put("version", appVersion)
-                    params.put("public", this.getStatisticsSwitch().toString())
-                    params.put("source", this.SOURCE_STORE)
-
-                    //println(">> params: " + params + "<<")
-
-                    val que = Volley.newRequestQueue(this)
-                    val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
-                        Response.Listener {
-                            //println(" >> " + it.toString())
-                            val jsonResult = it.toString()
-                            val jsonResultArray = arrayOf(jsonResult, "")
-                            val jsonObj = JSONObject(
-                                jsonResultArray[0].substring(
-                                    jsonResultArray[0].indexOf("{"),
-                                    jsonResultArray[0].lastIndexOf("}") + 1
-                                )
-                            )
-                            //println(jsonObj.toString())
-                            /*
-                        if (jsonObj.getString("code").toInt() == 200) {
-                            //println("-->> Record added to the database <<--")
-                        } else {
-                            //println("!!-- Record is already in the database --!!")
-                        }
-                        */
-                            //println(jsonResult)
-                        }, Response.ErrorListener {
-                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                        }
-                    ) {
-                        @Throws(AuthFailureError::class)
-                        override fun getHeaders(): Map<String, String> {
-                            val headers = HashMap<String, String>()
-                            headers.put("Content-Type", "application/json")
-                            return headers
-                        }
-                    }
-                    //Content-Type: application/json
-                    que.add(req)
-                } catch (e: Exception) {
-                    println("!!-- Exception M09 - Statistics --!!")
-                }
-            } else {
-                println("30 seconds didn't pass")
-            }
-        }
-    }
-
-    fun generateUniqueUserId() {
-        this.uniqueUserId =
-            getSharedPreferences(settingsSwitchData["UNIQUE_USER_ID"], PRIVATE_MODE).getString(
-                settingsSwitchData["UNIQUE_USER_ID"],
-                ""
-            )!!
-        if (this.uniqueUserId == "") {
-            var datetime = ""
-            val dateTemp = SimpleDateFormat("yyyyMMddHHmmssSSSS")
-            datetime = dateTemp.format(Date()).toString()
-            this.uniqueUserId = "User" + datetime + "::CVAppSav"
-            //println(">> New -- uniqueUserId: " + this.uniqueUserId + " <<")
-            getSharedPreferences(settingsSwitchData["UNIQUE_USER_ID"], PRIVATE_MODE).edit()
-                .putString(settingsSwitchData["UNIQUE_USER_ID"], this.uniqueUserId).apply()
-        } else {
-            //println(">> Exists -- uniqueUserId: " + this.uniqueUserId + " <<")
-        }
+        return MainActivity.SOURCE_STORE
     }
 
     fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
@@ -605,7 +495,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
-            statisticsAPI()
+            prefManager.areStatsAnonymous = status
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
         }
     }
 
@@ -1528,15 +1419,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         } else {
             openNoConnection()
             return false
-        }
-    }
-
-    companion object {
-        fun checkInternet(context: Context): Boolean {
-            val cm =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = cm.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
         }
     }
 

@@ -10,6 +10,8 @@ import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.repositories.*
 import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -44,10 +46,13 @@ class CommonVoice : Application() {
         single { SentencesRepository(get(), get()) }
         single { ValidationsRepository(get()) }
         single { ReportsRepository(get(), get()) }
+        single { StatsRepository(get(), get()) }
     }
 
     private val mvvmViewmodels = module {
         viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get(), get(), get()) }
+        viewModel { MainActivityViewModel(get()) }
+        viewModel { HomeViewModel(get()) }
     }
 
     override fun onCreate() {
