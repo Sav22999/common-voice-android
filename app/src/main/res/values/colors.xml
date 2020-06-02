@@ -15,6 +15,8 @@
     <color name="colorLightGreen">#228822</color>
     <color name="colorGray">#666666</color>
     <color name="colorSeparator">#404040</color>
+    <color name="colorMenuInactive">#777777</color>
+    <color name="colorMenuActive">#FFFFFF</color>
 
     <!-- Level - Login -->
     <color name="colorLevel1">#FF0000</color>
