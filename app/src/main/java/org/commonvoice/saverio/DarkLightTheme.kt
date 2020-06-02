@@ -67,7 +67,7 @@ class DarkLightTheme {
 
     fun setElement(theme: Boolean, view: Context, top_or_bottom: Int, element: ConstraintLayout) {
         if (theme) {
-            //top_or_buttom = {1: just top | 2: just bottom | 3:both, top and bottom}
+            //top_or_buttom = {1: (radius) just top | 2: just bottom | 3:both, top and bottom}
             /*if (top_or_bottom == 1) {
                 element.setBackgroundResource(R.drawable.top_border_radius)
             } else if (top_or_bottom == 2) {

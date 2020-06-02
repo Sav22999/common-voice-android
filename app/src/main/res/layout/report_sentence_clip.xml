@@ -106,7 +106,7 @@
         <Button
             android:id="@+id/btnCancelReport"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/btn_rounded"
@@ -134,7 +134,7 @@
         <Button
             android:id="@+id/btnSendReport"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/btn_rounded"

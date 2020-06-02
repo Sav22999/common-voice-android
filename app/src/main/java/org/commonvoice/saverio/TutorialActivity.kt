@@ -94,13 +94,14 @@ class TutorialActivity : AppCompatActivity() {
                     }
                 }
             }
-
+            /*
             override fun onSwipeTop() {
                 super.onSwipeTop()
                 if (status == 0 || status == 1) {
                     openTerms()
                 }
             }
+            */
         })
     }
 
@@ -144,7 +145,7 @@ class TutorialActivity : AppCompatActivity() {
     fun tutorialStart0() {
         this.textTutorialMessage.text = getString(R.string.tutorial_terms)
         this.seekBar.progress = 0
-        this.textView_tutorialTerms.isGone = false
+        this.tutorialSectionTerms.isGone = false
         this.textView_tutorial.text = getString(R.string.tutorial_text1)
         var txtSkip = this.textSkipTutorial
         txtSkip.isGone = true
@@ -157,7 +158,7 @@ class TutorialActivity : AppCompatActivity() {
         this.textTutorialMessage.isVisible = false
         this.textTutorialMessage.text = ""
         this.seekBar.progress = 1
-        this.textView_tutorialTerms.isGone = true
+        this.tutorialSectionTerms.isGone = true
         this.textView_tutorial.text = getString(R.string.tutorial_text2)
         var txtSkip = this.textSkipTutorial
         txtSkip.isGone = false
@@ -190,7 +191,8 @@ class TutorialActivity : AppCompatActivity() {
     fun tutorialStartPermissionDenied() {
         // Permission is not granted
         this.textTutorialMessage.isVisible = true
-        this.textTutorialMessage.text = "Error: permission fail"
+        this.textTutorialMessage.text =
+            getString(R.string.txt_permission_failed) // permission failed
         //Toast.makeText(this, "Error: permission fail", Toast.LENGTH_LONG).show()
         this.btn_next.text = getString(R.string.btn_tutorial4) // try again
     }
@@ -198,7 +200,8 @@ class TutorialActivity : AppCompatActivity() {
     fun tutorialStartPermissionSuccessful() {
         // Permission is granted
         this.textTutorialMessage.isVisible = true
-        this.textTutorialMessage.text = "Permission successful"
+        this.textTutorialMessage.text =
+            getString(R.string.txt_permission_successful) // permission successful
         //Toast.makeText(this,"Permission successful",Toast.LENGTH_SHORT).show()
         this.btn_next.text = getString(R.string.btn_tutorial3) // next
         if (this.status == 2) {

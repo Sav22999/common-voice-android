@@ -121,7 +121,7 @@
             <Button
                 android:id="@+id/btn_skip_listen"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/btn_rounded"
                 android:paddingStart="50dp"
@@ -130,7 +130,8 @@
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toTopOf="@+id/buttonReportListen"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/buttonReportListen"

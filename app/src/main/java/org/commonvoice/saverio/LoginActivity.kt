@@ -251,6 +251,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
         var isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutLogin) as ConstraintLayout)
+        theme.setElement(isDark, view, 1, this.findViewById(R.id.loginSectionLogout))
         theme.setElement(isDark, view, this.findViewById(R.id.btnBadges) as Button)
         theme.setElement(isDark, view, this.findViewById(R.id.btnLogout) as Button)
         theme.setElement(

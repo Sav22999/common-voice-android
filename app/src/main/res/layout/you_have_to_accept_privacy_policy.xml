@@ -14,12 +14,12 @@
 
         <Button
             android:id="@+id/btnOpenPrivacyPolicy"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="50dp"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/youHaveToAcceptPrivacyPolicyOpenCommonVoice"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,10 +28,12 @@
 
         <Button
             android:id="@+id/btnCloseLoginPrivacyPolicy"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/btnCloseBadges"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"

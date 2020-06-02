@@ -16,7 +16,7 @@
         <Button
             android:id="@+id/btnBadges"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="@drawable/btn_rounded"
             android:paddingStart="50dp"
@@ -59,14 +59,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/txt_profile_edit_data_alert"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorAlertMessage"
             android:textSize="18sp"
             android:textStyle="italic"
-            app:layout_constraintBottom_toTopOf="@+id/btnLogout"
+            app:layout_constraintBottom_toTopOf="@+id/loginSectionLogout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -115,21 +115,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/labelProfileGender"
             app:layout_constraintTop_toBottomOf="@+id/textProfileAge" />
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/btn_rounded"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
-            android:shadowColor="@color/colorRed"
-            android:text="@string/button_home_logout"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/textProfileEmail"
@@ -268,6 +253,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageProfileImage"
             tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loginSectionLogout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_rounded"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:shadowColor="@color/colorRed"
+                android:text="@string/button_home_logout"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

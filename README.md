@@ -70,10 +70,10 @@ There is already the website, which is responsive and mobile-friendly, but actua
 You can turn on "Gestures" in Settings. These are the supported gestures (now):
 
 |                         **Swipe-up**                         |                        **Swipe-left**                        |                       **Swipe-right**                        |
-| :--: | :--: | :--: |
-| <img src="images/icons/swipe-up.png" height="100px"></img> | <img src="images/icons/swipe-left.png" height="100px"></img> | <img src="images/icons/swipe-right.png" height="100px"></img> |
-| In **Speak** and **Listen** you can swipe-up to *Report* a clip/sentence |In **Speak**, **Listen**, **Login**, **Profile**, **All badges** you can swipe-left to go back (so, it's the some action of "back button")| In **Speak** and **Listen** you can swipe-right to *Skip* the clip/sentence |
-| In **Tutorial** you can swipe-up to see *Terms* (just the first view of tutorial) | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-left to go back to the previous view ("to navigate") | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-right to go forward to the next view ("to navigate") |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|  <img src="images/icons/swipe-up.png" height="100px"></img>  | <img src="images/icons/swipe-left.png" height="100px"></img> | <img src="images/icons/swipe-right.png" height="100px"></img> |
+| In **Speak** and **Listen** you can swipe-up to *Report* a clip/sentence | In **Speak**, **Listen**, **Login**, **Profile**, **All badges** you can swipe-left to go back (so, it's the some action of "back button") | In **Speak** and **Listen** you can swipe-right to *Skip* the clip/sentence |
+| [**removed**] ~~In **Tutorial** you can swipe-up to see *Terms* (just the first view of tutorial)~~ | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-left to go back to the previous view ("to navigate") | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-right to go forward to the next view ("to navigate") |
 
 ### Translations
 
@@ -93,7 +93,7 @@ Legend:
 |   🔶🔴   |     1%     |      `bn`       | Bengali         | [**Oymate**](https://crowdin.com/profile/Oymate)             | **[Translate](https://crowdin.com/project/common-voice-android/bn)** |
 |   🔶    |    12%     |      `ca`       | Catalan         | [**Carles Paredes Lanau**](https://crowdin.com/profile/carlesparedes) | **[Translate](https://crowdin.com/project/common-voice-android/ca)** |
 |   🔶    |    24%     |      `cs`       | Czech           | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/cs)** |
-|   🔶    |    43%     |      `de`       | German          | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
+|   🔶    |    72%     |      `de`       | German          | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd), [**enissen99**](https://crowdin.com/profile/enissen99) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
 |   ✅    |  *(main)*  |      `en`       | English         | [**Saverio Morelli**](https://github.com/Sav22999), [**Cadence Ember**](https://github.com/cloudrac3r) |                         _(nothing)_                          |
 |   🔶    |     1%     |      `eo`       | Esperanto       | [**tuxayo**](https://github.com/tuxayo)                      | **[Translate](https://crowdin.com/project/common-voice-android/eo)** |
 |   🔶    |    25%     |      `es`       | Spanish         | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/es-ES)** |
