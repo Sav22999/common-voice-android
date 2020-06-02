@@ -49,7 +49,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
 
         speakViewModel.state.observe(this, Observer {
-            when(it) {
+            when (it) {
                 SpeakViewModel.Companion.State.STANDBY -> {
                     loadUIStateLoading()
                     speakViewModel.loadNewSentence()
@@ -73,7 +73,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun setupGestures() {
-        nestedScrollSpeak.setOnTouchListener(object: OnSwipeTouchListener(this@SpeakActivity) {
+        nestedScrollSpeak.setOnTouchListener(object : OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
                 speakViewModel.skipSentence()
             }
@@ -95,7 +95,12 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         var isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutSpeak) as ConstraintLayout)
-        theme.setElement(isDark, view, 2, this.findViewById(R.id.speakSectionBottom) as ConstraintLayout)
+        theme.setElement(
+            isDark,
+            view,
+            1,
+            this.findViewById(R.id.speakSectionBottom) as ConstraintLayout
+        )
         theme.setElement(
             isDark,
             view,
@@ -136,7 +141,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateLoading() {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
-        textViewSentence.text = "..."
+        textSentenceSpeak.text = "..."
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
 
@@ -152,7 +157,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonSkipSpeak.visibility = View.VISIBLE
         buttonReportSpeak.visibility = View.VISIBLE
 
-        textViewSentence.text = sentence.sentenceText
+        textSentenceSpeak.text = sentence.sentenceText
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
 
         buttonStartStopSpeak.onClick {
@@ -216,8 +221,16 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun obtainPermissions(): Boolean {
-        return if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), permissionRequestCode)
+        return if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.RECORD_AUDIO),
+                permissionRequestCode
+            )
             false
         } else {
             true

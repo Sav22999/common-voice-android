@@ -45,7 +45,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
 
         <Button
             android:id="@+id/btn_no_thumb"
@@ -57,7 +57,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
 
         <TextView
             android:id="@+id/textMessageAlertListen"
@@ -73,7 +73,7 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
 
         <Button
             android:id="@+id/btn_start_listen"
@@ -84,10 +84,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textListenSentence" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
 
         <TextView
-            android:id="@+id/textListenSentence"
+            android:id="@+id/textSentenceListen"
             android:layout_width="0dp"
             android:layout_height="300dp"
             android:layout_marginStart="8dp"

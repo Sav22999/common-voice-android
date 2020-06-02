@@ -339,13 +339,16 @@
 
         <Button
             android:id="@+id/btnNextListen"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/btn_tutorial1"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toTopOf="@+id/seekBarFirstRunListen"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

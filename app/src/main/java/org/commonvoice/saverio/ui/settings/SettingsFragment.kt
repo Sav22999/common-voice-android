@@ -76,7 +76,7 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        val textProjectGithub: Button = root.findViewById(R.id.textProjectGitHub)
+        val textProjectGithub: Button = root.findViewById(R.id.buttonProjectGitHub)
         textProjectGithub.setOnClickListener {
             val browserIntent =
                 Intent(
@@ -245,10 +245,68 @@ class SettingsFragment : Fragment() {
     }
 
     fun setTheme(view: Context, root: View) {
+        val isDark = theme.getTheme(view)
         theme.setElements(view, root.findViewById(R.id.layoutSettings))
 
+        theme.setElements(view, root.findViewById(R.id.settingsSectionLanguage))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionListen))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionSpeak))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionOther))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionBottom))
+
+        theme.setElement(isDark, view, 2, root.findViewById(R.id.settingsSectionLanguage))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionListen))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionSpeak))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionOther))
+        theme.setElement(isDark, view, 1, root.findViewById(R.id.settingsSectionBottom))
+
+
         theme.setElement(
-            theme.getTheme(view),
+            isDark,
+            view,
+            root.findViewById(R.id.textRelease) as TextView,
+            background = false
+        )
+
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonContactOnTelegram) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonBuyMeACoffee) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonProjectGitHub) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonTranslateTheApp) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonOpenTutorial) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonSeeStatistics) as TextView,
+            background = false
+        )
+
+        theme.setElement(
+            isDark,
             root.findViewById(R.id.imageLanguageIcon) as ImageView,
             R.drawable.ic_language,
             R.drawable.ic_language_darktheme

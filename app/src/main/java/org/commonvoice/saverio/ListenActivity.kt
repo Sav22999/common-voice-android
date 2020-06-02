@@ -193,7 +193,12 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         var isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutListen) as ConstraintLayout)
-        theme.setElement(isDark, view, 2, this.findViewById(R.id.listenSectionBottom) as ConstraintLayout)
+        theme.setElement(
+            isDark,
+            view,
+            1,
+            this.findViewById(R.id.listenSectionBottom) as ConstraintLayout
+        )
         theme.setElement(
             isDark,
             view,
@@ -333,7 +338,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         StopListening()
         this.mediaPlayer?.reset()
-        var sentence: TextView = this.findViewById(R.id.textListenSentence)
+        var sentence: TextView = this.findViewById(R.id.textSentenceListen)
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
         var btnListen: Button = this.findViewById(R.id.btn_start_listen)
@@ -578,7 +583,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                 onBackPressed()
                             }
                         }, Response.ErrorListener {
-                            println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
                             error1()
 
                             this.loading = false
@@ -614,7 +619,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                     que.add(req)
                 } catch (e: Exception) {
                     error1()
-                    println(" -->> Something wrong: "+e.toString()+" <<-- ")
+                    println(" -->> Something wrong: " + e.toString() + " <<-- ")
                     btnSkip.isEnabled = true
                 }
             } else {
@@ -661,7 +666,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     override fun onBackPressed() {
         var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
-        var txtSentence: TextView = this.findViewById(R.id.textListenSentence)
+        var txtSentence: TextView = this.findViewById(R.id.textSentenceListen)
         if (btnSkip.isEnabled || txtSentence.text == "...") {
             StopListening()
             var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
@@ -760,7 +765,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                     }*/
                     ValidationSuccessful(value)
                 }, Response.ErrorListener {
-                    println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
                     //error1()
                     ValidationError(value)
                 }
@@ -790,7 +795,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             }
             que.add(req)
         } catch (e: Exception) {
-            println(" -->> Something wrong: "+e.toString()+" <<-- ")
+            println(" -->> Something wrong: " + e.toString() + " <<-- ")
             error1()
         }
     }
@@ -861,7 +866,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             que.add(req)
         } catch (e: Exception) {
             error1()
-            println(" -->> Something wrong: "+e.toString()+" <<-- ")
+            println(" -->> Something wrong: " + e.toString() + " <<-- ")
         }
     }
 

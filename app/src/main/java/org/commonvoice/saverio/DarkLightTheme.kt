@@ -12,9 +12,20 @@ class DarkLightTheme {
     private var PRIVATE_MODE = 0
     private val DARK_THEME = "DARK_THEME"
     private var isDark = false
+    private var colorBackground: Int = R.color.colorBackground
+    private var colorBackgroundDT: Int = R.color.colorBackgroundDT
+    private var colorText: Int = R.color.colorBlack
+    private var colorTextDT: Int = R.color.colorWhite
 
     constructor() {
 
+    }
+
+    fun setColours(colorBackground: Int, colorBackgroundDT: Int, colorText: Int, colorTextDT: Int) {
+        this.colorBackground = colorBackground
+        this.colorBackgroundDT = colorBackgroundDT
+        this.colorText = colorText
+        this.colorTextDT = colorTextDT
     }
 
     fun setTheme(view: Context, status: Boolean) {
@@ -59,44 +70,48 @@ class DarkLightTheme {
 
     fun setElement(theme: Boolean, element: ConstraintLayout) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorBackgroundDT)
+            element.setBackgroundResource(this.colorBackgroundDT)
         } else {
-            element.setBackgroundResource(R.color.colorBackground)
+            element.setBackgroundResource(this.colorBackground)
         }
     }
 
     fun setElement(theme: Boolean, view: Context, top_or_bottom: Int, element: ConstraintLayout) {
         if (theme) {
             //top_or_buttom = {1: (radius) just top | 2: just bottom | 3:both, top and bottom}
-            /*if (top_or_bottom == 1) {
+            if (top_or_bottom == 1) {
                 element.setBackgroundResource(R.drawable.top_border_radius)
             } else if (top_or_bottom == 2) {
                 element.setBackgroundResource(R.drawable.bottom_border_radius)
             } else {
                 element.setBackgroundResource(R.drawable.top_bottom_border_radius)
-            }*/
+            }
             element.backgroundTintList = ContextCompat.getColorStateList(view, R.color.colorBlack)
         } else {
-            /*if (top_or_bottom == 1) {
+            if (top_or_bottom == 1) {
                 element.setBackgroundResource(R.drawable.top_border_radius)
             } else if (top_or_bottom == 2) {
                 element.setBackgroundResource(R.drawable.bottom_border_radius)
             } else {
                 element.setBackgroundResource(R.drawable.top_bottom_border_radius)
-            }*/
+            }
             element.backgroundTintList = ContextCompat.getColorStateList(view, R.color.colorWhite)
         }
     }
 
-    fun setElement(theme: Boolean, view: Context, element: TextView, background: Boolean = true) {
+    fun setElement(theme: Boolean, view: Context, element: TextView, background: Boolean = false) {
         if (theme) {
             if (background) {
                 element.setBackgroundResource(R.color.colorBackgroundDT)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
             }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
         } else {
             if (background) {
                 element.setBackgroundResource(R.color.colorBackground)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
             }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
         }
@@ -168,11 +183,11 @@ class DarkLightTheme {
 
     fun setElement(theme: Boolean, view: Context, element: Switch) {
         if (theme) {
-            element.setBackgroundResource(R.drawable.btn_rounded_darktheme)
-            element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
+            element.setBackgroundResource(this.colorBackgroundDT)
+            element.setTextColor(ContextCompat.getColor(view, this.colorTextDT))
         } else {
-            element.setBackgroundResource(R.drawable.btn_rounded)
-            element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
+            element.setBackgroundResource(this.colorBackground)
+            element.setTextColor(ContextCompat.getColor(view, colorText))
         }
     }
 

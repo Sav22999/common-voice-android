@@ -97,8 +97,18 @@ class HomeFragment : Fragment() {
         val isDark = theme.getTheme(view)
         theme.setElement(isDark, view, 2, root.findViewById(R.id.homeSectionCVAndroid))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionLoginSignup))
-        theme.setElement(isDark, view, root.findViewById(R.id.textCommonVoiceAndroid) as TextView, background = false)
-        theme.setElement(isDark, view, root.findViewById(R.id.textLoggedUsername) as TextView, background = false)
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.textCommonVoiceAndroid) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.textLoggedUsername) as TextView,
+            background = false
+        )
         theme.setElement(isDark, view, root.findViewById(R.id.buttonHomeLogin) as Button)
         theme.setElement(isDark, root.findViewById(R.id.layoutHome) as ConstraintLayout)
     }

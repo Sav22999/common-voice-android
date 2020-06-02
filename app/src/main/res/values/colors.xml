@@ -17,6 +17,7 @@
     <color name="colorSeparator">#404040</color>
     <color name="colorMenuInactive">#777777</color>
     <color name="colorMenuActive">#FFFFFF</color>
+    <color name="colorTransparent">#00000000</color>
 
     <!-- Level - Login -->
     <color name="colorLevel1">#FF0000</color>

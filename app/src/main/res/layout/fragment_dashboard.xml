@@ -10,7 +10,7 @@
         android:id="@+id/layoutDashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="10dp">
+        android:paddingBottom="20dp">
 
         <Button
             android:id="@+id/buttonDashboardSetDailyGoal"
