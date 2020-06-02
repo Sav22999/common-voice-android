@@ -36,6 +36,12 @@ class PrefManager(private val ctx: Context) {
             preferences.edit().putInt(Keys.REQUIRED_SENTENCES_COUNT.name, value).apply()
         }
 
+    var requiredClipsCount: Int
+        get() = preferences.getInt(Keys.REQUIRED_CLIPS_COUNT.name, 50)
+        set(value) {
+            preferences.edit().putInt(Keys.REQUIRED_CLIPS_COUNT.name, value).apply()
+        }
+
     var periodicallyRefreshSentences: Boolean
         get() = preferences.getBoolean(Keys.PERIODICALLY_REFRESH_SENTENCES.name, false)
         set(value) {
@@ -71,6 +77,7 @@ class PrefManager(private val ctx: Context) {
         TOKEN_USERID,
         TOKEN_AUTH,
         REQUIRED_SENTENCES_COUNT,
+        REQUIRED_CLIPS_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
         GESTURES_ENABLED,
 
