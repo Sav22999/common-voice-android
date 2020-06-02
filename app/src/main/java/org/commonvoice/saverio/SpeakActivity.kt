@@ -1,11 +1,15 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -64,6 +68,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 }
             }
         })
+
+        setTheme(this)
     }
 
     private fun setupGestures() {
@@ -84,12 +90,34 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         })
     }
 
+    fun setTheme(view: Context) {
+        var theme: DarkLightTheme = DarkLightTheme()
+
+        var isDark = theme.getTheme(view)
+        theme.setElement(isDark, this.findViewById(R.id.layoutSpeak) as ConstraintLayout)
+        theme.setElement(isDark, view, 2, this.findViewById(R.id.speakSectionBottom) as ConstraintLayout)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.textMessageAlertSpeak) as TextView,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.buttonReportSpeak) as TextView,
+            background = false
+        )
+        theme.setElement(isDark, view, this.findViewById(R.id.buttonSkipSpeak) as Button)
+    }
+
     private fun openReportDialog() {
 
     }
 
     private fun setupInitialUIState() {
-        buttonSkipSentence.onClick {
+        buttonSkipSpeak.onClick {
             speakViewModel.skipSentence()
         }
 
@@ -107,25 +135,25 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun loadUIStateLoading() {
-        textViewAlert.setText(R.string.txt_loading_sentence)
+        textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
         textViewSentence.text = "..."
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
 
         buttonReportSpeak.visibility = View.GONE
         buttonRecordOrListenAgain.visibility = View.GONE
-        buttonSkipSentence.visibility = View.GONE
+        buttonSkipSpeak.visibility = View.GONE
         buttonSendSpeak.visibility = View.GONE
         buttonStartStopSpeak.visibility = View.GONE
     }
 
     private fun setupUIStateStandby(sentence: Sentence) {
         buttonStartStopSpeak.visibility = View.VISIBLE
-        buttonSkipSentence.visibility = View.VISIBLE
+        buttonSkipSpeak.visibility = View.VISIBLE
         buttonReportSpeak.visibility = View.VISIBLE
 
         textViewSentence.text = sentence.sentenceText
-        textViewAlert.setText(R.string.txt_press_icon_below_speak_1)
+        textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
 
         buttonStartStopSpeak.onClick {
             speakViewModel.startRecording()
@@ -135,7 +163,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private fun loadUIStateRecording() {
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
 
-        textViewAlert.setText(R.string.txt_press_icon_below_speak_2)
+        textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
 
         buttonStartStopSpeak.onClick {
             speakViewModel.stopRecording()
@@ -147,7 +175,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen_cv)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
-        textViewAlert.setText(R.string.txt_press_icon_below_listen_1)
+        textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_1)
 
         buttonStartStopSpeak.onClick {
             speakViewModel.startListening()
@@ -162,7 +190,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonRecordOrListenAgain.visibility = View.GONE
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
-        textViewAlert.setText(R.string.txt_press_icon_below_listen_2)
+        textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
 
         buttonStartStopSpeak.onClick {
             speakViewModel.stopListening()
@@ -170,11 +198,11 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun loadUIStateListened() {
-        buttonSkipSentence.visibility = View.VISIBLE
+        buttonSkipSpeak.visibility = View.VISIBLE
         buttonSendSpeak.visibility = View.VISIBLE
         buttonRecordOrListenAgain.visibility = View.VISIBLE
 
-        textViewAlert.setText(R.string.txt_recorded_correct_or_wrong)
+        textMessageAlertSpeak.setText(R.string.txt_recorded_correct_or_wrong)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
 

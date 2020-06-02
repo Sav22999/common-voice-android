@@ -15,10 +15,12 @@
 
         <Button
             android:id="@+id/btnBadges"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/btn_badges_loggedin"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
@@ -116,10 +118,12 @@
 
         <Button
             android:id="@+id/btnLogout"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:shadowColor="@color/colorRed"
             android:text="@string/button_home_logout"
             android:textColor="@color/colorWhite"

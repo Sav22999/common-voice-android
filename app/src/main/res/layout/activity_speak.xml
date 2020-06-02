@@ -13,26 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/buttonReportSpeak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-medium"
-            android:foregroundTint="@color/colorPrimaryDark"
-            android:gravity="center"
-            android:padding="6dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="@string/button_report"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <Button
             android:id="@+id/buttonRecordOrListenAgain"
             android:layout_width="60dp"
@@ -48,10 +28,12 @@
 
         <Button
             android:id="@+id/buttonSendSpeak"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/btn_send_sentence"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +47,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonSkipSentence"
+            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonSendSpeak" />
@@ -79,19 +61,7 @@
             app:layout_constraintBottom_toTopOf="@+id/buttonRecordOrListenAgain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAlert" />
-
-        <Button
-            android:id="@+id/buttonSkipSentence"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/btn_rounded"
-            android:text="@string/btn_skip_sentence"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/buttonReportSpeak"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
 
         <Button
             android:id="@+id/buttonStartStopSpeak"
@@ -109,9 +79,8 @@
             android:layout_width="0dp"
             android:layout_height="300dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@color/colorBlack"
+            android:background="@drawable/bottom_border_radius"
             android:backgroundTintMode="screen"
             android:gravity="center|center_horizontal|center_vertical"
             android:padding="16px"
@@ -126,7 +95,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewAlert"
+            android:id="@+id/textMessageAlertSpeak"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -140,6 +109,52 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewSentence" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/speakSectionBottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/buttonReportSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:foregroundTint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:padding="6dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/button_report"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonSkipSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_rounded"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="@string/btn_skip_sentence"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toTopOf="@+id/buttonReportSpeak"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

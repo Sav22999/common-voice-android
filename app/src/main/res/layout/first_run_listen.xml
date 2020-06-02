@@ -7,41 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <SeekBar
-        android:id="@+id/seekBarFirstRunListen"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="200dp"
-        android:layout_height="16dp"
-        android:layout_marginBottom="3dp"
-        android:backgroundTint="@color/colorBackground"
-        android:clickable="false"
-        android:focusable="false"
-        android:foregroundTint="@color/colorBackground"
-        android:indeterminate="false"
-        android:indeterminateTint="@color/colorBackground"
-        android:max="7"
-        android:progress="0"
-        android:progressBackgroundTint="@color/colorBackground"
-        android:progressTint="@color/colorBackground"
-        android:secondaryProgressTint="@color/colorBackground"
-        android:thumbTint="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tickMarkTint="@color/colorBlack" />
-
-    <Button
-        android:id="@+id/btnNextListen"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/btn_rounded"
-        android:text="@string/btn_tutorial1"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/imgSmartphone1Listen"
         android:layout_width="0dp"
@@ -49,8 +14,8 @@
         android:layout_marginStart="26dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="26dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -63,8 +28,8 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -140,8 +105,8 @@
         android:id="@+id/imgBtnSkipListen"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="128dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/btn_rounded" />
@@ -161,8 +126,8 @@
         android:id="@+id/imgTxt3Listen"
         android:layout_width="70dp"
         android:layout_height="12dp"
-        android:layout_marginBottom="147dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="57dp"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/smartphone_text1" />
@@ -204,14 +169,14 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="155dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="38dp"
         android:background="@drawable/firstrun_number_rounded"
         android:fontFamily="@font/sourcecodepro_black"
         android:text="3"
         android:textSize="24dp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
@@ -274,7 +239,7 @@
         android:id="@+id/txtTutorialMessageBottomListen"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/background_textarea_message_first_run"
         android:backgroundTintMode="screen"
         android:gravity="center|center_horizontal|center_vertical"
@@ -284,7 +249,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="26sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="gone" />
@@ -294,14 +259,29 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="190dp"
         android:background="@drawable/firstrun_number_rounded"
         android:fontFamily="@font/sourcecodepro_black"
         android:textSize="20dp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
         app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnNumberTopListen"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/firstrun_number_rounded"
+        android:fontFamily="@font/sourcecodepro_black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="gone" />
 
     <TextView
@@ -322,18 +302,50 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="gone" />
 
-    <Button
-        android:id="@+id/btnNumberTopListen"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/firstRunListenSectionBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="210dp"
-        android:background="@drawable/firstrun_number_rounded"
-        android:fontFamily="@font/sourcecodepro_black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/top_border_radius"
+        android:backgroundTint="@color/colorWhite"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <SeekBar
+            android:id="@+id/seekBarFirstRunListen"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="16dp"
+            android:backgroundTint="@color/colorBackground"
+            android:clickable="false"
+            android:focusable="false"
+            android:foregroundTint="@color/colorBackground"
+            android:indeterminate="false"
+            android:indeterminateTint="@color/colorBackground"
+            android:max="7"
+            android:progress="0"
+            android:progressBackgroundTint="@color/colorBackground"
+            android:progressTint="@color/colorBackground"
+            android:secondaryProgressTint="@color/colorBackground"
+            android:thumbTint="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tickMarkTint="@color/colorBlack" />
+
+        <Button
+            android:id="@+id/btnNextListen"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_rounded"
+            android:text="@string/btn_tutorial1"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarFirstRunListen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

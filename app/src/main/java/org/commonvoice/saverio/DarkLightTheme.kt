@@ -65,12 +65,39 @@ class DarkLightTheme {
         }
     }
 
-    fun setElement(theme: Boolean, view: Context, element: TextView) {
+    fun setElement(theme: Boolean, view: Context, top_or_bottom: Int, element: ConstraintLayout) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorBackgroundDT)
+            //top_or_buttom = {1: just top | 2: just bottom | 3:both, top and bottom}
+            /*if (top_or_bottom == 1) {
+                element.setBackgroundResource(R.drawable.top_border_radius)
+            } else if (top_or_bottom == 2) {
+                element.setBackgroundResource(R.drawable.bottom_border_radius)
+            } else {
+                element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+            }*/
+            element.backgroundTintList = ContextCompat.getColorStateList(view, R.color.colorBlack)
+        } else {
+            /*if (top_or_bottom == 1) {
+                element.setBackgroundResource(R.drawable.top_border_radius)
+            } else if (top_or_bottom == 2) {
+                element.setBackgroundResource(R.drawable.bottom_border_radius)
+            } else {
+                element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+            }*/
+            element.backgroundTintList = ContextCompat.getColorStateList(view, R.color.colorWhite)
+        }
+    }
+
+    fun setElement(theme: Boolean, view: Context, element: TextView, background: Boolean = true) {
+        if (theme) {
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackgroundDT)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
         } else {
-            element.setBackgroundResource(R.color.colorBackground)
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackground)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
         }
     }
@@ -163,7 +190,13 @@ class DarkLightTheme {
         }
     }
 
-    fun setElement(theme: Boolean, view: Context, element: SeekBar, color_light: Int, color_dark: Int) {
+    fun setElement(
+        theme: Boolean,
+        view: Context,
+        element: SeekBar,
+        color_light: Int,
+        color_dark: Int
+    ) {
         if (theme) {
             element.progressTintList = ContextCompat.getColorStateList(view, color_dark)
             element.progressBackgroundTintList = ContextCompat.getColorStateList(view, color_dark)

@@ -35,9 +35,9 @@ class HomeFragment : Fragment() {
         val main = activity as MainActivity
         main.dashboard_selected = false
 
-        val btnSpeak: Button = root.findViewById(R.id.btn_speak)
-        val btnListen: Button = root.findViewById(R.id.btn_listen)
-        val btnLogin: Button = root.findViewById(R.id.btn_login)
+        val btnSpeak: Button = root.findViewById(R.id.buttonSpeak)
+        val btnListen: Button = root.findViewById(R.id.buttonListen)
+        val btnLogin: Button = root.findViewById(R.id.buttonHomeLogin)
 
         btnSpeak.setOnClickListener {
             main.openSpeakSection()
@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
             textLoggedIn.isGone = false
             textLoggedIn.isVisible = true
             textLoggedIn.text = main.getHiUsernameLoggedIn()
-            val btnLogOut: Button = root.findViewById(R.id.btn_login)
+            val btnLogOut: Button = root.findViewById(R.id.buttonHomeLogin)
             btnLogOut.text = getString(R.string.button_home_profile)
 
             btnLogin.setOnClickListener {
@@ -95,14 +95,11 @@ class HomeFragment : Fragment() {
         //theme.setElements(view, root.findViewById(R.id.layoutHome))
 
         val isDark = theme.getTheme(view)
-        theme.setElement(
-            isDark,
-            root.findViewById(R.id.logo_cv) as ImageView,
-            R.drawable.logo_cv,
-            R.drawable.logo_cv_light
-        )
-        theme.setElement(isDark, view, root.findViewById(R.id.textLoggedUsername) as TextView)
-        theme.setElement(isDark, view, root.findViewById(R.id.btn_login) as Button)
+        theme.setElement(isDark, view, 2, root.findViewById(R.id.homeSectionCVAndroid))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionLoginSignup))
+        theme.setElement(isDark, view, root.findViewById(R.id.textCommonVoiceAndroid) as TextView, background = false)
+        theme.setElement(isDark, view, root.findViewById(R.id.textLoggedUsername) as TextView, background = false)
+        theme.setElement(isDark, view, root.findViewById(R.id.buttonHomeLogin) as Button)
         theme.setElement(isDark, root.findViewById(R.id.layoutHome) as ConstraintLayout)
     }
 }

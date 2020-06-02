@@ -193,6 +193,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         var isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutListen) as ConstraintLayout)
+        theme.setElement(isDark, view, 2, this.findViewById(R.id.listenSectionBottom) as ConstraintLayout)
         theme.setElement(
             isDark,
             view,
@@ -204,8 +205,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             isDark,
             view,
             this.findViewById(R.id.buttonReportListen) as TextView,
-            R.color.colorBlack,
-            R.color.colorWhite
+            background = false
         )
         theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_listen) as Button)
     }
@@ -527,12 +527,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                         this.globSentence[1] = jsonObj.getString("glob").toString()
                                     }
 
-                                    if (!this.opened) {
-                                        this.opened = true
-                                        //API_request() //the second request at the first load //it's not necessary anymore, because the app request 2 clips the first-time (?count=2)
-
-                                    }
-
                                     if (this.idSentence[0] != 0 && sentence.text == "...") {
                                         sentence.text = this.textSentence[0]
                                         msg.text = getString(R.string.txt_press_icon_below_listen_1)
@@ -554,6 +548,11 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                     }
                                     btnSkip.isEnabled = true
                                     btnReport.isGone = false
+
+                                    if (!this.opened) {
+                                        this.opened = true
+                                        //API_request() //the second request at the first load //it's not necessary anymore, because the app request 2 clips the first-time (?count=2)
+                                    }
                                 } else {
                                     //println(" -->> Something wrong 1: "+it.toString()+" <<-- ")
                                     error4()
@@ -579,7 +578,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                 onBackPressed()
                             }
                         }, Response.ErrorListener {
-                            //println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                            println(" -->> Something wrong: "+it.toString()+" <<-- ")
                             error1()
 
                             this.loading = false
@@ -615,10 +614,12 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                     que.add(req)
                 } catch (e: Exception) {
                     error1()
+                    println(" -->> Something wrong: "+e.toString()+" <<-- ")
                     btnSkip.isEnabled = true
                 }
             } else {
                 error1()
+                println(" -->> Something wrong: API Request <<-- ")
                 btnSkip.isEnabled = true
             }
         } else {
@@ -759,7 +760,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                     }*/
                     ValidationSuccessful(value)
                 }, Response.ErrorListener {
-                    //println(" -->> Something wrong: "+it.toString()+" <<-- ")
+                    println(" -->> Something wrong: "+it.toString()+" <<-- ")
                     //error1()
                     ValidationError(value)
                 }
@@ -789,6 +790,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             }
             que.add(req)
         } catch (e: Exception) {
+            println(" -->> Something wrong: "+e.toString()+" <<-- ")
             error1()
         }
     }
@@ -859,6 +861,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             que.add(req)
         } catch (e: Exception) {
             error1()
+            println(" -->> Something wrong: "+e.toString()+" <<-- ")
         }
     }
 
@@ -906,6 +909,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     fun ValidationError(value: Boolean) {
         //Sending validation error
         error1()
+        println(" -->> Something wrong: ValidationError <<-- ")
         StopListening()
         var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
         var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
