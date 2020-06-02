@@ -10,6 +10,28 @@ class ClipsRepository(database: AppDB, retrofitFactory: RetrofitFactory) {
 
     private val clipsDao = database.clips()
 
+    private val clipsClient = retrofitFactory.makeClipsService()
+    private val clipsDownloadClient = retrofitFactory.makeClipsDownloadService()
+
+    suspend fun getNewClips(count: Int): List<Clip>? {
+        val retrofitClips = clipsClient.getClips(count)
+
+        return retrofitClips.body()?.map {
+            val audioByteArray = downloadAudioClip(it.audioSrc)
+            if (audioByteArray != null) {
+                it.toClip(audioByteArray)
+            } else {
+                return null
+            }
+        }
+    }
+
+    private suspend fun downloadAudioClip(url: String): ByteArray? {
+        val response = clipsDownloadClient.downloadAudioFile(url)
+
+        return response.body()?.bytes()
+    }
+
     @WorkerThread
     suspend fun insertClip(clip: Clip) = clipsDao.insertClip(clip)
 

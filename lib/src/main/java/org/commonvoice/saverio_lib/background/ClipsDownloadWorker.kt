@@ -1,16 +1,15 @@
 package org.commonvoice.saverio_lib.background
 
 import android.content.Context
-import android.util.Log
 import androidx.work.*
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
-import org.commonvoice.saverio_lib.repositories.SentencesRepository
+import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.utils.PrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.util.concurrent.TimeUnit
 
-class SentencesDownloadWorker(
+class ClipsDownloadWorker(
     appContext: Context,
     private val workerParams: WorkerParameters
 ): CoroutineWorker(appContext, workerParams) {
@@ -19,17 +18,17 @@ class SentencesDownloadWorker(
     private val prefManager = PrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
 
-    private val requiredSentences: Int = prefManager.requiredSentencesCount
+    private val requiredClips: Int = prefManager.requiredClipsCount
 
     private val currentLanguage = prefManager.language
 
-    private val sentenceRepository = SentencesRepository(db, retrofitFactory)
+    private val clipsRepository = ClipsRepository(db, retrofitFactory)
 
     override suspend fun doWork(): Result {
 
-        sentenceRepository.deleteOldSentences(getTimestampOfNowPlus(seconds = 0))
+        clipsRepository.deleteOldClips(getTimestampOfNowPlus(seconds = 0))
 
-        val numberDifference = requiredSentences - sentenceRepository.getSentenceCount()
+        val numberDifference = requiredClips - clipsRepository.getClipsCount()
 
         return when {
             numberDifference < 0 -> {
@@ -41,8 +40,8 @@ class SentencesDownloadWorker(
                 Result.success()
             }
             else -> {
-                val newSentences = sentenceRepository.getNewSentences(numberDifference)
-                if (!newSentences.isSuccessful) {
+                val newClips = clipsRepository.getNewClips(numberDifference)
+                if (newClips == null) {
                     db.close()
 
                     if (workerParams.runAttemptCount > 5) {
@@ -51,9 +50,9 @@ class SentencesDownloadWorker(
                         Result.retry()
                     }
                 } else {
-                    newSentences.body()?.let { sentences ->
-                        sentenceRepository.insertSentences(sentences.map { it.setLanguage(currentLanguage) })
-                    }
+                    clipsRepository.insertClips(newClips.map { it.also {
+                        it.sentence.setLanguage(currentLanguage)
+                    }})
 
                     db.close()
                     Result.success()
@@ -65,7 +64,7 @@ class SentencesDownloadWorker(
 
     companion object {
 
-        private const val TAG = "sentencesDownloadWorker"
+        private const val TAG = "clipsDownloadWorker"
 
         private val periodicWorkConstraint = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
@@ -73,7 +72,7 @@ class SentencesDownloadWorker(
             .setRequiresDeviceIdle(true)
             .build()
 
-        private val periodicWorkRequest = PeriodicWorkRequestBuilder<SentencesDownloadWorker>(
+        private val periodicWorkRequest = PeriodicWorkRequestBuilder<ClipsDownloadWorker>(
             1, TimeUnit.DAYS, 8, TimeUnit.HOURS
         ).setConstraints(periodicWorkConstraint).build()
 
@@ -81,13 +80,13 @@ class SentencesDownloadWorker(
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        private val oneTimeWorkRequest = OneTimeWorkRequestBuilder<SentencesDownloadWorker>()
+        private val oneTimeWorkRequest = OneTimeWorkRequestBuilder<ClipsDownloadWorker>()
             .setConstraints(oneTimeWorkConstraints)
             .build()
 
         fun attachOneTimeJobToWorkManager(wm: WorkManager) {
             wm.enqueueUniqueWork(
-                "oneTimeSentencesDownloadWorker",
+                "oneTimeClipsDownloadWorker",
                 ExistingWorkPolicy.KEEP,
                 oneTimeWorkRequest
             )
@@ -95,7 +94,7 @@ class SentencesDownloadWorker(
 
         fun attachPeriodicJobToWorkManager(wm: WorkManager) {
             wm.enqueueUniquePeriodicWork(
-                "periodicSentencesDownloadWorker",
+                "periodicClipsDownloadWorker",
                 ExistingPeriodicWorkPolicy.KEEP,
                 periodicWorkRequest
             )

@@ -3,10 +3,7 @@ package org.commonvoice.saverio_lib.api
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.commonvoice.saverio_lib.api.auth.AuthenticationInterceptor
-import org.commonvoice.saverio_lib.api.services.RecordingsService
-import org.commonvoice.saverio_lib.api.services.ReportsService
-import org.commonvoice.saverio_lib.api.services.SentencesService
-import org.commonvoice.saverio_lib.api.services.StatsService
+import org.commonvoice.saverio_lib.api.services.*
 import org.commonvoice.saverio_lib.utils.PrefManager
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -36,7 +33,7 @@ class RetrofitFactory(prefManager: PrefManager) {
                 .build()
         )
 
-    private val statsRetrofit = Retrofit.Builder()
+    private val unauthRetrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
         .client(OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
@@ -48,13 +45,16 @@ class RetrofitFactory(prefManager: PrefManager) {
 
     private val genericRetrofit = baseRetrofit.baseUrl(genericURL).build()
 
-
     fun makeRecordingService(): RecordingsService = genericRetrofit.create(RecordingsService::class.java)
 
     fun makeSentenceService(): SentencesService = langRetrofit.create(SentencesService::class.java)
 
     fun makeReportsService(): ReportsService = genericRetrofit.create(ReportsService::class.java)
 
-    fun makeStatsService(): StatsService = statsRetrofit.create(StatsService::class.java)
+    fun makeStatsService(): StatsService = unauthRetrofit.create(StatsService::class.java)
+
+    fun makeClipsService(): ClipsService = langRetrofit.create(ClipsService::class.java)
+
+    fun makeClipsDownloadService(): ClipsDownloadService = unauthRetrofit.create(ClipsDownloadService::class.java)
 
 }

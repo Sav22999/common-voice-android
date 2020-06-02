@@ -33,6 +33,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
@@ -148,11 +149,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        RecordingsUploadWorker.attachToWorkManager(workManager)
-        SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-
-        mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
-
         //checkConnection()
 
         this.firstRun =
@@ -177,6 +173,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         } else {
             this.setLanguageUI("start")
             //checkPermissions()
+
+            RecordingsUploadWorker.attachToWorkManager(workManager)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
         }
 
         this.checkUserLoggedIn()
