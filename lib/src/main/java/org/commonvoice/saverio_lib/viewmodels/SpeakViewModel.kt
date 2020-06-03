@@ -13,9 +13,11 @@ import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
+import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Report
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 
@@ -25,8 +27,10 @@ class SpeakViewModel(
     private val recordingsRepository: RecordingsRepository,
     private val mediaRecorderRepository: MediaRecorderRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,
+    private val recordingSoundIndicatorRepository: RecordingSoundIndicatorRepository,
     private val reportsRepository: ReportsRepository,
-    private val workManager: WorkManager
+    private val workManager: WorkManager,
+    private val speakPrefManager: SpeakPrefManager
 ) : ViewModel() {
 
     var state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
@@ -43,14 +47,30 @@ class SpeakViewModel(
     }
 
     fun startRecording() {
-        mediaRecorderRepository.startRecording()
         state.postValue(State.RECORDING)
+
+        if (speakPrefManager.playRecordingSoundIndicator) {
+            recordingSoundIndicatorRepository.playStartedSound {
+                mediaRecorderRepository.startRecording()
+            }
+        } else {
+            mediaRecorderRepository.startRecording()
+        }
     }
 
     fun stopRecording() {
         _currentSentence.value?.let { sentence ->
             currentRecording = mediaRecorderRepository.stopRecordingAndReadData(sentence)
-            state.postValue(State.RECORDED)
+
+            if (speakPrefManager.skipRecordingConfirmation) {
+                state.postValue(State.LISTENED)
+            } else {
+                state.postValue(State.RECORDED)
+            }
+
+            if (speakPrefManager.playRecordingSoundIndicator) {
+                recordingSoundIndicatorRepository.playFinishedSound()
+            }
         }
     }
 
@@ -108,9 +128,23 @@ class SpeakViewModel(
         }
     }
 
+    fun stop() {
+        when(state.value) {
+            State.RECORDING -> mediaRecorderRepository.stop()
+            State.LISTENING -> mediaPlayerRepository.stopPlaying()
+        }
+
+        currentRecording = null
+
+        mediaRecorderRepository.clean()
+        mediaPlayerRepository.clean()
+        recordingSoundIndicatorRepository.clean()
+    }
+
     override fun onCleared() {
         mediaRecorderRepository.clean()
         mediaPlayerRepository.clean()
+        recordingSoundIndicatorRepository.clean()
         super.onCleared()
     }
 

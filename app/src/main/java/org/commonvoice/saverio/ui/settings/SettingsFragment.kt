@@ -15,15 +15,16 @@ import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
-import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
 
 
 class SettingsFragment : Fragment() {
 
     private val prefManager: PrefManager by inject()
+    private val speakPrefManager: SpeakPrefManager by inject()
 
-    private lateinit var settingsViewModel: SettingsViewModel
     var languagesListShort =
         arrayOf("en") // don't change it manually -> it will import automatically
     var languagesList =
@@ -36,8 +37,7 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settingsViewModel =
-            ViewModelProviders.of(this).get(SettingsViewModel::class.java)
+
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
 
         val main = (activity as MainActivity)
@@ -186,6 +186,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            speakPrefManager.playRecordingSoundIndicator = isChecked
             main.setRecordingIndicatorSoundSwitch(isChecked)
         }
         recordingIndicatorSoundSettings.isChecked = main.getRecordingIndicatorSoundSwitch()
@@ -235,6 +236,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            speakPrefManager.skipRecordingConfirmation = isChecked
             main.setSkipRecordingsConfirmationSwitch(isChecked)
         }
         skipRecordingsConfirmationSettings.isChecked = main.getSkipRecordingsConfirmationSwitch()

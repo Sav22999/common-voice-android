@@ -1,4 +1,4 @@
-package org.commonvoice.saverio_lib.utils
+package org.commonvoice.saverio_lib.preferences
 
 import android.content.Context
 
@@ -30,23 +30,6 @@ class PrefManager(private val ctx: Context) {
             preferences.edit().putString(Keys.SESSID_COOKIE.name, value).apply()
         }
 
-    var requiredSentencesCount: Int
-        get() = preferences.getInt(Keys.REQUIRED_SENTENCES_COUNT.name, 50)
-        set(value) {
-            preferences.edit().putInt(Keys.REQUIRED_SENTENCES_COUNT.name, value).apply()
-        }
-
-    var requiredClipsCount: Int
-        get() = preferences.getInt(Keys.REQUIRED_CLIPS_COUNT.name, 50)
-        set(value) {
-            preferences.edit().putInt(Keys.REQUIRED_CLIPS_COUNT.name, value).apply()
-        }
-
-    var periodicallyRefreshSentences: Boolean
-        get() = preferences.getBoolean(Keys.PERIODICALLY_REFRESH_SENTENCES.name, false)
-        set(value) {
-            preferences.edit().putBoolean(Keys.PERIODICALLY_REFRESH_SENTENCES.name, value).apply()
-        }
 
     var areGesturesEnabled: Boolean
         get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, false)
@@ -56,8 +39,6 @@ class PrefManager(private val ctx: Context) {
 
     val deviceOrientation: Int
         get() = ctx.resources.configuration.orientation
-
-
 
     var statsUserId: String
         get() = preferences.getString(Keys.STATS_USERID.name, "") ?: ""
@@ -76,9 +57,6 @@ class PrefManager(private val ctx: Context) {
         SESSID_COOKIE,
         TOKEN_USERID,
         TOKEN_AUTH,
-        REQUIRED_SENTENCES_COUNT,
-        REQUIRED_CLIPS_COUNT,
-        PERIODICALLY_REFRESH_SENTENCES,
         GESTURES_ENABLED,
 
         STATS_USERID,

@@ -6,10 +6,14 @@ import androidx.work.WorkManager
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
+import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.repositories.*
-import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
@@ -30,8 +34,30 @@ class CommonVoice : Application() {
 
     private val utilsModule = module {
         factory { WorkManager.getInstance(androidContext()) }
-        single { PrefManager(androidContext()) }
         single { FileHolder(androidContext()) }
+    }
+
+    private val prefsModule = module {
+        single {
+            PrefManager(
+                androidContext()
+            )
+        }
+        single {
+            FirstRunPrefManager(
+                androidContext()
+            )
+        }
+        single {
+            SpeakPrefManager(
+                androidContext()
+            )
+        }
+        single {
+            ListenPrefManager(
+                androidContext()
+            )
+        }
     }
 
     private val apiModules = module {
@@ -47,10 +73,11 @@ class CommonVoice : Application() {
         single { ValidationsRepository(get()) }
         single { ReportsRepository(get(), get()) }
         single { StatsRepository(get(), get()) }
+        single { RecordingSoundIndicatorRepository(get()) }
     }
 
     private val mvvmViewmodels = module {
-        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get(), get(), get()) }
+        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get(), get(), get(), get(), get()) }
         viewModel { MainActivityViewModel(get()) }
         viewModel { HomeViewModel(get()) }
     }
@@ -61,7 +88,7 @@ class CommonVoice : Application() {
         startKoin {
             androidContext(this@CommonVoice)
             androidLogger()
-            modules(listOf(dbModule, utilsModule, apiModules, mvvmRepos, mvvmViewmodels))
+            modules(listOf(prefsModule, dbModule, utilsModule, apiModules, mvvmRepos, mvvmViewmodels))
         }
 
     }

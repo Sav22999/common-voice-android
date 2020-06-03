@@ -2,7 +2,7 @@ package org.commonvoice.saverio_lib.api.auth
 
 import okhttp3.Interceptor
 import okhttp3.Response
-import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.preferences.PrefManager
 
 /**
  * In AuthenticationInterceptor we add the parameters required to authenticate the client to the

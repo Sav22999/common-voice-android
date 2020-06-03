@@ -1,12 +1,12 @@
 package org.commonvoice.saverio_lib.background
 
 import android.content.Context
-import android.util.Log
 import androidx.work.*
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
-import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.util.concurrent.TimeUnit
 
@@ -16,10 +16,13 @@ class SentencesDownloadWorker(
 ): CoroutineWorker(appContext, workerParams) {
 
     private val db = AppDB.build(appContext)
-    private val prefManager = PrefManager(appContext)
+    private val prefManager =
+        PrefManager(appContext)
+    private val speakPrefManager =
+        SpeakPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
 
-    private val requiredSentences: Int = prefManager.requiredSentencesCount
+    private val requiredSentences: Int = speakPrefManager.requiredSentencesCount
 
     private val currentLanguage = prefManager.language
 

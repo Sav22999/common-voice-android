@@ -43,6 +43,10 @@ class MediaRecorderRepository(
         startRecording()
     }
 
+    fun stop() {
+        recorder?.stop()
+    }
+
     fun clean() {
         recorder?.release()
         recorder = null

@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitStatsUpdate
-import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.preferences.PrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
 import java.text.SimpleDateFormat

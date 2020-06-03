@@ -7,9 +7,6 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -37,6 +34,14 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         if (obtainPermissions()) {
             setupUI()
         }
+    }
+
+    override fun onBackPressed() {
+        textMessageAlertSpeak.setText(R.string.txt_closing)
+
+        speakViewModel.stop()
+
+        super.onBackPressed()
     }
 
     private fun setupUI() {
@@ -91,30 +96,18 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
+        val theme: DarkLightTheme = DarkLightTheme()
 
-        var isDark = theme.getTheme(view)
-        theme.setElement(isDark, this.findViewById(R.id.layoutSpeak) as ConstraintLayout)
-        theme.setElement(
-            isDark,
+        val isDark = theme.getTheme(view)
+        theme.setElement(isDark, layoutSpeak)
+        theme.setElement(isDark, view, 1, speakSectionBottom)
+        theme.setElement(isDark,
             view,
-            1,
-            this.findViewById(R.id.speakSectionBottom) as ConstraintLayout
-        )
-        theme.setElement(
-            isDark,
-            view,
-            this.findViewById(R.id.textMessageAlertSpeak) as TextView,
+            textMessageAlertSpeak,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT
-        )
-        theme.setElement(
-            isDark,
-            view,
-            this.findViewById(R.id.buttonReportSpeak) as TextView,
-            background = false
-        )
-        theme.setElement(isDark, view, this.findViewById(R.id.buttonSkipSpeak) as Button)
+            R.color.colorAlertMessageDT)
+        theme.setElement(isDark, view, buttonReportSpeak, background = false)
+        theme.setElement(isDark, view, buttonSkipSpeak)
     }
 
     private fun openReportDialog() {
@@ -178,7 +171,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private fun loadUIStateRecorded() {
         buttonRecordOrListenAgain.visibility = View.VISIBLE
 
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.listen_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_1)
 

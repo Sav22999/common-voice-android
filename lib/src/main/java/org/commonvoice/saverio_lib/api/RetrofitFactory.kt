@@ -4,7 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.commonvoice.saverio_lib.api.auth.AuthenticationInterceptor
 import org.commonvoice.saverio_lib.api.services.*
-import org.commonvoice.saverio_lib.utils.PrefManager
+import org.commonvoice.saverio_lib.preferences.PrefManager
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 

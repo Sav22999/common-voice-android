@@ -36,6 +36,7 @@ import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
@@ -50,6 +51,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val workManager: WorkManager by inject()
     private val mainActivityViewModel: MainActivityViewModel by viewModel()
+
+    private val firstRunPrefManager: FirstRunPrefManager by inject()
 
     companion object {
         const val SOURCE_STORE = "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
@@ -1223,8 +1226,14 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun openSpeakSection() {
-        Intent(this, SpeakActivity::class.java).also {
-            startActivity(it)
+        if (firstRunPrefManager.speak) {
+            Intent(this, FirstRunSpeak::class.java).also {
+                startActivity(it)
+            }
+        } else {
+            Intent(this, SpeakActivity::class.java).also {
+                startActivity(it)
+            }
         }
     }
 

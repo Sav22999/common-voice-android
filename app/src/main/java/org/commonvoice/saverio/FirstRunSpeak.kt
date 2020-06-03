@@ -13,8 +13,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.first_run_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.koin.android.ext.android.inject
 
 class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
+
+    private val firstRunPrefManager: FirstRunPrefManager by inject()
 
     var status: Int = 0
     private var PRIVATE_MODE = 0
@@ -209,9 +213,8 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             stopAnimation(txtEight)
             startAnimation(txtNine)
         } else if (this.status == 9) {
-            getSharedPreferences(FIRST_RUN_SPEAK, PRIVATE_MODE).edit()
-                .putBoolean(FIRST_RUN_SPEAK, false).apply()
-            val intent = Intent(this, SpeakActivity::class.java).also {
+            firstRunPrefManager.speak = false
+            Intent(this, SpeakActivity::class.java).also {
                 startActivity(it)
             }
             finish()
