@@ -5,7 +5,7 @@ import androidx.work.*
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
-import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.util.concurrent.TimeUnit
@@ -17,7 +17,7 @@ class SentencesDownloadWorker(
 
     private val db = AppDB.build(appContext)
     private val prefManager =
-        PrefManager(appContext)
+        MainPrefManager(appContext)
     private val speakPrefManager =
         SpeakPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)

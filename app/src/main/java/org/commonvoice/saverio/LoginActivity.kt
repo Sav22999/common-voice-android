@@ -355,7 +355,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         ).edit()
                             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], true).apply()
 
-                        prefManager.sessIdCookie = userId
+                        mainPrefManager.sessIdCookie = userId
 
                         //println(" -->> LOGGED IN <<-- ")
 
@@ -374,13 +374,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun logoutAndExit(exit: Boolean = true) {
-        prefManager.sessIdCookie = null
+        mainPrefManager.sessIdCookie = null
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
         getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
             .putString(settingsSwitchData["USER_NAME"], "").apply()
-        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
@@ -464,7 +462,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         false
                     )
                 ) {
-                    userId = prefManager.sessIdCookie ?: ""
+                    userId = mainPrefManager.sessIdCookie ?: ""
                 }
             }
 

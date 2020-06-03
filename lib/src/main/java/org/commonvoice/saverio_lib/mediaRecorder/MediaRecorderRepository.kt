@@ -32,7 +32,11 @@ class MediaRecorderRepository(
     }
 
     fun stopRecordingAndReadData(sentence: Sentence): Recording {
-        recorder!!.stop()
+        try {
+            recorder!!.stop()
+        } catch (e: Exception) {
+            //TODO handle this crash caused by the user pressing stop too fast
+        }
         val array = fileHolder.getByteArray()
         setupRecorder()
         return sentence.toRecording(array)

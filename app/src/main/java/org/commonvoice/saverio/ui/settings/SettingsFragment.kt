@@ -10,19 +10,18 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
-import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
 
 
 class SettingsFragment : Fragment() {
 
-    private val prefManager: PrefManager by inject()
+    private val mainPrefManager: MainPrefManager by inject()
     private val speakPrefManager: SpeakPrefManager by inject()
 
     var languagesListShort =
@@ -223,7 +222,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
-            prefManager.areGesturesEnabled = isChecked
+            mainPrefManager.areGesturesEnabled = isChecked
             main.setGesturesSettingsSwitch(isChecked)
         }
         gesturesSettings.isChecked = main.getGesturesSettingsSwitch()

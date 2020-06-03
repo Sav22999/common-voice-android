@@ -6,7 +6,7 @@ import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
-import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.util.concurrent.TimeUnit
 
@@ -17,7 +17,7 @@ class ClipsDownloadWorker(
 
     private val db = AppDB.build(appContext)
     private val prefManager =
-        PrefManager(appContext)
+        MainPrefManager(appContext)
     private val listenPrefManager =
         ListenPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)

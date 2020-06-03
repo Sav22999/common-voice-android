@@ -49,7 +49,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             setupUIStateStandby(sentence)
         })
 
-        if (prefManager.areGesturesEnabled) {
+        if (mainPrefManager.areGesturesEnabled) {
             setupGestures()
         }
 
@@ -74,7 +74,23 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
         })
 
+        speakViewModel.hasReachedGoal.observe(this, Observer {
+            if (it) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.daily_goal_achieved_message).replace(
+                        "{{*{{n_clips}}*}}",
+                        "${speakViewModel.getDailyGoal().recordings}"
+                    )
+                )
+            }
+        })
+
         setTheme(this)
+    }
+
+    private fun showMessageDialog(title: String, text: String) {
+        MessageDialog(this, 0, title, text, details = "").show()
     }
 
     private fun setupGestures() {
@@ -88,7 +104,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
 
             override fun onSwipeTop() {
-                if (prefManager.deviceOrientation == ORIENTATION_PORTRAIT) {
+                if (mainPrefManager.deviceOrientation == ORIENTATION_PORTRAIT) {
                     openReportDialog()
                 }
             }

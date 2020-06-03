@@ -16,10 +16,10 @@ import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.models.Recording
-import org.commonvoice.saverio_lib.models.Report
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
-import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
@@ -30,10 +30,15 @@ class SpeakViewModel(
     private val recordingSoundIndicatorRepository: RecordingSoundIndicatorRepository,
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
-    private val speakPrefManager: SpeakPrefManager
+    private val mainPrefManager: MainPrefManager,
+    private val speakPrefManager: SpeakPrefManager,
+    private val statsPrefManager: StatsPrefManager
 ) : ViewModel() {
 
-    var state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
+    val _state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
+    val state: LiveData<State> get() = _state
+
+    val hasReachedGoal = MutableLiveData(false)
 
     private val _currentSentence: MutableLiveData<Sentence> = savedStateHandle.getLiveData("sentence")
     val currentSentence: LiveData<Sentence> get() = _currentSentence
@@ -47,7 +52,7 @@ class SpeakViewModel(
     }
 
     fun startRecording() {
-        state.postValue(State.RECORDING)
+       _state.postValue(State.RECORDING)
 
         if (speakPrefManager.playRecordingSoundIndicator) {
             recordingSoundIndicatorRepository.playStartedSound {
@@ -58,14 +63,16 @@ class SpeakViewModel(
         }
     }
 
+    fun getDailyGoal() = statsPrefManager.dailyGoal
+
     fun stopRecording() {
         _currentSentence.value?.let { sentence ->
             currentRecording = mediaRecorderRepository.stopRecordingAndReadData(sentence)
 
             if (speakPrefManager.skipRecordingConfirmation) {
-                state.postValue(State.LISTENED)
+               _state.postValue(State.LISTENED)
             } else {
-                state.postValue(State.RECORDED)
+               _state.postValue(State.RECORDED)
             }
 
             if (speakPrefManager.playRecordingSoundIndicator) {
@@ -79,7 +86,7 @@ class SpeakViewModel(
             sentencesRepository.deleteSentence(it)
         }
         withContext(Dispatchers.Main) {
-            state.postValue(State.STANDBY)
+           _state.postValue(State.STANDBY)
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
@@ -87,20 +94,20 @@ class SpeakViewModel(
     fun startListening() {
         currentRecording?.let { recording ->
             mediaPlayerRepository.setup {
-                state.postValue(State.LISTENED)
+               _state.postValue(State.LISTENED)
             }
             mediaPlayerRepository.playRecording(recording)
-            state.postValue(State.LISTENING)
+           _state.postValue(State.LISTENING)
         }
     }
 
     fun stopListening() {
         mediaPlayerRepository.stopPlaying()
-        state.postValue(State.RECORDED)
+       _state.postValue(State.RECORDED)
     }
 
     fun redoRecording() {
-        state.postValue(State.RECORDING)
+       _state.postValue(State.RECORDING)
         mediaRecorderRepository.redoRecording()
     }
 
@@ -112,9 +119,18 @@ class SpeakViewModel(
             }
             currentRecording = null
             withContext(Dispatchers.Main) {
-                state.postValue(State.STANDBY)
+               _state.postValue(State.STANDBY)
                 RecordingsUploadWorker.attachToWorkManager(workManager)
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            }
+
+            if (mainPrefManager.sessIdCookie != null) { //Logged
+                statsPrefManager.todayRecorded++
+                if (statsPrefManager.dailyGoal.checkDailyGoal()) {
+                    hasReachedGoal.postValue(true)
+                } else {
+                    hasReachedGoal.postValue(false)
+                }
             }
         }
     }
@@ -124,7 +140,7 @@ class SpeakViewModel(
         if (sentence != null) {
             _currentSentence.postValue(sentence)
         } else {
-            state.postValue(State.STANDBY)
+           _state.postValue(State.STANDBY)
         }
     }
 

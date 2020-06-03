@@ -37,6 +37,7 @@ import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
@@ -53,6 +54,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val mainActivityViewModel: MainActivityViewModel by viewModel()
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
+    private val statsPrefManager: StatsPrefManager by inject()
 
     companion object {
         const val SOURCE_STORE = "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
@@ -129,7 +131,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     var languagesListArray =
         arrayOf("English") // don't change manually -> it's imported from strings.xml
-    var selectedLanguageVar = prefManager.language
+    var selectedLanguageVar = mainPrefManager.language
     var logged: Boolean = false
     var userId: String = ""
     var userName: String = ""
@@ -229,13 +231,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             getString(R.string.message_log_in_again)
         )
         logged = false
-        prefManager.sessIdCookie = null
+        mainPrefManager.sessIdCookie = null
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
         getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
             .putString(settingsSwitchData["USER_NAME"], "").apply()
-        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
@@ -361,7 +361,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
 
         if (logged) {
-            this.userId = prefManager.sessIdCookie!!
+            this.userId = mainPrefManager.sessIdCookie!!
             this.userName =
                 getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
                     settingsSwitchData["USER_NAME"],
@@ -394,7 +394,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
 
         if (logged) {
-            this.userId = prefManager.sessIdCookie ?: ""
+            this.userId = mainPrefManager.sessIdCookie ?: ""
 
             this.userName =
                 getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
@@ -500,7 +500,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
-            prefManager.areStatsAnonymous = status
+            mainPrefManager.areStatsAnonymous = status
             mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
         }
     }
@@ -1058,7 +1058,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun setLanguageSettings(lang: String) {
         try {
-            prefManager.language = lang
+            mainPrefManager.language = lang
 
             var languageChanged = false
             if (this.selectedLanguageVar != lang) {
@@ -1084,10 +1084,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun getDailyGoal(): Int {
-        return getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).getInt(
-            settingsSwitchData["DAILY_GOAL"],
-            0
-        )
+        return statsPrefManager.dailyGoalObjective
     }
 
     fun resetDashboardData() {
@@ -1142,9 +1139,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun setDailyGoal(dailyGoalValue: Int = 0) {
-        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE.toInt())
-            .edit()
-            .putInt(settingsSwitchData["DAILY_GOAL"], dailyGoalValue).apply()
+        statsPrefManager.dailyGoalObjective = dailyGoalValue
     }
 
     fun passedThirtySeconds(
@@ -1506,47 +1501,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     fun getContributing(type: String): String {
         //just if the user is logged-in
         if (this.logged) {
-            //user logged
-            val contributing = getSharedPreferences(
-                settingsSwitchData["TODAY_CONTRIBUTING"],
-                PRIVATE_MODE
-            ).getString(
-                settingsSwitchData["TODAY_CONTRIBUTING"],
-                "?, ?, ?"
-            )!!.split(", ")
-            val dateContributing = contributing[0]
-            val dateContributingToSave = getDateToSave(dateContributing)
-            var nValidated: String = "?"
-            var nRecorded: String = "?"
-            if (dateContributingToSave == dateContributing) {
-                //same date
-                //println("Same date")
-                nValidated = contributing[2]
-                nRecorded = contributing[1]
-                if (nValidated == "?") {
-                    nValidated = "0"
-                }
-                if (nRecorded == "?") {
-                    nRecorded = "0"
-                }
-            } else {
-                //new date
-                //println("New date")
-                nValidated = "0"
-                nRecorded = "0"
-
-            }
-            var contributingToSave =
-                dateContributingToSave + ", " + nRecorded + ", " + nValidated
-            getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
-                .putString(settingsSwitchData["TODAY_CONTRIBUTING"], contributingToSave).apply()
-            //println("dateSaved: " + dateContributing + " dateToSave: " + dateContributingToSave)
             when (type) {
                 "validations" -> {
-                    return nValidated
+                    return statsPrefManager.todayValidated.toString()
                 }
                 "recordings" -> {
-                    return nRecorded
+                    return statsPrefManager.todayRecorded.toString()
                 }
                 else -> {
                     return "?"

@@ -9,11 +9,8 @@ import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
+import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.*
-import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
-import org.commonvoice.saverio_lib.preferences.ListenPrefManager
-import org.commonvoice.saverio_lib.preferences.PrefManager
-import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
@@ -26,6 +23,7 @@ import org.koin.dsl.module
 /**
  * Inside the Application we start Koin, so we can do Dependency Injection
  */
+@Suppress("RemoveExplicitTypeArguments")
 class CommonVoice : Application() {
 
     private val dbModule = module {
@@ -39,7 +37,7 @@ class CommonVoice : Application() {
 
     private val prefsModule = module {
         single {
-            PrefManager(
+            MainPrefManager(
                 androidContext()
             )
         }
@@ -55,6 +53,11 @@ class CommonVoice : Application() {
         }
         single {
             ListenPrefManager(
+                androidContext()
+            )
+        }
+        single {
+            StatsPrefManager(
                 androidContext()
             )
         }
@@ -77,7 +80,19 @@ class CommonVoice : Application() {
     }
 
     private val mvvmViewmodels = module {
-        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(handle, get(), get(), get(), get(), get(), get(), get(), get()) }
+        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(
+            handle,
+            get<SentencesRepository>(),
+            get<RecordingsRepository>(),
+            get<MediaRecorderRepository>(),
+            get<MediaPlayerRepository>(),
+            get<RecordingSoundIndicatorRepository>(),
+            get<ReportsRepository>(),
+            get<WorkManager>(),
+            get<MainPrefManager>(),
+            get<SpeakPrefManager>(),
+            get<StatsPrefManager>()
+        ) }
         viewModel { MainActivityViewModel(get()) }
         viewModel { HomeViewModel(get()) }
     }

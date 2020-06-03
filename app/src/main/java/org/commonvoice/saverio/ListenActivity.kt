@@ -27,8 +27,11 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_listen.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.dataClasses.DailyGoal
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.json.JSONArray
 import org.json.JSONObject
+import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -36,6 +39,8 @@ import kotlin.collections.HashMap
 
 
 class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
+
+    private val statsPrefManager: StatsPrefManager by inject()
 
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
@@ -65,9 +70,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     var status: Int = 0 //1->clip stopped | 2->clip re-starting
 
     var selectedLanguageVar: String
-        get() = prefManager.language
+        get() = mainPrefManager.language
         set(value) {
-            prefManager.language = value
+            mainPrefManager.language = value
         }
 
     var mediaPlayer: MediaPlayer? = null //audioplayer to play/pause clips
@@ -77,7 +82,11 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         false //true -> the section was already open | false -> the section wasn't opened (before)
     var loading: Boolean = false //there is already a request at the server
 
-    var dailyGoal: DailyGoal = DailyGoal(0, 0)
+    var dailyGoal: DailyGoal
+        get() = statsPrefManager.dailyGoal
+        set(value) {
+            statsPrefManager.todayValidated = value.validations
+        }
     var isDailyGoalJustAchieved: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -133,15 +142,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                 )
 
             loadStatisticsYouToday()
-            dailyGoal.setDailyGoal(
-                getSharedPreferences(DAILY_GOAL, PRIVATE_MODE).getInt(
-                    DAILY_GOAL,
-                    0
-                )
-            )//just to test
-            this.dailyGoal.setRecordings(this.sentencesRecordedYouToday)
-            this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
-            this.dailyGoal.checkDailyGoal()
 
             if (getGestures()) {
                 nestedScrollListen.setOnTouchListener(object :
@@ -252,38 +252,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     fun incrementContributing() {
         //just if the user is logged-in
         if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)) {
-            //user logged
-            var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
-                TODAY_CONTRIBUTING,
-                "?, ?, ?"
-            ).split(", ")
-            var dateContributing = contributing[0]
-            var dateContributingToSave = getDateToSave(dateContributing)
-            var nValidated: String = "?"
-            var nRecorded: String = "?"
-            if (dateContributingToSave == dateContributing) {
-                //same date
-                nRecorded = contributing[1]
-                nValidated = contributing[2]
-                if (nValidated == "?") {
-                    nValidated = "0"
-                }
-                if (nRecorded == "?") {
-                    nRecorded = "0"
-                }
-            } else {
-                //new date
-                nValidated = "0"
-                nRecorded = "0"
-            }
-            nValidated = (nValidated.toInt() + 1).toString()
-            var contributingToSave =
-                dateContributingToSave + ", " + nRecorded + ", " + nValidated
-            getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
-                .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
 
-            this.dailyGoal.setRecordings(nRecorded.toInt())
-            this.dailyGoal.setValidations(nValidated.toInt())
+            dailyGoal.validations++
+
             this.checkDailyGoal()
         } else {
             //user no logged
@@ -602,7 +573,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                                 PRIVATE_MODE
                             ).getBoolean(LOGGED_IN_NAME, false)
                             if (logged) {
-                                var cookieId = prefManager.sessIdCookie
+                                var cookieId = mainPrefManager.sessIdCookie
                                 headers.put(
                                     "Cookie",
                                     "connect.sid=" + cookieId
@@ -779,7 +750,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                         PRIVATE_MODE
                     ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        var cookieId = prefManager.sessIdCookie
+                        var cookieId = mainPrefManager.sessIdCookie
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId
@@ -849,7 +820,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                         PRIVATE_MODE
                     ).getBoolean(LOGGED_IN_NAME, false)
                     if (logged) {
-                        var cookieId = prefManager.sessIdCookie
+                        var cookieId = mainPrefManager.sessIdCookie
                         headers.put(
                             "Cookie",
                             "connect.sid=" + cookieId

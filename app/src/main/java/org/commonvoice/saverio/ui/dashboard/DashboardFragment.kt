@@ -24,7 +24,9 @@ import com.google.android.material.tabs.TabLayout
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.json.JSONObject
+import org.koin.android.ext.android.inject
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -37,6 +39,8 @@ class DashboardFragment : Fragment() {
     private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var webView: WebView
     private var language = "it"
+
+    private val statsPrefManager: StatsPrefManager by inject()
 
     var statisticsYou = arrayOf(
         0,

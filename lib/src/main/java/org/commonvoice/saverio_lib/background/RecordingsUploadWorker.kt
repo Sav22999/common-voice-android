@@ -7,7 +7,7 @@ import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.repositories.FailedRecordingsRepository
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
-import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 
 class RecordingsUploadWorker(
@@ -17,7 +17,7 @@ class RecordingsUploadWorker(
 
     private val db = AppDB.build(appContext)
     private val prefManager =
-        PrefManager(appContext)
+        MainPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
 
     private val recordingsRepository = RecordingsRepository(db, retrofitFactory)

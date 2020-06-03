@@ -17,13 +17,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_tutorial.*
-import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
 
 class TutorialActivity : AppCompatActivity() {
 
-    private val prefManager: PrefManager by inject()
+    private val mainPrefManager: MainPrefManager by inject()
 
     private lateinit var webView: WebView
     private var status = 0
@@ -280,7 +280,7 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     fun setLanguage(language: String) {
-        prefManager.language = language
+        mainPrefManager.language = language
 
         //Toast.makeText(this,"Language: "+language+" index: "+languages_list_short.indexOf(language), Toast.LENGTH_SHORT).show()
     }

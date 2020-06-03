@@ -5,14 +5,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitStatsUpdate
-import org.commonvoice.saverio_lib.preferences.PrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 
 class StatsRepository(
-    private val prefManager: PrefManager,
+    private val mainPrefManager: MainPrefManager,
     retrofitFactory: RetrofitFactory
 ) {
 
@@ -31,9 +31,9 @@ class StatsRepository(
             val stats = RetrofitStatsUpdate(
                 getUserId(),
                 isLogged(),
-                prefManager.language,
+                mainPrefManager.language,
                 appVersion,
-                prefManager.areStatsAnonymous.toString(),
+                mainPrefManager.areStatsAnonymous.toString(),
                 appSource
             )
 
@@ -46,7 +46,7 @@ class StatsRepository(
     }
 
     private fun getUserId(): String {
-        val userId = prefManager.statsUserId
+        val userId = mainPrefManager.statsUserId
 
         return if (userId != "") {
             userId
@@ -54,13 +54,13 @@ class StatsRepository(
             val dateTemp = SimpleDateFormat("yyyyMMddHHmmssSSSS")
             val dateTime = dateTemp.format(Date()).toString()
             val uniqueUserId = "User$dateTime::CVAppSav"
-            prefManager.statsUserId = uniqueUserId
+            mainPrefManager.statsUserId = uniqueUserId
             uniqueUserId
         }
     }
 
     private fun isLogged(): Int {
-        return if (prefManager.sessIdCookie == null) {
+        return if (mainPrefManager.sessIdCookie == null) {
             0
         } else {
             1

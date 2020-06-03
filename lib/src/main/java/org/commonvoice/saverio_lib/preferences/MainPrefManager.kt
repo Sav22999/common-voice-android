@@ -2,7 +2,7 @@ package org.commonvoice.saverio_lib.preferences
 
 import android.content.Context
 
-class PrefManager(private val ctx: Context) {
+class MainPrefManager(private val ctx: Context) {
 
     private val preferences = ctx.getSharedPreferences("mainPreferences", Context.MODE_PRIVATE)
 
