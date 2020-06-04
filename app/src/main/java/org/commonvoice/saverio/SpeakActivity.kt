@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -18,7 +19,9 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import kotlin.random.Random
 
-class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
+class
+
+SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private val speakViewModel: SpeakViewModel by stateViewModel()
 
@@ -71,6 +74,12 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 SpeakViewModel.Companion.State.LISTENED -> {
                     loadUIStateListened()
                 }
+                SpeakViewModel.Companion.State.RECORDING_ERROR -> {
+                    Toast.makeText(this, "Inserire qui stringa di errore per registrazione troppo breve", Toast.LENGTH_LONG).show()
+                    speakViewModel.currentSentence.value?.let { sentence ->
+                        setupUIStateStandby(sentence)
+                    }
+                }
             }
         })
 
@@ -80,6 +89,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
                         "{{*{{n_clips}}*}}",
+                        "${speakViewModel.getDailyGoal().validations}"
+                    ).replace(
+                        "{{*{{n_sentences}}*}}",
                         "${speakViewModel.getDailyGoal().recordings}"
                     )
                 )
@@ -165,6 +177,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonStartStopSpeak.visibility = View.VISIBLE
         buttonSkipSpeak.visibility = View.VISIBLE
         buttonReportSpeak.visibility = View.VISIBLE
+
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
 
         textSentenceSpeak.text = sentence.sentenceText
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)

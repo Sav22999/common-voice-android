@@ -1,6 +1,7 @@
 package org.commonvoice.saverio_lib.mediaRecorder
 
 import android.media.MediaRecorder
+import android.util.Log
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Sentence
 
@@ -10,6 +11,8 @@ class MediaRecorderRepository(
 
     private var recorder: MediaRecorder? = null
 
+    private var recordingStartTimeStamp: Long = 0
+
     fun setupRecorder() {
         recorder?.release()
         recorder = null
@@ -18,7 +21,7 @@ class MediaRecorderRepository(
                 setAudioSource(MediaRecorder.AudioSource.MIC)
                 setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
                 setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-                setMaxDuration(20000)
+                setMaxDuration(10000)
                 setAudioEncodingBitRate(16 * 44100)
                 setAudioSamplingRate(44100)
                 setOutputFile(fileHolder.fileDescriptor)
@@ -29,17 +32,34 @@ class MediaRecorderRepository(
     fun startRecording() {
         setupRecorder()
         recorder!!.start()
+        recordingStartTimeStamp = System.currentTimeMillis()
     }
 
-    fun stopRecordingAndReadData(sentence: Sentence): Recording {
+    fun stopRecordingAndReadData(sentence: Sentence, onError: () -> Unit, onSuccess: (Recording) -> Unit) {
         try {
-            recorder!!.stop()
-        } catch (e: Exception) {
-            //TODO handle this crash caused by the user pressing stop too fast
+            when {
+                System.currentTimeMillis() - recordingStartTimeStamp <= 500 -> {
+                    onError()
+                    return
+                }
+                System.currentTimeMillis() - recordingStartTimeStamp < 10000 -> {
+                    recorder!!.stop()
+                }
+                else -> {
+                    //Recording time limit reached
+                    //We do nothing
+                }
+            }
+        } catch (e: IllegalStateException) {
+            onError()
+            return
+        } catch (e: RuntimeException) {
+            onError()
+            return
         }
         val array = fileHolder.getByteArray()
         setupRecorder()
-        return sentence.toRecording(array)
+        onSuccess(sentence.toRecording(array))
     }
 
     fun redoRecording() {

@@ -12,6 +12,7 @@ import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.*
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
+import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.koin.androidContext
@@ -93,6 +94,7 @@ class CommonVoice : Application() {
             get<SpeakPrefManager>(),
             get<StatsPrefManager>()
         ) }
+        viewModel { LoginViewModel(get()) }
         viewModel { MainActivityViewModel(get()) }
         viewModel { HomeViewModel(get()) }
     }

@@ -24,6 +24,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -32,10 +33,19 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_webbrowser.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.db.AppDB
+import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.json.JSONObject
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
+
+    private val loginViewModel: LoginViewModel by viewModel()
+    private val workManager: WorkManager by inject()
 
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
@@ -356,6 +366,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], true).apply()
 
                         mainPrefManager.sessIdCookie = userId
+
+                        loginViewModel.clearDB()
+
+                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
                         //println(" -->> LOGGED IN <<-- ")
 

@@ -16,6 +16,8 @@ import org.commonvoice.saverio_lib.models.*
 @TypeConverters(DBTypeConverters::class)
 abstract class AppDB : RoomDatabase() {
 
+    fun clearTables(): Unit = this.clearAllTables()
+
     abstract fun clips(): ClipsDAO
     abstract fun recordings(): RecordingsDAO
     abstract fun failedRecordings(): FailedRecordingsDAO

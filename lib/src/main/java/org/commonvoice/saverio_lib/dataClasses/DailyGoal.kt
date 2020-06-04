@@ -8,7 +8,7 @@ class DailyGoal(
 
     fun checkDailyGoal(): Boolean {
         //println("Daily goal --->  Now: " + (this.recordingsToday + this.validationsToday) + " -- To achive: "+getDailyGoal())
-        if (goal <= (recordings + validations)) {
+        if (goal == (recordings + validations)) {
             return true
         }
         return false

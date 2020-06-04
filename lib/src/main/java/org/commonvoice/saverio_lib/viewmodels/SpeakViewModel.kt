@@ -1,6 +1,7 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
+import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
@@ -35,7 +36,7 @@ class SpeakViewModel(
     private val statsPrefManager: StatsPrefManager
 ) : ViewModel() {
 
-    val _state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
+    private val _state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
     val state: LiveData<State> get() = _state
 
     val hasReachedGoal = MutableLiveData(false)
@@ -67,17 +68,25 @@ class SpeakViewModel(
 
     fun stopRecording() {
         _currentSentence.value?.let { sentence ->
-            currentRecording = mediaRecorderRepository.stopRecordingAndReadData(sentence)
+            mediaRecorderRepository.stopRecordingAndReadData(sentence, onError = {
 
-            if (speakPrefManager.skipRecordingConfirmation) {
-               _state.postValue(State.LISTENED)
-            } else {
-               _state.postValue(State.RECORDED)
-            }
+                _state.postValue(State.RECORDING_ERROR)
 
-            if (speakPrefManager.playRecordingSoundIndicator) {
-                recordingSoundIndicatorRepository.playFinishedSound()
-            }
+            }, onSuccess = { recording ->
+
+                currentRecording = recording
+
+                if (speakPrefManager.skipRecordingConfirmation) {
+                    _state.postValue(State.LISTENED)
+                } else {
+                    _state.postValue(State.RECORDED)
+                }
+
+                if (speakPrefManager.playRecordingSoundIndicator) {
+                    recordingSoundIndicatorRepository.playFinishedSound()
+                }
+
+            })
         }
     }
 
@@ -172,6 +181,7 @@ class SpeakViewModel(
             RECORDED,
             LISTENING,
             LISTENED,
+            RECORDING_ERROR,
         }
     }
 
