@@ -17,6 +17,20 @@ class DarkLightTheme {
     private var colorText: Int = R.color.colorBlack
     private var colorTextDT: Int = R.color.colorWhite
 
+    /*
+    //these are for a future "Theme" feature:
+    //(there is another class which set these colours eventually)
+    //there won't exist anymore only "Light" and "Dark" theme
+    private var colourBackgroundPrimary: Int = R.color.colorBackground
+    private var colourBackgroundSecondary: Int = R.color.colorWhite
+    private var colourBackgroundTertiary: Int = ?
+
+    private var colourTextPrimary: Int = R.color.colorBlack
+    private var colourTextSecondary: Int = R.color.colorBlack
+    private var colourTextTertiary: Int = ?
+    */
+
+
     constructor() {
 
     }
@@ -239,7 +253,7 @@ class DarkLightTheme {
 
     fun setTabLayout(theme: Boolean, view: Context, element: TabLayout) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorSelectedBackgroundDT)
+            element.setBackgroundResource(R.color.colorBlack)
             element.setTabTextColors(
                 ContextCompat.getColor(view, R.color.colorWhite),
                 ContextCompat.getColor(view, R.color.colorSelectedDT)
@@ -251,7 +265,7 @@ class DarkLightTheme {
                 )
             )
         } else {
-            element.setBackgroundResource(R.color.colorSelectedBackground)
+            element.setBackgroundResource(R.color.colorWhite)
             element.setTabTextColors(
                 ContextCompat.getColor(view, R.color.colorBlack),
                 ContextCompat.getColor(view, R.color.colorSelected)

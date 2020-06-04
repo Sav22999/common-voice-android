@@ -203,15 +203,17 @@ class DashboardFragment : Fragment() {
 
     fun setTheme(view: Context, root: View) {
         val theme = DarkLightTheme()
+        val isDark = theme.getTheme(view)
         theme.setElements(view, root.findViewById(R.id.layoutDashboard))
 
-        val isDark = theme.getTheme(view)
-        theme.setElement(
-            isDark,
-            root.findViewById(R.id.imageBackgroundTab) as ImageView,
-            R.color.colorSelectedBackground,
-            R.color.colorSelectedBackgroundDT
-        )
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionStatistics))
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionVoicesOnline))
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionDailyGoal))
+
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.dashboardSectionStatistics))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.dashboardSectionVoicesOnline))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.dashboardSectionDailyGoal))
+
         theme.setTextView(isDark, view, root.findViewById(R.id.textDashboardVoicesNow) as TextView)
         theme.setTextView(
             isDark,

@@ -12,15 +12,17 @@
         android:layout_height="match_parent"
         android:isScrollContainer="true">
 
-        <View
-            android:id="@+id/viewSeparator"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/settingsSectionBottom"
+        <TextView
+            android:id="@+id/textRelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionOther" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Release" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/settingsSectionLanguage"
@@ -645,6 +647,16 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/viewSeparator"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/settingsSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionOther" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/settingsSectionBottom"
             android:layout_width="0dp"
@@ -717,18 +729,6 @@
                 app:layout_constraintTop_toBottomOf="@id/textContributors" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/textRelease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Release" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
