@@ -310,7 +310,7 @@ class SettingsFragment : Fragment() {
             isDark,
             root.findViewById(R.id.imageLanguageIcon) as ImageView,
             R.drawable.ic_language,
-            R.drawable.ic_language_darktheme
+            R.drawable.ic_language
         )
     }
 }
