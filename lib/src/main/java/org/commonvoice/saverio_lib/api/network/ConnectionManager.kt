@@ -11,42 +11,43 @@ import androidx.lifecycle.MutableLiveData
 
 class ConnectionManager(appContext: Context) {
 
-    private val _isInternetAvailable = MutableLiveData(true)
-    val isInternetAvailable: LiveData<Boolean> get() = _isInternetAvailable
+    private val _liveInternetAvailability = MutableLiveData(true)
+    val liveInternetAvailability: LiveData<Boolean> get() = _liveInternetAvailability
 
-    val isAvailable: Boolean
-        get() = _isInternetAvailable.value ?: true
+    val isInternetAvailable: Boolean
+        get() = _liveInternetAvailability.value ?: false
 
     private val callback = object: ConnectivityManager.NetworkCallback() {
 
         override fun onAvailable(network: Network) {
             super.onAvailable(network)
 
-            _isInternetAvailable.postValue(true)
+            _liveInternetAvailability.postValue(true)
         }
 
         override fun onLosing(network: Network, maxMsToLive: Int) {
             super.onLosing(network, maxMsToLive)
 
-            _isInternetAvailable.postValue(false)
+            _liveInternetAvailability.postValue(false)
         }
 
         override fun onLost(network: Network) {
             super.onLost(network)
 
-            _isInternetAvailable.postValue(false)
+            _liveInternetAvailability.postValue(false)
         }
 
         override fun onUnavailable() {
             super.onUnavailable()
 
-            _isInternetAvailable.postValue(false)
+            _liveInternetAvailability.postValue(false)
         }
 
     }
 
     private val networkRequest = NetworkRequest.Builder().apply {
         addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+        addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
     }.build()
 
     init {

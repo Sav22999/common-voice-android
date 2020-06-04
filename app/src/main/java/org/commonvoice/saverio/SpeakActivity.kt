@@ -14,8 +14,10 @@ import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import kotlin.random.Random
 
@@ -24,6 +26,8 @@ class
 SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private val speakViewModel: SpeakViewModel by stateViewModel()
+
+    private val connectionManager: ConnectionManager by inject()
 
     private val permissionRequestCode by lazy {
         Random.nextInt(10000)
@@ -37,6 +41,11 @@ SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         if (obtainPermissions()) {
             setupUI()
         }
+
+        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+            //Just as a POC
+            Toast.makeText(this, "Internet Available: $available", Toast.LENGTH_LONG).show()
+        })
     }
 
     override fun onBackPressed() {

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import androidx.work.WorkManager
 import org.commonvoice.saverio_lib.api.RetrofitFactory
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
@@ -34,6 +35,7 @@ class CommonVoice : Application() {
     private val utilsModule = module {
         factory { WorkManager.getInstance(androidContext()) }
         single { FileHolder(androidContext()) }
+        single(createdAtStart = true) { ConnectionManager(androidContext()) }
     }
 
     private val prefsModule = module {
