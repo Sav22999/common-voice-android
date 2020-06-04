@@ -70,12 +70,12 @@
         android:layout_width="0dp"
         android:layout_height="240dp"
         android:layout_marginStart="39dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="39dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/colorBlack" />
+        app:srcCompat="@drawable/bottom_border_radius" />
 
     <ImageView
         android:id="@+id/imgTxtListen"
@@ -94,7 +94,7 @@
         android:layout_width="0dp"
         android:layout_height="12dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="270dp"
         android:layout_marginEnd="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +137,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="34dp"
         android:background="@drawable/firstrun_number_rounded"
         android:fontFamily="@font/sourcecodepro_black"
         android:text="1"
@@ -153,7 +153,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="250dp"
         android:background="@drawable/firstrun_number_rounded"
         android:fontFamily="@font/sourcecodepro_black"
         android:text="2"
@@ -240,7 +240,7 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/background_textarea_message_first_run"
+        android:background="@drawable/top_bottom_border_radius_with_border"
         android:backgroundTintMode="screen"
         android:gravity="center|center_horizontal|center_vertical"
         android:padding="10dp"
@@ -289,7 +289,7 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/background_textarea_message_first_run"
+        android:background="@drawable/top_bottom_border_radius_with_border"
         android:backgroundTintMode="screen"
         android:gravity="center|center_horizontal|center_vertical"
         android:padding="10dp"
@@ -331,11 +331,12 @@
             android:progressBackgroundTint="@color/colorBackground"
             android:progressTint="@color/colorBackground"
             android:secondaryProgressTint="@color/colorBackground"
-            android:thumbTint="@color/colorPrimaryDark"
+            android:thumbTint="@color/colorGray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:tickMarkTint="@color/colorBlack" />
+            app:tickMark="@drawable/tick_mark"
+            app:tickMarkTint="@color/colorGray" />
 
         <Button
             android:id="@+id/btnNextListen"

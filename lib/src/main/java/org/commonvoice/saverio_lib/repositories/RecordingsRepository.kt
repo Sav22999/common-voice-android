@@ -21,11 +21,17 @@ class RecordingsRepository(
     suspend fun postRecording(recording: Recording): Response<RetrofitRecordingResult> {
         val encodedSentence = URLEncoder.encode(recording.sentenceText, "UTF-8").replace("+", "%20")
         val requestBody = recording.audio.toRequestBody()
-        return recordingsClient.sendRecording(recording.language, encodedSentence, recording.sentenceId, requestBody)
+        return recordingsClient.sendRecording(
+            recording.language,
+            encodedSentence,
+            recording.sentenceId,
+            requestBody
+        )
     }
 
     @WorkerThread
-    suspend fun insertRecording(recording: Recording) = recordingsDao.insertRecording(recording)
+    suspend fun insertRecording(recording: Recording) =
+        recordingsDao.insertRecording(recording)
 
     @WorkerThread
     suspend fun deleteRecording(recording: Recording) = recordingsDao.deleteRecording(recording)
@@ -34,12 +40,19 @@ class RecordingsRepository(
     suspend fun getRecordingsCount() = recordingsDao.getCount()
 
     @WorkerThread
-    suspend fun getOldRecordings(dateOfToday: Timestamp) = recordingsDao.getOldRecordings(dateOfToday.time)
+    suspend fun getOldRecordings(dateOfToday: Timestamp) =
+        recordingsDao.getOldRecordings(dateOfToday.time)
 
     @WorkerThread
-    suspend fun deleteOldRecordings(dateOfToday: Timestamp) = recordingsDao.deleteOldRecordings(dateOfToday.time)
+    suspend fun deleteOldRecordings(dateOfToday: Timestamp) =
+        recordingsDao.deleteOldRecordings(dateOfToday.time)
 
     @WorkerThread
     suspend fun getAllRecordings() = recordingsDao.getAllRecordings()
 
+    @WorkerThread
+    suspend fun getAllRecordingsToDelete() = recordingsDao.getAllRecordingsToDelete()
+
+    @WorkerThread
+    suspend fun getAllRecordingsToSend() = recordingsDao.getAllRecordingsToSend()
 }

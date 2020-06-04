@@ -191,12 +191,13 @@
                 android:progressBackgroundTint="@color/colorBackground"
                 android:progressTint="@color/colorBackground"
                 android:secondaryProgressTint="@color/colorBackground"
-                android:thumbTint="@color/colorPrimaryDark"
+                android:thumbTint="@color/colorGray"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textSkipTutorial"
-                app:tickMarkTint="@color/colorBlack" />
+                app:tickMark="@drawable/tick_mark"
+                app:tickMarkTint="@color/colorGray" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

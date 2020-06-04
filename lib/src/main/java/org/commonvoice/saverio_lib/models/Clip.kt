@@ -9,7 +9,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Suppress("ArrayInDataClass")
 @Entity(tableName = "clips")
-@Parcelize
 data class Clip(
 
     @PrimaryKey
@@ -24,5 +23,4 @@ data class Clip(
 
     @ColumnInfo(name = "audio", typeAffinity = ColumnInfo.BLOB)
     val audio: ByteArray = byteArrayOf()
-
-): Parcelable
+)

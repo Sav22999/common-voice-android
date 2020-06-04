@@ -1,7 +1,6 @@
 package org.commonvoice.saverio
 
 import android.content.Context
-import android.os.Build
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -149,11 +148,11 @@ class DarkLightTheme {
 
     fun setTextView(theme: Boolean, view: Context, element: TextView) {
         if (theme) {
-            element.setBackgroundResource(R.drawable.txt_rounded_darktheme)
+            element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccentDT))
         } else {
-            element.setBackgroundResource(R.drawable.txt_rounded)
+            element.setBackgroundResource(R.drawable.txt_rounded_with_border)
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccent))
         }
@@ -233,10 +232,6 @@ class DarkLightTheme {
             element.foregroundTintList = ContextCompat.getColorStateList(view, color_dark)
             element.indeterminateTintList = ContextCompat.getColorStateList(view, color_dark)
             element.secondaryProgressTintList = ContextCompat.getColorStateList(view, color_dark)
-            element.thumbTintList = ContextCompat.getColorStateList(view, color_light)
-            if (Build.VERSION.SDK_INT > 23) {
-                element.tickMarkTintList = ContextCompat.getColorStateList(view, color_light)
-            }
         } else {
             element.progressTintList = ContextCompat.getColorStateList(view, color_light)
             element.progressBackgroundTintList = ContextCompat.getColorStateList(view, color_light)
@@ -244,10 +239,6 @@ class DarkLightTheme {
             element.foregroundTintList = ContextCompat.getColorStateList(view, color_light)
             element.indeterminateTintList = ContextCompat.getColorStateList(view, color_light)
             element.secondaryProgressTintList = ContextCompat.getColorStateList(view, color_light)
-            element.thumbTintList = ContextCompat.getColorStateList(view, color_dark)
-            if (Build.VERSION.SDK_INT > 23) {
-                element.tickMarkTintList = ContextCompat.getColorStateList(view, color_dark)
-            }
         }
     }
 

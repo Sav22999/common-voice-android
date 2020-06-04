@@ -11,6 +11,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
+import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.android.synthetic.main.first_run_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
@@ -54,6 +55,8 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
         var theme: DarkLightTheme = DarkLightTheme()
 
         var isDark = theme.getTheme(view)
+        theme.setElements(view, this.findViewById(R.id.firstRunSpeakSectionBottom))
+        theme.setElement(isDark, view, 1, findViewById(R.id.firstRunSpeakSectionBottom))
         theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunSpeak) as ConstraintLayout)
         theme.setElement(isDark, view, this.findViewById(R.id.btnNextSpeak) as Button)
         theme.setElement(isDark, view, this.findViewById(R.id.seekBarFirstRunSpeak) as SeekBar, R.color.colorBackground, R.color.colorBackgroundDT)

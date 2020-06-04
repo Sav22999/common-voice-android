@@ -51,6 +51,8 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
         var theme: DarkLightTheme = DarkLightTheme()
 
         var isDark = theme.getTheme(view)
+        theme.setElements(view, this.findViewById(R.id.firstRunListenSectionBottom))
+        theme.setElement(isDark, view, 1, findViewById(R.id.firstRunListenSectionBottom))
         theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
         theme.setElement(isDark, view, this.findViewById(R.id.btnNextListen) as Button)
         theme.setElement(isDark, view, this.findViewById(R.id.seekBarFirstRunListen) as SeekBar, R.color.colorBackground, R.color.colorBackgroundDT)

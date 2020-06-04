@@ -74,11 +74,11 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/txt_rounded_with_border"
                 android:dropDownWidth="wrap_content"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:paddingStart="20dp"
-                android:popupBackground="@drawable/txt_rounded"
+                android:popupBackground="@drawable/txt_rounded_with_border"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -574,9 +574,7 @@
                 android:trackTint="@drawable/track_switch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separator11"
-                tools:layout_editor_absoluteX="20dp"
-                tools:layout_editor_absoluteY="20dp" />
+                app:layout_constraintTop_toBottomOf="@+id/separator11" />
 
             <View
                 android:id="@+id/separator6"

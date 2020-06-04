@@ -9,11 +9,13 @@ import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
 
 @Suppress("ArrayInDataClass")
-@Parcelize
 @Entity(tableName = "recordings")
 data class Recording(
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "internal_id")
+    val internalId: Int,
+
     @ColumnInfo(name = "id")
     val sentenceId: String,
 
@@ -27,10 +29,8 @@ data class Recording(
     val audio: ByteArray,
 
     @ColumnInfo(name = "expiry")
-    val expiryDate: Timestamp = getTimestampOfNowPlus(days = 7)
+    val expiryDate: Timestamp = getTimestampOfNowPlus(days = 7),
 
-) : Parcelable {
-
-    fun toFailedRecording() = FailedRecording(sentenceId, sentenceText, language, audio, expiryDate, 0)
-
-}
+    @ColumnInfo(name = "attempts")
+    var attempts: Int
+)
