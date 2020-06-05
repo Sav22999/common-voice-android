@@ -8,6 +8,7 @@ import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
+import java.util.concurrent.TimeUnit
 
 class RecordingsUploadWorker(
     appContext: Context,
@@ -23,6 +24,7 @@ class RecordingsUploadWorker(
 
     override suspend fun doWork(): Result {
         recordingsRepository.deleteOldRecordings(getTimestampOfNowPlus(seconds = 0))
+        recordingsRepository.deleteFailedRecordings()
 
         if (recordingsRepository.getRecordingsCount() == 0) {
             db.close()
@@ -33,15 +35,21 @@ class RecordingsUploadWorker(
 
         availableRecordings.forEach { recording ->
             val result = sendRecording(recording)
-            recordingsRepository.deleteRecording(recording)
-            if (!result) {
-                recording.attempts++
-                recordingsRepository.insertRecording(recording)
+            if (result) {
+                recordingsRepository.deleteRecording(recording)
+            } else {
+                recordingsRepository.updateRecording(recording.increaseAttempt())
             }
         }
 
-        db.close()
-        return Result.success()
+        return if (recordingsRepository.getRecordingsCount() != 0) {
+            db.close()
+            Result.retry()
+        } else {
+            db.close()
+            Result.success()
+        }
+
     }
 
     private suspend fun sendRecording(recording: Recording): Boolean {
@@ -59,6 +67,7 @@ class RecordingsUploadWorker(
 
         private val request = OneTimeWorkRequestBuilder<RecordingsUploadWorker>()
             .setConstraints(constraint)
+            .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30, TimeUnit.SECONDS)
             .build()
 
         fun attachToWorkManager(wm: WorkManager) {

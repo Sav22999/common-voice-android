@@ -1,6 +1,5 @@
 package org.commonvoice.saverio_lib.db.daos
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import org.commonvoice.saverio_lib.models.Recording
 
@@ -9,6 +8,9 @@ interface RecordingsDAO {
 
     @Insert
     suspend fun insertRecording(recording: Recording)
+
+    @Update
+    suspend fun updateRecording(recording: Recording)
 
     @Delete
     suspend fun deleteRecording(recording: Recording)
@@ -22,12 +24,13 @@ interface RecordingsDAO {
     @Query("DELETE FROM recordings WHERE expiry <= :dateOfToday")
     suspend fun deleteOldRecordings(dateOfToday: Long)
 
-    @Query("SELECT * FROM recordings WHERE attempts <= 10 ORDER BY internal_id ASC")
+    @Query("SELECT * FROM recordings WHERE attempts <= 10 ORDER BY attempts ASC, expiry ASC")
     suspend fun getAllRecordings(): List<Recording>
 
-    @Query("SELECT COUNT(*) FROM recordings WHERE attempts <= 10")
-    suspend fun getAllRecordingsToSend(): Int
-
     @Query("SELECT * FROM recordings WHERE attempts > 10")
-    suspend fun getAllRecordingsToDelete(): List<Recording>
+    suspend fun geFailedRecordings(): List<Recording>
+
+    @Query("DELETE FROM recordings WHERE attempts > 10")
+    suspend fun deleteFailedRecordings()
+
 }

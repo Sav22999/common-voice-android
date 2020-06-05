@@ -8,14 +8,12 @@ import kotlinx.android.parcel.Parcelize
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
 
+@Parcelize
 @Suppress("ArrayInDataClass")
 @Entity(tableName = "recordings")
 data class Recording(
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "internal_id")
-    val internalId: Int,
-
+    @PrimaryKey
     @ColumnInfo(name = "id")
     val sentenceId: String,
 
@@ -32,5 +30,10 @@ data class Recording(
     val expiryDate: Timestamp = getTimestampOfNowPlus(days = 7),
 
     @ColumnInfo(name = "attempts")
-    var attempts: Int
-)
+    val attempts: Int
+
+) : Parcelable {
+
+    fun increaseAttempt(): Recording = this.copy(attempts = attempts + 1)
+
+}

@@ -44,7 +44,6 @@ SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            //Just as a POC
             this.imageAirplaneModeSpeak.isGone = available
         })
     }

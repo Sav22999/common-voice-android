@@ -20,7 +20,7 @@ class StatsPrefManager(ctx: Context) {
         }
 
     var dailyGoalObjective: Int
-        get() = preferences.getInt(Keys.DAILY_GOAL_OBJECTIVE.name, -1)
+        get() = preferences.getInt(Keys.DAILY_GOAL_OBJECTIVE.name, 0)
         set(value) { preferences.edit().putInt(Keys.DAILY_GOAL_OBJECTIVE.name, value).apply() }
 
     private var todayContributingDate: Calendar

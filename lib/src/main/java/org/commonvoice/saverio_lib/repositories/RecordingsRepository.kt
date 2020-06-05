@@ -37,6 +37,9 @@ class RecordingsRepository(
     suspend fun deleteRecording(recording: Recording) = recordingsDao.deleteRecording(recording)
 
     @WorkerThread
+    suspend fun updateRecording(recording: Recording) = recordingsDao.updateRecording(recording)
+
+    @WorkerThread
     suspend fun getRecordingsCount() = recordingsDao.getCount()
 
     @WorkerThread
@@ -51,8 +54,9 @@ class RecordingsRepository(
     suspend fun getAllRecordings() = recordingsDao.getAllRecordings()
 
     @WorkerThread
-    suspend fun getAllRecordingsToDelete() = recordingsDao.getAllRecordingsToDelete()
+    suspend fun getFailedRecordings() = recordingsDao.geFailedRecordings()
 
     @WorkerThread
-    suspend fun getAllRecordingsToSend() = recordingsDao.getAllRecordingsToSend()
+    suspend fun deleteFailedRecordings() = recordingsDao.deleteFailedRecordings()
+
 }
