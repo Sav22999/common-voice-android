@@ -272,8 +272,8 @@ class MessageDialog {
                             if (dialogView.checkBoxReason4Report.isChecked) reasons.put("difficult-pronounce")
                             var other_text = dialogView.textReasonOtherReport.text.toString()
                             if (dialogView.checkBoxReason5Report.isChecked) reasons.put(other_text)
-                            if (this.message_type == 3) {
-                                listen?.reportClip(reasons)
+                            if (this.message_type == 3) { //TODO fix this
+                                //listen?.reportClip(reasons)
                             } else if (this.message_type == 4) {
                                 //speak?.reportSentence(reasons)
                             }

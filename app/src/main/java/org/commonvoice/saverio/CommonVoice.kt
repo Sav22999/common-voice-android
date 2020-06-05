@@ -12,10 +12,7 @@ import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.*
-import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
-import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
-import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
-import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
+import org.commonvoice.saverio_lib.viewmodels.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -94,6 +91,16 @@ class CommonVoice : Application() {
             get<WorkManager>(),
             get<MainPrefManager>(),
             get<SpeakPrefManager>(),
+            get<StatsPrefManager>()
+        ) }
+        viewModel { (handle: SavedStateHandle) -> ListenViewModel(
+            handle,
+            get<ClipsRepository>(),
+            get<ValidationsRepository>(),
+            get<MediaPlayerRepository>(),
+            get<WorkManager>(),
+            get<MainPrefManager>(),
+            get<ListenPrefManager>(),
             get<StatsPrefManager>()
         ) }
         viewModel { LoginViewModel(get()) }

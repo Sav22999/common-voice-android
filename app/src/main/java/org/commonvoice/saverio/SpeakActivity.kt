@@ -22,9 +22,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import kotlin.random.Random
 
-class
-
-SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
+class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private val speakViewModel: SpeakViewModel by stateViewModel()
 

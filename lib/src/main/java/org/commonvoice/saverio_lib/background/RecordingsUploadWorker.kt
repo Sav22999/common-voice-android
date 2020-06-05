@@ -34,7 +34,7 @@ class RecordingsUploadWorker(
         val availableRecordings = recordingsRepository.getAllRecordings()
 
         availableRecordings.forEach { recording ->
-            val result = sendRecording(recording)
+            val result = sendRecording(recording) //false
             if (result) {
                 recordingsRepository.deleteRecording(recording)
             } else {
