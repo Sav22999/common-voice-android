@@ -146,7 +146,7 @@ class DashboardFragment : Fragment() {
             }
 
             val goalText = root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-            if (main.getDailyGoal() == 0) {
+            if (main.getDailyGoal() <= 0) {
                 goalText.setText(getString(R.string.daily_goal_is_not_set))
                 goalText.typeface = Typeface.DEFAULT
                 root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)

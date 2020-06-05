@@ -125,6 +125,7 @@
     <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
     <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">Sending the recording...</string>
     <string name="txt_recording_sent">Recording sent!</string>
     <string name="txt_sending_recording_failed">Failed to send recording!</string>

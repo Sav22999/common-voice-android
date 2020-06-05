@@ -57,7 +57,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val statsPrefManager: StatsPrefManager by inject()
 
     companion object {
-        const val SOURCE_STORE = "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+        const val SOURCE_STORE =
+            "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
         fun checkInternet(context: Context): Boolean {
             val cm =
@@ -1139,7 +1140,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun setDailyGoal(dailyGoalValue: Int = 0) {
-        statsPrefManager.dailyGoalObjective = dailyGoalValue
+        var value = dailyGoalValue
+        if (value < 0) value = 0
+        statsPrefManager.dailyGoalObjective = value
     }
 
     fun passedThirtySeconds(
@@ -1397,7 +1400,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 val tl = TranslationsLanguages()
                 var detailsMessage = ""
                 if (tl.isUncompleted(this.getSelectedLanguage())) {
-                    detailsMessage = "\n" + getString(R.string.message_app_not_completely_translated)
+                    detailsMessage =
+                        "\n" + getString(R.string.message_app_not_completely_translated)
                 }
                 showMessageDialog(
                     "",

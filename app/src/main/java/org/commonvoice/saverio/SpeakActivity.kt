@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
@@ -44,7 +45,7 @@ SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
             //Just as a POC
-            Toast.makeText(this, "Internet Available: $available", Toast.LENGTH_LONG).show()
+            this.imageAirplaneModeSpeak.isGone = available
         })
     }
 
@@ -84,7 +85,7 @@ SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     loadUIStateListened()
                 }
                 SpeakViewModel.Companion.State.RECORDING_ERROR -> {
-                    Toast.makeText(this, "Inserire qui stringa di errore per registrazione troppo breve", Toast.LENGTH_LONG).show()
+                    showMessageDialog("", getString(R.string.txt_recording_too_short))
                     speakViewModel.currentSentence.value?.let { sentence ->
                         setupUIStateStandby(sentence)
                     }
@@ -138,11 +139,13 @@ SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         val isDark = theme.getTheme(view)
         theme.setElement(isDark, layoutSpeak)
         theme.setElement(isDark, view, 1, speakSectionBottom)
-        theme.setElement(isDark,
+        theme.setElement(
+            isDark,
             view,
             textMessageAlertSpeak,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT)
+            R.color.colorAlertMessageDT
+        )
         theme.setElement(isDark, view, buttonReportSpeak, background = false)
         theme.setElement(isDark, view, buttonSkipSpeak)
     }

@@ -18,7 +18,7 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     private val langURL = genericURL + mainPrefManager.language + "/"
 
-    private val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/"
+    private val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/v2/"
 
     private val baseRetrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())

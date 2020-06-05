@@ -13,6 +13,63 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textSentenceSpeak"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bottom_border_radius"
+            android:backgroundTintMode="screen"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:padding="16px"
+            android:text="..."
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageAirplaneModeSpeak"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_airplane_mode" />
+
+        <TextView
+            android:id="@+id/textMessageAlertSpeak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center|top|center_vertical"
+            android:textColor="@color/colorAlertMessage"
+            android:textSize="16dp"
+            android:textStyle="italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
+
+        <View
+            android:id="@+id/viewSeparatorSpeak2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRecordOrListenAgain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
+
         <Button
             android:id="@+id/buttonRecordOrListenAgain"
             android:layout_width="60dp"
@@ -25,6 +82,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/buttonStartStopSpeak"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/speak_cv"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
 
         <Button
             android:id="@+id/buttonSendSpeak"
@@ -51,64 +119,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonSendSpeak" />
-
-        <View
-            android:id="@+id/viewSeparatorSpeak2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonRecordOrListenAgain"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
-
-        <Button
-            android:id="@+id/buttonStartStopSpeak"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/speak_cv"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
-
-        <TextView
-            android:id="@+id/textSentenceSpeak"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bottom_border_radius"
-            android:backgroundTintMode="screen"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:padding="16px"
-            android:text="..."
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorWhite"
-            android:textSize="30dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textMessageAlertSpeak"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center|top|center_vertical"
-            android:textColor="@color/colorAlertMessage"
-            android:textSize="16dp"
-            android:textStyle="italic"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionBottom"
