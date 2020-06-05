@@ -1,19 +1,16 @@
 package org.commonvoice.saverio_lib.db.daos
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import org.commonvoice.saverio_lib.models.Clip
 
 @Dao
 interface ClipsDAO {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertClip(clip: Clip)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertClips(clips: List<Clip>)
 
     @Delete
@@ -26,7 +23,7 @@ interface ClipsDAO {
     fun getLiveCount(): LiveData<Int>
 
     @Query("SELECT * FROM clips ORDER BY expiry ASC LIMIT 1")
-    suspend fun getOldestClip(): Clip
+    suspend fun getOldestClip(): Clip?
 
     @Query("SELECT * FROM clips WHERE expiry <= :dateOfToday")
     suspend fun getOldClips(dateOfToday: Long): List<Clip>

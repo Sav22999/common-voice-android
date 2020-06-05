@@ -55,6 +55,8 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     fun makeClipsService(): ClipsService = langRetrofit.create(ClipsService::class.java)
 
+    fun makeValidationsService(): ValidationsService = genericRetrofit.create(ValidationsService::class.java)
+
     fun makeClipsDownloadService(): ClipsDownloadService = unauthRetrofit.create(ClipsDownloadService::class.java)
 
 }

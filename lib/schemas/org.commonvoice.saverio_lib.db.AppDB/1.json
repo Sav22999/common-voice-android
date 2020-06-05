@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8b64bcfbd7056f60f08a3d2f2b381668",
+    "identityHash": "8fb8481f3b3951a3efaaca035361e94c",
     "entities": [
       {
         "tableName": "clips",
@@ -150,14 +150,8 @@
       },
       {
         "tableName": "validations",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`internal_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` TEXT NOT NULL, `lang` TEXT NOT NULL, `valid` INTEGER NOT NULL, `expiry` INTEGER NOT NULL, `attempts` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `lang` TEXT NOT NULL, `valid` INTEGER NOT NULL, `expiry` INTEGER NOT NULL, `attempts` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
-          {
-            "fieldPath": "internalId",
-            "columnName": "internal_id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -191,9 +185,9 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "internal_id"
+            "id"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -246,7 +240,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8b64bcfbd7056f60f08a3d2f2b381668')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8fb8481f3b3951a3efaaca035361e94c')"
     ]
   }
 }

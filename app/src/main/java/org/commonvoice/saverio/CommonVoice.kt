@@ -69,11 +69,11 @@ class CommonVoice : Application() {
 
     private val mvvmRepos = module {
         single { MediaRecorderRepository(get()) }
-        single { MediaPlayerRepository(androidContext()) }
+        factory { MediaPlayerRepository() }
         single { ClipsRepository(get(), get()) }
         single { RecordingsRepository(get(), get()) }
         single { SentencesRepository(get(), get()) }
-        single { ValidationsRepository(get()) }
+        single { ValidationsRepository(get(), get()) }
         single { ReportsRepository(get(), get()) }
         single { StatsRepository(get(), get()) }
         single { RecordingSoundIndicatorRepository(get()) }

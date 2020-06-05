@@ -4,7 +4,13 @@ import android.os.Parcelable
 import androidx.lifecycle.*
 import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.background.ValidationsUploadWorker
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
@@ -31,13 +37,61 @@ class ListenViewModel(
     val currentClip: LiveData<Clip> get() = _currentClip
 
     fun loadNewClip() = viewModelScope.launch {
+        val clip = clipsRepository.getOldestClip()
+        if (clip != null) {
+            _currentClip.postValue(clip)
+        } else {
+            delay(500)
+            _state.postValue(State.STANDBY)
+        }
+    }
 
+    fun skipClip() = viewModelScope.launch {
+        currentClip.value?.let {
+            clipsRepository.deleteClip(it)
+        }
+        withContext(Dispatchers.Main) {
+            _state.postValue(State.STANDBY)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+        }
+    }
+
+    fun startListening() {
+        currentClip.value?.let { clip ->
+            mediaPlayerRepository.setup {
+                _state.postValue(State.LISTENED)
+            }
+            mediaPlayerRepository.playClip(clip)
+            _state.postValue(State.LISTENING)
+        }
+    }
+
+    fun stopListening() {
+        mediaPlayerRepository.stopPlaying()
+        _state.postValue(State.STANDBY)
+    }
+
+    fun validate(result: Boolean) = viewModelScope.launch(Dispatchers.IO) {
+        currentClip.value?.let { clip ->
+            val validation = clip.toValidation(result)
+
+            validationsRepository.insertValidation(validation)
+            clipsRepository.deleteClip(clip)
+
+            withContext(Dispatchers.Main) {
+                _state.postValue(State.STANDBY)
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                ValidationsUploadWorker.attachToWorkManager(workManager)
+            }
+        }
     }
 
     companion object {
         @Parcelize
         enum class State: Parcelable {
-            STANDBY
+            STANDBY,
+            LISTENING,
+            LISTENED
         }
     }
 

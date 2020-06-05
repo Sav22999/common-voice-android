@@ -7,6 +7,7 @@ import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.util.concurrent.TimeUnit
 
@@ -22,6 +23,9 @@ class RecordingsUploadWorker(
 
     private val recordingsRepository = RecordingsRepository(db, retrofitFactory)
 
+    private val mainPrefManager = MainPrefManager(appContext)
+    private val statsPrefManager = StatsPrefManager(appContext)
+
     override suspend fun doWork(): Result {
         recordingsRepository.deleteOldRecordings(getTimestampOfNowPlus(seconds = 0))
         recordingsRepository.deleteFailedRecordings()
@@ -35,8 +39,12 @@ class RecordingsUploadWorker(
 
         availableRecordings.forEach { recording ->
             val result = sendRecording(recording) //false
+
             if (result) {
                 recordingsRepository.deleteRecording(recording)
+                if (mainPrefManager.sessIdCookie != null) {
+                    statsPrefManager.todayRecorded++
+                }
             } else {
                 recordingsRepository.updateRecording(recording.increaseAttempt())
             }

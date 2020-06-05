@@ -1,11 +1,9 @@
 package org.commonvoice.saverio_lib.models
 
-import android.os.Parcelable
-import androidx.room.*
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
-import kotlinx.android.parcel.IgnoredOnParcel
-import kotlinx.android.parcel.Parcelize
+import androidx.room.ColumnInfo
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Suppress("ArrayInDataClass")
 @Entity(tableName = "clips")
@@ -23,4 +21,14 @@ data class Clip(
 
     @ColumnInfo(name = "audio", typeAffinity = ColumnInfo.BLOB)
     val audio: ByteArray = byteArrayOf()
-)
+
+) {
+
+    fun toValidation(validationResult: Boolean) = Validation(
+        id,
+        sentence.language,
+        validationResult,
+        attempts = 1
+    )
+
+}

@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
@@ -134,7 +135,6 @@ class SpeakViewModel(
             }
 
             if (mainPrefManager.sessIdCookie != null) { //Logged
-                statsPrefManager.todayRecorded++
                 if (statsPrefManager.dailyGoal.checkDailyGoal()) {
                     hasReachedGoal.postValue(true)
                 } else {
@@ -149,6 +149,7 @@ class SpeakViewModel(
         if (sentence != null) {
             _currentSentence.postValue(sentence)
         } else {
+            delay(500) //Just to avoid a loop
            _state.postValue(State.STANDBY)
         }
     }

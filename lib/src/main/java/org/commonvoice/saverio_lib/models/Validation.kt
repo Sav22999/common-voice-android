@@ -9,10 +9,7 @@ import java.sql.Timestamp
 @Entity(tableName = "validations")
 data class Validation(
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "internal_id")
-    val internalId: Int,
-
+    @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
 
@@ -24,8 +21,13 @@ data class Validation(
 
     @ColumnInfo(name = "expiry")
     @Transient
-    var expiryDate: Timestamp = getTimestampOfNowPlus(days = 7),
+    val expiryDate: Timestamp = getTimestampOfNowPlus(days = 7),
 
     @ColumnInfo(name = "attempts")
     val attempts: Int
-)
+
+) {
+
+    fun increaseAttempt() = this.copy(attempts = attempts + 1)
+
+}

@@ -1,28 +1,33 @@
 package org.commonvoice.saverio_lib.mediaPlayer
 
-import android.content.Context
 import android.media.MediaPlayer
+import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.models.Recording
 
-class MediaPlayerRepository(private val ctx: Context) {
+class MediaPlayerRepository {
 
     private var mediaPlayer: MediaPlayer? = MediaPlayer()
 
     fun setup(callback: () -> Unit) {
         mediaPlayer?.release()
-        mediaPlayer = MediaPlayer()
-        mediaPlayer!!.setOnCompletionListener {
-            callback()
+        mediaPlayer = MediaPlayer().apply {
+            setOnCompletionListener {
+                callback()
+            }
         }
-    }
-
-    fun reset() {
-        mediaPlayer?.reset()
     }
 
     fun playRecording(recording: Recording) {
         mediaPlayer?.apply {
             setDataSource(ByteArrayDataSource(recording))
+            prepare()
+            start()
+        }
+    }
+
+    fun playClip(clip: Clip) {
+        mediaPlayer?.apply {
+            setDataSource(ByteArrayDataSource(clip))
             prepare()
             start()
         }
