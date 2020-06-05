@@ -8,7 +8,7 @@ import retrofit2.http.POST
 interface StatsService {
 
     @Headers("Content-Type: application/json")
-    @POST("v2/")
+    @POST("/")
     suspend fun postStats(@Body stats: RetrofitStatsUpdate)
 
 }
