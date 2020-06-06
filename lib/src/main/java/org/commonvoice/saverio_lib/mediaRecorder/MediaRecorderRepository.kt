@@ -2,6 +2,7 @@ package org.commonvoice.saverio_lib.mediaRecorder
 
 import android.media.MediaRecorder
 import android.util.Log
+import android.widget.Toast
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Sentence
 
@@ -42,12 +43,12 @@ class MediaRecorderRepository(
                     onError()
                     return
                 }
-                System.currentTimeMillis() - recordingStartTimeStamp < 10000 -> {
+                System.currentTimeMillis() - recordingStartTimeStamp < 1000 -> {
                     recorder!!.stop()
                 }
                 else -> {
-                    //Recording time limit reached
-                    //We do nothing
+                    onError()
+                    return
                 }
             }
         } catch (e: IllegalStateException) {

@@ -37,24 +37,30 @@ class SpeakViewModel(
     private val statsPrefManager: StatsPrefManager
 ) : ViewModel() {
 
-    private val _state: MutableLiveData<State> = savedStateHandle.getLiveData("state", State.STANDBY)
+    private val _state: MutableLiveData<State> =
+        savedStateHandle.getLiveData("state", State.STANDBY)
     val state: LiveData<State> get() = _state
+
+    var listened: Boolean = false
 
     val hasReachedGoal = MutableLiveData(false)
 
-    private val _currentSentence: MutableLiveData<Sentence> = savedStateHandle.getLiveData("sentence")
+    private val _currentSentence: MutableLiveData<Sentence> =
+        savedStateHandle.getLiveData("sentence")
     val currentSentence: LiveData<Sentence> get() = _currentSentence
 
     private var currentRecording: Recording?
         get() = savedStateHandle["currentRecording"]
-        set(value) { savedStateHandle["currentRecording"] = value }
+        set(value) {
+            savedStateHandle["currentRecording"] = value
+        }
 
     init {
         mediaRecorderRepository.setupRecorder()
     }
 
     fun startRecording() {
-       _state.postValue(State.RECORDING)
+        _state.postValue(State.RECORDING)
 
         if (speakPrefManager.playRecordingSoundIndicator) {
             recordingSoundIndicatorRepository.playStartedSound {
@@ -96,7 +102,7 @@ class SpeakViewModel(
             sentencesRepository.deleteSentence(it)
         }
         withContext(Dispatchers.Main) {
-           _state.postValue(State.STANDBY)
+            _state.postValue(State.STANDBY)
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
@@ -104,20 +110,20 @@ class SpeakViewModel(
     fun startListening() {
         currentRecording?.let { recording ->
             mediaPlayerRepository.setup {
-               _state.postValue(State.LISTENED)
+                _state.postValue(State.LISTENED)
             }
             mediaPlayerRepository.playRecording(recording)
-           _state.postValue(State.LISTENING)
+            _state.postValue(State.LISTENING)
         }
     }
 
     fun stopListening() {
         mediaPlayerRepository.stopPlaying()
-       _state.postValue(State.RECORDED)
+        _state.postValue(State.RECORDED)
     }
 
     fun redoRecording() {
-       _state.postValue(State.RECORDING)
+        _state.postValue(State.RECORDING)
         mediaRecorderRepository.redoRecording()
     }
 
@@ -129,7 +135,7 @@ class SpeakViewModel(
             }
             currentRecording = null
             withContext(Dispatchers.Main) {
-               _state.postValue(State.STANDBY)
+                _state.postValue(State.STANDBY)
                 RecordingsUploadWorker.attachToWorkManager(workManager)
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
             }
@@ -150,12 +156,12 @@ class SpeakViewModel(
             _currentSentence.postValue(sentence)
         } else {
             delay(500) //Just to avoid a loop
-           _state.postValue(State.STANDBY)
+            _state.postValue(State.STANDBY)
         }
     }
 
     fun stop() {
-        when(state.value) {
+        when (state.value) {
             State.RECORDING -> mediaRecorderRepository.stop()
             State.LISTENING -> mediaPlayerRepository.stopPlaying()
         }

@@ -47,7 +47,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
             this.imageAirplaneModeSpeak.isGone = available
-            if(available) this.startAnimation(this.imageAirplaneModeSpeak)
+            if (available) this.startAnimation(this.imageAirplaneModeSpeak)
         })
     }
 
@@ -87,6 +87,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     loadUIStateListened()
                 }
                 SpeakViewModel.Companion.State.RECORDING_ERROR -> {
+                    //verify why there is an error. Too short? Too long?
                     showMessageDialog("", getString(R.string.txt_recording_too_short))
                     speakViewModel.currentSentence.value?.let { sentence ->
                         setupUIStateStandby(sentence)
@@ -178,6 +179,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
         textSentenceSpeak.text = "..."
 
+        buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
 
         buttonReportSpeak.visibility = View.GONE
@@ -192,6 +194,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonSkipSpeak.visibility = View.VISIBLE
         buttonReportSpeak.visibility = View.VISIBLE
 
+        buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
 
         textSentenceSpeak.text = sentence.sentenceText
@@ -203,9 +206,12 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun loadUIStateRecording() {
+        buttonRecordOrListenAgain.isGone = true
+        buttonSendSpeak.visibility = View.GONE
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
 
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
+        speakViewModel.listened = false
 
         buttonStartStopSpeak.onClick {
             speakViewModel.stopRecording()
@@ -215,6 +221,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private fun loadUIStateRecorded() {
         buttonRecordOrListenAgain.visibility = View.VISIBLE
 
+        buttonRecordOrListenAgain.isGone = false
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_1)
@@ -231,6 +238,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private fun loadUIStateListening() {
         buttonRecordOrListenAgain.visibility = View.GONE
 
+        buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
 
@@ -244,9 +252,12 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonSendSpeak.visibility = View.VISIBLE
         buttonRecordOrListenAgain.visibility = View.VISIBLE
 
+        buttonRecordOrListenAgain.isGone = false
         textMessageAlertSpeak.setText(R.string.txt_recorded_correct_or_wrong)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+
+        speakViewModel.listened = true
 
         buttonStartStopSpeak.onClick {
             speakViewModel.redoRecording()

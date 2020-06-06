@@ -28,10 +28,13 @@ class ListenViewModel(
     private val mainPrefManager: MainPrefManager,
     private val listenPrefManager: ListenPrefManager,
     private val statsPrefManager: StatsPrefManager
-): ViewModel() {
+) : ViewModel() {
 
     private val _state = handle.getLiveData("state", State.STANDBY)
     val state: LiveData<State> get() = _state
+    var startedOnce: Boolean = false
+    var listenedOnce: Boolean = false
+    var stopped: Boolean = false
 
     private val _currentClip: MutableLiveData<Clip> = handle.getLiveData("currentClip")
     val currentClip: LiveData<Clip> get() = _currentClip
@@ -69,6 +72,7 @@ class ListenViewModel(
     fun stopListening() {
         mediaPlayerRepository.stopPlaying()
         _state.postValue(State.STANDBY)
+        this.stopped = true
     }
 
     fun validate(result: Boolean) = viewModelScope.launch(Dispatchers.IO) {
@@ -84,11 +88,20 @@ class ListenViewModel(
                 ValidationsUploadWorker.attachToWorkManager(workManager)
             }
         }
+        stopped = false
+    }
+
+    fun stop() {
+        when(state.value) {
+            ListenViewModel.Companion.State.LISTENING -> mediaPlayerRepository.stopPlaying()
+        }
+
+        mediaPlayerRepository.clean()
     }
 
     companion object {
         @Parcelize
-        enum class State: Parcelable {
+        enum class State : Parcelable {
             STANDBY,
             LISTENING,
             LISTENED
