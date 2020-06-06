@@ -135,7 +135,13 @@ class SpeakViewModel(
 
     fun redoRecording() {
         _state.postValue(State.RECORDING)
-        mediaRecorderRepository.redoRecording()
+        if (speakPrefManager.playRecordingSoundIndicator) {
+            recordingSoundIndicatorRepository.playStartingSound {
+                mediaRecorderRepository.startRecording()
+            }
+        } else {
+            mediaRecorderRepository.startRecording()
+        }
     }
 
     fun sendRecording() = viewModelScope.launch(Dispatchers.IO) {

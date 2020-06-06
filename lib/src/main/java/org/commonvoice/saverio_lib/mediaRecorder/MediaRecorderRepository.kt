@@ -83,11 +83,6 @@ class MediaRecorderRepository(
         onSuccess(sentence.toRecording(array))
     }
 
-    fun redoRecording() {
-        setupRecorder()
-        startRecording()
-    }
-
     fun stop(suppressError: Boolean) {
         this.suppressError = suppressError
         recorder?.stop()

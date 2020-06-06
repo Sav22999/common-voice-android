@@ -14,7 +14,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
-    private val genericURL = "https://voice.allizom.org/api/v1/"
+    private val genericURL = "https://voice.mozilla.org/api/v1/"
 
     private val langURL = genericURL + mainPrefManager.language + "/"
 
