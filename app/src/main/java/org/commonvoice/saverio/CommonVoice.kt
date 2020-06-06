@@ -80,31 +80,35 @@ class CommonVoice : Application() {
     }
 
     private val mvvmViewmodels = module {
-        viewModel { (handle: SavedStateHandle) -> SpeakViewModel(
-            handle,
-            get<SentencesRepository>(),
-            get<RecordingsRepository>(),
-            get<MediaRecorderRepository>(),
-            get<MediaPlayerRepository>(),
-            get<RecordingSoundIndicatorRepository>(),
-            get<ReportsRepository>(),
-            get<WorkManager>(),
-            get<MainPrefManager>(),
-            get<SpeakPrefManager>(),
-            get<StatsPrefManager>()
-        ) }
-        viewModel { (handle: SavedStateHandle) -> ListenViewModel(
-            handle,
-            get<ClipsRepository>(),
-            get<ValidationsRepository>(),
-            get<MediaPlayerRepository>(),
-            get<WorkManager>(),
-            get<MainPrefManager>(),
-            get<ListenPrefManager>(),
-            get<StatsPrefManager>()
-        ) }
+        viewModel { (handle: SavedStateHandle) ->
+            SpeakViewModel(
+                handle,
+                get<SentencesRepository>(),
+                get<RecordingsRepository>(),
+                get<MediaRecorderRepository>(),
+                get<MediaPlayerRepository>(),
+                get<RecordingSoundIndicatorRepository>(),
+                get<ReportsRepository>(),
+                get<WorkManager>(),
+                get<MainPrefManager>(),
+                get<SpeakPrefManager>(),
+                get<StatsPrefManager>()
+            )
+        }
+        viewModel { (handle: SavedStateHandle) ->
+            ListenViewModel(
+                handle,
+                get<ClipsRepository>(),
+                get<ValidationsRepository>(),
+                get<MediaPlayerRepository>(),
+                get<WorkManager>(),
+                get<MainPrefManager>(),
+                get<ListenPrefManager>(),
+                get<StatsPrefManager>()
+            )
+        }
         viewModel { LoginViewModel(get()) }
-        viewModel { MainActivityViewModel(get()) }
+        viewModel { MainActivityViewModel(get(), get()) }
         viewModel { HomeViewModel(get()) }
     }
 
@@ -114,7 +118,16 @@ class CommonVoice : Application() {
         startKoin {
             androidContext(this@CommonVoice)
             androidLogger()
-            modules(listOf(prefsModule, dbModule, utilsModule, apiModules, mvvmRepos, mvvmViewmodels))
+            modules(
+                listOf(
+                    prefsModule,
+                    dbModule,
+                    utilsModule,
+                    apiModules,
+                    mvvmRepos,
+                    mvvmViewmodels
+                )
+            )
         }
 
     }

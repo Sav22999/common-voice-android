@@ -364,6 +364,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         }
         CookieManager.getInstance().flush()
         CookieManager.getInstance().removeAllCookies(null)
+        loginViewModel.clearDB()
     }
 
     fun setLevelRecordingsValidations(type: Int, value: Int) {

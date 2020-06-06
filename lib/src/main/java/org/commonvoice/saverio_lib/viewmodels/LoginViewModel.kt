@@ -13,5 +13,4 @@ class LoginViewModel(
     fun clearDB() = viewModelScope.launch(Dispatchers.IO) {
         database.clearAllTables()
     }
-
 }

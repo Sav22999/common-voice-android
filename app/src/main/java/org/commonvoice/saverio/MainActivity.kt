@@ -242,6 +242,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setLevelRecordingsValidations(2, 0)
         getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
             .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
+        mainActivityViewModel.clearDB()
     }
 
     fun setLevelRecordingsValidations(type: Int, value: Int) {
@@ -1060,6 +1061,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     fun setLanguageSettings(lang: String) {
         try {
             mainPrefManager.language = lang
+            mainActivityViewModel.clearDB()
 
             var languageChanged = false
             if (this.selectedLanguageVar != lang) {
