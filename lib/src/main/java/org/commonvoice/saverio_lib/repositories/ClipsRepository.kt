@@ -13,16 +13,18 @@ class ClipsRepository(database: AppDB, retrofitFactory: RetrofitFactory) {
     private val clipsClient = retrofitFactory.makeClipsService()
     private val clipsDownloadClient = retrofitFactory.makeClipsDownloadService()
 
-    suspend fun getNewClips(count: Int): List<Clip>? {
+    suspend fun loadNewClips(count: Int, forEachClip: suspend (Clip) -> Unit, onError: () -> Unit) {
         val retrofitClips = clipsClient.getClips(count)
 
-        return retrofitClips.body()?.map {
-            val audioByteArray = downloadAudioClip(it.audioSrc)
-            if (audioByteArray != null) {
-                it.toClip(audioByteArray)
-            } else {
-                return null
+        if (retrofitClips.isSuccessful && retrofitClips.body() != null) {
+            retrofitClips.body()?.forEach { retrofitClip ->
+                val audioByteArray = downloadAudioClip(retrofitClip.audioSrc)
+                audioByteArray?.let { array ->
+                    forEachClip(retrofitClip.toClip(array))
+                }
             }
+        } else {
+            onError()
         }
     }
 

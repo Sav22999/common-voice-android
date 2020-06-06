@@ -44,23 +44,23 @@ class ClipsDownloadWorker(
                 Result.success()
             }
             else -> {
-                val newClips = clipsRepository.getNewClips(numberDifference)
-                if (newClips == null) {
-                    db.close()
+                var result = Result.success()
 
-                    if (workerParams.runAttemptCount > 5) {
+                clipsRepository.loadNewClips(numberDifference, forEachClip = { clip ->
+                    clipsRepository.insertClip(clip.also {
+                        it.sentence.setLanguage(currentLanguage)
+                    })
+                }, onError = {
+                    result = if (workerParams.runAttemptCount > 5) {
                         Result.failure()
                     } else {
                         Result.retry()
                     }
-                } else {
-                    clipsRepository.insertClips(newClips.map { it.also {
-                        it.sentence.setLanguage(currentLanguage)
-                    }})
+                })
 
-                    db.close()
-                    Result.success()
-                }
+                db.close()
+
+                result
             }
         }
 

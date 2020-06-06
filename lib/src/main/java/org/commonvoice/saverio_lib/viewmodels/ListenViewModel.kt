@@ -59,7 +59,7 @@ class ListenViewModel(
         }
         withContext(Dispatchers.Main) {
             _state.postValue(State.STANDBY)
-            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
 
