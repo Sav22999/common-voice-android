@@ -1,10 +1,13 @@
 package org.commonvoice.saverio_lib.models
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Suppress("ArrayInDataClass")
 @Entity(tableName = "clips")
 data class Clip(
@@ -22,7 +25,7 @@ data class Clip(
     @ColumnInfo(name = "audio", typeAffinity = ColumnInfo.BLOB)
     val audio: ByteArray = byteArrayOf()
 
-) {
+) : Parcelable {
 
     fun toValidation(validationResult: Boolean) = Validation(
         id,
