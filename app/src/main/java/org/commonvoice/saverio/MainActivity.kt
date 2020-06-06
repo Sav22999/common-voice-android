@@ -1060,12 +1060,18 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun setLanguageSettings(lang: String) {
         try {
-            mainPrefManager.language = lang
-            mainActivityViewModel.clearDB()
+            val languageChanged = if (lang != mainPrefManager.language) {
+                true
+            } else {
+                false
+            }
 
-            var languageChanged = false
-            if (this.selectedLanguageVar != lang) {
-                languageChanged = true
+            if (languageChanged) {
+                mainPrefManager.language = lang
+                mainActivityViewModel.clearDB()
+
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
             }
 
             this.selectedLanguageVar = lang
