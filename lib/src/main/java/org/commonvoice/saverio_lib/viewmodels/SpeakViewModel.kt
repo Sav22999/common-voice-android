@@ -1,7 +1,6 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
@@ -41,7 +40,10 @@ class SpeakViewModel(
         savedStateHandle.getLiveData("state", State.STANDBY)
     val state: LiveData<State> get() = _state
 
+    var opened: Boolean = false
     var listened: Boolean = false
+    var showingHidingAirplaneIcon: Boolean = false
+    var airplaneModeIconVisible: Boolean = false
 
     val hasReachedGoal = MutableLiveData(false)
 
@@ -63,7 +65,7 @@ class SpeakViewModel(
         _state.postValue(State.RECORDING)
 
         if (speakPrefManager.playRecordingSoundIndicator) {
-            recordingSoundIndicatorRepository.playStartedSound {
+            recordingSoundIndicatorRepository.playStartingSound {
                 mediaRecorderRepository.startRecording()
             }
         } else {
@@ -77,7 +79,17 @@ class SpeakViewModel(
         _currentSentence.value?.let { sentence ->
             mediaRecorderRepository.stopRecordingAndReadData(sentence, onError = {
 
-                _state.postValue(State.RECORDING_ERROR)
+                when (it) {
+                    1 -> {
+                        _state.postValue(State.RECORDING_ERROR)
+                    }
+                    2 -> {
+                        _state.postValue(State.RECORDING_TOO_LONG)
+                    }
+                    3 -> {
+                        _state.postValue(State.RECORDING_TOO_SHORT)
+                    }
+                }
 
             }, onSuccess = { recording ->
 
@@ -90,9 +102,8 @@ class SpeakViewModel(
                 }
 
                 if (speakPrefManager.playRecordingSoundIndicator) {
-                    recordingSoundIndicatorRepository.playFinishedSound()
+                    recordingSoundIndicatorRepository.playFinishingSound()
                 }
-
             })
         }
     }
@@ -160,10 +171,14 @@ class SpeakViewModel(
         }
     }
 
-    fun stop() {
+    fun stop(suppressError: Boolean = false) {
         when (state.value) {
-            State.RECORDING -> mediaRecorderRepository.stop()
-            State.LISTENING -> mediaPlayerRepository.stopPlaying()
+            State.RECORDING -> {
+                mediaRecorderRepository.stop(suppressError)
+            }
+            State.LISTENING -> {
+                mediaPlayerRepository.stopPlaying()
+            }
         }
 
         currentRecording = null
@@ -189,6 +204,8 @@ class SpeakViewModel(
             LISTENING,
             LISTENED,
             RECORDING_ERROR,
+            RECORDING_TOO_SHORT,
+            RECORDING_TOO_LONG
         }
     }
 

@@ -39,6 +39,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_airplane_mode" />
@@ -89,10 +90,10 @@
             android:layout_height="80dp"
             android:background="@drawable/speak_cv"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
 
         <Button
             android:id="@+id/buttonSendSpeak"

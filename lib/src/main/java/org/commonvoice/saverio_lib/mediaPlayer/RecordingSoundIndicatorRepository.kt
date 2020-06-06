@@ -6,63 +6,63 @@ import org.commonvoice.saverio_lib.R
 
 class RecordingSoundIndicatorRepository(private val ctx: Context) {
 
-    private var startedSoundPlayer: MediaPlayer? = null
-    private var finishedSoundPlayer: MediaPlayer? = null
+    private var startingSoundPlayer: MediaPlayer? = null
+    private var finishingSoundPlayer: MediaPlayer? = null
 
     init {
-        initStartedPlayer()
-        initFinishedPlayer()
+        initStartingPlayer()
+        initFinishingPlayer()
     }
 
-    private fun initStartedPlayer() {
-        if (startedSoundPlayer != null) {
-            cleanStartedPlayer()
+    private fun initStartingPlayer() {
+        if (startingSoundPlayer != null) {
+            cleanStartingPlayer()
         }
 
-        startedSoundPlayer = MediaPlayer.create(ctx, R.raw.started)
+        startingSoundPlayer = MediaPlayer.create(ctx, R.raw.started)
     }
 
-    fun playStartedSound(onCompletion: () -> Unit) {
-        if (startedSoundPlayer == null) {
-            initStartedPlayer()
+    fun playStartingSound(onCompletion: () -> Unit) {
+        if (startingSoundPlayer == null) {
+            initStartingPlayer()
         }
 
-        startedSoundPlayer!!.setOnCompletionListener {
+        startingSoundPlayer!!.setOnCompletionListener {
             onCompletion()
         }
 
-        startedSoundPlayer!!.start()
+        startingSoundPlayer!!.start()
     }
 
-    private fun cleanStartedPlayer() {
-        startedSoundPlayer?.release()
-        startedSoundPlayer = null
+    private fun cleanStartingPlayer() {
+        startingSoundPlayer?.release()
+        startingSoundPlayer = null
     }
 
-    private fun initFinishedPlayer() {
-        if (finishedSoundPlayer != null) {
-            cleanFinishedPlayer()
+    private fun initFinishingPlayer() {
+        if (finishingSoundPlayer != null) {
+            cleanFinishingPlayer()
         }
 
-        finishedSoundPlayer = MediaPlayer.create(ctx, R.raw.finished)
+        finishingSoundPlayer = MediaPlayer.create(ctx, R.raw.finished)
     }
 
-    fun playFinishedSound() {
-        if (finishedSoundPlayer == null) {
-            initFinishedPlayer()
+    fun playFinishingSound() {
+        if (finishingSoundPlayer == null) {
+            initFinishingPlayer()
         }
 
-        finishedSoundPlayer!!.start()
+        finishingSoundPlayer!!.start()
     }
 
-    private fun cleanFinishedPlayer() {
-        finishedSoundPlayer?.release()
-        finishedSoundPlayer = null
+    private fun cleanFinishingPlayer() {
+        finishingSoundPlayer?.release()
+        finishingSoundPlayer = null
     }
 
     fun clean() {
-        cleanStartedPlayer()
-        cleanFinishedPlayer()
+        cleanStartingPlayer()
+        cleanFinishingPlayer()
     }
 
 }

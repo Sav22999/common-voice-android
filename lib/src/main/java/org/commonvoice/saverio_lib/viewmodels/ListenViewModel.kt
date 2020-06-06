@@ -32,9 +32,13 @@ class ListenViewModel(
 
     private val _state = handle.getLiveData("state", State.STANDBY)
     val state: LiveData<State> get() = _state
+
+    var opened: Boolean = false
     var startedOnce: Boolean = false
     var listenedOnce: Boolean = false
     var stopped: Boolean = false
+    var showingHidingAirplaneIcon: Boolean = false
+    var airplaneModeIconVisible: Boolean = false
 
     private val _currentClip: MutableLiveData<Clip> = handle.getLiveData("currentClip")
     val currentClip: LiveData<Clip> get() = _currentClip
@@ -92,7 +96,7 @@ class ListenViewModel(
     }
 
     fun stop() {
-        when(state.value) {
+        when (state.value) {
             ListenViewModel.Companion.State.LISTENING -> mediaPlayerRepository.stopPlaying()
         }
 

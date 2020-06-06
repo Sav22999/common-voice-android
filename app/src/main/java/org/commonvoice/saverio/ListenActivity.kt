@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.animation.Animation
@@ -33,18 +34,28 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         setupUI()
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            this.imageAirplaneModeListen.isGone = available
-            if (available) this.startAnimation(this.imageAirplaneModeListen, R.anim.zoom_in)
+            if (!listenViewModel.showingHidingAirplaneIcon && (listenViewModel.airplaneModeIconVisible == available)) {
+                listenViewModel.showingHidingAirplaneIcon = true
+                if (!available) {
+                    this.startAnimation(this.imageAirplaneModeListen, R.anim.zoom_in)
+                    listenViewModel.airplaneModeIconVisible = true
+                } else {
+                    this.startAnimation(this.imageAirplaneModeListen, R.anim.zoom_out_speak_listen)
+                    listenViewModel.airplaneModeIconVisible = false
+                }
+                listenViewModel.showingHidingAirplaneIcon = false
+                this.imageAirplaneModeListen.isGone = available
+            }
         })
     }
 
     private fun setupInitialUIState() {
-        btn_skip_listen.onClick {
+        buttonSkipListen.onClick {
             listenViewModel.skipClip()
         }
 
-        btn_yes_thumb.isVisible = false
-        btn_no_thumb.isVisible = false
+        buttonYesClip.isGone = true
+        buttonNoClip.isGone = true
     }
 
     private fun setupUI() {
@@ -68,8 +79,12 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         })
     }
 
+    private fun showMessageDialog(title: String, text: String) {
+        MessageDialog(this, 0, title, text, details = "").show()
+    }
+
     private fun setupGestures() {
-        nestedScrollSpeak.setOnTouchListener(object : OnSwipeTouchListener(this@ListenActivity) {
+        nestedScrollListen.setOnTouchListener(object : OnSwipeTouchListener(this@ListenActivity) {
             override fun onSwipeLeft() {
                 listenViewModel.skipClip()
             }
@@ -86,119 +101,160 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         })
     }
 
+    fun setTheme(view: Context) {
+        val theme: DarkLightTheme = DarkLightTheme()
+
+        val isDark = theme.getTheme(view)
+        theme.setElement(isDark, layoutListen)
+        theme.setElement(isDark, view, 1, listenSectionBottom)
+        theme.setElement(
+            isDark,
+            view,
+            textMessageAlertListen,
+            R.color.colorAlertMessage,
+            R.color.colorAlertMessageDT
+        )
+        theme.setElement(isDark, view, buttonReportListen, background = false)
+        theme.setElement(isDark, view, buttonSkipListen)
+    }
+
     private fun openReportDialog() {
 
     }
 
     private fun loadUIStateLoading() {
-        if(!listenViewModel.stopped) {
-            textMessageAlertListen.setText(R.string.txt_loading_sentence)
+        if (!listenViewModel.stopped) {
             textSentenceListen.text = "..."
+            textMessageAlertListen.setText(R.string.txt_loading_sentence)
+            buttonStartStopListen.isEnabled = false
+            buttonReportListen.isGone = true
         }
-
-        btn_start_listen.isEnabled = false
+        //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+        if (!listenViewModel.opened) {
+            listenViewModel.opened = true
+            startAnimation(buttonStartStopListen, R.anim.zoom_in_speak_listen)
+            startAnimation(buttonSkipListen, R.anim.zoom_in_speak_listen)
+        }
     }
 
     private fun loadUIStateStandby(clip: Clip) {
         textSentenceListen.text = clip.sentence.sentenceText
+        if (!listenViewModel.listenedOnce) textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
+        else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        btn_start_listen.isEnabled = true
-        btn_start_listen.onClick {
+        //buttonReportListen.isGone = false
+
+        buttonStartStopListen.isEnabled = true
+        buttonStartStopListen.onClick {
             listenViewModel.startListening()
+        }
+
+        if (mainPrefManager.areGesturesEnabled) {
+            setupGestures()
         }
 
         if (listenViewModel.stopped) {
             //stopped recording
-            btn_start_listen.setBackgroundResource(R.drawable.listen2_cv)
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
         } else {
-            btn_start_listen.setBackgroundResource(R.drawable.listen_cv)
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
 
             hideButtons()
 
             listenViewModel.listenedOnce = false
             listenViewModel.startedOnce = false
         }
+
+        setTheme(this)
     }
 
     private fun loadUIStateListening() {
         stopButtons()
 
-        btn_no_thumb.isVisible = true
-        if (!listenViewModel.startedOnce) startAnimation(btn_no_thumb, R.anim.zoom_in)
-        if (!listenViewModel.listenedOnce) btn_yes_thumb.isVisible = false
+        textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
+
+        buttonNoClip.isVisible = true
+        if (!listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_in_speak_listen)
+        if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
         listenViewModel.startedOnce = true
 
-        btn_start_listen.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopListen.setBackgroundResource(R.drawable.stop_cv)
 
-        btn_no_thumb.onClick {
+        buttonNoClip.onClick {
             listenViewModel.validate(result = false)
         }
-        btn_start_listen.onClick {
+        buttonStartStopListen.onClick {
             listenViewModel.stopListening()
         }
     }
 
     private fun loadUIStateListened() {
-        btn_yes_thumb.isVisible = true
-        btn_no_thumb.isVisible = true
-        if(!listenViewModel.listenedOnce) startAnimation(btn_yes_thumb, R.anim.zoom_in)
+        buttonYesClip.isVisible = true
+        buttonNoClip.isVisible = true
+        if (!listenViewModel.listenedOnce) startAnimation(buttonYesClip, R.anim.zoom_in_speak_listen)
         listenViewModel.listenedOnce = true
 
-        btn_start_listen.setBackgroundResource(R.drawable.listen2_cv)
+        textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        btn_yes_thumb.onClick {
+        buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
+
+        buttonYesClip.onClick {
             listenViewModel.validate(result = true)
         }
-        btn_start_listen.onClick {
+        buttonStartStopListen.onClick {
             listenViewModel.startListening()
         }
     }
 
     override fun onBackPressed() {
         textMessageAlertListen.setText(R.string.txt_closing)
-        btn_start_listen.setBackgroundResource(R.drawable.listen_cv)
+        buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         textSentenceListen.text = "..."
-        hideButtons()
+        buttonReportListen.isGone = true
+        buttonStartStopListen.isEnabled = false
+        buttonSkipListen.isEnabled = false
+        buttonYesClip.isGone = true
+        buttonNoClip.isGone = true
 
         listenViewModel.stop()
 
         super.onBackPressed()
     }
 
-    fun hideButtons() {
+    private fun hideButtons() {
         stopButtons()
-        btn_yes_thumb.isEnabled = false
-        btn_no_thumb.isEnabled = false
-        if (listenViewModel.startedOnce) startAnimation(btn_no_thumb, R.anim.zoom_out2)
-        if (listenViewModel.listenedOnce) startAnimation(btn_yes_thumb, R.anim.zoom_out2)
-        btn_yes_thumb.isVisible = false
-        btn_no_thumb.isVisible = false
-        btn_yes_thumb.isEnabled = true
-        btn_no_thumb.isEnabled = true
+        buttonYesClip.isEnabled = false
+        buttonNoClip.isEnabled = false
+        if (listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_out_speak_listen)
+        if (listenViewModel.listenedOnce) startAnimation(buttonYesClip, R.anim.zoom_out_speak_listen)
+        buttonYesClip.isVisible = false
+        buttonNoClip.isVisible = false
+        buttonYesClip.isEnabled = true
+        buttonNoClip.isEnabled = true
     }
 
-    fun stopButtons() {
-        stopAnimation(btn_no_thumb)
-        stopAnimation(btn_yes_thumb)
+    private fun stopButtons() {
+        stopAnimation(buttonNoClip)
+        stopAnimation(buttonYesClip)
     }
 
-    fun startAnimation(img: ImageView, zoomType: Int) {
-        var animation: Animation =
+    private fun startAnimation(img: ImageView, zoomType: Int) {
+        val animation: Animation =
             AnimationUtils.loadAnimation(applicationContext, zoomType)
         img.startAnimation(animation)
     }
 
-    fun startAnimation(btn: Button, zoomType: Int) {
-        var animation: Animation =
+    private fun startAnimation(btn: Button, zoomType: Int) {
+        val animation: Animation =
             AnimationUtils.loadAnimation(applicationContext, zoomType)
         btn.startAnimation(animation)
     }
 
-    fun stopAnimation(img: ImageView) {
+    private fun stopAnimation(img: ImageView) {
         img.clearAnimation()
     }
 
-    fun stopAnimation(btn: Button) {
+    private fun stopAnimation(btn: Button) {
         btn.clearAnimation()
     }
 }

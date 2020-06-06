@@ -38,6 +38,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_airplane_mode" />
@@ -64,45 +65,45 @@
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_start_listen"
+            app:layout_constraintBottom_toTopOf="@+id/buttonStartStopListen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
 
         <Button
-            android:id="@+id/btn_yes_thumb"
+            android:id="@+id/buttonYesClip"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="200dp"
             android:background="@drawable/yes_thumb_cv"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
 
         <Button
-            android:id="@+id/btn_start_listen"
+            android:id="@+id/buttonStartStopListen"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@drawable/listen_cv"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
 
         <Button
-            android:id="@+id/btn_no_thumb"
+            android:id="@+id/buttonNoClip"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="200dp"
             android:background="@drawable/no_thumb_cv"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
 
         <View
             android:id="@+id/viewSeparatorListen2"
@@ -113,7 +114,7 @@
             app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_listen" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonStartStopListen" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/listenSectionBottom"
@@ -129,7 +130,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/btn_skip_listen"
+                android:id="@+id/buttonSkipListen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

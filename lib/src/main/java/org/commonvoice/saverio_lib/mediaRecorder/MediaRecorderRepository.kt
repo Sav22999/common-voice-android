@@ -1,8 +1,6 @@
 package org.commonvoice.saverio_lib.mediaRecorder
 
 import android.media.MediaRecorder
-import android.util.Log
-import android.widget.Toast
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Sentence
 
@@ -14,20 +12,22 @@ class MediaRecorderRepository(
 
     private var recordingStartTimeStamp: Long = 0
 
+    private var suppressError: Boolean = false
+
     fun setupRecorder() {
         recorder?.release()
         recorder = null
         fileHolder.reset()
         recorder = MediaRecorder().apply {
-                setAudioSource(MediaRecorder.AudioSource.MIC)
-                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-                setMaxDuration(10000)
-                setAudioEncodingBitRate(16 * 44100)
-                setAudioSamplingRate(44100)
-                setOutputFile(fileHolder.fileDescriptor)
-                prepare()
-            }
+            setAudioSource(MediaRecorder.AudioSource.MIC)
+            setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            setMaxDuration(10000)
+            setAudioEncodingBitRate(16 * 44100)
+            setAudioSamplingRate(44100)
+            setOutputFile(fileHolder.fileDescriptor)
+            prepare()
+        }
     }
 
     fun startRecording() {
@@ -36,26 +36,46 @@ class MediaRecorderRepository(
         recordingStartTimeStamp = System.currentTimeMillis()
     }
 
-    fun stopRecordingAndReadData(sentence: Sentence, onError: () -> Unit, onSuccess: (Recording) -> Unit) {
+    fun stopRecordingAndReadData(
+        sentence: Sentence,
+        onError: (Int) -> Unit,
+        onSuccess: (Recording) -> Unit
+    ) {
         try {
             when {
                 System.currentTimeMillis() - recordingStartTimeStamp <= 500 -> {
-                    onError()
+                    if (!suppressError) {
+                        onError(3)
+                    } else {
+                        onError(0)
+                    }
                     return
                 }
-                System.currentTimeMillis() - recordingStartTimeStamp < 1000 -> {
+                System.currentTimeMillis() - recordingStartTimeStamp < 10000 -> {
                     recorder!!.stop()
                 }
                 else -> {
-                    onError()
+                    if (!suppressError) {
+                        onError(2)
+                    } else {
+                        onError(0)
+                    }
                     return
                 }
             }
         } catch (e: IllegalStateException) {
-            onError()
+            if (!suppressError) {
+                onError(1)
+            } else {
+                onError(0)
+            }
             return
         } catch (e: RuntimeException) {
-            onError()
+            if (!suppressError) {
+                onError(1)
+            } else {
+                onError(0)
+            }
             return
         }
         val array = fileHolder.getByteArray()
@@ -68,7 +88,8 @@ class MediaRecorderRepository(
         startRecording()
     }
 
-    fun stop() {
+    fun stop(suppressError: Boolean) {
+        this.suppressError = suppressError
         recorder?.stop()
     }
 

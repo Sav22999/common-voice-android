@@ -11,7 +11,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
@@ -46,15 +45,32 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            this.imageAirplaneModeSpeak.isGone = available
-            if (available) this.startAnimation(this.imageAirplaneModeSpeak)
+            if (!speakViewModel.showingHidingAirplaneIcon && (speakViewModel.airplaneModeIconVisible == available)) {
+                speakViewModel.showingHidingAirplaneIcon = true
+                if (!available) {
+                    this.startAnimation(this.imageAirplaneModeSpeak, R.anim.zoom_in)
+                    speakViewModel.airplaneModeIconVisible = true
+                } else {
+                    this.startAnimation(this.imageAirplaneModeSpeak, R.anim.zoom_out_speak_listen)
+                    speakViewModel.airplaneModeIconVisible = false
+                }
+                speakViewModel.showingHidingAirplaneIcon = false
+                this.imageAirplaneModeSpeak.isGone = available
+            }
         })
     }
 
     override fun onBackPressed() {
         textMessageAlertSpeak.setText(R.string.txt_closing)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
+        textSentenceSpeak.text = "..."
+        buttonRecordOrListenAgain.isGone = true
+        buttonReportSpeak.isGone = true
+        buttonSkipSpeak.isEnabled = false
+        buttonStartStopSpeak.isEnabled = false
+        buttonSendSpeak.isGone = true
 
-        speakViewModel.stop()
+        speakViewModel.stop(true)
 
         super.onBackPressed()
     }
@@ -87,8 +103,19 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     loadUIStateListened()
                 }
                 SpeakViewModel.Companion.State.RECORDING_ERROR -> {
-                    //verify why there is an error. Too short? Too long?
+                    showMessageDialog("", getString(R.string.messageDialogGenericError))
+                    speakViewModel.currentSentence.value?.let { sentence ->
+                        setupUIStateStandby(sentence)
+                    }
+                }
+                SpeakViewModel.Companion.State.RECORDING_TOO_SHORT -> {
                     showMessageDialog("", getString(R.string.txt_recording_too_short))
+                    speakViewModel.currentSentence.value?.let { sentence ->
+                        setupUIStateStandby(sentence)
+                    }
+                }
+                SpeakViewModel.Companion.State.RECORDING_TOO_LONG -> {
+                    showMessageDialog("", getString(R.string.txt_recording_too_long))
                     speakViewModel.currentSentence.value?.let { sentence ->
                         setupUIStateStandby(sentence)
                     }
@@ -180,19 +207,23 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         textSentenceSpeak.text = "..."
 
         buttonRecordOrListenAgain.isGone = true
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
-
-        buttonReportSpeak.visibility = View.GONE
-        buttonRecordOrListenAgain.visibility = View.GONE
-        buttonSkipSpeak.visibility = View.GONE
-        buttonSendSpeak.visibility = View.GONE
-        buttonStartStopSpeak.visibility = View.GONE
+        //buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
+        if (!speakViewModel.opened) {
+            speakViewModel.opened = true
+            startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
+            startAnimation(buttonSkipSpeak, R.anim.zoom_in_speak_listen)
+        }
+        buttonReportSpeak.isGone = true
+        buttonSendSpeak.isGone = true
+        buttonSkipSpeak.isEnabled = false
+        buttonStartStopSpeak.isEnabled = false
     }
 
     private fun setupUIStateStandby(sentence: Sentence) {
-        buttonStartStopSpeak.visibility = View.VISIBLE
-        buttonSkipSpeak.visibility = View.VISIBLE
-        buttonReportSpeak.visibility = View.VISIBLE
+        buttonSkipSpeak.isEnabled = true
+        buttonStartStopSpeak.isEnabled = true
+
+        //buttonReportSpeak.isGone = false
 
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
@@ -207,9 +238,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateRecording() {
         buttonRecordOrListenAgain.isGone = true
-        buttonSendSpeak.visibility = View.GONE
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
 
+        buttonSendSpeak.isGone = true
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
         speakViewModel.listened = false
 
@@ -219,11 +250,11 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun loadUIStateRecorded() {
-        buttonRecordOrListenAgain.visibility = View.VISIBLE
-
         buttonRecordOrListenAgain.isGone = false
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
+        startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
+
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_1)
 
         buttonStartStopSpeak.onClick {
@@ -236,8 +267,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun loadUIStateListening() {
-        buttonRecordOrListenAgain.visibility = View.GONE
-
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
@@ -248,14 +277,13 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun loadUIStateListened() {
-        buttonSkipSpeak.visibility = View.VISIBLE
-        buttonSendSpeak.visibility = View.VISIBLE
-        buttonRecordOrListenAgain.visibility = View.VISIBLE
-
-        buttonRecordOrListenAgain.isGone = false
+        buttonSendSpeak.isGone = false
+        if (!speakViewModel.listened) startAnimation(buttonSendSpeak, R.anim.zoom_in_speak_listen)
         textMessageAlertSpeak.setText(R.string.txt_recorded_correct_or_wrong)
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
+        buttonRecordOrListenAgain.isGone = false
+        startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
 
         speakViewModel.listened = true
 
@@ -301,14 +329,23 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         } else super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    fun startAnimation(img: ImageView) {
-        var animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+    private fun startAnimation(img: ImageView, zoomType: Int) {
+        val animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, zoomType)
         img.startAnimation(animation)
     }
 
-    fun stopAnimation(img: ImageView) {
+    private fun startAnimation(btn: Button, zoomType: Int) {
+        val animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, zoomType)
+        btn.startAnimation(animation)
+    }
+
+    private fun stopAnimation(img: ImageView) {
         img.clearAnimation()
     }
 
+    private fun stopAnimation(btn: Button) {
+        btn.clearAnimation()
+    }
 }
