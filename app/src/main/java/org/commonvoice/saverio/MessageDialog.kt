@@ -88,6 +88,7 @@ class MessageDialog {
                     try {
                         val dialogView =
                             LayoutInflater.from(this.context).inflate(R.layout.message_dialog, null)
+
                         val builder = AlertDialog.Builder(this.context!!)
                             .setView(dialogView)
                             .setTitle("")

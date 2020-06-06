@@ -142,7 +142,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         if (!listenViewModel.listenedOnce) textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
         else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        //buttonReportListen.isGone = false
+        //buttonReportListen.isGone = false//TODO when "Report" feature is enabled, remove as "comment"
 
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
@@ -191,7 +191,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     private fun loadUIStateListened() {
         buttonYesClip.isVisible = true
         buttonNoClip.isVisible = true
-        if (!listenViewModel.listenedOnce) startAnimation(buttonYesClip, R.anim.zoom_in_speak_listen)
+        if (!listenViewModel.listenedOnce) startAnimation(
+            buttonYesClip,
+            R.anim.zoom_in_speak_listen
+        )
         listenViewModel.listenedOnce = true
 
         textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
@@ -226,7 +229,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         buttonYesClip.isEnabled = false
         buttonNoClip.isEnabled = false
         if (listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_out_speak_listen)
-        if (listenViewModel.listenedOnce) startAnimation(buttonYesClip, R.anim.zoom_out_speak_listen)
+        if (listenViewModel.listenedOnce) startAnimation(
+            buttonYesClip,
+            R.anim.zoom_out_speak_listen
+        )
         buttonYesClip.isVisible = false
         buttonNoClip.isVisible = false
         buttonYesClip.isEnabled = true

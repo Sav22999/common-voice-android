@@ -55,16 +55,6 @@
     <string name="txt_gender_other">Other</string>
     <string name="btn_badges_loggedin">All badges</string>
     <string name="txt_your_level">Level {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Infant</string>
-    <string name="txt_level2_name">Baby</string>
-    <string name="txt_level3_name">Teen</string>
-    <string name="txt_level4_name">Young</string>
-    <string name="txt_level5_name">Young adult</string>
-    <string name="txt_level6_name">Adult</string>
-    <string name="txt_level7_name">Senior</string>
-    <string name="txt_level8_name">Pro</string>
-    <string name="txt_level9_name">Master</string>
-    <string name="txt_level10_name">Champion</string>
     <string name="level_up_message">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open tutorial again</string>

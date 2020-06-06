@@ -135,24 +135,45 @@ class DarkLightTheme {
         view: Context,
         element: TextView,
         color_light: Int,
-        color_dark: Int
+        color_dark: Int,
+        background: Boolean = false
     ) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorBackgroundDT)
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackgroundDT)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
+            }
             element.setTextColor(ContextCompat.getColor(view, color_dark))
         } else {
-            element.setBackgroundResource(R.color.colorBackground)
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackground)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
+            }
             element.setTextColor(ContextCompat.getColor(view, color_light))
         }
     }
 
-    fun setTextView(theme: Boolean, view: Context, element: TextView) {
+    fun setTextView(theme: Boolean, view: Context, element: TextView, border: Boolean = true) {
         if (theme) {
-            element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
+            if (border) {
+                element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
+            } else {
+                element.setBackgroundResource(R.drawable.txt_rounded_darktheme)
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, R.color.colorBlack)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccentDT))
         } else {
-            element.setBackgroundResource(R.drawable.txt_rounded_with_border)
+            if (border) {
+                element.setBackgroundResource(R.drawable.txt_rounded_with_border)
+            } else {
+                element.setBackgroundResource(R.drawable.txt_rounded)
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, R.color.colorWhite)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccent))
         }

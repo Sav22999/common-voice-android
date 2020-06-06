@@ -223,7 +223,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonSkipSpeak.isEnabled = true
         buttonStartStopSpeak.isEnabled = true
 
-        //buttonReportSpeak.isGone = false
+        //buttonReportSpeak.isGone = false//TODO when "Report" feature is enabled, remove as "comment"
 
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)

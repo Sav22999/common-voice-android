@@ -35,7 +35,6 @@ import kotlinx.android.synthetic.main.activity_webbrowser.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
-import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
@@ -190,71 +189,13 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         }
     }
 
-    fun setLevel(txtLevel: TextView) {
-        txtLevel.isGone = false
-        var nLevel = getSavedLevel()
-        var nameLevel: String = ""
-        when (nLevel) {
-            1 -> {
-                nameLevel = getString(R.string.txt_level1_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel1)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            2 -> {
-                nameLevel = getString(R.string.txt_level2_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel2)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            3 -> {
-                nameLevel = getString(R.string.txt_level3_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel3)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            4 -> {
-                nameLevel = getString(R.string.txt_level4_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel4)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            5 -> {
-                nameLevel = getString(R.string.txt_level5_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel5)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            6 -> {
-                nameLevel = getString(R.string.txt_level6_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel6)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            7 -> {
-                nameLevel = getString(R.string.txt_level7_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel7)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            8 -> {
-                nameLevel = getString(R.string.txt_level8_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel8)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
-            }
-            9 -> {
-                nameLevel = getString(R.string.txt_level9_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel9)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
-            }
-            10 -> {
-                nameLevel = getString(R.string.txt_level10_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel10)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
-            }
-            else -> {
-                nameLevel = getString(R.string.txt_level1_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel1)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-        }
-        txtLevel.text = getString(R.string.txt_your_level).replace(
+    fun setLevel(textLevel: TextView) {
+        textLevel.isGone = false
+        val nLevel = getSavedLevel()
+        textLevel.text = getString(R.string.txt_your_level).replace(
             "{{*{{level}}*}}",
             nLevel.toString()
-        ) + "\n\"" + nameLevel + "\""
+        )
     }
 
     fun setTheme(view: Context) {
@@ -262,6 +203,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
         var isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutLogin) as ConstraintLayout)
+        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionData))
+        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionInformation))
         theme.setElement(isDark, view, 1, this.findViewById(R.id.loginSectionLogout))
         theme.setElement(isDark, view, this.findViewById(R.id.btnBadges) as Button)
         theme.setElement(isDark, view, this.findViewById(R.id.btnLogout) as Button)
@@ -272,14 +215,31 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileUsername) as TextView)
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileEmail) as TextView)
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileAge) as TextView)
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileGender) as TextView)
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileUsername) as TextView
+        )
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileEmail) as TextView
+        )
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileAge) as TextView
+        )
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileGender) as TextView
+        )
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileUsername) as TextView)
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileEmail) as TextView)
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileAge) as TextView)
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileGender) as TextView)
+        theme.setTextView(isDark, view, textLevel as TextView, border = false)
         theme.setElement(
             isDark,
             this.findViewById(R.id.imageProfileImageBorder) as ImageView,
