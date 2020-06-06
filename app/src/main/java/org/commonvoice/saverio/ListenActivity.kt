@@ -1,9 +1,14 @@
 package org.commonvoice.saverio
 
 import android.os.Bundle
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_listen.*
+import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -25,8 +30,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         setupUI()
 
-        connectionManager.liveInternetAvailability.observe(this, Observer {
-
+        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+            this.imageAirplaneModeListen.isGone = available
+            if(available) this.startAnimation(this.imageAirplaneModeListen)
         })
     }
 
@@ -91,6 +97,16 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         btn_yes_thumb.onClick {
             listenViewModel.validate(result = true)
         }
+    }
+
+    fun startAnimation(img: ImageView) {
+        var animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+        img.startAnimation(animation)
+    }
+
+    fun stopAnimation(img: ImageView) {
+        img.clearAnimation()
     }
 
 }

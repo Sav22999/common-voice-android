@@ -35,8 +35,8 @@
 
         <ImageView
             android:id="@+id/imageAirplaneModeSpeak"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"

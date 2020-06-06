@@ -208,6 +208,8 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             txtTextTop.setText(getString(R.string.txt9_tutorial_speak))
             txtNumberTop.isGone = false
             txtTextTop.isGone = false
+            txtNumberBottom.isGone = true
+            txtTextBottom.isGone = true
             txtNine.isGone = false
             btnListenAgain.isGone = false
             btnRecord.setImageResource(R.drawable.speak2_cv)

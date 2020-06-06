@@ -13,79 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <View
-            android:id="@+id/viewSeparatorListen1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_start_listen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
-
-        <View
-            android:id="@+id/viewSeparatorListen2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_listen" />
-
-        <Button
-            android:id="@+id/btn_yes_thumb"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="200dp"
-            android:background="@drawable/yes_thumb_cv"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
-
-        <Button
-            android:id="@+id/btn_no_thumb"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="200dp"
-            android:background="@drawable/no_thumb_cv"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
-
-        <TextView
-            android:id="@+id/textMessageAlertListen"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center|top|center_vertical"
-            android:textColor="@color/colorAlertMessage"
-            android:textSize="16dp"
-            android:textStyle="italic"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
-
-        <Button
-            android:id="@+id/btn_start_listen"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/listen_cv"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
-
         <TextView
             android:id="@+id/textSentenceListen"
             android:layout_width="0dp"
@@ -104,6 +31,89 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageAirplaneModeListen"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_airplane_mode" />
+
+        <TextView
+            android:id="@+id/textMessageAlertListen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center|top|center_vertical"
+            android:textColor="@color/colorAlertMessage"
+            android:textSize="16dp"
+            android:textStyle="italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+
+        <View
+            android:id="@+id/viewSeparatorListen1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_start_listen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
+
+        <Button
+            android:id="@+id/btn_yes_thumb"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="200dp"
+            android:background="@drawable/yes_thumb_cv"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+
+        <Button
+            android:id="@+id/btn_start_listen"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/listen_cv"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+
+        <Button
+            android:id="@+id/btn_no_thumb"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="200dp"
+            android:background="@drawable/no_thumb_cv"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+
+        <View
+            android:id="@+id/viewSeparatorListen2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_listen" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/listenSectionBottom"

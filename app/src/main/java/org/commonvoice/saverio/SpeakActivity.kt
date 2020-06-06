@@ -7,6 +7,10 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -43,6 +47,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
             this.imageAirplaneModeSpeak.isGone = available
+            if(available) this.startAnimation(this.imageAirplaneModeSpeak)
         })
     }
 
@@ -283,6 +288,16 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 setupUI()
             }
         } else super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    fun startAnimation(img: ImageView) {
+        var animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+        img.startAnimation(animation)
+    }
+
+    fun stopAnimation(img: ImageView) {
+        img.clearAnimation()
     }
 
 }
