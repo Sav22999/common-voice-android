@@ -76,6 +76,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun setupUI() {
+        setTheme(this)
+
         speakViewModel.currentSentence.observe(this, Observer { sentence ->
             setupUIStateStandby(sentence)
         })
@@ -137,8 +139,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 )
             }
         })
-
-        setTheme(this)
     }
 
     private fun showMessageDialog(title: String, text: String) {

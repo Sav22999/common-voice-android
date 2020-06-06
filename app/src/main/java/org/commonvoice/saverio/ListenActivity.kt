@@ -138,6 +138,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun loadUIStateStandby(clip: Clip) {
+        setTheme(this)
+
         textSentenceListen.text = clip.sentence.sentenceText
         if (!listenViewModel.listenedOnce) textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
         else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
@@ -164,8 +166,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             listenViewModel.listenedOnce = false
             listenViewModel.startedOnce = false
         }
-
-        setTheme(this)
     }
 
     private fun loadUIStateListening() {
