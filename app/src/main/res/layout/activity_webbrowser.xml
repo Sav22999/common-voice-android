@@ -58,7 +58,7 @@
         android:padding="8dp"
         android:text="@string/txt_loading_page"
         android:textColor="@color/colorWhite"
-        android:textSize="30sp"
+        android:textSize="@dimen/title_small"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

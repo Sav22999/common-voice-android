@@ -3,8 +3,6 @@ package org.commonvoice.saverio
 import android.content.Context
 import android.graphics.Paint
 import android.graphics.Typeface
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -16,11 +14,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
-import kotlinx.android.synthetic.main.report_sentence_clip.view.*
-import org.json.JSONArray
 
 class MessageDialog {
     private val REQUEST_CODE: Int = 101
@@ -212,6 +207,7 @@ class MessageDialog {
                     }
                 }
                 3, 4 -> {
+                    /*
                     try {
                         val dialogView =
                             LayoutInflater.from(this.context)
@@ -313,11 +309,13 @@ class MessageDialog {
                     } catch (exception: Exception) {
                         println("!!-- Exception: MessageDialogActivity MD03 - Details: " + exception.toString() + " --!!")
                     }
+                    */
                 }
             }
         }
     }
 
+    /*
     fun checkAvailability(view: View) {
         var checkBoxes = arrayOf(
             view.checkBoxReason1Report,
@@ -340,6 +338,7 @@ class MessageDialog {
         if (availableSendingTheReport) buttonSend.isEnabled = true
         else buttonSend.isEnabled = false
     }
+     */
 
     fun setDailyGoalValue(textBox: TextView, value: Int) {
         if (value == 0) {
@@ -496,6 +495,7 @@ class MessageDialog {
                 )
             }
             3, 4 -> {
+                /*
                 theme.setElement(
                     isDark,
                     dialogView.findViewById(R.id.layoutReport) as ConstraintLayout
@@ -528,12 +528,12 @@ class MessageDialog {
                 theme.setElement(
                     isDark,
                     view,
-                    dialogView.findViewById(R.id.btnCancelReport) as Button
+                    dialogView.findViewById(R.id.buttonCancelReport) as Button
                 )
                 theme.setElement(
                     isDark,
                     view,
-                    dialogView.findViewById(R.id.btnSendReport) as Button
+                    dialogView.findViewById(R.id.buttonSendReport) as Button
                 )
                 theme.setElement(
                     isDark,
@@ -547,6 +547,7 @@ class MessageDialog {
                     view,
                     dialogView.findViewById(R.id.textReasonOtherReport) as TextView
                 )
+                 */
             }
         }
     }

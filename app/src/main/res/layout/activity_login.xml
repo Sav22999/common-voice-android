@@ -36,7 +36,7 @@
                 android:text="@string/txt_profile_email"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_normal"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,6 +45,7 @@
                 android:id="@+id/textProfileEmail"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="10dp"
                 android:background="@drawable/txt_rounded_with_border"
                 android:clickable="false"
                 android:editable="false"
@@ -57,14 +58,16 @@
                 android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelProfileEmail"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/textProfileUsername"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/txt_rounded_with_border"
                 android:clickable="false"
@@ -77,8 +80,9 @@
                 android:hint="@string/txt_profile_username"
                 android:inputType="textPersonName"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelProfileUsername"
                 app:layout_constraintTop_toBottomOf="@+id/textProfileEmail" />
 
             <TextView
@@ -90,7 +94,7 @@
                 android:text="@string/txt_profile_age"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_normal"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/labelProfileUsername" />
@@ -99,6 +103,7 @@
                 android:id="@+id/textProfileGender"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/txt_rounded_with_border"
                 android:clickable="false"
@@ -111,14 +116,16 @@
                 android:hint="@string/txt_profile_gender"
                 android:inputType="textPersonName"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelProfileGender"
                 app:layout_constraintTop_toBottomOf="@+id/textProfileAge" />
 
             <EditText
                 android:id="@+id/textProfileAge"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/txt_rounded_with_border"
                 android:clickable="false"
@@ -131,8 +138,9 @@
                 android:hint="@string/txt_profile_age"
                 android:inputType="textPersonName"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelProfileAge"
                 app:layout_constraintTop_toBottomOf="@+id/textProfileUsername" />
 
             <TextView
@@ -144,7 +152,7 @@
                 android:text="@string/txt_profile_gender"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_normal"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/labelProfileAge" />
@@ -158,7 +166,7 @@
                 android:text="@string/txt_profile_username"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_normal"
                 android:textStyle="italic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/labelProfileEmail" />
@@ -173,6 +181,7 @@
                 android:paddingEnd="50dp"
                 android:text="@string/btn_badges_loggedin"
                 android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -228,7 +237,7 @@
                 android:text="@string/txt_profile_edit_data_alert"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorAlertMessage"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_small"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -261,7 +270,7 @@
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/colorBlack"
-            android:textSize="22sp"
+            android:textSize="@dimen/title_small"
             android:textStyle="bold"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -293,6 +302,7 @@
                 android:shadowColor="@color/colorRed"
                 android:text="@string/button_home_logout"
                 android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

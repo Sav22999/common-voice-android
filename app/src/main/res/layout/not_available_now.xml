@@ -23,7 +23,7 @@
             android:padding="2sp"
             android:text="@string/txtNotAvailableNow"
             android:textColor="@color/colorRed"
-            android:textSize="22sp"
+            android:textSize="@dimen/text_big"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

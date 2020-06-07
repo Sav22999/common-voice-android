@@ -21,7 +21,6 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
-import kotlin.concurrent.fixedRateTimer
 
 class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
@@ -174,7 +173,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             in 0..20 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_extra_big)
+                    resources.getDimension(R.dimen.title_very_big)
                 )
             }
             in 21..40 -> {

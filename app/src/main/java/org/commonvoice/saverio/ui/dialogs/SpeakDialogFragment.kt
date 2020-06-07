@@ -26,12 +26,12 @@ class SpeakDialogFragment: BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button.onClick {
+        buttonSendReport.onClick {
             speakViewModel.reportSentence(listOf("Prova", "Prova2"))
             this.dismiss()
         }
 
-        button2.onClick {
+        buttonCancelReport.onClick {
             this.dismiss()
         }
     }

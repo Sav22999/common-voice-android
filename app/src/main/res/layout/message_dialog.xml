@@ -85,7 +85,7 @@
                 android:paddingEnd="50dp"
                 android:text="@string/btnOk"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_normal"
+                android:textSize="@dimen/text_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/labelDetailsMessageDialog" />
@@ -145,5 +145,7 @@
                 tools:text="Text of message" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

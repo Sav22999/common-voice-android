@@ -238,7 +238,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             in 0..20 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_extra_big)
+                    resources.getDimension(R.dimen.title_very_big)
                 )
             }
             in 21..40 -> {

@@ -12,6 +12,7 @@
         <item name="android:statusBarColor">@color/colorBackgroundDT</item>
         <item name="android:actionBarSize">1dp</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="AppTheme.TitleBar" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -21,6 +22,7 @@
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="AppTheme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
@@ -30,6 +32,7 @@
         <item name="android:colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <!-- Message dialog -->
@@ -38,5 +41,15 @@
         <item name="android:background">@drawable/top_bottom_border_radius</item>
         <item name="android:backgroundTint">@color/colorTransparent</item>
         <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/top_border_radius</item>
     </style>
 </resources>
