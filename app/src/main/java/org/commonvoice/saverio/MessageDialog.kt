@@ -406,16 +406,17 @@ class MessageDialog {
         var theme: DarkLightTheme = DarkLightTheme()
         var isDark = theme.getTheme(view)
 
-        if (this.height > 500) {
-            dialogView.messageDialogSectionBackground.layoutParams.height = this.height
-            dialogView.messageDialogSectionBackground.requestLayout()
-        } else {
-            dialogView.messageDialogSectionBackground.backgroundTintList =
-                ContextCompat.getColorStateList(view, R.color.colorTransparent)
-        }
         when (this.message_type) {
             0, 2 -> {
                 //standard message dialog
+                if (this.height > 500) {
+                    dialogView.messageDialogSectionBackground.layoutParams.height = this.height
+                    dialogView.messageDialogSectionBackground.requestLayout()
+                } else {
+                    dialogView.messageDialogSectionBackground.backgroundTintList =
+                        ContextCompat.getColorStateList(view, R.color.colorTransparent)
+                }
+
                 if (this.message_type == 2) isDark = !isDark
                 theme.setElement(
                     isDark,
