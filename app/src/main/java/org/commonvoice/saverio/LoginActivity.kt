@@ -173,10 +173,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             settingsSwitchData["LEVEL_SAVED"],
             0
         )
-        println("level: " + value)
+        //println("level: " + value)
         return when (value) {
-            in 0..20 -> 1
-            in 5..49 -> 2
+            in 0..9 -> 1
+            in 10..49 -> 2
             in 50..99 -> 3
             in 100..499 -> 4
             in 500..999 -> 5

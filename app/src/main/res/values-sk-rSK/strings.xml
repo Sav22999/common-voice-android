@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">Ďalej</string>
     <string name="btn_tutorial4">Skúsiť znova</string>
     <string name="btn_tutorial5">Dokončiť</string>
+    <string name="txt_permission_successful">Povolenie úspešné</string>
+    <string name="txt_permission_failed">Chyba: Povolenie neúspešné</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/sk/terms</string>
     <string name="tutorial_text1">Toto nie je oficiálna aplikácia Common Voice. Je vyvíjana developerom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
     <string name="tutorial_terms">Pokračovaním súhlasíte so Všeobecnými podmienkami aplikácie Common Voice.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">Vypočuj si celú nahrávku, aby si overil či je správna.</string>
     <string name="txt_listening_again_recording">Stlač dolnú ikonu pre zastavenie počúvania.</string>
     <string name="txt_recording_too_long">Nahrávka je príliš dlhá. Maximálna dĺžka je 10 sekúnd.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">Odosielanie nahrávky...</string>
     <string name="txt_recording_sent">Nahrávka odoslaná!</string>
     <string name="txt_sending_recording_failed">Nepodarilo sa odoslať nahrávku!</string>

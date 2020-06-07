@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
-import android.view.View
+import android.util.TypedValue
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -228,8 +228,40 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
 
-        textSentenceSpeak.text = sentence.sentenceText
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
+        textSentenceSpeak.text = sentence.sentenceText
+        when (textSentenceSpeak.text.length) {
+            in 0..20 -> {
+                textSentenceSpeak.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.extra_big)
+                )
+            }
+            in 21..40 -> {
+                textSentenceSpeak.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.big)
+                )
+            }
+            in 41..50 -> {
+                textSentenceSpeak.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.medium)
+                )
+            }
+            in 51..80 -> {
+                textSentenceSpeak.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.normal)
+                )
+            }
+            else -> {
+                textSentenceSpeak.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.small)
+                )
+            }
+        }
 
         buttonStartStopSpeak.onClick {
             speakViewModel.startRecording()

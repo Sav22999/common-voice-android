@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">Dalej</string>
     <string name="btn_tutorial4">Spróbuj ponownie</string>
     <string name="btn_tutorial5">Koniec</string>
+    <string name="txt_permission_successful">Otrzymano uprawnienie</string>
+    <string name="txt_permission_failed">Błąd: Nie otrzymano uprawnienia</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/pl/terms</string>
     <string name="tutorial_text1">To nie jest oficjalna aplikacja Common Voice. Jest stworzona przez Saverio Morelli\'ego bez wsparcia ani partnerstwa z Mozillą.</string>
     <string name="tutorial_terms">Kontynuując, zgadzasz się na warunki korzystania z Common Voice.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">Odsłuchaj całe nagranie, aby upewnić się, że jest poprawne.</string>
     <string name="txt_listening_again_recording">Naciśnij poniższą ikonę, aby zatrzymać odtwarzanie.</string>
     <string name="txt_recording_too_long">Nagranie jest zbyt długie. Maksymalny czas trwania to 10 sekund.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">Wysyłanie nagrania...</string>
     <string name="txt_recording_sent">Nagranie wysłane!</string>
     <string name="txt_sending_recording_failed">Nie udało się wysłać nagrania!</string>

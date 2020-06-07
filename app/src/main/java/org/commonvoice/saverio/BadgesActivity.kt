@@ -151,8 +151,8 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         val value = getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0)
         println("level: " + value)
         return when (value) {
-            in 0..20 -> 1
-            in 5..49 -> 2
+            in 0..9 -> 1
+            in 10..49 -> 2
             in 50..99 -> 3
             in 100..499 -> 4
             in 500..999 -> 5

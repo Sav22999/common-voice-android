@@ -103,6 +103,10 @@ class ListenViewModel(
         mediaPlayerRepository.clean()
     }
 
+    fun autoPlay(): Boolean {
+        return listenPrefManager.isAutoPlayClipEnabled
+    }
+
     companion object {
         @Parcelize
         enum class State : Parcelable {

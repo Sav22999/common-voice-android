@@ -30,7 +30,6 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putString(Keys.SESSID_COOKIE.name, value).apply()
         }
 
-
     var areGesturesEnabled: Boolean
         get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, false)
         set(value) {

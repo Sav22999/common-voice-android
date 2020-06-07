@@ -12,8 +12,15 @@ class ListenPrefManager(ctx: Context) {
             preferences.edit().putInt(Keys.REQUIRED_CLIPS_COUNT.name, value).apply()
         }
 
+    var isAutoPlayClipEnabled: Boolean
+        get() = preferences.getBoolean(Keys.AUTO_PLAY_CLIPS.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.AUTO_PLAY_CLIPS.name, value).apply()
+        }
+
     private enum class Keys {
-        REQUIRED_CLIPS_COUNT
+        REQUIRED_CLIPS_COUNT,
+        AUTO_PLAY_CLIPS
     }
 
 }

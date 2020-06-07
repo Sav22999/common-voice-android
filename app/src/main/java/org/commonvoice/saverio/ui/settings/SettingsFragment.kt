@@ -14,6 +14,7 @@ import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
@@ -23,6 +24,7 @@ class SettingsFragment : Fragment() {
 
     private val mainPrefManager: MainPrefManager by inject()
     private val speakPrefManager: SpeakPrefManager by inject()
+    private val listenPrefManager: ListenPrefManager by inject()
 
     var languagesListShort =
         arrayOf("en") // don't change it manually -> it will import automatically
@@ -112,6 +114,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            listenPrefManager.isAutoPlayClipEnabled = isChecked
             main.setAutoPlay(isChecked)
         }
         switchAutoPlaySettings.isChecked = main.getAutoPlay()
@@ -255,7 +258,7 @@ class SettingsFragment : Fragment() {
         theme.setElements(view, root.findViewById(R.id.settingsSectionOther))
         theme.setElements(view, root.findViewById(R.id.settingsSectionBottom))
 
-        theme.setElement(isDark, view, 2, root.findViewById(R.id.settingsSectionLanguage))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionLanguage))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionListen))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionSpeak))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionOther))

@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
         //theme.setElements(view, root.findViewById(R.id.layoutHome))
 
         val isDark = theme.getTheme(view)
-        theme.setElement(isDark, view, 2, root.findViewById(R.id.homeSectionCVAndroid))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionCVAndroid))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionLoginSignup))
         theme.setElement(
             isDark,

@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">التالي</string>
     <string name="btn_tutorial4">حاول مجددًا</string>
     <string name="btn_tutorial5">إنهاء</string>
+    <string name="txt_permission_successful">تم إعطاء التصريح بنجاح</string>
+    <string name="txt_permission_failed">خطأ: فشل الإذن بالتصريح</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
     <string name="tutorial_text1">هذا ليس التطبيق الرسمي لCommon Voice. لقد تمّ تطويره من طرف Saverio Morelli بدون أي دعم أو شراكة مع موزيلا.</string>
     <string name="tutorial_terms">من خلال المتابعة فأنت توافق على شروط خدمة Common Voice.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">استمع للتسجيل بشكل كامل للتأكذ من صحّته.</string>
     <string name="txt_listening_again_recording">اضغط على الرمز أسفله لإيقاف الاستماع.</string>
     <string name="txt_recording_too_long">مدة التسجيل طويلة، المدة القصوى هي 10 ثواني.</string>
+    <string name="txt_recording_too_short">التسجيل قصيرا جدًا، المرجو المحاولة مرة أخرى.</string>
     <string name="txt_sending_recording">جاري ارسال التسجيل...</string>
     <string name="txt_recording_sent">تم إرسال التسجيل!</string>
     <string name="txt_sending_recording_failed">فشل إرسال التسجيل!</string>

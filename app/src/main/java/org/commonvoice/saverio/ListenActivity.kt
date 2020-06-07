@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -16,6 +17,7 @@ import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -59,6 +61,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun setupUI() {
+        setTheme(this)
+
         listenViewModel.currentClip.observe(this, Observer { clip ->
             loadUIStateStandby(clip)
         })
@@ -77,6 +81,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                 }
             }
         })
+
+        if (mainPrefManager.areGesturesEnabled) {
+            setupGestures()
+        }
     }
 
     private fun showMessageDialog(title: String, text: String) {
@@ -138,21 +146,50 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun loadUIStateStandby(clip: Clip) {
-        setTheme(this)
+        if (!listenViewModel.listenedOnce) {
+            textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
+
+        } else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
         textSentenceListen.text = clip.sentence.sentenceText
-        if (!listenViewModel.listenedOnce) textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
-        else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
+        when (textSentenceListen.text.length) {
+            in 0..20 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.extra_big)
+                )
+            }
+            in 21..40 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.big)
+                )
+            }
+            in 41..50 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.medium)
+                )
+            }
+            in 51..80 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.normal)
+                )
+            }
+            else -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.small)
+                )
+            }
+        }
 
         //buttonReportListen.isGone = false//TODO when "Report" feature is enabled, remove as "comment"
 
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
-        }
-
-        if (mainPrefManager.areGesturesEnabled) {
-            setupGestures()
         }
 
         if (listenViewModel.stopped) {
@@ -166,6 +203,12 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             listenViewModel.listenedOnce = false
             listenViewModel.startedOnce = false
         }
+
+        if (!listenViewModel.startedOnce) {
+            if (listenViewModel.autoPlay()) {
+                listenViewModel.startListening()
+            }
+        }
     }
 
     private fun loadUIStateListening() {
@@ -177,6 +220,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         if (!listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_in_speak_listen)
         if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
         listenViewModel.startedOnce = true
+        buttonSkipListen.isEnabled = true
 
         buttonStartStopListen.setBackgroundResource(R.drawable.stop_cv)
 

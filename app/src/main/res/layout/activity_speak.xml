@@ -18,15 +18,16 @@
             android:layout_width="0dp"
             android:layout_height="300dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/bottom_border_radius"
+            android:background="@drawable/top_bottom_border_radius"
             android:backgroundTintMode="screen"
             android:gravity="center|center_horizontal|center_vertical"
             android:padding="16px"
             android:text="..."
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
-            android:textSize="30dp"
+            android:textSize="@dimen/extra_big"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -89,11 +90,12 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@drawable/speak_cv"
+            android:enabled="false"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
 
         <Button
             android:id="@+id/buttonSendSpeak"

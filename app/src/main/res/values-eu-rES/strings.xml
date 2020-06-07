@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">Hurrengoa</string>
     <string name="btn_tutorial4">Saiatu berriro</string>
     <string name="btn_tutorial5">Amaitu</string>
+    <string name="txt_permission_successful">Baimena arrakastatsua</string>
+    <string name="txt_permission_failed">Errorea: baimena arrakastatsua</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/eu/terms</string>
     <string name="tutorial_text1">Hau ez da Common Voiceren aplikazio ofiziala. Saverio Morellik Mozillarekin inolako euskarri edo atseginik gabe garatzen du.</string>
     <string name="tutorial_terms">Aurrera egitean, Common Voiceren baldintzak eta zerbitzuak onartzen dituzu.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">Entzun grabazio guztia, zuzena dela ziurtatzeko.</string>
     <string name="txt_listening_again_recording">Sakatu beheko ikonoa, entzutea geldiarazteko.</string>
     <string name="txt_recording_too_long">Grabazioa luzeegia da. Gehienezko luzera 10 segundo.</string>
+    <string name="txt_recording_too_short">Grabaketa oso motza da. Saiatu berriro mesedez.</string>
     <string name="txt_sending_recording">Grabaketa bidaltzen...</string>
     <string name="txt_recording_sent">Grabazioa bidali da!</string>
     <string name="txt_sending_recording_failed">Huts egin du grabazioa bidaltzean!</string>
