@@ -238,31 +238,31 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             in 0..20 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.extra_big)
+                    resources.getDimension(R.dimen.title_extra_big)
                 )
             }
             in 21..40 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.big)
+                    resources.getDimension(R.dimen.title_big)
                 )
             }
             in 41..50 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.medium)
+                    resources.getDimension(R.dimen.title_medium)
                 )
             }
             in 51..80 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.normal)
+                    resources.getDimension(R.dimen.title_normal)
                 )
             }
             else -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.small)
+                    resources.getDimension(R.dimen.title_small)
                 )
             }
         }

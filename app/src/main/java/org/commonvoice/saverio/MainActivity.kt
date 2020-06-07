@@ -1120,9 +1120,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             val metrics = DisplayMetrics()
             windowManager.defaultDisplay.getMetrics(metrics)
             val width = metrics.widthPixels
-            //val height = metrics.heightPixels
+            val height = metrics.heightPixels
             val message: MessageDialog =
-                MessageDialog(this, this, 1, value = getDailyGoal(), width = width)
+                MessageDialog(this, this, 1, value = getDailyGoal(), width = width, height = height)
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - OPEN DAILY GOAL DIALOG: " + exception.toString() + " --!!")
@@ -1204,8 +1204,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         text: String,
         errorCode: String = "",
         details: String = "",
-        type: Int = 1
+        type: Int = 0
     ) {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
         try {
             var messageText = text
             if (errorCode != "") {
@@ -1216,8 +1220,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 }
             }
             val message: MessageDialog =
-                MessageDialog(this, 0, title, messageText, details = details)
-            if (type != 1) message.setMessageType(type)
+                MessageDialog(this, type, title, messageText, details = details, height = height)
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")

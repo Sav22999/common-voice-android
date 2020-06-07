@@ -191,9 +191,12 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberBottom.setText("8")
             txtTextBottom.setText(getString(R.string.txt8_tutorial_speak))
+            txtNumberTop.isGone = true
+            txtTextTop.isGone = true
             txtNumberBottom.isGone = false
             txtTextBottom.isGone = false
             txtEight.isGone = false
+            txtNine.isGone = true
             btnListenAgain.isGone = false
             btnSend.isGone = false
             txtSend.isGone = false

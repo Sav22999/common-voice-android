@@ -13,6 +13,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -20,61 +21,82 @@ import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
 import kotlinx.android.synthetic.main.report_sentence_clip.view.*
 import org.json.JSONArray
-import org.w3c.dom.Text
 
 class MessageDialog {
     private val REQUEST_CODE: Int = 101
     private val DAILY_GOAL = "DAILY_GOAL"
     private var message_type: Int =
-        0 // 0->standard (Ok), 1->dailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off), 3->reportClip (listen), 4->reportSentence (Speak)
+        0 /*0->standard (Ok), 1->dailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off),
+            3->reportClip (listen), 4->reportSentence (Speak)
+            5->info, 6->help, 7->warning, 8->news/changelog, 9->tip*/
     private var message_text: String = ""
     private var message_title: String = ""
     private var message_details: String = ""
     private var context: Context? = null;
     private var dailyGoalValue: Int = 0
     private var width: Int = 0
+    private var height: Int = 0
     private var reportType: String = ""
     private var main: MainActivity? = null
     private var speak: SpeakActivity? = null
     private var listen: ListenActivity? = null
 
-    constructor(context: Context, title: String, text: String) {
+    constructor(context: Context, title: String, text: String, height: Int = 0) {
         this.context = context
         this.message_type = 0
         this.message_title = title
         this.message_text = text
+        this.height = height
     }
 
-    constructor(context: Context, type: Int, title: String, text: String, details: String = "") {
+    constructor(
+        context: Context,
+        type: Int,
+        title: String,
+        text: String,
+        details: String = "",
+        height: Int = 0
+    ) {
         this.context = context
         this.message_type = type
         this.message_title = title
         this.message_text = text
         this.message_details = details
+        this.height = height
     }
 
-    constructor(context: Context, main: MainActivity, type: Int, value: Int = 0, width: Int = 0) {
+    constructor(
+        context: Context,
+        main: MainActivity,
+        type: Int,
+        value: Int = 0,
+        width: Int = 0,
+        height: Int = 0
+    ) {
         this.context = context
         this.dailyGoalValue = value
         this.message_type = type
         this.width = width
+        this.height = height
         this.main = main
     }
 
-    constructor(context: Context, reportType: String, listen: ListenActivity) {
+    constructor(context: Context, reportType: String, listen: ListenActivity, height: Int = 0) {
         //report - Listen
         this.reportType = reportType
         this.listen = listen
         this.message_type = 3
         this.context = context
+        this.height = height
     }
 
-    constructor(context: Context, reportType: String, speak: SpeakActivity) {
+    constructor(context: Context, reportType: String, speak: SpeakActivity, height: Int = 0) {
         //report - Speak
         this.reportType = reportType
         this.speak = speak
         this.message_type = 4
         this.context = context
+        this.height = height
     }
 
     fun setMessageType(type: Int) {
@@ -89,9 +111,10 @@ class MessageDialog {
                         val dialogView =
                             LayoutInflater.from(this.context).inflate(R.layout.message_dialog, null)
 
-                        val builder = AlertDialog.Builder(this.context!!)
-                            .setView(dialogView)
-                            .setTitle("")
+                        val builder =
+                            AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
+                                .setView(dialogView)
+                                .setTitle("")
                         //show dialog
                         val alertDialog = builder.show()
                         var message_to_show = this.message_text
@@ -120,6 +143,7 @@ class MessageDialog {
                             alertDialog.dismiss()
                         }
                         setTheme(this.context!!, dialogView)
+                        setMessageType(this.context!!, dialogView)
                     } catch (exception: Exception) {
                         println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
                     }
@@ -182,6 +206,7 @@ class MessageDialog {
                             main?.refreshDailyGoalDataInDashboard()
                         }
                         setTheme(this.context!!, dialogView)
+                        setMessageType(this.context!!, dialogView)
                     } catch (exception: Exception) {
                         println("!!-- Exception: MessageDialogActivity MD02 - Details: " + exception.toString() + " --!!")
                     }
@@ -284,6 +309,7 @@ class MessageDialog {
                             alertDialog.dismiss()
                         }
                         setTheme(this.context!!, dialogView)
+                        setMessageType(this.context!!, dialogView)
                     } catch (exception: Exception) {
                         println("!!-- Exception: MessageDialogActivity MD03 - Details: " + exception.toString() + " --!!")
                     }
@@ -336,17 +362,71 @@ class MessageDialog {
         }
     }
 
+    fun setMessageType(view: Context, dialogView: View) {
+        if (this.message_type == 0 || this.message_type == 1 || this.message_type == 2 || this.message_type == 3 || this.message_type == 4) {
+            dialogView.messageDialogSectionMessageType.isGone = true
+        } else if (this.message_type == 5) {
+            //info
+            dialogView.messageDialogSectionMessageType.isGone = false
+            dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorInfo)
+            dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_info)
+            dialogView.textMessageType.text = view.getString(R.string.text_info)
+        } else if (this.message_type == 6) {
+            //help
+            dialogView.messageDialogSectionMessageType.isGone = false
+            dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorHelp)
+            dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_help)
+            dialogView.textMessageType.text = view.getString(R.string.text_help)
+        } else if (this.message_type == 7) {
+            //warning
+            dialogView.messageDialogSectionMessageType.isGone = false
+            dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorWarning)
+            dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_warning)
+            dialogView.textMessageType.text = view.getString(R.string.text_warning)
+        } else if (this.message_type == 8) {
+            //news/changelog
+            dialogView.messageDialogSectionMessageType.isGone = false
+            dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorChangelog)
+            dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_news)
+            dialogView.textMessageType.text = view.getString(R.string.text_changelog)
+        } else if (this.message_type == 9) {
+            //tip
+            dialogView.messageDialogSectionMessageType.isGone = false
+            dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorTip)
+            dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_tip)
+            dialogView.textMessageType.text = view.getString(R.string.text_tip)
+        }
+    }
+
     fun setTheme(view: Context, dialogView: View) {
         var theme: DarkLightTheme = DarkLightTheme()
-
         var isDark = theme.getTheme(view)
+
+        if (this.height > 500) {
+            dialogView.messageDialogSectionBackground.layoutParams.height = this.height
+            dialogView.messageDialogSectionBackground.requestLayout()
+        } else {
+            dialogView.messageDialogSectionBackground.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorTransparent)
+        }
         when (this.message_type) {
             0, 2 -> {
                 //standard message dialog
                 if (this.message_type == 2) isDark = !isDark
                 theme.setElement(
                     isDark,
-                    dialogView.findViewById(R.id.layoutMessageDialog) as ConstraintLayout
+                    dialogView.findViewById(R.id.messageDialogSectionMiddle) as ConstraintLayout
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    -1,
+                    dialogView.findViewById(R.id.messageDialogSectionMiddle) as ConstraintLayout
                 )
                 theme.setElement(
                     isDark,

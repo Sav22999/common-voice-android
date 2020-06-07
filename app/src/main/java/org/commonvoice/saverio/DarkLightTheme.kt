@@ -81,7 +81,10 @@ class DarkLightTheme {
         }
     }
 
-    fun setElement(theme: Boolean, element: ConstraintLayout) {
+    fun setElement(
+        theme: Boolean,
+        element: ConstraintLayout
+    ) {
         if (theme) {
             element.setBackgroundResource(this.colorBackgroundDT)
         } else {
@@ -89,26 +92,41 @@ class DarkLightTheme {
         }
     }
 
-    fun setElement(theme: Boolean, view: Context, top_or_bottom: Int, element: ConstraintLayout) {
+    fun setElement(
+        theme: Boolean,
+        view: Context,
+        top_or_bottom: Int,
+        element: ConstraintLayout
+    ) {
         if (theme) {
-            //top_or_buttom = {1: (radius) just top | 2: just bottom | 3:both, top and bottom}
-            if (top_or_bottom == 1) {
-                element.setBackgroundResource(R.drawable.top_border_radius)
-            } else if (top_or_bottom == 2) {
-                element.setBackgroundResource(R.drawable.bottom_border_radius)
+            //top_or_buttom = (border-radius) {-1: both, top and bottom WITH border, 1: just top | 2: just bottom | 3:both, top and bottom}
+            if (top_or_bottom != -1) {
+                if (top_or_bottom == 1) {
+                    element.setBackgroundResource(R.drawable.top_border_radius)
+                } else if (top_or_bottom == 2) {
+                    element.setBackgroundResource(R.drawable.bottom_border_radius)
+                } else {
+                    element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+                }
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, R.color.colorBlack)
             } else {
-                element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+                element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
             }
-            element.backgroundTintList = ContextCompat.getColorStateList(view, R.color.colorBlack)
         } else {
-            if (top_or_bottom == 1) {
-                element.setBackgroundResource(R.drawable.top_border_radius)
-            } else if (top_or_bottom == 2) {
-                element.setBackgroundResource(R.drawable.bottom_border_radius)
+            if (top_or_bottom != -1) {
+                if (top_or_bottom == 1) {
+                    element.setBackgroundResource(R.drawable.top_border_radius)
+                } else if (top_or_bottom == 2) {
+                    element.setBackgroundResource(R.drawable.bottom_border_radius)
+                } else {
+                    element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+                }
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, R.color.colorWhite)
             } else {
-                element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+                element.setBackgroundResource(R.drawable.txt_rounded_with_border)
             }
-            element.backgroundTintList = ContextCompat.getColorStateList(view, R.color.colorWhite)
         }
     }
 

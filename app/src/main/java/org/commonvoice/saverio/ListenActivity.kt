@@ -12,12 +12,10 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_listen.*
-import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
-import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
@@ -174,31 +172,31 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             in 0..20 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.extra_big)
+                    resources.getDimension(R.dimen.title_extra_big)
                 )
             }
             in 21..40 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.big)
+                    resources.getDimension(R.dimen.title_big)
                 )
             }
             in 41..50 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.medium)
+                    resources.getDimension(R.dimen.title_medium)
                 )
             }
             in 51..80 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.normal)
+                    resources.getDimension(R.dimen.title_normal)
                 )
             }
             else -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.small)
+                    resources.getDimension(R.dimen.title_small)
                 )
             }
         }

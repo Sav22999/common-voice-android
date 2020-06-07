@@ -17,7 +17,17 @@
     <color name="colorSeparator">#404040</color>
     <color name="colorMenuInactive">#777777</color>
     <color name="colorMenuActive">#FFFFFF</color>
+
     <color name="colorTransparent">#00000000</color>
+    <color name="colorBackgroundDarkTransparent">#AA000000</color>
+
+    <!-- Message dialogs -->
+    <color name="colorWarning">#FF5722</color>
+    <color name="colorTip">@color/colorBlack</color>
+    <color name="colorInfo">@color/colorBlack</color>
+    <color name="colorHelp">#0077FF</color>
+    <color name="colorChangelog">@color/colorBlack</color>
+
 
     <!-- Dark theme (DT) -->
     <color name="colorBackgroundDT">#222222</color>

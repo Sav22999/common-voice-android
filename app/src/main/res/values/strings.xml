@@ -177,6 +177,11 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
+    <string name="text_warning">Warning</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">Changelog</string>
+    <string name="text_help">Help</string>
+    <string name="text_info">Info</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Daily goal</string>
     <string name="daily_goal_is_not_set">No goal set</string>
