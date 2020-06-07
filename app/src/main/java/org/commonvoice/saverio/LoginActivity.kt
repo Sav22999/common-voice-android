@@ -68,7 +68,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     var userName: String = ""
 
     val urlWithoutLang: String =
-        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+        "https://voice.allizom.org/api/v1/" //API url (without lang)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,7 +95,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://voice.mozilla.org/profile/info")
+                    Uri.parse("https://voice.allizom.org/profile/info")
                 )
             )
         }
@@ -121,7 +121,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 var url = intent.data
                 //println("Url: "+ url.toString())
                 if (url.toString()
-                        .contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?")
+                        .contains("https://auth.allizom.auth0.com/passwordless/verify_redirect?")
                 ) {
                     openWebBrowser(url.toString())
                 } else {
@@ -277,7 +277,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     fun openWebBrowser(type: String) {
         //val email = findViewById<EditText>(R.id.txt_email_login).text
 
-        if (type == "login" || (type != "login" && type != "logout" && type.contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?"))) {
+        if (type == "login" || (type != "login" && type != "logout" && type.contains("https://auth.allizom.auth0.com/passwordless/verify_redirect?"))) {
             setContentView(R.layout.activity_webbrowser)
 
             webView = findViewById(R.id.webViewBrowser)
@@ -299,7 +299,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
                     //println(" ---->> " + url + " >> " + CookieManager.getInstance().getCookie(url) + " <<---- " )
-                    if (url!!.contains("https://voice.mozilla.org/") && cookies != null && cookies.contains(
+                    if (url!!.contains("https://voice.allizom.org/") && cookies != null && cookies.contains(
                             "connect.sid="
                         )
                     ) {
@@ -341,7 +341,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 }
             }
             if (type == "login") {
-                webView.loadUrl("https://voice.mozilla.org/login")
+                webView.loadUrl("https://voice.allizom.org/login")
             } else {
                 webView.loadUrl(type)
             }
@@ -601,7 +601,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         var btnLoginOpenCommonVoice: Button = this.findViewById(R.id.btnOpenPrivacyPolicy)
         btnLoginOpenCommonVoice.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://voice.mozilla.org/"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://voice.allizom.org/"))
             startActivity(browserIntent)
         }
     }

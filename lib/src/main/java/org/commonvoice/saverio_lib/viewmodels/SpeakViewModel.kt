@@ -184,6 +184,7 @@ class SpeakViewModel(
         currentSentence.value?.let {
             reportsRepository.insertReport(Report(it, reasons))
             ReportsUploadWorker.attachToWorkManager(workManager)
+            skipSentence()
         }
     }
 
