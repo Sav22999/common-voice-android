@@ -58,14 +58,14 @@ class SpeakViewModel(
     }
 
     fun startRecording() {
-        _state.postValue(State.RECORDING)
-
         if (speakPrefManager.playRecordingSoundIndicator) {
             recordingSoundIndicatorRepository.playStartingSound {
                 mediaRecorderRepository.startRecording()
+                _state.postValue(State.RECORDING)
             }
         } else {
             mediaRecorderRepository.startRecording()
+            _state.postValue(State.RECORDING)
         }
     }
 
@@ -83,6 +83,10 @@ class SpeakViewModel(
                     3 -> {
                         _state.postValue(State.RECORDING_TOO_SHORT)
                     }
+                }
+
+                if (speakPrefManager.playRecordingSoundIndicator) {
+                    recordingSoundIndicatorRepository.playFinishingSound()
                 }
 
             }, onSuccess = { recording ->

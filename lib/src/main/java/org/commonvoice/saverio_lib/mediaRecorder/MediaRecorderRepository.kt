@@ -32,8 +32,8 @@ class MediaRecorderRepository(
 
     fun startRecording() {
         setupRecorder()
-        recorder!!.start()
         recordingStartTimeStamp = System.currentTimeMillis()
+        recorder!!.start()
     }
 
     fun stopRecordingAndReadData(
