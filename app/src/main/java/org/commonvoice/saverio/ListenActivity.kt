@@ -13,6 +13,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_listen.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.dialogs.ListenDialogFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
@@ -20,6 +21,7 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import kotlin.concurrent.fixedRateTimer
 
 class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
@@ -143,7 +145,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun openReportDialog() {
-
+        ListenDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
     }
 
     private fun loadUIStateLoading() {
