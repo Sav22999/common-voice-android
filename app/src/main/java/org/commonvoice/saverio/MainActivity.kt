@@ -58,7 +58,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     companion object {
         const val SOURCE_STORE =
-            "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
+            "GPS" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
         fun checkInternet(context: Context): Boolean {
             val cm =
