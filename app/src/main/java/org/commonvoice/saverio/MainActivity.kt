@@ -1441,12 +1441,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun checkConnection(): Boolean {
-        if (MainActivity.checkInternet(this)) {
-            return true
-        } else {
-            openNoConnection()
-            return false
-        }
+        return MainActivity.checkInternet(this)
     }
 
     fun openNoConnection() {

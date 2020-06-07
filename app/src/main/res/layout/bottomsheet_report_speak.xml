@@ -21,10 +21,10 @@
         <View
             android:id="@+id/viewSeparator2"
             android:layout_width="60dp"
-            android:layout_height="8dp"
+            android:layout_height="6dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/top_bottom_border_radius"
-            android:backgroundTint="@color/colorWhite"
+            android:backgroundTint="@color/colorGray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -194,8 +194,6 @@ class DashboardFragment : Fragment() {
             //println("Error: " + e.toString())
         }
 
-        main.checkConnection()
-
         setTheme(main, root)
 
         return root
@@ -455,7 +453,8 @@ class DashboardFragment : Fragment() {
                                         if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
                                             val jsonResultTemp =
                                                 jsonResult.replace("[{", "").replace("}]", "")
-                                            val jsonResultTempArray = jsonResultTemp.split("},{")
+                                            val jsonResultTempArray =
+                                                jsonResultTemp.split("},{")
                                             jsonResult =
                                                 "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
                                         }
@@ -475,10 +474,12 @@ class DashboardFragment : Fragment() {
                                                     jsonObj.getString("votes_count").toInt()
                                             }
                                             "everyoneEverSpeak" -> {
-                                                valueToReturn = jsonObj.getString("total").toInt()
+                                                valueToReturn =
+                                                    jsonObj.getString("total").toInt()
                                             }
                                             "everyoneEverListen" -> {
-                                                valueToReturn = jsonObj.getString("valid").toInt()
+                                                valueToReturn =
+                                                    jsonObj.getString("valid").toInt()
                                             }
                                             //println(jsonObj)
                                         }
@@ -535,7 +536,8 @@ class DashboardFragment : Fragment() {
                                     } else {
                                         if (index != -1) {
                                             if (typeToSend == "you" && this.youSelected || typeToSend == "everyone" && !this.youSelected)
-                                                textElements[index]?.text = valueToReturn.toString()
+                                                textElements[index]?.text =
+                                                    valueToReturn.toString()
                                             main.setSavedStatisticsValue(
                                                 typeToSend,
                                                 valueToReturn.toString(),

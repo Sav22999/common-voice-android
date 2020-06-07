@@ -178,7 +178,7 @@ class MessageDialog {
                                 setDailyGoalValue(dialogView.labelDailyGoalValue, seek.progress)
                             }
                         })
-                        val builder = AlertDialog.Builder(this.context!!)
+                        val builder = AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
                             .setView(dialogView)
                             .setTitle("")
                         //show dialog
@@ -201,7 +201,6 @@ class MessageDialog {
                             main?.refreshDailyGoalDataInDashboard()
                         }
                         setTheme(this.context!!, dialogView)
-                        setMessageType(this.context!!, dialogView)
                     } catch (exception: Exception) {
                         println("!!-- Exception: MessageDialogActivity MD02 - Details: " + exception.toString() + " --!!")
                     }
@@ -277,7 +276,7 @@ class MessageDialog {
                                 this.speak?.getString(R.string.title_report_sentence)
                         }
 
-                        val builder = AlertDialog.Builder(this.context!!)
+                        val builder = AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
                             .setView(dialogView)
                             .setTitle("")
                         //show dialog
@@ -453,9 +452,22 @@ class MessageDialog {
             }
             1 -> {
                 //daily goal
+                if (this.height > 1000) {
+                    dialogView.dailyGoalSectionBackground.layoutParams.height = this.height
+                    dialogView.dailyGoalSectionBackground.requestLayout()
+                } else {
+                    dialogView.dailyGoalSectionBackground.backgroundTintList =
+                        ContextCompat.getColorStateList(view, R.color.colorTransparent)
+                }
                 theme.setElement(
                     isDark,
-                    dialogView.findViewById(R.id.layoutDailyGoal) as ConstraintLayout
+                    dialogView.findViewById(R.id.dailyGoalSectionMiddle) as ConstraintLayout
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    -1,
+                    dialogView.findViewById(R.id.dailyGoalSectionMiddle) as ConstraintLayout
                 )
                 theme.setElement(
                     isDark,
