@@ -18,6 +18,7 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -27,6 +28,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     private val listenViewModel: ListenViewModel by stateViewModel()
 
     private val connectionManager: ConnectionManager by inject()
+
+    private val statsPrefManager: StatsPrefManager by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,6 +88,21 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         if (mainPrefManager.areGesturesEnabled) {
             setupGestures()
         }
+
+        statsPrefManager.dailyGoal.observe(this, Observer {
+            if (it.checkDailyGoal()) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.daily_goal_achieved_message).replace(
+                        "{{*{{n_clips}}*}}",
+                        "${it.validations}"
+                    ).replace(
+                        "{{*{{n_sentences}}*}}",
+                        "${it.recordings}"
+                    )
+                )
+            }
+        })
     }
 
     private fun showMessageDialog(title: String, text: String) {

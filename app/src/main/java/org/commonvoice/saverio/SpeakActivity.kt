@@ -20,6 +20,7 @@ import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Sentence
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -30,6 +31,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private val speakViewModel: SpeakViewModel by stateViewModel()
 
     private val connectionManager: ConnectionManager by inject()
+
+    private val statsPrefManager: StatsPrefManager by inject()
 
     private val permissionRequestCode by lazy {
         Random.nextInt(10000)
@@ -125,16 +128,16 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
         })
 
-        speakViewModel.hasReachedGoal.observe(this, Observer {
-            if (it) {
+        statsPrefManager.dailyGoal.observe(this, Observer {
+            if (it.checkDailyGoal()) {
                 showMessageDialog(
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
                         "{{*{{n_clips}}*}}",
-                        "${speakViewModel.getDailyGoal().validations}"
+                        "${it.validations}"
                     ).replace(
                         "{{*{{n_sentences}}*}}",
-                        "${speakViewModel.getDailyGoal().recordings}"
+                        "${it.recordings}"
                     )
                 )
             }

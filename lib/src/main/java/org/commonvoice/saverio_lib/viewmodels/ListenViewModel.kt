@@ -26,8 +26,7 @@ class ListenViewModel(
     private val mediaPlayerRepository: MediaPlayerRepository,
     private val workManager: WorkManager,
     private val mainPrefManager: MainPrefManager,
-    private val listenPrefManager: ListenPrefManager,
-    private val statsPrefManager: StatsPrefManager
+    private val listenPrefManager: ListenPrefManager
 ) : ViewModel() {
 
     private val _state = handle.getLiveData("state", State.STANDBY)

@@ -32,8 +32,7 @@ class SpeakViewModel(
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
     private val mainPrefManager: MainPrefManager,
-    private val speakPrefManager: SpeakPrefManager,
-    private val statsPrefManager: StatsPrefManager
+    private val speakPrefManager: SpeakPrefManager
 ) : ViewModel() {
 
     private val _state: MutableLiveData<State> =
@@ -44,8 +43,6 @@ class SpeakViewModel(
     var listened: Boolean = false
     var showingHidingAirplaneIcon: Boolean = false
     var airplaneModeIconVisible: Boolean = false
-
-    val hasReachedGoal = MutableLiveData(false)
 
     private val _currentSentence: MutableLiveData<Sentence> =
         savedStateHandle.getLiveData("sentence")
@@ -72,8 +69,6 @@ class SpeakViewModel(
             mediaRecorderRepository.startRecording()
         }
     }
-
-    fun getDailyGoal() = statsPrefManager.dailyGoal
 
     fun stopRecording() {
         _currentSentence.value?.let { sentence ->
@@ -155,14 +150,6 @@ class SpeakViewModel(
                 _state.postValue(State.STANDBY)
                 RecordingsUploadWorker.attachToWorkManager(workManager)
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-            }
-
-            if (mainPrefManager.sessIdCookie != null) { //Logged
-                if (statsPrefManager.dailyGoal.checkDailyGoal()) {
-                    hasReachedGoal.postValue(true)
-                } else {
-                    hasReachedGoal.postValue(false)
-                }
             }
         }
     }

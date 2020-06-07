@@ -91,8 +91,7 @@ class CommonVoice : Application() {
                 get<ReportsRepository>(),
                 get<WorkManager>(),
                 get<MainPrefManager>(),
-                get<SpeakPrefManager>(),
-                get<StatsPrefManager>()
+                get<SpeakPrefManager>()
             )
         }
         viewModel { (handle: SavedStateHandle) ->
@@ -103,8 +102,7 @@ class CommonVoice : Application() {
                 get<MediaPlayerRepository>(),
                 get<WorkManager>(),
                 get<MainPrefManager>(),
-                get<ListenPrefManager>(),
-                get<StatsPrefManager>()
+                get<ListenPrefManager>()
             )
         }
         viewModel { LoginViewModel(get()) }
