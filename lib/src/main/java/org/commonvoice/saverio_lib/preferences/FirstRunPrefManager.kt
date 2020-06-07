@@ -12,8 +12,15 @@ class FirstRunPrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.SPEAK.name, value).apply()
         }
 
+    var listen: Boolean
+        get() = preferences.getBoolean(Keys.LISTEN.name, true)
+        set(value) {
+            preferences.edit().putBoolean(Keys.LISTEN.name, value).apply()
+        }
+
     private enum class Keys {
-        SPEAK
+        SPEAK,
+        LISTEN,
     }
 
 }

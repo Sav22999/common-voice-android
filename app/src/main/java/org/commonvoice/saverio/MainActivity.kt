@@ -1247,8 +1247,14 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun openListenSection() {
-        Intent(this, ListenActivity::class.java).also {
-            startActivity(it)
+        if (firstRunPrefManager.listen) {
+            Intent(this, FirstRunListen::class.java).also {
+                startActivity(it)
+            }
+        } else {
+            Intent(this, ListenActivity::class.java).also {
+                startActivity(it)
+            }
         }
     }
 
