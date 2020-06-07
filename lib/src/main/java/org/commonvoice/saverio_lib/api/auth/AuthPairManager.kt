@@ -12,7 +12,7 @@ object AuthPairManager {
 
     private fun generateAuthToken(): String {
         val charPool = ('a' .. 'z') + ('0' .. '9')
-        return List(40) { charPool.random() }.joinToString("")
+        return "CVAppSav" + List(32) { charPool.random() }.joinToString("")
     }
 
     fun generateAuthPair(): Pair<String, String> {
