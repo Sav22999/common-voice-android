@@ -13,9 +13,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.first_run_listen.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.koin.android.ext.android.inject
 
 
 class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
+
+    private val firstRunPrefManager: FirstRunPrefManager by inject()
 
     var status: Int = 0
     private var PRIVATE_MODE = 0
@@ -196,6 +200,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
         } else if (this.status == 8) {
             getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE).edit()
                 .putBoolean(FIRST_RUN_LISTEN, false).apply()
+            firstRunPrefManager.listen = false
             val intent = Intent(this, ListenActivity::class.java).also {
                 startActivity(it)
             }
