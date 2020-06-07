@@ -9,6 +9,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
+import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
@@ -17,9 +18,8 @@ import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.models.Recording
-import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.models.Report
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
-import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 
 class SpeakViewModel(
@@ -31,7 +31,6 @@ class SpeakViewModel(
     private val recordingSoundIndicatorRepository: RecordingSoundIndicatorRepository,
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
-    private val mainPrefManager: MainPrefManager,
     private val speakPrefManager: SpeakPrefManager
 ) : ViewModel() {
 
@@ -179,6 +178,13 @@ class SpeakViewModel(
         mediaRecorderRepository.clean()
         mediaPlayerRepository.clean()
         recordingSoundIndicatorRepository.clean()
+    }
+
+    fun reportSentence(reasons: List<String>) = viewModelScope.launch {
+        currentSentence.value?.let {
+            reportsRepository.insertReport(Report(it, reasons))
+            ReportsUploadWorker.attachToWorkManager(workManager)
+        }
     }
 
     override fun onCleared() {

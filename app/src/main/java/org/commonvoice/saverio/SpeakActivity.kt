@@ -17,6 +17,7 @@ import androidx.core.view.isGone
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.dialogs.SpeakDialogFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Sentence
@@ -184,7 +185,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun openReportDialog() {
-
+        SpeakDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
     }
 
     private fun setupInitialUIState() {
@@ -226,7 +227,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonSkipSpeak.isEnabled = true
         buttonStartStopSpeak.isEnabled = true
 
-        //buttonReportSpeak.isGone = false//TODO when "Report" feature is enabled, remove as "comment"
+        buttonReportSpeak.isGone = false
 
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)

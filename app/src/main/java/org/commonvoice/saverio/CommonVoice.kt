@@ -90,7 +90,6 @@ class CommonVoice : Application() {
                 get<RecordingSoundIndicatorRepository>(),
                 get<ReportsRepository>(),
                 get<WorkManager>(),
-                get<MainPrefManager>(),
                 get<SpeakPrefManager>()
             )
         }
@@ -101,7 +100,6 @@ class CommonVoice : Application() {
                 get<ValidationsRepository>(),
                 get<MediaPlayerRepository>(),
                 get<WorkManager>(),
-                get<MainPrefManager>(),
                 get<ListenPrefManager>()
             )
         }

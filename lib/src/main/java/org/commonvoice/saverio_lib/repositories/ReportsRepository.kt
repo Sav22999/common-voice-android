@@ -5,6 +5,7 @@ import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitReport
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Report
+import java.sql.Timestamp
 
 class ReportsRepository(
     database: AppDB,
@@ -31,5 +32,11 @@ class ReportsRepository(
 
     @WorkerThread
     suspend fun getAllReports() = reportsDao.getAllReports()
+
+    @WorkerThread
+    suspend fun getReportsCount() = reportsDao.getCount()
+
+    @WorkerThread
+    suspend fun deleteOldReports(timeOfToday: Timestamp) = reportsDao.deleteOldReports(timeOfToday.time)
 
 }

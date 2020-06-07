@@ -9,13 +9,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
-import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.background.ValidationsUploadWorker
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
-import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
 
@@ -25,7 +22,6 @@ class ListenViewModel(
     private val validationsRepository: ValidationsRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,
     private val workManager: WorkManager,
-    private val mainPrefManager: MainPrefManager,
     private val listenPrefManager: ListenPrefManager
 ) : ViewModel() {
 

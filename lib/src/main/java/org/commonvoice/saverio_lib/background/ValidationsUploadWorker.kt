@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 
 class ValidationsUploadWorker(
     appContext: Context,
-    private val workerParams: WorkerParameters
+    workerParams: WorkerParameters
 ): CoroutineWorker(appContext, workerParams) {
 
     private val db = AppDB.build(appContext)
