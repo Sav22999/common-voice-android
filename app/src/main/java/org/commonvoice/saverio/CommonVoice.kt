@@ -99,6 +99,7 @@ class CommonVoice : Application() {
                 get<ClipsRepository>(),
                 get<ValidationsRepository>(),
                 get<MediaPlayerRepository>(),
+                get<ReportsRepository>(),
                 get<WorkManager>(),
                 get<ListenPrefManager>()
             )

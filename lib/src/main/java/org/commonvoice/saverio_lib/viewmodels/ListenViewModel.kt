@@ -9,11 +9,14 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.ValidationsUploadWorker
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.models.Clip
+import org.commonvoice.saverio_lib.models.Report
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
+import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
 
 class ListenViewModel(
@@ -21,6 +24,7 @@ class ListenViewModel(
     private val clipsRepository: ClipsRepository,
     private val validationsRepository: ValidationsRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,
+    private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
     private val listenPrefManager: ListenPrefManager
 ) : ViewModel() {
@@ -96,6 +100,14 @@ class ListenViewModel(
         }
 
         mediaPlayerRepository.clean()
+    }
+
+    fun reportClip(reasons: List<String>) = viewModelScope.launch {
+        currentClip.value?.let {
+            reportsRepository.insertReport(Report(it, reasons))
+            ReportsUploadWorker.attachToWorkManager(workManager)
+            skipClip()
+        }
     }
 
     fun autoPlay(): Boolean {
