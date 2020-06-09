@@ -18,6 +18,9 @@
     <color name="colorMenuInactive">#777777</color>
     <color name="colorMenuActive">#FFFFFF</color>
 
+    <color name="colorSpeak">#FF505F</color>
+    <color name="colorListen">#5ACCB8</color>
+
     <color name="colorTransparent">#00000000</color>
     <color name="colorBackgroundDarkTransparent">#AA000000</color>
 
@@ -28,6 +31,19 @@
     <color name="colorHelp">#0077FF</color>
     <color name="colorChangelog">@color/colorBlack</color>
 
+    <!-- AudioBar -->
+    <color name="colorAudioBar1">#FF505F</color>
+    <color name="colorAudioBar2">#ED6BB2</color>
+    <color name="colorAudioBar3">#E879F4</color>
+    <color name="colorAudioBar4">#BC92E0</color>
+    <color name="colorAudioBar5">#9292E0</color>
+    <color name="colorAudioBar6">#8EA7E4</color>
+    <color name="colorAudioBar7">#5A6DCC</color>
+    <color name="colorAudioBar8">#5A9BCC</color>
+    <color name="colorAudioBar9">#5ABBCC</color>
+    <color name="colorAudioBar10">#5ACCB8</color>
+    <color name="colorAudioBar11">#7DE1CF</color>
+    <color name="colorAudioBar12">#7DE196</color>
 
     <!-- Dark theme (DT) -->
     <color name="colorBackgroundDT">#222222</color>

@@ -1,22 +1,24 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ValueAnimator
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.SpeakDialogFragment
@@ -27,6 +29,7 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import kotlin.math.max
 import kotlin.random.Random
 
 class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
@@ -291,6 +294,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonStartStopSpeak.onClick {
             checkPermission()
             speakViewModel.startRecording()
+            animateAudioBar()
         }
     }
 
@@ -322,6 +326,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonRecordOrListenAgain.onClick {
             speakViewModel.redoRecording()
+            animateAudioBar()
         }
     }
 
@@ -348,6 +353,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonStartStopSpeak.onClick {
             speakViewModel.redoRecording()
+            animateAudioBar()
         }
 
         buttonRecordOrListenAgain.onClick {
@@ -355,8 +361,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun checkPermission()
-    {
+    private fun checkPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
         ) {
@@ -379,6 +384,39 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                     onBackPressed()
                 }
             }
+        }
+    }
+
+    private fun animateAudioBar() {
+        var count = 0
+        while (count < speakSectionAudioBar.childCount) {
+            val element = speakSectionAudioBar.getChildAt(count)
+            animateAudioBar(element)
+            count++
+        }
+    }
+
+    private fun animateAudioBar(view: View) {
+        if (speakViewModel.isRecordingNow()) {
+            view.isVisible = true
+            val animation: ValueAnimator =
+                ValueAnimator.ofInt(view.height, (30..300).random())
+            animation.duration = 400
+            animation.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
+                override fun onAnimationUpdate(animation: ValueAnimator) {
+                    val value = animation.animatedValue as Int
+                    view.layoutParams.height = value
+                    view.requestLayout()
+                }
+            })
+            animation.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator?) {
+                    animateAudioBar(view)
+                }
+            })
+            animation.start()
+        } else {
+            view.isVisible = false
         }
     }
 

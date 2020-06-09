@@ -40,6 +40,7 @@ class SpeakViewModel(
 
     var opened: Boolean = false
     var listened: Boolean = false
+    var recording: Boolean = false
     var showingHidingAirplaneIcon: Boolean = false
     var airplaneModeIconVisible: Boolean = false
 
@@ -58,6 +59,7 @@ class SpeakViewModel(
     }
 
     fun startRecording() {
+        recording = true
         if (speakPrefManager.playRecordingSoundIndicator) {
             recordingSoundIndicatorRepository.playStartingSound {
                 mediaRecorderRepository.startRecording()
@@ -70,6 +72,7 @@ class SpeakViewModel(
     }
 
     fun stopRecording() {
+        recording = false
         _currentSentence.value?.let { sentence ->
             mediaRecorderRepository.stopRecordingAndReadData(sentence, onError = {
 
@@ -135,6 +138,7 @@ class SpeakViewModel(
     }
 
     fun redoRecording() {
+        recording = true
         _state.postValue(State.RECORDING)
         if (speakPrefManager.playRecordingSoundIndicator) {
             recordingSoundIndicatorRepository.playStartingSound {
@@ -168,6 +172,10 @@ class SpeakViewModel(
             delay(500) //Just to avoid a loop
             _state.postValue(State.STANDBY)
         }
+    }
+
+    fun isRecordingNow(): Boolean {
+        return (recording)
     }
 
     fun stop(suppressError: Boolean = false) {
