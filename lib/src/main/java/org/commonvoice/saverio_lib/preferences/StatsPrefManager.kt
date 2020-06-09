@@ -29,7 +29,11 @@ class StatsPrefManager(ctx: Context) {
 
     private var todayContributingDate: Calendar
         get() = Calendar.getInstance().also {
-            it.timeInMillis = preferences.getLong(Keys.TODAY_CONTRIBUTING_DATE.name, Calendar.getInstance().timeInMillis)
+            val currentMillis = Calendar.getInstance().timeInMillis
+            it.timeInMillis = preferences.getLong(Keys.TODAY_CONTRIBUTING_DATE.name, currentMillis)
+            if (it.timeInMillis == currentMillis) {
+                preferences.edit().putLong(Keys.TODAY_CONTRIBUTING_DATE.name, currentMillis).apply()
+            }
         }
         set(value) { preferences.edit().putLong(Keys.TODAY_CONTRIBUTING_DATE.name, value.timeInMillis).apply() }
 
@@ -39,7 +43,6 @@ class StatsPrefManager(ctx: Context) {
             return preferences.getInt(Keys.TODAY_VALIDATED.name, 0)
         }
         set(value) {
-            updateDailyGoal()
             preferences.edit().putInt(Keys.TODAY_VALIDATED.name, value).apply()
         }
 
@@ -49,7 +52,6 @@ class StatsPrefManager(ctx: Context) {
             return preferences.getInt(Keys.TODAY_RECORDED.name, 0)
         }
         set(value) {
-            updateDailyGoal()
             preferences.edit().putInt(Keys.TODAY_RECORDED.name, value).apply()
         }
 

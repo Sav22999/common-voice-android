@@ -13,9 +13,10 @@ import android.util.TypedValue
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.*
+import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -29,24 +30,29 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
-import kotlin.math.max
-import kotlin.random.Random
 
 class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
+
+    companion object {
+        private const val RECORD_REQUEST_CODE = 101
+    }
 
     private val speakViewModel: SpeakViewModel by stateViewModel()
 
     private val connectionManager: ConnectionManager by inject()
-
     private val statsPrefManager: StatsPrefManager by inject()
 
     private var numberSentThisSession: Int = 0
 
-    private val permissionRequestCode by lazy {
-        Random.nextInt(10000)
+    private val zoomInAnimation: Animation by lazy {
+        AnimationUtils.loadAnimation(this, R.anim.zoom_in)
     }
-
-    private val RECORD_REQUEST_CODE = 101
+    private val zoomOutSpeakListenAnimation: Animation by lazy {
+        AnimationUtils.loadAnimation(this, R.anim.zoom_out_speak_listen)
+    }
+    private val zoomInSpeakListenAnimation: Animation by lazy {
+        AnimationUtils.loadAnimation(this, R.anim.zoom_in_speak_listen)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,10 +65,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             if (!speakViewModel.showingHidingAirplaneIcon && (speakViewModel.airplaneModeIconVisible == available)) {
                 speakViewModel.showingHidingAirplaneIcon = true
                 if (!available) {
-                    this.startAnimation(this.imageAirplaneModeSpeak, R.anim.zoom_in)
+                    imageAirplaneModeSpeak.startAnimation(zoomInAnimation)
                     speakViewModel.airplaneModeIconVisible = true
                 } else {
-                    this.startAnimation(this.imageAirplaneModeSpeak, R.anim.zoom_out_speak_listen)
+                    imageAirplaneModeSpeak.startAnimation(zoomOutSpeakListenAnimation)
                     speakViewModel.airplaneModeIconVisible = false
                 }
                 speakViewModel.showingHidingAirplaneIcon = false
@@ -85,7 +91,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonStartStopSpeak.isEnabled = false
         buttonSendSpeak.isGone = true
 
-        speakViewModel.recording = false
         speakViewModel.stop(true)
 
         super.onBackPressed()
@@ -230,6 +235,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             speakViewModel.sendRecording()
             this.numberSentThisSession++
         }
+
+        buttonStartStopSpeak.startAnimation(zoomInSpeakListenAnimation)
+        buttonSkipSpeak.startAnimation(zoomInSpeakListenAnimation)
     }
 
     private fun loadUIStateLoading() {
@@ -237,12 +245,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         textSentenceSpeak.text = "..."
 
         buttonRecordOrListenAgain.isGone = true
-        //buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
-        if (!speakViewModel.opened) {
-            speakViewModel.opened = true
-            startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
-            startAnimation(buttonSkipSpeak, R.anim.zoom_in_speak_listen)
-        }
         buttonReportSpeak.isGone = true
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
@@ -305,7 +307,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonSendSpeak.isGone = true
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
-        speakViewModel.listened = false
+        speakViewModel.isFirstTimeListening = true
 
         buttonStartStopSpeak.onClick {
             checkPermission()
@@ -315,7 +317,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateRecorded() {
         buttonRecordOrListenAgain.isGone = false
-        startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
+        buttonRecordOrListenAgain.startAnimation(zoomInSpeakListenAnimation)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
@@ -342,14 +344,18 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateListened() {
         buttonSendSpeak.isGone = false
-        if (!speakViewModel.listened) startAnimation(buttonSendSpeak, R.anim.zoom_in_speak_listen)
+
+        if (speakViewModel.isFirstTimeListening) {
+            buttonSendSpeak.startAnimation(zoomInSpeakListenAnimation)
+            speakViewModel.isFirstTimeListening = false
+        }
+
         textMessageAlertSpeak.setText(R.string.txt_recorded_correct_or_wrong)
         buttonRecordOrListenAgain.isGone = false
-        startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
+        buttonRecordOrListenAgain.startAnimation(zoomInSpeakListenAnimation)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
 
-        speakViewModel.listened = true
 
         buttonStartStopSpeak.onClick {
             speakViewModel.redoRecording()
@@ -387,55 +393,28 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun animateAudioBar() {
-        var count = 0
-        while (count < speakSectionAudioBar.childCount) {
-            val element = speakSectionAudioBar.getChildAt(count)
-            animateAudioBar(element)
-            count++
+        speakSectionAudioBar.children.forEach {
+            animateAudioBar(it)
         }
     }
 
     private fun animateAudioBar(view: View) {
-        if (speakViewModel.isRecordingNow()) {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
             view.isVisible = true
-            val animation: ValueAnimator =
-                ValueAnimator.ofInt(view.height, (30..300).random())
+            val animation: ValueAnimator = ValueAnimator.ofInt(view.height, (30..300).random())
             animation.duration = 300
-            animation.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
-                override fun onAnimationUpdate(animation: ValueAnimator) {
-                    val value = animation.animatedValue as Int
-                    view.layoutParams.height = value
-                    view.requestLayout()
-                }
-            })
-            animation.addListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
-                    animateAudioBar(view)
-                }
-            })
+            animation.addUpdateListener { anim ->
+                val value = anim.animatedValue as Int
+                view.layoutParams.height = value
+                view.requestLayout()
+            }
+            animation.doOnEnd {
+                animateAudioBar(view)
+            }
             animation.start()
         } else {
             view.isVisible = false
         }
     }
 
-    private fun startAnimation(img: ImageView, zoomType: Int) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, zoomType)
-        img.startAnimation(animation)
-    }
-
-    private fun startAnimation(btn: Button, zoomType: Int) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, zoomType)
-        btn.startAnimation(animation)
-    }
-
-    private fun stopAnimation(img: ImageView) {
-        img.clearAnimation()
-    }
-
-    private fun stopAnimation(btn: Button) {
-        btn.clearAnimation()
-    }
 }

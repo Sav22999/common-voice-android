@@ -27,7 +27,7 @@ class SpeakDialogFragment: BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         buttonSendReport.onClick {
-            speakViewModel.reportSentence(listOf("Prova", "Prova2"))
+            //speakViewModel.reportSentence()
             this.dismiss()
         }
 
