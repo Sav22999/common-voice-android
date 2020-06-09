@@ -16,7 +16,7 @@
     app:layout_constraintStart_toStartOf="parent">
 
     <View
-        android:id="@+id/viewSeparator2"
+        android:id="@+id/viewSeparatorReport"
         android:layout_width="60dp"
         android:layout_height="6dp"
         android:layout_marginTop="20dp"
@@ -26,20 +26,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonCancelReport"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/titleReportSentenceClip"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/btn_rounded_darktheme"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:text="@string/cancel_daily_goal"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/text_button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/title_report_sentence"
+        android:textAlignment="textStart"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/title_very_small"
+        android:textStyle="normal|bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textReasonOtherReport" />
+        app:layout_constraintTop_toBottomOf="@+id/viewSeparatorReport" />
 
     <CheckBox
         android:id="@+id/checkBoxReason1Report"
@@ -49,12 +50,60 @@
         android:buttonTint="@color/colorWhite"
         android:foregroundTint="@color/colorWhite"
         android:paddingStart="10dp"
+        android:text="@string/checkbox_reason1_report_clip"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleReportSentenceClip" />
+
+    <CheckBox
+        android:id="@+id/checkBoxReason2Report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="@color/colorWhite"
+        android:foregroundTint="@color/colorWhite"
+        android:paddingStart="10dp"
+        android:text="@string/checkbox_reason2_report"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason1Report"
+        tools:visibility="visible" />
+
+    <CheckBox
+        android:id="@+id/checkBoxReason3Report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="@color/colorWhite"
+        android:foregroundTint="@color/colorWhite"
+        android:paddingStart="10dp"
+        android:text="@string/checkbox_reason3_report"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason2Report" />
+
+    <CheckBox
+        android:id="@+id/checkBoxReason4Report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="@color/colorWhite"
+        android:foregroundTint="@color/colorWhite"
+        android:paddingStart="10dp"
+        android:text="@string/checkbox_reason4_report"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/text_big"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleReportSentenceClip" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason3Report"
+        tools:visibility="visible" />
 
     <EditText
         android:id="@+id/textReasonOtherReport"
@@ -83,66 +132,35 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBoxReasonOtherReport"
         tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/titleReportSentenceClip"
+    <CheckBox
+        android:id="@+id/checkBoxReasonOtherReport"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:buttonTint="@color/colorWhite"
+        android:foregroundTint="@color/colorWhite"
+        android:paddingStart="10dp"
+        android:text="@string/checkbox_reason5_report"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason4Report" />
+
+    <Button
+        android:id="@+id/buttonCancelReport"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/title_report_sentence"
-        android:textAlignment="textStart"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/title_very_small"
-        android:textStyle="normal|bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/btn_rounded_darktheme"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="@string/cancel_daily_goal"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewSeparator2" />
-
-    <CheckBox
-        android:id="@+id/checkBoxReason2Report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:buttonTint="@color/colorWhite"
-        android:foregroundTint="@color/colorWhite"
-        android:paddingStart="10dp"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_big"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason1Report" />
-
-    <CheckBox
-        android:id="@+id/checkBoxReason4Report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:buttonTint="@color/colorWhite"
-        android:foregroundTint="@color/colorWhite"
-        android:paddingStart="10dp"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_big"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason3Report" />
-
-    <CheckBox
-        android:id="@+id/checkBoxReason3Report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:buttonTint="@color/colorWhite"
-        android:foregroundTint="@color/colorWhite"
-        android:paddingStart="10dp"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_big"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason2Report" />
+        app:layout_constraintTop_toBottomOf="@+id/textReasonOtherReport" />
 
     <Button
         android:id="@+id/buttonSendReport"
@@ -158,20 +176,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textReasonOtherReport" />
-
-    <CheckBox
-        android:id="@+id/checkBoxReasonOtherReport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:buttonTint="@color/colorWhite"
-        android:foregroundTint="@color/colorWhite"
-        android:paddingStart="10dp"
-        android:text="@string/checkbox_reason5_report"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_big"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxReason4Report" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

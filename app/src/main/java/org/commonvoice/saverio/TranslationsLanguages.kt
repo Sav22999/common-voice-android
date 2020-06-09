@@ -35,7 +35,6 @@ class TranslationsLanguages {
                 "ca",
                 "de",
                 "eo",
-                "es",
                 "et",
                 "fa",
                 "nl",

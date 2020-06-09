@@ -66,8 +66,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun setupUI() {
-        setTheme(this)
-
         listenViewModel.currentClip.observe(this, Observer { clip ->
             loadUIStateStandby(clip)
         })
@@ -105,6 +103,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                 )
             }
         })
+        setTheme(this)
     }
 
     private fun showMessageDialog(title: String, text: String) {
@@ -151,6 +150,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun openReportDialog() {
+        //TODO check if the status is different to STANDBY
         listenViewModel.stop()
         loadUIStateLoading()
         listenViewModel.loadNewClip()
@@ -213,7 +213,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             }
         }
 
-        //buttonReportListen.isGone = false//TODO when "Report" feature is enabled, remove as "comment"
+        buttonReportListen.isGone = false
 
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
@@ -236,6 +236,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             if (listenViewModel.autoPlay()) {
                 listenViewModel.startListening()
             }
+        }
+
+        buttonReportListen.onClick {
+            this.openReportDialog()
         }
     }
 

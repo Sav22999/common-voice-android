@@ -285,7 +285,7 @@ class MessageDialog {
                         val alertDialog = builder.show()
                         buttonSend.setOnClickListener {
                             if (dialogView.checkBoxReason1Report.isChecked && this.message_type == 3) reasons.put(
-                                "offensive-speeck"
+                                "offensive-speech"
                             )
                             else if (dialogView.checkBoxReason1Report.isChecked && this.message_type == 4) reasons.put(
                                 "offensive-language"
