@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#292929</color>
-    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimaryDark">@color/colorBlack</color>
     <color name="colorAccent">#292929</color>
     <color name="colorBackground">#EEEEEE</color>
     <color name="colorBackgroundRipple">#BBBBBB</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorRed">#FF0000</color>
-    <color name="colorAlertMessage">#FF0000</color>
+    <color name="colorGray">#666666</color>
+    <color name="colorAlertMessage">@color/colorRed</color>
     <color name="colorSelected">@color/colorRed</color>
-    <color name="colorSelectedBackground">#EEEEEE</color>
+    <color name="colorSelectedBackground">@color/colorWhite</color>
     <color name="colorLightRed">#FFAAAA</color>
     <color name="colorLightGreen">#228822</color>
-    <color name="colorGray">#666666</color>
+    <color name="colorLightGray">#999999</color>
+    <color name="colorDarkDarkGray">#222222</color>
     <color name="colorSeparator">#404040</color>
     <color name="colorMenuInactive">#777777</color>
-    <color name="colorMenuActive">#FFFFFF</color>
+    <color name="colorMenuActive">@color/colorWhite</color>
 
     <color name="colorSpeak">#FF505F</color>
     <color name="colorListen">#5ACCB8</color>
@@ -46,9 +48,9 @@
     <color name="colorAudioBar12">#7DE196</color>
 
     <!-- Dark theme (DT) -->
-    <color name="colorBackgroundDT">#222222</color>
-    <color name="colorBackgroundButtonDT">#999999</color>
-    <color name="colorAccentDT">#999999</color>
+    <color name="colorBackgroundDT">@color/colorDarkDarkGray</color>
+    <color name="colorBackgroundButtonDT">@color/colorLightGray</color>
+    <color name="colorAccentDT">@color/colorLightGray</color>
     <color name="colorAlertMessageDT">#FFAAAA</color>
     <color name="colorSelectedBackgroundDT">@color/colorBackgroundDT</color>
     <color name="colorSelectedDT">#FF7777</color>

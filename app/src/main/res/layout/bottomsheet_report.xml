@@ -21,7 +21,7 @@
         android:layout_height="6dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/top_bottom_border_radius"
-        android:backgroundTint="@color/colorGray"
+        android:backgroundTint="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
