@@ -59,15 +59,17 @@ class SpeakViewModel(
     }
 
     fun startRecording() {
-        recording = true
         if (speakPrefManager.playRecordingSoundIndicator) {
             recordingSoundIndicatorRepository.playStartingSound {
                 mediaRecorderRepository.startRecording()
                 _state.postValue(State.RECORDING)
+
+                recording = true
             }
         } else {
             mediaRecorderRepository.startRecording()
             _state.postValue(State.RECORDING)
+            recording = true
         }
     }
 
@@ -139,9 +141,9 @@ class SpeakViewModel(
 
     fun redoRecording() {
         recording = true
-        _state.postValue(State.RECORDING)
         if (speakPrefManager.playRecordingSoundIndicator) {
             recordingSoundIndicatorRepository.playStartingSound {
+                _state.postValue(State.RECORDING)
                 mediaRecorderRepository.startRecording()
             }
         } else {

@@ -85,6 +85,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonStartStopSpeak.isEnabled = false
         buttonSendSpeak.isGone = true
 
+        speakViewModel.recording = false
         speakViewModel.stop(true)
 
         super.onBackPressed()
@@ -129,6 +130,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
             SpeakViewModel.Companion.State.RECORDING -> {
                 loadUIStateRecording()
+                animateAudioBar()
             }
             SpeakViewModel.Companion.State.RECORDED -> {
                 loadUIStateRecorded()
@@ -294,7 +296,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonStartStopSpeak.onClick {
             checkPermission()
             speakViewModel.startRecording()
-            animateAudioBar()
         }
     }
 
@@ -326,7 +327,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonRecordOrListenAgain.onClick {
             speakViewModel.redoRecording()
-            animateAudioBar()
         }
     }
 
@@ -353,7 +353,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonStartStopSpeak.onClick {
             speakViewModel.redoRecording()
-            animateAudioBar()
         }
 
         buttonRecordOrListenAgain.onClick {
@@ -401,7 +400,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             view.isVisible = true
             val animation: ValueAnimator =
                 ValueAnimator.ofInt(view.height, (30..300).random())
-            animation.duration = 400
+            animation.duration = 300
             animation.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
                 override fun onAnimationUpdate(animation: ValueAnimator) {
                     val value = animation.animatedValue as Int
