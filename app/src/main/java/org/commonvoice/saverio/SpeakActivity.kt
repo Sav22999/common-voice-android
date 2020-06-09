@@ -90,6 +90,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
         buttonSendSpeak.isGone = true
+        speakSectionAudioBar.isGone = true
 
         speakViewModel.stop(true)
 
@@ -147,19 +148,19 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 loadUIStateListened()
             }
             SpeakViewModel.Companion.State.RECORDING_ERROR -> {
-                showMessageDialog("", getString(R.string.messageDialogGenericError))
+                showMessageDialog("", getString(R.string.messageDialogGenericError), type = 7)
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_SHORT -> {
-                showMessageDialog("", getString(R.string.txt_recording_too_short))
+                showMessageDialog("", getString(R.string.txt_recording_too_short), type = 7)
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_LONG -> {
-                showMessageDialog("", getString(R.string.txt_recording_too_long))
+                showMessageDialog("", getString(R.string.txt_recording_too_long), type = 7)
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
@@ -167,12 +168,12 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun showMessageDialog(title: String, text: String) {
+    private fun showMessageDialog(title: String, text: String, type: Int = 0) {
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
         //val width = metrics.widthPixels
         val height = metrics.heightPixels
-        MessageDialog(this, 0, title, text, details = "", height = height).show()
+        MessageDialog(this, type, title, text, details = "", height = height).show()
     }
 
     private fun setupGestures() {

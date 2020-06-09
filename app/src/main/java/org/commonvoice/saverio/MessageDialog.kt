@@ -102,7 +102,7 @@ class MessageDialog {
     fun show() {
         if (this.context != null) {
             when (this.message_type) {
-                0, 2 -> {
+                0, 2, 5, 6, 7, 8, 9 -> {
                     try {
                         val dialogView =
                             LayoutInflater.from(this.context).inflate(R.layout.message_dialog, null)
@@ -408,7 +408,7 @@ class MessageDialog {
         var isDark = theme.getTheme(view)
 
         when (this.message_type) {
-            0, 2 -> {
+            0, 2, 5, 6, 7, 8, 9 -> {
                 //standard message dialog
                 if (this.height > 500) {
                     dialogView.messageDialogSectionBackground.layoutParams.height = this.height
