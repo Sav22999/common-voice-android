@@ -13,6 +13,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_listen.*
+import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
@@ -20,6 +21,7 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
+import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
@@ -91,6 +93,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         statsPrefManager.dailyGoal.observe(this, Observer {
             if ((this.numberSentThisSession > 0) && it.checkDailyGoal()) {
+                this.stopAndRefresh()
                 showMessageDialog(
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
@@ -150,12 +153,18 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun openReportDialog() {
-        //TODO check if the status is different to STANDBY
-        listenViewModel.stop()
-        loadUIStateLoading()
-        listenViewModel.loadNewClip()
+        if (!buttonReportListen.isGone) {
+            this.stopAndRefresh()
 
-        ListenReportDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
+            ListenReportDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
+        }
+    }
+
+    private fun stopAndRefresh() {
+        listenViewModel.stop()
+        listenViewModel.currentClip.observe(this, Observer { clip ->
+            loadUIStateStandby(clip, noAutoPlay = true)
+        })
     }
 
     private fun loadUIStateLoading() {
@@ -173,7 +182,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         }
     }
 
-    private fun loadUIStateStandby(clip: Clip) {
+    private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) {
         if (!listenViewModel.listenedOnce) {
             textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
 
@@ -233,7 +242,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         }
 
         if (!listenViewModel.startedOnce) {
-            if (listenViewModel.autoPlay()) {
+            if (listenViewModel.autoPlay() && !noAutoPlay) {
                 listenViewModel.startListening()
             }
         }

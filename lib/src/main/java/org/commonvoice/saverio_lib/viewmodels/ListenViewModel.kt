@@ -53,6 +53,7 @@ class ListenViewModel(
     }
 
     fun skipClip() = viewModelScope.launch {
+        stopped = false
         currentClip.value?.let {
             clipsRepository.deleteClip(it)
         }
@@ -98,7 +99,6 @@ class ListenViewModel(
         when (state.value) {
             ListenViewModel.Companion.State.LISTENING -> mediaPlayerRepository.stopPlaying()
         }
-
         mediaPlayerRepository.clean()
     }
 

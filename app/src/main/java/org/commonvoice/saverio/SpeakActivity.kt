@@ -19,6 +19,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_speak.*
+import kotlinx.android.synthetic.main.bottomsheet_report.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
@@ -28,6 +29,7 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import org.koin.ext.scope
 
 class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
@@ -110,6 +112,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         statsPrefManager.dailyGoal.observe(this, Observer {
             if ((this.numberSentThisSession > 0) && it.checkDailyGoal()) {
+                this.stopAndRefresh()
                 showMessageDialog(
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
@@ -145,6 +148,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 loadUIStateListened()
             }
             SpeakViewModel.Companion.State.RECORDING_ERROR -> {
+                this.stopAndRefresh()
                 showMessageDialog("", getString(R.string.messageDialogGenericError), type = 7)
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
@@ -209,11 +213,19 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun openReportDialog() {
-        speakViewModel.stop()
-        loadUIStateLoading()
-        speakViewModel.loadNewSentence()
+        if (!buttonReportSpeak.isGone) {
+            this.stopAndRefresh()
 
-        SpeakReportDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
+            SpeakReportDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
+        }
+    }
+
+    private fun stopAndRefresh() {
+        speakViewModel.stop()
+        hideAudioBar()
+        speakViewModel.currentSentence.observe(this, Observer { sentence ->
+            setupUIStateStandby(sentence)
+        })
     }
 
     private fun setupInitialUIState() {
@@ -255,8 +267,12 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonReportSpeak.isGone = false
 
+        buttonSendReport.isGone = true
+
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
+
+        hideAudioBar()
 
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
         textSentenceSpeak.text = sentence.sentenceText
@@ -326,6 +342,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
 
         buttonRecordOrListenAgain.onClick {
+            checkPermission()
             speakViewModel.redoRecording()
         }
     }
@@ -356,6 +373,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
 
         buttonStartStopSpeak.onClick {
+            checkPermission()
             speakViewModel.redoRecording()
         }
 
@@ -392,28 +410,41 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun animateAudioBar() {
         speakSectionAudioBar.children.forEach {
-            animateAudioBar(it)
+            animateAudioBar(it, hide = false)
         }
     }
 
-    private fun animateAudioBar(view: View) {
-        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
+    private fun hideAudioBar() {
+        speakSectionAudioBar.children.forEach {
+            animateAudioBar(it, hide = true)
+        }
+    }
+
+    private fun animateAudioBar(view: View, hide: Boolean = false) {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && !hide) {
+            animationAudioBar(view, view.height, (30..350).random())
             view.isVisible = true
-            val animation: ValueAnimator =
-                ValueAnimator.ofInt(view.height, (30..350).random())
-            animation.duration = 300
-            animation.addUpdateListener { anim ->
-                val value = anim.animatedValue as Int
-                view.layoutParams.height = value
-                view.requestLayout()
-            }
-            animation.doOnEnd {
-                animateAudioBar(view)
-            }
-            animation.start()
+        } else if (hide) {
+            //animationAudioBar(view, view.height, 0)
+            //view.isVisible = true
+            view.isVisible = false
         } else {
             view.isVisible = false
         }
     }
 
+    private fun animationAudioBar(view: View, min: Int, max: Int) {
+        val animation: ValueAnimator =
+            ValueAnimator.ofInt(min, max)
+        animation.duration = 300
+        animation.addUpdateListener { anim ->
+            val value = anim.animatedValue as Int
+            view.layoutParams.height = value
+            view.requestLayout()
+        }
+        animation.doOnEnd {
+            animateAudioBar(view)
+        }
+        animation.start()
+    }
 }
