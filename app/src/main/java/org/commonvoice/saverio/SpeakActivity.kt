@@ -399,7 +399,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         if (speakViewModel.isRecordingNow()) {
             view.isVisible = true
             val animation: ValueAnimator =
-                ValueAnimator.ofInt(view.height, (30..300).random())
+                ValueAnimator.ofInt(view.height, (30..350).random())
             animation.duration = 300
             animation.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
                 override fun onAnimationUpdate(animation: ValueAnimator) {
