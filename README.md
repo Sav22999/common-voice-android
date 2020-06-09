@@ -110,7 +110,7 @@ Legend:
 |   ✅🔴   |    100%    |      `sk`       | Slovak          | [**tadeasbucha**](https://github.com/tadeasbucha), [**xrup**](https://crowdin.com/profile/xrup) | **[Translate](https://crowdin.com/project/common-voice-android/sk)** |
 |   🔶    |    25%     |     `sv-SE`     | Swedish         | **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/sv-SE)** |
 |   ✅    |    100%    |      `ta`       | Tamil           | [**Manimaran.K**](https://crowdin.com/profile/manimaran96)   | **[Translate](https://crowdin.com/project/common-voice-android/ta)** |
-|   🔶    |    11%     |      `tr`       | Turkish         | [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon)  | **[Translate](https://crowdin.com/project/common-voice-android/tr)** |
+|   🔶    |    12%     |      `tr`       | Turkish         | [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon), [**Muhammed Çelebi**](https://crowdin.com/profile/GabrielBelmont) | **[Translate](https://crowdin.com/project/common-voice-android/tr)** |
 
 ### License
 

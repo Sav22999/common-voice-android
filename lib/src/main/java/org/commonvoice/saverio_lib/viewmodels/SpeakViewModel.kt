@@ -74,6 +74,9 @@ class SpeakViewModel(
             mediaRecorderRepository.stopRecordingAndReadData(sentence, onError = {
 
                 when (it) {
+                    0 -> {
+                        // suppress message dialogs
+                    }
                     1 -> {
                         _state.postValue(State.RECORDING_ERROR)
                     }

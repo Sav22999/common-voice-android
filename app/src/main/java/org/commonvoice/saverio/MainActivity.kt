@@ -32,6 +32,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_tutorial.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
@@ -46,6 +47,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.HashMap
+import kotlin.random.Random
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
@@ -139,6 +141,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     var darkTheme: Boolean = false
     var theme: DarkLightTheme = DarkLightTheme()
     var isAbortConfirmation: Boolean = false
+
+    private val permissionRequestCode by lazy {
+        Random.nextInt(10000)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -1240,9 +1246,37 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 startActivity(it)
             }
         } else {
-            Intent(this, SpeakActivity::class.java).also {
-                startActivity(it)
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.RECORD_AUDIO),
+                    RECORD_REQUEST_CODE
+                )
+            } else {
+                openActualSpeakSection()
             }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            RECORD_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openActualSpeakSection()
+                }
+            }
+        }
+    }
+
+    private fun openActualSpeakSection() {
+        Intent(this, SpeakActivity::class.java).also {
+            startActivity(it)
         }
     }
 
@@ -1305,46 +1339,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "",
             getString(R.string.toastNoLoginNoDailyGoal)
         )
-    }
-
-    private fun checkPermissions() {
-        try {
-            val PERMISSIONS = arrayOf(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.RECORD_AUDIO
-            )
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-                != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    PERMISSIONS,
-                    RECORD_REQUEST_CODE
-                )
-            }
-        } catch (e: Exception) {
-            //
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
-                    checkPermissions()
-                } else {
-                    checkPermissions()
-                }
-            }
-        }
     }
 
     private fun setLanguageUI(type: String) {

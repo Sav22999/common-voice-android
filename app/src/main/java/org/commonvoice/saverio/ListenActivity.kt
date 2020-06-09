@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -29,6 +30,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     private val connectionManager: ConnectionManager by inject()
 
     private val statsPrefManager: StatsPrefManager by inject()
+
+    private var numberSentThisSession: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,7 +92,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         }
 
         statsPrefManager.dailyGoal.observe(this, Observer {
-            if (it.checkDailyGoal()) {
+            if ((this.numberSentThisSession > 0) && it.checkDailyGoal()) {
                 showMessageDialog(
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
@@ -105,7 +108,11 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun showMessageDialog(title: String, text: String) {
-        MessageDialog(this, 0, title, text, details = "").show()
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        MessageDialog(this, 0, title, text, details = "", height = height).show()
     }
 
     private fun setupGestures() {
@@ -144,12 +151,16 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun openReportDialog() {
+        listenViewModel.stop()
+        loadUIStateLoading()
+        listenViewModel.loadNewClip()
+
         ListenDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
     }
 
     private fun loadUIStateLoading() {
         if (!listenViewModel.stopped) {
-            textSentenceListen.text = "..."
+            // textSentenceListen.text = "..."
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
             buttonReportListen.isGone = true
@@ -243,6 +254,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         buttonNoClip.onClick {
             listenViewModel.validate(result = false)
+            this.numberSentThisSession++
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -264,6 +276,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         buttonYesClip.onClick {
             listenViewModel.validate(result = true)
+            this.numberSentThisSession++
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
@@ -274,6 +287,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         textSentenceListen.text = "..."
+        textSentenceListen.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(R.dimen.title_very_big)
+        )
         buttonReportListen.isGone = true
         buttonStartStopListen.isEnabled = false
         buttonSkipListen.isEnabled = false

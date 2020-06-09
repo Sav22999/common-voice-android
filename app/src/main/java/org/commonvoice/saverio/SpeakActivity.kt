@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -15,6 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.SpeakDialogFragment
@@ -35,18 +37,20 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private val statsPrefManager: StatsPrefManager by inject()
 
+    private var numberSentThisSession: Int = 0
+
     private val permissionRequestCode by lazy {
         Random.nextInt(10000)
     }
+
+    private val RECORD_REQUEST_CODE = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupInitialUIState()
 
-        if (obtainPermissions()) {
-            setupUI()
-        }
+        setupUI()
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
             if (!speakViewModel.showingHidingAirplaneIcon && (speakViewModel.airplaneModeIconVisible == available)) {
@@ -68,6 +72,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         textMessageAlertSpeak.setText(R.string.txt_closing)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
         textSentenceSpeak.text = "..."
+        textSentenceSpeak.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(R.dimen.title_very_big)
+        )
         buttonRecordOrListenAgain.isGone = true
         buttonReportSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
@@ -91,46 +99,11 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
 
         speakViewModel.state.observe(this, Observer {
-            when (it) {
-                SpeakViewModel.Companion.State.STANDBY -> {
-                    loadUIStateLoading()
-                    speakViewModel.loadNewSentence()
-                }
-                SpeakViewModel.Companion.State.RECORDING -> {
-                    loadUIStateRecording()
-                }
-                SpeakViewModel.Companion.State.RECORDED -> {
-                    loadUIStateRecorded()
-                }
-                SpeakViewModel.Companion.State.LISTENING -> {
-                    loadUIStateListening()
-                }
-                SpeakViewModel.Companion.State.LISTENED -> {
-                    loadUIStateListened()
-                }
-                SpeakViewModel.Companion.State.RECORDING_ERROR -> {
-                    showMessageDialog("", getString(R.string.messageDialogGenericError))
-                    speakViewModel.currentSentence.value?.let { sentence ->
-                        setupUIStateStandby(sentence)
-                    }
-                }
-                SpeakViewModel.Companion.State.RECORDING_TOO_SHORT -> {
-                    showMessageDialog("", getString(R.string.txt_recording_too_short))
-                    speakViewModel.currentSentence.value?.let { sentence ->
-                        setupUIStateStandby(sentence)
-                    }
-                }
-                SpeakViewModel.Companion.State.RECORDING_TOO_LONG -> {
-                    showMessageDialog("", getString(R.string.txt_recording_too_long))
-                    speakViewModel.currentSentence.value?.let { sentence ->
-                        setupUIStateStandby(sentence)
-                    }
-                }
-            }
+            checkState(it)
         })
 
         statsPrefManager.dailyGoal.observe(this, Observer {
-            if (it.checkDailyGoal()) {
+            if ((this.numberSentThisSession > 0) && it.checkDailyGoal()) {
                 showMessageDialog(
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
@@ -145,8 +118,51 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         })
     }
 
+    private fun checkState(status: SpeakViewModel.Companion.State?) {
+        when (status) {
+            SpeakViewModel.Companion.State.STANDBY -> {
+                loadUIStateLoading()
+                speakViewModel.loadNewSentence()
+            }
+            SpeakViewModel.Companion.State.RECORDING -> {
+                loadUIStateRecording()
+            }
+            SpeakViewModel.Companion.State.RECORDED -> {
+                loadUIStateRecorded()
+            }
+            SpeakViewModel.Companion.State.LISTENING -> {
+                loadUIStateListening()
+            }
+            SpeakViewModel.Companion.State.LISTENED -> {
+                loadUIStateListened()
+            }
+            SpeakViewModel.Companion.State.RECORDING_ERROR -> {
+                showMessageDialog("", getString(R.string.messageDialogGenericError))
+                speakViewModel.currentSentence.value?.let { sentence ->
+                    setupUIStateStandby(sentence)
+                }
+            }
+            SpeakViewModel.Companion.State.RECORDING_TOO_SHORT -> {
+                showMessageDialog("", getString(R.string.txt_recording_too_short))
+                speakViewModel.currentSentence.value?.let { sentence ->
+                    setupUIStateStandby(sentence)
+                }
+            }
+            SpeakViewModel.Companion.State.RECORDING_TOO_LONG -> {
+                showMessageDialog("", getString(R.string.txt_recording_too_long))
+                speakViewModel.currentSentence.value?.let { sentence ->
+                    setupUIStateStandby(sentence)
+                }
+            }
+        }
+    }
+
     private fun showMessageDialog(title: String, text: String) {
-        MessageDialog(this, 0, title, text, details = "").show()
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        MessageDialog(this, 0, title, text, details = "", height = height).show()
     }
 
     private fun setupGestures() {
@@ -185,6 +201,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun openReportDialog() {
+        speakViewModel.stop()
+        loadUIStateLoading()
+        speakViewModel.loadNewSentence()
+
         SpeakDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
     }
 
@@ -203,12 +223,13 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonSendSpeak.onClick {
             speakViewModel.sendRecording()
+            this.numberSentThisSession++
         }
     }
 
     private fun loadUIStateLoading() {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
-        textSentenceSpeak.text = "..."
+        // textSentenceSpeak.text = "..."
 
         buttonRecordOrListenAgain.isGone = true
         //buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
@@ -268,6 +289,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
 
         buttonStartStopSpeak.onClick {
+            checkPermission()
             speakViewModel.startRecording()
         }
     }
@@ -281,6 +303,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         speakViewModel.listened = false
 
         buttonStartStopSpeak.onClick {
+            checkPermission()
             speakViewModel.stopRecording()
         }
     }
@@ -332,37 +355,31 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun obtainPermissions(): Boolean {
-        return if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.RECORD_AUDIO
-            ) != PackageManager.PERMISSION_GRANTED
+    private fun checkPermission()
+    {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+            != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(Manifest.permission.RECORD_AUDIO),
-                permissionRequestCode
+                RECORD_REQUEST_CODE
             )
-            false
-        } else {
-            true
         }
     }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
-        permissions: Array<out String>,
+        permissions: Array<String>,
         grantResults: IntArray
     ) {
-        if (requestCode == permissionRequestCode) {
-            if (grantResults.firstOrNull() != PackageManager.PERMISSION_GRANTED) {
-                Intent(this, MainActivity::class.java).also {
-                    startActivity(it)
+        when (requestCode) {
+            RECORD_REQUEST_CODE -> {
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    onBackPressed()
                 }
-            } else {
-                setupUI()
             }
-        } else super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
     }
 
     private fun startAnimation(img: ImageView, zoomType: Int) {

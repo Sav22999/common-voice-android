@@ -45,6 +45,7 @@ class MediaRecorderRepository(
             when {
                 System.currentTimeMillis() - recordingStartTimeStamp <= 500 -> {
                     if (!suppressError) {
+                        //too short
                         onError(3)
                     } else {
                         onError(0)
@@ -56,6 +57,7 @@ class MediaRecorderRepository(
                 }
                 else -> {
                     if (!suppressError) {
+                        //too long
                         onError(2)
                     } else {
                         onError(0)

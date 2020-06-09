@@ -10,6 +10,7 @@ import android.graphics.Paint
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -612,6 +613,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         errorCode: String = "",
         details: String = ""
     ) {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
         try {
             var messageText = text
             if (errorCode != "") {
@@ -622,7 +627,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 }
             }
             val message: MessageDialog =
-                MessageDialog(this, 0, title, messageText, details = details)
+                MessageDialog(this, 0, title, messageText, details = details, height = height)
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: LoginActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")

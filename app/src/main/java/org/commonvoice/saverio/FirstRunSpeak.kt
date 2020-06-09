@@ -1,7 +1,9 @@
 package org.commonvoice.saverio
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -10,6 +12,8 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.android.synthetic.main.first_run_speak.*
@@ -24,6 +28,7 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
     var status: Int = 0
     private var PRIVATE_MODE = 0
     private val FIRST_RUN_SPEAK = "FIRST_RUN_SPEAK"
+    private val RECORD_REQUEST_CODE = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +64,13 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
         theme.setElement(isDark, view, 1, findViewById(R.id.firstRunSpeakSectionBottom))
         theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunSpeak) as ConstraintLayout)
         theme.setElement(isDark, view, this.findViewById(R.id.btnNextSpeak) as Button)
-        theme.setElement(isDark, view, this.findViewById(R.id.seekBarFirstRunSpeak) as SeekBar, R.color.colorBackground, R.color.colorBackgroundDT)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.seekBarFirstRunSpeak) as SeekBar,
+            R.color.colorBackground,
+            R.color.colorBackgroundDT
+        )
     }
 
     override fun onBackPressed() {
@@ -222,20 +233,48 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             startAnimation(txtNine)
         } else if (this.status == 9) {
             firstRunPrefManager.speak = false
-            Intent(this, SpeakActivity::class.java).also {
-                startActivity(it)
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.RECORD_AUDIO),
+                    RECORD_REQUEST_CODE
+                )
+            } else {
+                openActualSpeakSection()
             }
             finish()
         }
     }
 
-    fun startAnimation(img: Button) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            RECORD_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openActualSpeakSection()
+                }
+            }
+        }
+    }
+
+    private fun openActualSpeakSection() {
+        Intent(this, SpeakActivity::class.java).also {
+            startActivity(it)
+        }
+    }
+
+    private fun startAnimation(img: Button) {
         var animation: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
         img.startAnimation(animation)
     }
 
-    fun stopAnimation(img: Button) {
+    private fun stopAnimation(img: Button) {
         img.clearAnimation()
     }
 

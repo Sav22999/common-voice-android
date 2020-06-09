@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.SeekBar
@@ -178,9 +179,10 @@ class MessageDialog {
                                 setDailyGoalValue(dialogView.labelDailyGoalValue, seek.progress)
                             }
                         })
-                        val builder = AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
-                            .setView(dialogView)
-                            .setTitle("")
+                        val builder =
+                            AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
+                                .setView(dialogView)
+                                .setTitle("")
                         //show dialog
                         val alertDialog = builder.show()
                         buttonSave.setOnClickListener {
