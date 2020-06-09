@@ -1,8 +1,6 @@
 package org.commonvoice.saverio
 
 import android.Manifest
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Context
 import android.content.pm.PackageManager
@@ -22,7 +20,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
-import org.commonvoice.saverio.ui.dialogs.SpeakDialogFragment
+import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Sentence
@@ -213,10 +211,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun openReportDialog() {
         speakViewModel.stop()
-        loadUIStateLoading()
-        speakViewModel.loadNewSentence()
 
-        SpeakDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
+        SpeakReportDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
     }
 
     private fun setupInitialUIState() {
