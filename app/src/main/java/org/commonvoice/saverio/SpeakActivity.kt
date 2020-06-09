@@ -232,7 +232,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateLoading() {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
-        // textSentenceSpeak.text = "..."
+        textSentenceSpeak.text = "..."
 
         buttonRecordOrListenAgain.isGone = true
         //buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)

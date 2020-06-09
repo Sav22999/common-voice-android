@@ -160,7 +160,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private fun loadUIStateLoading() {
         if (!listenViewModel.stopped) {
-            // textSentenceListen.text = "..."
+            textSentenceListen.text = "..."
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
             buttonReportListen.isGone = true
