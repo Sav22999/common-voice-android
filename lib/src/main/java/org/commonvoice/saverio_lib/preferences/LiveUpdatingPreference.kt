@@ -1,6 +1,5 @@
 package org.commonvoice.saverio_lib.preferences
 
-import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import org.commonvoice.saverio_lib.dataClasses.DailyGoal
