@@ -14,7 +14,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_listen.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
-import org.commonvoice.saverio.ui.dialogs.ListenDialogFragment
+import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
@@ -155,7 +155,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         loadUIStateLoading()
         listenViewModel.loadNewClip()
 
-        ListenDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
+        ListenReportDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
     }
 
     private fun loadUIStateLoading() {
