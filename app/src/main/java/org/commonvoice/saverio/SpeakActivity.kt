@@ -397,7 +397,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private fun animateAudioBar(view: View) {
         if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
             view.isVisible = true
-            val animation: ValueAnimator = ValueAnimator.ofInt(view.height, (30..300).random())
+            val animation: ValueAnimator =
+                ValueAnimator.ofInt(view.height, (30..350).random())
             animation.duration = 300
             animation.addUpdateListener { anim ->
                 val value = anim.animatedValue as Int
