@@ -13,7 +13,6 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_listen.*
-import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
@@ -21,7 +20,6 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
-import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
@@ -43,19 +41,23 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         setupUI()
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            if (!listenViewModel.showingHidingAirplaneIcon && (listenViewModel.airplaneModeIconVisible == available)) {
-                listenViewModel.showingHidingAirplaneIcon = true
-                if (!available) {
-                    this.startAnimation(this.imageAirplaneModeListen, R.anim.zoom_in)
-                    listenViewModel.airplaneModeIconVisible = true
-                } else {
-                    this.startAnimation(this.imageAirplaneModeListen, R.anim.zoom_out_speak_listen)
-                    listenViewModel.airplaneModeIconVisible = false
-                }
-                listenViewModel.showingHidingAirplaneIcon = false
-                this.imageAirplaneModeListen.isGone = available
-            }
+            checkOfflineMode(available)
         })
+    }
+
+    private fun checkOfflineMode(available: Boolean) {
+        if (!listenViewModel.showingHidingOfflineIcon && (listenViewModel.offlineModeIconVisible == available)) {
+            listenViewModel.showingHidingOfflineIcon = true
+            if (!available) {
+                this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_in)
+                listenViewModel.offlineModeIconVisible = true
+            } else {
+                this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
+                listenViewModel.offlineModeIconVisible = false
+            }
+            listenViewModel.showingHidingOfflineIcon = false
+            this.imageOfflineModeListen.isGone = available
+        }
     }
 
     private fun setupInitialUIState() {
@@ -106,6 +108,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                 )
             }
         })
+
+        checkOfflineMode(connectionManager.isInternetAvailable)
+
         setTheme(this)
     }
 

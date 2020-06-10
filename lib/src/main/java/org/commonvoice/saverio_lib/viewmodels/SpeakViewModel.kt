@@ -40,8 +40,8 @@ class SpeakViewModel(
 
     var isFirstTimeListening: Boolean = true
 
-    var showingHidingAirplaneIcon: Boolean = false
-    var airplaneModeIconVisible: Boolean = false
+    var showingHidingOfflineIcon: Boolean = false
+    var offlineModeIconVisible: Boolean = false
 
     private val _currentSentence: MutableLiveData<Sentence> =
         savedStateHandle.getLiveData("sentence")
@@ -76,6 +76,7 @@ class SpeakViewModel(
                 when (it) {
                     0 -> {
                         // suppress message dialogs
+                        println("!! Error")
                     }
                     1 -> {
                         _state.postValue(State.RECORDING_ERROR)

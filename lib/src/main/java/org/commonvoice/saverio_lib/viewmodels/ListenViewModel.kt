@@ -36,8 +36,8 @@ class ListenViewModel(
     var startedOnce: Boolean = false
     var listenedOnce: Boolean = false
     var stopped: Boolean = false
-    var showingHidingAirplaneIcon: Boolean = false
-    var airplaneModeIconVisible: Boolean = false
+    var showingHidingOfflineIcon: Boolean = false
+    var offlineModeIconVisible: Boolean = false
 
     private val _currentClip: MutableLiveData<Clip> = handle.getLiveData("currentClip")
     val currentClip: LiveData<Clip> get() = _currentClip

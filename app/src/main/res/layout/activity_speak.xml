@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageAirplaneModeSpeak"
+            android:id="@+id/imageOfflineModeSpeak"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
@@ -43,7 +43,8 @@
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_airplane_mode" />
+            app:srcCompat="@drawable/ic_no_wifi"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/textMessageAlertSpeak"

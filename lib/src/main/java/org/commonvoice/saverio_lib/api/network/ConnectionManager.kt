@@ -8,6 +8,7 @@ import android.net.NetworkRequest
 import android.os.Build
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import java.lang.Exception
 
 class ConnectionManager(appContext: Context) {
 
@@ -17,7 +18,7 @@ class ConnectionManager(appContext: Context) {
     val isInternetAvailable: Boolean
         get() = _liveInternetAvailability.value ?: false
 
-    private val callback = object: ConnectivityManager.NetworkCallback() {
+    private val callback = object : ConnectivityManager.NetworkCallback() {
 
         override fun onAvailable(network: Network) {
             super.onAvailable(network)
@@ -51,11 +52,15 @@ class ConnectionManager(appContext: Context) {
     }.build()
 
     init {
-        val connectivityManager = appContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            appContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         if (Build.VERSION.SDK_INT >= 24) {
             connectivityManager.registerDefaultNetworkCallback(callback)
         } else {
             connectivityManager.registerNetworkCallback(networkRequest, callback)
+        }
+        if (!connectivityManager.isDefaultNetworkActive) {
+            _liveInternetAvailability.postValue(false)
         }
     }
 

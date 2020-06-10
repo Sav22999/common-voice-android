@@ -22,7 +22,6 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
-import kotlinx.android.synthetic.main.bottomsheet_report.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
@@ -32,7 +31,6 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
-import org.koin.ext.scope
 
 class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
@@ -56,19 +54,23 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         setupUI()
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            if (!speakViewModel.showingHidingAirplaneIcon && (speakViewModel.airplaneModeIconVisible == available)) {
-                speakViewModel.showingHidingAirplaneIcon = true
-                if (!available) {
-                    startAnimation(imageAirplaneModeSpeak, R.anim.zoom_in_speak_listen)
-                    speakViewModel.airplaneModeIconVisible = true
-                } else {
-                    startAnimation(imageAirplaneModeSpeak, R.anim.zoom_out_speak_listen)
-                    speakViewModel.airplaneModeIconVisible = false
-                }
-                speakViewModel.showingHidingAirplaneIcon = false
-                this.imageAirplaneModeSpeak.isGone = available
-            }
+            checkOfflineMode(available)
         })
+    }
+
+    private fun checkOfflineMode(available: Boolean) {
+        if (!speakViewModel.showingHidingOfflineIcon && (speakViewModel.offlineModeIconVisible == available)) {
+            speakViewModel.showingHidingOfflineIcon = true
+            if (!available) {
+                startAnimation(imageOfflineModeSpeak, R.anim.zoom_in_speak_listen)
+                speakViewModel.offlineModeIconVisible = true
+            } else {
+                startAnimation(imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
+                speakViewModel.offlineModeIconVisible = false
+            }
+            speakViewModel.showingHidingOfflineIcon = false
+            this.imageOfflineModeSpeak.isGone = available
+        }
     }
 
     override fun onBackPressed() {
@@ -119,6 +121,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
                 )
             }
         })
+
         setTheme(this)
     }
 
@@ -195,6 +198,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         val isDark = theme.getTheme(view)
         theme.setElement(isDark, layoutSpeak)
+        theme.setElement(isDark, view, buttonSendSpeak)
         theme.setElement(isDark, view, 1, speakSectionBottom)
         theme.setElement(
             isDark,

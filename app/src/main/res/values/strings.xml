@@ -34,9 +34,22 @@
     <string name="btn_tutorial3">Next</string>
     <string name="btn_tutorial4">Try again</string>
     <string name="btn_tutorial5">Finish</string>
+    <string name="btn_skip">Skip</string>
+    <string name="txt_permission_obtained_tutorial">Permission obtained</string>
+    <string name="txt_permission_denied_tutorial">Error: permission denied</string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
+    <string name="txt_introduction_app_tutorial">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_tutorial">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_tutorial">This app needs the "Microphone" permission to record your voice.</string>
+    <string name="txt_storage_permission_tutorial">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the "Storage" permission to save the log file.</string>
+    <string name="txt_themes_tutorial">Choose a theme for the app. You can change this later in Settings.</string>
+    <string name="txt_gestures_tutorial">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
+    <string name="txt_customise_gestures_tutorial">You can customise these gestures on the Settings screen.</string>
+    <string name="txt_choose_language_tutorial">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+
+    <!-- TODO delete these following strings -->
     <string name="txt_permission_successful">Permission successful</string>
     <string name="txt_permission_failed">Error: permission failed</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
     <string name="tutorial_text1">This is not the official app of Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
     <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
