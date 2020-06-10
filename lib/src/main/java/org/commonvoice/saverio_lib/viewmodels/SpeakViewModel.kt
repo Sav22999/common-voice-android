@@ -135,7 +135,7 @@ class SpeakViewModel(
     }
 
     fun redoRecording() {
-        mediaRecorderRepository.startRecording()
+        this.startRecording()
     }
 
     fun sendRecording() = viewModelScope.launch(Dispatchers.IO) {

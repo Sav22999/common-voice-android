@@ -11,6 +11,8 @@ import android.util.TypedValue
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.ImageView
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -18,6 +20,7 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.android.synthetic.main.bottomsheet_report.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
@@ -43,16 +46,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private val statsPrefManager: StatsPrefManager by inject()
 
     private var numberSentThisSession: Int = 0
-
-    private val zoomInAnimation: Animation by lazy {
-        AnimationUtils.loadAnimation(this, R.anim.zoom_in)
-    }
-    private val zoomOutSpeakListenAnimation: Animation by lazy {
-        AnimationUtils.loadAnimation(this, R.anim.zoom_out_speak_listen)
-    }
-    private val zoomInSpeakListenAnimation: Animation by lazy {
-        AnimationUtils.loadAnimation(this, R.anim.zoom_in_speak_listen)
-    }
+    private var isAudioBarVisible: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,10 +59,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             if (!speakViewModel.showingHidingAirplaneIcon && (speakViewModel.airplaneModeIconVisible == available)) {
                 speakViewModel.showingHidingAirplaneIcon = true
                 if (!available) {
-                    imageAirplaneModeSpeak.startAnimation(zoomInAnimation)
+                    startAnimation(imageAirplaneModeSpeak, R.anim.zoom_in_speak_listen)
                     speakViewModel.airplaneModeIconVisible = true
                 } else {
-                    imageAirplaneModeSpeak.startAnimation(zoomOutSpeakListenAnimation)
+                    startAnimation(imageAirplaneModeSpeak, R.anim.zoom_out_speak_listen)
                     speakViewModel.airplaneModeIconVisible = false
                 }
                 speakViewModel.showingHidingAirplaneIcon = false
@@ -136,6 +130,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
             SpeakViewModel.Companion.State.RECORDING -> {
                 loadUIStateRecording()
+                this.isAudioBarVisible = true
                 animateAudioBar()
             }
             SpeakViewModel.Companion.State.RECORDED -> {
@@ -222,10 +217,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun stopAndRefresh() {
         speakViewModel.stop()
-        hideAudioBar()
         speakViewModel.currentSentence.observe(this, Observer { sentence ->
             setupUIStateStandby(sentence)
         })
+        hideAudioBar()
     }
 
     private fun setupInitialUIState() {
@@ -246,8 +241,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             this.numberSentThisSession++
         }
 
-        buttonStartStopSpeak.startAnimation(zoomInSpeakListenAnimation)
-        buttonSkipSpeak.startAnimation(zoomInSpeakListenAnimation)
+        startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
+        startAnimation(buttonSkipSpeak, R.anim.zoom_in_speak_listen)
     }
 
     private fun loadUIStateLoading() {
@@ -267,7 +262,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonReportSpeak.isGone = false
 
-        buttonSendReport.isGone = true
+        buttonSendSpeak.isGone = true
 
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
@@ -331,7 +326,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateRecorded() {
         buttonRecordOrListenAgain.isGone = false
-        buttonRecordOrListenAgain.startAnimation(zoomInSpeakListenAnimation)
+        startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
@@ -361,13 +356,13 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonSendSpeak.isGone = false
 
         if (speakViewModel.isFirstTimeListening) {
-            buttonSendSpeak.startAnimation(zoomInSpeakListenAnimation)
+            startAnimation(buttonSendSpeak, R.anim.zoom_in_speak_listen)
             speakViewModel.isFirstTimeListening = false
         }
 
         textMessageAlertSpeak.setText(R.string.txt_recorded_correct_or_wrong)
         buttonRecordOrListenAgain.isGone = false
-        buttonRecordOrListenAgain.startAnimation(zoomInSpeakListenAnimation)
+        startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
 
@@ -410,21 +405,24 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun animateAudioBar() {
         speakSectionAudioBar.children.forEach {
-            animateAudioBar(it, hide = false)
+            animateAudioBar(it)
         }
     }
 
     private fun hideAudioBar() {
-        speakSectionAudioBar.children.forEach {
-            animateAudioBar(it, hide = true)
+        if (imageAudioBarCenter.isVisible && this.isAudioBarVisible) {
+            this.isAudioBarVisible = false
+            speakSectionAudioBar.children.forEach {
+                animateAudioBar(it)
+            }
         }
     }
 
-    private fun animateAudioBar(view: View, hide: Boolean = false) {
-        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && !hide) {
+    private fun animateAudioBar(view: View) {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible) {
             animationAudioBar(view, view.height, (30..350).random())
             view.isVisible = true
-        } else if (hide) {
+        } else if (!this.isAudioBarVisible) {
             //animationAudioBar(view, view.height, 0)
             //view.isVisible = true
             view.isVisible = false
@@ -443,8 +441,35 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             view.requestLayout()
         }
         animation.doOnEnd {
-            animateAudioBar(view)
+            if (this.isAudioBarVisible) {
+                animateAudioBar(view)
+            }
         }
         animation.start()
+    }
+
+    private fun stopButtons() {
+        stopAnimation(buttonNoClip)
+        stopAnimation(buttonYesClip)
+    }
+
+    private fun startAnimation(img: ImageView, zoomType: Int) {
+        val animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, zoomType)
+        img.startAnimation(animation)
+    }
+
+    private fun startAnimation(btn: Button, zoomType: Int) {
+        val animation: Animation =
+            AnimationUtils.loadAnimation(applicationContext, zoomType)
+        btn.startAnimation(animation)
+    }
+
+    private fun stopAnimation(img: ImageView) {
+        img.clearAnimation()
+    }
+
+    private fun stopAnimation(btn: Button) {
+        btn.clearAnimation()
     }
 }
