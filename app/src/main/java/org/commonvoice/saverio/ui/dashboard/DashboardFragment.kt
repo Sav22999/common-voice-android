@@ -57,7 +57,7 @@ class DashboardFragment : Fragment() {
         0
     ) //(todaySpeak, todayListen, everSpeak, everListen); "-1" indicates an error -> show "?"
 
-    var youSelected: Boolean = false
+    private var selectedTab: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -80,14 +80,12 @@ class DashboardFragment : Fragment() {
         try {
             if (main.logged) {
                 buttonYou.isGone = false
-                selectTab(root, main, 0)
+                selectTab(root, main, 0, forced = true)
                 loadData("you", root)
-                this.youSelected = true
             } else {
                 buttonYou.isGone = true
-                selectTab(root, main, 1)
+                selectTab(root, main, 1, forced = true)
                 loadData("everyone", root)
-                this.youSelected = false
             }
 
             var labelNow: String = ""
@@ -157,14 +155,10 @@ class DashboardFragment : Fragment() {
             }
 
             buttonYou.setOnClickListener {
-                selectTab(root, main, 0)
-                loadData("you", root)
-                youSelected = true
+                if (selectTab(root, main, 0)) loadData("you", root)
             }
             buttonEveryone.setOnClickListener {
-                selectTab(root, main, 1)
-                loadData("everyone", root)
-                youSelected = false
+                if (selectTab(root, main, 1)) loadData("everyone", root)
             }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
@@ -175,38 +169,62 @@ class DashboardFragment : Fragment() {
         return root
     }
 
-    fun selectTab(root: View, view: Context, tab: Int) {
-        val theme = DarkLightTheme()
-        val isDark = theme.getTheme(view)
-        val tabs: Array<Button> = arrayOf(
-            root.findViewById(R.id.buttonYouStatisticsDashboard),
-            root.findViewById(R.id.buttonEveryoneStatisticsDashboard)
-        )
+    fun selectTab(root: View, view: Context, tab: Int, forced: Boolean = false): Boolean {
+        if ((tab != selectedTab) || forced) {
+            selectedTab = tab
+            val theme = DarkLightTheme()
+            val isDark = theme.getTheme(view)
+            val tabs: Array<Button> = arrayOf(
+                root.findViewById(R.id.buttonYouStatisticsDashboard),
+                root.findViewById(R.id.buttonEveryoneStatisticsDashboard)
+            )
 
-        for (position in tabs.indices) {
-            if (position == tab) {
-                if (isDark) {
-                    tabs[position].setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
-                    tabs[position].backgroundTintList =
-                        ContextCompat.getColorStateList(view, R.color.colorLightGray)
+            for (position in tabs.indices) {
+                if (position == tab) {
+                    if (isDark) {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorBlack
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorLightGray)
+                    } else {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorWhite
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorBlack)
+                    }
                 } else {
-                    tabs[position].setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
-                    tabs[position].backgroundTintList =
-                        ContextCompat.getColorStateList(view, R.color.colorBlack)
-                }
-            } else {
-                if (isDark) {
-                    tabs[position].setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
-                    tabs[position].backgroundTintList =
-                        ContextCompat.getColorStateList(view, R.color.colorDarkDarkGray)
-                } else {
-                    tabs[position].setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
-                    tabs[position].backgroundTintList =
-                        ContextCompat.getColorStateList(view, R.color.colorDarkWhite)
+                    if (isDark) {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorWhite
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorDarkDarkGray)
+                    } else {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorBlack
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorDarkWhite)
+                    }
                 }
             }
+            return true;
         }
-
+        return false;
     }
 
     fun setTheme(view: Context, root: View) {
@@ -537,7 +555,7 @@ class DashboardFragment : Fragment() {
 
                                 //Set text to the value
                                 try {
-                                    if ((type == "everyoneEverSpeak" || type == "everyoneEverListen") && !this.youSelected) {
+                                    if ((type == "everyoneEverSpeak" || type == "everyoneEverListen") && selectedTab != 0) {
                                         textElements[index]?.text =
                                             (truncate(valueToReturn.toDouble() / 3600).toInt()
                                                 .toString() + getString(
@@ -562,7 +580,7 @@ class DashboardFragment : Fragment() {
                                         )
                                     } else {
                                         if (index != -1) {
-                                            if (typeToSend == "you" && this.youSelected || typeToSend == "everyone" && !this.youSelected)
+                                            if (typeToSend == "you" && selectedTab == 0 || typeToSend == "everyone" && selectedTab != 0)
                                                 textElements[index]?.text =
                                                     valueToReturn.toString()
                                             main.setSavedStatisticsValue(

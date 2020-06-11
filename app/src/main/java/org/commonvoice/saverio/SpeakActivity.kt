@@ -276,25 +276,25 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
         textSentenceSpeak.text = sentence.sentenceText
         when (textSentenceSpeak.text.length) {
-            in 0..20 -> {
+            in 0..10 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_very_big)
                 )
             }
-            in 21..40 -> {
+            in 11..20 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_big)
                 )
             }
-            in 41..50 -> {
+            in 21..40 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_medium)
                 )
             }
-            in 51..80 -> {
+            in 41..70 -> {
                 textSentenceSpeak.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_normal)

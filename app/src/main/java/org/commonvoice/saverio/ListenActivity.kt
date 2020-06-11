@@ -195,25 +195,25 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         textSentenceListen.text = clip.sentence.sentenceText
         when (textSentenceListen.text.length) {
-            in 0..20 -> {
+            in 0..10 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_very_big)
                 )
             }
-            in 21..40 -> {
+            in 11..20 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_big)
                 )
             }
-            in 41..50 -> {
+            in 21..40 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_medium)
                 )
             }
-            in 51..80 -> {
+            in 41..70 -> {
                 textSentenceListen.setTextSize(
                     TypedValue.COMPLEX_UNIT_PX,
                     resources.getDimension(R.dimen.title_normal)
