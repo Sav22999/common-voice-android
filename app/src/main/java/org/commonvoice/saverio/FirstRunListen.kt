@@ -59,7 +59,13 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
         theme.setElement(isDark, view, 1, findViewById(R.id.firstRunListenSectionBottom))
         theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
         theme.setElement(isDark, view, this.findViewById(R.id.btnNextListen) as Button)
-        theme.setElement(isDark, view, this.findViewById(R.id.seekBarFirstRunListen) as SeekBar, R.color.colorBackground, R.color.colorBackgroundDT)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.seekBarFirstRunListen) as SeekBar,
+            R.color.colorBackground,
+            R.color.colorBackgroundDT
+        )
     }
 
     override fun onBackPressed() {
@@ -209,13 +215,17 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
     }
 
     fun startAnimation(img: Button) {
-        var animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
-        img.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            var animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+            img.startAnimation(animation)
+        }
     }
 
     fun stopAnimation(img: Button) {
-        img.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            img.clearAnimation()
+        }
     }
 
 }

@@ -269,13 +269,17 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
     }
 
     private fun startAnimation(img: Button) {
-        var animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
-        img.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            var animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
+            img.startAnimation(animation)
+        }
     }
 
     private fun stopAnimation(img: Button) {
-        img.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            img.clearAnimation()
+        }
     }
 
 }

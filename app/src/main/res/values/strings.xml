@@ -42,21 +42,13 @@
     <string name="txt_microphone_permission_first_launch">This app needs the "Microphone" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the "Storage" permission to save the log file.</string>
     <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s "Offline mode" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch">Choose a theme for the app. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Dark theme</string>
     <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
     <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
     <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_group_first_launch">Join now</string>
+    <string name="btn_join_telegram_first_launch">Join group</string>
     <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
-
-    <!-- TODO delete these following strings -->
-    <string name="txt_permission_successful">Permission successful</string>
-    <string name="txt_permission_failed">Error: permission failed</string>
-    <string name="tutorial_text1">This is not the official app of Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
-    <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
-    <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
-    <string name="tutorial_text4">Select your native language. The sentences that you will record and validate will be in this language.</string>
     <!-- Login -->
     <string name="txt_loading_page">Loading ...</string>
     <string name="txt_profile_username">Username</string>

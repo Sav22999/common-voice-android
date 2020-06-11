@@ -86,7 +86,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
-            "PREF_NAME" to "FIRST_RUN",
+            "FIRST_LAUNCH" to "FIRST_LAUNCH",
             "LOGGED_IN_NAME" to "LOGGED",
             "USER_NAME" to "USERNAME",
             "LAST_STATS_EVERYONE" to "LAST_STATS_EVERYONE",
@@ -164,8 +164,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         //checkConnection()
 
         this.firstRun =
-            getSharedPreferences(settingsSwitchData["PREF_NAME"], PRIVATE_MODE).getBoolean(
-                settingsSwitchData["PREF_NAME"],
+            getSharedPreferences(settingsSwitchData["FIRST_LAUNCH"], PRIVATE_MODE).getBoolean(
+                settingsSwitchData["FIRST_LAUNCH"],
                 true
             )
 

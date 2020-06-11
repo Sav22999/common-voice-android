@@ -1,111 +1,110 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.webkit.WebView
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.first_launch.*
+import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
 
-class FirstLaunch : AppCompatActivity() {
-
-    private val mainPrefManager: MainPrefManager by inject()
+class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
 
     private lateinit var webView: WebView
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
     private var PRIVATE_MODE = 0
-    private val PREF_NAME = "FIRST_RUN"
-    var languages_list_short =
+    private val FIRST_LAUNCH = "FIRST_LAUNCH"
+    private var languagesListShort =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
-    var languages_list =
+    private var languagesList =
         arrayOf("English") // don't change manually -> it's imported from strings.xml
+    private var theme: DarkLightTheme = DarkLightTheme()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_launch)
 
-        this.seekBarFirstLaunch.isEnabled = false
-
-        this.seekBarFirstLaunch.progress = 0
+        seekBarFirstLaunch.isEnabled = false
+        seekBarFirstLaunch.progress = 0
 
         // import languages from array
-        this.languages_list = resources.getStringArray(R.array.languages)
-        this.languages_list_short = resources.getStringArray(R.array.languages_short)
+        languagesList = resources.getStringArray(R.array.languages)
+        languagesListShort = resources.getStringArray(R.array.languages_short)
 
-        var txtTerms = this.textTermsFirstLaunch
-        txtTerms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        txtTerms.setOnClickListener {
+        val textTerms = this.textTermsFirstLaunch
+        textTerms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        textTerms.setOnClickListener {
             openTerms()
         }
 
         this.buttonNextFirstLaunch.setOnClickListener {
-            tutorialStart()
+            checkStatus(swipe = false)
         }
-        tutorialStart()
+        // startup
+        checkStatus(start = true)
 
-        var txtSkip = this.buttonSkipFirstLaunch
-        //txtSkip.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        txtSkip.setOnClickListener {
-            skipPermission()
+        buttonSkipFirstLaunch.setOnClickListener {
+            checkStatus(next = true)
         }
 
-        nestedScrollTutorial.setOnTouchListener(object :
+        buttonOpenTelegramFirstLaunch.setOnClickListener {
+            openTelegramGroup()
+        }
+
+        // set gestures
+        nestedScrollFirstLaunch.setOnTouchListener(object :
             OnSwipeTouchListener(this@FirstLaunch) {
             override fun onSwipeLeft() {
-                if (status < 6) {
-                    if (status == 0 || status == 1) {
-                        microphonePermission()
-                        status = 2
-                    } else if (status == 2 || status == 3) {
-                        storagePermission()
-                        status = 4
-                    } else if (status == 4 || status == 5) {
-                        tutorialStart4()
-                    }
-                }
+                checkStatus(next = true) //forward
             }
 
             override fun onSwipeRight() {
-                if (status > 0) {
-                    if (status == 1 || status == 2 || status == 3) {
-                        tutorialStart0()
-                        status = 1
-                    } else if (status == 4 || status == 5) {
-                        microphonePermission()
-                        status = 2
-                    } else if (status == 6) {
-                        storagePermission()
-                        status = 4
-                    }
-                }
+                checkStatus(next = false) //back
             }
-            /*
-            override fun onSwipeTop() {
-                super.onSwipeTop()
-                if (status == 0 || status == 1) {
-                    openTerms()
-                }
-            }
-            */
         })
+
+        // set languages imported
+        languageListFirstLaunch.adapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languagesList)
+        languageListFirstLaunch.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    //setLanguage("")
+                }
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    setLanguage(languagesListShort[position])
+                }
+            }
+        languageListFirstLaunch.setSelection(languagesListShort.indexOf(getString(R.string.language)))
+
+        this.setTheme(this)
     }
 
-    fun openTerms() {
+    private fun openTerms() {
         startActivity(
             Intent(
                 Intent.ACTION_VIEW,
@@ -114,175 +113,224 @@ class FirstLaunch : AppCompatActivity() {
         )
     }
 
-    fun tutorialStart() {
-        if (this.status == 0) {
-            // first screen
-            tutorialStart0()
-        } else if (this.status == 1) {
-            microphonePermission()
-        } else if (this.status == 2) {
-            // ask microphone permission
-            askMicrophonePermission()
-        } else if (this.status == 3) {
-            storagePermission()
-        } else if (this.status == 4) {
-            // ask storage permission
-            askStoragePermission()
-        } else if (this.status == 5) {
-            tutorialStart4()
-        } else if (this.status == 6) {
-            // close tutorial and open main
-            getSharedPreferences(PREF_NAME, PRIVATE_MODE).edit().putBoolean(PREF_NAME, false)
-                .apply()
+    private fun openTelegramGroup() {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://bit.ly/3clgfkg")
+            )
+        )
+    }
 
-            val intent = Intent(this, MainActivity::class.java).also {
-                startActivity(it)
+    private fun checkStatus(start: Boolean = false, next: Boolean = true, swipe: Boolean = true) {
+        if (next && status < 6 || !next && status > 0 || start) {
+            imageFirstLaunch.setImageResource(R.drawable.robot)
+            stopAnimation(imageFirstLaunch)
+            buttonSkipFirstLaunch.isGone = true
+            stopAnimation(buttonOpenTelegramFirstLaunch)
+            buttonOpenTelegramFirstLaunch.isGone = true
+            textMessageFirstLaunch.isGone = true
+            imageFirstLaunch.imageTintList =
+                ContextCompat.getColorStateList(this, R.color.colorGray)
+            languageListFirstLaunch.isGone = true
+            buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3)
+            firstLaunchSectionMiddleBottom.isGone = true
+            switchEnableDarkThemeFirstLaunch.isGone = true
+            textTermsFirstLaunch.isGone = true
+
+            if (!start) {
+                if (next) status++
+                else status--
             }
-            finish()
+            buttonNextFirstLaunch.setOnClickListener {
+                checkStatus(swipe = false)
+            }
+
+            seekBarFirstLaunch.progress = status
+
+            val animationFirstLaunch: Int = R.anim.zoom_in_first_launch
+
+            if (status == 0 || start) {
+                if (start) {
+                    buttonNextFirstLaunch.text = getString(R.string.btn_tutorial1)
+                }
+                //introduction
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    getString(R.string.txt_introduction_app_first_launch)
+                imageFirstLaunch.imageTintList =
+                    ContextCompat.getColorStateList(this, R.color.colorTransparent)
+                firstLaunchSectionMiddleBottom.isGone = false
+                textTermsFirstLaunch.isGone = false
+            } else if (status == 1) {
+                //microphone
+                imageFirstLaunch.setImageResource(R.drawable.ic_microphone)
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    getString(R.string.txt_microphone_permission_first_launch)
+                if (!checkPermission(Manifest.permission.RECORD_AUDIO)) {
+                    buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2)
+                    buttonNextFirstLaunch.setOnClickListener {
+                        getPermission(Manifest.permission.RECORD_AUDIO)
+                    }
+                    buttonSkipFirstLaunch.isGone = false
+                } else {
+                    buttonNextFirstLaunch.setOnClickListener {
+                        checkStatus(swipe = false)
+                    }
+                }
+            } else if (status == 2) {
+                //storage
+                imageFirstLaunch.setImageResource(R.drawable.ic_storage)
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    getString(R.string.txt_storage_permission_first_launch)
+                if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2)
+                    buttonNextFirstLaunch.setOnClickListener {
+                        getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    }
+                    buttonSkipFirstLaunch.isGone = false
+                } else {
+                    buttonNextFirstLaunch.setOnClickListener {
+                        checkStatus(swipe = false)
+                    }
+                }
+            } else if (status == 3) {
+                //dark theme
+                imageFirstLaunch.setImageResource(R.drawable.ic_dark_mode_first_launch)
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    getString(R.string.txt_themes_first_launch)
+                firstLaunchSectionMiddleBottom.isGone = false
+                switchEnableDarkThemeFirstLaunch.isGone = false
+
+                switchEnableDarkThemeFirstLaunch.setOnCheckedChangeListener { _, isChecked ->
+                    switchEnableDarkThemeFirstLaunch.isChecked = isChecked
+                    setDarkThemeSwitch(isChecked)
+                    this.setTheme(this)
+                }
+                switchEnableDarkThemeFirstLaunch.isChecked = theme.getTheme(this)
+            } else if (status == 4) {
+                //gestures
+                imageFirstLaunch.setImageResource(R.drawable.ic_gestures)
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    (getString(R.string.txt_gestures_first_launch) + "\n" + getString(R.string.txt_customise_gestures_first_launch))
+            } else if (status == 5) {
+                //telegram group
+                imageFirstLaunch.setImageResource(R.drawable.ic_telegram)
+                imageFirstLaunch.imageTintList =
+                    ContextCompat.getColorStateList(this, R.color.colorTransparent)
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    getString(R.string.txt_telegram_group_first_launch)
+                buttonOpenTelegramFirstLaunch.isGone = false
+                startAnimation(buttonOpenTelegramFirstLaunch, animationFirstLaunch)
+            } else if (status == 6) {
+                //language
+                imageFirstLaunch.setImageResource(R.drawable.ic_language)
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    getString(R.string.txt_choose_language_first_launch)
+                languageListFirstLaunch.isGone = false
+                buttonNextFirstLaunch.text = getString(R.string.btn_tutorial5)
+            }
+        } else if (status == 6 && next && !swipe) {
+            //close first launch
+            finishFirstRun()
         }
     }
 
-    fun tutorialStart0() {
-        this.textMessageFirstLaunch.text = getString(R.string.txt_introduction_app_first_launch)
-        this.seekBarFirstLaunch.progress = 0
-        this.tutorialSectionTerms.isGone = false
-        this.textDescriptionFirstLaunch.text = getString(R.string.txt_introduction_app_first_launch)
-        var txtSkip = this.buttonSkipFirstLaunch
-        txtSkip.isGone = true
-        this.textMessageFirstLaunch.isVisible = false
-        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial1) // next
-        this.status = 1
-    }
-
-    fun microphonePermission() {
-        this.textMessageFirstLaunch.isVisible = false
-        this.textMessageFirstLaunch.text = ""
-        this.seekBarFirstLaunch.progress = 1
-        this.tutorialSectionTerms.isGone = true
-        this.textDescriptionFirstLaunch.text = getString(R.string.tutorial_text2)
-        var txtSkip = this.buttonSkipFirstLaunch
-        txtSkip.isGone = false
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2) // permit
-        } else {
-            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3) // next
+    fun setDarkThemeSwitch(status: Boolean) {
+        if (status != theme.getTheme(this)) {
+            theme.setTheme(this, status)
         }
-        this.status = 2
     }
 
-    fun askMicrophonePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+    fun setTheme(view: Context) {
+        val isDark = theme.getTheme(view)
+        theme.setElements(view, this.findViewById(R.id.layoutFirstLaunch))
+        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionCVAndroid))
+        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionDescription))
+        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionMiddleBottom))
+        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionBottom))
+
+        theme.setElement(isDark, view, 3, findViewById(R.id.firstLaunchSectionCVAndroid))
+        theme.setElement(isDark, view, 3, findViewById(R.id.firstLaunchSectionDescription))
+        theme.setElement(isDark, view, 3, findViewById(R.id.firstLaunchSectionMiddleBottom))
+        theme.setElement(isDark, view, 1, findViewById(R.id.firstLaunchSectionBottom))
+
+        theme.setTextView(!isDark, view, textMessageFirstLaunch, border = false)
+
+        theme.setElement(isDark, view, this.findViewById(R.id.buttonNextFirstLaunch) as Button)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.buttonOpenTelegramFirstLaunch) as Button
+        )
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.seekBarFirstLaunch) as SeekBar,
+            R.color.colorBackground,
+            R.color.colorBackgroundDT
+        )
+    }
+
+    private fun checkPermission(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this,
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun getPermission(permission: String) {
+        if (ContextCompat.checkSelfPermission(this, permission)
             != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.RECORD_AUDIO),
+                arrayOf(permission),
                 RECORD_REQUEST_CODE
             )
-        } else {
-            var txtSkip = this.buttonSkipFirstLaunch
-            txtSkip.isGone = true
-            storagePermission()
         }
     }
 
-    fun tutorialStartPermissionDenied() {
+    private fun permissionDenied() {
         // Permission is not granted
-        this.textMessageFirstLaunch.isVisible = true
-        this.textMessageFirstLaunch.text =
-            getString(R.string.txt_permission_failed) // permission failed
-        //Toast.makeText(this, "Error: permission fail", Toast.LENGTH_LONG).show()
-        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial4) // try again
+        textMessageFirstLaunch.isVisible = true
+        if (textMessageFirstLaunch.isGone) {
+            startAnimation(textMessageFirstLaunch, R.anim.zoom_in)
+        }
+        textMessageFirstLaunch.text =
+            getString(R.string.txt_permission_denied_first_launch) // permission failed
     }
 
-    fun tutorialStartPermissionSuccessful() {
+    private fun permissionObtained() {
         // Permission is granted
-        this.textMessageFirstLaunch.isVisible = true
-        this.textMessageFirstLaunch.text =
-            getString(R.string.txt_permission_successful) // permission successful
-        //Toast.makeText(this,"Permission successful",Toast.LENGTH_SHORT).show()
-        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3) // next
-        if (this.status == 2) {
-            //microphone permission
-            this.status = 3
-        } else if (this.status == 4) {
-            //storage permission
-            this.status = 5
+        textMessageFirstLaunch.isVisible = true
+        if (textMessageFirstLaunch.isGone) {
+            startAnimation(textMessageFirstLaunch, R.anim.zoom_in)
         }
+        textMessageFirstLaunch.text =
+            getString(R.string.txt_permission_obtained_first_launch) // permission successful
+
+        buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3)//next
+        buttonSkipFirstLaunch.isGone = true//hide skip button
     }
 
-    fun storagePermission() {
-        this.textMessageFirstLaunch.isVisible = false
-        this.textMessageFirstLaunch.text = ""
-        this.textDescriptionFirstLaunch.text = getString(R.string.tutorial_text3)
-        this.seekBarFirstLaunch.progress = 2
-        var txtSkip = this.buttonSkipFirstLaunch
-        txtSkip.isGone = false
-        this.languageListTutorial.isGone = true
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2) // permit
-        } else {
-            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3) // next
+    private fun finishFirstRun() {
+        getSharedPreferences(FIRST_LAUNCH, PRIVATE_MODE).edit().putBoolean(FIRST_LAUNCH, false)
+            .apply()
+        val intent = Intent(this, MainActivity::class.java).also {
+            startActivity(it)
         }
-        this.status = 4
-    }
-
-    fun askStoragePermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                RECORD_REQUEST_CODE
-            )
-        } else {
-            var txtSkip = this.buttonSkipFirstLaunch
-            txtSkip.isGone = true
-            tutorialStart4()
-        }
-    }
-
-    fun tutorialStart4() {
-        // finish
-        this.textMessageFirstLaunch.isVisible = false
-        this.textMessageFirstLaunch.text = ""
-        this.seekBarFirstLaunch.progress = 3
-        this.textDescriptionFirstLaunch.text = getString(R.string.tutorial_text4)
-        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial5)
-        this.languageListTutorial.isGone = false
-        var txtSkip = this.buttonSkipFirstLaunch
-        txtSkip.isGone = true
-
-        var languages = findViewById<Spinner>(R.id.languageListTutorial)
-        languages.adapter =
-            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languages_list)
-        languages.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                //setLanguage("")
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                setLanguage(languages_list_short.get(position))
-                status = 6
-            }
-        }
-        languages.setSelection(languages_list_short.indexOf(getString(R.string.language)))
+        finish()
     }
 
     fun setLanguage(language: String) {
         mainPrefManager.language = language
-
-        //Toast.makeText(this,"Language: "+language+" index: "+languages_list_short.indexOf(language), Toast.LENGTH_SHORT).show()
     }
 
     override fun onRequestPermissionsResult(
@@ -293,23 +341,57 @@ class FirstLaunch : AppCompatActivity() {
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    tutorialStartPermissionDenied()
+                    permissionDenied()
                 } else {
-                    tutorialStartPermissionSuccessful()
+                    permissionObtained()
                 }
             }
         }
     }
 
-    fun skipPermission() {
-        if (this.status == 2) {
-            // skip microphone
-            this.status = 3
-            tutorialStart()
-        } else if (this.status == 4) {
-            // skip storage
-            this.status = 5
-            tutorialStart()
+    private fun startAnimation(txt: TextView, zoomType: Int) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            if (mainPrefManager.areAnimationsEnabled) {
+                val animation: Animation =
+                    AnimationUtils.loadAnimation(applicationContext, zoomType)
+                txt.startAnimation(animation)
+            }
+        }
+    }
+
+    private fun startAnimation(img: ImageView, zoomType: Int) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            if (mainPrefManager.areAnimationsEnabled) {
+                val animation: Animation =
+                    AnimationUtils.loadAnimation(applicationContext, zoomType)
+                img.startAnimation(animation)
+            }
+        }
+    }
+
+    private fun startAnimation(btn: Button, zoomType: Int) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            if (mainPrefManager.areAnimationsEnabled) {
+                val animation: Animation =
+                    AnimationUtils.loadAnimation(applicationContext, zoomType)
+                btn.startAnimation(animation)
+            }
+        }
+    }
+
+    private fun stopAnimation(img: ImageView) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            if (mainPrefManager.areAnimationsEnabled) {
+                img.clearAnimation()
+            }
+        }
+    }
+
+    private fun stopAnimation(btn: Button) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            if (mainPrefManager.areAnimationsEnabled) {
+                btn.clearAnimation()
+            }
         }
     }
 }
