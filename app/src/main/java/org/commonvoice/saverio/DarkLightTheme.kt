@@ -96,7 +96,9 @@ class DarkLightTheme {
         theme: Boolean,
         view: Context,
         top_or_bottom: Int,
-        element: ConstraintLayout
+        element: ConstraintLayout,
+        background: Int = R.color.colorWhite,
+        backgroundDT: Int = R.color.colorBlack
     ) {
         if (theme) {
             //top_or_buttom = (border-radius) {-1: both, top and bottom WITH border, 1: just top | 2: just bottom | 3:both, top and bottom}
@@ -109,7 +111,7 @@ class DarkLightTheme {
                     element.setBackgroundResource(R.drawable.top_bottom_border_radius)
                 }
                 element.backgroundTintList =
-                    ContextCompat.getColorStateList(view, R.color.colorBlack)
+                    ContextCompat.getColorStateList(view, backgroundDT)
             } else {
                 element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
             }
@@ -123,7 +125,7 @@ class DarkLightTheme {
                     element.setBackgroundResource(R.drawable.top_bottom_border_radius)
                 }
                 element.backgroundTintList =
-                    ContextCompat.getColorStateList(view, R.color.colorWhite)
+                    ContextCompat.getColorStateList(view, background)
             } else {
                 element.setBackgroundResource(R.drawable.txt_rounded_with_border)
             }

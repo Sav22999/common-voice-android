@@ -21,7 +21,10 @@
             android:layout_marginEnd="10dp"
             android:background="@drawable/top_bottom_border_radius"
             android:backgroundTint="@color/colorWhite"
-            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -30,6 +33,8 @@
                 android:id="@+id/textDashboardStatistics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:text="@string/dashboardStatistics"
                 android:textAlignment="textStart"
                 android:textAllCaps="true"
@@ -41,194 +46,246 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabDashboard"
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardSectionTabs"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/colorTransparent"
+                android:padding="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDashboardStatistics"
-                app:tabGravity="fill"
-                app:tabIndicatorColor="@color/colorSelected"
-                app:tabIndicatorGravity="bottom"
-                app:tabIndicatorHeight="3dp"
-                app:tabMaxWidth="0dp"
-                app:tabRippleColor="#FFAAAA"
-                app:tabSelectedTextColor="@color/colorSelected"
-                app:tabTextColor="@color/colorPrimaryDark">
+                app:layout_constraintTop_toBottomOf="@+id/textDashboardStatistics">
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabDashboardYou"
+                <Button
+                    android:id="@+id/buttonEveryoneStatisticsDashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dashboardTabYou" />
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_rounded"
+                    android:backgroundTint="@color/colorDarkWhite"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    android:text="@string/dashboardTabEveryone"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonYouStatisticsDashboard"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:id="@+id/tabDashboardEveryone"
+                <Button
+                    android:id="@+id/buttonYouStatisticsDashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dashboardTabEveryone" />
-            </com.google.android.material.tabs.TabLayout>
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_rounded"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    android:text="@string/dashboardTabYou"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/textDashboardToday"
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardSectionToday"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/dashboardToday"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_big"
-                android:textStyle="bold|italic"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorWhiteTransparent"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabDashboard" />
+                app:layout_constraintTop_toBottomOf="@+id/dashboardSectionTabs">
 
-            <TextView
-                android:id="@+id/textTodaySpeak"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/sourcecodepro"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="..."
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_big"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
-                tools:text="0" />
+                <TextView
+                    android:id="@+id/textDashboardToday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/dashboardToday"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:id="@+id/separatorTodaySpeak"
-                android:layout_width="150dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="5dp"
-                android:background="#FF505F"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTodaySpeak" />
+                <TextView
+                    android:id="@+id/textTodayListen"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
+                    tools:text="0" />
 
-            <ImageView
-                android:id="@+id/imageSpeakToday"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separatorTodaySpeak"
-                app:srcCompat="@drawable/speak_cv" />
+                <View
+                    android:id="@+id/separatorTodaySpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FF505F"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTodaySpeak" />
 
-            <TextView
-                android:id="@+id/textTodayListen"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/sourcecodepro"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="..."
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_big"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
-                tools:text="0" />
+                <ImageView
+                    android:id="@+id/imageSpeakToday"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorTodaySpeak"
+                    app:srcCompat="@drawable/speak_cv" />
 
-            <View
-                android:id="@+id/separatorTodayListen"
-                android:layout_width="150dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="5dp"
-                android:background="#5ACCB8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTodayListen" />
+                <View
+                    android:id="@+id/separatorTodayListen"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#5ACCB8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTodayListen" />
 
-            <ImageView
-                android:id="@+id/imageTodayListen"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="50dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separatorTodayListen"
-                app:srcCompat="@drawable/listen_cv" />
+                <TextView
+                    android:id="@+id/textTodaySpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
+                    tools:text="0" />
 
-            <TextView
-                android:id="@+id/textDashboardEver"
-                android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/imageTodayListen"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorTodayListen"
+                    app:srcCompat="@drawable/listen_cv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardSectionEver"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/dashboardEver"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_big"
-                android:textStyle="bold|italic"
-                app:layout_constraintTop_toBottomOf="@+id/imageSpeakToday"
-                tools:layout_editor_absoluteX="6dp" />
-
-            <TextView
-                android:id="@+id/textEverSpeak"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/sourcecodepro"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="..."
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_big"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
-                tools:text="0" />
-
-            <View
-                android:id="@+id/separatorEverSpeak"
-                android:layout_width="150dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="5dp"
-                android:background="#FF505F"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textEverSpeak" />
-
-            <ImageView
-                android:id="@+id/imageEverSpeak"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separatorEverSpeak"
-                app:srcCompat="@drawable/speak_cv" />
-
-            <TextView
-                android:id="@+id/textEverListen"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/sourcecodepro"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="..."
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_big"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorWhiteTransparent"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
-                tools:text="0" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardSectionToday">
 
-            <View
-                android:id="@+id/separatorEverListen"
-                android:layout_width="150dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="5dp"
-                android:background="#5ACCB8"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textEverListen" />
+                <TextView
+                    android:id="@+id/textDashboardEver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/dashboardEver"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageEverListen"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="50dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separatorEverListen"
-                app:srcCompat="@drawable/listen_cv" />
+                <TextView
+                    android:id="@+id/textEverListen"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
+                    tools:text="0" />
+
+                <View
+                    android:id="@+id/separatorEverSpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FF505F"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textEverSpeak" />
+
+                <ImageView
+                    android:id="@+id/imageEverListen"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorEverListen"
+                    app:srcCompat="@drawable/listen_cv" />
+
+                <View
+                    android:id="@+id/separatorEverListen"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#5ACCB8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textEverListen" />
+
+                <TextView
+                    android:id="@+id/textEverSpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
+                    tools:text="0" />
+
+                <ImageView
+                    android:id="@+id/imageEverSpeak"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorEverSpeak"
+                    app:srcCompat="@drawable/speak_cv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

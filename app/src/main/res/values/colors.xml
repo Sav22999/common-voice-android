@@ -16,6 +16,8 @@
     <color name="colorLightGreen">#228822</color>
     <color name="colorLightGray">#999999</color>
     <color name="colorDarkDarkGray">#222222</color>
+    <color name="colorLightBlack">#111111</color>
+    <color name="colorDarkWhite">#EEEEEE</color>
     <color name="colorSeparator">#404040</color>
     <color name="colorMenuInactive">#777777</color>
     <color name="colorMenuActive">@color/colorWhite</color>
@@ -24,6 +26,7 @@
     <color name="colorListen">#5ACCB8</color>
 
     <color name="colorTransparent">#00000000</color>
+    <color name="colorWhiteTransparent">#88EEEEEE</color>
     <color name="colorBackgroundDarkTransparent">#AA000000</color>
 
     <!-- Message dialogs -->
