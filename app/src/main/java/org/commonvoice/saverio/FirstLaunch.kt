@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import kotlinx.android.synthetic.main.first_run.*
+import kotlinx.android.synthetic.main.first_launch.*
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
@@ -37,7 +37,7 @@ class FirstLaunch : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.first_run)
+        setContentView(R.layout.first_launch)
 
         this.seekBarFirstLaunch.isEnabled = false
 
