@@ -76,7 +76,7 @@ class SpeakViewModel(
                 when (it) {
                     0 -> {
                         // suppress message dialogs
-                        println("!! Error")
+                        _state.postValue(State.SUPPRESSED)
                     }
                     1 -> {
                         _state.postValue(State.RECORDING_ERROR)
@@ -206,7 +206,8 @@ class SpeakViewModel(
             LISTENED,
             RECORDING_ERROR,
             RECORDING_TOO_SHORT,
-            RECORDING_TOO_LONG
+            RECORDING_TOO_LONG,
+            SUPPRESSED
         }
     }
 

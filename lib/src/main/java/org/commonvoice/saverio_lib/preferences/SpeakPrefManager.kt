@@ -33,7 +33,6 @@ class SpeakPrefManager(ctx: Context) {
     private enum class Keys {
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
-
         ENABLE_RECORDING_SOUND_INDICATOR,
         SKIP_RECORDING_CONFIRMATION
     }

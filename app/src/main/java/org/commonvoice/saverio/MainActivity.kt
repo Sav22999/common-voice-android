@@ -32,7 +32,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_tutorial.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
@@ -121,7 +120,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE",
             "LEVEL_SAVED" to "LEVEL_SAVED",
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
-            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED"
+            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
+            "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -747,6 +747,27 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
+    fun getAnimationsEnabledSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
+            true
+        )
+    }
+
+    fun setAnimationsEnabledSwitch(status: Boolean) {
+        if (status != this.getAnimationsEnabledSwitch()) {
+            getSharedPreferences(
+                settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["ARE_ANIMATIONS_ENABLED"], status)
+                .apply()
+        }
+    }
+
     fun setSavedStatistics(type: String, statistics: String) {
         try {
             if (type == "you") {
@@ -1234,7 +1255,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun openTutorial() {
-        Intent(this, TutorialActivity::class.java).also {
+        Intent(this, FirstLaunch::class.java).also {
             startActivity(it)
             finish()
         }
@@ -1445,13 +1466,17 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun startAnimation(img: Button) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_out)
-        img.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            val animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_out)
+            img.startAnimation(animation)
+        }
     }
 
     fun stopAnimation(img: Button) {
-        img.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            img.clearAnimation()
+        }
     }
 
     fun setAutoPlay(status: Boolean) {

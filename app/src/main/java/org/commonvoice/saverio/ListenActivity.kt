@@ -341,22 +341,30 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun startAnimation(img: ImageView, zoomType: Int) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, zoomType)
-        img.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            val animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, zoomType)
+            img.startAnimation(animation)
+        }
     }
 
     private fun startAnimation(btn: Button, zoomType: Int) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, zoomType)
-        btn.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            val animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, zoomType)
+            btn.startAnimation(animation)
+        }
     }
 
     private fun stopAnimation(img: ImageView) {
-        img.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            img.clearAnimation()
+        }
     }
 
     private fun stopAnimation(btn: Button) {
-        btn.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            btn.clearAnimation()
+        }
     }
 }

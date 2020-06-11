@@ -21,9 +21,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <!-- First start (TutorialActivity) -->
+        <!-- First start (FirstLaunch) -->
         <activity
-            android:name=".TutorialActivity"
+            android:name=".FirstLaunch"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.FullScreen" />

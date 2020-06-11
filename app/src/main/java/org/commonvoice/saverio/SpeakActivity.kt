@@ -408,16 +408,20 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun animateAudioBar() {
-        speakSectionAudioBar.children.forEach {
-            animateAudioBar(it)
+        if (mainPrefManager.areAnimationsEnabled) {
+            speakSectionAudioBar.children.forEach {
+                animateAudioBar(it)
+            }
         }
     }
 
     private fun hideAudioBar() {
-        if (imageAudioBarCenter.isVisible && this.isAudioBarVisible) {
-            this.isAudioBarVisible = false
-            speakSectionAudioBar.children.forEach {
-                animateAudioBar(it)
+        if (mainPrefManager.areAnimationsEnabled) {
+            if (imageAudioBarCenter.isVisible && this.isAudioBarVisible) {
+                this.isAudioBarVisible = false
+                speakSectionAudioBar.children.forEach {
+                    animateAudioBar(it)
+                }
             }
         }
     }
@@ -452,28 +456,31 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         animation.start()
     }
 
-    private fun stopButtons() {
-        stopAnimation(buttonNoClip)
-        stopAnimation(buttonYesClip)
-    }
-
     private fun startAnimation(img: ImageView, zoomType: Int) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, zoomType)
-        img.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            val animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, zoomType)
+            img.startAnimation(animation)
+        }
     }
 
     private fun startAnimation(btn: Button, zoomType: Int) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, zoomType)
-        btn.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            val animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, zoomType)
+            btn.startAnimation(animation)
+        }
     }
 
     private fun stopAnimation(img: ImageView) {
-        img.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            img.clearAnimation()
+        }
     }
 
     private fun stopAnimation(btn: Button) {
-        btn.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            btn.clearAnimation()
+        }
     }
 }

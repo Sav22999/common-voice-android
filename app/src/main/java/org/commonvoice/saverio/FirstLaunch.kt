@@ -16,12 +16,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import kotlinx.android.synthetic.main.activity_tutorial.*
+import kotlinx.android.synthetic.main.first_run.*
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
 
-class TutorialActivity : AppCompatActivity() {
+class FirstLaunch : AppCompatActivity() {
 
     private val mainPrefManager: MainPrefManager by inject()
 
@@ -37,35 +37,35 @@ class TutorialActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tutorial)
+        setContentView(R.layout.first_run)
 
-        this.seekBar.isEnabled = false
+        this.seekBarFirstLaunch.isEnabled = false
 
-        this.seekBar.progress = 0
+        this.seekBarFirstLaunch.progress = 0
 
         // import languages from array
         this.languages_list = resources.getStringArray(R.array.languages)
         this.languages_list_short = resources.getStringArray(R.array.languages_short)
 
-        var txtTerms = this.textView_tutorialTerms
+        var txtTerms = this.textTermsFirstLaunch
         txtTerms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         txtTerms.setOnClickListener {
             openTerms()
         }
 
-        this.btn_next.setOnClickListener {
+        this.buttonNextFirstLaunch.setOnClickListener {
             tutorialStart()
         }
         tutorialStart()
 
-        var txtSkip = this.textSkipTutorial
-        txtSkip.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        var txtSkip = this.buttonSkipFirstLaunch
+        //txtSkip.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         txtSkip.setOnClickListener {
             skipPermission()
         }
 
         nestedScrollTutorial.setOnTouchListener(object :
-            OnSwipeTouchListener(this@TutorialActivity) {
+            OnSwipeTouchListener(this@FirstLaunch) {
             override fun onSwipeLeft() {
                 if (status < 6) {
                     if (status == 0 || status == 1) {
@@ -143,31 +143,31 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     fun tutorialStart0() {
-        this.textTutorialMessage.text = getString(R.string.tutorial_terms)
-        this.seekBar.progress = 0
+        this.textMessageFirstLaunch.text = getString(R.string.txt_introduction_app_first_launch)
+        this.seekBarFirstLaunch.progress = 0
         this.tutorialSectionTerms.isGone = false
-        this.textView_tutorial.text = getString(R.string.tutorial_text1)
-        var txtSkip = this.textSkipTutorial
+        this.textDescriptionFirstLaunch.text = getString(R.string.txt_introduction_app_first_launch)
+        var txtSkip = this.buttonSkipFirstLaunch
         txtSkip.isGone = true
-        this.textTutorialMessage.isVisible = false
-        this.btn_next.text = getString(R.string.btn_tutorial1) // next
+        this.textMessageFirstLaunch.isVisible = false
+        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial1) // next
         this.status = 1
     }
 
     fun microphonePermission() {
-        this.textTutorialMessage.isVisible = false
-        this.textTutorialMessage.text = ""
-        this.seekBar.progress = 1
+        this.textMessageFirstLaunch.isVisible = false
+        this.textMessageFirstLaunch.text = ""
+        this.seekBarFirstLaunch.progress = 1
         this.tutorialSectionTerms.isGone = true
-        this.textView_tutorial.text = getString(R.string.tutorial_text2)
-        var txtSkip = this.textSkipTutorial
+        this.textDescriptionFirstLaunch.text = getString(R.string.tutorial_text2)
+        var txtSkip = this.buttonSkipFirstLaunch
         txtSkip.isGone = false
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
             != PackageManager.PERMISSION_GRANTED
         ) {
-            this.btn_next.text = getString(R.string.btn_tutorial2) // permit
+            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2) // permit
         } else {
-            this.btn_next.text = getString(R.string.btn_tutorial3) // next
+            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3) // next
         }
         this.status = 2
     }
@@ -182,7 +182,7 @@ class TutorialActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         } else {
-            var txtSkip = this.textSkipTutorial
+            var txtSkip = this.buttonSkipFirstLaunch
             txtSkip.isGone = true
             storagePermission()
         }
@@ -190,20 +190,20 @@ class TutorialActivity : AppCompatActivity() {
 
     fun tutorialStartPermissionDenied() {
         // Permission is not granted
-        this.textTutorialMessage.isVisible = true
-        this.textTutorialMessage.text =
+        this.textMessageFirstLaunch.isVisible = true
+        this.textMessageFirstLaunch.text =
             getString(R.string.txt_permission_failed) // permission failed
         //Toast.makeText(this, "Error: permission fail", Toast.LENGTH_LONG).show()
-        this.btn_next.text = getString(R.string.btn_tutorial4) // try again
+        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial4) // try again
     }
 
     fun tutorialStartPermissionSuccessful() {
         // Permission is granted
-        this.textTutorialMessage.isVisible = true
-        this.textTutorialMessage.text =
+        this.textMessageFirstLaunch.isVisible = true
+        this.textMessageFirstLaunch.text =
             getString(R.string.txt_permission_successful) // permission successful
         //Toast.makeText(this,"Permission successful",Toast.LENGTH_SHORT).show()
-        this.btn_next.text = getString(R.string.btn_tutorial3) // next
+        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3) // next
         if (this.status == 2) {
             //microphone permission
             this.status = 3
@@ -214,19 +214,19 @@ class TutorialActivity : AppCompatActivity() {
     }
 
     fun storagePermission() {
-        this.textTutorialMessage.isVisible = false
-        this.textTutorialMessage.text = ""
-        this.textView_tutorial.text = getString(R.string.tutorial_text3)
-        this.seekBar.progress = 2
-        var txtSkip = this.textSkipTutorial
+        this.textMessageFirstLaunch.isVisible = false
+        this.textMessageFirstLaunch.text = ""
+        this.textDescriptionFirstLaunch.text = getString(R.string.tutorial_text3)
+        this.seekBarFirstLaunch.progress = 2
+        var txtSkip = this.buttonSkipFirstLaunch
         txtSkip.isGone = false
         this.languageListTutorial.isGone = true
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
         ) {
-            this.btn_next.text = getString(R.string.btn_tutorial2) // permit
+            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2) // permit
         } else {
-            this.btn_next.text = getString(R.string.btn_tutorial3) // next
+            this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3) // next
         }
         this.status = 4
     }
@@ -241,7 +241,7 @@ class TutorialActivity : AppCompatActivity() {
                 RECORD_REQUEST_CODE
             )
         } else {
-            var txtSkip = this.textSkipTutorial
+            var txtSkip = this.buttonSkipFirstLaunch
             txtSkip.isGone = true
             tutorialStart4()
         }
@@ -249,13 +249,13 @@ class TutorialActivity : AppCompatActivity() {
 
     fun tutorialStart4() {
         // finish
-        this.textTutorialMessage.isVisible = false
-        this.textTutorialMessage.text = ""
-        this.seekBar.progress = 3
-        this.textView_tutorial.text = getString(R.string.tutorial_text4)
-        this.btn_next.text = getString(R.string.btn_tutorial5)
+        this.textMessageFirstLaunch.isVisible = false
+        this.textMessageFirstLaunch.text = ""
+        this.seekBarFirstLaunch.progress = 3
+        this.textDescriptionFirstLaunch.text = getString(R.string.tutorial_text4)
+        this.buttonNextFirstLaunch.text = getString(R.string.btn_tutorial5)
         this.languageListTutorial.isGone = false
-        var txtSkip = this.textSkipTutorial
+        var txtSkip = this.buttonSkipFirstLaunch
         txtSkip.isGone = true
 
         var languages = findViewById<Spinner>(R.id.languageListTutorial)

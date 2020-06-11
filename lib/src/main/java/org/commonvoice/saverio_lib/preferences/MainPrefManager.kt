@@ -51,15 +51,21 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putBoolean(Keys.ARE_STATS_ANONYMOUS.name, value).apply()
         }
 
+    var areAnimationsEnabled: Boolean
+        get() = preferences.getBoolean(Keys.ARE_ANIMATIONS_ENABLED.name, true)
+        set(value) {
+            preferences.edit().putBoolean(Keys.ARE_ANIMATIONS_ENABLED.name, value).apply()
+        }
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
         TOKEN_USERID,
         TOKEN_AUTH,
         GESTURES_ENABLED,
-
         STATS_USERID,
         ARE_STATS_ANONYMOUS,
+        ARE_ANIMATIONS_ENABLED
     }
 
 }

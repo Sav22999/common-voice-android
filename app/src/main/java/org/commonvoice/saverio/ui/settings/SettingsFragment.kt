@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import org.commonvoice.saverio.BuildConfig
@@ -144,15 +145,21 @@ class SettingsFragment : Fragment() {
 
         val switchExperimentalFeaturesSettings: Switch =
             root.findViewById(R.id.switchExperimentalFeatures)
+        val sectionExperimentalFeatures: ConstraintLayout =
+            root.findViewById(R.id.settingsSectionExperimentalFeatures)
         switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 //ON
             } else {
                 //OFF
+                //Reset all settings as default
+                main.setAnimationsEnabledSwitch(true)
             }
             main.setExperimentalFeaturesSwitch(isChecked)
+            sectionExperimentalFeatures.isGone = !isChecked
         }
         switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
+        sectionExperimentalFeatures.isGone = !(main.getExperimentalFeaturesSwitch())
 
         val btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
         btnTranslateTheApp.setOnClickListener {
@@ -243,6 +250,19 @@ class SettingsFragment : Fragment() {
         }
         skipRecordingsConfirmationSettings.isChecked = main.getSkipRecordingsConfirmationSwitch()
 
+        val animationsEnabledSettings: Switch =
+            root.findViewById(R.id.switchEnableAnimations)
+        animationsEnabledSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            mainPrefManager.areAnimationsEnabled = isChecked
+            main.setAnimationsEnabledSwitch(isChecked)
+        }
+        animationsEnabledSettings.isChecked = main.getAnimationsEnabledSwitch()
+
         setTheme(main, root)
 
         return root
@@ -256,12 +276,19 @@ class SettingsFragment : Fragment() {
         theme.setElements(view, root.findViewById(R.id.settingsSectionListen))
         theme.setElements(view, root.findViewById(R.id.settingsSectionSpeak))
         theme.setElements(view, root.findViewById(R.id.settingsSectionOther))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionExperimentalFeatures))
         theme.setElements(view, root.findViewById(R.id.settingsSectionBottom))
 
         theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionLanguage))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionListen))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionSpeak))
         theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionOther))
+        theme.setElement(
+            isDark,
+            view,
+            3,
+            root.findViewById(R.id.settingsSectionExperimentalFeatures)
+        )
         theme.setElement(isDark, view, 1, root.findViewById(R.id.settingsSectionBottom))
 
 
@@ -306,6 +333,24 @@ class SettingsFragment : Fragment() {
             isDark,
             view,
             root.findViewById(R.id.buttonSeeStatistics) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonCustomiseTheFontSize) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonCustomiseGestures) as TextView,
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonThemes) as TextView,
             background = false
         )
 

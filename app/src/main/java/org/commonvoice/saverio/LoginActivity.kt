@@ -728,13 +728,17 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun startAnimation(img: ImageView) {
-        var animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.login)
-        img.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            var animation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.login)
+            img.startAnimation(animation)
+        }
     }
 
     fun stopAnimation(img: ImageView) {
-        img.clearAnimation()
+        if (mainPrefManager.areAnimationsEnabled) {
+            img.clearAnimation()
+        }
     }
 
 }
