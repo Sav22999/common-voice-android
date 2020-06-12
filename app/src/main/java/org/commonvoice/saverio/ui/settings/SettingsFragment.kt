@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_settings.*
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
@@ -153,7 +154,9 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
                 //Reset all settings as default
+                mainPrefManager.areAnimationsEnabled = true
                 main.setAnimationsEnabledSwitch(true)
+                switchEnableAnimations.isChecked = true
             }
             main.setExperimentalFeaturesSwitch(isChecked)
             sectionExperimentalFeatures.isGone = !isChecked
@@ -263,6 +266,15 @@ class SettingsFragment : Fragment() {
         }
         animationsEnabledSettings.isChecked = main.getAnimationsEnabledSwitch()
 
+        root.findViewById<Button>(R.id.buttonTelegramGroup).setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://bit.ly/3clgfkg")
+                )
+            )
+        }
+
         setTheme(main, root)
 
         return root
@@ -295,62 +307,68 @@ class SettingsFragment : Fragment() {
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.textRelease) as TextView,
+            root.findViewById(R.id.textRelease),
             background = false
         )
 
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonContactOnTelegram) as TextView,
+            root.findViewById(R.id.buttonContactOnTelegram),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonBuyMeACoffee) as TextView,
+            root.findViewById(R.id.buttonBuyMeACoffee),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonProjectGitHub) as TextView,
+            root.findViewById(R.id.buttonProjectGitHub),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonTranslateTheApp) as TextView,
+            root.findViewById(R.id.buttonTranslateTheApp),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonOpenTutorial) as TextView,
+            root.findViewById(R.id.buttonOpenTutorial),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonSeeStatistics) as TextView,
+            root.findViewById(R.id.buttonSeeStatistics),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonCustomiseTheFontSize) as TextView,
+            root.findViewById(R.id.buttonCustomiseTheFontSize),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonCustomiseGestures) as TextView,
+            root.findViewById(R.id.buttonCustomiseGestures),
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.buttonThemes) as TextView,
+            root.findViewById(R.id.buttonThemes),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonTelegramGroup),
             background = false
         )
 

@@ -111,9 +111,9 @@
     <string name="message_app_not_completely_translated">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <string name="txt_animations">Animations</string>
     <string name="txt_customise_the_font_size">Customise the font size</string>
-    <string name="txt_customise_gestures">Customise Gestures</string>
+    <string name="txt_customise_gestures">Customise gestures</string>
     <string name="txt_themes_settings">Themes</string>
-    <string name="txt_telegram_group_settings">Telegram group</string>
+    <string name="txt_telegram_group_settings">Telegram group of the app</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">Skip</string>
@@ -195,8 +195,8 @@
     <string name="text_help">Help</string>
     <string name="text_info">Info</string>
     <string name="check_box_message_dialog">Do not show anymore</string>
-    <string name="text_airplane_mode_enabled">You are now offline and the app switched to the Airplane mode automatically.\nThis mean you can continue to record and validate, but the requests will be send later.</string>
-    <string name="text_airplane_mode_enabled_2">You can see easily when you are in Airplane mode because you can find this icon on the screen:</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to the Offline mode automatically.\nThis means you can continue to record and validate, but the requests will be send later.</string>
+    <string name="text_offline_mode_enabled_2">You can see easily when you are in Offline mode because you can find this icon on the screen:</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Daily goal</string>
     <string name="daily_goal_is_not_set">No goal set</string>

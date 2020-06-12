@@ -244,7 +244,6 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             } else {
                 openActualSpeakSection()
             }
-            finish()
         }
     }
 
@@ -266,6 +265,7 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
         Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }
+        finish()
     }
 
     private fun startAnimation(img: Button) {

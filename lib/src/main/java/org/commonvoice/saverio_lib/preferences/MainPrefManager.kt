@@ -31,7 +31,7 @@ class MainPrefManager(private val ctx: Context) {
         }
 
     var areGesturesEnabled: Boolean
-        get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, false)
+        get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, true)
         set(value) {
             preferences.edit().putBoolean(Keys.GESTURES_ENABLED.name, value).apply()
         }

@@ -136,8 +136,7 @@
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/textMessageFirstLaunch"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:visibility="visible">
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/textTermsFirstLaunch"
@@ -278,7 +277,7 @@
                 android:foregroundTint="@color/colorBackground"
                 android:indeterminate="false"
                 android:indeterminateTint="@color/colorBackground"
-                android:max="6"
+                android:max="7"
                 android:progress="0"
                 android:progressBackgroundTint="@color/colorBackground"
                 android:progressTint="@color/colorBackground"

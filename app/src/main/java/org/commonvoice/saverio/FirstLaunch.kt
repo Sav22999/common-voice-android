@@ -123,7 +123,7 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
     }
 
     private fun checkStatus(start: Boolean = false, next: Boolean = true, swipe: Boolean = true) {
-        if (next && status < 6 || !next && status > 0 || start) {
+        if (next && status < 7 || !next && status > 0 || start) {
             imageFirstLaunch.setImageResource(R.drawable.robot)
             stopAnimation(imageFirstLaunch)
             buttonSkipFirstLaunch.isGone = true
@@ -228,6 +228,12 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 buttonOpenTelegramFirstLaunch.isGone = false
                 startAnimation(buttonOpenTelegramFirstLaunch, animationFirstLaunch)
             } else if (status == 6) {
+                //offline mode
+                imageFirstLaunch.setImageResource(R.drawable.ic_no_wifi)
+                startAnimation(imageFirstLaunch, animationFirstLaunch)
+                textDescriptionFirstLaunch.text =
+                    getString(R.string.txt_offline_mode_first_launch)
+            } else if (status == 7) {
                 //language
                 imageFirstLaunch.setImageResource(R.drawable.ic_language)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
@@ -236,7 +242,7 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 languageListFirstLaunch.isGone = false
                 buttonNextFirstLaunch.text = getString(R.string.btn_tutorial5)
             }
-        } else if (status == 6 && next && !swipe) {
+        } else if (status == 7 && next && !swipe) {
             //close first launch
             finishFirstRun()
         }

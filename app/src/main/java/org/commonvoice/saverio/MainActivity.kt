@@ -681,7 +681,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             PRIVATE_MODE
         ).getBoolean(
             settingsSwitchData["GESTURES"],
-            false
+            true
         )
     }
 
