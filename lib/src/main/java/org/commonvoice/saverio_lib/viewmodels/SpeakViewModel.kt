@@ -112,6 +112,11 @@ class SpeakViewModel(
     }
 
     fun skipSentence() = viewModelScope.launch(Dispatchers.IO) {
+        when (_state.value) {
+            State.RECORDING -> stopRecording()
+            State.LISTENING -> stopListening()
+        }
+
         currentSentence.value?.let {
             sentencesRepository.deleteSentence(it)
         }
