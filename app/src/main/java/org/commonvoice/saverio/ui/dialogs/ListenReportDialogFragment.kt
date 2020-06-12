@@ -30,21 +30,17 @@ class ListenReportDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val reasonsMap: Map<String, String> by lazy {
-            mapOf(
+        val reasonsMap: Map<String, String> = mapOf(
                 getString(R.string.checkbox_reason1_report_clip) to "offensive-speech",
                 getString(R.string.checkbox_reason2_report) to "grammar-or-spelling",
                 getString(R.string.checkbox_reason3_report) to "different-language"
             )
-        }
 
-        val checkboxes: List<CheckBox> by lazy {
-            listOf(
+        val checkboxes: List<CheckBox> = listOf(
                 checkBoxReason1Report,
                 checkBoxReason2Report,
                 checkBoxReason3Report
             )
-        }
 
         titleReportSentenceClip.text = getString(R.string.title_report_clip)
         checkBoxReason1Report.text = getString(R.string.checkbox_reason1_report_clip)
@@ -64,14 +60,12 @@ class ListenReportDialogFragment : BottomSheetDialogFragment() {
             if (checkBoxReasonOtherReport.isChecked) {
                 buttonSendReport.isEnabled = editable?.isNotBlank() ?: false
             } else {
-
                 buttonSendReport.isEnabled = true
             }
         }
 
         buttonSendReport.onClick {
             val reasons = mutableListOf<String>()
-
 
             checkboxes.forEach { checkBox ->
                 if (checkBox.isChecked) {

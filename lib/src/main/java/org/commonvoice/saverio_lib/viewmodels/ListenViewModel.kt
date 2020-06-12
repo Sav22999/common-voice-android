@@ -97,7 +97,7 @@ class ListenViewModel(
 
     fun stop() {
         when (state.value) {
-            ListenViewModel.Companion.State.LISTENING -> mediaPlayerRepository.stopPlaying()
+            State.LISTENING -> mediaPlayerRepository.stopPlaying()
         }
         mediaPlayerRepository.clean()
     }

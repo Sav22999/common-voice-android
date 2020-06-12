@@ -8,11 +8,10 @@ import android.net.NetworkRequest
 import android.os.Build
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import java.lang.Exception
 
 class ConnectionManager(appContext: Context) {
 
-    private val _liveInternetAvailability = MutableLiveData(true)
+    private val _liveInternetAvailability: MutableLiveData<Boolean> = MutableLiveData()
     val liveInternetAvailability: LiveData<Boolean> get() = _liveInternetAvailability
 
     val isInternetAvailable: Boolean
@@ -59,9 +58,8 @@ class ConnectionManager(appContext: Context) {
         } else {
             connectivityManager.registerNetworkCallback(networkRequest, callback)
         }
-        if (!connectivityManager.isDefaultNetworkActive) {
-            _liveInternetAvailability.postValue(false)
-        }
+
+        _liveInternetAvailability.postValue(connectivityManager.activeNetwork != null)
     }
 
 }
