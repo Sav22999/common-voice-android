@@ -1,6 +1,5 @@
 package org.commonvoice.saverio
 
-import OnSwipeTouchListener
 import android.Manifest
 import android.app.Activity
 import android.content.Context
@@ -11,6 +10,7 @@ import android.graphics.Paint
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -25,6 +25,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -33,10 +34,18 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_webbrowser.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.json.JSONObject
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
+
+    private val loginViewModel: LoginViewModel by viewModel()
+    private val workManager: WorkManager by inject()
 
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
@@ -47,7 +56,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
             "LOGGED_IN_NAME" to "LOGGED",
-            "USER_CONNECT_ID" to "USER_CONNECT_ID",
             "USER_NAME" to "USERNAME",
             "LEVEL_SAVED" to "LEVEL_SAVED",
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
@@ -61,7 +69,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     var userName: String = ""
 
     val urlWithoutLang: String =
-        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+        "https://voice.allizom.org/api/v1/" //API url (without lang)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,7 +96,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://voice.mozilla.org/profile/info")
+                    Uri.parse("https://voice.allizom.org/profile/info")
                 )
             )
         }
@@ -114,7 +122,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 var url = intent.data
                 //println("Url: "+ url.toString())
                 if (url.toString()
-                        .contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?")
+                        .contains("https://auth.allizom.auth0.com/passwordless/verify_redirect?")
                 ) {
                     openWebBrowser(url.toString())
                 } else {
@@ -137,7 +145,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             setTheme(this)
 
             if (getGestures()) {
-                nestedScrollLogin.setOnTouchListener(object : OnSwipeTouchListener(this@LoginActivity) {
+                nestedScrollLogin.setOnTouchListener(object :
+                    OnSwipeTouchListener(this@LoginActivity) {
                     override fun onSwipeRight() {
                         onBackPressed()
                     }
@@ -165,10 +174,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             settingsSwitchData["LEVEL_SAVED"],
             0
         )
-        println("level: " + value)
+        //println("level: " + value)
         return when (value) {
-            in 0..20 -> 1
-            in 5..49 -> 2
+            in 0..9 -> 1
+            in 10..49 -> 2
             in 50..99 -> 3
             in 100..499 -> 4
             in 500..999 -> 5
@@ -181,72 +190,12 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         }
     }
 
-    fun setLevel(txtLevel: TextView) {
-        txtLevel.isGone = false
-        var nLevel = getSavedLevel()
-        var nameLevel: String = ""
-        when (nLevel) {
-            1 -> {
-                nameLevel = getString(R.string.txt_level1_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel1)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            2 -> {
-                nameLevel = getString(R.string.txt_level2_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel2)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            3 -> {
-                nameLevel = getString(R.string.txt_level3_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel3)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            4 -> {
-                nameLevel = getString(R.string.txt_level4_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel4)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            5 -> {
-                nameLevel = getString(R.string.txt_level5_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel5)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            6 -> {
-                nameLevel = getString(R.string.txt_level6_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel6)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            7 -> {
-                nameLevel = getString(R.string.txt_level7_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel7)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-            8 -> {
-                nameLevel = getString(R.string.txt_level8_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel8)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
-            }
-            9 -> {
-                nameLevel = getString(R.string.txt_level9_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel9)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
-            }
-            10 -> {
-                nameLevel = getString(R.string.txt_level10_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel10)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorBlack))
-            }
-            else -> {
-                nameLevel = getString(R.string.txt_level1_name)
-                txtLevel.setBackgroundResource(R.color.colorLevel1)
-                txtLevel.setTextColor(ContextCompat.getColor(this, R.color.colorWhite))
-            }
-        }
-        txtLevel.setText(
-            getString(R.string.txt_your_level).replace(
-                "{{*{{level}}*}}",
-                nLevel.toString()
-            ) + "\n\"" + nameLevel + "\""
+    fun setLevel(textLevel: TextView) {
+        textLevel.isGone = false
+        val nLevel = getSavedLevel()
+        textLevel.text = getString(R.string.txt_your_level).replace(
+            "{{*{{level}}*}}",
+            nLevel.toString()
         )
     }
 
@@ -255,6 +204,9 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
         var isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutLogin) as ConstraintLayout)
+        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionData))
+        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionInformation))
+        theme.setElement(isDark, view, 1, this.findViewById(R.id.loginSectionLogout))
         theme.setElement(isDark, view, this.findViewById(R.id.btnBadges) as Button)
         theme.setElement(isDark, view, this.findViewById(R.id.btnLogout) as Button)
         theme.setElement(
@@ -264,14 +216,31 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileUsername) as TextView)
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileEmail) as TextView)
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileAge) as TextView)
-        theme.setTextView(isDark, view, this.findViewById(R.id.textProfileGender) as TextView)
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileUsername) as TextView
+        )
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileEmail) as TextView
+        )
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileAge) as TextView
+        )
+        theme.setTextView(
+            isDark,
+            view,
+            this.findViewById(R.id.textProfileGender) as TextView
+        )
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileUsername) as TextView)
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileEmail) as TextView)
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileAge) as TextView)
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileGender) as TextView)
+        theme.setTextView(isDark, view, textLevel as TextView, border = false)
         theme.setElement(
             isDark,
             this.findViewById(R.id.imageProfileImageBorder) as ImageView,
@@ -293,7 +262,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         txtLoading.isGone = false
         bgLoading.isGone = false
         imgLoading.isGone = false
-        startAnimation(imgLoading)
+        startAnimation(imgLoading, R.anim.login)
     }
 
     fun hideLoading() {
@@ -309,7 +278,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     fun openWebBrowser(type: String) {
         //val email = findViewById<EditText>(R.id.txt_email_login).text
 
-        if (type == "login" || (type != "login" && type != "logout" && type.contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?"))) {
+        if (type == "login" || (type != "login" && type != "logout" && type.contains("https://auth.allizom.auth0.com/passwordless/verify_redirect?"))) {
             setContentView(R.layout.activity_webbrowser)
 
             webView = findViewById(R.id.webViewBrowser)
@@ -331,7 +300,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
                     //println(" ---->> " + url + " >> " + CookieManager.getInstance().getCookie(url) + " <<---- " )
-                    if (url!!.contains("https://voice.mozilla.org/") && cookies != null && cookies.contains(
+                    if (url!!.contains("https://voice.allizom.org/") && cookies != null && cookies.contains(
                             "connect.sid="
                         )
                     ) {
@@ -346,7 +315,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         while (i < arrayCookies.count() || myCookie == "") {
                             if (arrayCookies[i].contains("connect.sid=")) myCookie =
                                 arrayCookies[i].substring(12, arrayCookies[i].length - 1)
-                            i++;
+                            i++
                         }
                         userId = myCookie
                         //println(" -->> MY COOKIE -->> " + myCookie + " <<--")
@@ -356,11 +325,13 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                             PRIVATE_MODE
                         ).edit()
                             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], true).apply()
-                        getSharedPreferences(
-                            settingsSwitchData["USER_CONNECT_ID"],
-                            PRIVATE_MODE
-                        ).edit()
-                            .putString(settingsSwitchData["USER_CONNECT_ID"], userId).apply()
+
+                        mainPrefManager.sessIdCookie = userId
+
+                        loginViewModel.clearDB()
+
+                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
                         //println(" -->> LOGGED IN <<-- ")
 
@@ -371,7 +342,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 }
             }
             if (type == "login") {
-                webView.loadUrl("https://voice.mozilla.org/login")
+                webView.loadUrl("https://voice.allizom.org/login")
             } else {
                 webView.loadUrl(type)
             }
@@ -379,14 +350,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun logoutAndExit(exit: Boolean = true) {
-        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        mainPrefManager.sessIdCookie = null
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
         getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
             .putString(settingsSwitchData["USER_NAME"], "").apply()
-        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
@@ -397,6 +365,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         }
         CookieManager.getInstance().flush()
         CookieManager.getInstance().removeAllCookies(null)
+        loginViewModel.clearDB()
     }
 
     fun setLevelRecordingsValidations(type: Int, value: Int) {
@@ -470,13 +439,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                         false
                     )
                 ) {
-                    userId = getSharedPreferences(
-                        settingsSwitchData["USER_CONNECT_ID"],
-                        PRIVATE_MODE
-                    ).getString(
-                        settingsSwitchData["USER_CONNECT_ID"],
-                        ""
-                    )
+                    userId = mainPrefManager.sessIdCookie ?: ""
                 }
             }
 
@@ -639,7 +602,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         var btnLoginOpenCommonVoice: Button = this.findViewById(R.id.btnOpenPrivacyPolicy)
         btnLoginOpenCommonVoice.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://voice.mozilla.org/"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://voice.allizom.org/"))
             startActivity(browserIntent)
         }
     }
@@ -650,6 +613,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         errorCode: String = "",
         details: String = ""
     ) {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
         try {
             var messageText = text
             if (errorCode != "") {
@@ -660,7 +627,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 }
             }
             val message: MessageDialog =
-                MessageDialog(this, 0, title, messageText, details = details)
+                MessageDialog(this, 0, title, messageText, details = details, height = height)
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: LoginActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
@@ -745,13 +712,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkInfo = cm.activeNetworkInfo
             if (networkInfo != null && networkInfo.isConnected) {
-                //Connection OK
                 return true
             } else {
                 //No connection
                 return false
             }
-
         }
     }
 
@@ -760,16 +725,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             startActivity(it)
             openMainAfterLogin()
         }
-    }
-
-    fun startAnimation(img: ImageView) {
-        var animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.login)
-        img.startAnimation(animation)
-    }
-
-    fun stopAnimation(img: ImageView) {
-        img.clearAnimation()
     }
 
 }

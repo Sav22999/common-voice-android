@@ -14,116 +14,37 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/buttonReportSpeak"
-            android:layout_width="wrap_content"
+            android:id="@+id/textSentenceSpeak"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-medium"
-            android:foregroundTint="@color/colorPrimaryDark"
-            android:gravity="center"
-            android:padding="6dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="@string/button_report"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/btn_listen_again"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/listen2_cv"
-            android:textColor="@color/colorWhite"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/btn_start_speak"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:visibility="visible" />
-
-        <Button
-            android:id="@+id/btn_send_speak"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/btn_rounded"
-            android:text="@string/btn_send_sentence"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_start_speak"
-            tools:visibility="visible" />
-
-        <View
-            android:id="@+id/viewSeparatorSpeak"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_skip_speak"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_send_speak" />
-
-        <View
-            android:id="@+id/viewSeparatorSpeak2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_listen_again"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
-
-        <Button
-            android:id="@+id/btn_skip_speak"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/btn_rounded"
-            android:text="@string/btn_skip_sentence"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/buttonReportSpeak"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/btn_start_speak"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@drawable/speak_cv"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSpeakSentence" />
-
-        <TextView
-            android:id="@+id/textSpeakSentence"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/colorBlack"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
             android:backgroundTintMode="screen"
             android:gravity="center|center_horizontal|center_vertical"
+            android:minHeight="300dp"
             android:padding="16px"
-            android:text="Sentence to record ..."
+            android:text="..."
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
-            android:textSize="30dp"
+            android:textSize="@dimen/title_very_big"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageOfflineModeSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_no_wifi"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/textMessageAlertSpeak"
@@ -134,12 +55,296 @@
             android:layout_marginEnd="8dp"
             android:gravity="center|top|center_vertical"
             android:textColor="@color/colorAlertMessage"
-            android:textSize="16dp"
+            android:textSize="@dimen/text_small"
             android:textStyle="italic"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSpeakSentence" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/speakSectionAudioBar"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorTransparent"
+            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak">
+
+            <View
+                android:id="@+id/imageAudioBar1"
+                android:layout_width="10dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar1"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageAudioBar2"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar2"
+                android:layout_width="10dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageAudioBar3"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar3"
+                android:layout_width="10dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar3"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageAudioBar4"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar4"
+                android:layout_width="10dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar4"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageAudioBar5"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar5"
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar5"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageAudioBar6"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar6"
+                android:layout_width="10dp"
+                android:layout_height="60dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar6"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageAudioBarCenter"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBarCenter"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/colorTransparent"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/imageAudioBar7"
+                android:layout_width="10dp"
+                android:layout_height="80dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar7"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageAudioBarCenter"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar8"
+                android:layout_width="10dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar8"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageAudioBar7"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar9"
+                android:layout_width="10dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar9"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageAudioBar8"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar10"
+                android:layout_width="10dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar10"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageAudioBar9"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar11"
+                android:layout_width="10dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar11"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageAudioBar10"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/imageAudioBar12"
+                android:layout_width="10dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorAudioBar12"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageAudioBar11"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/speakSectionMiddle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorTransparent"
+            android:padding="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak">
+
+            <Button
+                android:id="@+id/buttonRecordOrListenAgain"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/listen2_cv"
+                android:textColor="@color/colorWhite"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/buttonStartStopSpeak"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/buttonStartStopSpeak"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/speak_cv"
+                android:enabled="false"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonSendSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_rounded"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="@string/btn_send_sentence"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonStartStopSpeak"
+                tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/speakSectionBottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/buttonReportSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:foregroundTint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:padding="6dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/button_report"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonSkipSpeak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/btn_rounded"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="@string/btn_skip_sentence"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
+                app:layout_constraintBottom_toTopOf="@+id/buttonReportSpeak"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

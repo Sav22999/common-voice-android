@@ -1,6 +1,5 @@
 package org.commonvoice.saverio
 
-import OnSwipeTouchListener
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -12,13 +11,15 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
-import kotlinx.android.synthetic.main.activity_tutorial.*
 import kotlinx.android.synthetic.main.first_run_listen.*
-import kotlinx.android.synthetic.main.first_run_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.koin.android.ext.android.inject
 
 
 class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
+
+    private val firstRunPrefManager: FirstRunPrefManager by inject()
 
     var status: Int = 0
     private var PRIVATE_MODE = 0
@@ -54,9 +55,17 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
         var theme: DarkLightTheme = DarkLightTheme()
 
         var isDark = theme.getTheme(view)
+        theme.setElements(view, this.findViewById(R.id.firstRunListenSectionBottom))
+        theme.setElement(isDark, view, 1, findViewById(R.id.firstRunListenSectionBottom))
         theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
         theme.setElement(isDark, view, this.findViewById(R.id.btnNextListen) as Button)
-        theme.setElement(isDark, view, this.findViewById(R.id.seekBarFirstRunListen) as SeekBar, R.color.colorBackground, R.color.colorBackgroundDT)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.seekBarFirstRunListen) as SeekBar,
+            R.color.colorBackground,
+            R.color.colorBackgroundDT
+        )
     }
 
     override fun onBackPressed() {
@@ -106,7 +115,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtTextBottom.isGone = false
             txtOne.isGone = false
             stopAnimation(txtTwo)
-            startAnimation(txtOne)
+            startAnimation(txtOne, R.anim.zoom_in)
         } else if (this.status == 1 && next || this.status == 3 && !next) {
             this.status = 2
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -117,7 +126,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtTwo.isGone = false
             stopAnimation(txtOne)
             stopAnimation(txtThree)
-            startAnimation(txtTwo)
+            startAnimation(txtTwo, R.anim.zoom_in)
         } else if (this.status == 2 || this.status == 4 && !next) {
             this.status = 3
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -128,7 +137,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtThree.isGone = false
             stopAnimation(txtTwo)
             stopAnimation(txtFour)
-            startAnimation(txtThree)
+            startAnimation(txtThree, R.anim.zoom_in)
         } else if (this.status == 3 || this.status == 5 && !next) {
             this.status = 4
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -139,7 +148,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtFour.isGone = false
             stopAnimation(txtThree)
             stopAnimation(txtFour)
-            startAnimation(txtFour)
+            startAnimation(txtFour, R.anim.zoom_in)
         } else if (this.status == 4 || this.status == 6 && !next) {
             this.status = 5
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -151,7 +160,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtFour.setText("5")
             btnPlay.setImageResource(R.drawable.stop_cv)
             stopAnimation(txtFour)
-            startAnimation(txtFour)
+            startAnimation(txtFour, R.anim.zoom_in)
         } else if (this.status == 5 || this.status == 7 && !next) {
             this.status = 6
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -166,7 +175,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnNo.isGone = false
             stopAnimation(txtFour)
             stopAnimation(txtSeven)
-            startAnimation(txtFour)
+            startAnimation(txtFour, R.anim.zoom_in)
         } else if (this.status == 6 || this.status == 8 && !next) {
             this.status = 7
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -180,7 +189,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnNo.isGone = false
             stopAnimation(txtFour)
             stopAnimation(txtEight)
-            startAnimation(txtSeven)
+            startAnimation(txtSeven, R.anim.zoom_in)
         } else if (this.status == 7 || this.status == 9 && !next) {
             this.status = 8
             btnNext.setText(getString(R.string.btn_tutorial5))
@@ -193,25 +202,16 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnYes.isGone = false
             btnNo.isGone = false
             stopAnimation(txtSeven)
-            startAnimation(txtEight)
+            startAnimation(txtEight, R.anim.zoom_in)
         } else if (this.status == 8) {
             getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE).edit()
                 .putBoolean(FIRST_RUN_LISTEN, false).apply()
-            val intent = Intent(this, ListenActivity::class.java).also {
+            firstRunPrefManager.listen = false
+            Intent(this, ListenActivity::class.java).also {
                 startActivity(it)
             }
             finish()
         }
-    }
-
-    fun startAnimation(img: Button) {
-        var animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
-        img.startAnimation(animation)
-    }
-
-    fun stopAnimation(img: Button) {
-        img.clearAnimation()
     }
 
 }

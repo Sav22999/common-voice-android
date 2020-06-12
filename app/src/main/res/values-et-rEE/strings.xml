@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">Järgmine</string>
     <string name="btn_tutorial4">Uuesti</string>
     <string name="btn_tutorial5">Lõpeta</string>
+    <string name="txt_permission_successful">Permission successful</string>
+    <string name="txt_permission_failed">Error: permission failed</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
     <string name="tutorial_text1">This is not the official app of Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
     <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">Salvestust saadetakse...</string>
     <string name="txt_recording_sent">Salvestus saadetud!</string>
     <string name="txt_sending_recording_failed">Failed to send recording!</string>

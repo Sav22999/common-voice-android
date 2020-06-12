@@ -1,37 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#292929</color>
-    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimaryDark">@color/colorBlack</color>
     <color name="colorAccent">#292929</color>
     <color name="colorBackground">#EEEEEE</color>
     <color name="colorBackgroundRipple">#BBBBBB</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorRed">#FF0000</color>
-    <color name="colorAlertMessage">#FF0000</color>
+    <color name="colorGray">#666666</color>
+    <color name="colorAlertMessage">@color/colorRed</color>
     <color name="colorSelected">@color/colorRed</color>
-    <color name="colorSelectedBackground">#EEEEEE</color>
+    <color name="colorSelectedBackground">@color/colorWhite</color>
     <color name="colorLightRed">#FFAAAA</color>
     <color name="colorLightGreen">#228822</color>
-    <color name="colorGray">#666666</color>
+    <color name="colorLightGray">#999999</color>
+    <color name="colorDarkDarkGray">#222222</color>
+    <color name="colorLightBlack">#111111</color>
+    <color name="colorDarkWhite">#EEEEEE</color>
     <color name="colorSeparator">#404040</color>
+    <color name="colorMenuInactive">#777777</color>
+    <color name="colorMenuActive">@color/colorWhite</color>
 
-    <!-- Level - Login -->
-    <color name="colorLevel1">#FF0000</color>
-    <color name="colorLevel2">#C80000</color>
-    <color name="colorLevel3">#6400FF</color>
-    <color name="colorLevel4">#FF00FF</color>
-    <color name="colorLevel5">#0000FF</color>
-    <color name="colorLevel6">#FF9600</color>
-    <color name="colorLevel7">#CD7F32</color>
-    <color name="colorLevel8">#C0C0C0</color>
-    <color name="colorLevel9">#D4AF37</color>
-    <color name="colorLevel10">#E5E4E2</color>
+    <color name="colorSpeak">#FF505F</color>
+    <color name="colorListen">#5ACCB8</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorWhiteTransparent">#88EEEEEE</color>
+    <color name="colorBackgroundDarkTransparent">#AA000000</color>
+
+    <!-- Message dialogs -->
+    <color name="colorWarning">#FF5722</color>
+    <color name="colorTip">@color/colorBlack</color>
+    <color name="colorInfo">@color/colorBlack</color>
+    <color name="colorHelp">#0077FF</color>
+    <color name="colorChangelog">@color/colorBlack</color>
+
+    <!-- AudioBar -->
+    <color name="colorAudioBar1">#FF505F</color>
+    <color name="colorAudioBar2">#ED6BB2</color>
+    <color name="colorAudioBar3">#E879F4</color>
+    <color name="colorAudioBar4">#BC92E0</color>
+    <color name="colorAudioBar5">#9292E0</color>
+    <color name="colorAudioBar6">#8EA7E4</color>
+    <color name="colorAudioBar7">#5A6DCC</color>
+    <color name="colorAudioBar8">#5A9BCC</color>
+    <color name="colorAudioBar9">#5ABBCC</color>
+    <color name="colorAudioBar10">#5ACCB8</color>
+    <color name="colorAudioBar11">#7DE1CF</color>
+    <color name="colorAudioBar12">#7DE196</color>
 
     <!-- Dark theme (DT) -->
-    <color name="colorBackgroundDT">#222222</color>
-    <color name="colorBackgroundButtonDT">#999999</color>
-    <color name="colorAccentDT">#999999</color>
+    <color name="colorBackgroundDT">@color/colorDarkDarkGray</color>
+    <color name="colorBackgroundButtonDT">@color/colorLightGray</color>
+    <color name="colorAccentDT">@color/colorLightGray</color>
     <color name="colorAlertMessageDT">#FFAAAA</color>
     <color name="colorSelectedBackgroundDT">@color/colorBackgroundDT</color>
     <color name="colorSelectedDT">#FF7777</color>

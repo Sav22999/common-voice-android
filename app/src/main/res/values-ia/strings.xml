@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">Sequente</string>
     <string name="btn_tutorial4">Reprobar</string>
     <string name="btn_tutorial5">Finir</string>
+    <string name="txt_permission_successful">Permission successful</string>
+    <string name="txt_permission_failed">Error: permission failed</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
     <string name="tutorial_text1">Isto non es le application official de Common Voice. Isto es disveloppate per Saverio Morelli sin ulle assistentia o societate con Mozilla.</string>
     <string name="tutorial_terms">Si tu procede, tu concorda con le Terminos de servicio de Common Voice.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">Ascolta le integre registration pro verificar que illo es correcte.</string>
     <string name="txt_listening_again_recording">Pulsa le icone infra pro cessar ascolta.</string>
     <string name="txt_recording_too_long">Registration troppo longe. Durata maxime 10 secundas.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">Invio del registration...</string>
     <string name="txt_recording_sent">Registration inviate!</string>
     <string name="txt_sending_recording_failed">Falta a inviar registration!</string>

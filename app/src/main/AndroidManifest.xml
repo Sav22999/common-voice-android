@@ -11,18 +11,19 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".CommonVoice"
         android:allowBackup="true"
         android:configChanges="locale"
-        android:icon="@mipmap/ic_commonvoice"
+        android:icon="@mipmap/ic_commonvoice_beta"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_commonvoice_round"
+        android:roundIcon="@mipmap/ic_commonvoice_beta_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <!-- First start (TutorialActivity) -->
+        <!-- First start (FirstLaunch) -->
         <activity
-            android:name=".TutorialActivity"
+            android:name=".FirstLaunch"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.FullScreen" />

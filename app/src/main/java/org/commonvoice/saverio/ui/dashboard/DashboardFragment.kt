@@ -12,7 +12,9 @@ import android.webkit.WebView
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.android.volley.AuthFailureError
@@ -24,7 +26,9 @@ import com.google.android.material.tabs.TabLayout
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.json.JSONObject
+import org.koin.android.ext.android.inject
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
@@ -37,6 +41,8 @@ class DashboardFragment : Fragment() {
     private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var webView: WebView
     private var language = "it"
+
+    private val statsPrefManager: StatsPrefManager by inject()
 
     var statisticsYou = arrayOf(
         0,
@@ -51,7 +57,7 @@ class DashboardFragment : Fragment() {
         0
     ) //(todaySpeak, todayListen, everSpeak, everListen); "-1" indicates an error -> show "?"
 
-    var youSelected: Boolean = false
+    private var selectedTab: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,27 +73,19 @@ class DashboardFragment : Fragment() {
 
         val textStatistics: TextView = root.findViewById(R.id.textDashboardStatistics)
         textStatistics.text = getText(R.string.dashboardStatistics)
-        val tabDashboard: TabLayout = root.findViewById(R.id.tabDashboard)
+        val buttonYou: Button = root.findViewById(R.id.buttonYouStatisticsDashboard)
+        val buttonEveryone: Button = root.findViewById(R.id.buttonEveryoneStatisticsDashboard)
 
         //load "you" values -> loadYouValues() doesn't work here
         try {
             if (main.logged) {
-                tabDashboard.getTabAt(0)?.select() //set YOU tab -> logged-in
-                try {
-                    loadData("you", root)
-                    this.youSelected = true
-                } catch (e: Exception) {
-                    //println("Error: " + e.toString())
-                }
+                buttonYou.isGone = false
+                selectTab(root, main, 0, forced = true)
+                loadData("you", root)
             } else {
-                tabDashboard.getTabAt(1)
-                    ?.select() //set EVERYONE tab -> no-logged-in (YOU section disabled)
-                try {
-                    loadData("everyone", root)
-                    this.youSelected = false
-                } catch (e: Exception) {
-                    //println("Error: " + e.toString())
-                }
+                buttonYou.isGone = true
+                selectTab(root, main, 1, forced = true)
+                loadData("everyone", root)
             }
 
             var labelNow: String = ""
@@ -142,7 +140,7 @@ class DashboardFragment : Fragment() {
             }
 
             val goalText = root.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-            if (main.getDailyGoal() == 0) {
+            if (main.getDailyGoal() <= 0) {
                 goalText.setText(getString(R.string.daily_goal_is_not_set))
                 goalText.typeface = Typeface.DEFAULT
                 root.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
@@ -156,65 +154,116 @@ class DashboardFragment : Fragment() {
                 //println("Daily goal is set")
             }
 
-            tabDashboard.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    if (tab?.position == 0) {
-                        if (main.logged) {
-                            try {
-                                loadData("you", root)
-                                youSelected = true
-                            } catch (e: Exception) {
-                                //println("Error: " + e.toString())
-                            }
-                        } else {
-                            tabDashboard.getTabAt(1)?.select()
-                            main.noLoggedInNoStatisticsYou()
-                        }
-                    } else if (tab?.position == 1) {
-                        try {
-                            loadData("everyone", root)
-                            youSelected = false
-                        } catch (e: Exception) {
-                            //println("Error: " + e.toString())
-                        }
-                    }
-                }
-
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-                }
-
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-                }
-            })
+            buttonYou.setOnClickListener {
+                if (selectTab(root, main, 0)) loadData("you", root)
+            }
+            buttonEveryone.setOnClickListener {
+                if (selectTab(root, main, 1)) loadData("everyone", root)
+            }
         } catch (e: Exception) {
             //println("Error: " + e.toString())
         }
-
-        main.checkConnection()
 
         setTheme(main, root)
 
         return root
     }
 
+    fun selectTab(root: View, view: Context, tab: Int, forced: Boolean = false): Boolean {
+        if ((tab != selectedTab) || forced) {
+            selectedTab = tab
+            val theme = DarkLightTheme()
+            val isDark = theme.getTheme(view)
+            val tabs: Array<Button> = arrayOf(
+                root.findViewById(R.id.buttonYouStatisticsDashboard),
+                root.findViewById(R.id.buttonEveryoneStatisticsDashboard)
+            )
+
+            for (position in tabs.indices) {
+                if (position == tab) {
+                    if (isDark) {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorBlack
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorLightGray)
+                    } else {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorWhite
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorBlack)
+                    }
+                } else {
+                    if (isDark) {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorWhite
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorDarkDarkGray)
+                    } else {
+                        tabs[position].setTextColor(
+                            ContextCompat.getColor(
+                                view,
+                                R.color.colorBlack
+                            )
+                        )
+                        tabs[position].backgroundTintList =
+                            ContextCompat.getColorStateList(view, R.color.colorDarkWhite)
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
     fun setTheme(view: Context, root: View) {
         val theme = DarkLightTheme()
+        val isDark = theme.getTheme(view)
         theme.setElements(view, root.findViewById(R.id.layoutDashboard))
 
-        val isDark = theme.getTheme(view)
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionStatistics))
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionToday))
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionEver))
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionVoicesOnline))
+        theme.setElements(view, root.findViewById(R.id.dashboardSectionDailyGoal))
+
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.dashboardSectionStatistics))
         theme.setElement(
             isDark,
-            root.findViewById(R.id.imageBackgroundTab) as ImageView,
-            R.color.colorSelectedBackground,
-            R.color.colorSelectedBackgroundDT
+            view,
+            3,
+            root.findViewById(R.id.dashboardSectionToday),
+            R.color.colorWhiteTransparent,
+            R.color.colorLightBlack
         )
+        theme.setElement(
+            isDark,
+            view,
+            3,
+            root.findViewById(R.id.dashboardSectionEver),
+            R.color.colorWhiteTransparent,
+            R.color.colorLightBlack
+        )
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.dashboardSectionVoicesOnline))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.dashboardSectionDailyGoal))
+
         theme.setTextView(isDark, view, root.findViewById(R.id.textDashboardVoicesNow) as TextView)
         theme.setTextView(
             isDark,
             view,
             root.findViewById(R.id.textDashboardVoicesBefore) as TextView
         )
-        theme.setTabLayout(isDark, view, root.findViewById(R.id.tabDashboard) as TabLayout)
         theme.setElement(
             isDark,
             view,
@@ -449,7 +498,8 @@ class DashboardFragment : Fragment() {
                                         if (type == "everyoneEverSpeak" || type == "everyoneEverListen") {
                                             val jsonResultTemp =
                                                 jsonResult.replace("[{", "").replace("}]", "")
-                                            val jsonResultTempArray = jsonResultTemp.split("},{")
+                                            val jsonResultTempArray =
+                                                jsonResultTemp.split("},{")
                                             jsonResult =
                                                 "[{" + jsonResultTempArray[jsonResultTempArray.size - 1] + "}]"
                                         }
@@ -469,10 +519,12 @@ class DashboardFragment : Fragment() {
                                                     jsonObj.getString("votes_count").toInt()
                                             }
                                             "everyoneEverSpeak" -> {
-                                                valueToReturn = jsonObj.getString("total").toInt()
+                                                valueToReturn =
+                                                    jsonObj.getString("total").toInt()
                                             }
                                             "everyoneEverListen" -> {
-                                                valueToReturn = jsonObj.getString("valid").toInt()
+                                                valueToReturn =
+                                                    jsonObj.getString("valid").toInt()
                                             }
                                             //println(jsonObj)
                                         }
@@ -503,7 +555,7 @@ class DashboardFragment : Fragment() {
 
                                 //Set text to the value
                                 try {
-                                    if ((type == "everyoneEverSpeak" || type == "everyoneEverListen") && !this.youSelected) {
+                                    if ((type == "everyoneEverSpeak" || type == "everyoneEverListen") && selectedTab != 0) {
                                         textElements[index]?.text =
                                             (truncate(valueToReturn.toDouble() / 3600).toInt()
                                                 .toString() + getString(
@@ -528,8 +580,9 @@ class DashboardFragment : Fragment() {
                                         )
                                     } else {
                                         if (index != -1) {
-                                            if (typeToSend == "you" && this.youSelected || typeToSend == "everyone" && !this.youSelected)
-                                                textElements[index]?.text = valueToReturn.toString()
+                                            if (typeToSend == "you" && selectedTab == 0 || typeToSend == "everyone" && selectedTab != 0)
+                                                textElements[index]?.text =
+                                                    valueToReturn.toString()
                                             main.setSavedStatisticsValue(
                                                 typeToSend,
                                                 valueToReturn.toString(),

@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">அடுத்து</string>
     <string name="btn_tutorial4">மீண்டும் முயற்சி</string>
     <string name="btn_tutorial5">முடிந்தது</string>
+    <string name="txt_permission_successful">Permission successful</string>
+    <string name="txt_permission_failed">Error: permission failed</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/ta/terms</string>
     <string name="tutorial_text1">இது Common Voice அதிகாரப்பூர்வ செயலி அல்ல. இது Mozilla-ன் எந்த ஆதரவும் அல்லது கூட்டு இல்லாமல் Saverio Morelli-ஆல் உருவாக்கபட்டது.</string>
     <string name="tutorial_terms">தொடர்வதன் மூலம், பொதுவான குரலின் சேவை விதிமுறைகளை நீங்கள் ஒப்புக்கொள்கிறீர்கள்.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">இது சரியானது என்பதை உறுதிப்படுத்த முழு பதிவையும் கேளுங்கள்.</string>
     <string name="txt_listening_again_recording">கேட்பதை நிறுத்த கீழே உள்ள ஐகானை அழுத்தவும்.</string>
     <string name="txt_recording_too_long">பதிவு மிக நீண்டது. அதிகபட்ச காலம் 10 வினாடிகள்.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">பதிவை அனுப்புகிறது …</string>
     <string name="txt_recording_sent">பதிவு அனுப்பப்பட்டது!</string>
     <string name="txt_sending_recording_failed">பதிவு அனுப்புவதில் தோல்வி!</string>

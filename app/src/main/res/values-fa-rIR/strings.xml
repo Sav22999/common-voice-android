@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">بعدی</string>
     <string name="btn_tutorial4">تلاش دوباره</string>
     <string name="btn_tutorial5">پايان</string>
+    <string name="txt_permission_successful">دسترسی موفقیت‌آمیز</string>
+    <string name="txt_permission_failed">خطا: دسترسی شکست خورد</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/fa/terms</string>
     <string name="tutorial_text1">این، کارهٔ رسمی صداهای اشتراکی نیست، بلکه به دست ساوریو مورلی بدون هیچ پشتیبانی یا شراکتی با موزیلا توسعه یافته است.</string>
     <string name="tutorial_terms">ادامه دادن، به منزلهٔ پذیرش شرایط خدمات صداهای اشتراکی است.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">برای اطمینان از درستی ضبط، به تمامش گوش کنید.</string>
     <string name="txt_listening_again_recording">برای پایان شنیدن، نقشک زیر را بزنید.</string>
     <string name="txt_recording_too_long">ضبط خیلی طولانی است. بیشینهٔ طول، ۱۰ ثانیه است.</string>
+    <string name="txt_recording_too_short">ضبط بیش از حد کوتاه است. لطفاً دوباره تلاش کنید.</string>
     <string name="txt_sending_recording">در حال فرستادن ضبط…</string>
     <string name="txt_recording_sent">ضبط فرستاده شد!</string>
     <string name="txt_sending_recording_failed">شکست در فرستادن ضبط!</string>

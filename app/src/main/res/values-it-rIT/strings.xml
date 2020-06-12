@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">Avanti</string>
     <string name="btn_tutorial4">Riprova</string>
     <string name="btn_tutorial5">Finito</string>
+    <string name="txt_permission_successful">Permesso ottenuto</string>
+    <string name="txt_permission_failed">Error: permesso fallito</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/it/terms</string>
     <string name="tutorial_text1">Questa non è l\'app ufficiale di Common Voice. È sviluppata da Saverio Morelli senza alcun supporto o accordo con Mozilla.</string>
     <string name="tutorial_terms">Proseguendo, accetti le Condizioni di utilizzo del servizio di Common Voice.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">Ascolta la registrazione per intero e assicurati che sia corretta.</string>
     <string name="txt_listening_again_recording">Premi l\'icona sotto per fermare l\'ascolto della tua registrazione.</string>
     <string name="txt_recording_too_long">La registrazione è troppo lunga. La durata massima è di 10 secondi.</string>
+    <string name="txt_recording_too_short">La registrazione è troppo breve. Riprova.</string>
     <string name="txt_sending_recording">Invio della registrazione in corso...</string>
     <string name="txt_recording_sent">Registrazione inviata correttamente!</string>
     <string name="txt_sending_recording_failed">Invio della registrazione fallito!</string>

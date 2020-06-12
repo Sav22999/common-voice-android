@@ -12,7 +12,6 @@ import kotlin.concurrent.schedule
 class RestartActivity : VariableLanguageActivity(R.layout.activity_restart) {
 
     private var PRIVATE_MODE = 0
-    private val LANGUAGE_NAME = "LANGUAGE"
     private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +20,9 @@ class RestartActivity : VariableLanguageActivity(R.layout.activity_restart) {
         val img: ImageView = this.findViewById(R.id.imgIconStart)
         val animation: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.start)
-        img.startAnimation(animation)
+        if (mainPrefManager.areAnimationsEnabled) {
+            img.startAnimation(animation)
+        }
 
         var restart: Boolean = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).getBoolean(
             UI_LANGUAGE_CHANGED,

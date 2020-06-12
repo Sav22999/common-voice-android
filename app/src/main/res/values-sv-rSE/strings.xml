@@ -32,6 +32,8 @@
     <string name="btn_tutorial3">Nästa</string>
     <string name="btn_tutorial4">Försök igen</string>
     <string name="btn_tutorial5">Avsluta</string>
+    <string name="txt_permission_successful">Permission successful</string>
+    <string name="txt_permission_failed">Error: permission failed</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/sv-SE/terms</string>
     <string name="tutorial_text1">Det här är inte en officiell app för Common Voice av Mozilla. Den är utvecklad av Saverio Morelli utan support eller partnerskap med Mozilla.</string>
     <string name="tutorial_terms">Genom att fortsätta godkänner du villkoren för Common Voice.</string>
@@ -121,6 +123,7 @@
     <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
     <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long">Inspelningen är för lång. 10 sekunder är max.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">Laddar upp inspelningen...</string>
     <string name="txt_recording_sent">Inspelningen uppladdad!</string>
     <string name="txt_sending_recording_failed">Failed to send recording!</string>
