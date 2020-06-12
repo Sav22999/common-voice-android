@@ -41,6 +41,7 @@ class MediaPlayerRepository {
     }
 
     fun clean() {
+        mediaPlayer?.reset()
         mediaPlayer?.release()
         mediaPlayer = null
     }

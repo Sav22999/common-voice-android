@@ -35,6 +35,7 @@ class RecordingSoundIndicatorRepository(private val ctx: Context) {
     }
 
     private fun cleanStartingPlayer() {
+        startingSoundPlayer?.reset()
         startingSoundPlayer?.release()
         startingSoundPlayer = null
     }
@@ -56,6 +57,7 @@ class RecordingSoundIndicatorRepository(private val ctx: Context) {
     }
 
     private fun cleanFinishingPlayer() {
+        finishingSoundPlayer?.reset()
         finishingSoundPlayer?.release()
         finishingSoundPlayer = null
     }

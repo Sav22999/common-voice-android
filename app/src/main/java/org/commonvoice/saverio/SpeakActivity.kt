@@ -221,9 +221,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun stopAndRefresh() {
         speakViewModel.stop()
-        speakViewModel.currentSentence.observe(this, Observer { sentence ->
+        speakViewModel.currentSentence.value?.let { sentence ->
             setupUIStateStandby(sentence)
-        })
+        }
         hideAudioBar()
     }
 

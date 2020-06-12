@@ -15,6 +15,7 @@ class MediaRecorderRepository(
     private var suppressError: Boolean = false
 
     fun setupRecorder() {
+        recorder?.reset()
         recorder?.release()
         recorder = null
         fileHolder.reset()
@@ -91,6 +92,7 @@ class MediaRecorderRepository(
     }
 
     fun clean() {
+        recorder?.reset()
         recorder?.release()
         recorder = null
         fileHolder.clear()
