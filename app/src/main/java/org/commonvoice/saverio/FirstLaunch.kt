@@ -323,6 +323,9 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
 
         buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3)//next
         buttonSkipFirstLaunch.isGone = true//hide skip button
+        this.buttonNextFirstLaunch.setOnClickListener {
+            checkStatus(swipe = false)
+        }
     }
 
     private fun finishFirstRun() {

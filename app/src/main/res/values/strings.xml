@@ -195,8 +195,8 @@
     <string name="text_help">Help</string>
     <string name="text_info">Info</string>
     <string name="check_box_message_dialog">Do not show anymore</string>
-    <string name="text_offline_mode_enabled">You are now offline and the app switched to the Offline mode automatically.\nThis means you can continue to record and validate, but the requests will be send later.</string>
-    <string name="text_offline_mode_enabled_2">You can see easily when you are in Offline mode because you can find this icon on the screen:</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Daily goal</string>
     <string name="daily_goal_is_not_set">No goal set</string>
