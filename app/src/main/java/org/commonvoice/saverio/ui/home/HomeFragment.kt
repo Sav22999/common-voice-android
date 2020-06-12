@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.AnimRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -16,12 +18,16 @@ import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
+
+    private val mainPrefManager: MainPrefManager by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -74,8 +80,8 @@ class HomeFragment : Fragment() {
 
         setTheme(main, root)
 
-        main.startAnimation(btnSpeak)
-        main.startAnimation(btnListen)
+        startAnimation(btnSpeak, R.anim.zoom_out)
+        startAnimation(btnListen, R.anim.zoom_out)
 
         main.checkNewVersionAvailable()
 
@@ -112,4 +118,17 @@ class HomeFragment : Fragment() {
         theme.setElement(isDark, view, root.findViewById(R.id.buttonHomeLogin) as Button)
         theme.setElement(isDark, root.findViewById(R.id.layoutHome) as ConstraintLayout)
     }
+
+    private fun startAnimation(view: View, @AnimRes res: Int) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            AnimationUtils.loadAnimation(requireContext(), res).let {
+                view.startAnimation(it)
+            }
+        }
+    }
+
+    private fun stopAnimation(view: View) {
+        view.clearAnimation()
+    }
+
 }

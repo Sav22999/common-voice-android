@@ -7,7 +7,9 @@ import android.os.LocaleList
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import org.commonvoice.saverio.TranslationsLanguages
-import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import android.view.View
+import android.view.animation.AnimationUtils
+import androidx.annotation.AnimRes
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 import java.util.*
@@ -29,7 +31,7 @@ abstract class VariableLanguageActivity : AppCompatActivity {
      */
     constructor(@LayoutRes layout: Int) : super(layout)
 
-    val mainPrefManager: MainPrefManager by inject()
+    protected val mainPrefManager: MainPrefManager by inject()
 
     override fun attachBaseContext(newBase: Context) {
         val tempLang = mainPrefManager.language
@@ -74,6 +76,18 @@ abstract class VariableLanguageActivity : AppCompatActivity {
         val configuration = resources.configuration
         configuration.locales = localeList
         return createConfigurationContext(configuration)
+    }
+
+    protected fun startAnimation(view: View, @AnimRes res: Int) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            AnimationUtils.loadAnimation(this, res).let {
+                view.startAnimation(it)
+            }
+        }
+    }
+
+    protected fun stopAnimation(view: View) {
+        view.clearAnimation()
     }
 
 }

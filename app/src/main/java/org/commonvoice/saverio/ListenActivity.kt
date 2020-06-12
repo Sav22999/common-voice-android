@@ -340,31 +340,4 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         stopAnimation(buttonYesClip)
     }
 
-    private fun startAnimation(img: ImageView, zoomType: Int) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            val animation: Animation =
-                AnimationUtils.loadAnimation(applicationContext, zoomType)
-            img.startAnimation(animation)
-        }
-    }
-
-    private fun startAnimation(btn: Button, zoomType: Int) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            val animation: Animation =
-                AnimationUtils.loadAnimation(applicationContext, zoomType)
-            btn.startAnimation(animation)
-        }
-    }
-
-    private fun stopAnimation(img: ImageView) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            img.clearAnimation()
-        }
-    }
-
-    private fun stopAnimation(btn: Button) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            btn.clearAnimation()
-        }
-    }
 }

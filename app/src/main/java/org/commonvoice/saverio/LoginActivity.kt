@@ -262,7 +262,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         txtLoading.isGone = false
         bgLoading.isGone = false
         imgLoading.isGone = false
-        startAnimation(imgLoading)
+        startAnimation(imgLoading, R.anim.login)
     }
 
     fun hideLoading() {
@@ -724,20 +724,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         val intent = Intent(this, NoConnectionActivity::class.java).also {
             startActivity(it)
             openMainAfterLogin()
-        }
-    }
-
-    fun startAnimation(img: ImageView) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            var animation: Animation =
-                AnimationUtils.loadAnimation(applicationContext, R.anim.login)
-            img.startAnimation(animation)
-        }
-    }
-
-    fun stopAnimation(img: ImageView) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            img.clearAnimation()
         }
     }
 

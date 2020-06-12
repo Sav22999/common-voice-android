@@ -68,7 +68,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
-    private var firstRun = true
     private val RECORD_REQUEST_CODE = 101
     private val PRIVATE_MODE = 0
     //"LOGGED" //false->no logged-in || true -> logged-in
@@ -125,8 +124,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     var isExperimentalFeaturesActived: Boolean? = null
 
-    var uniqueUserId = ""
-
     var dashboard_selected = false
 
     var languagesListShortArray =
@@ -140,10 +137,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     var darkTheme: Boolean = false
     var theme: DarkLightTheme = DarkLightTheme()
     var isAbortConfirmation: Boolean = false
-
-    private val permissionRequestCode by lazy {
-        Random.nextInt(10000)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -162,12 +155,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         //checkConnection()
 
-        this.firstRun =
-            getSharedPreferences(settingsSwitchData["FIRST_LAUNCH"], PRIVATE_MODE).getBoolean(
-                settingsSwitchData["FIRST_LAUNCH"],
-                true
-            )
-
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
         this.languagesListShortArray = resources.getStringArray(R.array.languages_short)
@@ -178,7 +165,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 false
             )
 
-        if (this.firstRun) {
+        if (firstRunPrefManager.main) {
             // close main and open tutorial -- first run
             this.openTutorial()
         } else {
@@ -1450,32 +1437,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
-    fun showMessage(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-    }
-
     fun checkConnection(): Boolean {
-        return MainActivity.checkInternet(this)
-    }
-
-    fun openNoConnection() {
-        /*Intent(this, NoConnectionActivity::class.java).also {
-            startActivity(it)
-        }*/
-    }
-
-    fun startAnimation(img: Button) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            val animation: Animation =
-                AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_out)
-            img.startAnimation(animation)
-        }
-    }
-
-    fun stopAnimation(img: Button) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            img.clearAnimation()
-        }
+        return checkInternet(this)
     }
 
     fun setAutoPlay(status: Boolean) {

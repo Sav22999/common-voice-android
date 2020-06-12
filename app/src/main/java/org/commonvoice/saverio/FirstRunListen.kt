@@ -115,7 +115,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtTextBottom.isGone = false
             txtOne.isGone = false
             stopAnimation(txtTwo)
-            startAnimation(txtOne)
+            startAnimation(txtOne, R.anim.zoom_in)
         } else if (this.status == 1 && next || this.status == 3 && !next) {
             this.status = 2
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -126,7 +126,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtTwo.isGone = false
             stopAnimation(txtOne)
             stopAnimation(txtThree)
-            startAnimation(txtTwo)
+            startAnimation(txtTwo, R.anim.zoom_in)
         } else if (this.status == 2 || this.status == 4 && !next) {
             this.status = 3
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -137,7 +137,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtThree.isGone = false
             stopAnimation(txtTwo)
             stopAnimation(txtFour)
-            startAnimation(txtThree)
+            startAnimation(txtThree, R.anim.zoom_in)
         } else if (this.status == 3 || this.status == 5 && !next) {
             this.status = 4
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -148,7 +148,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtFour.isGone = false
             stopAnimation(txtThree)
             stopAnimation(txtFour)
-            startAnimation(txtFour)
+            startAnimation(txtFour, R.anim.zoom_in)
         } else if (this.status == 4 || this.status == 6 && !next) {
             this.status = 5
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -160,7 +160,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             txtFour.setText("5")
             btnPlay.setImageResource(R.drawable.stop_cv)
             stopAnimation(txtFour)
-            startAnimation(txtFour)
+            startAnimation(txtFour, R.anim.zoom_in)
         } else if (this.status == 5 || this.status == 7 && !next) {
             this.status = 6
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -175,7 +175,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnNo.isGone = false
             stopAnimation(txtFour)
             stopAnimation(txtSeven)
-            startAnimation(txtFour)
+            startAnimation(txtFour, R.anim.zoom_in)
         } else if (this.status == 6 || this.status == 8 && !next) {
             this.status = 7
             btnNext.setText(getString(R.string.btn_tutorial3))
@@ -189,7 +189,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnNo.isGone = false
             stopAnimation(txtFour)
             stopAnimation(txtEight)
-            startAnimation(txtSeven)
+            startAnimation(txtSeven, R.anim.zoom_in)
         } else if (this.status == 7 || this.status == 9 && !next) {
             this.status = 8
             btnNext.setText(getString(R.string.btn_tutorial5))
@@ -202,29 +202,15 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnYes.isGone = false
             btnNo.isGone = false
             stopAnimation(txtSeven)
-            startAnimation(txtEight)
+            startAnimation(txtEight, R.anim.zoom_in)
         } else if (this.status == 8) {
             getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE).edit()
                 .putBoolean(FIRST_RUN_LISTEN, false).apply()
             firstRunPrefManager.listen = false
-            val intent = Intent(this, ListenActivity::class.java).also {
+            Intent(this, ListenActivity::class.java).also {
                 startActivity(it)
             }
             finish()
-        }
-    }
-
-    fun startAnimation(img: Button) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            var animation: Animation =
-                AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
-            img.startAnimation(animation)
-        }
-    }
-
-    fun stopAnimation(img: Button) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            img.clearAnimation()
         }
     }
 

@@ -21,17 +21,17 @@ import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.first_launch.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
 
 class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
 
-    private lateinit var webView: WebView
+    private val firstRunPrefManager: FirstRunPrefManager by inject()
+
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
-    private var PRIVATE_MODE = 0
-    private val FIRST_LAUNCH = "FIRST_LAUNCH"
     private var languagesListShort =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     private var languagesList =
@@ -40,7 +40,6 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.first_launch)
 
         seekBarFirstLaunch.isEnabled = false
         seekBarFirstLaunch.progress = 0
@@ -327,9 +326,8 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
     }
 
     private fun finishFirstRun() {
-        getSharedPreferences(FIRST_LAUNCH, PRIVATE_MODE).edit().putBoolean(FIRST_LAUNCH, false)
-            .apply()
-        val intent = Intent(this, MainActivity::class.java).also {
+        firstRunPrefManager.main = false
+        Intent(this, MainActivity::class.java).also {
             startActivity(it)
         }
         finish()
@@ -355,49 +353,4 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
         }
     }
 
-    private fun startAnimation(txt: TextView, zoomType: Int) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            if (mainPrefManager.areAnimationsEnabled) {
-                val animation: Animation =
-                    AnimationUtils.loadAnimation(applicationContext, zoomType)
-                txt.startAnimation(animation)
-            }
-        }
-    }
-
-    private fun startAnimation(img: ImageView, zoomType: Int) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            if (mainPrefManager.areAnimationsEnabled) {
-                val animation: Animation =
-                    AnimationUtils.loadAnimation(applicationContext, zoomType)
-                img.startAnimation(animation)
-            }
-        }
-    }
-
-    private fun startAnimation(btn: Button, zoomType: Int) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            if (mainPrefManager.areAnimationsEnabled) {
-                val animation: Animation =
-                    AnimationUtils.loadAnimation(applicationContext, zoomType)
-                btn.startAnimation(animation)
-            }
-        }
-    }
-
-    private fun stopAnimation(img: ImageView) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            if (mainPrefManager.areAnimationsEnabled) {
-                img.clearAnimation()
-            }
-        }
-    }
-
-    private fun stopAnimation(btn: Button) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            if (mainPrefManager.areAnimationsEnabled) {
-                btn.clearAnimation()
-            }
-        }
-    }
 }
