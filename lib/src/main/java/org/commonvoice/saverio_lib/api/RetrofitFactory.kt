@@ -21,7 +21,7 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
     private val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/v2/"
 
     private val baseRetrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create().withNullSerialization())
         .client(
             OkHttpClient.Builder()
                 .addInterceptor(
