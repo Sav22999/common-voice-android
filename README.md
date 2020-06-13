@@ -109,12 +109,12 @@ Legend:
 |   ✅    |    100%    |      `pl`       | Polish             | [**Sobsz**](https://crowdin.com/profile/Sobsz)               | **[Translate](https://crowdin.com/project/common-voice-android/pl)** |
 | 🔶 | 94% | `pt` | Portuguese | *Machine translation* | **[Translate](https://crowdin.com/project/common-voice-android/pt)** |
 |   🔶  |    94%    |      `ro`       | Romanian          | *Machine translation*                                        | **[Translate](https://crowdin.com/project/common-voice-android/ro)** |
-|   🔶    |    25%     |      `ru`       | Russian            | **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100) | **[Translate](https://crowdin.com/project/common-voice-android/ru)** |
+|   ✅   |    97%    |      `ru`       | Russian            | **[Anton Nesterov](https://github.com/komachi)**, [**Roman Prokopov**](https://crowdin.com/profile/Roman100) | **[Translate](https://crowdin.com/project/common-voice-android/ru)** |
 |   🔶🔴   |    83%    |      `sk`       | Slovak             | [**tadeasbucha**](https://github.com/tadeasbucha), [**xrup**](https://crowdin.com/profile/xrup) | **[Translate](https://crowdin.com/project/common-voice-android/sk)** |
 |   ✅   |    99%    |     `sv-SE`     | Swedish            | **[Linus Amvall](https://github.com/klasrocket)**, [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy) | **[Translate](https://crowdin.com/project/common-voice-android/sv-SE)** |
 |   ✅    |    100%    |      `ta`       | Tamil              | [**Manimaran.K**](https://crowdin.com/profile/manimaran96)   | **[Translate](https://crowdin.com/project/common-voice-android/ta)** |
 |   🔶    |    12%     |      `tr`       | Turkish            | [**Ege Özdemir**](https://crowdin.com/profile/ValentinMoon), [**Muhammed Çelebi**](https://crowdin.com/profile/GabrielBelmont) | **[Translate](https://crowdin.com/project/common-voice-android/tr)** |
-|   ✅    |    100%    |      `uk`       | Ukrainian          | *Machine translation*                                        | **[Translate](https://crowdin.com/project/common-voice-android/uk)** |
+|   ✅    |    95%    |      `uk`       | Ukrainian          | *Machine translation*                                        | **[Translate](https://crowdin.com/project/common-voice-android/uk)** |
 |   🔶    |    94%     |     `zh-CN`     | Chinese Simplified | *Machine translation*                                        | **[Translate](https://crowdin.com/project/common-voice-android/zh-CN)** |
 
 ### License
