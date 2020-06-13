@@ -8,8 +8,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_settings">Einstellungen</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Common-Voice-Logo</string>
-    <string name="description_cv_logo">Common-Voice-Roboter</string>
     <string name="button_home_login">Einloggen / Registrieren</string>
     <string name="button_home_logout">Abmelden</string>
     <string name="button_home_profile">Profil</string>
@@ -26,20 +24,28 @@
     <string name="toastNoLoginNoDailyGoal">Du musst dich anmelden, um dein tägliches Ziel zu setzen</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Uhrzeit</string>
-    <!-- Tutorial -->
+    <!-- First launch -->
     <string name="btn_tutorial1">Start</string>
     <string name="btn_tutorial2">Erlauben</string>
     <string name="btn_tutorial3">Nächster</string>
     <string name="btn_tutorial4">Erneut versuchen</string>
     <string name="btn_tutorial5">Beenden</string>
-    <string name="txt_permission_successful">Permission successful</string>
-    <string name="txt_permission_failed">Error: permission failed</string>
+    <string name="btn_skip">Überspringen</string>
+    <string name="txt_permission_obtained_first_launch">Berechtigung erhalten</string>
+    <string name="txt_permission_denied_first_launch">Fehler: Berechtigung verweigert</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/de/terms</string>
-    <string name="tutorial_text1">Dies ist nicht die offizielle App von Common Voice. Sie wurde von Saverio Morelli ohne jegliche Unterstützung oder Partnerschaft mit Mozilla entwickelt.</string>
-    <string name="tutorial_terms">Indem Du fortfährst, erklärst Du Dich mit den Nutzungsbedingungen von Common Voice einverstanden.</string>
-    <string name="tutorial_text2">Die Common-Voice-App benötigt die \"Mikrofon\"-Berechtigung, um korrekt zu funktionieren.</string>
-    <string name="tutorial_text3">Die Common-Voice-App benötigt die \"Speicher\"-Berechtigung, um korrekt zu funktionieren.</string>
-    <string name="tutorial_text4">Wähle deine Muttersprache. Die Sätze, die Du aufzeichnen und überprüfen wirst, werden in dieser Sprache sein.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android ist eine inoffizielle App für Mozilla Common Voice. Sie wurde von Saverio Morelli ohne Unterstützung oder Partnerschaft mit Mozilla entwickelt.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">Diese App benötigt die \"Mikrofon\"-Berechtigung, um Ihre Stimme aufnehmen zu können.</string>
+    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_offline_mode_first_launch">Du kannst sogar dazu beitragen, während du offline bist. Der \"Offline-Modus\" der App wird automatisch aktiviert, und Sie können weiterhin aufzeichnen und ohne Internetverbindung lauschen.</string>
+    <string name="txt_themes_first_launch">Sie können entweder ein helles Theme oder ein dunkles Theme auswählen. Sie können dies später in den Einstellungen ändern.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Dunkles Design</string>
+    <string name="txt_gestures_first_launch">Einige Aktionen haben entsprechende Gesten. Zum Beispiel kannst du einen Satz in Sprich überspringen, indem du nach links wischst.</string>
+    <string name="txt_customise_gestures_first_launch">Sie können diese Gesten in den Einstellungen anpassen.</string>
+    <string name="txt_telegram_group_first_launch">Du kannst der Telegram-Gruppe beitreten, um Neuigkeiten und Unterstützung zu erhalten.</string>
+    <string name="btn_join_telegram_first_launch">Gruppe beitreten</string>
+    <string name="txt_choose_language_first_launch">Los geht\'s! Wähle welche Sprache du sprechen oder hören möchtest. Die App wird auch in dieser Sprache angezeigt, wenn eine Übersetzung verfügbar ist.</string>
     <!-- Login -->
     <string name="txt_loading_page">Laden ...</string>
     <string name="txt_profile_username">Benutzername</string>
@@ -53,16 +59,6 @@
     <string name="txt_gender_other">Anderes</string>
     <string name="btn_badges_loggedin">Alle Abzeichen</string>
     <string name="txt_your_level">Level {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Kleinkind</string>
-    <string name="txt_level2_name">Baby</string>
-    <string name="txt_level3_name">Teenager</string>
-    <string name="txt_level4_name">Jung</string>
-    <string name="txt_level5_name">Junge Erwachsene</string>
-    <string name="txt_level6_name">Erwachsener</string>
-    <string name="txt_level7_name">Senior</string>
-    <string name="txt_level8_name">Pro</string>
-    <string name="txt_level9_name">Meister</string>
-    <string name="txt_level10_name">Champion</string>
     <string name="level_up_message">Glückwunsch! Du hast soeben Level {{*{{n_level}}*}} erreicht.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Tutorial erneut öffnen</string>
@@ -100,9 +96,9 @@
     <string name="toast_recording_indicator_sound_on">Der Ton der Aufnahmeanzeige ist jetzt eingeschaltet.\nEin Ton wird abgespielt, wenn Sie die Aufnahme starten und stoppen.</string>
     <string name="toast_recording_indicator_sound_off">Der Ton der Aufnahmeanzeige ist nun deaktiviert.</string>
     <string name="txt_check_for_updates">Nach Updates suchen</string>
-    <string name="toast_check_for_updated_on">Check for updates turned on.</string>
-    <string name="toast_check_for_updated_off">Check for updates turned off.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings">Abort confirmation dialogs in Settings</string>
+    <string name="toast_check_for_updated_on">Suche nach Updates aktiviert.</string>
+    <string name="toast_check_for_updated_off">Suche nach Updates deaktiviert.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings">Bestätigungsdialog in Einstellungen abbrechen</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Abbruchbestätigungsdialoge sind jetzt aktiviert.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Abbruchbestätigungsdialoge sind jetzt deaktiviert.</string>
     <string name="txt_gestures">Gesten</string>
@@ -110,8 +106,13 @@
     <string name="toast_gestures_off">Gesten sind jetzt deaktiviert.</string>
     <string name="message_review_app_on_play_store">Wenn Ihnen diese App gefällt, denken Sie daran, sie im Google Play Store zu bewerten.</string>
     <string name="message_app_not_completely_translated">Die App ist (noch nicht vollständig) in dieser Sprache übersetzt worden.\nSie können dazu beitragen, die App auf Crowdin zu übersetzen.</string>
+    <string name="txt_animations">Animationen</string>
+    <string name="txt_customise_the_font_size">Schriftgröße anpassen</string>
+    <string name="txt_customise_gestures">Gesten anpassen</string>
+    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_telegram_group_settings">Telegram group of the app</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Lade einen Satz...</string>
+    <string name="txt_loading_sentence">Lade Satz...</string>
     <string name="btn_skip_sentence">Überspringen</string>
     <string name="btn_send_sentence">Aufnahme senden</string>
     <string name="txt_loading_clip">Lade das Video...</string>
@@ -123,7 +124,7 @@
     <string name="txt_listening_stopped">Hören Sie sich die gesamte Aufnahme an, um sicherzustellen, dass sie korrekt ist.</string>
     <string name="txt_listening_again_recording">Bitte tippen Sie auf das rot weiße Widergabesymbol, um die Widergabe zu stoppen.</string>
     <string name="txt_recording_too_long">Die Aufnahme ist zu lang. Die maximale Dauer beträgt 10 Sekunden.</string>
-    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
+    <string name="txt_recording_too_short">Die Aufnahme ist zu kurz. Bitte versuchen Sie es erneut.</string>
     <string name="txt_sending_recording">Aufnahme wird gesendet...</string>
     <string name="txt_recording_sent">Aufnahme gesendet!</string>
     <string name="txt_sending_recording_failed">Es ist ein Fehler beim versenden der Aufnahme aufgetreten!</string>
@@ -132,8 +133,8 @@
     <string name="txt_press_icon_below_listen_2">Tippen Sie auf das grüne Wiedergabesymbol, um die Wiedergabe zu stoppen.</string>
     <string name="txt_clip_correct_or_wrong">Ist der Clip korrekt? Tippen Sie auf den Daumen, der nach oben weist.\nWenn der Clip falsch ist, tippen Sie auf den Daumen, der nach unten zeigt.</string>
     <string name="txt_clip_again">Tippen Sie auf das Symbol unten, um den Clip erneut wiederzugeben.</string>
-    <string name="txt_clip_validated_yes">Clip marked as correct!</string>
-    <string name="txt_clip_validated_no">Clip marked as incorrect!</string>
+    <string name="txt_clip_validated_yes">Clip als korrekt markiert!</string>
+    <string name="txt_clip_validated_no">Clip als falsch markiert!</string>
     <string name="txt_error_1_try_again_tap_skip">Fehler. Drücken Sie den {{*{{skip_button}}*}} Knopf, um fortzufahren.</string>
     <string name="txt_error_2_sending_failed">Es ist ein Fehler beim versenden der Aufnahme aufgetreten.</string>
     <string name="txt_sending_validation">Versende...</string>
@@ -156,50 +157,58 @@
     <string name="txt_noconnection">Sie sind nicht mit dem Internet verbunden. Stellen Sie eine Verbindung zu einem drahtlosen Netzwerk oder mobilen Daten her und drücken Sie die Taste unten.</string>
     <!-- First-run Speak & Listen -->
     <string name="txt1_tutorial_speak">Dies ist der Satz, der aufgenommen werden soll.</string>
-    <string name="txt2_tutorial_speak_and_listen">A message to guide you will appear here.</string>
+    <string name="txt2_tutorial_speak_and_listen">Hier wird eine Nachricht angezeigt, die Sie anführen können.</string>
     <string name="txt3_tutorial_speak">Wenn Ihnen der Satz nicht gefällt, können Sie auf diesen Knopf tippen, um zum nächsten überzugehen.</string>
     <string name="txt4_tutorial_speak">Tippen Sie auf dieses Symbol, um die Aufnahme zu starten.</string>
-    <string name="txt5_tutorial_speak">Tap on this icon to stop recording.</string>
-    <string name="txt6_tutorial_speak">Tap on this icon to play back your recording.</string>
-    <string name="txt7_tutorial_speak">Tap on this icon to re-record if you made a mistake.</string>
-    <string name="txt8_tutorial_speak">Tap on this icon to play back your recording again.</string>
-    <string name="txt9_tutorial_speak">Tap on this button to send your recording.</string>
+    <string name="txt5_tutorial_speak">Tippen Sie auf dieses Symbol, um die Aufnahme zu beenden.</string>
+    <string name="txt6_tutorial_speak">Tippen Sie auf dieses Symbol, um Ihre Aufnahme wiederzugeben.</string>
+    <string name="txt7_tutorial_speak">Tippen Sie auf dieses Symbol, um erneut aufzunehmen, wenn Sie einen Fehler gemacht haben.</string>
+    <string name="txt8_tutorial_speak">Tippen Sie auf dieses Symbol, um Ihre Aufnahme wiederzugeben.</string>
+    <string name="txt9_tutorial_speak">Tippen Sie auf diese Schaltfläche, um Ihre Aufnahme zu senden.</string>
     <string name="txt1_tutorial_listen">Dies ist der Satz/Clip, der überprüft werden soll.</string>
     <string name="txt3_tutorial_listen">Wenn dir der Clip nicht gefällt, kannst du auf diesen Button tippen, um zum nächsten überzugehen.</string>
-    <string name="txt4_tutorial_listen">Tap on this icon to play the clip.</string>
-    <string name="txt5_tutorial_listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen">Tap on this icon if you want to listen to the clip again.</string>
-    <string name="txt7_tutorial_listen">If the clip matches the sentence, tap on this icon to accept it.</string>
-    <string name="txt8_tutorial_listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+    <string name="txt4_tutorial_listen">Tippe auf dieses Symbol, um den Clip abzuspielen.</string>
+    <string name="txt5_tutorial_listen">Tippen Sie auf dieses Symbol, um die Wiedergabe des Clips zu beenden.</string>
+    <string name="txt6_tutorial_listen">Tippen Sie auf dieses Symbol, wenn Sie den Clip erneut hören möchten.</string>
+    <string name="txt7_tutorial_listen">Wenn der Clip mit dem Satz übereinstimmt, tippen Sie auf dieses Symbol, um ihn zu akzeptieren.</string>
+    <string name="txt8_tutorial_listen">Wenn der Clip nicht mit dem Satz übereinstimmt, tippen Sie auf dieses Symbol, um ihn abzulehnen.</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <string name="txtNotAvailableNow">Leider existiert diese Funktion noch nicht.\nWir arbeiten ständig an der Verbesserung der App, also schauen Sie später wieder vorbei, um zu sehen, ob sie hinzugefügt wurde.</string>
     <!-- Badges -->
     <string name="btnCloseBadges">Schließen</string>
     <string name="labelAllBadges">Alle Abzeichen</string>
-    <string name="new_badge_earnt_message">Hooray! You have just earned a new badge.</string>
+    <string name="new_badge_earnt_message">Hurra! Du hast gerade ein neues Abzeichen verdient.</string>
     <!-- Message dialog -->
     <string name="btnOk">Ok</string>
     <string name="messageDialogErrorTitle">Fehler</string>
-    <string name="messageDialogGenericError">That didn\'t work.\nPlease try again, or contact the developer.</string>
-    <string name="messageDialogErrorCode">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
+    <string name="messageDialogGenericError">Das hat nicht funktioniert.\nBitte versuchen Sie es noch einmal, oder kontaktieren Sie den Entwickler.</string>
+    <string name="messageDialogErrorCode">Das hat nicht funktioniert. Bitte versuchen Sie es erneut oder kontaktieren Sie den Entwickler.\nFehlercode: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle">Login fehlgeschlagen</string>
-    <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
+    <string name="youHaveToAcceptPrivacyPolicy">Sie müssen sich zuerst auf der Website von Common Voice anmelden und die Datenschutzerklärung von Common Voice akzeptieren.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Öffne Common Voice</string>
+    <string name="text_warning">Warnung</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">Changelog</string>
+    <string name="text_help">Hilfe</string>
+    <string name="text_info">Info</string>
+    <string name="check_box_message_dialog">Nicht mehr anzeigen</string>
+    <string name="text_offline_mode_enabled">Sie sind jetzt offline und die App wechselte automatisch in den Offline-Modus.\nDas bedeutet, dass du weiterhin aufnehmen und validieren kannst, aber die Anfragen werden später gesendet.</string>
+    <string name="text_offline_mode_enabled_2">Sie können feststellen, wann Sie sich im Offline-Modus befinden, indem Sie nach diesem Symbol auf dem Bildschirm suchen:</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Tagesziel</string>
-    <string name="daily_goal_is_not_set">No goal set</string>
-    <string name="set_daily_goal">Set a goal</string>
+    <string name="daily_goal_is_not_set">Kein Ziel gesetzt</string>
+    <string name="set_daily_goal">Ziel setzen</string>
     <string name="edit_daily_goal">Ziel bearbeiten</string>
     <string name="save_daily_goal">Speichern</string>
     <string name="delete_daily_goal">Löschen</string>
     <string name="cancel_daily_goal">Abbrechen</string>
-    <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
+    <string name="description_setting_daily_goal">Wählen Sie aus, wie viele Sätze Sie aufzeichnen möchten und welche Clips Sie pro Tag validieren möchten (Summe davon).</string>
     <string name="daily_goal_achieved_today">Heute erreicht</string>
     <string name="daily_goal_not_achieved_today">Heute nicht erreicht</string>
-    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <string name="daily_goal_achieved_message">Gut gemacht! Du hast dein tägliches Ziel erreicht.\nDu hast {{*{{n_clips}}*}} Clip(s) validiert und {{*{{n_sentences}}*}} Sätze aufgezeichnet.\nFühlen Sie sich frei, weiterhin zur gemeinsamen Stimme beizutragen.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">Dieses tägliche Ziel ist keine offizielle Mozilla-Funktion. Es ist nur ein Feature dieser App.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available">Eine neue Version der App ist verfügbar (Release {{*{{n_version}}*}}). Sie können es in Ihrem Lieblingsshop (F-Droid, Google Play Store) oder direkt von GitHub aktualisieren.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

@@ -8,8 +8,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_settings">Settings</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Common Voice logo</string>
-    <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Log in / Sign up</string>
     <string name="button_home_logout">Log out</string>
     <string name="button_home_profile">Profile</string>
@@ -26,20 +24,28 @@
     <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hour</string>
-    <!-- Tutorial -->
+    <!-- First launch -->
     <string name="btn_tutorial1">Start</string>
     <string name="btn_tutorial2">Permit</string>
     <string name="btn_tutorial3">Next</string>
     <string name="btn_tutorial4">Try again</string>
     <string name="btn_tutorial5">Finish</string>
-    <string name="txt_permission_successful">Permission successful</string>
-    <string name="txt_permission_failed">Error: permission failed</string>
+    <string name="btn_skip">Skip</string>
+    <string name="txt_permission_obtained_first_launch">Permission obtained</string>
+    <string name="txt_permission_denied_first_launch">Error: permission denied</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
-    <string name="tutorial_text1">This is not the official app of Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
-    <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
-    <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
-    <string name="tutorial_text4">Select your native language. The sentences that you will record and validate will be in this language.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
+    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Dark theme</string>
+    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
+    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
+    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
+    <string name="btn_join_telegram_first_launch">Join group</string>
+    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">Loading ...</string>
     <string name="txt_profile_username">Username</string>
@@ -53,16 +59,6 @@
     <string name="txt_gender_other">Other</string>
     <string name="btn_badges_loggedin">All badges</string>
     <string name="txt_your_level">Level {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Infant</string>
-    <string name="txt_level2_name">Baby</string>
-    <string name="txt_level3_name">Teen</string>
-    <string name="txt_level4_name">Young</string>
-    <string name="txt_level5_name">Young adult</string>
-    <string name="txt_level6_name">Adult</string>
-    <string name="txt_level7_name">Senior</string>
-    <string name="txt_level8_name">Pro</string>
-    <string name="txt_level9_name">Master</string>
-    <string name="txt_level10_name">Champion</string>
     <string name="level_up_message">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open tutorial again</string>
@@ -110,8 +106,13 @@
     <string name="toast_gestures_off">Gestures are now turned off.</string>
     <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
     <string name="message_app_not_completely_translated">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="txt_animations">Animations</string>
+    <string name="txt_customise_the_font_size">Customise the font size</string>
+    <string name="txt_customise_gestures">Customise gestures</string>
+    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_telegram_group_settings">Telegram group of the app</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Loading a sentence...</string>
+    <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">Skip</string>
     <string name="btn_send_sentence">Send recording</string>
     <string name="txt_loading_clip">Loading clip...</string>
@@ -185,6 +186,14 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
+    <string name="text_warning">Warning</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">Changelog</string>
+    <string name="text_help">Help</string>
+    <string name="text_info">Info</string>
+    <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Daily goal</string>
     <string name="daily_goal_is_not_set">No goal set</string>

@@ -8,8 +8,6 @@
     <string name="title_dashboard">پیشخان</string>
     <string name="title_settings">تنظیمات</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">نشان صداهای اشتراکی</string>
-    <string name="description_cv_logo">روبات صداهای اشتراکی</string>
     <string name="button_home_login">ورود یا ثبت‌نام</string>
     <string name="button_home_logout">خروج</string>
     <string name="button_home_profile">نمایه</string>
@@ -26,20 +24,28 @@
     <string name="toastNoLoginNoDailyGoal">برای تنظیم هدف روزانه باید وارد شوید</string>
     <string name="textHoursAbbreviation">س</string>
     <string name="textHour">ساعت</string>
-    <!-- Tutorial -->
+    <!-- First launch -->
     <string name="btn_tutorial1">شروع</string>
     <string name="btn_tutorial2">اجازه</string>
     <string name="btn_tutorial3">بعدی</string>
     <string name="btn_tutorial4">تلاش دوباره</string>
     <string name="btn_tutorial5">پايان</string>
-    <string name="txt_permission_successful">دسترسی موفقیت‌آمیز</string>
-    <string name="txt_permission_failed">خطا: دسترسی شکست خورد</string>
+    <string name="btn_skip">Skip</string>
+    <string name="txt_permission_obtained_first_launch">Permission obtained</string>
+    <string name="txt_permission_denied_first_launch">Error: permission denied</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/fa/terms</string>
-    <string name="tutorial_text1">این، کارهٔ رسمی صداهای اشتراکی نیست، بلکه به دست ساوریو مورلی بدون هیچ پشتیبانی یا شراکتی با موزیلا توسعه یافته است.</string>
-    <string name="tutorial_terms">ادامه دادن، به منزلهٔ پذیرش شرایط خدمات صداهای اشتراکی است.</string>
-    <string name="tutorial_text2">کارهٔ صداهای اشتراکی برای کار کردن درست به دسترسی «میکروفون» نیاز دارد.</string>
-    <string name="tutorial_text3">کارهٔ صداهای اشتراکی برای کار کردن درست به دسترسی «ذخیره‌سازی» نیاز دارد.</string>
-    <string name="tutorial_text4">زبان بومیتان را برگزینید. جمله‌هایی که ضبط و تأیید می‌کنید، بدین زبان خواهند بود.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
+    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Dark theme</string>
+    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
+    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
+    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
+    <string name="btn_join_telegram_first_launch">Join group</string>
+    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">در حال بار کردن…</string>
     <string name="txt_profile_username">نام کاربری</string>
@@ -53,16 +59,6 @@
     <string name="txt_gender_other">ديگر</string>
     <string name="btn_badges_loggedin">همهٔ نشان‌ها</string>
     <string name="txt_your_level">سطح {{*{{level}}*}}</string>
-    <string name="txt_level1_name">نوزاد</string>
-    <string name="txt_level2_name">کودک</string>
-    <string name="txt_level3_name">نوجوان</string>
-    <string name="txt_level4_name">جوان</string>
-    <string name="txt_level5_name">بزرگسال جوان</string>
-    <string name="txt_level6_name">بزرگسال</string>
-    <string name="txt_level7_name">ارشد</string>
-    <string name="txt_level8_name">حرفه‌ای</string>
-    <string name="txt_level9_name">استاد</string>
-    <string name="txt_level10_name">قهرمان</string>
     <string name="level_up_message">تبریک! به سطح {{*{{n_level}}*}} رسیدید.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">گشودن دوبارهٔ خودآموز</string>
@@ -110,8 +106,13 @@
     <string name="toast_gestures_off">Gestures are now turned off.</string>
     <string name="message_review_app_on_play_store">اگر این کاره را دوست دارید، لطفاً روی فروشگاه پلی گوگل بازبینیش کنید.</string>
     <string name="message_app_not_completely_translated">این کاره (کاملاً) به این زبان ترجمه نشده است.\nمی‌توانید روی کرودین در ترجمه‌اش مشارکت کنید.</string>
+    <string name="txt_animations">Animations</string>
+    <string name="txt_customise_the_font_size">Customise the font size</string>
+    <string name="txt_customise_gestures">Customise gestures</string>
+    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_telegram_group_settings">Telegram group of the app</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">در حال بار کردن یک جمله…</string>
+    <string name="txt_loading_sentence">در حال بار کردن جمله…</string>
     <string name="btn_skip_sentence">پرش</string>
     <string name="btn_send_sentence">فرستادن ضبط</string>
     <string name="txt_loading_clip">در حال بار کردن قطعه…</string>
@@ -185,6 +186,14 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">ورود شکست خورد</string>
     <string name="youHaveToAcceptPrivacyPolicy">نخست باید وارد پایگاه وب صداهای اشتراکی شده و سیاست محرمانگیش را بپذیرید.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">گشودن صداهای اشتراکی</string>
+    <string name="text_warning">هشدار</string>
+    <string name="text_tip">نکته</string>
+    <string name="text_changelog">گزارش تغییرات</string>
+    <string name="text_help">راهنما</string>
+    <string name="text_info">اطلاعات</string>
+    <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">هدف روزانه</string>
     <string name="daily_goal_is_not_set">هدفی تنظیم نشده</string>
