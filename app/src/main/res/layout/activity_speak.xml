@@ -62,6 +62,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
 
+        <View
+            android:id="@+id/viewSpacingSpeak"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/speakSectionMiddle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionAudioBar"
             android:layout_width="0dp"
@@ -247,8 +259,6 @@
             android:id="@+id/speakSectionMiddle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="10dp"
             android:background="@color/colorTransparent"
             android:padding="0dp"
             app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"

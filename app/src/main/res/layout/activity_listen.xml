@@ -62,14 +62,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
 
+        <View
+            android:id="@+id/viewSpacingListen"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/listenSectionMiddle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/listenSectionMiddle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
             android:background="@color/colorTransparent"
             android:padding="0dp"
             app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
