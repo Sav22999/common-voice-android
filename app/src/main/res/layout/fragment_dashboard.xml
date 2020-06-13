@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/btn_rounded"
-                    android:backgroundTint="@color/colorDarkWhite"
+                    android:backgroundTint="@color/colorWhiteTransparent"
                     android:paddingStart="50dp"
                     android:paddingEnd="50dp"
                     android:text="@string/dashboardTabEveryone"

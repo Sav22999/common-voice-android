@@ -189,7 +189,7 @@ class DashboardFragment : Fragment() {
                             )
                         )
                         tabs[position].backgroundTintList =
-                            ContextCompat.getColorStateList(view, R.color.colorLightGray)
+                            ContextCompat.getColorStateList(view, R.color.colorWhiteTransparent)
                     } else {
                         tabs[position].setTextColor(
                             ContextCompat.getColor(
@@ -209,7 +209,7 @@ class DashboardFragment : Fragment() {
                             )
                         )
                         tabs[position].backgroundTintList =
-                            ContextCompat.getColorStateList(view, R.color.colorDarkDarkGray)
+                            ContextCompat.getColorStateList(view, R.color.colorLightBlack)
                     } else {
                         tabs[position].setTextColor(
                             ContextCompat.getColor(
