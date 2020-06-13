@@ -53,6 +53,8 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     fun makeStatsService(): StatsService = unauthRetrofit.create(StatsService::class.java)
 
+    fun makeCVStatsService(): CVStatsService = genericRetrofit.create(CVStatsService::class.java)
+
     fun makeClipsService(): ClipsService = langRetrofit.create(ClipsService::class.java)
 
     fun makeValidationsService(): ValidationsService = genericRetrofit.create(ValidationsService::class.java)

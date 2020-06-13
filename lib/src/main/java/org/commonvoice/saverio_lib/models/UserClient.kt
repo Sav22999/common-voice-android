@@ -6,9 +6,6 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class UserClient(
 
-    @Json(name = "accent")
-    val accent: String,
-
     @Json(name = "age")
     val age: String,
 
@@ -21,15 +18,6 @@ data class UserClient(
     @Json(name = "username")
     val username: String,
 
-    @Json(name = "basket_token")
-    val basket_token: String?,
-
-    @Json(name = "skip_submission_feedback")
-    val skip_submission_feedback: Int,
-
-    @Json(name = "visible")
-    val visible: Int,
-
     @Json(name = "avatar_url")
     val avatar_url: String?,
 
@@ -40,18 +28,6 @@ data class UserClient(
     val clips_count: Int,
 
     @Json(name = "votes_count")
-    val votes_count: Int,
-
-    @Json(name = "locales")
-    val locales: List<Locale>,
-
-    @Json(name = "awards")
-    val awards: List<String>,
-
-    @Json(name = "custom_goals")
-    val custom_goals: List<String>,
-
-    @Json(name = "enrollment")
-    val enrollment: Enrollment
+    val votes_count: Int
 
 )
