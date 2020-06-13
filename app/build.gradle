@@ -27,7 +27,7 @@ android {
     }
     flavorDimensions "source_store"
     productFlavors {
-        GPS {
+        "GPS" {
             dimension "source_store"
         }
         "FD-GH" {
