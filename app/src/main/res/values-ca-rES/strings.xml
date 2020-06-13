@@ -8,8 +8,6 @@
     <string name="title_dashboard">Panell de control</string>
     <string name="title_settings">Preferències</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Logo de Common Voice</string>
-    <string name="description_cv_logo">Robot del Common Voice</string>
     <string name="button_home_login">Inicieu sessió / Registreu-vos</string>
     <string name="button_home_logout">Tanca la sessió</string>
     <string name="button_home_profile">Perfil</string>
@@ -26,20 +24,28 @@
     <string name="toastNoLoginNoDailyGoal">Heu d\'iniciar sessió per fixar un objectiu diari</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hora</string>
-    <!-- Tutorial -->
+    <!-- First launch -->
     <string name="btn_tutorial1">Inicia</string>
     <string name="btn_tutorial2">Permet</string>
     <string name="btn_tutorial3">Següent</string>
     <string name="btn_tutorial4">Torneu-ho a intentar</string>
     <string name="btn_tutorial5">Finalitza</string>
-    <string name="txt_permission_successful">Permission successful</string>
-    <string name="txt_permission_failed">Error: permission failed</string>
+    <string name="btn_skip">Saltar</string>
+    <string name="txt_permission_obtained_first_launch">Permís obtingut</string>
+    <string name="txt_permission_denied_first_launch">Error: permís denegat</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/ca/terms</string>
-    <string name="tutorial_text1">Aquesta no és l\'aplicació oficial de Common Voice. Va ser programada per Saverio Morelli sense cap vincle o suport de Mozzilla.</string>
-    <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
-    <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
-    <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
-    <string name="tutorial_text4">Select your native language. The sentences that you will record and validate will be in this language.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice a Android es una aplicació no oficial de Mozilla Common Voice. Ha sigut desenvolupada per Saverio Morelli sense cap suport o colaboració amb Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">Al continuar, acceptes els terms del servei de Common Voice de Mozilla.</string>
+    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
+    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Dark theme</string>
+    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
+    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
+    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
+    <string name="btn_join_telegram_first_launch">Join group</string>
+    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">Carregant ...</string>
     <string name="txt_profile_username">Nom d\'usuari</string>
@@ -53,16 +59,6 @@
     <string name="txt_gender_other">Altres</string>
     <string name="btn_badges_loggedin">Totes les medalles</string>
     <string name="txt_your_level">Nivell {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Infant</string>
-    <string name="txt_level2_name">Nadó</string>
-    <string name="txt_level3_name">Adolescent</string>
-    <string name="txt_level4_name">Jove</string>
-    <string name="txt_level5_name">Adult jove</string>
-    <string name="txt_level6_name">Adult</string>
-    <string name="txt_level7_name">Senior</string>
-    <string name="txt_level8_name">Pro</string>
-    <string name="txt_level9_name">Mestre</string>
-    <string name="txt_level10_name">Campió</string>
     <string name="level_up_message">Felicitats! Acabes d\'assolir el nivell {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Obre el tutorial de nou</string>
@@ -110,23 +106,28 @@
     <string name="toast_gestures_off">Gestures are now turned off.</string>
     <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
     <string name="message_app_not_completely_translated">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="txt_animations">Animations</string>
+    <string name="txt_customise_the_font_size">Customise the font size</string>
+    <string name="txt_customise_gestures">Customise gestures</string>
+    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_telegram_group_settings">Telegram group of the app</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Loading a sentence...</string>
-    <string name="btn_skip_sentence">Skip</string>
-    <string name="btn_send_sentence">Send recording</string>
-    <string name="txt_loading_clip">Loading clip...</string>
-    <string name="txt_press_icon_below_speak_1">Press the icon below to start recording.</string>
-    <string name="txt_press_icon_below_speak_2">Press the icon below to stop recording.</string>
+    <string name="txt_loading_sentence">Carregant frase...</string>
+    <string name="btn_skip_sentence">Saltar</string>
+    <string name="btn_send_sentence">Enviar gravació</string>
+    <string name="txt_loading_clip">Carregant clip...</string>
+    <string name="txt_press_icon_below_speak_1">Clica l\'icona abaix per començar a gravar.</string>
+    <string name="txt_press_icon_below_speak_2">Clica l\'icona abaix per parar la gravació.</string>
     <string name="txt_sentence_recorded">Sentence recorded. Listen to the recording.</string>
     <string name="txt_sentence_record_failed">Recording failed. Please try again.</string>
     <string name="txt_recorded_correct_or_wrong">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
     <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
     <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording">Sending the recording...</string>
-    <string name="txt_recording_sent">Recording sent!</string>
-    <string name="txt_sending_recording_failed">Failed to send recording!</string>
+    <string name="txt_recording_too_short">La gravació és molt curta. Per favor, intenta una altra vegada.</string>
+    <string name="txt_sending_recording">Enviant la gravació...</string>
+    <string name="txt_recording_sent">Gravació enviada!</string>
+    <string name="txt_sending_recording_failed">Error al enviar la gravació!</string>
     <string name="txt_sending_recording_failed_and_skip">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
     <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip.</string>
     <string name="txt_press_icon_below_listen_2">Press the icon below to stop the clip.</string>
@@ -185,6 +186,14 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
+    <string name="text_warning">Warning</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">Changelog</string>
+    <string name="text_help">Help</string>
+    <string name="text_info">Info</string>
+    <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Daily goal</string>
     <string name="daily_goal_is_not_set">No goal set</string>

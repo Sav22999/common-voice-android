@@ -8,8 +8,6 @@
     <string name="title_dashboard">Prehľad</string>
     <string name="title_settings">Nastavenia</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Common Voice logo</string>
-    <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Prihlásiť sa / Zaregistovať</string>
     <string name="button_home_logout">Odhlásiť sa</string>
     <string name="button_home_profile">Profil</string>
@@ -26,20 +24,28 @@
     <string name="toastNoLoginNoDailyGoal">Pre nastavenie denného cieľa sa musíš prihlásiť</string>
     <string name="textHoursAbbreviation">hod</string>
     <string name="textHour">Hodina</string>
-    <!-- Tutorial -->
+    <!-- First launch -->
     <string name="btn_tutorial1">Štart</string>
     <string name="btn_tutorial2">Povoliť</string>
     <string name="btn_tutorial3">Ďalej</string>
     <string name="btn_tutorial4">Skúsiť znova</string>
     <string name="btn_tutorial5">Dokončiť</string>
-    <string name="txt_permission_successful">Povolenie úspešné</string>
-    <string name="txt_permission_failed">Chyba: Povolenie neúspešné</string>
+    <string name="btn_skip">Preskočiť</string>
+    <string name="txt_permission_obtained_first_launch">Permission obtained</string>
+    <string name="txt_permission_denied_first_launch">Error: permission denied</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/sk/terms</string>
-    <string name="tutorial_text1">Toto nie je oficiálna aplikácia Common Voice. Je vyvíjana developerom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
-    <string name="tutorial_terms">Pokračovaním súhlasíte so Všeobecnými podmienkami aplikácie Common Voice.</string>
-    <string name="tutorial_text2">Common Voice aplikácia potrebuje pristup ku právu \"Mikrofón\" pre správne fungovanie.</string>
-    <string name="tutorial_text3">Common Voice aplikácia potrebuje pristup ku právu \"Úložisko\" pre správne fungovanie.</string>
-    <string name="tutorial_text4">Vyber si svoj domovský jazyk. Vety, ktoré nahráš alebo overíš budú v tomto jazyku.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
+    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Tmavá téma</string>
+    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
+    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
+    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
+    <string name="btn_join_telegram_first_launch">Join group</string>
+    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">Načítava sa ...</string>
     <string name="txt_profile_username">Používateľské meno</string>
@@ -53,16 +59,6 @@
     <string name="txt_gender_other">Iné</string>
     <string name="btn_badges_loggedin">Všetky odznaky</string>
     <string name="txt_your_level">Úroveň {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Nemluvňa</string>
-    <string name="txt_level2_name">Dieťa</string>
-    <string name="txt_level3_name">Puberťák</string>
-    <string name="txt_level4_name">Mladistvý</string>
-    <string name="txt_level5_name">Mladík</string>
-    <string name="txt_level6_name">Dospelý</string>
-    <string name="txt_level7_name">Senior</string>
-    <string name="txt_level8_name">Profesionál</string>
-    <string name="txt_level9_name">Majster</string>
-    <string name="txt_level10_name">Šampión</string>
     <string name="level_up_message">Gratulujem! Práve si dosiahol level {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Znova otvoriť manuál</string>
@@ -110,8 +106,13 @@
     <string name="toast_gestures_off">Gestá sú vypnuté.</string>
     <string name="message_review_app_on_play_store">Prosím, ak sa ti táto appka páči, nezabudni ju ohodnotiť v Google Play Store.</string>
     <string name="message_app_not_completely_translated">Aplikácia nie je (úplne) preložená do tohoto jazyka.\nMôžeš pomôcť ju preložiť na Crowdin.</string>
+    <string name="txt_animations">Animations</string>
+    <string name="txt_customise_the_font_size">Customise the font size</string>
+    <string name="txt_customise_gestures">Prispôsobiť gestá</string>
+    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_telegram_group_settings">Telegram skupina pre aplikáciu</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Načítavam vetu...</string>
+    <string name="txt_loading_sentence">Načítava sa veta...</string>
     <string name="btn_skip_sentence">Preskočiť</string>
     <string name="btn_send_sentence">Odoslať nahrávku</string>
     <string name="txt_loading_clip">Nahrávka sa načítava...</string>
@@ -185,6 +186,14 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Prihlásenie zlyhalo</string>
     <string name="youHaveToAcceptPrivacyPolicy">Najskôr sa musíš zaregistrovať na Common Voice webstránke a prijať Common Voice zásady ochrany osobných údajov.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Otvoriť Common Voice</string>
+    <string name="text_warning">Upozornenie</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">Protokol zmien</string>
+    <string name="text_help">Nápoveda</string>
+    <string name="text_info">Informácie</string>
+    <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="text_offline_mode_enabled">Teraz si offline a appka sa automaticky prepla do offline módu.\nTo znamená, že môžeš pokračovať v nahrávaní a overovaní, ale ich odoslanie prebehne neskôr.</string>
+    <string name="text_offline_mode_enabled_2">Offline mód spoznáš podľa tejto ikony zobrazenej na obrazovke:</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Denný cieľ</string>
     <string name="daily_goal_is_not_set">Nie je nastavný žiadny cieľ</string>
