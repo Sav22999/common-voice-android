@@ -47,12 +47,12 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         if (theme.getTheme(requireContext())) {
             Pair(
                 ContextCompat.getColorStateList(requireContext(), R.color.colorLightGray),
-                ContextCompat.getColorStateList(requireContext(), R.color.colorLightBlack)
+                ContextCompat.getColorStateList(requireContext(), R.color.colorTabBackgroundInactiveDT)
             )
         } else {
             Pair(
                 ContextCompat.getColorStateList(requireContext(), R.color.colorBlack),
-                ContextCompat.getColorStateList(requireContext(), R.color.colorWhiteTransparent)
+                ContextCompat.getColorStateList(requireContext(), R.color.colorTabBackgroundInactive)
             )
         }
     }
@@ -169,16 +169,16 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             context,
             3,
             dashboardSectionToday,
-            R.color.colorWhiteTransparent,
-            R.color.colorLightBlack
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
         )
         theme.setElement(
             isDark,
             context,
             3,
             dashboardSectionEver,
-            R.color.colorWhiteTransparent,
-            R.color.colorLightBlack
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
         )
 
         theme.setTextView(isDark, context, textDashboardVoicesNow)

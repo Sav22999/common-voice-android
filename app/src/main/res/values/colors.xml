@@ -29,6 +29,9 @@
     <color name="colorWhiteTransparent">#88EEEEEE</color>
     <color name="colorBackgroundDarkTransparent">#AA000000</color>
 
+    <color name="colorTabBackgroundInactive">#EEEEEE</color>
+    <color name="colorTabBackgroundInactiveDT">#111111</color>
+
     <!-- Message dialogs -->
     <color name="colorWarning">#FF5722</color>
     <color name="colorTip">@color/colorBlack</color>
