@@ -12,10 +12,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -38,6 +35,7 @@ import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
@@ -46,13 +44,13 @@ import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.HashMap
-import kotlin.random.Random
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val workManager: WorkManager by inject()
     private val mainActivityViewModel: MainActivityViewModel by viewModel()
+    private val dashboardViewModel: DashboardViewModel by viewModel()
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
@@ -1082,6 +1080,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             if (languageChanged) {
                 mainPrefManager.language = lang
                 mainActivityViewModel.clearDB()
+                dashboardViewModel.lastStatsUpdate = 0
 
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
