@@ -1,6 +1,5 @@
 package org.commonvoice.saverio.ui.dashboard
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -16,12 +15,12 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
 class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
-    private val dashboardViewModel: DashboardViewModel by viewModel()
+    private val dashboardViewModel: DashboardViewModel by sharedViewModel()
 
     private val statsPrefManager: StatsPrefManager by inject()
     private val mainPrefManager: MainPrefManager by inject()
@@ -57,6 +56,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         }
     }
 
+    private var isInUserStats = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -66,6 +67,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
         loadDailyGoal()
 
+        initLiveData()
+
         if (mainPrefManager.sessIdCookie != null) {
             loadUserStats()
         } else {
@@ -74,11 +77,11 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         }
 
         buttonEveryoneStatisticsDashboard.onClick {
-            loadEveryoneStats()
+            if (isInUserStats) loadEveryoneStats()
         }
 
         buttonYouStatisticsDashboard.onClick {
-            loadUserStats()
+            if (!isInUserStats) loadUserStats()
         }
 
         buttonDashboardSetDailyGoal.onClick {
@@ -102,6 +105,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private fun loadEveryoneStats() {
         everyoneStats()
 
+        isInUserStats = false
+
         tabTextColors.let { (selected, other) ->
             buttonEveryoneStatisticsDashboard.setTextColor(selected)
             buttonYouStatisticsDashboard.setTextColor(other)
@@ -115,6 +120,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private fun loadUserStats() {
         userStats()
 
+        isInUserStats = true
+
         tabTextColors.let { (selected, other) ->
             buttonYouStatisticsDashboard.setTextColor(selected)
             buttonEveryoneStatisticsDashboard.setTextColor(other)
@@ -125,7 +132,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         }
     }
 
-    @SuppressLint("SimpleDateFormat")
     private fun voicesOnlineSection() {
         val localTimeNow = Calendar.getInstance().get(Calendar.HOUR_OF_DAY).toString()
         val localTimeMinusOne = (localTimeNow.toIntOrNull()?.minus(1)?.takeUnless {
@@ -139,11 +145,9 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 '0'
             )}:00"
 
-        dashboardViewModel.getHourlyVoices().observe(viewLifecycleOwner, Observer { list ->
-            if (list.size == 2) {
-                textDashboardVoicesNow.setText(list.last().count.toString())
-                textDashboardVoicesBefore.setText(list.first().count.toString())
-            }
+        dashboardViewModel.onlineVoices.observe(viewLifecycleOwner, Observer { list ->
+            textDashboardVoicesNow.setText(list.now.toString())
+            textDashboardVoicesBefore.setText(list.before.toString())
         })
     }
 
@@ -186,37 +190,38 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         theme.setElement(isDark, context, buttonDashboardSetDailyGoal)
     }
 
+    private fun initLiveData() {
+        dashboardViewModel.stats.observe(viewLifecycleOwner, Observer {
+            if (isInUserStats) {
+                textTodaySpeak.text = "${it.userTodaySpeak}"
+                textTodayListen.text = "${it.userTodayListen}"
+                textEverSpeak.text = "${it.userEverSpeak}"
+                textEverListen.text = "${it.userEverListen}"
+            } else {
+                textTodaySpeak.text = "${it.everyoneTodaySpeak}"
+                textTodayListen.text = "${it.everyoneTodayListen}"
+                textEverSpeak.text = "${it.everyoneEverSpeak / 3600}${getString(R.string.textHoursAbbreviation)}"
+                textEverListen.text = "${it.everyoneEverListen / 3600}${getString(R.string.textHoursAbbreviation)}"
+            }
+        })
+    }
+
     private fun everyoneStats() {
         textTodaySpeak.text = "..."
         textTodayListen.text = "..."
         textEverSpeak.text = "..."
         textEverListen.text = "..."
 
-        dashboardViewModel.getDailyClipsCount().observe(viewLifecycleOwner, Observer {
-            textTodaySpeak.text = "$it"
-        })
-
-        dashboardViewModel.getDailyVotesCount().observe(viewLifecycleOwner, Observer {
-            textTodayListen.text = "$it"
-        })
-
-        dashboardViewModel.getEverCount().observe(viewLifecycleOwner, Observer {
-            textEverSpeak.text = "${it.total / 3600}${getString(R.string.textHoursAbbreviation)}"
-            textEverListen.text = "${it.valid / 3600}${getString(R.string.textHoursAbbreviation)}"
-        })
+        dashboardViewModel.updateStats()
     }
 
     private fun userStats() {
-        textTodaySpeak.text = "${statsPrefManager.todayRecorded}"
-        textTodayListen.text = "${statsPrefManager.todayValidated}"
-
+        textTodaySpeak.text = "..."
+        textTodayListen.text = "..."
         textEverSpeak.text = "..."
         textEverListen.text = "..."
 
-        dashboardViewModel.getUserClient().observe(viewLifecycleOwner, Observer { cl ->
-            textEverSpeak.text = "${cl.clips_count}"
-            textEverListen.text = "${cl.votes_count}"
-        })
+        dashboardViewModel.updateStats()
     }
 
 }
