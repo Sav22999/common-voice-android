@@ -162,22 +162,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         theme.setElements(context, dashboardSectionDailyGoal)
 
         theme.setElement(isDark, context, 3, dashboardSectionStatistics)
-        theme.setElement(
-            isDark,
-            context,
-            3,
-            dashboardSectionToday,
-            R.color.colorWhiteTransparent,
-            R.color.colorLightBlack
-        )
-        theme.setElement(
-            isDark,
-            context,
-            3,
-            dashboardSectionEver,
-            R.color.colorWhiteTransparent,
-            R.color.colorLightBlack
-        )
         theme.setElement(isDark, context, 3, dashboardSectionVoicesOnline)
         theme.setElement(isDark, context, 3, dashboardSectionDailyGoal)
 
@@ -188,7 +172,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
     private fun everyoneStats() {
         textTodaySpeak.text = "..."
-        textTodayListen.text = "...."
+        textTodayListen.text = "..."
         textEverSpeak.text = "..."
         textEverListen.text = "..."
 
