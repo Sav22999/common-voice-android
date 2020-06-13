@@ -57,6 +57,12 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putBoolean(Keys.ARE_ANIMATIONS_ENABLED.name, value).apply()
         }
 
+    var areLabelsBelowMenuIcons: Boolean
+        get() = preferences.getBoolean(Keys.LABELS_MENU_ICONS.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.LABELS_MENU_ICONS.name, value).apply()
+        }
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
@@ -65,7 +71,8 @@ class MainPrefManager(private val ctx: Context) {
         GESTURES_ENABLED,
         STATS_USERID,
         ARE_STATS_ANONYMOUS,
-        ARE_ANIMATIONS_ENABLED
+        ARE_ANIMATIONS_ENABLED,
+        LABELS_MENU_ICONS
     }
 
 }

@@ -29,6 +29,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import kotlinx.android.synthetic.main.activity_main.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
@@ -117,7 +119,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "LEVEL_SAVED" to "LEVEL_SAVED",
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
             "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
-            "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED"
+            "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED",
+            "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -150,6 +153,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        if (mainPrefManager.areLabelsBelowMenuIcons) {
+            navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+        } else {
+            navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+        }
 
         //checkConnection()
 
@@ -691,6 +700,27 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["GESTURES"], status)
+                .apply()
+        }
+    }
+
+    fun getLabelsBelowMenuIconsSettingsSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["LABELS_MENU_ICONS"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["LABELS_MENU_ICONS"],
+            false
+        )
+    }
+
+    fun setLabelsBelowMenuIconsSettingsSwitch(status: Boolean) {
+        if (status != this.getLabelsBelowMenuIconsSettingsSwitch()) {
+            getSharedPreferences(
+                settingsSwitchData["LABELS_MENU_ICONS"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["LABELS_MENU_ICONS"], status)
                 .apply()
         }
     }

@@ -10,12 +10,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_settings">Settings</string>
+
     <!-- Home (main) -->
     <string name="button_home_login">Log in / Sign up</string>
     <string name="button_home_logout">Log out</string>
     <string name="button_home_profile">Profile</string>
     <string name="text_hi_username">Hi</string>
     <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
     <string name="dashboardVoicesOnline">Voices online</string>
@@ -27,6 +29,7 @@
     <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hour</string>
+
     <!-- First launch -->
     <string name="btn_tutorial1">Start</string>
     <string name="btn_tutorial2">Permit</string>
@@ -49,6 +52,7 @@
     <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
     <string name="btn_join_telegram_first_launch">Join group</string>
     <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+
     <!-- Login -->
     <string name="txt_loading_page">Loading ...</string>
     <string name="txt_profile_username">Username</string>
@@ -63,6 +67,7 @@
     <string name="btn_badges_loggedin">All badges</string>
     <string name="txt_your_level">Level {{*{{level}}*}}</string>
     <string name="level_up_message">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
+
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open tutorial again</string>
     <string name="txt_project_github_settings">Project open-source on GitHub</string>
@@ -114,6 +119,8 @@
     <string name="txt_customise_gestures">Customise gestures</string>
     <string name="txt_themes_settings">Themes</string>
     <string name="txt_telegram_group_settings">Telegram group of the app</string>
+    <string name="txt_show_labels_below_menu_icons">Show the labels below the menu icons</string>
+
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">Skip</string>
@@ -155,9 +162,11 @@
     <string name="checkbox_reason4_report">Difficult to pronounce</string>
     <string name="checkbox_reason5_report">Other</string>
     <string name="checkbox_reason5_comment_report">Comment</string>
+
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Check again</string>
     <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+
     <!-- First-run Speak & Listen -->
     <string name="txt1_tutorial_speak">This is the sentence you must record.</string>
     <string name="txt2_tutorial_speak_and_listen">A message to guide you will appear here.</string>
@@ -175,12 +184,15 @@
     <string name="txt6_tutorial_listen">Tap on this icon if you want to listen to the clip again.</string>
     <string name="txt7_tutorial_listen">If the clip matches the sentence, tap on this icon to accept it.</string>
     <string name="txt8_tutorial_listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+
     <!-- Badges -->
     <string name="btnCloseBadges">Close</string>
     <string name="labelAllBadges">All badges</string>
     <string name="new_badge_earnt_message">Hooray! You have just earned a new badge.</string>
+
     <!-- Message dialog -->
     <string name="btnOk">Ok</string>
     <string name="messageDialogErrorTitle">Error</string>
@@ -197,6 +209,7 @@
     <string name="check_box_message_dialog">Do not show anymore</string>
     <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+
     <!-- Daily goal -->
     <string name="daily_goal_title">Daily goal</string>
     <string name="daily_goal_is_not_set">No goal set</string>
@@ -210,6 +223,7 @@
     <string name="daily_goal_not_achieved_today">Not achieved today</string>
     <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
 
