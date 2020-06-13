@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import androidx.work.WorkManager
+import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.db.AppDB
@@ -77,6 +78,7 @@ class CommonVoice : Application() {
         single { ReportsRepository(get(), get()) }
         single { StatsRepository(get(), get()) }
         single { RecordingSoundIndicatorRepository(get()) }
+        single { CVStatsRepository(get(), get()) }
     }
 
     private val mvvmViewmodels = module {
@@ -104,6 +106,7 @@ class CommonVoice : Application() {
                 get<ListenPrefManager>()
             )
         }
+        viewModel { DashboardViewModel(get()) }
         viewModel { LoginViewModel(get()) }
         viewModel { MainActivityViewModel(get(), get()) }
         viewModel { HomeViewModel(get()) }

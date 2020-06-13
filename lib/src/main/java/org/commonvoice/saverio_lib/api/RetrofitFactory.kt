@@ -7,6 +7,7 @@ import org.commonvoice.saverio_lib.api.services.*
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 /**
  * RetrofitFactory injects our AuthenticationInterceptor inside the OkHttp client used by Retrofit
@@ -29,6 +30,7 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
                         mainPrefManager
                     )
                 )
+                .connectTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
         )

@@ -22,12 +22,12 @@ interface CVStatsService {
         @Path("lang") language: String
     ): Response<Int>
 
-    @GET("{lang}/clips/votes/daily_count")
+    @GET("{lang}/clips/stats")
     suspend fun getEverCount(
         @Path("lang") language: String
     ): Response<List<ResponseEverStats>>
 
-    @GET("{lang}/clips/votes/daily_count")
+    @GET("{lang}/clips/voices")
     suspend fun getHourlyVoices(
         @Path("lang") language: String
     ): Response<List<ResponseVoicesToday>>

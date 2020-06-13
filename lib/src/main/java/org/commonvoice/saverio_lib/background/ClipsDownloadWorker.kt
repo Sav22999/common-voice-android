@@ -16,10 +16,8 @@ class ClipsDownloadWorker(
 ): CoroutineWorker(appContext, workerParams) {
 
     private val db = AppDB.build(appContext)
-    private val prefManager =
-        MainPrefManager(appContext)
-    private val listenPrefManager =
-        ListenPrefManager(appContext)
+    private val prefManager = MainPrefManager(appContext)
+    private val listenPrefManager = ListenPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
 
     private val requiredClips: Int = listenPrefManager.requiredClipsCount
