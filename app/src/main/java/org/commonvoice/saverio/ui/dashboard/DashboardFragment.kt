@@ -1,7 +1,6 @@
 package org.commonvoice.saverio.ui.dashboard
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -18,7 +17,6 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.text.SimpleDateFormat
 import java.util.*
 
 class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
@@ -28,8 +26,9 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private val statsPrefManager: StatsPrefManager by inject()
     private val mainPrefManager: MainPrefManager by inject()
 
-    private val textColors by lazy {
+    private val tabTextColors by lazy {
         val theme = DarkLightTheme()
+
         if (theme.getTheme(requireContext())) {
             Pair(
                 ContextCompat.getColor(requireContext(), R.color.colorBlack),
@@ -43,7 +42,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         }
     }
 
-    private val bgColors by lazy {
+    private val tabBackgroundColors by lazy {
         val theme = DarkLightTheme()
         if (theme.getTheme(requireContext())) {
             Pair(
@@ -103,11 +102,11 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private fun loadEveryoneStats() {
         everyoneStats()
 
-        textColors.let { (selected, other) ->
+        tabTextColors.let { (selected, other) ->
             buttonEveryoneStatisticsDashboard.setTextColor(selected)
             buttonYouStatisticsDashboard.setTextColor(other)
         }
-        bgColors.let { (selected, other) ->
+        tabBackgroundColors.let { (selected, other) ->
             buttonEveryoneStatisticsDashboard.backgroundTintList = selected
             buttonYouStatisticsDashboard.backgroundTintList = other
         }
@@ -116,11 +115,11 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private fun loadUserStats() {
         userStats()
 
-        textColors.let { (selected, other) ->
+        tabTextColors.let { (selected, other) ->
             buttonYouStatisticsDashboard.setTextColor(selected)
             buttonEveryoneStatisticsDashboard.setTextColor(other)
         }
-        bgColors.let { (selected, other) ->
+        tabBackgroundColors.let { (selected, other) ->
             buttonYouStatisticsDashboard.backgroundTintList = selected
             buttonEveryoneStatisticsDashboard.backgroundTintList = other
         }
@@ -164,6 +163,23 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         theme.setElement(isDark, context, 3, dashboardSectionStatistics)
         theme.setElement(isDark, context, 3, dashboardSectionVoicesOnline)
         theme.setElement(isDark, context, 3, dashboardSectionDailyGoal)
+
+        theme.setElement(
+            isDark,
+            context,
+            3,
+            dashboardSectionToday,
+            R.color.colorWhiteTransparent,
+            R.color.colorLightBlack
+        )
+        theme.setElement(
+            isDark,
+            context,
+            3,
+            dashboardSectionEver,
+            R.color.colorWhiteTransparent,
+            R.color.colorLightBlack
+        )
 
         theme.setTextView(isDark, context, textDashboardVoicesNow)
         theme.setTextView(isDark, context, textDashboardVoicesBefore)
