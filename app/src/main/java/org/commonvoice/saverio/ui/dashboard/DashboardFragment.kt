@@ -47,13 +47,13 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         val theme = DarkLightTheme()
         if (theme.getTheme(requireContext())) {
             Pair(
-                ContextCompat.getColorStateList(requireContext(), R.color.colorWhiteTransparent),
+                ContextCompat.getColorStateList(requireContext(), R.color.colorLightGray),
                 ContextCompat.getColorStateList(requireContext(), R.color.colorLightBlack)
             )
         } else {
             Pair(
                 ContextCompat.getColorStateList(requireContext(), R.color.colorBlack),
-                ContextCompat.getColorStateList(requireContext(), R.color.colorDarkWhite)
+                ContextCompat.getColorStateList(requireContext(), R.color.colorWhiteTransparent)
             )
         }
     }
@@ -134,7 +134,11 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         } ?: 23).toString()
 
         labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
-        labelDashboardVoicesBefore.text = "${getString(R.string.textHour)} ${localTimeMinusOne.padStart(2 - localTimeMinusOne.length, '0')}:00"
+        labelDashboardVoicesBefore.text =
+            "${getString(R.string.textHour)} ${localTimeMinusOne.padStart(
+                2 - localTimeMinusOne.length,
+                '0'
+            )}:00"
 
         dashboardViewModel.getHourlyVoices().observe(viewLifecycleOwner, Observer { list ->
             if (list.size == 2) {
@@ -197,8 +201,8 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         })
 
         dashboardViewModel.getEverCount().observe(viewLifecycleOwner, Observer {
-            textEverSpeak.text = "${it.total/3600}${getString(R.string.textHoursAbbreviation)}"
-            textEverListen.text = "${it.valid/3600}${getString(R.string.textHoursAbbreviation)}"
+            textEverSpeak.text = "${it.total / 3600}${getString(R.string.textHoursAbbreviation)}"
+            textEverListen.text = "${it.valid / 3600}${getString(R.string.textHoursAbbreviation)}"
         })
     }
 
