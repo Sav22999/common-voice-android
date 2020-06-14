@@ -54,6 +54,8 @@ class SpeakViewModel(
             savedStateHandle["currentRecording"] = value
         }
 
+    val hasFinishedSentences = sentencesRepository.getLiveSentenceCount().map { it == 0 }
+
     init {
         mediaRecorderRepository.setupRecorder()
     }
@@ -167,6 +169,7 @@ class SpeakViewModel(
         } else {
             delay(500) //Just to avoid a loop
             _state.postValue(State.STANDBY)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
 

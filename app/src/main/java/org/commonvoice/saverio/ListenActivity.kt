@@ -9,6 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -42,6 +43,13 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
             checkOfflineMode(available)
+        })
+
+        listenViewModel.hasFinishedClips.observe(this, Observer {
+            if (it) {
+                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
+                Toast.makeText(this, "No more clips available", Toast.LENGTH_LONG).show()
+            }
         })
     }
 

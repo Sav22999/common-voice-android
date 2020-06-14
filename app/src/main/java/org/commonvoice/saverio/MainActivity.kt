@@ -30,7 +30,6 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
-import kotlinx.android.synthetic.main.activity_main.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
@@ -191,6 +190,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         this.checkIfSessionIsExpired()
         this.reviewOnPlayStore()
+
+        setupLiveData()
     }
 
     fun checkIfSessionIsExpired() {
@@ -223,6 +224,21 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             }
             que.add(req)
         }
+    }
+
+    private fun setupLiveData() {
+        mainActivityViewModel.hasFinishedClips.observe(this, androidx.lifecycle.Observer {
+            if (it) {
+                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
+                Toast.makeText(this, "No more clips available", Toast.LENGTH_LONG).show()
+            }
+        })
+        mainActivityViewModel.hasFinishedSentences.observe(this, androidx.lifecycle.Observer {
+            if (it) {
+                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
+                Toast.makeText(this, "No more sentences available", Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
     fun logoutUser() {

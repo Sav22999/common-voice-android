@@ -42,6 +42,8 @@ class ListenViewModel(
     private val _currentClip: MutableLiveData<Clip> = handle.getLiveData("currentClip")
     val currentClip: LiveData<Clip> get() = _currentClip
 
+    val hasFinishedClips = clipsRepository.getLiveClipsCount().map { it == 0 }
+
     fun loadNewClip() = viewModelScope.launch {
         val clip = clipsRepository.getOldestClip()
         if (clip != null) {

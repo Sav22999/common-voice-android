@@ -9,10 +9,7 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,12 +17,12 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
@@ -55,6 +52,13 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         connectionManager.liveInternetAvailability.observe(this, Observer { available ->
             checkOfflineMode(available)
+        })
+
+        speakViewModel.hasFinishedSentences.observe(this, Observer {
+            if (it) {
+                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
+                Toast.makeText(this, "No more sentences available", Toast.LENGTH_LONG).show()
+            }
         })
     }
 
