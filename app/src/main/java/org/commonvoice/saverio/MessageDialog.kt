@@ -32,10 +32,7 @@ class MessageDialog {
     private var dailyGoalValue: Int = 0
     private var width: Int = 0
     private var height: Int = 0
-    private var reportType: String = ""
     private var main: MainActivity? = null
-    private var speak: SpeakActivity? = null
-    private var listen: ListenActivity? = null
 
     constructor(context: Context, title: String, text: String, height: Int = 0) {
         this.context = context
@@ -75,24 +72,6 @@ class MessageDialog {
         this.width = width
         this.height = height
         this.main = main
-    }
-
-    constructor(context: Context, reportType: String, listen: ListenActivity, height: Int = 0) {
-        //report - Listen
-        this.reportType = reportType
-        this.listen = listen
-        this.message_type = 3
-        this.context = context
-        this.height = height
-    }
-
-    constructor(context: Context, reportType: String, speak: SpeakActivity, height: Int = 0) {
-        //report - Speak
-        this.reportType = reportType
-        this.speak = speak
-        this.message_type = 4
-        this.context = context
-        this.height = height
     }
 
     fun setMessageType(type: Int) {
@@ -145,7 +124,7 @@ class MessageDialog {
                     }
                 }
                 1 -> {
-                    //println("Daily goal")
+                    //dailygoal
                     try {
                         val dialogView =
                             LayoutInflater.from(this.context).inflate(R.layout.daily_goal, null)
@@ -207,139 +186,9 @@ class MessageDialog {
                         println("!!-- Exception: MessageDialogActivity MD02 - Details: " + exception.toString() + " --!!")
                     }
                 }
-                3, 4 -> {
-                    /*
-                    try {
-                        val dialogView =
-                            LayoutInflater.from(this.context)
-                                .inflate(R.layout.report_sentence_clip, null)
-
-                        var buttonSend = dialogView.btnSendReport
-                        var buttonCancel = dialogView.btnCancelReport
-
-                        var checkBoxOther: CheckBox = dialogView.checkBoxReason5Report
-                        var textBoxOther: TextView = dialogView.textReasonOtherReport
-                        checkBoxOther.setOnCheckedChangeListener { buttonView, isChecked ->
-                            textBoxOther.isVisible = isChecked
-                            checkAvailability(dialogView)
-                            textBoxOther.requestFocus()
-                        }
-                        textBoxOther.addTextChangedListener(object : TextWatcher {
-                            override fun afterTextChanged(s: Editable?) {
-                            }
-
-                            override fun beforeTextChanged(
-                                s: CharSequence?, start: Int, count: Int, after: Int
-                            ) {
-                            }
-
-                            override fun onTextChanged(
-                                s: CharSequence?, start: Int, before: Int, count: Int
-                            ) {
-                                checkAvailability(dialogView)
-                            }
-
-                        })
-
-                        buttonSend.isEnabled = false
-
-                        var checkBoxes = arrayOf(
-                            dialogView.checkBoxReason1Report,
-                            dialogView.checkBoxReason2Report,
-                            dialogView.checkBoxReason3Report,
-                            dialogView.checkBoxReason4Report
-                        )
-                        for (x in 0 until checkBoxes.size) {
-                            checkBoxes[x].setOnCheckedChangeListener { buttonView, isChecked ->
-                                checkAvailability(dialogView)
-                            }
-                        }
-
-                        var reasons = JSONArray()
-
-                        dialogView.checkBoxReason1Report.isChecked = false
-                        dialogView.checkBoxReason2Report.isChecked = false
-                        dialogView.checkBoxReason3Report.isChecked = false
-                        dialogView.checkBoxReason4Report.isChecked = false
-                        dialogView.checkBoxReason5Report.isChecked = false
-                        dialogView.textReasonOtherReport.isVisible = false
-
-                        if (this.message_type == 3) {
-                            dialogView.checkBoxReason4Report.isVisible = false
-                            dialogView.checkBoxReason1Report.text =
-                                this.listen?.getString(R.string.checkbox_reason1_report_clip)
-                            dialogView.titleReportSentenceClip.text =
-                                this.listen?.getString(R.string.title_report_clip)
-                        } else if (this.message_type == 4) {
-                            dialogView.checkBoxReason4Report.isVisible = true
-                            dialogView.checkBoxReason1Report.text =
-                                this.speak?.getString(R.string.checkbox_reason1_report_sentence)
-                            dialogView.titleReportSentenceClip.text =
-                                this.speak?.getString(R.string.title_report_sentence)
-                        }
-
-                        val builder = AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
-                            .setView(dialogView)
-                            .setTitle("")
-                        //show dialog
-                        val alertDialog = builder.show()
-                        buttonSend.setOnClickListener {
-                            if (dialogView.checkBoxReason1Report.isChecked && this.message_type == 3) reasons.put(
-                                "offensive-speech"
-                            )
-                            else if (dialogView.checkBoxReason1Report.isChecked && this.message_type == 4) reasons.put(
-                                "offensive-language"
-                            )
-                            if (dialogView.checkBoxReason2Report.isChecked) reasons.put("grammar-or-spelling")
-                            if (dialogView.checkBoxReason3Report.isChecked) reasons.put("different-language")
-                            if (dialogView.checkBoxReason4Report.isChecked) reasons.put("difficult-pronounce")
-                            var other_text = dialogView.textReasonOtherReport.text.toString()
-                            if (dialogView.checkBoxReason5Report.isChecked) reasons.put(other_text)
-                            if (this.message_type == 3) { //TODO fix this
-                                //listen?.reportClip(reasons)
-                            } else if (this.message_type == 4) {
-                                //speak?.reportSentence(reasons)
-                            }
-                            alertDialog.dismiss()
-                        }
-                        buttonCancel.setOnClickListener {
-                            alertDialog.dismiss()
-                        }
-                        setTheme(this.context!!, dialogView)
-                        setMessageType(this.context!!, dialogView)
-                    } catch (exception: Exception) {
-                        println("!!-- Exception: MessageDialogActivity MD03 - Details: " + exception.toString() + " --!!")
-                    }
-                    */
-                }
             }
         }
     }
-
-    /*
-    fun checkAvailability(view: View) {
-        var checkBoxes = arrayOf(
-            view.checkBoxReason1Report,
-            view.checkBoxReason2Report,
-            view.checkBoxReason3Report,
-            view.checkBoxReason4Report,
-            view.checkBoxReason5Report
-        )
-        var textReason = view.textReasonOtherReport
-        var availableSendingTheReport = false
-        if (checkBoxes[0].isChecked) availableSendingTheReport = true
-        if (checkBoxes[1].isChecked) availableSendingTheReport = true
-        if (checkBoxes[2].isChecked) availableSendingTheReport = true
-        if (checkBoxes[3].isChecked) availableSendingTheReport = true
-        if (checkBoxes[4].isChecked && textReason.text.toString()
-                .replace(" ", "") != ""
-        ) availableSendingTheReport = true
-
-        var buttonSend = view.btnSendReport
-        if (availableSendingTheReport) buttonSend.isEnabled = true
-        else buttonSend.isEnabled = false
-    }
-     */
 
     fun setDailyGoalValue(textBox: TextView, value: Int) {
         if (value == 0) {
@@ -508,61 +357,6 @@ class MessageDialog {
                     view,
                     dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
                 )
-            }
-            3, 4 -> {
-                /*
-                theme.setElement(
-                    isDark,
-                    dialogView.findViewById(R.id.layoutReport) as ConstraintLayout
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.checkBoxReason1Report) as CheckBox
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.checkBoxReason2Report) as CheckBox
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.checkBoxReason3Report) as CheckBox
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.checkBoxReason4Report) as CheckBox
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.checkBoxReason5Report) as CheckBox
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.buttonCancelReport) as Button
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.buttonSendReport) as Button
-                )
-                theme.setElement(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.titleReportSentenceClip) as TextView,
-                    R.color.colorBlack,
-                    R.color.colorWhite
-                )
-                theme.setTextView(
-                    isDark,
-                    view,
-                    dialogView.findViewById(R.id.textReasonOtherReport) as TextView
-                )
-                 */
             }
         }
     }

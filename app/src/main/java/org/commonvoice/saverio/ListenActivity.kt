@@ -281,6 +281,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         buttonNoClip.onClick {
             listenViewModel.validate(result = false)
             this.numberSentThisSession++
+            hideButtons()
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -288,12 +289,14 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun loadUIStateListened() {
-        buttonYesClip.isVisible = true
         buttonNoClip.isVisible = true
-        if (!listenViewModel.listenedOnce) startAnimation(
-            buttonYesClip,
-            R.anim.zoom_in_speak_listen
-        )
+        if (!listenViewModel.listenedOnce) {
+            buttonYesClip.isVisible = true
+            startAnimation(
+                buttonYesClip,
+                R.anim.zoom_in_speak_listen
+            )
+        }
         listenViewModel.listenedOnce = true
 
         textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
@@ -303,6 +306,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         buttonYesClip.onClick {
             listenViewModel.validate(result = true)
             this.numberSentThisSession++
+            hideButtons()
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
