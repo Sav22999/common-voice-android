@@ -119,7 +119,7 @@
     <string name="txt_customise_gestures">Customise gestures</string>
     <string name="txt_themes_settings">Themes</string>
     <string name="txt_telegram_group_settings">Telegram group of the app</string>
-    <string name="txt_show_labels_below_menu_icons">Show the labels below the menu icons</string>
+    <string name="txt_show_labels_below_menu_icons">Show labels below the menu icons</string>
 
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading sentence...</string>
