@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -126,7 +128,8 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         if (statsPrefManager.dailyGoalObjective <= 0) {
             binding.labelDashboardDailyGoalValue.setText(R.string.daily_goal_is_not_set)
         } else {
-            binding.labelDashboardDailyGoalValue.text = statsPrefManager.dailyGoalObjective.toString()
+            binding.labelDashboardDailyGoalValue.text =
+                statsPrefManager.dailyGoalObjective.toString()
         }
     }
 
@@ -363,6 +366,8 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         dashboardViewModel.contributors.observe(viewLifecycleOwner, Observer { pair ->
             dashboardTopContributorsNTh.isVisible = false
 
+            resetTopContributor()
+
             if (pair.second) {
                 pair.first.topContributorsSpeak.take(3)
                     .forEachIndexed { index, responseLeaderboardPosition ->
@@ -374,7 +379,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                     if (pair.first.topContributorsSpeak.take(3).contains(you)) {
                         getContributorNameTextView(pair.first.topContributorsSpeak.indexOf(you))
                             .setText(R.string.dashboardTabYou)
-                        resetTopContributor()
                         setYouTopContributor(
                             getContributorSection(
                                 pair.first.topContributorsSpeak.indexOf(
@@ -388,7 +392,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
-                        resetTopContributor()
                         setYouTopContributor(dashboardTopContributorsNTh)
                         if (you.total > 4) {
                             dashboardTopContributorsPoints.isGone = false
@@ -406,7 +409,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                     if (pair.first.topContributorsListen.take(3).contains(you)) {
                         getContributorNameTextView(pair.first.topContributorsListen.indexOf(you))
                             .setText(R.string.dashboardTabYou)
-                        resetTopContributor()
                         setYouTopContributor(
                             getContributorSection(
                                 pair.first.topContributorsListen.indexOf(
@@ -420,7 +422,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
-                        resetTopContributor()
                         setYouTopContributor(dashboardTopContributorsNTh)
                         if (you.total > 4) {
                             dashboardTopContributorsPoints.isGone = false
@@ -436,13 +437,13 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         })
     }
 
-    private fun getContributorNameTextView(index: Int) = when(index) {
+    private fun getContributorNameTextView(index: Int) = when (index) {
         0 -> binding.textDashboardTopContributorsUsernameFirst
         1 -> binding.textDashboardTopContributorsUsernameSecond
         else -> binding.textDashboardTopContributorsUsernameThird
     }
 
-    private fun getContributorNumberTextView(index: Int) = when(index) {
+    private fun getContributorNumberTextView(index: Int) = when (index) {
         0 -> binding.textDashboardTopContributorsNumberFirst
         1 -> binding.textDashboardTopContributorsNumberSecond
         else -> binding.textDashboardTopContributorsNumberThird
@@ -456,10 +457,10 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
     private fun everyoneStats() {
         withBinding {
-            textTodaySpeak.text = "..."
-            textTodayListen.text = "..."
-            textEverSpeak.text = "..."
-            textEverListen.text = "..."
+            textTodaySpeak.text = "···"
+            textTodayListen.text = "···"
+            textEverSpeak.text = "···"
+            textEverListen.text = "···"
         }
 
         dashboardViewModel.updateStats()
@@ -467,10 +468,10 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
     private fun userStats() {
         withBinding {
-            textTodaySpeak.text = "..."
-            textTodayListen.text = "..."
-            textEverSpeak.text = "..."
-            textEverListen.text = "..."
+            textTodaySpeak.text = "···"
+            textTodayListen.text = "···"
+            textEverSpeak.text = "···"
+            textEverListen.text = "···"
         }
 
         dashboardViewModel.updateStats()
