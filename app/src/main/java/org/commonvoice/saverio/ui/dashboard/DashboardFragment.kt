@@ -2,6 +2,7 @@ package org.commonvoice.saverio.ui.dashboard
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -62,6 +63,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         super.onViewCreated(view, savedInstanceState)
 
         voicesOnlineSection()
+        contributorsSection()
 
         setTheme()
 
@@ -130,6 +132,12 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             buttonYouStatisticsDashboard.backgroundTintList = selected
             buttonEveryoneStatisticsDashboard.backgroundTintList = other
         }
+    }
+
+    private fun contributorsSection() {
+        dashboardViewModel.contributors.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+        })
     }
 
     private fun voicesOnlineSection() {

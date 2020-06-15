@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseEverStats
+import org.commonvoice.saverio_lib.api.responseBodies.ResponseLeaderboardPosition
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseVoicesToday
 import org.commonvoice.saverio_lib.models.UserClient
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
@@ -25,6 +26,9 @@ class DashboardViewModel(
 
     private val _onlineVoices = MutableLiveData<OnlineVoices>()
     val onlineVoices: LiveData<OnlineVoices> get() = _onlineVoices
+
+    private val _contributors = MutableLiveData<Contributors>()
+    val contributors: LiveData<Contributors> get() = _contributors
 
     var lastStatsUpdate: Long = 0
 
@@ -43,6 +47,13 @@ class DashboardViewModel(
             }
             val userClient = async {
                 cvStatsRepository.getUserClient()
+            }
+
+            val topContributorsSpeak = async {
+                cvStatsRepository.getRecordingsLeaderboard().take(3)
+            }
+            val topContributorsListen = async {
+                cvStatsRepository.getClipsLeaderboard().take(3)
             }
 
             _stats.postValue(Stats(
@@ -65,6 +76,11 @@ class DashboardViewModel(
                     )
                 }
             }
+
+            _contributors.postValue(Contributors(
+                topContributorsSpeak.await(),
+                topContributorsListen.await()
+            ))
         } else {
             _stats.value?.let {
                 _stats.postValue(it)
@@ -87,6 +103,11 @@ class DashboardViewModel(
     data class OnlineVoices(
         val now: Int,
         val before: Int
+    )
+
+    data class Contributors(
+        val topContributorsSpeak: List<ResponseLeaderboardPosition>,
+        val topContributorsListen: List<ResponseLeaderboardPosition>
     )
 
 }

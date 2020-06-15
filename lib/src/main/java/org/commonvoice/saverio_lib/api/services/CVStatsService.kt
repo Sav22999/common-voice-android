@@ -1,6 +1,7 @@
 package org.commonvoice.saverio_lib.api.services
 
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseEverStats
+import org.commonvoice.saverio_lib.api.responseBodies.ResponseLeaderboardPosition
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseVoicesToday
 import org.commonvoice.saverio_lib.models.UserClient
 import retrofit2.Response
@@ -31,5 +32,15 @@ interface CVStatsService {
     suspend fun getHourlyVoices(
         @Path("lang") language: String
     ): Response<List<ResponseVoicesToday>>
+    
+    @GET("{lang}/clips/leaderboard")
+    suspend fun getRecordingsLeaderboard(
+        @Path("lang") language: String
+    ): Response<List<ResponseLeaderboardPosition>>
+
+    @GET("{lang}/clips/votes/leaderboard")
+    suspend fun getClipsLeaderboard(
+        @Path("lang") language: String
+    ): Response<List<ResponseLeaderboardPosition>>
 
 }

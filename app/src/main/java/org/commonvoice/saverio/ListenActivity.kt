@@ -319,9 +319,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
 
         buttonYesClip.onClick {
+            hideButtons()
             listenViewModel.validate(result = true)
             this.numberSentThisSession++
-            hideButtons()
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()

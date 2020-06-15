@@ -28,4 +28,8 @@ class CVStatsRepository(
 
     suspend fun getHourlyVoices() = cvStatsClient.getHourlyVoices(language)
 
+    suspend fun getRecordingsLeaderboard() = cvStatsClient.getRecordingsLeaderboard(language).body() ?: listOf()
+
+    suspend fun getClipsLeaderboard() = cvStatsClient.getClipsLeaderboard(language).body() ?: listOf()
+
 }
