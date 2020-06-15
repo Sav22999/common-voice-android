@@ -29,6 +29,14 @@
     <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hour</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recordings">Recordings</string>
+    <string name="txt_top_contributors_validations">Validations</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
 
     <!-- First launch -->
     <string name="btn_tutorial1">Start</string>
