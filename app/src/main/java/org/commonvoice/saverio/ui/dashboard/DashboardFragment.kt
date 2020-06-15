@@ -141,8 +141,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
         labelDashboardVoicesBefore.text =
             "${getString(R.string.textHour)} ${localTimeMinusOne.padStart(
-                2 - localTimeMinusOne.length,
-                '0'
+                2, '0'
             )}:00"
 
         dashboardViewModel.onlineVoices.observe(viewLifecycleOwner, Observer { list ->
