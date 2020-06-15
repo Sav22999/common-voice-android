@@ -97,27 +97,11 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         buttonRecordingsTopContributorsDashboard.onClick {
             dashboardViewModel.contributorsIsInSpeak.postValue(true)
             dashboardViewModel.updateStats()
-            tabTextColors.let { (selected, other) ->
-                buttonRecordingsTopContributorsDashboard.setTextColor(selected)
-                buttonValidationsTopContributorsDashboard.setTextColor(other)
-            }
-            tabBackgroundColors.let { (selected, other) ->
-                buttonRecordingsTopContributorsDashboard.backgroundTintList = selected
-                buttonValidationsTopContributorsDashboard.backgroundTintList = other
-            }
         }
 
         buttonValidationsTopContributorsDashboard.onClick {
             dashboardViewModel.contributorsIsInSpeak.postValue(false)
             dashboardViewModel.updateStats()
-            tabTextColors.let { (selected, other) ->
-                buttonValidationsTopContributorsDashboard.setTextColor(selected)
-                buttonRecordingsTopContributorsDashboard.setTextColor(other)
-            }
-            tabBackgroundColors.let { (selected, other) ->
-                buttonValidationsTopContributorsDashboard.backgroundTintList = selected
-                buttonRecordingsTopContributorsDashboard.backgroundTintList = other
-            }
         }
     }
 
@@ -228,6 +212,28 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 textTodayListen.text = "${it.everyoneTodayListen}"
                 textEverSpeak.text = "${it.everyoneEverSpeak / 3600}${getString(R.string.textHoursAbbreviation)}"
                 textEverListen.text = "${it.everyoneEverListen / 3600}${getString(R.string.textHoursAbbreviation)}"
+            }
+        })
+
+        dashboardViewModel.contributorsIsInSpeak.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                tabTextColors.let { (selected, other) ->
+                    buttonRecordingsTopContributorsDashboard.setTextColor(selected)
+                    buttonValidationsTopContributorsDashboard.setTextColor(other)
+                }
+                tabBackgroundColors.let { (selected, other) ->
+                    buttonRecordingsTopContributorsDashboard.backgroundTintList = selected
+                    buttonValidationsTopContributorsDashboard.backgroundTintList = other
+                }
+            } else {
+                tabTextColors.let { (selected, other) ->
+                    buttonValidationsTopContributorsDashboard.setTextColor(selected)
+                    buttonRecordingsTopContributorsDashboard.setTextColor(other)
+                }
+                tabBackgroundColors.let { (selected, other) ->
+                    buttonValidationsTopContributorsDashboard.backgroundTintList = selected
+                    buttonRecordingsTopContributorsDashboard.backgroundTintList = other
+                }
             }
         })
 
