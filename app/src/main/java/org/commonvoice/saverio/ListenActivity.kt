@@ -13,9 +13,14 @@ import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_listen.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
+import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
@@ -40,17 +45,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         setupInitialUIState()
 
         setupUI()
-
-        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            checkOfflineMode(available)
-        })
-
-        listenViewModel.hasFinishedClips.observe(this, Observer {
-            if (it) {
-                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
-                Toast.makeText(this, "No more clips available", Toast.LENGTH_LONG).show()
-            }
-        })
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -78,6 +72,27 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun setupUI() {
+        imageOfflineModeListen.onClick {
+            lifecycleScope.launch {
+                val count = listenViewModel.getClipsCount()
+                withContext(Dispatchers.Main) {
+                    NoClipsSentencesAvailableDialog(this@ListenActivity, false, count).show()
+                }
+            }
+        }
+
+        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+            checkOfflineMode(available)
+        })
+
+        listenViewModel.hasFinishedClips.observe(this, Observer {
+            if (it) {
+                NoClipsSentencesAvailableDialog(this, false, 0).show {
+                    onBackPressed()
+                }
+            }
+        })
+
         listenViewModel.currentClip.observe(this, Observer { clip ->
             loadUIStateStandby(clip)
         })

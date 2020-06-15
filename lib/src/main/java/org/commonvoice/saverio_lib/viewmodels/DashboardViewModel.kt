@@ -7,6 +7,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseEverStats
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseVoicesToday
 import org.commonvoice.saverio_lib.models.UserClient
@@ -15,6 +16,7 @@ import org.commonvoice.saverio_lib.repositories.CVStatsRepository
 
 class DashboardViewModel(
     private val cvStatsRepository: CVStatsRepository,
+    private val connectionManager: ConnectionManager,
     private val statsPrefManager: StatsPrefManager
 ) : ViewModel() {
 
@@ -27,7 +29,7 @@ class DashboardViewModel(
     var lastStatsUpdate: Long = 0
 
     fun updateStats() = viewModelScope.launch(Dispatchers.IO) {
-        if (System.currentTimeMillis() - lastStatsUpdate >= 30000) {
+        if (System.currentTimeMillis() - lastStatsUpdate >= 30000 && connectionManager.isInternetAvailable) {
             lastStatsUpdate = System.currentTimeMillis()
 
             val dailyVotes = async {
