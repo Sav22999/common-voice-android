@@ -25,7 +25,7 @@
             android:gravity="center|center_horizontal|center_vertical"
             android:minHeight="300dp"
             android:padding="16px"
-            android:text="..."
+            android:text="···"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/title_very_big"
