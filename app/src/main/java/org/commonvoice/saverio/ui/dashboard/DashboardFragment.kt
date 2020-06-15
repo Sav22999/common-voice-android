@@ -1,18 +1,19 @@
 package org.commonvoice.saverio.ui.dashboard
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio.databinding.FragmentDashboardBinding
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
@@ -20,7 +21,14 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
-class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
+class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
+
+    override fun inflate(
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentDashboardBinding {
+        return FragmentDashboardBinding.inflate(layoutInflater, container, false)
+    }
 
     private val dashboardViewModel: DashboardViewModel by sharedViewModel()
 
@@ -77,46 +85,48 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
         initLiveData()
 
-        if (mainPrefManager.sessIdCookie != null) {
-            loadUserStats()
-        } else {
-            buttonYouStatisticsDashboard.isVisible = false
-            loadEveryoneStats()
-        }
-
-        buttonEveryoneStatisticsDashboard.onClick {
-            if (isInUserStats) loadEveryoneStats()
-        }
-
-        buttonYouStatisticsDashboard.onClick {
-            if (!isInUserStats) loadUserStats()
-        }
-
-        buttonDashboardSetDailyGoal.onClick {
-            //TODO absolutely change this
+        withBinding {
             if (mainPrefManager.sessIdCookie != null) {
-                (activity as? MainActivity)?.openDailyGoalDialog()
+                loadUserStats()
             } else {
-                (activity as? MainActivity)?.noLoggedInNoDailyGoal()
+                buttonYouStatisticsDashboard.isVisible = false
+                loadEveryoneStats()
             }
-        }
 
-        buttonRecordingsTopContributorsDashboard.onClick {
-            dashboardViewModel.contributorsIsInSpeak.postValue(true)
-            dashboardViewModel.updateStats()
-        }
+            buttonEveryoneStatisticsDashboard.onClick {
+                if (isInUserStats) loadEveryoneStats()
+            }
 
-        buttonValidationsTopContributorsDashboard.onClick {
-            dashboardViewModel.contributorsIsInSpeak.postValue(false)
-            dashboardViewModel.updateStats()
+            buttonYouStatisticsDashboard.onClick {
+                if (!isInUserStats) loadUserStats()
+            }
+
+            buttonDashboardSetDailyGoal.onClick {
+                //TODO absolutely change this
+                if (mainPrefManager.sessIdCookie != null) {
+                    (activity as? MainActivity)?.openDailyGoalDialog()
+                } else {
+                    (activity as? MainActivity)?.noLoggedInNoDailyGoal()
+                }
+            }
+
+            buttonRecordingsTopContributorsDashboard.onClick {
+                dashboardViewModel.contributorsIsInSpeak.postValue(true)
+                dashboardViewModel.updateStats()
+            }
+
+            buttonValidationsTopContributorsDashboard.onClick {
+                dashboardViewModel.contributorsIsInSpeak.postValue(false)
+                dashboardViewModel.updateStats()
+            }
         }
     }
 
     private fun loadDailyGoal() {
         if (statsPrefManager.dailyGoalObjective <= 0) {
-            labelDashboardDailyGoalValue.setText(R.string.daily_goal_is_not_set)
+            binding.labelDashboardDailyGoalValue.setText(R.string.daily_goal_is_not_set)
         } else {
-            labelDashboardDailyGoalValue.text = statsPrefManager.dailyGoalObjective.toString()
+            binding.labelDashboardDailyGoalValue.text = statsPrefManager.dailyGoalObjective.toString()
         }
     }
 
@@ -126,12 +136,12 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         isInUserStats = false
 
         tabTextColors.let { (selected, other) ->
-            buttonEveryoneStatisticsDashboard.setTextColor(selected)
-            buttonYouStatisticsDashboard.setTextColor(other)
+            binding.buttonEveryoneStatisticsDashboard.setTextColor(selected)
+            binding.buttonYouStatisticsDashboard.setTextColor(other)
         }
         tabBackgroundColors.let { (selected, other) ->
-            buttonEveryoneStatisticsDashboard.backgroundTintList = selected
-            buttonYouStatisticsDashboard.backgroundTintList = other
+            binding.buttonEveryoneStatisticsDashboard.backgroundTintList = selected
+            binding.buttonYouStatisticsDashboard.backgroundTintList = other
         }
     }
 
@@ -141,12 +151,12 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         isInUserStats = true
 
         tabTextColors.let { (selected, other) ->
-            buttonYouStatisticsDashboard.setTextColor(selected)
-            buttonEveryoneStatisticsDashboard.setTextColor(other)
+            binding.buttonYouStatisticsDashboard.setTextColor(selected)
+            binding.buttonEveryoneStatisticsDashboard.setTextColor(other)
         }
         tabBackgroundColors.let { (selected, other) ->
-            buttonYouStatisticsDashboard.backgroundTintList = selected
-            buttonEveryoneStatisticsDashboard.backgroundTintList = other
+            binding.buttonYouStatisticsDashboard.backgroundTintList = selected
+            binding.buttonEveryoneStatisticsDashboard.backgroundTintList = other
         }
     }
 
@@ -156,19 +166,19 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             it < 0
         } ?: 23).toString()
 
-        labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
-        labelDashboardVoicesBefore.text =
+        binding.labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
+        binding.labelDashboardVoicesBefore.text =
             "${getString(R.string.textHour)} ${localTimeMinusOne.padStart(
                 2, '0'
             )}:00"
 
         dashboardViewModel.onlineVoices.observe(viewLifecycleOwner, Observer { list ->
-            textDashboardVoicesNow.setText(list.now.toString())
-            textDashboardVoicesBefore.setText(list.before.toString())
+            binding.textDashboardVoicesNow.setText(list.now.toString())
+            binding.textDashboardVoicesBefore.setText(list.before.toString())
         })
     }
 
-    fun setTheme() {
+    fun setTheme() = withBinding {
         val context = requireContext()
 
         val theme = DarkLightTheme()
@@ -311,7 +321,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         )
     }
 
-    private fun initLiveData() {
+    private fun initLiveData() = withBinding {
         dashboardViewModel.stats.observe(viewLifecycleOwner, Observer {
             if (isInUserStats) {
                 textTodaySpeak.text = "${it.userTodaySpeak}"
@@ -426,16 +436,16 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         })
     }
 
-    private fun getContributorNameTextView(index: Int) = when (index) {
-        0 -> textDashboardTopContributorsUsernameFirst
-        1 -> textDashboardTopContributorsUsernameSecond
-        else -> textDashboardTopContributorsUsernameThird
+    private fun getContributorNameTextView(index: Int) = when(index) {
+        0 -> binding.textDashboardTopContributorsUsernameFirst
+        1 -> binding.textDashboardTopContributorsUsernameSecond
+        else -> binding.textDashboardTopContributorsUsernameThird
     }
 
-    private fun getContributorNumberTextView(index: Int) = when (index) {
-        0 -> textDashboardTopContributorsNumberFirst
-        1 -> textDashboardTopContributorsNumberSecond
-        else -> textDashboardTopContributorsNumberThird
+    private fun getContributorNumberTextView(index: Int) = when(index) {
+        0 -> binding.textDashboardTopContributorsNumberFirst
+        1 -> binding.textDashboardTopContributorsNumberSecond
+        else -> binding.textDashboardTopContributorsNumberThird
     }
 
     private fun getContributorSection(index: Int) = when (index) {
@@ -445,19 +455,23 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     }
 
     private fun everyoneStats() {
-        textTodaySpeak.text = "···"
-        textTodayListen.text = "···"
-        textEverSpeak.text = "···"
-        textEverListen.text = "···"
+        withBinding {
+            textTodaySpeak.text = "..."
+            textTodayListen.text = "..."
+            textEverSpeak.text = "..."
+            textEverListen.text = "..."
+        }
 
         dashboardViewModel.updateStats()
     }
 
     private fun userStats() {
-        textTodaySpeak.text = "···"
-        textTodayListen.text = "···"
-        textEverSpeak.text = "···"
-        textEverListen.text = "···"
+        withBinding {
+            textTodaySpeak.text = "..."
+            textTodayListen.text = "..."
+            textEverSpeak.text = "..."
+            textEverListen.text = "..."
+        }
 
         dashboardViewModel.updateStats()
     }
