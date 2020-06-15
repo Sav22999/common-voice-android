@@ -163,10 +163,12 @@
     <string name="checkbox_reason5_report">Other</string>
     <string name="checkbox_reason5_comment_report">Comment</string>
 
-    <string name="txt_sentences_finished_offline_mode">Sentences available for offline mode are finished. Please connect to the Internet to download other sentences to record.</string>
-    <string name="txt_clips_finished_offline_mode">Clips available for offline mode are finished. Please connect to the Internet to download other clips to validate.</string>
-    <string name="txt_residual_sentences_offline_mode">You still have {{*{{n_sentences}}*}} sentences to record before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode">You still have {{*{{n_clips}}*}} clips to validate before you need to connect to the Internet.</string>
+    <string name="txt_sentences_finished_offline_mode">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
 
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Check again</string>
@@ -215,7 +217,7 @@
 
     <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3">You can tap to that icon to see residual clips or sentences.</string>
+    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
 
     <!-- Daily goal -->
     <string name="daily_goal_title">Daily goal</string>
