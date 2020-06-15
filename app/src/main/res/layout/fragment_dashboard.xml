@@ -29,8 +29,7 @@
             android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="gone">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textDashboardStatistics"
@@ -306,8 +305,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionStatistics"
-            tools:visibility="gone">
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionStatistics">
 
             <TextView
                 android:id="@+id/textDashboardVoicesOnline"
@@ -457,8 +455,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionVoicesOnline"
-            tools:visibility="gone">
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionVoicesOnline">
 
             <TextView
                 android:id="@+id/textDashboardDailyGoal"
@@ -527,8 +524,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionDailyGoal"
-            tools:visibility="gone">
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionDailyGoal">
 
             <TextView
                 android:id="@+id/textDashboardAppStatistics"
@@ -713,14 +709,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/textDashboardTopContributors">
 
                 <Button
+                    android:id="@+id/buttonRecordingsTopContributorsDashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_rounded"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/txt_top_contributors_recorded"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
                     android:id="@+id/buttonValidationsTopContributorsDashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/btn_rounded"
                     android:backgroundTint="@color/colorTabBackgroundInactive"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
                     android:stateListAnimator="@null"
                     android:text="@string/txt_top_contributors_validated"
                     android:textColor="@color/colorBlack"
@@ -729,21 +741,6 @@
                     app:layout_constraintStart_toEndOf="@+id/buttonRecordingsTopContributorsDashboard"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/buttonRecordingsTopContributorsDashboard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/btn_rounded"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/txt_top_contributors_recorded"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
