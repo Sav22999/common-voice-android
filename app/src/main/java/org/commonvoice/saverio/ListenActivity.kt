@@ -197,7 +197,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private fun loadUIStateLoading() {
         if (!listenViewModel.stopped) {
-            textSentenceListen.text = "..."
+            textSentenceListen.text = "···"
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
             buttonReportListen.isGone = true
@@ -331,7 +331,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     override fun onBackPressed() {
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
-        textSentenceListen.text = "..."
+        textSentenceListen.text = "···"
         textSentenceListen.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
             resources.getDimension(R.dimen.title_very_big)

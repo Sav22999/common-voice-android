@@ -61,8 +61,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
             "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
             "DAILY_GOAL" to "DAILY_GOAL",
-            "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
-            "GESTURES" to "GESTURES"
+            "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING"
         )
 
     var userId: String = ""
@@ -132,7 +131,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 openWebBrowser("login")
             }
 
-            if (getGestures()) {
+            if (mainPrefManager.areGesturesEnabled) {
                 layoutWebBrowser.setOnTouchListener(object :
                     OnSwipeTouchListener(this@LoginActivity) {
                     override fun onSwipeRight() {
@@ -144,7 +143,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             loadUserData("profile")
             setTheme(this)
 
-            if (getGestures()) {
+            if (mainPrefManager.areGesturesEnabled) {
                 nestedScrollLogin.setOnTouchListener(object :
                     OnSwipeTouchListener(this@LoginActivity) {
                     override fun onSwipeRight() {
@@ -153,16 +152,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                 })
             }
         }
-    }
-
-    fun getGestures(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["GESTURES"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["GESTURES"],
-            false
-        )
     }
 
     override fun onBackPressed() {
@@ -422,10 +411,10 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             var profileUsername: EditText = findViewById(R.id.textProfileUsername)
             var profileAge: EditText = findViewById(R.id.textProfileAge)
             var profileGender: EditText = findViewById(R.id.textProfileGender)
-            profileEmail.setText("...")
-            profileUsername.setText("...")
-            profileAge.setText("...")
-            profileGender.setText("...")
+            profileEmail.setText("···")
+            profileUsername.setText("···")
+            profileAge.setText("···")
+            profileGender.setText("···")
         }
         try {
             val path = "user_client" //API to get sentences

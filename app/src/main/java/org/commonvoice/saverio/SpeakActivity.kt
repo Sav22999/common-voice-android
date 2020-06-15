@@ -72,7 +72,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     override fun onBackPressed() {
         textMessageAlertSpeak.setText(R.string.txt_closing)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
-        textSentenceSpeak.text = "..."
+        textSentenceSpeak.text = "···"
         textSentenceSpeak.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
             resources.getDimension(R.dimen.title_very_big)
@@ -268,7 +268,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateLoading() {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
-        textSentenceSpeak.text = "..."
+        textSentenceSpeak.text = "···"
 
         buttonRecordOrListenAgain.isGone = true
         buttonReportSpeak.isGone = true

@@ -19,7 +19,6 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
     private val LEVEL_SAVED = "LEVEL_SAVED"
     private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
     private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
-    private val GESTURES = "GESTURES"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,23 +45,13 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         loadBadges()
         //checkNewBadges(2, 2, 2)//remove this
 
-        if (getGestures()) {
+        if (mainPrefManager.areGesturesEnabled) {
             layoutAllBadges.setOnTouchListener(object : OnSwipeTouchListener(this@BadgesActivity) {
                 override fun onSwipeRight() {
                     onBackPressed()
                 }
             })
         }
-    }
-
-    fun getGestures(): Boolean {
-        return getSharedPreferences(
-            GESTURES,
-            PRIVATE_MODE
-        ).getBoolean(
-            GESTURES,
-            false
-        )
     }
 
     fun loadBadges() {
