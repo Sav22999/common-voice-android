@@ -5,10 +5,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -197,6 +194,8 @@ class SpeakViewModel(
             skipSentence()
         }
     }
+
+    suspend fun getSentencesCount() = sentencesRepository.getSentenceCount()
 
     override fun onCleared() {
         mediaRecorderRepository.clean()

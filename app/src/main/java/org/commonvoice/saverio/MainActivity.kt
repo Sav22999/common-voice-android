@@ -190,8 +190,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         this.checkIfSessionIsExpired()
         this.reviewOnPlayStore()
-
-        setupLiveData()
     }
 
     fun checkIfSessionIsExpired() {
@@ -224,21 +222,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             }
             que.add(req)
         }
-    }
-
-    private fun setupLiveData() {
-        mainActivityViewModel.hasFinishedClips.observe(this, androidx.lifecycle.Observer {
-            if (it) {
-                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
-                Toast.makeText(this, "No more clips available", Toast.LENGTH_LONG).show()
-            }
-        })
-        mainActivityViewModel.hasFinishedSentences.observe(this, androidx.lifecycle.Observer {
-            if (it) {
-                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
-                Toast.makeText(this, "No more sentences available", Toast.LENGTH_LONG).show()
-            }
-        })
     }
 
     fun logoutUser() {

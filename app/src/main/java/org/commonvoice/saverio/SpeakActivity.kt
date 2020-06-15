@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
-import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -17,12 +16,16 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_speak.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
-import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
@@ -49,17 +52,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         setupInitialUIState()
 
         setupUI()
-
-        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            checkOfflineMode(available)
-        })
-
-        speakViewModel.hasFinishedSentences.observe(this, Observer {
-            if (it) {
-                //TODO FINISHED RECORDINGS/CLIPS OFFLINE MODE
-                Toast.makeText(this, "No more sentences available", Toast.LENGTH_LONG).show()
-            }
-        })
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -98,6 +90,27 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun setupUI() {
+        imageOfflineModeSpeak.onClick {
+            lifecycleScope.launch {
+                val count = speakViewModel.getSentencesCount()
+                withContext(Dispatchers.Main) {
+                    NoClipsSentencesAvailableDialog(this@SpeakActivity, true, count).show()
+                }
+            }
+        }
+
+        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+            checkOfflineMode(available)
+        })
+
+        speakViewModel.hasFinishedSentences.observe(this, Observer {
+            if (it) {
+                NoClipsSentencesAvailableDialog(this, true, 0).show {
+                    onBackPressed()
+                }
+            }
+        })
+
         speakViewModel.currentSentence.observe(this, Observer { sentence ->
             setupUIStateStandby(sentence)
         })

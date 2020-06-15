@@ -112,6 +112,8 @@ class ListenViewModel(
         }
     }
 
+    suspend fun getClipsCount() = clipsRepository.getClipsCount()
+
     fun autoPlay(): Boolean {
         return listenPrefManager.isAutoPlayClipEnabled
     }
