@@ -12,12 +12,17 @@ import org.commonvoice.saverio_lib.api.responseBodies.ResponseEverStats
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseLeaderboardPosition
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseVoicesToday
 import org.commonvoice.saverio_lib.models.UserClient
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.repositories.CVStatsRepository
+import org.commonvoice.saverio_lib.repositories.StatsRepository
+import org.commonvoice.saverio_lib.utils.combineLiveData
 
 class DashboardViewModel(
     private val cvStatsRepository: CVStatsRepository,
+    private val statsRepository: StatsRepository,
     private val connectionManager: ConnectionManager,
+    private val mainPrefManager: MainPrefManager,
     private val statsPrefManager: StatsPrefManager
 ) : ViewModel() {
 
@@ -28,7 +33,17 @@ class DashboardViewModel(
     val onlineVoices: LiveData<OnlineVoices> get() = _onlineVoices
 
     private val _contributors = MutableLiveData<Contributors>()
-    val contributors: LiveData<Contributors> get() = _contributors
+    val contributorsIsInSpeak = MutableLiveData(true)
+    val contributors = combineLiveData(
+        _contributors,
+        contributorsIsInSpeak,
+        Contributors(listOf(), listOf()),
+        true
+    )
+
+    private val _usage = MutableLiveData<AppUsage>()
+    val usage: LiveData<AppUsage> get() = _usage
+
 
     var lastStatsUpdate: Long = 0
 
@@ -50,10 +65,14 @@ class DashboardViewModel(
             }
 
             val topContributorsSpeak = async {
-                cvStatsRepository.getRecordingsLeaderboard().take(3)
+                cvStatsRepository.getRecordingsLeaderboard()
             }
             val topContributorsListen = async {
-                cvStatsRepository.getClipsLeaderboard().take(3)
+                cvStatsRepository.getClipsLeaderboard()
+            }
+
+            val appUsage = async {
+                statsRepository.getStats()
             }
 
             _stats.postValue(Stats(
@@ -81,6 +100,14 @@ class DashboardViewModel(
                 topContributorsSpeak.await(),
                 topContributorsListen.await()
             ))
+
+            _usage.postValue(appUsage.await().let { usage ->
+                AppUsage(
+                    usage[mainPrefManager.language]?.users ?: -1,
+                    usage.values.sumBy { it.users }
+                )
+            })
+
         } else {
             _stats.value?.let {
                 _stats.postValue(it)
@@ -108,6 +135,11 @@ class DashboardViewModel(
     data class Contributors(
         val topContributorsSpeak: List<ResponseLeaderboardPosition>,
         val topContributorsListen: List<ResponseLeaderboardPosition>
+    )
+
+    data class AppUsage(
+        val languageUsage: Int,
+        val totalUsage: Int
     )
 
 }

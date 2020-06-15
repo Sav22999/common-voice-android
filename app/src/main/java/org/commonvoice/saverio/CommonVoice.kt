@@ -106,7 +106,13 @@ class CommonVoice : Application() {
                 get<ListenPrefManager>()
             )
         }
-        viewModel { DashboardViewModel(get(), get(), get()) }
+        viewModel { DashboardViewModel(
+            get<CVStatsRepository>(),
+            get<StatsRepository>(),
+            get<ConnectionManager>(),
+            get<MainPrefManager>(),
+            get<StatsPrefManager>()
+        ) }
         viewModel { LoginViewModel(get()) }
         viewModel { MainActivityViewModel(get(), get()) }
         viewModel { HomeViewModel(get()) }

@@ -6,6 +6,9 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class ResponseLeaderboardPosition(
 
+    @Json(name = "position")
+    val position: Int,
+
     @Json(name = "username")
     val username: String,
 

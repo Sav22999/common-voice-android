@@ -670,13 +670,12 @@
                     android:background="@drawable/btn_rounded"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:text=""
+                    android:text="@string/txt_top_contributors_recordings"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/text_button"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/txt_top_contributors_recordings" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

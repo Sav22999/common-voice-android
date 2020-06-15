@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitStatsUpdate
+import org.commonvoice.saverio_lib.api.responseBodies.ResponseDailyUsage
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
@@ -44,6 +45,8 @@ class StatsRepository(
             }
         }
     }
+
+    suspend fun getStats(): Map<String, ResponseDailyUsage> = statsClient.getStats().body() ?: mapOf()
 
     private fun getUserId(): String {
         val userId = mainPrefManager.statsUserId

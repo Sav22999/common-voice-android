@@ -63,7 +63,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         super.onViewCreated(view, savedInstanceState)
 
         voicesOnlineSection()
-        contributorsSection()
 
         setTheme()
 
@@ -92,6 +91,32 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 (activity as? MainActivity)?.openDailyGoalDialog()
             } else {
                 (activity as? MainActivity)?.noLoggedInNoDailyGoal()
+            }
+        }
+
+        buttonRecordingsTopContributorsDashboard.onClick {
+            dashboardViewModel.contributorsIsInSpeak.postValue(true)
+            dashboardViewModel.updateStats()
+            tabTextColors.let { (selected, other) ->
+                buttonRecordingsTopContributorsDashboard.setTextColor(selected)
+                buttonValidationsTopContributorsDashboard.setTextColor(other)
+            }
+            tabBackgroundColors.let { (selected, other) ->
+                buttonRecordingsTopContributorsDashboard.backgroundTintList = selected
+                buttonValidationsTopContributorsDashboard.backgroundTintList = other
+            }
+        }
+
+        buttonValidationsTopContributorsDashboard.onClick {
+            dashboardViewModel.contributorsIsInSpeak.postValue(false)
+            dashboardViewModel.updateStats()
+            tabTextColors.let { (selected, other) ->
+                buttonValidationsTopContributorsDashboard.setTextColor(selected)
+                buttonRecordingsTopContributorsDashboard.setTextColor(other)
+            }
+            tabBackgroundColors.let { (selected, other) ->
+                buttonValidationsTopContributorsDashboard.backgroundTintList = selected
+                buttonRecordingsTopContributorsDashboard.backgroundTintList = other
             }
         }
     }
@@ -132,12 +157,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             buttonYouStatisticsDashboard.backgroundTintList = selected
             buttonEveryoneStatisticsDashboard.backgroundTintList = other
         }
-    }
-
-    private fun contributorsSection() {
-        dashboardViewModel.contributors.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
-        })
     }
 
     private fun voicesOnlineSection() {
@@ -211,6 +230,63 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 textEverListen.text = "${it.everyoneEverListen / 3600}${getString(R.string.textHoursAbbreviation)}"
             }
         })
+
+        dashboardViewModel.contributors.observe(viewLifecycleOwner, Observer { pair ->
+            dashboardTopContributorsNTh.isVisible = false
+
+            if (pair.second) {
+                pair.first.topContributorsSpeak.take(3).forEachIndexed { index, responseLeaderboardPosition ->
+                    getContributorNameTextView(index).text = responseLeaderboardPosition.username
+                    getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
+                }
+                pair.first.topContributorsSpeak.find { it.isYou }?.let { you ->
+                    if (pair.first.topContributorsSpeak.take(3).contains(you)) {
+                        getContributorNameTextView(pair.first.topContributorsSpeak.indexOf(you))
+                            .setText(R.string.dashboardTabYou)
+                    } else {
+                        dashboardTopContributorsNTh.isVisible = true
+
+                        labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
+                        textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
+                        textDashboardTopContributorsNumberNth.setText("${you.total}")
+                    }
+                }
+            } else {
+                pair.first.topContributorsListen.take(3).forEachIndexed { index, responseLeaderboardPosition ->
+                    getContributorNameTextView(index).text = responseLeaderboardPosition.username
+                    getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
+                }
+                pair.first.topContributorsListen.find { it.isYou }?.let { you ->
+                    if (pair.first.topContributorsListen.take(3).contains(you)) {
+                        getContributorNameTextView(pair.first.topContributorsListen.indexOf(you))
+                            .setText(R.string.dashboardTabYou)
+                    } else {
+                        dashboardTopContributorsNTh.isVisible = true
+
+                        labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
+                        textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
+                        textDashboardTopContributorsNumberNth.setText("${you.total}")
+                    }
+                }
+            }
+        })
+
+        dashboardViewModel.usage.observe(viewLifecycleOwner, Observer {
+            textDashboardCurrentLanguage.setText("${it.languageUsage}")
+            textDashboardAllStatistics.setText("${it.totalUsage}")
+        })
+    }
+
+    private fun getContributorNameTextView(index: Int) = when(index) {
+        0 -> textDashboardTopContributorsUsernameFirst
+        1 -> textDashboardTopContributorsUsernameSecond
+        else -> textDashboardTopContributorsUsernameThird
+    }
+
+    private fun getContributorNumberTextView(index: Int) = when(index) {
+        0 -> textDashboardTopContributorsNumberFirst
+        1 -> textDashboardTopContributorsNumberSecond
+        else -> textDashboardTopContributorsNumberThird
     }
 
     private fun everyoneStats() {
