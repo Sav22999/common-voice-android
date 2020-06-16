@@ -3,13 +3,11 @@ package org.commonvoice.saverio
 import android.content.Context
 import android.graphics.Paint
 import android.graphics.Typeface
+import android.media.Image
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -17,14 +15,18 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
+import kotlinx.android.synthetic.main.offline_mode_message.view.*
 
 class MessageDialog {
+
+
     private val REQUEST_CODE: Int = 101
     private val DAILY_GOAL = "DAILY_GOAL"
     private var message_type: Int =
         0 /*0->standard (Ok), 1->dailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off),
             3->reportClip (listen), 4->reportSentence (Speak)
-            5->info, 6->help, 7->warning, 8->news/changelog, 9->tip*/
+            5->info, 6->help, 7->warning, 8->news/changelog, 9->tip
+            10->offlineModeMessage*/
     private var message_text: String = ""
     private var message_title: String = ""
     private var message_details: String = ""
@@ -33,6 +35,8 @@ class MessageDialog {
     private var width: Int = 0
     private var height: Int = 0
     private var main: MainActivity? = null
+    private var listen: ListenActivity? = null
+    private var speak: SpeakActivity? = null
 
     constructor(context: Context, title: String, text: String, height: Int = 0) {
         this.context = context
@@ -76,6 +80,14 @@ class MessageDialog {
 
     fun setMessageType(type: Int) {
         this.message_type = type
+    }
+
+    fun setListenActivity(listen: ListenActivity) {
+        this.listen = listen
+    }
+
+    fun setSpeakActivity(listen: SpeakActivity) {
+        this.speak = speak
     }
 
     fun show() {
@@ -186,6 +198,33 @@ class MessageDialog {
                         println("!!-- Exception: MessageDialogActivity MD02 - Details: " + exception.toString() + " --!!")
                     }
                 }
+                10 -> {
+                    try {
+                        val dialogView =
+                            LayoutInflater.from(this.context)
+                                .inflate(R.layout.offline_mode_message, null)
+
+                        val builder =
+                            AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
+                                .setView(dialogView)
+                                .setTitle("")
+                        //show dialog
+                        val alertDialog = builder.show()
+
+                        dialogView.btnOkMessageDialogOfflineMode.setOnClickListener {
+                            //dismiss dialog
+                            if (speak != null) {
+                                speak?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymore.isChecked)
+                            } else if (listen != null) {
+                                listen?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymore.isChecked)
+                            }
+                            alertDialog.dismiss()
+                        }
+                        setTheme(this.context!!, dialogView)
+                    } catch (exception: Exception) {
+                        println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
+                    }
+                }
             }
         }
     }
@@ -204,21 +243,21 @@ class MessageDialog {
         this.dailyGoalValue = value
     }
 
-    fun checkDeleteButtonDeviceScreen(buttonDelete: Button) {
+    private fun checkDeleteButtonDeviceScreen(buttonDelete: Button) {
         if (this.width < 1500) {
             //if the screen is smaller than "1500" it hides the "Delete" button
             buttonDelete.isGone = true
         }
     }
 
-    fun setMessageType(view: Context, dialogView: View) {
+    private fun setMessageType(view: Context, dialogView: View) {
         if (this.message_type == 0 || this.message_type == 1 || this.message_type == 2 || this.message_type == 3 || this.message_type == 4) {
             dialogView.messageDialogSectionMessageType.isGone = true
         } else if (this.message_type == 5) {
             //info
             dialogView.messageDialogSectionMessageType.isGone = false
-            dialogView.messageDialogSectionMessageType.backgroundTintList =
-                ContextCompat.getColorStateList(view, R.color.colorInfo)
+            /*dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorInfo)*/
             dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_info)
             dialogView.textMessageType.text = view.getString(R.string.text_info)
         } else if (this.message_type == 6) {
@@ -238,17 +277,28 @@ class MessageDialog {
         } else if (this.message_type == 8) {
             //news/changelog
             dialogView.messageDialogSectionMessageType.isGone = false
-            dialogView.messageDialogSectionMessageType.backgroundTintList =
-                ContextCompat.getColorStateList(view, R.color.colorChangelog)
+            /*dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorChangelog)*/
             dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_news)
             dialogView.textMessageType.text = view.getString(R.string.text_changelog)
         } else if (this.message_type == 9) {
             //tip
             dialogView.messageDialogSectionMessageType.isGone = false
-            dialogView.messageDialogSectionMessageType.backgroundTintList =
-                ContextCompat.getColorStateList(view, R.color.colorTip)
+            /*dialogView.messageDialogSectionMessageType.backgroundTintList =
+                ContextCompat.getColorStateList(view, R.color.colorTip)*/
             dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_tip)
             dialogView.textMessageType.text = view.getString(R.string.text_tip)
+        }
+    }
+
+    private fun setImageNoWifi(view: Context, dialogView: View, isDark: Boolean) {
+        //set icon "no wifi" in offline-mode message
+        if (isDark) {
+            (dialogView.findViewById(R.id.imageMessageOfflineMode) as ImageView).imageTintList =
+                ContextCompat.getColorStateList(view, R.color.colorWhite)
+        } else {
+            (dialogView.findViewById(R.id.imageMessageOfflineMode) as ImageView).imageTintList =
+                ContextCompat.getColorStateList(view, R.color.colorBlack)
         }
     }
 
@@ -330,11 +380,6 @@ class MessageDialog {
                 theme.setElement(
                     isDark,
                     view,
-                    dialogView.findViewById(R.id.btnDailyGoalSave) as Button
-                )
-                theme.setElement(
-                    isDark,
-                    view,
                     dialogView.findViewById(R.id.btnDailyGoalCancel) as Button
                 )
                 theme.setElement(
@@ -357,6 +402,55 @@ class MessageDialog {
                     view,
                     dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
                 )
+            }
+            10 -> {
+                //offline mode message
+                if (this.height > 500) {
+                    dialogView.messageDialogSectionBackgroundOfflineMode.layoutParams.height =
+                        this.height
+                    dialogView.messageDialogSectionBackgroundOfflineMode.requestLayout()
+                } else {
+                    dialogView.messageDialogSectionBackgroundOfflineMode.backgroundTintList =
+                        ContextCompat.getColorStateList(view, R.color.colorTransparent)
+                }
+
+                theme.setElement(
+                    isDark,
+                    dialogView.findViewById(R.id.messageDialogSectionMiddleOfflineMode) as ConstraintLayout
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    -1,
+                    dialogView.findViewById(R.id.messageDialogSectionMiddleOfflineMode) as ConstraintLayout
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.btnOkMessageDialogOfflineMode) as Button
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.textDescriptionOfflineMode) as TextView
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.textDescriptionOfflineMode2) as TextView
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.textDescriptionOfflineMode3) as TextView
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.checkDoNotShowAnymore) as CheckBox
+                )
+
+                setImageNoWifi(view, dialogView, isDark)
             }
         }
     }

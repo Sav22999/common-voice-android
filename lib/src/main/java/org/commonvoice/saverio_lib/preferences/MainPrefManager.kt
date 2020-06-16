@@ -30,6 +30,12 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putString(Keys.SESSID_COOKIE.name, value).apply()
         }
 
+    var showOfflineModeMessage: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_OFFLINE_MODE_MESSAGE.name, true)
+        set(value) {
+            preferences.edit().putBoolean(Keys.SHOW_OFFLINE_MODE_MESSAGE.name, value).apply()
+        }
+
     var areGesturesEnabled: Boolean
         get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, true)
         set(value) {
@@ -72,7 +78,8 @@ class MainPrefManager(private val ctx: Context) {
         STATS_USERID,
         ARE_STATS_ANONYMOUS,
         ARE_ANIMATIONS_ENABLED,
-        LABELS_MENU_ICONS
+        LABELS_MENU_ICONS,
+        SHOW_OFFLINE_MODE_MESSAGE
     }
 
 }

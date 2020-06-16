@@ -223,6 +223,7 @@
     <string name="text_info">Info</string>
     <string name="check_box_message_dialog">Do not show anymore</string>
 
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
     <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>

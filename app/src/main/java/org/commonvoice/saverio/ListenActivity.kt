@@ -5,11 +5,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -53,6 +48,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             if (!available) {
                 this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_in)
                 listenViewModel.offlineModeIconVisible = true
+                if (mainPrefManager.showOfflineModeMessage) {
+                    showMessageDialog("", "", 10)
+                }
             } else {
                 this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
@@ -60,6 +58,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             listenViewModel.showingHidingOfflineIcon = false
             this.imageOfflineModeListen.isGone = available
         }
+    }
+
+    public fun setShowOfflineModeMessage(value: Boolean = true) {
+        mainPrefManager.showOfflineModeMessage = value
     }
 
     private fun setupInitialUIState() {
@@ -137,12 +139,14 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         setTheme(this)
     }
 
-    private fun showMessageDialog(title: String, text: String) {
+    private fun showMessageDialog(title: String, text: String, type: Int = 0) {
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
         //val width = metrics.widthPixels
         val height = metrics.heightPixels
-        MessageDialog(this, 0, title, text, details = "", height = height).show()
+        val msg = MessageDialog(this, type, title, text, details = "", height = height)
+        msg.setListenActivity(this)
+        msg.show()
     }
 
     private fun setupGestures() {

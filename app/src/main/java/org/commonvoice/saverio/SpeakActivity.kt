@@ -60,6 +60,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             if (!available) {
                 startAnimation(imageOfflineModeSpeak, R.anim.zoom_in_speak_listen)
                 speakViewModel.offlineModeIconVisible = true
+                if (mainPrefManager.showOfflineModeMessage) {
+                    showMessageDialog("", "", 10)
+                }
             } else {
                 startAnimation(imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false
@@ -67,6 +70,10 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             speakViewModel.showingHidingOfflineIcon = false
             this.imageOfflineModeSpeak.isGone = available
         }
+    }
+
+    public fun setShowOfflineModeMessage(value: Boolean = true) {
+        mainPrefManager.showOfflineModeMessage = value
     }
 
     override fun onBackPressed() {
@@ -189,7 +196,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         windowManager.defaultDisplay.getMetrics(metrics)
         //val width = metrics.widthPixels
         val height = metrics.heightPixels
-        MessageDialog(this, type, title, text, details = "", height = height).show()
+        val msg = MessageDialog(this, type, title, text, details = "", height = height)
+        msg.setSpeakActivity(this)
+        msg.show()
     }
 
     private fun setupGestures() {
