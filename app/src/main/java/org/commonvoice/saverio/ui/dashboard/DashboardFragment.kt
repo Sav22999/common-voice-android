@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -289,7 +288,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         resetTopContributor()
     }
 
-    fun resetTopContributor() {
+    private fun resetTopContributor() {
         for (x in 0..3) {
             setYouTopContributor(
                 getContributorSection(x),
@@ -298,14 +297,14 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             )
         }
         setYouTopContributor(
-            dashboardTopContributorsNTh,
+            binding.dashboardTopContributorsNTh,
             background = R.color.colorDarkWhite,
             backgroundDT = R.color.colorLightBlack
         )
-        dashboardTopContributorsPoints.isGone = true
+        binding.dashboardTopContributorsPoints.isGone = true
     }
 
-    fun setYouTopContributor(
+    private fun setYouTopContributor(
         youTopContributors: ConstraintLayout,
         background: Int = R.color.colorYouTopContributors,
         backgroundDT: Int = R.color.colorYouTopContributorsDT
@@ -450,9 +449,9 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     }
 
     private fun getContributorSection(index: Int) = when (index) {
-        0 -> dashboardTopContributorsFirst
-        1 -> dashboardTopContributorsSecond
-        else -> dashboardTopContributorsThird
+        0 -> binding.dashboardTopContributorsFirst
+        1 -> binding.dashboardTopContributorsSecond
+        else -> binding.dashboardTopContributorsThird
     }
 
     private fun everyoneStats() {
