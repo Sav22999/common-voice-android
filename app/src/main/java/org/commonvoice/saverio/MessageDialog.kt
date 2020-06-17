@@ -86,7 +86,7 @@ class MessageDialog {
         this.listen = listen
     }
 
-    fun setSpeakActivity(listen: SpeakActivity) {
+    fun setSpeakActivity(speak: SpeakActivity) {
         this.speak = speak
     }
 
