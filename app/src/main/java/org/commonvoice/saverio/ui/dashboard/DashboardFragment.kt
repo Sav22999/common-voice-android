@@ -6,15 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
@@ -23,6 +26,8 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.util.*
 
 class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
+
+    private val connectionManager: ConnectionManager by inject()
 
     override fun inflate(
         layoutInflater: LayoutInflater,
@@ -86,6 +91,8 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
         initLiveData()
 
+        networkConnectivityCheck()
+
         withBinding {
             if (mainPrefManager.sessIdCookie != null) {
                 loadUserStats()
@@ -121,6 +128,38 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                 dashboardViewModel.updateStats()
             }
         }
+    }
+
+    private fun networkConnectivityCheck() {
+        connectionManager.liveInternetAvailability.observe(viewLifecycleOwner, Observer { isInternetPresent ->
+            withBinding {
+                dashboardSectionStatistics.children.filterIsInstance<ConstraintLayout>().forEach {
+                    it.isVisible = isInternetPresent
+                }
+                dashboardSectionVoicesOnline.children.filterIsInstance<ConstraintLayout>().forEach {
+                    it.isVisible = isInternetPresent
+                }
+                dashboardSectionAppStatistics.children.filterIsInstance<ConstraintLayout>().forEach {
+                    it.isVisible = isInternetPresent
+                }
+                dashboardSectionTopContributors.children.filterIsInstance<ConstraintLayout>().forEach {
+                    it.isVisible = isInternetPresent
+                }
+
+                dashboardTopContributorsNTh.isVisible = false
+                dashboardTopContributorsPoints.isVisible = false
+
+                labelDashboardDailyGoalValue.isVisible = isInternetPresent
+                buttonDashboardSetDailyGoal.isVisible = isInternetPresent
+
+                textDashboardNotAvailableOfflineStatistics.isGone = isInternetPresent
+                textDashboardNotAvailableOfflineVoicesOnline.isGone = isInternetPresent
+                textDashboardNotAvailableOfflineDailyGoal.isGone = isInternetPresent
+                textDashboardNotAvailableOfflineAppStatistics.isGone = isInternetPresent
+                textDashboardNotAvailableOfflineTopContributors.isGone = isInternetPresent
+            }
+            dashboardViewModel.updateStats()
+        })
     }
 
     private fun loadDailyGoal() {
@@ -386,14 +425,14 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             )
                         )
                     } else {
-                        dashboardTopContributorsNTh.isVisible = true
+                        dashboardTopContributorsNTh.isVisible = connectionManager.isInternetAvailable
 
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
                         setYouTopContributor(dashboardTopContributorsNTh)
                         if (you.total > 4) {
-                            dashboardTopContributorsPoints.isGone = false
+                            dashboardTopContributorsPoints.isGone = !connectionManager.isInternetAvailable
                         }
                     }
                 }
@@ -416,14 +455,14 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             )
                         )
                     } else {
-                        dashboardTopContributorsNTh.isVisible = true
+                        dashboardTopContributorsNTh.isVisible = connectionManager.isInternetAvailable
 
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
                         setYouTopContributor(dashboardTopContributorsNTh)
                         if (you.total > 4) {
-                            dashboardTopContributorsPoints.isGone = false
+                            dashboardTopContributorsPoints.isGone = !connectionManager.isInternetAvailable
                         }
                     }
                 }

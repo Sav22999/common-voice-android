@@ -112,6 +112,9 @@ class DashboardViewModel(
             _stats.value?.let {
                 _stats.postValue(it)
             }
+            _contributors.value?.let {
+                _contributors.postValue(it)
+            }
         }
     }
 
