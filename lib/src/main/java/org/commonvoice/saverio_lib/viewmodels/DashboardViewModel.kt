@@ -47,8 +47,8 @@ class DashboardViewModel(
 
     var lastStatsUpdate: Long = 0
 
-    fun updateStats() = viewModelScope.launch(Dispatchers.IO) {
-        if (System.currentTimeMillis() - lastStatsUpdate >= 30000 && connectionManager.isInternetAvailable) {
+    fun updateStats(force: Boolean = false) = viewModelScope.launch(Dispatchers.IO) {
+        if ((System.currentTimeMillis() - lastStatsUpdate >= 30000 && connectionManager.isInternetAvailable) || force){
             lastStatsUpdate = System.currentTimeMillis()
 
             val dailyVotes = async {

@@ -1347,6 +1347,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if ((requestCode == 111 || requestCode == 110) && resultCode == RESULT_OK) {
             //println("MainActivity updated")
             //data?.extras.getString("key") //to get "putExtra" information by "key"
+            dashboardViewModel.updateStats(force = true)
             recreate()
         } else {
             //println("MainActivity updated (2)")
