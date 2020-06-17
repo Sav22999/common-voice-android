@@ -56,6 +56,7 @@ class ListenViewModel(
 
     fun skipClip() = viewModelScope.launch {
         stopped = false
+        mediaPlayerRepository.stopPlaying()
         currentClip.value?.let {
             clipsRepository.deleteClip(it)
         }
@@ -83,6 +84,7 @@ class ListenViewModel(
 
     fun validate(result: Boolean) = viewModelScope.launch(Dispatchers.IO) {
         currentClip.value?.let { clip ->
+            mediaPlayerRepository.stopPlaying()
             val validation = clip.toValidation(result)
 
             validationsRepository.insertValidation(validation)
