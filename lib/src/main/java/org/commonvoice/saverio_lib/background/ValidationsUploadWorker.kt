@@ -2,6 +2,7 @@ package org.commonvoice.saverio_lib.background
 
 import android.content.Context
 import androidx.work.*
+import kotlinx.coroutines.coroutineScope
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Validation
@@ -26,36 +27,37 @@ class ValidationsUploadWorker(
     private val mainPrefManager = MainPrefManager(appContext)
     private val statsPrefManager = StatsPrefManager(appContext)
 
-    override suspend fun doWork(): Result {
-        validationsRepository.deleteOldValidations(getTimestampOfNowPlus(seconds = 0))
-        validationsRepository.deleteFailedValidations()
+    override suspend fun doWork(): Result = coroutineScope {
+        try {
+            validationsRepository.deleteOldValidations(getTimestampOfNowPlus(seconds = 0))
+            validationsRepository.deleteFailedValidations()
 
-        if (validationsRepository.getValidationsCount() == 0) {
-            db.close()
-            return Result.success()
-        }
-
-        val availableValidations = validationsRepository.getAllValidations()
-
-        availableValidations.forEach { validation ->
-            val result = sendValidation(validation)
-
-            if (result) {
-                validationsRepository.deleteValidation(validation)
-                if (mainPrefManager.sessIdCookie != null) {
-                    statsPrefManager.todayValidated++
-                }
-            } else {
-                validationsRepository.updateValidation(validation.increaseAttempt())
+            if (validationsRepository.getValidationsCount() == 0) {
+                return@coroutineScope Result.success()
             }
-        }
 
-        return if (validationsRepository.getValidationsCount() != 0) {
+            val availableValidations = validationsRepository.getAllValidations()
+
+            availableValidations.forEach { validation ->
+                val result = sendValidation(validation)
+
+                if (result) {
+                    validationsRepository.deleteValidation(validation)
+                    if (mainPrefManager.sessIdCookie != null) {
+                        statsPrefManager.todayValidated++
+                    }
+                } else {
+                    validationsRepository.updateValidation(validation.increaseAttempt())
+                }
+            }
+
+            return@coroutineScope if (validationsRepository.getValidationsCount() != 0) {
+                Result.retry()
+            } else {
+                Result.success()
+            }
+        } finally {
             db.close()
-            Result.retry()
-        } else {
-            db.close()
-            Result.success()
         }
     }
 
