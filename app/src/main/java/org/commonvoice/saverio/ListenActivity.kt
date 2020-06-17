@@ -200,6 +200,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun loadUIStateLoading() {
+        buttonYesClip.isVisible = false
+        buttonNoClip.isVisible = false
+
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
