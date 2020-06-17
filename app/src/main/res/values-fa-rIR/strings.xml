@@ -24,27 +24,36 @@
     <string name="toastNoLoginNoDailyGoal">برای تنظیم هدف روزانه باید وارد شوید</string>
     <string name="textHoursAbbreviation">س</string>
     <string name="textHour">ساعت</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">شروع</string>
     <string name="btn_tutorial2">اجازه</string>
     <string name="btn_tutorial3">بعدی</string>
     <string name="btn_tutorial4">تلاش دوباره</string>
     <string name="btn_tutorial5">پايان</string>
-    <string name="btn_skip">Skip</string>
-    <string name="txt_permission_obtained_first_launch">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch">Error: permission denied</string>
+    <string name="btn_skip">پرش</string>
+    <string name="txt_permission_obtained_first_launch">دسترسی اعطا شد</string>
+    <string name="txt_permission_denied_first_launch">خطا: دسترسی رد شد</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/fa/terms</string>
     <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_microphone_permission_first_launch">این کاره برای ضبط صدایتان به دسترسی «میکروفون» نیاز دارد.</string>
     <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
-    <string name="txt_turn_on_dark_theme_first_launch">Dark theme</string>
-    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
+    <string name="txt_offline_mode_first_launch">می‌توانید حتا وقتی برون‌خط هستید نیز مشارکت کنید. «حالت برون‌خط» کاره به صورت خودکار به کار می‌افتد و می‌توانید بدون اتّصال اینترنتی، ضبط و شنیدن را ادامه دهید.</string>
+    <string name="txt_themes_first_launch">می‌توانید زمینهٔ روشن یا تیره را برگزینید. می‌توانید بعداً این زمینه را در تنظیمات عوض کنید.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">زمینهٔ تاریک</string>
+    <string name="txt_gestures_first_launch">برخی کنش‌ها، اشاره‌های متناظری دارند. برای مثال، می‌توانید در حالت صحبت، با کشیدن به چپ، از جمله‌ای بپرید.</string>
+    <string name="txt_customise_gestures_first_launch">می‌توانید این اشاره‌ها را در تنظیمات شخصی‌سازی کنید.</string>
     <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch">Join group</string>
+    <string name="btn_join_telegram_first_launch">پیوستن به گروه</string>
     <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">در حال بار کردن…</string>
@@ -83,7 +92,7 @@
     <string name="toast_experimental_featured_off">ویژگی‌های آزمایشی خاموش شدند.</string>
     <string name="txt_log_on_file">ذخیرهٔ گزارش‌ها به یک پرونده</string>
     <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
+    <string name="toast_log_on_file_off">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.</string>
     <string name="txt_anonymous_statistics">آمار ناشناس</string>
     <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -96,21 +105,22 @@
     <string name="toast_recording_indicator_sound_on">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
     <string name="toast_recording_indicator_sound_off">Recording indicator sound is now turned off.</string>
     <string name="txt_check_for_updates">بررسی برای به‌روز رسانی‌ها</string>
-    <string name="toast_check_for_updated_on">Check for updates turned on.</string>
-    <string name="toast_check_for_updated_off">Check for updates turned off.</string>
+    <string name="toast_check_for_updated_on">بررسی به‌روز رسانی‌ها روشن شد.</string>
+    <string name="toast_check_for_updated_off">بررسی به‌روز رسانی‌ها خاموش شد.</string>
     <string name="txt_abort_confirmation_dialogs_in_settings">رد کردن گفت‌وگوهای تأیید در تنظیمات</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
     <string name="txt_gestures">اشاره‌ها</string>
-    <string name="toast_gestures_on">Gestures are now turned on.</string>
-    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="toast_gestures_on">اشاره‌ها الآن روشنند.</string>
+    <string name="toast_gestures_off">اشاره‌ها الآن خاموشند.</string>
     <string name="message_review_app_on_play_store">اگر این کاره را دوست دارید، لطفاً روی فروشگاه پلی گوگل بازبینیش کنید.</string>
     <string name="message_app_not_completely_translated">این کاره (کاملاً) به این زبان ترجمه نشده است.\nمی‌توانید روی کرودین در ترجمه‌اش مشارکت کنید.</string>
-    <string name="txt_animations">Animations</string>
-    <string name="txt_customise_the_font_size">Customise the font size</string>
-    <string name="txt_customise_gestures">Customise gestures</string>
-    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_animations">پویانمایی‌ها</string>
+    <string name="txt_customise_the_font_size">سفارشی‌سازی اندازهٔ قلم</string>
+    <string name="txt_customise_gestures">شخصی‌سازی اشاره‌ها</string>
+    <string name="txt_themes_settings">زمینه‌ها</string>
     <string name="txt_telegram_group_settings">Telegram group of the app</string>
+    <string name="txt_show_labels_below_menu_icons">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">در حال بار کردن جمله…</string>
     <string name="btn_skip_sentence">پرش</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">گویش دشوار</string>
     <string name="checkbox_reason5_report">ديگر</string>
     <string name="checkbox_reason5_comment_report">نظر</string>
+    <string name="txt_sentences_finished_offline_mode">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">بررسی دوباره</string>
     <string name="txt_noconnection">به اینترنت وصل نیستید. به وای‌فای یا دادهٔ همراه وصل شده، سپس دکمهٔ زیر را بزنید.</string>
@@ -191,9 +207,11 @@
     <string name="text_changelog">گزارش تغییرات</string>
     <string name="text_help">راهنما</string>
     <string name="text_info">اطلاعات</string>
-    <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="check_box_message_dialog">دیگر نشان داده نشود</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">هدف روزانه</string>
     <string name="daily_goal_is_not_set">هدفی تنظیم نشده</string>

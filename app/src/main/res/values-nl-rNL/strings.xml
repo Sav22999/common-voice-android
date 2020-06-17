@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Je moet inloggen om het dagelijkse doel in te stellen</string>
     <string name="textHoursAbbreviation">u</string>
     <string name="textHour">Uur</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Begin</string>
     <string name="btn_tutorial2">Sta toe</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Gebaren aanpassen</string>
     <string name="txt_themes_settings">Thema’s</string>
     <string name="txt_telegram_group_settings">Telegram-groep van de app</string>
+    <string name="txt_show_labels_below_menu_icons">Labels onder de menuiconen weergeven</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Verzenden laden...</string>
     <string name="btn_skip_sentence">Sla over</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Moeilijk om uit te spreken</string>
     <string name="checkbox_reason5_report">Anders</string>
     <string name="checkbox_reason5_comment_report">Opmerking</string>
+    <string name="txt_sentences_finished_offline_mode">Je bent door de offline zinnen heen. Maak verbinding met het internet om meer zinnen te downloaden om op te nemen.</string>
+    <string name="txt_clips_finished_offline_mode">U bent door de offline clips heen. Maak verbinding met internet om meer clips te downloaden om te valideren.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">U kunt {{*{{n_sentences}}*}} meer zinnen opnemen voordat u verbinding moet maken met het internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">U kunt {{*{{n_clips}}*}} extra clips valideren voordat u verbinding moet maken met het internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Controleer opnieuw</string>
     <string name="txt_noconnection">U bent niet verbonden met het internet. Maak verbinding met Wi-Fi of mobiele data en druk vervolgens op de knop hieronder.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Hulp</string>
     <string name="text_info">Informatie</string>
     <string name="check_box_message_dialog">Niet meer weergeven</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">U bent nu offline en de app is automatisch naar offline modus overgezet.\nDit betekent dat je door kunt gaan met het registreren en valideren, maar de aanvragen worden later verstuurd.</string>
     <string name="text_offline_mode_enabled_2">Je kunt zien wanneer je in offline modus bent door dit pictogram op het scherm te zoeken:</string>
+    <string name="text_offline_mode_enabled_3">Je kunt op het pictogram tikken om gedownloade clips en zinnen te zien.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Dagelijks doel</string>
     <string name="daily_goal_is_not_set">Geen doel ingesteld</string>

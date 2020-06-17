@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Trebuie să te autentifici pentru a seta obiectivul zilnic</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Oră</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Pornire</string>
     <string name="btn_tutorial2">Permit</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Personalizați gesturi</string>
     <string name="txt_themes_settings">Teme</string>
     <string name="txt_telegram_group_settings">Grupul Telegram al aplicației</string>
+    <string name="txt_show_labels_below_menu_icons">Arată etichetele sub pictogramele meniului</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Se încarcă propoziția...</string>
     <string name="btn_skip_sentence">Omitere</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Dificultăţi de pronunţare</string>
     <string name="checkbox_reason5_report">Altele</string>
     <string name="checkbox_reason5_comment_report">Comentariu</string>
+    <string name="txt_sentences_finished_offline_mode">Ai rămas fără propoziții offline. Conectează-te la internet pentru a descărca mai multe propoziții în înregistrare.</string>
+    <string name="txt_clips_finished_offline_mode">Ai rămas fără clipuri offline. Conectează-te la internet pentru a descărca mai multe clipuri pentru validare.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Puteți înregistra mai multe propoziții {{*{{n_sentences}}*}} înainte de a vă conecta la internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Puteți valida mai multe clipuri {{*{{n_clips}}*}} înainte de a vă conecta la internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Verifică din nou</string>
     <string name="txt_noconnection">Nu ești conectat la internet. Conectează-te la datele Wi-Fi sau mobile, apoi apasă butonul de mai jos.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Ajutor</string>
     <string name="text_info">Info</string>
     <string name="check_box_message_dialog">Nu mai arăta</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">Ești deconectat și aplicația a trecut automat la modul offline.\nAcest lucru înseamnă că puteți continua să înregistrați și să validați, dar cererile vor fi trimise mai târziu.</string>
     <string name="text_offline_mode_enabled_2">Poți să-ți dai seama când ești în modul offline căutând această pictogramă pe ecran:</string>
+    <string name="text_offline_mode_enabled_3">Poți apăsa acea pictogramă pentru a vedea clipurile descărcate și propozițiile.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Obiectiv zilnic</string>
     <string name="daily_goal_is_not_set">Niciun obiectiv stabilit</string>
