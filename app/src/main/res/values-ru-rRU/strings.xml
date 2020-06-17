@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Вы должны войти, чтобы установить дневную цель</string>
     <string name="textHoursAbbreviation">ч</string>
     <string name="textHour">Время</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Начать</string>
     <string name="btn_tutorial2">Разрешить</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Настройка жестов</string>
     <string name="txt_themes_settings">Темы</string>
     <string name="txt_telegram_group_settings">Telegram группа приложения</string>
+    <string name="txt_show_labels_below_menu_icons">Показывать метки под значками меню</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Загрузка предложения...</string>
     <string name="btn_skip_sentence">Пропустить</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Трудно произносить</string>
     <string name="checkbox_reason5_report">Другой</string>
     <string name="checkbox_reason5_comment_report">Комментарий</string>
+    <string name="txt_sentences_finished_offline_mode">У вас закончились оффлайн предложения. Подключитесь к Интернету, чтобы загрузить больше предложений, чтобы записать.</string>
+    <string name="txt_clips_finished_offline_mode">У вас закончились автономные клипы. Подключитесь к Интернету, чтобы скачать больше клипов для проверки.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Вы можете записать {{*{{n_sentences}}*}} больше предложений, прежде чем вам нужно подключиться к Интернету.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Вы можете проверить {{*{{n_clips}}*}} больше клипов, прежде чем вам нужно подключиться к Интернету.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Проверить снова</string>
     <string name="txt_noconnection">Вы не подключены к Интернету. Подключитесь к Wi-Fi или мобильной сети, затем нажмите кнопку ниже.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Справка</string>
     <string name="text_info">Инфо</string>
     <string name="check_box_message_dialog">Больше не показывать</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">Теперь вы оффлайн и приложение автоматически переключено в автономный режим.\nЭто означает, что вы можете продолжить запись и подтвердить, но запросы будут отправлены позже.</string>
     <string name="text_offline_mode_enabled_2">Вы можете сказать, когда находитесь в автономном режиме, найдя этот значок на экране:</string>
+    <string name="text_offline_mode_enabled_3">Вы можете нажать на эту иконку, чтобы увидеть скачанные клипы и предложения.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Дневная цель</string>
     <string name="daily_goal_is_not_set">Цель не задана</string>

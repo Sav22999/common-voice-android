@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">يجب عليك تسجيل الدخول لتحدّد الهدف اليومي</string>
     <string name="textHoursAbbreviation">س</string>
     <string name="textHour">ساعة</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">ابدأ</string>
     <string name="btn_tutorial2">تصريح</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">تخصيص الإيماءات</string>
     <string name="txt_themes_settings">السمات</string>
     <string name="txt_telegram_group_settings">مجموعة تيليجرام الخاصة بالتطبيق</string>
+    <string name="txt_show_labels_below_menu_icons">إظهار التسميات أسفل أيقونات القائمة</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">جاري تحميل الجملة...</string>
     <string name="btn_skip_sentence">تخطي</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">صعبة في النطق</string>
     <string name="checkbox_reason5_report">أخرى</string>
     <string name="checkbox_reason5_comment_report">تعليق</string>
+    <string name="txt_sentences_finished_offline_mode">لقد نفدت الجمل بدون اتصال. اتصل بالإنترنت لتنزيل المزيد من الجمل للتسجيل.</string>
+    <string name="txt_clips_finished_offline_mode">لقد نفد لديك أقراص غير متصلة. اتصل بالإنترنت لتنزيل المزيد من المقاطع للتحقق من صحتها.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">يمكنك تسجيل {{*{{n_sentences}}*}} المزيد من الجمل قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">يمكنك التحقق من صحة {{*{{n_clips}}*}} المزيد من المقاطع قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">التحقق مجدداً</string>
     <string name="txt_noconnection">أنت غير متصل بالأنترنيت، اتصل بشبكة الواي فاي أو بيانات الجوال، ثم اضغط على الرمز أسفله.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">مساعدة</string>
     <string name="text_info">معلومات</string>
     <string name="check_box_message_dialog">لا تعرضها بعد الآن</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">أنت الآن غير متصل بالإنترنت والتطبيق تم تشغيله إلى وضع عدم الاتصال تلقائياً.\nهذا يعني أنه يمكنك الاستمرار في التسجيل والتحقق من الصحة، ولكن سيتم إرسال الطلبات في وقت لاحق.</string>
     <string name="text_offline_mode_enabled_2">يمكنك معرفة متى تكون في وضع غير متصل بالإنترنت من خلال البحث عن هذا الرمز على الشاشة:</string>
+    <string name="text_offline_mode_enabled_3">يمكنك النقر على هذا الرمز لرؤية المقاطع والجمل التي تم تحميلها.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">الهدف اليومي</string>
     <string name="daily_goal_is_not_set">لم يتم تحديد أي هدف</string>

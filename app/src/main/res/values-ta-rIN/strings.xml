@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">தினசரி இலக்கை நிர்ணயிக்க நீங்கள் உள்நுழைய வேண்டும்</string>
     <string name="textHoursAbbreviation">ம. நே</string>
     <string name="textHour">மணி நேரம்</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">தொடர்க</string>
     <string name="btn_tutorial2">அனுமதி</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Customise gestures</string>
     <string name="txt_themes_settings">Themes</string>
     <string name="txt_telegram_group_settings">Telegram group of the app</string>
+    <string name="txt_show_labels_below_menu_icons">Show labels below the menu icons</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">தவிர்</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">உச்சரிக்க கடினம்</string>
     <string name="checkbox_reason5_report">மற்றவை</string>
     <string name="checkbox_reason5_comment_report">கருத்து</string>
+    <string name="txt_sentences_finished_offline_mode">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">மீண்டும் சரிபார்க்கவும்</string>
     <string name="txt_noconnection">நீங்கள் இணையத்துடன் இணைக்கப்படவில்லை. வைஃபை அல்லது மொபைல் தரவுடன் இணைக்கவும், பின்னர் கீழே உள்ள பொத்தானை அழுத்தவும்.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Help</string>
     <string name="text_info">Info</string>
     <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">தினசரி இலக்கு</string>
     <string name="daily_goal_is_not_set">இலக்கு நிர்ணயிக்கவில்லை</string>

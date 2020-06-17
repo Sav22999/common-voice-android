@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Devi effettuare l\'accesso per poter impostare l\'obiettivo giornaliero</string>
     <string name="textHoursAbbreviation">o</string>
     <string name="textHour">Ora</string>
+    <string name="txt_top_contributors">Collaboratori principali</string>
+    <string name="txt_top_contributors_recorded">Registrazioni</string>
+    <string name="txt_top_contributors_validated">Validazioni</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">Statistiche dell\'app</string>
+    <string name="txt_current_language">Lingua attuale</string>
+    <string name="txt_all_languages">Tutte le lingue</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Non disponibile in modalità offline</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Inizia</string>
     <string name="btn_tutorial2">Permetti</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Personalizza i gesti</string>
     <string name="txt_themes_settings">Temi</string>
     <string name="txt_telegram_group_settings">Gruppo Telegram dell\'app</string>
+    <string name="txt_show_labels_below_menu_icons">Mostra le etichette sotto alle icone del menu</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Difficile da pronunciare</string>
     <string name="checkbox_reason5_report">Altro</string>
     <string name="checkbox_reason5_comment_report">Commento</string>
+    <string name="txt_sentences_finished_offline_mode">Hai terminato le frasi disponibili offline. Connettiti a Internet per scaricare altre frasi da registrare.</string>
+    <string name="txt_clips_finished_offline_mode">Hai terminato le registrazioni disponibili offline. Connettiti a Internet per scaricare altre registrazioni da convalidare.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Puoi registrare altre {{*{{n_sentences}}*}} frasi prima di doverti connettere a Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Puoi convalidare altre {{*{{n_clips}}*}} registrazioni prima di doverti connettere a Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Verifica nuovamente</string>
     <string name="txt_noconnection">Non sei connesso a Internet. Connettiti al Wi-Fi o alla rete dati, poi premi il pulsante sottostante.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Guida</string>
     <string name="text_info">Informazioni</string>
     <string name="check_box_message_dialog">Non mostrare più</string>
+    <string name="text_offline_mode">Modalità offline</string>
     <string name="text_offline_mode_enabled">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno verranno inviate successivamente.</string>
     <string name="text_offline_mode_enabled_2">Puoi capire facilmente quando sei in modalità offline in quanto è presente questa icona sullo schermo:</string>
+    <string name="text_offline_mode_enabled_3">Premi su questa icona per vedere il numero di registrazioni e di frasi scaricate.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Obiettivo giornaliero</string>
     <string name="daily_goal_is_not_set">Nessun obiettivo impostato</string>

@@ -19,11 +19,20 @@
     <string name="dashboardTabYou">Vy</string>
     <string name="dashboardTabEveryone">Všichni</string>
     <string name="dashboardToday">Dnes</string>
-    <string name="dashboardEver">Vůbec</string>
-    <string name="toastNoLoginNoStatistics">Pro zobrazení statistik se musíte přihlásit</string>
+    <string name="dashboardEver">Za celou dobu</string>
+    <string name="toastNoLoginNoStatistics">Pro zobrazení vašich statistik se musíte přihlásit</string>
     <string name="toastNoLoginNoDailyGoal">Pro nastavení denního cíle se musíte přihlásit</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hodina</string>
+    <string name="txt_top_contributors">Nejlepší přispěvatelé</string>
+    <string name="txt_top_contributors_recorded">Nahráno</string>
+    <string name="txt_top_contributors_validated">Ověřeno</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">Statistiky aplikace</string>
+    <string name="txt_current_language">Aktuální jazyk</string>
+    <string name="txt_all_languages">Všechny jazyky</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Není dostupné v offline režimu</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Začít</string>
     <string name="btn_tutorial2">Permit</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Přizpůsobit gesta</string>
     <string name="txt_themes_settings">Motivy</string>
     <string name="txt_telegram_group_settings">Telegram skupina aplikace</string>
+    <string name="txt_show_labels_below_menu_icons">Zobrazit popisky pod ikonami menu</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Načítá se věta...</string>
     <string name="btn_skip_sentence">Přeskočit</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Obtížné na vyslovení</string>
     <string name="checkbox_reason5_report">Ostatní</string>
     <string name="checkbox_reason5_comment_report">Komentář</string>
+    <string name="txt_sentences_finished_offline_mode">Vyčerpali jste offline věty. Připojte se k Internetu a stáhněte si další věty pro nahrávání.</string>
+    <string name="txt_clips_finished_offline_mode">Vyčerpali jste offline klipy. Připojte se k Internetu a stáhněte si další klipy pro ověření.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Můžete nahrát ještě {{*{{n_sentences}}*}} vět/y předtím, než se budete muset připojit k internetu.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Před připojením k internetu můžete ověřit ještě {{*{{n_clips}}*}} klipů/y.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Zkontrolovat znovu</string>
     <string name="txt_noconnection">Nejste připojeni k internetu. Připojte se k Wi-Fi nebo k mobilním datům a poté stiskněte tlačítko níže.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Nápověda</string>
     <string name="text_info">Informace</string>
     <string name="check_box_message_dialog">Již nezobrazovat</string>
+    <string name="text_offline_mode">Offline režim</string>
     <string name="text_offline_mode_enabled">Nyní jste offline a aplikace se automaticky přepnula do offline režimu.\nTo znamená, že můžete pokračovat v nahrávání a ověřování, ale žádosti budou odeslány později.</string>
     <string name="text_offline_mode_enabled_2">To, zda jste v offline režimu, zjistíte tak, že uvidíte tuto ikonu na obrazovce:</string>
+    <string name="text_offline_mode_enabled_3">Kliknutím na tuto ikonu zobrazíte stažené klipy a věty.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Denní cíl</string>
     <string name="daily_goal_is_not_set">Není nastaven žádný cíl</string>

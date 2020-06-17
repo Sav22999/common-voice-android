@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Ви повинні увійти, щоб встановити щоденну мету</string>
     <string name="textHoursAbbreviation">г</string>
     <string name="textHour">Година</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Старт</string>
     <string name="btn_tutorial2">Permit</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Налаштувати жести</string>
     <string name="txt_themes_settings">Теми оформлення</string>
     <string name="txt_telegram_group_settings">Група додатку Telegram</string>
+    <string name="txt_show_labels_below_menu_icons">Відображати ярлики під піктограмами меню</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Завантаження речення...</string>
     <string name="btn_skip_sentence">Пропустити</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Важко вимовити</string>
     <string name="checkbox_reason5_report">Інше</string>
     <string name="checkbox_reason5_comment_report">Коментар</string>
+    <string name="txt_sentences_finished_offline_mode">Вам не вистачає речень в автономному режимі. Підключіться до Інтернету, щоб завантажити більше речень для запису.</string>
+    <string name="txt_clips_finished_offline_mode">У вас закінчилися офлайн кліпи. Підключіться до Інтернету, щоб завантажити більше кліпів для перевірки.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Ви можете записати {{*{{n_sentences}}*}} більше речень перед тим, як вам доведеться підключитись до Інтернету.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Ви можете перевірити ще {{*{{n_clips}}*}} кліпи, перш ніж вам потрібно підключитися до Інтернету.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Перевірити знову</string>
     <string name="txt_noconnection">Ви не підключені до інтернету. Підключіться до Wi-Fi або передачу даних, потім натисніть кнопку нижче.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Довідка</string>
     <string name="text_info">Інформація</string>
     <string name="check_box_message_dialog">Більше не показувати</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">Тепер Ви перебуваєте в автономному режимі, і додаток автоматично переключився в автономний режим.\nЦе означає, що ви можете продовжити запис та перевірити, але запити будуть відправлені пізніше.</string>
     <string name="text_offline_mode_enabled_2">Ви можете вказати, коли ви знаходитесь в режимі офлайн, шукаючи цей значок на екрані:</string>
+    <string name="text_offline_mode_enabled_3">Ви можете торкнутися цієї піктограми, щоб побачити завантажені відео та речення.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Ціль на день</string>
     <string name="daily_goal_is_not_set">Ціль не налаштовано</string>

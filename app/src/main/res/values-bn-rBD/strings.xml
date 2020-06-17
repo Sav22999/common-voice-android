@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">দৈনিক লক্ষ্য দেখতে লগইন করতে হবে</string>
     <string name="textHoursAbbreviation">ঘ.</string>
     <string name="textHour">ঘণ্টা</string>
+    <string name="txt_top_contributors">মূল অবদানকারীগণ</string>
+    <string name="txt_top_contributors_recorded">রেকর্ড করা হয়েছে</string>
+    <string name="txt_top_contributors_validated">সত্যায়িত</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">অ্যাপের পরিসংখ্যান</string>
+    <string name="txt_current_language">বর্তমান ভাষা</string>
+    <string name="txt_all_languages">সব ভাষা</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">শুরু করি</string>
     <string name="btn_tutorial2">অনুমতি</string>
@@ -34,18 +43,18 @@
     <string name="txt_permission_obtained_first_launch">অনুমতি পাওয়া গেছে</string>
     <string name="txt_permission_denied_first_launch">ত্রুটি: অনুমতি পাওয়া যায়নি</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/bn/terms</string>
-    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
-    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice আয়ান্ড্রয়েড(কমন ভইস)-অ্যাপটা Mozilla Common Voice-এর অফিসিয়াল অ্যাপ না৷ এইটা Saverio Morelli দ্বারা তৈরিকৃত, Mozilla-র সাহায্য বা (আর্থিক) সহায়তা ছাড়া৷</string>
+    <string name="txt_accept_terms_first_launch">আগানোর মাধ্যমে, তুমি Mozilla-র Common Voice-এর সেবার শর্ত অনুমোদন করবে।</string>
+    <string name="txt_microphone_permission_first_launch">Common Voice Android অ্যাপের \"মাইক্রোফোন\" অনুমতি লাগবে সঠিকভাবে কাজ করার জন্য।</string>
+    <string name="txt_storage_permission_first_launch">তুমি গিটহাব(GitHub) বা টেলিগ্রামে(Telegram) বাগগুলি প্রতিবেদন করতে পারেন। ডেভেলপারকে সমস্যাটি দ্রুত বুঝতে সহায়তা করার জন্য অ্যাপ্লিকেশনটির লগ ফাইলটি তোমার প্রতিবেদনের সাথে সংযুক্ত করা উচিত। অ্যাপ্লিকেশনটির লগ ফাইলটি সংরক্ষণের জন্য \"স্টোরেজ\" অনুমতি প্রয়োজন।</string>
+    <string name="txt_offline_mode_first_launch">এমনকি তুমি অফলাইনে থাকাকালীনও অবদান রাখতে পারেন। অ্যাপ্লিকেশনটির \"অফলাইন মোড\" স্বয়ংক্রিয়ভাবে সক্ষম হবে এবং তুমি কোনও ইন্টারনেট সংযোগ ছাড়াই রেকর্ড করতে এবং শুনতে শুনতে পারেন।</string>
+    <string name="txt_themes_first_launch">তুমি আলোময় থিম বা অন্ধকার থিম বেছে নিতে পারেন।তুমি পরে সেটিংসে এটা পরিবর্তন করতে পারবে।</string>
     <string name="txt_turn_on_dark_theme_first_launch">অন্ধকার ভাব(থিম)</string>
-    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
-    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch">Join group</string>
-    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="txt_gestures_first_launch">কিছু কাজের সংকেত রয়েছে। উদাহরণস্বরূপ, তুমি বাক্যে বামদিকে সোয়াইপ করে একটি বাক্যটি এড়িয়ে যেতে পারো।</string>
+    <string name="txt_customise_gestures_first_launch">তুমি সেটিংসে এই সংকেতগুলো পরিবর্তন করতে পারো।</string>
+    <string name="txt_telegram_group_first_launch">খবর এবং সহায়তা পেতে তুমি টেলিগ্রাম(Telegram) গ্রুপে যোগ দিতে পারো।</string>
+    <string name="btn_join_telegram_first_launch">গ্রুপে যোগ দাও</string>
+    <string name="txt_choose_language_first_launch">চলো যাই! তুমি কোন ভাষায় কথা বলতে বা শুনতে চাও তা নির্বাচন করো। যদি কোনও অনুবাদ পাওয়া যায় তবে অ্যাপটি সেই ভাষায় প্রদর্শিত হবে।</string>
     <!-- Login -->
     <string name="txt_loading_page">লোড হচ্ছে...</string>
     <string name="txt_profile_username">ব্যবহৃত নাম</string>
@@ -62,7 +71,7 @@
     <string name="level_up_message">অভিনন্দন! তুমি {{*{{n_level}}*}} স্তর(লেভেল) অর্জন করেছে।</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">আবার টিউটোরিয়াল খুলো</string>
-    <string name="txt_project_github_settings">গিটহাবে প্রজেক্ট(প্রকল্প) ওপেন-সোর্স</string>
+    <string name="txt_project_github_settings">গিটহাবে(GitHub) প্রজেক্ট(প্রকল্প) ওপেন-সোর্স</string>
     <string name="txt_contributors">মূল অবদানকারীগণ</string>
     <string name="txt_developed_by">ডেভেলপার</string>
     <string name="toast_language_changed">ভাষা সফলভাবে {{*{{lang}}*}} এ পরিবর্তন করা হয়েছে</string>
@@ -77,12 +86,12 @@
     <string name="txt_dark_theme_settings">অন্ধকার ভাব(থিম)</string>
     <string name="toast_dark_theme_on">ডার্ক থিম এখন চালু আছে।</string>
     <string name="toast_dark_theme_off">ডার্ক থিম এখন বন্ধ আছে।</string>
-    <string name="contact_developer_on_telegram">ডেভেলপারকে টেলিগ্রামে যোগাযোগ করো</string>
+    <string name="contact_developer_on_telegram">ডেভেলপারকে টেলিগ্রামে(Telegram) যোগাযোগ করো</string>
     <string name="txt_experimental_features">পরীক্ষামূলক বৈশিষ্ট্য</string>
     <string name="toast_experimental_features_on">পরীক্ষামূলক বৈশিষ্ট্য চালু হয়েছে।\nনতুন বৈশিষ্ট্য অস্থিতিশীল ও অনিরাপদ হতে পারে।</string>
     <string name="toast_experimental_featured_off">পরীক্ষামূলক বৈশিষ্ট্য বন্ধ আছে।</string>
     <string name="txt_log_on_file">একটি ফাইলে লগ সেভ করো</string>
-    <string name="toast_log_on_file_on">একটি ফাইলে লগ সেভ করা চালু আছে।\nকোনো সমস্যা রিপোর্ট করার সময় log.txt ফাইলটি যুক্ত করতে পারো\n গিটহাবে আরো পড়।</string>
+    <string name="toast_log_on_file_on">একটি ফাইলে লগ সেভ করা চালু আছে।\nকোনো সমস্যা রিপোর্ট করার সময় log.txt ফাইলটি যুক্ত করতে পারো\n গিটহাবে(GitHub) আরো পড়।</string>
     <string name="toast_log_on_file_off">একটি ফাইলে লগ সেভ করা বন্ধ আছে।</string>
     <string name="txt_anonymous_statistics">বেনামি পরিসংখ্যান</string>
     <string name="toast_anonymous_statistics_on">বেনামি পরিসংখ্যান চালু আছে।\nআমরা তোমার ব্যক্তিগত তথ্য সংগ্রহ করি না। প্রতিদিন কত লোক অ্যাপটি ব্যবহার করে তা দেখতে আমরা কেবল পরিসংখ্যানটি ব্যবহার করি।</string>
@@ -104,13 +113,14 @@
     <string name="txt_gestures">সংকেত</string>
     <string name="toast_gestures_on">সংকেত চালু আছে।</string>
     <string name="toast_gestures_off">সংকেত বন্ধ আছে।</string>
-    <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
+    <string name="message_review_app_on_play_store">যদি এই অ্যাপ ভালো লেগে থাকে, তবে দয়া করে, Google Play Store-এ একটা মূল্যায়ন দিতে মনে রেখো।</string>
     <string name="message_app_not_completely_translated">এই অ্যাপটি (সম্পূর্ণভাবে) এই ভাষায় অনুবাদকৃত নয়।\nতুমি crowdin এ এই অ্যাপ অনুবাদে সাহায্য করতে পারো।</string>
-    <string name="txt_animations">Animations</string>
-    <string name="txt_customise_the_font_size">Customise the font size</string>
-    <string name="txt_customise_gestures">Customise gestures</string>
-    <string name="txt_themes_settings">Themes</string>
-    <string name="txt_telegram_group_settings">Telegram group of the app</string>
+    <string name="txt_animations">অ্যানিমেশন</string>
+    <string name="txt_customise_the_font_size">অক্ষরের আকার পালটাও</string>
+    <string name="txt_customise_gestures">সংকেত পালটাও</string>
+    <string name="txt_themes_settings">থিম</string>
+    <string name="txt_telegram_group_settings">অ্যাপের টেলিগ্রাম(Telegram) গ্রুপ</string>
+    <string name="txt_show_labels_below_menu_icons">মেনু চিহ্নগুলোর নিচে লেবেলগুলো দেখাও</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">বাক্য লোড হচ্ছে...</string>
     <string name="btn_skip_sentence">উপেক্ষা কর</string>
@@ -120,27 +130,27 @@
     <string name="txt_press_icon_below_speak_2">রেকর্ডিং বন্ধ করতে নিচের আইকনটি টিপ দাও।</string>
     <string name="txt_sentence_recorded">বাক্য রেকর্ড করা হয়েছে। রেকর্ডিং শোনো।</string>
     <string name="txt_sentence_record_failed">রেকর্ডিং ব্যর্থ। আবার চেষ্টা করো।</string>
-    <string name="txt_recorded_correct_or_wrong">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
-    <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
-    <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
-    <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording">Sending the recording...</string>
+    <string name="txt_recorded_correct_or_wrong">তুমি যদি সঠিকভাবে বলে থাকো তবে রেকর্ডিংটা পাঠাও।\ nযদি তুমি ভুল বানান করো তবে তুমি বাক্যটি আবার রেকর্ড করতে পারো।</string>
+    <string name="txt_listening_stopped">রেকর্ডিং ঠিক কিনা নিশ্চিত করতে পুরোটা শুনো।</string>
+    <string name="txt_listening_again_recording">শুনা বন্ধ করতে নিচের আইকন টিপো।</string>
+    <string name="txt_recording_too_long">রেকর্ডিং খুব দীর্ঘ। সর্বোচ্চ সময়কাল ১০ সেকেন্ড।</string>
+    <string name="txt_recording_too_short">রেকর্ডিং খুব ছোট। আবার চেষ্টা করো।</string>
+    <string name="txt_sending_recording">রেকর্ডিং পাঠাও...</string>
     <string name="txt_recording_sent">রেকর্ডিং পাঠানো হয়েছে!</string>
     <string name="txt_sending_recording_failed">রেকর্ডিং পাঠাতে ব্যর্থ!</string>
-    <string name="txt_sending_recording_failed_and_skip">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_press_icon_below_listen_1">Press the icon below to start the clip.</string>
-    <string name="txt_press_icon_below_listen_2">Press the icon below to stop the clip.</string>
-    <string name="txt_clip_correct_or_wrong">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
-    <string name="txt_clip_again">Press the icon below to play the clip again.</string>
-    <string name="txt_clip_validated_yes">Clip marked as correct!</string>
-    <string name="txt_clip_validated_no">Clip marked as incorrect!</string>
-    <string name="txt_error_1_try_again_tap_skip">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
-    <string name="txt_error_2_sending_failed">Failed to send the recording.</string>
+    <string name="txt_sending_recording_failed_and_skip">রেকর্ডিং পাঠাতে ব্যর্থ! তুমি আবার চেষ্টা করতে পারো, অথবা {{*{{skip_button}}*}} বোতাম টিপতে পারেন।</string>
+    <string name="txt_press_icon_below_listen_1">ক্লিপটি শুরু করতে নিচের আইকনটা টিপ।</string>
+    <string name="txt_press_icon_below_listen_2">ক্লিপটি বন্ধ করতে নিচের আইকনটা টিপ।</string>
+    <string name="txt_clip_correct_or_wrong">ক্লিপটি সঠিক হলে থাম্বস আপ টিপ।\n ক্লিপটি ভুল হলে, থাম্বস ডাউন টিপো।</string>
+    <string name="txt_clip_again">ক্লিপটি শুরু করতে নিচের আইকনটি টিপো।</string>
+    <string name="txt_clip_validated_yes">ক্লিপটি ঠিক হিসেবে চিহ্নিত!</string>
+    <string name="txt_clip_validated_no">ক্লিপটি ভুল হিসেবে চিহ্নিত!</string>
+    <string name="txt_error_1_try_again_tap_skip">ত্রুটি। আগানোর জন্য {{*{{skip_button}}*}} টিপ দাও।</string>
+    <string name="txt_error_2_sending_failed">রেকর্ডিং পাঠাতে ব্যর্থ।</string>
     <string name="txt_sending_validation">পাঠানো হচ্ছে...</string>
-    <string name="txt_error_3_sending_validation_failed">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
+    <string name="txt_error_3_sending_validation_failed">রেকর্ডিং পাঠাতে ব্যর্থ! তুমি আবার চেষ্টা করতে পারো, অথবা {{*{{skip_button}}*}} বোতাম টিপতে পারো।</string>
     <string name="txt_closing">বন্ধ হচ্ছে...</string>
-    <string name="txt_error_4_clips_no_available">Error. There are no more available clips for this language.</string>
+    <string name="txt_error_4_clips_no_available">ত্রুটি। এই ভাষার জন্য আর কোনো ক্লিপ নেই।</string>
     <string name="button_report">অভিযোগ করো</string>
     <string name="title_report_clip">ক্লিপ অভিযোগ করো:</string>
     <string name="title_report_sentence">বাক্য অভিযোগ করে:</string>
@@ -152,26 +162,32 @@
     <string name="checkbox_reason4_report">উচ্চারণ করা কঠিন</string>
     <string name="checkbox_reason5_report">অন্যান্য</string>
     <string name="checkbox_reason5_comment_report">মন্তব্য</string>
+    <string name="txt_sentences_finished_offline_mode">তোমার অফলাইন বাক্য শেষ হলে গেছে। আরো বাক্য ডাউনলোড করে রেকর্ড করার জন্য ইন্টারনেটের সাথে যুক্ত হও।</string>
+    <string name="txt_clips_finished_offline_mode">তোমার অফলাইন ক্লিপ শেষ হলে গেছে। আরো ক্লিপ ডাউনলোড করে সত্যায়িত করার জন্য ইন্টারনেটের সাথে যুক্ত হও।</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">তুমি আর {{*{{n_sentences}}*}}টি বাক্য রেকর্ড করতে পারবে, যার পরে তোমাকে ইন্টারনেটে যুক্ত হতে হবে।</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">তুমি আর {{*{{n_sentences}}*}}টি ক্লিপ সত্যায়িত করতে পারবে, যার পরে তোমাকে ইন্টারনেটে যুক্ত হতে হবে।</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">আবার পরীক্ষা করো</string>
-    <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <string name="txt_noconnection">তুমি  ইন্টারনেটে যুক্ত নও। ওয়াই-ফাই বা মোবাইল ডাটাতে সংযোগ করো, তারপরে নিচের বোতামটা টিপো।</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">This is the sentence you must record.</string>
-    <string name="txt2_tutorial_speak_and_listen">A message to guide you will appear here.</string>
-    <string name="txt3_tutorial_speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
-    <string name="txt4_tutorial_speak">Tap on this icon to start recording.</string>
-    <string name="txt5_tutorial_speak">Tap on this icon to stop recording.</string>
-    <string name="txt6_tutorial_speak">Tap on this icon to play back your recording.</string>
-    <string name="txt7_tutorial_speak">Tap on this icon to re-record if you made a mistake.</string>
-    <string name="txt8_tutorial_speak">Tap on this icon to play back your recording again.</string>
-    <string name="txt9_tutorial_speak">Tap on this button to send your recording.</string>
-    <string name="txt1_tutorial_listen">This is the sentence/clip you must validate.</string>
-    <string name="txt3_tutorial_listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_listen">Tap on this icon to play the clip.</string>
-    <string name="txt5_tutorial_listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen">Tap on this icon if you want to listen to the clip again.</string>
-    <string name="txt7_tutorial_listen">If the clip matches the sentence, tap on this icon to accept it.</string>
-    <string name="txt8_tutorial_listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+    <string name="txt1_tutorial_speak">এই বাক্যটি তোমাকে রেকর্ড করতেই হবে।</string>
+    <string name="txt2_tutorial_speak_and_listen">তোমাকে সাহায্য করার জন্য একটি বার্তা এখানে উপস্থিত হবে।</string>
+    <string name="txt3_tutorial_speak">তোমার যদি বাক্যটি পছন্দ না হয়, তবে তুমি এখানে টিপ দিতে পারো এবং অন্য একটি পেতে পারো।</string>
+    <string name="txt4_tutorial_speak">রেকর্ডিং শুরু করতে এই আইকনে টিপ দাও।</string>
+    <string name="txt5_tutorial_speak">রেকর্ডিং বন্ধ করতে এই আইকনটি টিপ দাও।</string>
+    <string name="txt6_tutorial_speak">আপনার রেকর্ডিং আবার শুনতে এই আইকনটিতে টিপ দাও।</string>
+    <string name="txt7_tutorial_speak">তোমার কোনো ভুল হয়ে থাকলে আবার রেকর্ড করতে এই আইকনটি টিপ দাও।</string>
+    <string name="txt8_tutorial_speak">আপনার রেকর্ডিং আবার শুনতে এই আইকনটিতে টিপ দাও।</string>
+    <string name="txt9_tutorial_speak">রেকর্ডিং পাঠাতে এই বোতামে টিপ দাও।</string>
+    <string name="txt1_tutorial_listen">এই বাক্যটি/ক্লিপটি তোমাকে সত্যায়ন করতে হবে।</string>
+    <string name="txt3_tutorial_listen">তোমার যদি ক্লিপটি পছন্দ না হয়, তুমি এড়িয়ে যেতে পারো এবং অন্য একটি পেতে এই বোতাম টিপতে পারো।</string>
+    <string name="txt4_tutorial_listen">ক্লিপটি চালাতে এই আইকনে টিপো।</string>
+    <string name="txt5_tutorial_listen">ক্লিপটি চালানো বন্ধ করতে এই আইকনটি টিপো।</string>
+    <string name="txt6_tutorial_listen">যদি আবার ক্লিপটি শুনতে চাও তবে এই আইকনটি টিপো।</string>
+    <string name="txt7_tutorial_listen">যদি ক্লিপটি বাক্যের সাথে মেলে, তা নিশ্চিত করতে এই আইকনটি টিপো।</string>
+    <string name="txt8_tutorial_listen">যদি ক্লিপটি বাক্যটির সাথে মেলে না, এটি বাদ দিতে এই আইকনে টিপো।</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">মাফ করো, এই বৈশিষ্ট্যটা এখনো নেই।\nআমরা প্রতিনিয়ত অ্যাপটি উন্নততর করতে কাজ করছি, তাই পরে এসে দেখো এটা যুক্ত করা হতে কিনা।</string>
     <!-- Badges -->
@@ -191,9 +207,11 @@
     <string name="text_changelog">পরিবর্তনসূচী</string>
     <string name="text_help">সাহায্য</string>
     <string name="text_info">তথ্য</string>
-    <string name="check_box_message_dialog">Do not show anymore</string>
-    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
-    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="check_box_message_dialog">আবার দেখাবে না</string>
+    <string name="text_offline_mode">অফলাইন মোড</string>
+    <string name="text_offline_mode_enabled">তুমি এখন অফলাইন এবং অ্যাপটি স্বয়ংক্রিয়ভাবে অফলাইন মোডে এসেছে।\n যার অর্থ তুমি রেকর্ড এবং সত্যায়ন করা অবিরত রাখতে পারবেন তবে অনুরোধগুলি পরে প্রেরণ করা হবে।</string>
+    <string name="text_offline_mode_enabled_2">তুমি কখন অফলাইনে মোডে আছো এই আইকন দেখে তা বলতে পারবে:</string>
+    <string name="text_offline_mode_enabled_3">তুমি ঐ আইকনটা টিপ দিতে পারো ডাউনলোড করা ক্লিপ ও বাক্য দেখার জন্য।</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">দৈনিক লক্ষ্য</string>
     <string name="daily_goal_is_not_set">লক্ষ্য নিশ্চিত করা নেই</string>
@@ -205,10 +223,10 @@
     <string name="description_setting_daily_goal">কতগুলো বাক্য তুমি প্রতিদিন রেকর্ড বা ক্লিপ সত্যায়ন(প্রমাণীকরণ) করতে চাও তা নিশ্চিত করো।</string>
     <string name="daily_goal_achieved_today">আজকের অর্জন</string>
     <string name="daily_goal_not_achieved_today">আজকে অর্জনকৃত নয়</string>
-    <string name="daily_goal_achieved_message">সাবাস! তুমি তোমার দৈনিক লক্ষ্যে পৌঁছেছো।\n তুমি {{*{{n_clips}}*}}টি ক্লিপ মূল্যায়িত করেছো এবং {{*{{n_sentences}}*}}টি বাক্য রেকর্ড করেছো।\nCommon Voice এ নির্দ্বিধায় অবদান রাখতে থাকো।</string>
+    <string name="daily_goal_achieved_message">সাবাস! তুমি তোমার দৈনিক লক্ষ্যে পৌঁছেছো।\n তুমি {{*{{n_clips}}*}}টি ক্লিপ সত্যায়ন করেছো এবং {{*{{n_sentences}}*}}টি বাক্য রেকর্ড করেছো।\nCommon Voice এ নির্দ্বিধায় অবদান রাখতে থাকো।</string>
     <string name="daily_goal_is_not_official_by_mozilla">এই দৈনিক লক্ষ্য মজিলার বৈশিষ্ট্য না। এটা শুধু অ্যাপটির বৈশিষ্ট্য।</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available">অ্যাপটির একটি নতুন সংস্করণ আছে(সংস্করণ {{*{{n_version}}*}})। তুমি নিজের পছন্দের স্টোর (এফ-ড্রয়েড বা F-Droid , Google Play Store) অথবা গিটহাব(GitHub) থেকে ডাউনলোড করতে পারো।</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

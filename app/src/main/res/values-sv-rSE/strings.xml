@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Du måste logga in för att ställa in det dagliga målet</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Timme</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Start</string>
     <string name="btn_tutorial2">Godkänn</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Anpassa gester</string>
     <string name="txt_themes_settings">Teman</string>
     <string name="txt_telegram_group_settings">Telegram grupp av appen</string>
+    <string name="txt_show_labels_below_menu_icons">Visa etiketter under menyikonerna</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Laddar mening...</string>
     <string name="btn_skip_sentence">Hoppa över</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Svårt att uttala</string>
     <string name="checkbox_reason5_report">Övrigt</string>
     <string name="checkbox_reason5_comment_report">Kommentar</string>
+    <string name="txt_sentences_finished_offline_mode">Du har slut på meningar offline. Anslut till Internet för att ladda ner fler meningar att spela in.</string>
+    <string name="txt_clips_finished_offline_mode">Du har slut på offline-klipp. Anslut till Internet för att ladda ner fler klipp för att validera.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Du kan spela in {{*{{n_sentences}}*}} fler meningar innan du behöver ansluta till Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Du kan validera {{*{{n_clips}}*}} fler klipp innan du behöver ansluta till Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Kontrollera igen</string>
     <string name="txt_noconnection">Du är inte ansluten till internet. Anslut till Wi-Fi eller mobildata, tryck sedan på knappen nedan.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Hjälp</string>
     <string name="text_info">Information</string>
     <string name="check_box_message_dialog">Visa inte längre</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">Du är nu offline och appen bytte till offline-läge automatiskt.\nDetta innebär att du kan fortsätta att spela in och validera, men förfrågningarna kommer att skickas senare.</string>
     <string name="text_offline_mode_enabled_2">Du kan se när du är i offline-läge genom att leta efter denna ikon på skärmen:</string>
+    <string name="text_offline_mode_enabled_3">Du kan trycka på ikonen för att se nedladdade klipp och meningar.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Dagligt mål</string>
     <string name="daily_goal_is_not_set">Inget mål satt</string>

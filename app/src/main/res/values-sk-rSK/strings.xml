@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Pre nastavenie denného cieľa sa musíš prihlásiť</string>
     <string name="textHoursAbbreviation">hod</string>
     <string name="textHour">Hodina</string>
+    <string name="txt_top_contributors">Hlavní prispievatelia</string>
+    <string name="txt_top_contributors_recorded">Nahraté</string>
+    <string name="txt_top_contributors_validated">Overené</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">Štatistiky appky</string>
+    <string name="txt_current_language">Aktuálny jazyk</string>
+    <string name="txt_all_languages">Všetky jazyky</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Štart</string>
     <string name="btn_tutorial2">Povoliť</string>
@@ -31,21 +40,21 @@
     <string name="btn_tutorial4">Skúsiť znova</string>
     <string name="btn_tutorial5">Dokončiť</string>
     <string name="btn_skip">Preskočiť</string>
-    <string name="txt_permission_obtained_first_launch">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch">Error: permission denied</string>
+    <string name="txt_permission_obtained_first_launch">Povolenie úspešné</string>
+    <string name="txt_permission_denied_first_launch">Chyba: Povolenie neúspešné</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/sk/terms</string>
-    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
-    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android je neoficiálna aplikácia pre Mozilla Common Voice. Je vyvíjana developerom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">Pokračovaním súhlasíte so Všeobecnými podmienkami používania Mozilla Common Voice aplikácie.</string>
+    <string name="txt_microphone_permission_first_launch">Táto aplikácia potrebuje prístup k povoleniu \"Mikrofón\" aby mohla nahrávať Váš hlas.</string>
+    <string name="txt_storage_permission_first_launch">Chyby môžete nahlasovať na GitHub alebo Telegram. Pre ľahšie a rýchlejšie vyriešenie chyby, zvážte pridanie záznamového súboru appky do Vášho hlásenia. Aplikácia potrebuje prístup ku právu \"Úložisko\" pre uloženie záznamového súboru.</string>
+    <string name="txt_offline_mode_first_launch">Môžeš prispievať aj ak si offline. \"Offline mód\" appky je zapnutý automaticky a môžeš nahrávať a overovať aj bez internetového pripojenia.</string>
+    <string name="txt_themes_first_launch">Môžeš si vybrať medzi svetlou alebo tmavou témou appky. Neskôr môžeš toto nastavenie zmeniť v Nastaveniach.</string>
     <string name="txt_turn_on_dark_theme_first_launch">Tmavá téma</string>
-    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
-    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch">Join group</string>
-    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="txt_gestures_first_launch">Niektoré akcie majú korešpondujúce gestá. Napríklad, môžeš preskočiť vetu v Nahrávaní swipnutím doľava.</string>
+    <string name="txt_customise_gestures_first_launch">Tieto gestá si môžeš prispôsobiť v Nastaveniach.</string>
+    <string name="txt_telegram_group_first_launch">Môžes sa pridať do Telegram skupiny a dostávať informácie o novinkách a podpore.</string>
+    <string name="btn_join_telegram_first_launch">Pridať sa do skupiny</string>
+    <string name="txt_choose_language_first_launch">Poďme na to! Vyber si jazyk, v ktorom by si chcel nahrávať a overovať. Appka bude tiež zobrazená v tomto jazyku, ak je dostupný jej preklad.</string>
     <!-- Login -->
     <string name="txt_loading_page">Načítava sa ...</string>
     <string name="txt_profile_username">Používateľské meno</string>
@@ -106,11 +115,12 @@
     <string name="toast_gestures_off">Gestá sú vypnuté.</string>
     <string name="message_review_app_on_play_store">Prosím, ak sa ti táto appka páči, nezabudni ju ohodnotiť v Google Play Store.</string>
     <string name="message_app_not_completely_translated">Aplikácia nie je (úplne) preložená do tohoto jazyka.\nMôžeš pomôcť ju preložiť na Crowdin.</string>
-    <string name="txt_animations">Animations</string>
-    <string name="txt_customise_the_font_size">Customise the font size</string>
+    <string name="txt_animations">Animácie</string>
+    <string name="txt_customise_the_font_size">Prispôsoviť veľkosť fontu</string>
     <string name="txt_customise_gestures">Prispôsobiť gestá</string>
-    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_themes_settings">Motívy</string>
     <string name="txt_telegram_group_settings">Telegram skupina pre aplikáciu</string>
+    <string name="txt_show_labels_below_menu_icons">Ukazovať popisy pod menu ikonami</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Načítava sa veta...</string>
     <string name="btn_skip_sentence">Preskočiť</string>
@@ -124,7 +134,7 @@
     <string name="txt_listening_stopped">Vypočuj si celú nahrávku, aby si overil či je správna.</string>
     <string name="txt_listening_again_recording">Stlač dolnú ikonu pre zastavenie počúvania.</string>
     <string name="txt_recording_too_long">Nahrávka je príliš dlhá. Maximálna dĺžka je 10 sekúnd.</string>
-    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
+    <string name="txt_recording_too_short">Nahrávka je príliš krátka. Prosím, skús to znova.</string>
     <string name="txt_sending_recording">Odosielanie nahrávky...</string>
     <string name="txt_recording_sent">Nahrávka odoslaná!</string>
     <string name="txt_sending_recording_failed">Nepodarilo sa odoslať nahrávku!</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Obtiažne vysloviť</string>
     <string name="checkbox_reason5_report">Iné</string>
     <string name="checkbox_reason5_comment_report">Komentár</string>
+    <string name="txt_sentences_finished_offline_mode">Všetky offline vety si už preložil. Pre stiahnutie ďalších viet je potrebné aby si sa pripojil na internet.</string>
+    <string name="txt_clips_finished_offline_mode">Všetky offline nahrávky si už overil. Pre stiahnutie ďalších nahrávok je potrebné aby si sa pripojil na internet.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Môžeš ešte nahrať {{*{{n_sentences}}*}} viet, predtým ako bude potrebné pripojiť sa na internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Môžeš ešte overiť {{*{{n_clips}}*}} nahrávok, predtým ako bude potrebné pripojiť sa na internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Skontrolovať znova</string>
     <string name="txt_noconnection">Nie si pripojený na internet. Pripoj sa pomocou Wi-Fi alebo mobilného internetu, potom znova stlač tlačidlo dole.</string>
@@ -191,9 +207,11 @@
     <string name="text_changelog">Protokol zmien</string>
     <string name="text_help">Nápoveda</string>
     <string name="text_info">Informácie</string>
-    <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="check_box_message_dialog">Viac nezobrazovať</string>
+    <string name="text_offline_mode">Offline mód</string>
     <string name="text_offline_mode_enabled">Teraz si offline a appka sa automaticky prepla do offline módu.\nTo znamená, že môžeš pokračovať v nahrávaní a overovaní, ale ich odoslanie prebehne neskôr.</string>
     <string name="text_offline_mode_enabled_2">Offline mód spoznáš podľa tejto ikony zobrazenej na obrazovke:</string>
+    <string name="text_offline_mode_enabled_3">Ťuknutím na ikonu uvidíš stiahnuté vety a nahrávky.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Denný cieľ</string>
     <string name="daily_goal_is_not_set">Nie je nastavný žiadny cieľ</string>

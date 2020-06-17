@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Musisz się zalogować, aby ustawić cel dzienny</string>
     <string name="textHoursAbbreviation">g</string>
     <string name="textHour">Godzina</string>
+    <string name="txt_top_contributors">Najaktywniejsi</string>
+    <string name="txt_top_contributors_recorded">Nagrane</string>
+    <string name="txt_top_contributors_validated">Sprawdzone</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">Statystyki aplikacji</string>
+    <string name="txt_current_language">Bieżący język</string>
+    <string name="txt_all_languages">Wszystkie języki</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Niedostępne w trybie offline</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Rozpocznij</string>
     <string name="btn_tutorial2">Zezwól</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Dostosuj gesty</string>
     <string name="txt_themes_settings">Motywy</string>
     <string name="txt_telegram_group_settings">Grupa Telegram aplikacji</string>
+    <string name="txt_show_labels_below_menu_icons">Pokaż etykiety pod ikonami menu</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Ładowanie zdania...</string>
     <string name="btn_skip_sentence">Pomiń</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Trudne do wymówienia</string>
     <string name="checkbox_reason5_report">Inna</string>
     <string name="checkbox_reason5_comment_report">Komentarz</string>
+    <string name="txt_sentences_finished_offline_mode">Brakowało Ci zdań offline. Połącz się z Internetem, aby pobrać więcej zdań do zapisu.</string>
+    <string name="txt_clips_finished_offline_mode">Utracono klipy offline. Połącz się z Internetem, aby pobrać więcej klipów w celu weryfikacji.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Możesz zapisać więcej zdań {{*{{n_sentences}}*}} zanim będziesz musiał połączyć się z Internetem.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Możesz zweryfikować więcej klipów {{*{{n_clips}}*}} zanim będziesz musiał połączyć się z Internetem.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Sprawdź ponownie</string>
     <string name="txt_noconnection">Nie jesteś połączony z Internetem. Połącz się z Wi-Fi lub włącz dane komórkowe, a następnie naciśnij przycisk poniżej.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Pomoc</string>
     <string name="text_info">Info</string>
     <string name="check_box_message_dialog">Nie pokazuj więcej</string>
+    <string name="text_offline_mode">Tryb offline</string>
     <string name="text_offline_mode_enabled">Jesteś teraz offline, a aplikacja automatycznie przełączyła się na tryb offline.\nOznacza to, że możesz nadal nagrywać i weryfikować, ale dane zostaną wysłane później.</string>
     <string name="text_offline_mode_enabled_2">Możesz sprawdzić, kiedy jesteś w trybie offline, szukając tej ikony na ekranie:</string>
+    <string name="text_offline_mode_enabled_3">Możesz dotknąć tej ikony, aby zobaczyć pobrane klipy i zdania.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Dzienny cel</string>
     <string name="daily_goal_is_not_set">Nie ustawiono celu</string>

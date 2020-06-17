@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Você tem que entrar para definir a meta diária</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">hora</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Iniciar</string>
     <string name="btn_tutorial2">Permit</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Personalizar gestos</string>
     <string name="txt_themes_settings">Temas</string>
     <string name="txt_telegram_group_settings">Grupo do Telegram do app</string>
+    <string name="txt_show_labels_below_menu_icons">Mostrar etiquetas abaixo dos ícones de menu</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Carregando sentença...</string>
     <string name="btn_skip_sentence">Ignorar</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Difícil de pronunciar</string>
     <string name="checkbox_reason5_report">Outros</string>
     <string name="checkbox_reason5_comment_report">Comentar</string>
+    <string name="txt_sentences_finished_offline_mode">Você ficou sem frases off-line. Conecte-se à Internet para baixar mais frases para registro.</string>
+    <string name="txt_clips_finished_offline_mode">Você ficou sem clipes offline. Conecte-se à Internet para baixar mais clipes para validar.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Você pode gravar {{*{{n_sentences}}*}} mais frases antes de se conectar à internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Você pode validar {{*{{n_clips}}*}} mais clipes antes de se conectar à internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Verificar novamente</string>
     <string name="txt_noconnection">Você não está conectado à internet. Conecte-se ao Wi-Fi ou aos dados móveis e pressione o botão abaixo.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Socorro</string>
     <string name="text_info">Informações</string>
     <string name="check_box_message_dialog">Não mostrar mais</string>
+    <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">Você está agora offline e o aplicativo mudou automaticamente para modo offline.\nIsso significa que você pode continuar registrando e validando, mas as solicitações serão enviadas mais tarde.</string>
     <string name="text_offline_mode_enabled_2">Você pode saber quando está no modo offline procurando por este ícone na tela:</string>
+    <string name="text_offline_mode_enabled_3">Você pode tocar nesse ícone para ver os clipes e frases baixados.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Meta diária</string>
     <string name="daily_goal_is_not_set">Nenhum objetivo definido</string>

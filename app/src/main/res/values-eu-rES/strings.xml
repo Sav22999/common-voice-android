@@ -24,6 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Saioa hasi behar duzu eguneroko helburua zehazteko</string>
     <string name="textHoursAbbreviation">ord</string>
     <string name="textHour">Orduak</string>
+    <string name="txt_top_contributors">Parte-hartzaile nagusiak</string>
+    <string name="txt_top_contributors_recorded">Grabatuta</string>
+    <string name="txt_top_contributors_validated">Baliozkotua</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">Aplikazioaren estatistikak</string>
+    <string name="txt_current_language">Uneko hizkuntza</string>
+    <string name="txt_all_languages">Hizkuntza guztiak</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Hasi</string>
     <string name="btn_tutorial2">Baimendu</string>
@@ -111,6 +120,7 @@
     <string name="txt_customise_gestures">Pertsonalizatu keinuak</string>
     <string name="txt_themes_settings">Gaiak</string>
     <string name="txt_telegram_group_settings">Aplikazioaren Telegram taldea</string>
+    <string name="txt_show_labels_below_menu_icons">Erakutsi etiketak menuaren ikonoen azpian</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Esaldia kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>
@@ -152,6 +162,12 @@
     <string name="checkbox_reason4_report">Ahoskatzeko zaila</string>
     <string name="checkbox_reason5_report">Beste bat</string>
     <string name="checkbox_reason5_comment_report">Iruzkinak</string>
+    <string name="txt_sentences_finished_offline_mode">Konexiorik gabeko esaldirik gabe geratu zara. Konektatu Internetera grabatzeko esaldi gehiago deskargatzeko.</string>
+    <string name="txt_clips_finished_offline_mode">Konexiorik gabeko klipik gabe geratu zara. Konektatu Internetera balidatzeko klip gehiago deskargatzeko.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">{{*{{n_sentences}}*}} esaldi gehiago grabatu ditzakezu Internetera konektatu aurretik.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">{{*{{n_clips}}*}} klip gehiago balidatu ditzakezu Internetera konektatu aurretik.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Berriz begiratu</string>
     <string name="txt_noconnection">Ez zaude Internetera konektatuta. Konektatu Wi-Fi edo datu mugikorrekin, ondoren sakatu botoia.</string>
@@ -192,8 +208,10 @@
     <string name="text_help">Laguntza</string>
     <string name="text_info">Informazioa</string>
     <string name="check_box_message_dialog">Ez erakutsi gehiago</string>
+    <string name="text_offline_mode">Lineaz-kanpo Modua</string>
     <string name="text_offline_mode_enabled">Deskonektatuta zaude eta aplikazioa automatikoki aldatu da konexiorik gabeko modura.\nHorrek esan nahi du grabatzen eta baliozkotzen jarrai dezakezula, baina eskaerak geroago bidaliko dira.</string>
     <string name="text_offline_mode_enabled_2">Konexiorik gabeko moduan noiz zauden jakin dezakezu, pantailan ikono hau bilatuz:</string>
+    <string name="text_offline_mode_enabled_3">Ikono hori ukitu dezakezu deskargatutako klipak eta esaldiak ikusteko.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Eguneko helburua</string>
     <string name="daily_goal_is_not_set">Ezarritako helbururik gabe</string>
