@@ -21,7 +21,11 @@ class StatsRepository(
 
     private var lastStatsUpdateTime: Timestamp = Timestamp(0)
 
-    suspend fun postStatsUpdate(appVersion: String, appSource: String) = withContext(Dispatchers.IO) {
+    suspend fun postStatsUpdate(
+        appVersion: String,
+        versionCode: String,
+        appSource: String
+    ) = withContext(Dispatchers.IO) {
         if (appVersion.contains('a') || appVersion.contains('b')) return@withContext
 
         val timeOfNow = getTimestampOfNowPlus(seconds = 0)
@@ -33,7 +37,7 @@ class StatsRepository(
                 getUserId(),
                 isLogged(),
                 mainPrefManager.language,
-                appVersion,
+                versionCode,
                 mainPrefManager.areStatsAnonymous.toString(),
                 appSource
             )

@@ -183,7 +183,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
             ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
-            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
         }
 
         this.checkUserLoggedIn()
@@ -502,7 +502,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
             mainPrefManager.areStatsAnonymous = status
-            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
         }
     }
 

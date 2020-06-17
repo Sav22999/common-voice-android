@@ -9,8 +9,12 @@ class HomeViewModel(
     private val statsRepository: StatsRepository
 ): ViewModel() {
 
-    fun postStats(appVersion: String, appSource: String) = viewModelScope.launch {
-        statsRepository.postStatsUpdate(appVersion, appSource)
+    fun postStats(
+        appVersion: String,
+        versionCode: Int,
+        appSource: String
+    ) = viewModelScope.launch {
+        statsRepository.postStatsUpdate(appVersion, versionCode.toString(), appSource)
     }
 
 }
