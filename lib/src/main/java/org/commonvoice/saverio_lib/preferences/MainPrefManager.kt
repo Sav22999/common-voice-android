@@ -52,7 +52,7 @@ class MainPrefManager(private val ctx: Context) {
         }
 
     var areStatsAnonymous: Boolean
-        get() = preferences.getBoolean(Keys.ARE_STATS_ANONYMOUS.name, false)
+        get() = preferences.getBoolean(Keys.ARE_STATS_ANONYMOUS.name, true)
         set(value) {
             preferences.edit().putBoolean(Keys.ARE_STATS_ANONYMOUS.name, value).apply()
         }
