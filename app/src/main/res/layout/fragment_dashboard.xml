@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:viewBindingIgnore="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:viewBindingIgnore="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutDashboard"
@@ -201,7 +200,6 @@
                 android:background="@drawable/top_bottom_border_radius"
                 android:backgroundTint="@color/colorDarkWhite"
                 android:padding="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dashboardSectionToday">
@@ -289,6 +287,29 @@
                     app:layout_constraintTop_toBottomOf="@+id/separatorEverSpeak"
                     app:srcCompat="@drawable/speak_cv" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardSectionEver" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -389,7 +410,6 @@
                 android:background="@drawable/top_bottom_border_radius"
                 android:backgroundTint="@color/colorDarkWhite"
                 android:padding="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dashboardVoicesOnlineNow">
@@ -439,6 +459,29 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineVoicesOnline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardVoicesOnlineBefore" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -504,10 +547,30 @@
                 android:text="@string/set_daily_goal"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text_button"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/labelDashboardDailyGoalValue" />
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineDailyGoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonDashboardSetDailyGoal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -608,7 +671,6 @@
                 android:background="@drawable/top_bottom_border_radius"
                 android:backgroundTint="@color/colorDarkWhite"
                 android:padding="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dashboardAppStatisticsCurrentLanguage">
@@ -658,6 +720,27 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineAppStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardAppStatisticsAllLanguages" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1026,7 +1109,6 @@
                 android:backgroundTint="@color/colorDarkWhite"
                 android:padding="0dp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsPoints"
@@ -1097,6 +1179,29 @@
                     tools:text="0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineTopContributors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsNTh" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
