@@ -11,10 +11,10 @@ import retrofit2.http.POST
 interface StatsService {
 
     @Headers("Content-Type: application/json")
-    @POST("")
+    @POST("v2/")
     suspend fun postStats(@Body stats: RetrofitStatsUpdate)
 
-    @GET("app-statistics/")
+    @GET("v2/app-statistics/")
     suspend fun getStats(): Response<Map<String, ResponseDailyUsage>>
 
 }
