@@ -22,6 +22,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -1111,8 +1112,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 mainActivityViewModel.clearDB()
                 dashboardViewModel.lastStatsUpdate = 0
 
-                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
             }
 
             this.selectedLanguageVar = lang
