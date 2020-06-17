@@ -103,6 +103,7 @@ class CommonVoice : Application() {
                 get<MediaPlayerRepository>(),
                 get<ReportsRepository>(),
                 get<WorkManager>(),
+                get<MainPrefManager>(),
                 get<ListenPrefManager>()
             )
         }

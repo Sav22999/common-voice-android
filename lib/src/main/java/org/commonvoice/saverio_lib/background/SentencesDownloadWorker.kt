@@ -32,6 +32,7 @@ class SentencesDownloadWorker(
     override suspend fun doWork(): Result = coroutineScope {
         try {
             sentenceRepository.deleteOldSentences(getTimestampOfNowPlus(seconds = 0))
+            sentenceRepository.deleteWrongSentences(currentLanguage)
 
             val numberDifference = requiredSentences - sentenceRepository.getSentenceCount()
 
@@ -65,6 +66,7 @@ class SentencesDownloadWorker(
                 }
             }
         } finally {
+            sentenceRepository.deleteWrongSentences(currentLanguage)
             db.close()
         }
     }

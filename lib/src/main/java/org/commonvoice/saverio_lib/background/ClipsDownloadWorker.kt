@@ -32,6 +32,7 @@ class ClipsDownloadWorker(
     override suspend fun doWork(): Result = coroutineScope {
         try {
             clipsRepository.deleteOldClips(getTimestampOfNowPlus(seconds = 0))
+            clipsRepository.deleteWrongClips(currentLanguage)
 
             val numberDifference = requiredClips - clipsRepository.getClipsCount()
 
@@ -59,6 +60,7 @@ class ClipsDownloadWorker(
                 }
             }
         } finally {
+            clipsRepository.deleteWrongClips(currentLanguage)
             db.close()
         }
     }

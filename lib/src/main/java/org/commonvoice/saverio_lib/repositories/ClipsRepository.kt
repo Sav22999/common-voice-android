@@ -49,12 +49,12 @@ class ClipsRepository(database: AppDB, retrofitFactory: RetrofitFactory) {
     fun getLiveClipsCount() = clipsDao.getLiveCount()
 
     @WorkerThread
-    suspend fun getOldestClip() = clipsDao.getOldestClip()
-
-    @WorkerThread
-    suspend fun getOldClips(dateOfToday: Timestamp) = clipsDao.getOldClips(dateOfToday.time)
+    suspend fun getOldestClip(language: String) = clipsDao.getOldestClip(language)
 
     @WorkerThread
     suspend fun deleteOldClips(dateOfToday: Timestamp) = clipsDao.deleteOldClips(dateOfToday.time)
+
+    @WorkerThread
+    suspend fun deleteWrongClips(language: String) = clipsDao.deleteWrongClips(language)
 
 }

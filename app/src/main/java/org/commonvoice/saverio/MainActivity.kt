@@ -1107,26 +1107,24 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 false
             }
 
-            if (languageChanged) {
-                mainPrefManager.language = lang
-                mainActivityViewModel.clearDB()
-                dashboardViewModel.lastStatsUpdate = 0
-
-                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
-                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
-            }
-
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                getSharedPreferences(
-                    settingsSwitchData["UI_LANGUAGE_CHANGED"],
-                    PRIVATE_MODE
-                ).edit()
-                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+                mainPrefManager.language = lang
+                mainActivityViewModel.clearDB().invokeOnCompletion {
+                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
+                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
 
-                setLanguageUI("restart")
-                resetDashboardData()
+                    getSharedPreferences(
+                        settingsSwitchData["UI_LANGUAGE_CHANGED"],
+                        PRIVATE_MODE
+                    ).edit()
+                        .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+
+                    setLanguageUI("restart")
+                    resetDashboardData()
+                }
+                dashboardViewModel.lastStatsUpdate = 0
             }
 
         } catch (e: Exception) {
