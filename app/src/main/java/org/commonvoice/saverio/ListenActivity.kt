@@ -88,7 +88,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         })
 
         listenViewModel.hasFinishedClips.observe(this, Observer {
-            if (it) {
+            if (it && !connectionManager.isInternetAvailable) {
                 NoClipsSentencesAvailableDialog(this, false, 0).show {
                     onBackPressed()
                 }

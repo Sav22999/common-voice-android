@@ -111,7 +111,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         })
 
         speakViewModel.hasFinishedSentences.observe(this, Observer {
-            if (it) {
+            if (it && !connectionManager.isInternetAvailable) {
                 NoClipsSentencesAvailableDialog(this, true, 0).show {
                     onBackPressed()
                 }
