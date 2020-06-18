@@ -1,1 +1,1 @@
-This is not the official app of Mozilla Common Voice.
+This app permits you to contribute to Common Voice from your smartphone.
