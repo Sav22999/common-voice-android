@@ -1,11 +1,13 @@
 package org.commonvoice.saverio.ui.dashboard
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -131,43 +133,52 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     }
 
     private fun networkConnectivityCheck() {
-        connectionManager.liveInternetAvailability.observe(viewLifecycleOwner, Observer { isInternetPresent ->
-            withBinding {
-                dashboardSectionStatistics.children.filterIsInstance<ConstraintLayout>().forEach {
-                    it.isVisible = isInternetPresent
-                }
-                dashboardSectionVoicesOnline.children.filterIsInstance<ConstraintLayout>().forEach {
-                    it.isVisible = isInternetPresent
-                }
-                dashboardSectionAppStatistics.children.filterIsInstance<ConstraintLayout>().forEach {
-                    it.isVisible = isInternetPresent
-                }
-                dashboardSectionTopContributors.children.filterIsInstance<ConstraintLayout>().forEach {
-                    it.isVisible = isInternetPresent
-                }
+        connectionManager.liveInternetAvailability.observe(
+            viewLifecycleOwner,
+            Observer { isInternetPresent ->
+                withBinding {
+                    dashboardSectionStatistics.children.filterIsInstance<ConstraintLayout>()
+                        .forEach {
+                            it.isVisible = isInternetPresent
+                        }
+                    dashboardSectionVoicesOnline.children.filterIsInstance<ConstraintLayout>()
+                        .forEach {
+                            it.isVisible = isInternetPresent
+                        }
+                    dashboardSectionAppStatistics.children.filterIsInstance<ConstraintLayout>()
+                        .forEach {
+                            it.isVisible = isInternetPresent
+                        }
+                    dashboardSectionTopContributors.children.filterIsInstance<ConstraintLayout>()
+                        .forEach {
+                            it.isVisible = isInternetPresent
+                        }
 
-                dashboardTopContributorsNTh.isVisible = false
-                dashboardTopContributorsPoints.isVisible = false
+                    dashboardTopContributorsNTh.isVisible = false
+                    dashboardTopContributorsPoints.isVisible = false
 
-                labelDashboardDailyGoalValue.isVisible = isInternetPresent
-                buttonDashboardSetDailyGoal.isVisible = isInternetPresent
+                    labelDashboardDailyGoalValue.isVisible = isInternetPresent
+                    buttonDashboardSetDailyGoal.isVisible = isInternetPresent
 
-                textDashboardNotAvailableOfflineStatistics.isGone = isInternetPresent
-                textDashboardNotAvailableOfflineVoicesOnline.isGone = isInternetPresent
-                textDashboardNotAvailableOfflineDailyGoal.isGone = isInternetPresent
-                textDashboardNotAvailableOfflineAppStatistics.isGone = isInternetPresent
-                textDashboardNotAvailableOfflineTopContributors.isGone = isInternetPresent
-            }
-            dashboardViewModel.updateStats()
-        })
+                    textDashboardNotAvailableOfflineStatistics.isGone = isInternetPresent
+                    textDashboardNotAvailableOfflineVoicesOnline.isGone = isInternetPresent
+                    textDashboardNotAvailableOfflineDailyGoal.isGone = isInternetPresent
+                    textDashboardNotAvailableOfflineAppStatistics.isGone = isInternetPresent
+                    textDashboardNotAvailableOfflineTopContributors.isGone = isInternetPresent
+                }
+                dashboardViewModel.updateStats()
+            })
     }
 
     private fun loadDailyGoal() {
         if (statsPrefManager.dailyGoalObjective <= 0) {
             binding.labelDashboardDailyGoalValue.setText(R.string.daily_goal_is_not_set)
+            binding.labelDashboardDailyGoalValue.typeface = Typeface.DEFAULT
         } else {
             binding.labelDashboardDailyGoalValue.text =
                 statsPrefManager.dailyGoalObjective.toString()
+            binding.labelDashboardDailyGoalValue.typeface =
+                ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
         }
     }
 
@@ -425,14 +436,16 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             )
                         )
                     } else {
-                        dashboardTopContributorsNTh.isVisible = connectionManager.isInternetAvailable
+                        dashboardTopContributorsNTh.isVisible =
+                            connectionManager.isInternetAvailable
 
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
                         setYouTopContributor(dashboardTopContributorsNTh)
                         if (you.total > 4) {
-                            dashboardTopContributorsPoints.isGone = !connectionManager.isInternetAvailable
+                            dashboardTopContributorsPoints.isGone =
+                                !connectionManager.isInternetAvailable
                         }
                     }
                 }
@@ -455,14 +468,16 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             )
                         )
                     } else {
-                        dashboardTopContributorsNTh.isVisible = connectionManager.isInternetAvailable
+                        dashboardTopContributorsNTh.isVisible =
+                            connectionManager.isInternetAvailable
 
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
                         setYouTopContributor(dashboardTopContributorsNTh)
                         if (you.total > 4) {
-                            dashboardTopContributorsPoints.isGone = !connectionManager.isInternetAvailable
+                            dashboardTopContributorsPoints.isGone =
+                                !connectionManager.isInternetAvailable
                         }
                     }
                 }
