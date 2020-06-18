@@ -209,7 +209,7 @@
     <string name="text_info">Informazioni</string>
     <string name="check_box_message_dialog">Non mostrare più</string>
     <string name="text_offline_mode">Modalità offline</string>
-    <string name="text_offline_mode_enabled">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno verranno inviate successivamente.</string>
+    <string name="text_offline_mode_enabled">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno inviate successivamente.</string>
     <string name="text_offline_mode_enabled_2">Puoi capire facilmente quando sei in modalità offline in quanto è presente questa icona sullo schermo:</string>
     <string name="text_offline_mode_enabled_3">Premi su questa icona per vedere il numero di registrazioni e di frasi scaricate.</string>
     <!-- Daily goal -->

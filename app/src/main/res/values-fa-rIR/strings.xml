@@ -32,7 +32,7 @@
     <string name="txt_app_statistics">App statistics</string>
     <string name="txt_current_language">Current language</string>
     <string name="txt_all_languages">All languages</string>
-    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">در حالت برون‌خط موجود نیست</string>
     <!-- First launch -->
     <string name="btn_tutorial1">شروع</string>
     <string name="btn_tutorial2">اجازه</string>
@@ -43,16 +43,16 @@
     <string name="txt_permission_obtained_first_launch">دسترسی اعطا شد</string>
     <string name="txt_permission_denied_first_launch">خطا: دسترسی رد شد</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/fa/terms</string>
-    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_introduction_app_first_launch">صداهای اشتراکی اندروید کاره‌ای غیرسمی برای صداهای اشتراکی موزیلا است. به دست سوریو مورلی بدون هیچ پشتیبانی یا شراکت موزیلا توسعه داده شده.</string>
+    <string name="txt_accept_terms_first_launch">با ادامه دادن، با شرایط خدمت صداهای اشتراکی موزیلا موافقت می‌کنید.</string>
     <string name="txt_microphone_permission_first_launch">این کاره برای ضبط صدایتان به دسترسی «میکروفون» نیاز دارد.</string>
-    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_storage_permission_first_launch">می‌توانید مشکلات را روی گیت‌هاب یا تلگرام گزارش کنید. برای کمک به توسعه‌دهنده برای درک سریع‌تر مشکل، باید پروندهٔ گزارش را به گزارشتان پیوست کنید. کاره برای ذخیرهٔ پروندهٔ گزارش، نیاز به دسترسی «ذخیره‌سازی» دارد.</string>
     <string name="txt_offline_mode_first_launch">می‌توانید حتا وقتی برون‌خط هستید نیز مشارکت کنید. «حالت برون‌خط» کاره به صورت خودکار به کار می‌افتد و می‌توانید بدون اتّصال اینترنتی، ضبط و شنیدن را ادامه دهید.</string>
     <string name="txt_themes_first_launch">می‌توانید زمینهٔ روشن یا تیره را برگزینید. می‌توانید بعداً این زمینه را در تنظیمات عوض کنید.</string>
     <string name="txt_turn_on_dark_theme_first_launch">زمینهٔ تاریک</string>
     <string name="txt_gestures_first_launch">برخی کنش‌ها، اشاره‌های متناظری دارند. برای مثال، می‌توانید در حالت صحبت، با کشیدن به چپ، از جمله‌ای بپرید.</string>
     <string name="txt_customise_gestures_first_launch">می‌توانید این اشاره‌ها را در تنظیمات شخصی‌سازی کنید.</string>
-    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
+    <string name="txt_telegram_group_first_launch">می‌توانید برای گرفتن اخبار و پشتیبانی به گروه تلگرام بپیوندید.</string>
     <string name="btn_join_telegram_first_launch">پیوستن به گروه</string>
     <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
@@ -91,7 +91,7 @@
     <string name="toast_experimental_features_on">ویژگی‌های آزمایشی روشن شدند.\nویژگی‌های جدید می‌توانند ناپایدار و ناامن باشند.</string>
     <string name="toast_experimental_featured_off">ویژگی‌های آزمایشی خاموش شدند.</string>
     <string name="txt_log_on_file">ذخیرهٔ گزارش‌ها به یک پرونده</string>
-    <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
+    <string name="toast_log_on_file_on">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.\nمی‌توانید هنگام گزارش یک مشکل، پروندهٔ log.txt را پیوست کنید.\nدر گیت‌هاب بیش‌تر بخوانید.</string>
     <string name="toast_log_on_file_off">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.</string>
     <string name="txt_anonymous_statistics">آمار ناشناس</string>
     <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
@@ -119,7 +119,7 @@
     <string name="txt_customise_the_font_size">سفارشی‌سازی اندازهٔ قلم</string>
     <string name="txt_customise_gestures">شخصی‌سازی اشاره‌ها</string>
     <string name="txt_themes_settings">زمینه‌ها</string>
-    <string name="txt_telegram_group_settings">Telegram group of the app</string>
+    <string name="txt_telegram_group_settings">گروه تلگرام کاره</string>
     <string name="txt_show_labels_below_menu_icons">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">در حال بار کردن جمله…</string>
@@ -226,7 +226,7 @@
     <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">هدف روزانه یک ویژگی رسمی موزیلا نیست. فقط ویژگی‌ای از این کاره است.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available">نگارشی جدید از کاره موجود است (ارایه {{*{{n_version}}*}}). می‌توانید از فروشگاه دلخواهتان (اف‌دروید یا فروشگاه پلی گوگل) به‌روزش کرده یا مستقیماً از گیت‌هاب بگیرید.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

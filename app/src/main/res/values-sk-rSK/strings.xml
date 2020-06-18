@@ -32,7 +32,7 @@
     <string name="txt_app_statistics">Štatistiky appky</string>
     <string name="txt_current_language">Aktuálny jazyk</string>
     <string name="txt_all_languages">Všetky jazyky</string>
-    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Nedostupné v offline móde</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Štart</string>
     <string name="btn_tutorial2">Povoliť</string>

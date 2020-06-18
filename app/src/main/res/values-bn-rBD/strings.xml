@@ -32,7 +32,7 @@
     <string name="txt_app_statistics">অ্যাপের পরিসংখ্যান</string>
     <string name="txt_current_language">বর্তমান ভাষা</string>
     <string name="txt_all_languages">সব ভাষা</string>
-    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">অফলাইনে বিদ্যমান নয়</string>
     <!-- First launch -->
     <string name="btn_tutorial1">শুরু করি</string>
     <string name="btn_tutorial2">অনুমতি</string>
