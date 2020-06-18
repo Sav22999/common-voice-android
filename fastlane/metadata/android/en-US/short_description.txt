@@ -1,1 +1,1 @@
-This is an unofficial app for (Mozilla) Common Voice.
+This is not the official app of Mozilla Common Voice.
