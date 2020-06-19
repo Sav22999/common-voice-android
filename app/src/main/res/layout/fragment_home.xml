@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -11,99 +13,134 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_listen"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/listen_cv"
-            android:textColor="@color/colorWhite"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeSectionCVAndroid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/textCommonVoiceAndroid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/zillaslab"
+                android:text="@string/app_name_long"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/common_voice_android"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeSectionLoginSignup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSectionCVAndroid">
+
+            <TextView
+                android:id="@+id/textLoggedUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_big"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/buttonHomeLogin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Hi, Username!"
+                tools:visibility="visible" />
+
+            <Button
+                android:id="@+id/buttonHomeLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_rounded"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="@string/button_home_login"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageBackgoundWaves"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginBottom="50dp"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSectionLoginSignup"
+            app:srcCompat="@drawable/ic_wave" />
+
+        <ImageView
+            android:id="@+id/imageRobot"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="100dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSectionLoginSignup"
+            app:srcCompat="@drawable/robot" />
 
         <Button
-            android:id="@+id/btn_speak"
+            android:id="@+id/buttonSpeak"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginEnd="250dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/speak_cv"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/backgound_waves"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/waves" />
-
-        <ImageView
-            android:id="@+id/robot_cv"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="130dp"
-            android:contentDescription="@string/description_cv_robot"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"
-            app:srcCompat="@drawable/robot" />
-
-        <ImageView
-            android:id="@+id/logo_cv"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="100dp"
-            android:contentDescription="@string/description_cv_logo"
-            android:scaleType="fitStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo_cv" />
-
         <Button
-            android:id="@+id/btn_login"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/btn_rounded"
-            android:text="@string/button_home_login"
+            android:id="@+id/buttonListen"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/listen_cv"
             android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textLoggedUsername" />
-
-        <TextView
-            android:id="@+id/textLoggedUsername"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="TextView"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo_cv"
-            tools:text="Hi, Username!"
-            tools:visibility="visible" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

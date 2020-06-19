@@ -7,6 +7,11 @@ import android.os.LocaleList
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import org.commonvoice.saverio.TranslationsLanguages
+import android.view.View
+import android.view.animation.AnimationUtils
+import androidx.annotation.AnimRes
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.koin.android.ext.android.inject
 import java.util.*
 
 /**
@@ -18,16 +23,18 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     /**
      * Empty constructor
      */
-    constructor(): super()
+    constructor() : super()
 
     /**
      * This constructor extends the superclass AppCompatActivity(@LayoutRes layout: Int),
      * which provides automatic inflation of the layout resource, if valid.
      */
-    constructor(@LayoutRes layout: Int): super(layout)
+    constructor(@LayoutRes layout: Int) : super(layout)
+
+    protected val mainPrefManager: MainPrefManager by inject()
 
     override fun attachBaseContext(newBase: Context) {
-        val tempLang = newBase.getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
+        val tempLang = mainPrefManager.language
         var lang = tempLang.split("-")[0]
         val langSupportedYesOrNot = TranslationsLanguages()
         if (!langSupportedYesOrNot.isSupported(lang)) {
@@ -37,7 +44,7 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     }
 
     private fun Context.wrap(desiredLocale: Locale): Context {
-        return when(Build.VERSION.SDK_INT) {
+        return when (Build.VERSION.SDK_INT) {
             Build.VERSION_CODES.M -> { //API 23, the lowest version we support
                 getUpdatedContextApi23(desiredLocale)
             }
@@ -69,6 +76,18 @@ abstract class VariableLanguageActivity : AppCompatActivity {
         val configuration = resources.configuration
         configuration.locales = localeList
         return createConfigurationContext(configuration)
+    }
+
+    protected fun startAnimation(view: View, @AnimRes res: Int) {
+        if (mainPrefManager.areAnimationsEnabled) {
+            AnimationUtils.loadAnimation(this, res).let {
+                view.startAnimation(it)
+            }
+        }
+    }
+
+    protected fun stopAnimation(view: View) {
+        view.clearAnimation()
     }
 
 }

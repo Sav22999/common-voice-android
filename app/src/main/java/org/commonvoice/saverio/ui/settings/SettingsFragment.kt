@@ -8,18 +8,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.koin.android.ext.android.inject
 
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var settingsViewModel: SettingsViewModel
+    private val mainPrefManager: MainPrefManager by inject()
+    private val speakPrefManager: SpeakPrefManager by inject()
+    private val listenPrefManager: ListenPrefManager by inject()
+
     var languagesListShort =
         arrayOf("en") // don't change it manually -> it will import automatically
     var languagesList =
@@ -32,8 +43,7 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settingsViewModel =
-            ViewModelProviders.of(this).get(SettingsViewModel::class.java)
+
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
 
         val main = (activity as MainActivity)
@@ -72,7 +82,7 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        val textProjectGithub: Button = root.findViewById(R.id.textProjectGitHub)
+        val textProjectGithub: Button = root.findViewById(R.id.buttonProjectGitHub)
         textProjectGithub.setOnClickListener {
             val browserIntent =
                 Intent(
@@ -109,6 +119,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            listenPrefManager.isAutoPlayClipEnabled = isChecked
             main.setAutoPlay(isChecked)
         }
         switchAutoPlaySettings.isChecked = main.getAutoPlay()
@@ -136,17 +147,6 @@ class SettingsFragment : Fragment() {
         }
         switchStatisticsSettings.isChecked = main.getStatisticsSwitch()
 
-        val switchExperimentalFeaturesSettings: Switch =
-            root.findViewById(R.id.switchExperimentalFeatures)
-        switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            main.setExperimentalFeaturesSwitch(isChecked)
-        }
-        switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
 
         val btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
         btnTranslateTheApp.setOnClickListener {
@@ -182,6 +182,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            speakPrefManager.playRecordingSoundIndicator = isChecked
             main.setRecordingIndicatorSoundSwitch(isChecked)
         }
         recordingIndicatorSoundSettings.isChecked = main.getRecordingIndicatorSoundSwitch()
@@ -218,6 +219,7 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            mainPrefManager.areGesturesEnabled = isChecked
             main.setGesturesSettingsSwitch(isChecked)
         }
         gesturesSettings.isChecked = main.getGesturesSettingsSwitch()
@@ -230,9 +232,75 @@ class SettingsFragment : Fragment() {
             } else {
                 //OFF
             }
+            speakPrefManager.skipRecordingConfirmation = isChecked
             main.setSkipRecordingsConfirmationSwitch(isChecked)
         }
         skipRecordingsConfirmationSettings.isChecked = main.getSkipRecordingsConfirmationSwitch()
+
+        val switchExperimentalFeaturesSettings: Switch =
+            root.findViewById(R.id.switchExperimentalFeatures)
+        val sectionExperimentalFeatures: ConstraintLayout =
+            root.findViewById(R.id.settingsSectionExperimentalFeatures)
+        switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+                //Reset all settings as default
+                //reset animations at true
+                mainPrefManager.areAnimationsEnabled = true
+                main.setAnimationsEnabledSwitch(true)
+                switchEnableAnimations.isChecked = true
+                //reset show labels at false
+                val navView: BottomNavigationView = main.findViewById(R.id.nav_view)
+                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+                mainPrefManager.areLabelsBelowMenuIcons = false
+                main.setLabelsBelowMenuIconsSettingsSwitch(false)
+                switchShowLabelsBelowMenuIcons.isChecked = false
+            }
+            main.setExperimentalFeaturesSwitch(isChecked)
+            sectionExperimentalFeatures.isGone = !isChecked
+        }
+        switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
+        sectionExperimentalFeatures.isGone = !(main.getExperimentalFeaturesSwitch())
+
+        val animationsEnabledSettings: Switch =
+            root.findViewById(R.id.switchEnableAnimations)
+        animationsEnabledSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+            }
+            mainPrefManager.areAnimationsEnabled = isChecked
+            main.setAnimationsEnabledSwitch(isChecked)
+        }
+        animationsEnabledSettings.isChecked = main.getAnimationsEnabledSwitch()
+
+        val showLablesMenuIconsSettings: Switch =
+            root.findViewById(R.id.switchShowLabelsBelowMenuIcons)
+        showLablesMenuIconsSettings.setOnCheckedChangeListener { _, isChecked ->
+            val navView: BottomNavigationView = main.findViewById(R.id.nav_view)
+            if (isChecked) {
+                //ON
+                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+            } else {
+                //OFF
+                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+            }
+            mainPrefManager.areLabelsBelowMenuIcons = isChecked
+            main.setLabelsBelowMenuIconsSettingsSwitch(isChecked)
+        }
+        showLablesMenuIconsSettings.isChecked = main.getLabelsBelowMenuIconsSettingsSwitch()
+
+        root.findViewById<Button>(R.id.buttonTelegramGroup).setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://bit.ly/3clgfkg")
+                )
+            )
+        }
 
         setTheme(main, root)
 
@@ -240,13 +308,102 @@ class SettingsFragment : Fragment() {
     }
 
     fun setTheme(view: Context, root: View) {
+        val isDark = theme.getTheme(view)
         theme.setElements(view, root.findViewById(R.id.layoutSettings))
 
+        theme.setElements(view, root.findViewById(R.id.settingsSectionLanguage))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionListen))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionSpeak))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionOther))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionExperimentalFeatures))
+        theme.setElements(view, root.findViewById(R.id.settingsSectionBottom))
+
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionLanguage))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionListen))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionSpeak))
+        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionOther))
         theme.setElement(
-            theme.getTheme(view),
+            isDark,
+            view,
+            3,
+            root.findViewById(R.id.settingsSectionExperimentalFeatures)
+        )
+        theme.setElement(isDark, view, 1, root.findViewById(R.id.settingsSectionBottom))
+
+
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.textRelease),
+            background = false
+        )
+
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonContactOnTelegram),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonBuyMeACoffee),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonProjectGitHub),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonTranslateTheApp),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonOpenTutorial),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonSeeStatistics),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonCustomiseTheFontSize),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonCustomiseGestures),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonThemes),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonTelegramGroup),
+            background = false
+        )
+
+        theme.setElement(
+            isDark,
             root.findViewById(R.id.imageLanguageIcon) as ImageView,
             R.drawable.ic_language,
-            R.drawable.ic_language_darktheme
+            R.drawable.ic_language
         )
     }
 }

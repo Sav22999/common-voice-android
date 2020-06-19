@@ -1,1019 +1,374 @@
 package org.commonvoice.saverio
 
-import OnSwipeTouchListener
-import android.Manifest
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Paint
-import android.media.MediaPlayer
-import android.net.ConnectivityManager
-import android.os.Build
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.webkit.WebView
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import android.util.TypedValue
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import com.android.volley.AuthFailureError
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_listen.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.ui.VariableLanguageActivity
-import org.json.JSONArray
-import org.json.JSONObject
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.util.*
-import kotlin.collections.HashMap
-
+import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
+import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
+import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.commonvoice.saverio_lib.models.Clip
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
-    private val RECORD_REQUEST_CODE = 101
-    private lateinit var webView: WebView
-    private var PRIVATE_MODE = 0
-    private val LANGUAGE_NAME = "LANGUAGE"
-    private val LOGGED_IN_NAME = "LOGGED" //false->no logged-in || true -> logged-in
-    private val USER_CONNECT_ID = "USER_CONNECT_ID"
-    private val FIRST_RUN_LISTEN = "FIRST_RUN_LISTEN"
-    private val AUTO_PLAY_CLIPS = "AUTO_PLAY_CLIPS"
-    private val TODAY_CONTRIBUTING =
-        "TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
-    private val LAST_STATS_YOU_VALUE_0 = "LAST_STATS_YOU_VALUE_0"
-    private val LAST_STATS_YOU_VALUE_1 = "LAST_STATS_YOU_VALUE_1"
-    private val DAILY_GOAL = "DAILY_GOAL"
-    private val GESTURES = "GESTURES"
-    var sentencesRecordedYouToday = 0
-    var sentencesValidatedYouToday = 0
+    private val listenViewModel: ListenViewModel by stateViewModel()
 
-    var url: String =
-        "https://voice.mozilla.org/api/v1/{{*{{lang}}*}}/" //API url -> replace {{*{{lang}}*}} with the selected_language
+    private val connectionManager: ConnectionManager by inject()
 
-    val urlWithoutLang: String =
-        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+    private val statsPrefManager: StatsPrefManager by inject()
 
-    var idSentence = intArrayOf(0, 0)
-    var textSentence = arrayOf("", "")
-    var globSentence = arrayOf("", "")
-    var soundSentence = arrayOf("", "")
-    var status: Int = 0 //1->clip stopped | 2->clip re-starting
-
-    var selectedLanguageVar = ""
-
-    var mediaPlayer: MediaPlayer? = null //audioplayer to play/pause clips
-    var autoPlayClips: Boolean = false
-
-    var opened: Boolean =
-        false //true -> the section was already open | false -> the section wasn't opened (before)
-    var loading: Boolean = false //there is already a request at the server
-
-    var dailyGoal: DailyGoal = DailyGoal(0, 0)
-    var isDailyGoalJustAchieved: Boolean = false
+    private var numberSentThisSession: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var firstRun: Boolean =
-            getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE).getBoolean(FIRST_RUN_LISTEN, true)
-        if (firstRun) {
-            //First-run
-            val intent = Intent(this, FirstRunListen::class.java).also {
-                startActivity(it)
-                finish()
+        setupInitialUIState()
+
+        setupUI()
+    }
+
+    private fun checkOfflineMode(available: Boolean) {
+        if (!listenViewModel.showingHidingOfflineIcon && (listenViewModel.offlineModeIconVisible == available)) {
+            listenViewModel.showingHidingOfflineIcon = true
+            if (!available) {
+                this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_in)
+                listenViewModel.offlineModeIconVisible = true
+                if (mainPrefManager.showOfflineModeMessage) {
+                    showMessageDialog("", "", 10)
+                }
+            } else {
+                this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
+                listenViewModel.offlineModeIconVisible = false
             }
-        } else {
-            //checkPermissions()
-            checkConnection()
-
-            this.selectedLanguageVar =
-                getSharedPreferences(LANGUAGE_NAME, PRIVATE_MODE).getString(LANGUAGE_NAME, "en")
-            this.url = this.url.replace("{{*{{lang}}*}}", this.selectedLanguageVar)
-
-            var skipButton: Button = this.findViewById(R.id.btn_skip_listen)
-            skipButton.setOnClickListener {
-                skipClip()
-            }
-
-            var startStopListening: Button = this.findViewById(R.id.btn_start_listen)
-            startStopListening.setOnClickListener {
-                if (this.status == 0 || this.status == 2) {
-                    StartListening() //0->play | 2->re-play
-                } else if (this.status == 1)
-                    StopListening()
-            }
-
-            var yesClip: Button = this.findViewById(R.id.btn_yes_thumb)
-            yesClip.setOnClickListener {
-                YesClip()
-            }
-
-            var noClip: Button = this.findViewById(R.id.btn_no_thumb)
-            noClip.setOnClickListener {
-                NoClip()
-            }
-
-            val buttonReport: TextView = this.findViewById(R.id.buttonReportListen)
-            buttonReport.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-            buttonReport.setOnClickListener {
-                openReportDialog()
-            }
-
-            this.autoPlayClips =
-                getSharedPreferences(AUTO_PLAY_CLIPS, PRIVATE_MODE).getBoolean(
-                    AUTO_PLAY_CLIPS,
-                    false
-                )
-
-            loadStatisticsYouToday()
-            dailyGoal.setDailyGoal(
-                getSharedPreferences(DAILY_GOAL, PRIVATE_MODE).getInt(
-                    DAILY_GOAL,
-                    0
-                )
-            )//just to test
-            this.dailyGoal.setRecordings(this.sentencesRecordedYouToday)
-            this.dailyGoal.setValidations(this.sentencesValidatedYouToday)
-            this.dailyGoal.checkDailyGoal()
-
-            if (getGestures()) {
-                nestedScrollListen.setOnTouchListener(object :
-                    OnSwipeTouchListener(this@ListenActivity) {
-                    override fun onSwipeLeft() {
-                        skipClip()
-                    }
-
-                    override fun onSwipeRight() {
-                        onBackPressed()
-                    }
-
-                    override fun onSwipeTop() {
-                        if (getResources().getConfiguration().orientation == 1) {
-                            openReportDialog()
-                        }
-                    }
-
-                    override fun onSwipeBottom() {
-
-                    }
-                })
-            }
-
-            //API request
-            API_request()
+            listenViewModel.showingHidingOfflineIcon = false
+            this.imageOfflineModeListen.isGone = available
         }
+    }
+
+    public fun setShowOfflineModeMessage(value: Boolean = true) {
+        mainPrefManager.showOfflineModeMessage = value
+    }
+
+    private fun setupInitialUIState() {
+        buttonSkipListen.onClick {
+            listenViewModel.skipClip()
+        }
+
+        buttonYesClip.isGone = true
+        buttonNoClip.isGone = true
+    }
+
+    private fun setupUI() {
+        imageOfflineModeListen.onClick {
+            lifecycleScope.launch {
+                val count = listenViewModel.getClipsCount()
+                withContext(Dispatchers.Main) {
+                    NoClipsSentencesAvailableDialog(this@ListenActivity, false, count).show()
+                }
+            }
+        }
+
+        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+            checkOfflineMode(available)
+        })
+
+        listenViewModel.hasFinishedClips.observe(this, Observer {
+            if (it && !connectionManager.isInternetAvailable) {
+                NoClipsSentencesAvailableDialog(this, false, 0).show {
+                    onBackPressed()
+                }
+            }
+        })
+
+        listenViewModel.currentClip.observe(this, Observer { clip ->
+            loadUIStateStandby(clip)
+        })
+
+        listenViewModel.state.observe(this, Observer { state ->
+            when (state) {
+                ListenViewModel.Companion.State.STANDBY -> {
+                    loadUIStateLoading()
+                    listenViewModel.loadNewClip()
+                }
+                ListenViewModel.Companion.State.LISTENING -> {
+                    loadUIStateListening()
+                }
+                ListenViewModel.Companion.State.LISTENED -> {
+                    loadUIStateListened()
+                }
+            }
+        })
+
+        if (mainPrefManager.areGesturesEnabled) {
+            setupGestures()
+        }
+
+        statsPrefManager.dailyGoal.observe(this, Observer {
+            if ((this.numberSentThisSession > 0) && it.checkDailyGoal()) {
+                this.stopAndRefresh()
+                showMessageDialog(
+                    "",
+                    getString(R.string.daily_goal_achieved_message).replace(
+                        "{{*{{n_clips}}*}}",
+                        "${it.validations}"
+                    ).replace(
+                        "{{*{{n_sentences}}*}}",
+                        "${it.recordings}"
+                    )
+                )
+            }
+        })
+
+        checkOfflineMode(connectionManager.isInternetAvailable)
 
         setTheme(this)
     }
 
-    fun getGestures(): Boolean {
-        return getSharedPreferences(
-            GESTURES,
-            PRIVATE_MODE
-        ).getBoolean(
-            GESTURES,
-            false
-        )
+    private fun showMessageDialog(title: String, text: String, type: Int = 0) {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        val msg = MessageDialog(this, type, title, text, details = "", height = height)
+        msg.setListenActivity(this)
+        msg.show()
     }
 
-    fun skipClip() {
-        StopListening()
-        API_request()
+    private fun setupGestures() {
+        nestedScrollListen.setOnTouchListener(object : OnSwipeTouchListener(this@ListenActivity) {
+            override fun onSwipeLeft() {
+                listenViewModel.skipClip()
+            }
+
+            override fun onSwipeRight() {
+                onBackPressed()
+            }
+
+            override fun onSwipeTop() {
+                if (mainPrefManager.deviceOrientation == Configuration.ORIENTATION_PORTRAIT) {
+                    openReportDialog()
+                }
+            }
+        })
     }
 
     fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
+        val theme: DarkLightTheme = DarkLightTheme()
 
-        var isDark = theme.getTheme(view)
-        theme.setElement(isDark, this.findViewById(R.id.layoutListen) as ConstraintLayout)
+        val isDark = theme.getTheme(view)
+        theme.setElement(isDark, layoutListen)
+        theme.setElement(isDark, view, 1, listenSectionBottom)
         theme.setElement(
             isDark,
             view,
-            this.findViewById(R.id.textMessageAlertListen) as TextView,
+            textMessageAlertListen,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
-        theme.setElement(
-            isDark,
-            view,
-            this.findViewById(R.id.buttonReportListen) as TextView,
-            R.color.colorBlack,
-            R.color.colorWhite
-        )
-        theme.setElement(isDark, view, this.findViewById(R.id.btn_skip_listen) as Button)
+        theme.setElement(isDark, view, buttonReportListen, background = false)
+        theme.setElement(isDark, view, buttonSkipListen)
     }
 
-    fun getDateToSave(savedDate: String): String {
-        var todayDate: String = "?"
-        if (Build.VERSION.SDK_INT < 26) {
-            val dateTemp = SimpleDateFormat("yyyy/MM/dd")
-            todayDate = dateTemp.format(Date()).toString()
-        } else {
-            val dateTemp = LocalDateTime.now()
-            todayDate =
-                dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString()
-        }
-        if (checkDateToday(todayDate, savedDate)) {
-            return savedDate
-        } else {
-            return todayDate
+    private fun openReportDialog() {
+        if (!buttonReportListen.isGone) {
+            this.stopAndRefresh()
+
+            ListenReportDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
         }
     }
 
-    fun checkDateToday(todayDate: String, savedDate: String): Boolean {
-        //true -> savedDate is OK, false -> savedDate is old
-        if (todayDate == "?" || savedDate == "?") {
-            return false
-        } else if (todayDate == savedDate) {
-            return true
-        } else if (todayDate.split("/")[0] > savedDate.split("/")[0]) {
-            return false
-        } else if (todayDate.split("/")[1] > savedDate.split("/")[1]) {
-            return false
-        } else if (todayDate.split("/")[2] > savedDate.split("/")[2]) {
-            return false
-        } else {
-            return true
+    private fun stopAndRefresh() {
+        listenViewModel.stop()
+        listenViewModel.currentClip.observe(this, Observer { clip ->
+            loadUIStateStandby(clip, noAutoPlay = true)
+        })
+    }
+
+    private fun loadUIStateLoading() {
+        if (!listenViewModel.stopped) {
+            textSentenceListen.text = "···"
+            textMessageAlertListen.setText(R.string.txt_loading_sentence)
+            buttonStartStopListen.isEnabled = false
+            buttonReportListen.isGone = true
+        }
+        //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+        if (!listenViewModel.opened) {
+            listenViewModel.opened = true
+            startAnimation(buttonStartStopListen, R.anim.zoom_in_speak_listen)
+            startAnimation(buttonSkipListen, R.anim.zoom_in_speak_listen)
         }
     }
 
-    fun incrementContributing() {
-        //just if the user is logged-in
-        if (getSharedPreferences(LOGGED_IN_NAME, PRIVATE_MODE).getBoolean(LOGGED_IN_NAME, false)) {
-            //user logged
-            var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
-                TODAY_CONTRIBUTING,
-                "?, ?, ?"
-            ).split(", ")
-            var dateContributing = contributing[0]
-            var dateContributingToSave = getDateToSave(dateContributing)
-            var nValidated: String = "?"
-            var nRecorded: String = "?"
-            if (dateContributingToSave == dateContributing) {
-                //same date
-                nRecorded = contributing[1]
-                nValidated = contributing[2]
-                if (nValidated == "?") {
-                    nValidated = "0"
-                }
-                if (nRecorded == "?") {
-                    nRecorded = "0"
-                }
-            } else {
-                //new date
-                nValidated = "0"
-                nRecorded = "0"
+    private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) {
+        if (!listenViewModel.listenedOnce) {
+            textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
+
+        } else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
+
+        textSentenceListen.text = clip.sentence.sentenceText
+        when (textSentenceListen.text.length) {
+            in 0..10 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.title_very_big)
+                )
             }
-            nValidated = (nValidated.toInt() + 1).toString()
-            var contributingToSave =
-                dateContributingToSave + ", " + nRecorded + ", " + nValidated
-            getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).edit()
-                .putString(TODAY_CONTRIBUTING, contributingToSave).apply()
+            in 11..20 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.title_big)
+                )
+            }
+            in 21..40 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.title_medium)
+                )
+            }
+            in 41..70 -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.title_normal)
+                )
+            }
+            else -> {
+                textSentenceListen.setTextSize(
+                    TypedValue.COMPLEX_UNIT_PX,
+                    resources.getDimension(R.dimen.title_small)
+                )
+            }
+        }
 
-            this.dailyGoal.setRecordings(nRecorded.toInt())
-            this.dailyGoal.setValidations(nValidated.toInt())
-            this.checkDailyGoal()
+        buttonReportListen.isGone = false
+
+        buttonStartStopListen.isEnabled = true
+        buttonStartStopListen.onClick {
+            listenViewModel.startListening()
+        }
+
+        if (listenViewModel.stopped) {
+            //stopped recording
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
         } else {
-            //user no logged
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+
+            hideButtons()
+
+            listenViewModel.listenedOnce = false
+            listenViewModel.startedOnce = false
+        }
+
+        if (!listenViewModel.startedOnce) {
+            if (listenViewModel.autoPlay() && !noAutoPlay) {
+                listenViewModel.startListening()
+            }
+        }
+
+        buttonReportListen.onClick {
+            this.openReportDialog()
         }
     }
 
-    fun loadStatisticsYouToday() {
-        var contributing = getSharedPreferences(TODAY_CONTRIBUTING, PRIVATE_MODE).getString(
-            TODAY_CONTRIBUTING,
-            "?, ?, ?"
-        ).split(", ")
-        var dateContributing = contributing[0]
-        var dateContributingToSave = getDateToSave(dateContributing)
-        if (dateContributingToSave == dateContributing) {
-            //same date
-            if (contributing[2] == "?") {
-                this.sentencesValidatedYouToday = 0
-            } else {
-                this.sentencesValidatedYouToday = contributing[2].toInt()
-            }
-            if (contributing[1] == "?") {
-                this.sentencesRecordedYouToday = 0
-            } else {
-                this.sentencesRecordedYouToday = contributing[1].toInt()
-            }
-        } else {
-            //new date
-            this.sentencesValidatedYouToday = 0
-            this.sentencesRecordedYouToday = 0
+    private fun loadUIStateListening() {
+        stopButtons()
+
+        textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
+
+        buttonNoClip.isVisible = true
+        if (!listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_in_speak_listen)
+        if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
+        listenViewModel.startedOnce = true
+        buttonSkipListen.isEnabled = true
+
+        buttonStartStopListen.setBackgroundResource(R.drawable.stop_cv)
+
+        buttonNoClip.onClick {
+            listenViewModel.validate(result = false)
+            this.numberSentThisSession++
+            hideButtons()
         }
-        var contributingToSave =
-            dateContributingToSave + ", " + this.sentencesRecordedYouToday + ", " + this.sentencesValidatedYouToday
-        //println("loadStatisticsYouToday: " + this.sentencesRecordedYouToday + " -- " + this.sentencesValidatedYouToday)
+        buttonStartStopListen.onClick {
+            listenViewModel.stopListening()
+        }
     }
 
-    fun checkDailyGoal() {
-        if (dailyGoal.checkDailyGoal()) {
-            loadStatisticsYouToday()
-            showMessageDialog(
-                "",
-                getString(R.string.daily_goal_achieved_message).replace(
-                    "{{*{{n_clips}}*}}",
-                    this.sentencesValidatedYouToday.toString()
-                ).replace("{{*{{n_sentences}}*}}", this.sentencesRecordedYouToday.toString())
+    private fun loadUIStateListened() {
+        buttonNoClip.isVisible = true
+        if (!listenViewModel.listenedOnce) {
+            buttonYesClip.isVisible = true
+            startAnimation(
+                buttonYesClip,
+                R.anim.zoom_in_speak_listen
             )
-            this.isDailyGoalJustAchieved = true
         }
-    }
+        listenViewModel.listenedOnce = true
 
-    fun API_request() {
-        checkConnection()
+        textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        StopListening()
-        this.mediaPlayer?.reset()
-        var sentence: TextView = this.findViewById(R.id.textListenSentence)
-        var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
-        var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
-        var btnListen: Button = this.findViewById(R.id.btn_start_listen)
-        var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        var btnReport: TextView = this.findViewById(R.id.buttonReportListen)
+        buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
 
-        btnSkip.isEnabled = false
-        this.status = 0
-        msg.text = getText(R.string.txt_loading_clip)
-        sentence.text = "..."
-        btnYes.isVisible = false
-        btnNo.isVisible = false
-        btnReport.isGone = true
-
-        if (!this.loading) {
-            this.loading = true
-
-            this.idSentence[0] = this.idSentence[1]
-            this.textSentence[0] = this.textSentence[1]
-            this.globSentence[0] = this.globSentence[1]
-            this.soundSentence[0] = this.soundSentence[1]
-            this.idSentence[1] = 0
-            this.textSentence[1] = ""
-            this.globSentence[1] = ""
-            this.soundSentence[1] = ""
-            btnYes.isVisible = false
-            btnNo.isVisible = false
-            btnListen.isEnabled = false
-            btnSkip.isEnabled = false
-            btnReport.isGone = true
-            this.status = 0
-            msg.text = getText(R.string.txt_loading_clip)
-            sentence.text = "..."
-            btnListen.setBackgroundResource(R.drawable.listen_cv)
-
-            if (this.idSentence[0] != 0 && this.opened) {
-                sentence.text = this.textSentence[0]
-                btnListen.isEnabled = true
-                btnSkip.isEnabled = true
-                msg.text = getString(R.string.txt_press_icon_below_listen_1)
-                btnReport.isGone = false
-
-                this.mediaPlayer = MediaPlayer().apply {
-                    //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
-                    setDataSource(soundSentence[0]) //to set media source and send the object to the initialized state
-                    prepare() //to send the object to the prepared state, this may take time for fetching and decoding
-                }
-                this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
-
-                if (this.autoPlayClips && !this.isFinishing && !this.isDailyGoalJustAchieved) {
-                    StartListening()
-                }
-                this.isDailyGoalJustAchieved = false
-            }
-
-            if (this.idSentence[0] != 0 && this.opened || !this.opened) {
-                try {
-                    var path = "clips" //API to get sentences
-                    if (!this.opened) {
-                        path = path + "?count=2"
-                    }
-                    val params = JSONArray()
-                    //params.put("")
-
-                    val que = Volley.newRequestQueue(this)
-                    val req = object : JsonArrayRequest(Request.Method.GET, url + path, params,
-                        Response.Listener {
-                            try {
-                                val jsonResult = it.toString()
-                                var jsonResultArray = arrayOf(jsonResult, "")
-                                println(jsonResult)
-                                if (!this.opened) {
-                                    //println("substring: "+jsonResult.substring(1,jsonResult.length-1))
-                                    if (jsonResult.substring(
-                                            1,
-                                            jsonResult.length - 1
-                                        ).split("},{").size == 2
-                                    ) {
-                                        jsonResultArray[0] = "[" + jsonResult.substring(
-                                            1,
-                                            jsonResult.length - 1
-                                        ).split("},{")[0] + "}]"
-                                        jsonResultArray[1] =
-                                            "[{" + jsonResult.substring(1, jsonResult.length - 1)
-                                                .split(
-                                                    "},{"
-                                                )[1] + "]"
-                                    }
-                                }
-                                if (jsonResult.length > 2) {
-                                    if (!this.opened) {
-                                        val jsonObj = JSONObject(
-                                            jsonResultArray[0].substring(
-                                                jsonResultArray[0].indexOf("{"),
-                                                jsonResultArray[0].lastIndexOf("}") + 1
-                                            )
-                                        )
-                                        var newApiResponse = false;
-                                        var sentence: JSONObject? = null;
-                                        if (jsonObj.has("sentence")) {
-                                            newApiResponse = true;
-                                            sentence = JSONObject(
-                                                jsonObj.getString("sentence").substring(
-                                                    jsonObj.getString("sentence").indexOf("{"),
-                                                    jsonObj.getString("sentence")
-                                                        .lastIndexOf("}") + 1
-                                                )
-                                            )
-                                            //println(sentence.toString())
-                                        }
-                                        //println(jsonObj.toString())
-                                        this.idSentence[0] = jsonObj.getString("id").toInt()
-                                        if (newApiResponse) {
-                                            this.textSentence[0] =
-                                                sentence?.getString("text").toString()
-                                            this.soundSentence[0] =
-                                                jsonObj.getString("audioSrc").toString()
-                                        } else {
-                                            this.textSentence[0] =
-                                                jsonObj.getString("text").toString()
-                                            this.soundSentence[0] =
-                                                jsonObj.getString("sound").toString()
-                                        }
-                                        this.globSentence[0] = jsonObj.getString("glob").toString()
-
-
-                                        val jsonObj2 = JSONObject(
-                                            jsonResultArray[1].substring(
-                                                jsonResultArray[1].indexOf("{"),
-                                                jsonResultArray[1].lastIndexOf("}") + 1
-                                            )
-                                        )
-                                        var sentence2: JSONObject? = null
-                                        if (newApiResponse) {
-                                            sentence2 = JSONObject(
-                                                jsonObj2.getString("sentence").substring(
-                                                    jsonObj2.getString("sentence").indexOf("{"),
-                                                    jsonObj2.getString("sentence")
-                                                        .lastIndexOf("}") + 1
-                                                )
-                                            )
-                                        }
-                                        //println(jsonObj2.toString())
-                                        this.idSentence[1] = jsonObj2.getString("id").toInt()
-                                        if (newApiResponse) {
-                                            this.textSentence[1] =
-                                                sentence2?.getString("text").toString()
-                                            this.soundSentence[1] =
-                                                jsonObj2.getString("audioSrc").toString()
-                                        } else {
-                                            this.textSentence[1] =
-                                                jsonObj2.getString("text").toString()
-                                            this.soundSentence[1] =
-                                                jsonObj2.getString("sound").toString()
-                                        }
-                                        this.globSentence[1] = jsonObj2.getString("glob").toString()
-                                    } else {
-                                        val jsonObj = JSONObject(
-                                            jsonResultArray[0].substring(
-                                                jsonResultArray[0].indexOf("{"),
-                                                jsonResultArray[0].lastIndexOf("}") + 1
-                                            )
-                                        )
-                                        var newApiResponse = false;
-                                        var sentence: JSONObject? = null;
-                                        if (jsonObj.has("sentence")) {
-                                            newApiResponse = true;
-                                            sentence = JSONObject(
-                                                jsonObj.getString("sentence").substring(
-                                                    jsonObj.getString("sentence").indexOf("{"),
-                                                    jsonObj.getString("sentence")
-                                                        .lastIndexOf("}") + 1
-                                                )
-                                            )
-                                            //println(sentence.toString())
-                                        }
-                                        //println(jsonObj.toString())
-                                        this.idSentence[1] = jsonObj.getString("id").toInt()
-                                        if (newApiResponse) {
-                                            this.textSentence[1] =
-                                                sentence?.getString("text").toString()
-                                            this.soundSentence[1] =
-                                                jsonObj.getString("audioSrc").toString()
-                                        } else {
-                                            this.textSentence[1] =
-                                                jsonObj.getString("text").toString()
-                                            this.soundSentence[1] =
-                                                jsonObj.getString("sound").toString()
-                                        }
-                                        this.globSentence[1] = jsonObj.getString("glob").toString()
-                                    }
-
-                                    if (!this.opened) {
-                                        this.opened = true
-                                        //API_request() //the second request at the first load //it's not necessary anymore, because the app request 2 clips the first-time (?count=2)
-
-                                    }
-
-                                    if (this.idSentence[0] != 0 && sentence.text == "...") {
-                                        sentence.text = this.textSentence[0]
-                                        msg.text = getString(R.string.txt_press_icon_below_listen_1)
-
-                                        this.mediaPlayer = MediaPlayer().apply {
-                                            //setAudioStreamType(AudioManager.STREAM_MUSIC) //to send the object to the initialized state
-                                            setDataSource(soundSentence[0]) //to set media source and send the object to the initialized state
-                                            prepare() //to send the object to the prepared state, this may take time for fetching and decoding
-                                        }
-                                        this.mediaPlayer?.setAuxEffectSendLevel(Float.MAX_VALUE)
-
-                                        btnYes.isVisible = false
-                                        btnNo.isVisible = false
-                                        btnListen.isEnabled = true
-
-                                        if (this.autoPlayClips && !this.isFinishing) {
-                                            StartListening()
-                                        }
-                                    }
-                                    btnSkip.isEnabled = true
-                                    btnReport.isGone = false
-                                } else {
-                                    //println(" -->> Something wrong 1: "+it.toString()+" <<-- ")
-                                    error4()
-                                    btnSkip.isEnabled = true
-
-                                    btnYes.isVisible = false
-                                    btnNo.isVisible = false
-                                    btnReport.isGone = true
-                                }
-
-                                /*
-                            println("------")
-                            println("idSentence: " + this.idSentence[0] + " " + this.idSentence[1])
-                            println("textSentence: '" + this.textSentence[0] + "' '" + this.textSentence[1] + "'")
-                            println("globSentence: '" + this.globSentence[0] + "' '" + this.globSentence[1] + "'")
-                            println("soundSentence: '" + this.soundSentence[0] + "' '" + this.soundSentence[1] + "'")
-                            println("------")
-                             */
-
-                                this.loading = false
-                            } catch (ex: Exception) {
-                                println("Exception: " + ex.printStackTrace())
-                                onBackPressed()
-                            }
-                        }, Response.ErrorListener {
-                            //println(" -->> Something wrong: "+it.toString()+" <<-- ")
-                            error1()
-
-                            this.loading = false
-                            if (!this.opened) {
-                                this.opened = true
-                                API_request() //the second request at the first load
-                            }
-                        }
-                    ) {
-                        @Throws(AuthFailureError::class)
-                        override fun getHeaders(): Map<String, String> {
-                            val headers = HashMap<String, String>()
-                            //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                            var logged = getSharedPreferences(
-                                LOGGED_IN_NAME,
-                                PRIVATE_MODE
-                            ).getBoolean(LOGGED_IN_NAME, false)
-                            if (logged) {
-                                var cookieId =
-                                    getSharedPreferences(
-                                        USER_CONNECT_ID,
-                                        PRIVATE_MODE
-                                    ).getString(
-                                        USER_CONNECT_ID,
-                                        ""
-                                    )
-                                headers.put(
-                                    "Cookie",
-                                    "connect.sid=" + cookieId
-                                )
-                            } else {
-                                headers.put(
-                                    "Authorization",
-                                    "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
-                                )
-                            }
-                            return headers
-                        }
-                    }
-                    que.add(req)
-                } catch (e: Exception) {
-                    error1()
-                    btnSkip.isEnabled = true
-                }
-            } else {
-                error1()
-                btnSkip.isEnabled = true
-            }
-        } else {
-            //println("Wait")
+        buttonYesClip.onClick {
+            hideButtons()
+            listenViewModel.validate(result = true)
+            this.numberSentThisSession++
         }
-    }
-
-    fun error1() {
-        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        var skipText: Button = this.findViewById(R.id.btn_skip_listen)
-        msg.text = getString(R.string.txt_error_1_try_again_tap_skip).replace(
-            "{{*{{skip_button}}*}}",
-            skipText.text.toString()
-        )
-        //EXL04
-        showMessageDialog(
-            getString(R.string.messageDialogErrorTitle),
-            getString(R.string.txt_error_1_try_again_tap_skip).replace(
-                "{{*{{skip_button}}*}}",
-                skipText.text.toString()
-            ),
-            errorCode = "L04"
-        )
-        skipText.isEnabled = true
-        this.loading = false
-    }
-
-    fun error4() {
-        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        var skipText: Button = this.findViewById(R.id.btn_skip_listen)
-        msg.text = getString(R.string.txt_error_4_clips_no_available)
-        //EXL05
-        showMessageDialog(
-            getString(R.string.messageDialogErrorTitle),
-            getString(R.string.txt_error_4_clips_no_available)
-        )
-        skipText.isEnabled = true
+        buttonStartStopListen.onClick {
+            listenViewModel.startListening()
+        }
     }
 
     override fun onBackPressed() {
-        var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
-        var txtSentence: TextView = this.findViewById(R.id.textListenSentence)
-        if (btnSkip.isEnabled || txtSentence.text == "...") {
-            StopListening()
-            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-            btnSkip.isEnabled = false
-            msg.text = getString(R.string.txt_closing)
-            finish()
-        }
-    }
-
-    fun StartListening() {
-        var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
-        var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
-        var btnListen: Button = this.findViewById(R.id.btn_start_listen)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        btnNo.isVisible = true
-        this.status = 1
-        msg.text = getString(R.string.txt_press_icon_below_listen_2)
-        btnListen.setBackgroundResource(R.drawable.stop_cv)
-
-        this.mediaPlayer?.seekTo(0)
-        this.mediaPlayer?.start()
-
-        this.mediaPlayer!!.setOnCompletionListener {
-            FinishListening()
-        }
-    }
-
-    fun FinishListening() {
-        if (this.mediaPlayer?.isPlaying == false) {
-            //when clip is finished
-            var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
-            var btnListen: Button = this.findViewById(R.id.btn_start_listen)
-            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-            btnYes.isVisible = true
-            msg.text = getString(R.string.txt_clip_correct_or_wrong)
-            btnListen.setBackgroundResource(R.drawable.listen2_cv)
-            this.status = 2
-        }
-    }
-
-    fun StopListening() {
-        if (this.mediaPlayer?.isPlaying == true) {
-            var btnListen: Button = this.findViewById(R.id.btn_start_listen)
-            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-            this.status = 2
-            msg.text = getString(R.string.txt_clip_again)
-            btnListen.setBackgroundResource(R.drawable.listen2_cv)
-            this.mediaPlayer?.pause()
-        }
-    }
-
-    fun YesClip() {
-        validateClip(true)
-    }
-
-    fun NoClip() {
-        validateClip(false)
-    }
-
-    fun validateClip(value: Boolean) {
-        try {
-            StopListening()
-            var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
-            var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
-            var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-            var btnListen: Button = this.findViewById(R.id.btn_start_listen)
-            var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
-            var btnReport: TextView = this.findViewById(R.id.buttonReportListen)
-            btnNo.isVisible = false
-            btnYes.isVisible = false
-            btnListen.isEnabled = false
-            btnSkip.isEnabled = false
-            msg.text = getString(R.string.txt_sending_validation)
-            btnReport.isGone = false
-
-            var path = "clips/{{*{{sentence_id}}*}}/votes" //API to get sentences
-            path = path.replace("{{*{{sentence_id}}*}}", this.idSentence[0].toString())
-            //println(" -->> "+path.toString())
-            var params = JSONObject()
-            params.put("isValid", value)
-            params.put("challenge", null)
-            //println(" -->> "+params.toString())
-
-            val que = Volley.newRequestQueue(this)
-            val req = object : JsonObjectRequest(Request.Method.POST, url + path, params,
-                Response.Listener {
-                    //val json_result = it.toString()
-                    //println(" -->> Votes -->> "+json_result)
-                    /*if (json_result.length > 2) {
-                        val jsonObj = JSONObject(
-                            json_result.substring(
-                                json_result.indexOf("{"),
-                                json_result.lastIndexOf("}") + 1
-                            )
-                        )
-                    }*/
-                    ValidationSuccessful(value)
-                }, Response.ErrorListener {
-                    //println(" -->> Something wrong: "+it.toString()+" <<-- ")
-                    //error1()
-                    ValidationError(value)
-                }
-            ) {
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                    var logged = getSharedPreferences(
-                        LOGGED_IN_NAME,
-                        PRIVATE_MODE
-                    ).getBoolean(LOGGED_IN_NAME, false)
-                    if (logged) {
-                        var cookieId =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
-                        headers.put(
-                            "Cookie",
-                            "connect.sid=" + cookieId
-                        )
-                    } else {
-                        headers.put(
-                            "Authorization",
-                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
-                        )
-                    }
-                    return headers
-                }
-            }
-            que.add(req)
-        } catch (e: Exception) {
-            error1()
-        }
-    }
-
-    fun openReportDialog() {
-        if (this.idSentence[0] != 0) {
-            try {
-                val metrics = DisplayMetrics()
-                windowManager.defaultDisplay.getMetrics(metrics)
-                val message: MessageDialog =
-                    MessageDialog(this, "clip", this as ListenActivity)
-                message.show()
-            } catch (exception: Exception) {
-                println("!!-- Exception: ListenActivity - OPEN REPORT DIALOG: " + exception.toString() + " --!!")
-            }
-        }
-    }
-
-    fun reportClip(reasons: JSONArray) {
-        try {
-            StopListening()
-
-            var path = "reports"
-
-            //println(" -->> "+path.toString())
-            val params = JSONObject()
-            params.put("kind", "clip")
-            params.put("id", this.idSentence[0])
-            params.put("reasons", reasons)
-            //println(" -->> " + params.toString())
-
-            skipClip()
-
-            val que = Volley.newRequestQueue(this)
-            val req = object : JsonObjectRequest(Request.Method.POST, urlWithoutLang + path, params,
-                Response.Listener {
-                    //val json_result = it.toString()
-                    //println(" -->> Reporting sent! -> " + it.toString() + " <<-- ")
-                }, Response.ErrorListener {
-                    //println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                    //error1()
-                    //println("!! Error: Report not sent !!")
-                }
-            ) {
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    //it permits to get the audio to validate (just if user doesn't do the log-in/sign-up)
-                    var logged = getSharedPreferences(
-                        LOGGED_IN_NAME,
-                        PRIVATE_MODE
-                    ).getBoolean(LOGGED_IN_NAME, false)
-                    if (logged) {
-                        var cookieId =
-                            getSharedPreferences(USER_CONNECT_ID, PRIVATE_MODE).getString(
-                                USER_CONNECT_ID,
-                                ""
-                            )
-                        headers.put(
-                            "Cookie",
-                            "connect.sid=" + cookieId
-                        )
-                    } else {
-                        headers.put(
-                            "Authorization",
-                            "Basic MzVmNmFmZTItZjY1OC00YTNhLThhZGMtNzQ0OGM2YTM0MjM3OjNhYzAwMWEyOTQyZTM4YzBiNmQwMWU0M2RjOTk0YjY3NjA0YWRmY2Q="
-                        )
-                    }
-                    return headers
-                }
-            }
-            que.add(req)
-        } catch (e: Exception) {
-            error1()
-        }
-    }
-
-    fun checkPermissions() {
-        try {
-            val PERMISSIONS = arrayOf(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.RECORD_AUDIO
-            )
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-                != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    PERMISSIONS,
-                    RECORD_REQUEST_CODE
-                )
-            }
-        } catch (e: Exception) {
-            //
-        }
-    }
-
-    fun ValidationSuccessful(value: Boolean) {
-        //Validation sent
-        incrementContributing()
-        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        if (value) {
-            Toast.makeText(this, getString(R.string.txt_clip_validated_yes), Toast.LENGTH_LONG)
-                .show()
-            msg.text = getString(R.string.txt_clip_validated_yes)
-        } else {
-            Toast.makeText(this, getString(R.string.txt_clip_validated_no), Toast.LENGTH_LONG)
-                .show()
-            msg.text = getString(R.string.txt_clip_validated_no)
-        }
-        StopListening()
-        API_request()
-    }
-
-    fun ValidationError(value: Boolean) {
-        //Sending validation error
-        error1()
-        StopListening()
-        var btnYes: Button = this.findViewById(R.id.btn_yes_thumb)
-        var btnNo: Button = this.findViewById(R.id.btn_no_thumb)
-        var btnListen: Button = this.findViewById(R.id.btn_start_listen)
-        var msg: TextView = this.findViewById(R.id.textMessageAlertListen)
-        var btnSkip: Button = this.findViewById(R.id.btn_skip_listen)
-        btnNo.isVisible = true
-        btnYes.isVisible = value
-        btnListen.isEnabled = true
-        btnSkip.isEnabled = true
-        msg.text = getString(R.string.txt_error_3_sending_validation_failed).replace(
-            "{{*{{skip_button}}*}}",
-            getString(R.string.btn_skip_sentence)
+        textMessageAlertListen.setText(R.string.txt_closing)
+        buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+        textSentenceListen.text = "···"
+        textSentenceListen.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(R.dimen.title_very_big)
         )
-        //EXL03
-        showMessageDialog(
-            getString(R.string.messageDialogErrorTitle),
-            getString(R.string.txt_error_3_sending_validation_failed).replace(
-                "{{*{{skip_button}}*}}",
-                getString(R.string.btn_skip_sentence)
-            ),
-            errorCode = "L03"
+        buttonReportListen.isGone = true
+        buttonStartStopListen.isEnabled = false
+        buttonSkipListen.isEnabled = false
+        buttonYesClip.isGone = true
+        buttonNoClip.isGone = true
+
+        listenViewModel.stop()
+
+        super.onBackPressed()
+    }
+
+    private fun hideButtons() {
+        stopButtons()
+        buttonYesClip.isEnabled = false
+        buttonNoClip.isEnabled = false
+        if (listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_out_speak_listen)
+        if (listenViewModel.listenedOnce) startAnimation(
+            buttonYesClip,
+            R.anim.zoom_out_speak_listen
         )
+        buttonYesClip.isVisible = false
+        buttonNoClip.isVisible = false
+        buttonYesClip.isEnabled = true
+        buttonNoClip.isEnabled = true
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
-                    checkPermissions()
-                }
-            }
-        }
-    }
-
-    fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = ""
-    ) {
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            val message: MessageDialog =
-                MessageDialog(this, 0, title, messageText, details = details)
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: ListenActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
-        }
-    }
-
-    fun checkConnection(): Boolean {
-        if (ListenActivity.checkInternet(this)) {
-            return true
-        } else {
-            openNoConnection()
-            return false
-        }
-    }
-
-    companion object {
-        fun checkInternet(context: Context): Boolean {
-            val cm =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = cm.activeNetworkInfo
-            if (networkInfo != null && networkInfo.isConnected) {
-                //Connection OK
-                return true
-            } else {
-                //No connection
-                return false
-            }
-
-        }
-    }
-
-    fun openNoConnection() {
-        val intent = Intent(this, NoConnectionActivity::class.java).also {
-            startActivity(it)
-            finish()
-        }
+    private fun stopButtons() {
+        stopAnimation(buttonNoClip)
+        stopAnimation(buttonYesClip)
     }
 
 }

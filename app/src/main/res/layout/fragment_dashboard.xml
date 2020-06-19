@@ -4,428 +4,1215 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:viewBindingIgnore="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutDashboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="10dp">
+        android:paddingBottom="0dp">
 
-        <Button
-            android:id="@+id/buttonDashboardSetDailyGoal"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/btn_rounded"
-            android:enabled="true"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
-            android:text="@string/set_daily_goal"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelDashboardDailyGoalValue" />
-
-        <TextView
-            android:id="@+id/labelDashboardDailyGoalValue"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboardSectionStatistics"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/sourcecodepro"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/daily_goal_is_not_set"
-            android:textAlignment="gravity"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="22sp"
-            android:textStyle="normal"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardDailyGoal" />
-
-        <TextView
-            android:id="@+id/textDashboardDailyGoal"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/daily_goal_title"
-            android:textAlignment="textStart"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="normal|bold"
-            android:visibility="visible"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:paddingStart="0dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textDashboardStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/dashboardStatistics"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardSectionTabs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/colorTransparent"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDashboardStatistics">
+
+                <Button
+                    android:id="@+id/buttonEveryoneStatisticsDashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_rounded"
+                    android:backgroundTint="@color/colorTabBackgroundInactive"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    android:text="@string/dashboardTabEveryone"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonYouStatisticsDashboard"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonYouStatisticsDashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_rounded"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    android:text="@string/dashboardTabYou"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardSectionToday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardSectionTabs">
+
+                <TextView
+                    android:id="@+id/textDashboardToday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/dashboardToday"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textTodayListen"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
+                    tools:text="0" />
+
+                <View
+                    android:id="@+id/separatorTodaySpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FF505F"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTodaySpeak" />
+
+                <ImageView
+                    android:id="@+id/imageSpeakToday"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorTodaySpeak"
+                    app:srcCompat="@drawable/speak_cv" />
+
+                <View
+                    android:id="@+id/separatorTodayListen"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#5ACCB8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTodayListen" />
+
+                <TextView
+                    android:id="@+id/textTodaySpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
+                    tools:text="0" />
+
+                <ImageView
+                    android:id="@+id/imageTodayListen"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorTodayListen"
+                    app:srcCompat="@drawable/listen_cv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardSectionEver"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardSectionToday">
+
+                <TextView
+                    android:id="@+id/textDashboardEver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/dashboardEver"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textEverListen"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
+                    tools:text="0" />
+
+                <View
+                    android:id="@+id/separatorEverSpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FF505F"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textEverSpeak" />
+
+                <ImageView
+                    android:id="@+id/imageEverListen"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorEverListen"
+                    app:srcCompat="@drawable/listen_cv" />
+
+                <View
+                    android:id="@+id/separatorEverListen"
+                    android:layout_width="150dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#5ACCB8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textEverListen" />
+
+                <TextView
+                    android:id="@+id/textEverSpeak"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
+                    tools:text="0" />
+
+                <ImageView
+                    android:id="@+id/imageEverSpeak"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/separatorEverSpeak"
+                    app:srcCompat="@drawable/speak_cv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardSectionEver" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboardSectionVoicesOnline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separatorDashboard2" />
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionStatistics">
 
-        <View
-            android:id="@+id/separatorDashboard2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/colorSeparator"
+            <TextView
+                android:id="@+id/textDashboardVoicesOnline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dashboardVoicesOnline"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardVoicesOnlineNow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDashboardVoicesOnline">
+
+                <TextView
+                    android:id="@+id/labelDashboardVoicesNow"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="Now"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="italic"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardVoicesNow"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardVoicesNow"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardVoicesOnlineBefore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardVoicesOnlineNow">
+
+                <TextView
+                    android:id="@+id/labelDashboardVoicesBefore"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="Hour before"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="italic"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardVoicesBefore"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardVoicesBefore"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineVoicesOnline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardVoicesOnlineBefore" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboardSectionDailyGoal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardVoicesBefore" />
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionVoicesOnline">
 
-        <View
-            android:id="@+id/separatorDashboard"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/colorSeparator"
+            <TextView
+                android:id="@+id/textDashboardDailyGoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_goal_title"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelDashboardDailyGoalValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sourcecodepro"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:padding="10dp"
+                android:text="@string/daily_goal_is_not_set"
+                android:textAlignment="gravity"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:textStyle="normal"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDashboardDailyGoal" />
+
+            <Button
+                android:id="@+id/buttonDashboardSetDailyGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_rounded"
+                android:enabled="true"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="@string/set_daily_goal"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelDashboardDailyGoalValue" />
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineDailyGoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonDashboardSetDailyGoal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboardSectionAppStatistics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionDailyGoal">
+
+            <TextView
+                android:id="@+id/textDashboardAppStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_app_statistics"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardAppStatisticsCurrentLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDashboardAppStatistics">
+
+                <EditText
+                    android:id="@+id/textDashboardAppStatisticsCurrentLanguage"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardAppStatisticsCurrentLanguage"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/labelDashboardAppStatisticsCurrentLanguage"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="@string/txt_current_language"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="italic"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardAppStatisticsAllLanguages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardAppStatisticsCurrentLanguage">
+
+                <TextView
+                    android:id="@+id/labelDashboardAppStatisticsAllLanguages"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="@string/txt_all_languages"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="italic"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardAppStatisticsAllLanguages"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardAppStatisticsAllLanguages"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineAppStatistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardAppStatisticsAllLanguages" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboardSectionTopContributors"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:paddingStart="0dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageEverSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionAppStatistics">
 
-        <ImageView
-            android:id="@+id/imageBackgroundTab"
+            <TextView
+                android:id="@+id/textDashboardTopContributors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/txt_top_contributors"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardSectionTabsTopContributors"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/colorTransparent"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDashboardTopContributors">
+
+                <Button
+                    android:id="@+id/buttonRecordingsTopContributorsDashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_rounded"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/txt_top_contributors_recorded"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonValidationsTopContributorsDashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/btn_rounded"
+                    android:backgroundTint="@color/colorTabBackgroundInactive"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/txt_top_contributors_validated"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/buttonRecordingsTopContributorsDashboard"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardTopContributorsFirst"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardSectionTabsTopContributors">
+
+                <TextView
+                    android:id="@+id/labelDashboardTopContributorsPositionFirst"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_bottom_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="1"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textDashboardTopContributorsUsernameFirst"
+                    android:layout_width="170dp"
+                    android:layout_height="50dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="···"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardTopContributorsPositionFirst"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardTopContributorsNumberFirst"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textDashboardTopContributorsUsernameFirst"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardTopContributorsSecond"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsFirst">
+
+                <TextView
+                    android:id="@+id/labelDashboardTopContributorsPositionSecond"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="2"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textDashboardTopContributorsUsernameSecond"
+                    android:layout_width="170dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="···"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardTopContributorsPositionSecond"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardTopContributorsNumberSecond"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textDashboardTopContributorsUsernameSecond"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardTopContributorsThird"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsSecond">
+
+                <TextView
+                    android:id="@+id/labelDashboardTopContributorsPositionThird"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="3"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textDashboardTopContributorsUsernameThird"
+                    android:layout_width="170dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="···"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardTopContributorsPositionThird"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardTopContributorsNumberThird"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textDashboardTopContributorsUsernameThird"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardTopContributorsPoints"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorTransparent"
+                android:padding="0dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsThird"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/labelTopContributorsPoints"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="···"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardTopContributorsNTh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsPoints"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/labelDashboardTopContributorsPositionNth"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="@string/txt_top_contributors_n_position"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textDashboardTopContributorsUsernameNth"
+                    android:layout_width="170dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardTopContributorsPositionNth"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardTopContributorsNumberNth"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="..."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textDashboardTopContributorsUsernameNth"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textDashboardNotAvailableOfflineTopContributors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:drawableTop="@drawable/ic_no_wifi"
+                android:drawableTint="@color/colorGray"
+                android:padding="20dp"
+                android:text="@string/txt_not_available_offline"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_big"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsNTh" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewSeparatorDashboard"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/separatorDashboard"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabDashboard"
-            app:srcCompat="@color/colorSelectedBackground" />
-
-        <TextView
-            android:id="@+id/labelDashboardVoicesBefore"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="Hour before"
-            android:textAlignment="gravity"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelDashboardVoicesNow" />
-
-        <EditText
-            android:id="@+id/textDashboardVoicesBefore"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/txt_rounded"
-            android:clickable="false"
-            android:editable="false"
-            android:ems="10"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:fontFamily="@font/sourcecodepro"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:inputType="textEmailAddress"
-            android:text="..."
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/labelDashboardVoicesBefore"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardVoicesNow"
-            tools:text="0" />
-
-        <EditText
-            android:id="@+id/textDashboardVoicesNow"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/txt_rounded"
-            android:clickable="false"
-            android:editable="false"
-            android:ems="10"
-            android:enabled="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:fontFamily="@font/sourcecodepro"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:inputType="textEmailAddress"
-            android:text="..."
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/labelDashboardVoicesNow"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardVoicesOnline"
-            tools:text="0" />
-
-        <TextView
-            android:id="@+id/labelDashboardVoicesNow"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="Now"
-            android:textAlignment="gravity"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardVoicesOnline" />
-
-        <TextView
-            android:id="@+id/textDashboardVoicesOnline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/dashboardVoicesOnline"
-            android:textAlignment="textStart"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="normal|bold"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separatorDashboard" />
-
-        <TextView
-            android:id="@+id/textDashboardEver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/dashboardEver"
-            android:textAlignment="textStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageSpeakToday" />
-
-        <View
-            android:id="@+id/separatorEverSpeak"
-            android:layout_width="150dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="20dp"
-            android:background="#FF505F"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textEverSpeak" />
-
-        <TextView
-            android:id="@+id/textEverListen"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/sourcecodepro"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="..."
-            android:textColor="@color/colorBlack"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
-            tools:text="0" />
-
-        <View
-            android:id="@+id/separatorEverListen"
-            android:layout_width="150dp"
-            android:layout_height="2dp"
-            android:layout_marginEnd="8dp"
-            android:background="#5ACCB8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textEverListen" />
-
-        <ImageView
-            android:id="@+id/imageEverSpeak"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="72dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separatorEverSpeak"
-            app:srcCompat="@drawable/speak_cv" />
-
-        <ImageView
-            android:id="@+id/imageEverListen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="56dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separatorEverListen"
-            app:srcCompat="@drawable/listen_cv" />
-
-        <TextView
-            android:id="@+id/textEverSpeak"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/sourcecodepro"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="..."
-            android:textColor="@color/colorBlack"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardEver"
-            tools:text="0" />
-
-        <TextView
-            android:id="@+id/textDashboardToday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/dashboardToday"
-            android:textAlignment="textStart"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabDashboard" />
-
-        <TextView
-            android:id="@+id/textTodayListen"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/sourcecodepro"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="..."
-            android:textColor="@color/colorBlack"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
-            tools:text="0" />
-
-        <View
-            android:id="@+id/separatorTodaySpeak"
-            android:layout_width="150dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="16dp"
-            android:background="#FF505F"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTodaySpeak" />
-
-        <View
-            android:id="@+id/separatorTodayListen"
-            android:layout_width="150dp"
-            android:layout_height="2dp"
-            android:layout_marginEnd="16dp"
-            android:background="#5ACCB8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTodayListen" />
-
-        <TextView
-            android:id="@+id/textDashboardStatistics"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/dashboardStatistics"
-            android:textAlignment="textStart"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="normal|bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageSpeakToday"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="66dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separatorTodaySpeak"
-            app:srcCompat="@drawable/speak_cv" />
-
-        <ImageView
-            android:id="@+id/imageTodayListen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="66dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separatorTodayListen"
-            app:srcCompat="@drawable/listen_cv" />
-
-        <TextView
-            android:id="@+id/textTodaySpeak"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/sourcecodepro"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="..."
-            android:textColor="@color/colorBlack"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardToday"
-            tools:text="0" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabDashboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDashboardStatistics"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/colorSelected"
-            app:tabIndicatorGravity="bottom"
-            app:tabIndicatorHeight="3dp"
-            app:tabMaxWidth="0dp"
-            app:tabRippleColor="#FFAAAA"
-            app:tabSelectedTextColor="@color/colorSelected"
-            app:tabTextColor="@color/colorPrimaryDark">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabDashboardYou"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dashboardTabYou" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabDashboardEveryone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dashboardTabEveryone" />
-        </com.google.android.material.tabs.TabLayout>
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionTopContributors" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

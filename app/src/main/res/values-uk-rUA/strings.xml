@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language">uk</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Домашній екран</string>
+    <string name="title_dashboard">Приладна дошка</string>
+    <string name="title_settings">Налаштування</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">Увійти / Зареєструватися</string>
+    <string name="button_home_logout">Вийти з системи</string>
+    <string name="button_home_profile">Анкета</string>
+    <string name="text_hi_username">Hi</string>
+    <string name="message_log_in_again">Сессіон-номер закінчився, Ви повинні увійти знову</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Статистика</string>
+    <string name="dashboardVoicesOnline">Голоси онлайн</string>
+    <string name="dashboardTabYou">Ви</string>
+    <string name="dashboardTabEveryone">Кожний</string>
+    <string name="dashboardToday">Сьогодні</string>
+    <string name="dashboardEver">Евер</string>
+    <string name="toastNoLoginNoStatistics">Ви повинні увійти, щоб побачити вашу статистику</string>
+    <string name="toastNoLoginNoDailyGoal">Ви повинні увійти, щоб встановити щоденну мету</string>
+    <string name="textHoursAbbreviation">г</string>
+    <string name="textHour">Година</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1">Старт</string>
+    <string name="btn_tutorial2">Permit</string>
+    <string name="btn_tutorial3">Уперед</string>
+    <string name="btn_tutorial4">Спробуйте ще раз</string>
+    <string name="btn_tutorial5">Закінчити</string>
+    <string name="btn_skip">Пропустити</string>
+    <string name="txt_permission_obtained_first_launch">Дозвіл отримано</string>
+    <string name="txt_permission_denied_first_launch">Помилка: немає дозволу</string>
+    <string name="linkTermsCommonVoice">https://voice.mozilla.org/uk/terms</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android - це неофіційний додаток для Mozilla Common Voice. Він розроблений Saverio Morelli без будь-якої підтримки або партнерства з Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">Програмі необхідний дозвіл \"Мікрофон\" для запису вашого голосу.</string>
+    <string name="txt_storage_permission_first_launch">Ви можете повідомити про помилки на GitHub або Telegram. Щоб допомогти розробнику швидко зрозуміти проблему, ви повинні додати лог-файл програми до вашого звіту. Додатку потрібен дозвіл \"Сховище\" для збереження файлу журналу.</string>
+    <string name="txt_offline_mode_first_launch">Навіть ви можете внести свій внесок, поки ви не в мережі. Додаток \"Автономний режим\" буде увімкнено автоматично, тож ви можете продовжити запис і слухати без підключення до Інтернету.</string>
+    <string name="txt_themes_first_launch">Ви можете вибрати світлу тему або темну тему. пізніше ви можете змінити це в налаштуваннях.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Темна тема</string>
+    <string name="txt_gestures_first_launch">Деякі дії мають відповідні жести. Наприклад, ви можете пропустити речення з опису проводячи пальцем ліворуч.</string>
+    <string name="txt_customise_gestures_first_launch">Ви можете налаштувати ці жести в Налаштуваннях.</string>
+    <string name="txt_telegram_group_first_launch">Ви можете приєднатися до групи Telegram, щоб отримати новини та підтримку.</string>
+    <string name="btn_join_telegram_first_launch">Долучитись до групи</string>
+    <string name="txt_choose_language_first_launch">Почнемо! Виберіть, яку мову ви хотіли б розмовляти, або слухати. Додаток також буде відображатися на цій мові, якщо такий переклад доступний.</string>
+    <!-- Login -->
+    <string name="txt_loading_page">Завантаження ...</string>
+    <string name="txt_profile_username">Ім\'я користувача</string>
+    <string name="txt_profile_email">Ел. пошта</string>
+    <string name="txt_profile_age">Вік</string>
+    <string name="txt_profile_gender">Стать</string>
+    <string name="txt_profile_edit_data_alert">To modify your profile information, go to the Common Voice website.</string>
+    <string name="txt_login_successful_alert">Ви успішно зайшли!</string>
+    <string name="txt_gender_male">Чоловік</string>
+    <string name="txt_gender_female">Жінка</string>
+    <string name="txt_gender_other">Інше</string>
+    <string name="btn_badges_loggedin">Всі значки</string>
+    <string name="txt_your_level">Рівень {{*{{level}}*}}</string>
+    <string name="level_up_message">Вітання! Ви щойно досягли рівня {{*{{n_level}}*}}.</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings">Відкрити онлайн-помічник знову</string>
+    <string name="txt_project_github_settings">Проект з відкритим вихідним кодом на GitHub</string>
+    <string name="txt_contributors">основні учасники</string>
+    <string name="txt_developed_by">розроблено</string>
+    <string name="toast_language_changed">Мова змінена правильно на {{*{{lang}}*}}</string>
+    <string name="settingsLanguage">Мова</string>
+    <string name="settingsListen">Слухати</string>
+    <string name="settingsSpeak">Вимовити</string>
+    <string name="settingsOther">Інше</string>
+    <string name="txt_donate_paypal_settings">Підтримайте свою роботу. Купи мені каву 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings">Автоматичне відтворення кліпу при завантаженні</string>
+    <string name="toast_autoplay_clip_on">Автопрогравання кліпу ввімкнено.</string>
+    <string name="toast_autoplay_clip_off">Автопрогравання кліпу вимкнено.</string>
+    <string name="txt_dark_theme_settings">Темна тема</string>
+    <string name="toast_dark_theme_on">Темну тему увімкнено.</string>
+    <string name="toast_dark_theme_off">Темна тема була вимкнена.</string>
+    <string name="contact_developer_on_telegram">Зверніться до розробника по Telegram</string>
+    <string name="txt_experimental_features">Експериментальні можливості</string>
+    <string name="toast_experimental_features_on">Експериментальні функції увімкнено.\nНові функції можуть бути нестабільними та небезпечними.</string>
+    <string name="toast_experimental_featured_off">Експериментальні функції вимкнено.</string>
+    <string name="txt_log_on_file">Зберегти журнали у файл</string>
+    <string name="toast_log_on_file_on">Збереження журналів у файл ввімкнено.\nВи можете прикріпити файл log.txt до звіту про проблему.\nЧитайте більше на GitHub.</string>
+    <string name="toast_log_on_file_off">Збереження журналів в файл вимкнено.</string>
+    <string name="txt_anonymous_statistics">Анонімна статистика</string>
+    <string name="toast_anonymous_statistics_on">Анонімна статистика ввімкнена.\nМи не збираємо ваші особисті дані. Ми використовуємо лише статистику, щоб побачити, скільки людей використовують додаток щодня.</string>
+    <string name="toast_anonymous_statistics_off">Анонімна статистика вимкнена. Будь ласка, зверніть увагу, що ми використовуємо лише статистику, щоб побачити, скільки людей використовують додаток щодня. Ми не збираємо персональних даних. Будь ласка, поверніть статистику.</string>
+    <string name="txt_skip_recording_confirmation">Підтвердження пропуску запису</string>
+    <string name="toast_skip_recording_confirmation_on">Пропустити підтвердження запису увімкнено.\nТепер ви зможете відправляти записи без необхідності їх відслуховувати.</string>
+    <string name="toast_skip_recording_confirmation_off">Підтвердження запису вимкнено.</string>
+    <string name="txt_translate_the_app_on_crowdin">Перекладіть додаток на Crowdin</string>
+    <string name="txt_see_statistics_of_the_app">Переглянути статистику додатку</string>
+    <string name="txt_recording_indicator_sound">Звук запису</string>
+    <string name="toast_recording_indicator_sound_on">Індикатор запису тепер увімкнено.\nЗвук буде відтворюватися, коли ви почнете і зупините запис.</string>
+    <string name="toast_recording_indicator_sound_off">Звук індикатора запису був вимкнений.</string>
+    <string name="txt_check_for_updates">Перевірити наявність оновлень</string>
+    <string name="toast_check_for_updated_on">Перевірка наявності оновлень ввімкнена.</string>
+    <string name="toast_check_for_updated_off">Перевірка наявності оновлень відключена.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings">Перервати діалогові вікна підтвердження в налаштуваннях</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on">Перервати діалогові вікна підтвердження.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off">Перервати діалогові вікна підтвердження поки що вимкнено.</string>
+    <string name="txt_gestures">Жести</string>
+    <string name="toast_gestures_on">Зараз увімкнені жести.</string>
+    <string name="toast_gestures_off">Жести поки що вимкнено.</string>
+    <string name="message_review_app_on_play_store">Будь ласка, якщо вам подобається ця програма, не забудьте переглянути її в Google Play Store.</string>
+    <string name="message_app_not_completely_translated">Додаток не є (повністю) перекладеною цією мовою.\nВи можете зробити внесок в переклад додатку на Crowdin.</string>
+    <string name="txt_animations">Анімація</string>
+    <string name="txt_customise_the_font_size">Налаштувати розмір шрифту</string>
+    <string name="txt_customise_gestures">Налаштувати жести</string>
+    <string name="txt_themes_settings">Теми оформлення</string>
+    <string name="txt_telegram_group_settings">Група додатку Telegram</string>
+    <string name="txt_show_labels_below_menu_icons">Відображати ярлики під піктограмами меню</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence">Завантаження речення...</string>
+    <string name="btn_skip_sentence">Пропустити</string>
+    <string name="btn_send_sentence">Надіслати запис</string>
+    <string name="txt_loading_clip">Завантаження буфера обміну...</string>
+    <string name="txt_press_icon_below_speak_1">Натисніть на іконку нижче, щоб почати запис.</string>
+    <string name="txt_press_icon_below_speak_2">Натисніть на іконку нижче, щоб зупинити запис.</string>
+    <string name="txt_sentence_recorded">Речення записане. Прослухайте запис.</string>
+    <string name="txt_sentence_record_failed">Помилка запису. Будь ласка, спробуйте ще раз.</string>
+    <string name="txt_recorded_correct_or_wrong">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
+    <string name="txt_listening_stopped">Прослухайте весь запис, щоб переконатися, що він вірний.</string>
+    <string name="txt_listening_again_recording">Натисніть на іконку нижче, щоб перестати слухати.</string>
+    <string name="txt_recording_too_long">Запис занадто довгий. Максимальна тривалість становить 10 секунд.</string>
+    <string name="txt_recording_too_short">Запис занадто короткий. Будь ласка, спробуйте ще раз.</string>
+    <string name="txt_sending_recording">Надсилання запису...</string>
+    <string name="txt_recording_sent">Запис надіслано!</string>
+    <string name="txt_sending_recording_failed">Не вдалося надіслати запис!</string>
+    <string name="txt_sending_recording_failed_and_skip">Не вдалося надіслати запис! Спробуйте ще раз, або натисніть кнопку {{*{{skip_button}}*}.</string>
+    <string name="txt_press_icon_below_listen_1">Натисніть на значок знизу для запуску кліпу.</string>
+    <string name="txt_press_icon_below_listen_2">Натисніть на іконку нижче, щоб зупинити кліп.</string>
+    <string name="txt_clip_correct_or_wrong">Якщо кліп є правильним, натисни палець вгору.\nЯкщо кліп неправильний, натисніть палець вниз.</string>
+    <string name="txt_clip_again">Натисніть на значок нижче, щоб відтворити заново.</string>
+    <string name="txt_clip_validated_yes">Відмінність відмічена як правильна!</string>
+    <string name="txt_clip_validated_no">Кліп позначено як невірний!</string>
+    <string name="txt_error_1_try_again_tap_skip">Помилка. Натисніть на кнопку {{*{{skip_button}}*}, щоб продовжити.</string>
+    <string name="txt_error_2_sending_failed">Не вдалося надіслати запис.</string>
+    <string name="txt_sending_validation">Надсилається...</string>
+    <string name="txt_error_3_sending_validation_failed">Не вдалося надіслати результат. Спробуйте ще раз, або натисніть кнопку {{*{{skip_button}}*}.</string>
+    <string name="txt_closing">Закриття...</string>
+    <string name="txt_error_4_clips_no_available">Помилка. Більше немає доступних кліпів для цієї мови.</string>
+    <string name="button_report">Доповісти</string>
+    <string name="title_report_clip">Звіт про кліп:</string>
+    <string name="title_report_sentence">Повідомлення про скаргу:</string>
+    <string name="button_send_report">Надіслати звіт</string>
+    <string name="checkbox_reason1_report_sentence">Образи</string>
+    <string name="checkbox_reason1_report_clip">Образлива мова</string>
+    <string name="checkbox_reason2_report">Grammatical / spelling error</string>
+    <string name="checkbox_reason3_report">Інша мова</string>
+    <string name="checkbox_reason4_report">Важко вимовити</string>
+    <string name="checkbox_reason5_report">Інше</string>
+    <string name="checkbox_reason5_comment_report">Коментар</string>
+    <string name="txt_sentences_finished_offline_mode">Вам не вистачає речень в автономному режимі. Підключіться до Інтернету, щоб завантажити більше речень для запису.</string>
+    <string name="txt_clips_finished_offline_mode">У вас закінчилися офлайн кліпи. Підключіться до Інтернету, щоб завантажити більше кліпів для перевірки.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Ви можете записати {{*{{n_sentences}}*}} більше речень перед тим, як вам доведеться підключитись до Інтернету.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Ви можете перевірити ще {{*{{n_clips}}*}} кліпи, перш ніж вам потрібно підключитися до Інтернету.</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection">Перевірити знову</string>
+    <string name="txt_noconnection">Ви не підключені до інтернету. Підключіться до Wi-Fi або передачу даних, потім натисніть кнопку нижче.</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak">Це речення, яке ви повинні записати.</string>
+    <string name="txt2_tutorial_speak_and_listen">Тут буде відображене повідомлення для керівництва.</string>
+    <string name="txt3_tutorial_speak">Якщо вам не подобається це речення, натисніть тут, щоб пропустити і отримати ще один.</string>
+    <string name="txt4_tutorial_speak">Натисніть на цей значок, щоб почати запис.</string>
+    <string name="txt5_tutorial_speak">Натисніть на цей значок, щоб зупинити запис.</string>
+    <string name="txt6_tutorial_speak">Натисніть на цей значок, щоб відтворювати запис.</string>
+    <string name="txt7_tutorial_speak">Натисніть на цей значок, щоб повторно записати запис, якщо ви зробили помилку.</string>
+    <string name="txt8_tutorial_speak">Натисніть на цю піктограму, аби знову відтворити запис вашого запису.</string>
+    <string name="txt9_tutorial_speak">Натисніть на цю кнопку, щоб надіслати запис.</string>
+    <string name="txt1_tutorial_listen">Це речення, яке ви повинні підтвердити.</string>
+    <string name="txt3_tutorial_listen">Якщо вам не подобається кліп, натисніть на цю кнопку, щоб пропустити та виставити інший.</string>
+    <string name="txt4_tutorial_listen">Натисніть на цей значок, щоб відтворити кліп.</string>
+    <string name="txt5_tutorial_listen">Натисніть на цей значок, щоб припинити грати до кліпу.</string>
+    <string name="txt6_tutorial_listen">Натисніть на цю піктограму, якщо ви хочете знову послухати кліп.</string>
+    <string name="txt7_tutorial_listen">Якщо кліп підходить до речень, натисніть на цей значок, щоб прийняти його.</string>
+    <string name="txt8_tutorial_listen">Якщо кліп не відповідає реченню, натисніть на цей значок, щоб відхилити його.</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow">На жаль, ця функція ще не існує.\nМи постійно працюємо для вдосконалення додатку, тому перевірте пізніше, щоб побачити, чи було додано.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges">Закрити</string>
+    <string name="labelAllBadges">Всі значки</string>
+    <string name="new_badge_earnt_message">Ура! Ви щойно отримали новий значок.</string>
+    <!-- Message dialog -->
+    <string name="btnOk">Гаразд</string>
+    <string name="messageDialogErrorTitle">Помилка</string>
+    <string name="messageDialogGenericError">Це не спрацювало.\nСпробуйте ще раз або зверніться до розробника.</string>
+    <string name="messageDialogErrorCode">Не працює. Будь ласка, спробуйте ще раз або зв\'яжіться з розробником.\nКод помилки: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle">Помилка входу в систему</string>
+    <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
+    <string name="text_warning">Застереження</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">Список змін</string>
+    <string name="text_help">Довідка</string>
+    <string name="text_info">Інформація</string>
+    <string name="check_box_message_dialog">Більше не показувати</string>
+    <string name="text_offline_mode">Offline mode</string>
+    <string name="text_offline_mode_enabled">Тепер Ви перебуваєте в автономному режимі, і додаток автоматично переключився в автономний режим.\nЦе означає, що ви можете продовжити запис та перевірити, але запити будуть відправлені пізніше.</string>
+    <string name="text_offline_mode_enabled_2">Ви можете вказати, коли ви знаходитесь в режимі офлайн, шукаючи цей значок на екрані:</string>
+    <string name="text_offline_mode_enabled_3">Ви можете торкнутися цієї піктограми, щоб побачити завантажені відео та речення.</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title">Ціль на день</string>
+    <string name="daily_goal_is_not_set">Ціль не налаштовано</string>
+    <string name="set_daily_goal">Встановіть ціль</string>
+    <string name="edit_daily_goal">Редагувати ціль</string>
+    <string name="save_daily_goal">Зберегти</string>
+    <string name="delete_daily_goal">Видалити</string>
+    <string name="cancel_daily_goal">Скасувати</string>
+    <string name="description_setting_daily_goal">Виберіть скільки речень ви хочете записувати та кліпи, які хочете перевірити (сума їх) в день.</string>
+    <string name="daily_goal_achieved_today">Сьогоднішні досягнення</string>
+    <string name="daily_goal_not_achieved_today">Не досягнуто сьогодні</string>
+    <string name="daily_goal_achieved_message">Гарна робота! Ви досягли своєї щоденної мети.\nВи підтвердили {{*{{n_clips}}*}} затемнення та записали {{*{{n_sentences}}*}} речених.\nМожете продовжувати вносити свій вклад до загального голосу.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">Ця щоденна мета - не офіційна функція Mozilla. Це лише функція застосунку.</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available">Доступна нова версія додатку (реліз {{*{{n_version}}*}). Ви можете оновити це через свій улюблений магазин (F-Droid, Google Play Store) або безпосередньо з GitHub.</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+</resources>

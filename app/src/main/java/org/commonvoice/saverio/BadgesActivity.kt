@@ -1,6 +1,5 @@
 package org.commonvoice.saverio
 
-import OnSwipeTouchListener
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -20,7 +19,6 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
     private val LEVEL_SAVED = "LEVEL_SAVED"
     private val RECORDINGS_SAVED = "RECORDINGS_SAVED"
     private val VALIDATIONS_SAVED = "VALIDATIONS_SAVED"
-    private val GESTURES = "GESTURES"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,23 +45,13 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         loadBadges()
         //checkNewBadges(2, 2, 2)//remove this
 
-        if (getGestures()) {
+        if (mainPrefManager.areGesturesEnabled) {
             layoutAllBadges.setOnTouchListener(object : OnSwipeTouchListener(this@BadgesActivity) {
                 override fun onSwipeRight() {
                     onBackPressed()
                 }
             })
         }
-    }
-
-    fun getGestures(): Boolean {
-        return getSharedPreferences(
-            GESTURES,
-            PRIVATE_MODE
-        ).getBoolean(
-            GESTURES,
-            false
-        )
     }
 
     fun loadBadges() {
@@ -152,8 +140,8 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         val value = getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0)
         println("level: " + value)
         return when (value) {
-            in 0..20 -> 1
-            in 5..49 -> 2
+            in 0..9 -> 1
+            in 10..49 -> 2
             in 50..99 -> 3
             in 100..499 -> 4
             in 500..999 -> 5

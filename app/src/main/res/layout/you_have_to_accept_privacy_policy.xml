@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -14,26 +16,30 @@
 
         <Button
             android:id="@+id/btnOpenPrivacyPolicy"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="50dp"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/youHaveToAcceptPrivacyPolicyOpenCommonVoice"
             android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtPrivacyPolicy" />
 
         <Button
             android:id="@+id/btnCloseLoginPrivacyPolicy"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/btnCloseBadges"
             android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -49,7 +55,7 @@
             android:text="@string/youHaveToAcceptPrivacyPolicy"
             android:textAlignment="viewStart"
             android:textColor="@color/colorAccent"
-            android:textSize="22sp"
+            android:textSize="@dimen/text_big"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

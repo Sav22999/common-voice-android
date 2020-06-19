@@ -9,6 +9,7 @@ class TranslationsLanguages {
         this.translations_languages =
             arrayOf(
                 "ar",
+                "as",
                 "ca",
                 "cs",
                 "de",
@@ -21,25 +22,35 @@ class TranslationsLanguages {
                 "fr",
                 "ia",
                 "it",
+                "ja",
                 "nl",
+                "pl",
+                "pt",
+                "ro",
                 "ru",
                 "sv",
                 "ta",
-                "tr"
+                "tr",
+                "uk",
+                "zh-CN"
             )
         this.not_completed_translated =
             arrayOf(
+                "as",
+                "eu",
                 "ca",
-                "cs",
-                "de",
                 "eo",
-                "es",
                 "et",
                 "fa",
-                "nl",
+                "ia",
+                "ja",
+                "pt",
+                "ro",
                 "ru",
                 "sv",
-                "tr"
+                "tr",
+                "uk",
+                "zh-CN"
             )
     }
 

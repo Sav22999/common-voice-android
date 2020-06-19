@@ -8,8 +8,6 @@
     <string name="title_dashboard">டாஷ்போர்டு</string>
     <string name="title_settings">அமைப்புகள்</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Common Voice logo</string>
-    <string name="description_cv_logo">Common Voice ரோபோ</string>
     <string name="button_home_login">உள்நுழைய/பதிவுபெற</string>
     <string name="button_home_logout">வெளியேறு</string>
     <string name="button_home_profile">சுயவிவரம்</string>
@@ -26,18 +24,37 @@
     <string name="toastNoLoginNoDailyGoal">தினசரி இலக்கை நிர்ணயிக்க நீங்கள் உள்நுழைய வேண்டும்</string>
     <string name="textHoursAbbreviation">ம. நே</string>
     <string name="textHour">மணி நேரம்</string>
-    <!-- Tutorial -->
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <!-- First launch -->
     <string name="btn_tutorial1">தொடர்க</string>
     <string name="btn_tutorial2">அனுமதி</string>
     <string name="btn_tutorial3">அடுத்து</string>
     <string name="btn_tutorial4">மீண்டும் முயற்சி</string>
     <string name="btn_tutorial5">முடிந்தது</string>
+    <string name="btn_skip">Skip</string>
+    <string name="txt_permission_obtained_first_launch">Permission obtained</string>
+    <string name="txt_permission_denied_first_launch">Error: permission denied</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/ta/terms</string>
-    <string name="tutorial_text1">இது Common Voice அதிகாரப்பூர்வ செயலி அல்ல. இது Mozilla-ன் எந்த ஆதரவும் அல்லது கூட்டு இல்லாமல் Saverio Morelli-ஆல் உருவாக்கபட்டது.</string>
-    <string name="tutorial_terms">தொடர்வதன் மூலம், பொதுவான குரலின் சேவை விதிமுறைகளை நீங்கள் ஒப்புக்கொள்கிறீர்கள்.</string>
-    <string name="tutorial_text2">Common Voice செயலி சரியாக வேலை செய்ய \"Microphone\" அனுமதி தேவை.</string>
-    <string name="tutorial_text3">Common Voice செயலி சரியாக வேலை செய்ய \"Storage\" அனுமதி தேவை.</string>
-    <string name="tutorial_text4">உங்கள் சொந்த மொழியைத் தேர்ந்தெடுக்கவும். நீங்கள் பதிவுசெய்து சரிபார்க்கும் வாக்கியங்கள் இந்த மொழியில் இருக்கும்.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
+    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Dark theme</string>
+    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
+    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
+    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
+    <string name="btn_join_telegram_first_launch">Join group</string>
+    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">ஏற்றுகிறது…</string>
     <string name="txt_profile_username">பயனர் பெயர்</string>
@@ -51,16 +68,6 @@
     <string name="txt_gender_other">மற்றவை</string>
     <string name="btn_badges_loggedin">அனைத்து பேட்ஜ்கள்</string>
     <string name="txt_your_level">நிலை {{*{{level}}*}}</string>
-    <string name="txt_level1_name">சிறு-குழந்தை</string>
-    <string name="txt_level2_name">குழந்தை</string>
-    <string name="txt_level3_name">பதின்ம வயது</string>
-    <string name="txt_level4_name">இளையவர்</string>
-    <string name="txt_level5_name">இளம்-பெரியவர்</string>
-    <string name="txt_level6_name">பெரியவர்</string>
-    <string name="txt_level7_name">மூத்தவர்</string>
-    <string name="txt_level8_name">சிறந்தவர்</string>
-    <string name="txt_level9_name">முதுநிலை</string>
-    <string name="txt_level10_name">முதன்மையானவர்</string>
     <string name="level_up_message">வாழ்த்துக்கள்! நீங்கள் இப்போது {{*{{n_level}}*}} நிலையை அடைந்துவிட்டீர்கள்.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">பயிற்சிகளை மீண்டும் திறக்கவும்</string>
@@ -107,9 +114,15 @@
     <string name="toast_gestures_on">சைகைகள் இப்போது இயக்கப்பட்டன.</string>
     <string name="toast_gestures_off">சைகைகள் இப்போது முடக்கபட்டது.</string>
     <string name="message_review_app_on_play_store">தயவுசெய்து, இந்த செயலியை நீங்கள் விரும்பினால், அதை Google Play Store இல் மதிப்பாய்வு செய்யவும்.</string>
-    <string name="message_app_not_completed_translated">இந்த மொழியில் செயலி மொழிபெயர்க்கப்படவில்லை(முழுமையாக). \nCrowdin-ல் மொழிபெயர்க்க நீங்கள் பங்களிக்க முடியும்.</string>
+    <string name="message_app_not_completely_translated">இந்த மொழியில் செயலி மொழிபெயர்க்கப்படவில்லை(முழுமையாக). \nCrowdin-ல் மொழிபெயர்க்க நீங்கள் பங்களிக்க முடியும்.</string>
+    <string name="txt_animations">Animations</string>
+    <string name="txt_customise_the_font_size">Customise the font size</string>
+    <string name="txt_customise_gestures">Customise gestures</string>
+    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_telegram_group_settings">Telegram group of the app</string>
+    <string name="txt_show_labels_below_menu_icons">Show labels below the menu icons</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">ஒரு வாக்கியம் பெறப்படுகிறது…</string>
+    <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">தவிர்</string>
     <string name="btn_send_sentence">பதிவு அனுப்பபடுகிறது</string>
     <string name="txt_loading_clip">உச்சரிப்பை ஏற்றுகிறது …</string>
@@ -121,6 +134,7 @@
     <string name="txt_listening_stopped">இது சரியானது என்பதை உறுதிப்படுத்த முழு பதிவையும் கேளுங்கள்.</string>
     <string name="txt_listening_again_recording">கேட்பதை நிறுத்த கீழே உள்ள ஐகானை அழுத்தவும்.</string>
     <string name="txt_recording_too_long">பதிவு மிக நீண்டது. அதிகபட்ச காலம் 10 வினாடிகள்.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">பதிவை அனுப்புகிறது …</string>
     <string name="txt_recording_sent">பதிவு அனுப்பப்பட்டது!</string>
     <string name="txt_sending_recording_failed">பதிவு அனுப்புவதில் தோல்வி!</string>
@@ -148,6 +162,12 @@
     <string name="checkbox_reason4_report">உச்சரிக்க கடினம்</string>
     <string name="checkbox_reason5_report">மற்றவை</string>
     <string name="checkbox_reason5_comment_report">கருத்து</string>
+    <string name="txt_sentences_finished_offline_mode">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">மீண்டும் சரிபார்க்கவும்</string>
     <string name="txt_noconnection">நீங்கள் இணையத்துடன் இணைக்கப்படவில்லை. வைஃபை அல்லது மொபைல் தரவுடன் இணைக்கவும், பின்னர் கீழே உள்ள பொத்தானை அழுத்தவும்.</string>
@@ -182,6 +202,16 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">உள்நுழைவு தோல்வியுற்றது</string>
     <string name="youHaveToAcceptPrivacyPolicy">நீங்கள் முதலில் பொதுவான குரல் இணையதளத்தில் உள்நுழைந்து பொதுவான குரல் தனியுரிமைக் கொள்கையை ஏற்க வேண்டும்.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">திற Common Voice</string>
+    <string name="text_warning">Warning</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">Changelog</string>
+    <string name="text_help">Help</string>
+    <string name="text_info">Info</string>
+    <string name="check_box_message_dialog">Do not show anymore</string>
+    <string name="text_offline_mode">Offline mode</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">தினசரி இலக்கு</string>
     <string name="daily_goal_is_not_set">இலக்கு நிர்ணயிக்கவில்லை</string>

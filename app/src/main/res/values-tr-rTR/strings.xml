@@ -8,8 +8,6 @@
     <string name="title_dashboard">Kontrol paneli</string>
     <string name="title_settings">Ayarlar</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Common Voice logo</string>
-    <string name="description_cv_logo">Common Voice robot</string>
     <string name="button_home_login">Giriş yap/Kayıt ol</string>
     <string name="button_home_logout">Çıkış yap</string>
     <string name="button_home_profile">Profil</string>
@@ -22,22 +20,41 @@
     <string name="dashboardTabEveryone">Herkes</string>
     <string name="dashboardToday">Bugün</string>
     <string name="dashboardEver">Ever</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
+    <string name="toastNoLoginNoStatistics">İstatistiklerini görmek için giriş yapmalısın</string>
+    <string name="toastNoLoginNoDailyGoal">Günlük hedefi belirlemek için giriş yapmalısın</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Saat</string>
-    <!-- Tutorial -->
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Çevrimdışı modda mevcut değil</string>
+    <!-- First launch -->
     <string name="btn_tutorial1">Başlat</string>
     <string name="btn_tutorial2">İzin</string>
     <string name="btn_tutorial3">Sonraki</string>
     <string name="btn_tutorial4">Tekrar deneyin</string>
     <string name="btn_tutorial5">Bitiş</string>
+    <string name="btn_skip">Atla</string>
+    <string name="txt_permission_obtained_first_launch">Permission obtained</string>
+    <string name="txt_permission_denied_first_launch">Hata: izin reddedildi</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/tr/terms</string>
-    <string name="tutorial_text1">This is not the official app of Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="tutorial_terms">By proceeding, you agree to the Terms of Service of Common Voice.</string>
-    <string name="tutorial_text2">Common Voice App needs the \"Microphone\" permission to work correctly.</string>
-    <string name="tutorial_text3">Common Voice App needs the \"Storage\" permission to work correctly.</string>
-    <string name="tutorial_text4">Select your native language. The sentences that you will record and validate will be in this language.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
+    <string name="txt_offline_mode_first_launch">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
+    <string name="txt_themes_first_launch">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Karanlık Tema</string>
+    <string name="txt_gestures_first_launch">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
+    <string name="txt_customise_gestures_first_launch">You can customise these gestures in Settings.</string>
+    <string name="txt_telegram_group_first_launch">You can join the Telegram group to get news and support.</string>
+    <string name="btn_join_telegram_first_launch">Gruba katıl</string>
+    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">Yükleniyor ...</string>
     <string name="txt_profile_username">Kullanıcı Adı</string>
@@ -50,17 +67,7 @@
     <string name="txt_gender_female">Kadın</string>
     <string name="txt_gender_other">Diğer</string>
     <string name="btn_badges_loggedin">Tüm rozetler</string>
-    <string name="txt_your_level">Level {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Bebek</string>
-    <string name="txt_level2_name">Bebek</string>
-    <string name="txt_level3_name">Genç</string>
-    <string name="txt_level4_name">Genç</string>
-    <string name="txt_level5_name">Genç yetişkin</string>
-    <string name="txt_level6_name">Yetişkin</string>
-    <string name="txt_level7_name">Kıdemli</string>
-    <string name="txt_level8_name">Profesyonel</string>
-    <string name="txt_level9_name">Usta</string>
-    <string name="txt_level10_name">Şampiyon</string>
+    <string name="txt_your_level">Seviye {{*{{level}}*}}</string>
     <string name="level_up_message">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Öğreticiyi tekrardan aç</string>
@@ -72,7 +79,7 @@
     <string name="settingsListen">Dinle</string>
     <string name="settingsSpeak">Konuş</string>
     <string name="settingsOther">Diğer</string>
-    <string name="txt_donate_paypal_settings">Support my work. Buy me a coffee 😄</string>
+    <string name="txt_donate_paypal_settings">İşime destek ol. Bana bir kahve satın al 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings">Auto-play clip when it\'s loaded</string>
     <string name="toast_autoplay_clip_on">Auto-play clip is now turned on.</string>
     <string name="toast_autoplay_clip_off">Auto-play clip is now turned off.</string>
@@ -83,33 +90,39 @@
     <string name="txt_experimental_features">Deneysel özellikler</string>
     <string name="toast_experimental_features_on">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
     <string name="toast_experimental_featured_off">Experimental features turned off.</string>
-    <string name="txt_log_on_file">Save logs to a file</string>
+    <string name="txt_log_on_file">Kayıtları bir dosyaya kaydet</string>
     <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
     <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
-    <string name="txt_anonymous_statistics">Anonymous statistics</string>
+    <string name="txt_anonymous_statistics">Anonim istatistikler</string>
     <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     <string name="txt_skip_recording_confirmation">Skip recording confirmation</string>
     <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
     <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
-    <string name="txt_translate_the_app_on_crowdin">Translate the app on Crowdin</string>
-    <string name="txt_see_statistics_of_the_app">See app statistics</string>
+    <string name="txt_translate_the_app_on_crowdin">Crowdin\'de uygulamayı çevir</string>
+    <string name="txt_see_statistics_of_the_app">Uygulama istatistiklerini gör</string>
     <string name="txt_recording_indicator_sound">Recording indicator sound</string>
     <string name="toast_recording_indicator_sound_on">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
     <string name="toast_recording_indicator_sound_off">Recording indicator sound is now turned off.</string>
-    <string name="txt_check_for_updates">Check for updates</string>
-    <string name="toast_check_for_updated_on">Check for updates turned on.</string>
-    <string name="toast_check_for_updated_off">Check for updates turned off.</string>
+    <string name="txt_check_for_updates">Güncelleştirmeleri kontrol et</string>
+    <string name="toast_check_for_updated_on">Güncellemeleri kontrol et açıldı.</string>
+    <string name="toast_check_for_updated_off">Güncellemeleri kontrol et kapatıldı.</string>
     <string name="txt_abort_confirmation_dialogs_in_settings">Abort confirmation dialogs in Settings</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
-    <string name="txt_gestures">Gestures</string>
-    <string name="toast_gestures_on">Gestures are now turned on.</string>
-    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="txt_gestures">Hareketler</string>
+    <string name="toast_gestures_on">Hareketler açıldı.</string>
+    <string name="toast_gestures_off">Hareketler kapatıldı.</string>
     <string name="message_review_app_on_play_store">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completed_translated">The app is not (completed) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="message_app_not_completely_translated">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="txt_animations">Animations</string>
+    <string name="txt_customise_the_font_size">Customise the font size</string>
+    <string name="txt_customise_gestures">Customise gestures</string>
+    <string name="txt_themes_settings">Themes</string>
+    <string name="txt_telegram_group_settings">Telegram group of the app</string>
+    <string name="txt_show_labels_below_menu_icons">Show labels below the menu icons</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Loading a sentence...</string>
+    <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">Atla</string>
     <string name="btn_send_sentence">Send recording</string>
     <string name="txt_loading_clip">Klip Yükleniyor...</string>
@@ -121,6 +134,7 @@
     <string name="txt_listening_stopped">Listen to the whole recording to make sure it\'s correct.</string>
     <string name="txt_listening_again_recording">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long">Recording is too long. Max duration is 10 seconds.</string>
+    <string name="txt_recording_too_short">Recording is too short. Please, try again.</string>
     <string name="txt_sending_recording">Sending the recording...</string>
     <string name="txt_recording_sent">Recording sent!</string>
     <string name="txt_sending_recording_failed">Failed to send recording!</string>
@@ -140,14 +154,20 @@
     <string name="button_report">Şikayet Et</string>
     <string name="title_report_clip">Report clip:</string>
     <string name="title_report_sentence">Report sentence:</string>
-    <string name="button_send_report">Send report</string>
-    <string name="checkbox_reason1_report_sentence">Offensive language</string>
-    <string name="checkbox_reason1_report_clip">Offensive speech</string>
+    <string name="button_send_report">Rapor gönder</string>
+    <string name="checkbox_reason1_report_sentence">Saldırgan dil</string>
+    <string name="checkbox_reason1_report_clip">Saldırgan konuşma</string>
     <string name="checkbox_reason2_report">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report">Different language</string>
+    <string name="checkbox_reason3_report">Farklı dil</string>
     <string name="checkbox_reason4_report">Difficult to pronounce</string>
     <string name="checkbox_reason5_report">Diğer</string>
-    <string name="checkbox_reason5_comment_report">Comment</string>
+    <string name="checkbox_reason5_comment_report">Yorum</string>
+    <string name="txt_sentences_finished_offline_mode">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Tekrar kontrol et</string>
     <string name="txt_noconnection">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
@@ -182,6 +202,16 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Oturum açma başarısız oldu</string>
     <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
+    <string name="text_warning">Uyarı</string>
+    <string name="text_tip">İpucu</string>
+    <string name="text_changelog">Değişiklik Notları</string>
+    <string name="text_help">Yardım</string>
+    <string name="text_info">Bilgi</string>
+    <string name="check_box_message_dialog">Tekrar gösterme</string>
+    <string name="text_offline_mode">Offline mode</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Günlük hedef</string>
     <string name="daily_goal_is_not_set">Hedef belirlenmedi</string>

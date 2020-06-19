@@ -12,10 +12,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -25,15 +22,26 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.ExistingWorkPolicy
+import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -41,10 +49,25 @@ import kotlin.collections.HashMap
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
-    private val SOURCE_STORE =
-        "FD-GH" //change this manually -> "n.d.": Not defined, "GPS": Google Play Store, "FD-GH: F-Droid or GitHub
 
-    private var firstRun = true
+    private val workManager: WorkManager by inject()
+    private val mainActivityViewModel: MainActivityViewModel by viewModel()
+    private val dashboardViewModel: DashboardViewModel by viewModel()
+
+    private val firstRunPrefManager: FirstRunPrefManager by inject()
+    private val statsPrefManager: StatsPrefManager by inject()
+
+    companion object {
+        const val SOURCE_STORE = BuildConfig.FLAVOR
+
+        fun checkInternet(context: Context): Boolean {
+            val cm =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = cm.activeNetworkInfo
+            return networkInfo != null && networkInfo.isConnected
+        }
+    }
+
     private val RECORD_REQUEST_CODE = 101
     private val PRIVATE_MODE = 0
     //"LOGGED" //false->no logged-in || true -> logged-in
@@ -61,10 +84,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
-            "PREF_NAME" to "FIRST_RUN",
-            "LANGUAGE_NAME" to "LANGUAGE",
+            "FIRST_LAUNCH" to "FIRST_LAUNCH",
             "LOGGED_IN_NAME" to "LOGGED",
-            "USER_CONNECT_ID" to "USER_CONNECT_ID",
             "USER_NAME" to "USERNAME",
             "LAST_STATS_EVERYONE" to "LAST_STATS_EVERYONE",
             "LAST_STATS_YOU" to "LAST_STATS_YOU",
@@ -97,12 +118,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE",
             "LEVEL_SAVED" to "LEVEL_SAVED",
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
-            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED"
+            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
+            "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED",
+            "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
-
-    var uniqueUserId = ""
 
     var dashboard_selected = false
 
@@ -110,7 +131,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     var languagesListArray =
         arrayOf("English") // don't change manually -> it's imported from strings.xml
-    var selectedLanguageVar = "en"
+    var selectedLanguageVar = mainPrefManager.language
     var logged: Boolean = false
     var userId: String = ""
     var userName: String = ""
@@ -133,19 +154,13 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        checkConnection()
+        if (mainPrefManager.areLabelsBelowMenuIcons) {
+            navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+        } else {
+            navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+        }
 
-        this.firstRun =
-            getSharedPreferences(settingsSwitchData["PREF_NAME"], PRIVATE_MODE).getBoolean(
-                settingsSwitchData["PREF_NAME"],
-                true
-            )
-
-        this.selectedLanguageVar =
-            getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE).getString(
-                settingsSwitchData["LANGUAGE_NAME"],
-                "en"
-            )!!
+        //checkConnection()
 
         // import languages from array
         this.languagesListArray = resources.getStringArray(R.array.languages)
@@ -157,15 +172,19 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 false
             )
 
-        if (this.firstRun) {
+        if (firstRunPrefManager.main) {
             // close main and open tutorial -- first run
             this.openTutorial()
         } else {
             this.setLanguageUI("start")
             //checkPermissions()
-        }
 
-        this.statisticsAPI()
+            RecordingsUploadWorker.attachToWorkManager(workManager)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
+        }
 
         this.checkUserLoggedIn()
         this.resetDashboardData()
@@ -212,19 +231,17 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             getString(R.string.message_log_in_again)
         )
         logged = false
-        getSharedPreferences(settingsSwitchData["USER_CONNECT_ID"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["USER_CONNECT_ID"], "").apply()
+        mainPrefManager.sessIdCookie = null
         getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
             .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
         getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
             .putString(settingsSwitchData["USER_NAME"], "").apply()
-        getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
-            .putString(settingsSwitchData["TODAY_CONTRIBUTING"], "?, ?, ?").apply()
         setLevelRecordingsValidations(0, 0)
         setLevelRecordingsValidations(1, 0)
         setLevelRecordingsValidations(2, 0)
         getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).edit()
             .putInt(settingsSwitchData["DAILY_GOAL"], 0).apply()
+        mainActivityViewModel.clearDB()
     }
 
     fun setLevelRecordingsValidations(type: Int, value: Int) {
@@ -273,126 +290,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun getSourceStore(): String {
-        return this.SOURCE_STORE
-    }
-
-    fun statisticsAPI() {
-        if (!BuildConfig.VERSION_NAME.contains("a") && !BuildConfig.VERSION_NAME.contains("b")) {
-            val oldStats: String = lastStatisticsSending
-            var newStats: String = "?"
-            if (Build.VERSION.SDK_INT < 26) {
-                val dateTemp = SimpleDateFormat("yyyy/MM/dd hh:mm:ss")
-                newStats = dateTemp.format(Date()).toString()
-            } else {
-                val dateTemp = LocalDateTime.now()
-                newStats =
-                    dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString() + " " + dateTemp.hour.toString() + ":" + dateTemp.minute.toString() + ":" + dateTemp.second.toString()
-            }
-            var oldDate: List<String>? = null
-            var oldTime: List<String>? = null
-            var newDate: List<String>? = null
-            var newTime: List<String>? = null
-
-            if (oldStats != "?") {
-                oldDate = oldStats.split(" ")[0].split("/") //year/month/day
-                oldTime =
-                    oldStats.split(" ")[1].split(":") //hours:minutes:seconds
-
-                newDate = newStats.split(" ")[0].split("/") //year/month/day
-                newTime =
-                    newStats.split(" ")[1].split(":") //hours:minutes:seconds
-            }
-
-            if (lastStatisticsSending == "?" || passedThirtySeconds(
-                    oldDate!!,
-                    oldTime!!,
-                    newDate!!,
-                    newTime!!
-                )
-            ) {
-                println("30 seconds passed")
-                lastStatisticsSending = newStats
-                generateUniqueUserId()
-                try {
-                    var loggedYesNotInt = 0
-                    if (this.logged) loggedYesNotInt = 1
-
-                    var languageTemp = this.selectedLanguageVar
-                    if (languageTemp == "") languageTemp = "en"
-
-                    var appVersion = BuildConfig.VERSION_CODE.toString()
-                    if (appVersion == "") appVersion = "n.d."
-
-                    val params = JSONObject()
-                    params.put("username", this.uniqueUserId)
-                    params.put("logged", loggedYesNotInt.toString())
-                    params.put("language", languageTemp)
-                    params.put("version", appVersion)
-                    params.put("public", this.getStatisticsSwitch().toString())
-                    params.put("source", this.SOURCE_STORE)
-
-                    //println(">> params: " + params + "<<")
-
-                    val que = Volley.newRequestQueue(this)
-                    val req = object : JsonObjectRequest(Request.Method.POST, urlStatistics, params,
-                        Response.Listener {
-                            //println(" >> " + it.toString())
-                            val jsonResult = it.toString()
-                            val jsonResultArray = arrayOf(jsonResult, "")
-                            val jsonObj = JSONObject(
-                                jsonResultArray[0].substring(
-                                    jsonResultArray[0].indexOf("{"),
-                                    jsonResultArray[0].lastIndexOf("}") + 1
-                                )
-                            )
-                            //println(jsonObj.toString())
-                            /*
-                        if (jsonObj.getString("code").toInt() == 200) {
-                            //println("-->> Record added to the database <<--")
-                        } else {
-                            //println("!!-- Record is already in the database --!!")
-                        }
-                        */
-                            //println(jsonResult)
-                        }, Response.ErrorListener {
-                            println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                        }
-                    ) {
-                        @Throws(AuthFailureError::class)
-                        override fun getHeaders(): Map<String, String> {
-                            val headers = HashMap<String, String>()
-                            headers.put("Content-Type", "application/json")
-                            return headers
-                        }
-                    }
-                    //Content-Type: application/json
-                    que.add(req)
-                } catch (e: Exception) {
-                    println("!!-- Exception M09 - Statistics --!!")
-                }
-            } else {
-                println("30 seconds didn't pass")
-            }
-        }
-    }
-
-    fun generateUniqueUserId() {
-        this.uniqueUserId =
-            getSharedPreferences(settingsSwitchData["UNIQUE_USER_ID"], PRIVATE_MODE).getString(
-                settingsSwitchData["UNIQUE_USER_ID"],
-                ""
-            )!!
-        if (this.uniqueUserId == "") {
-            var datetime = ""
-            val dateTemp = SimpleDateFormat("yyyyMMddHHmmssSSSS")
-            datetime = dateTemp.format(Date()).toString()
-            this.uniqueUserId = "User" + datetime + "::CVAppSav"
-            //println(">> New -- uniqueUserId: " + this.uniqueUserId + " <<")
-            getSharedPreferences(settingsSwitchData["UNIQUE_USER_ID"], PRIVATE_MODE).edit()
-                .putString(settingsSwitchData["UNIQUE_USER_ID"], this.uniqueUserId).apply()
-        } else {
-            //println(">> Exists -- uniqueUserId: " + this.uniqueUserId + " <<")
-        }
+        return MainActivity.SOURCE_STORE
     }
 
     fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
@@ -464,14 +362,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
 
         if (logged) {
-            this.userId =
-                getSharedPreferences(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    PRIVATE_MODE
-                ).getString(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    ""
-                )!!
+            this.userId = mainPrefManager.sessIdCookie!!
             this.userName =
                 getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
                     settingsSwitchData["USER_NAME"],
@@ -504,14 +395,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
 
         if (logged) {
-            this.userId =
-                getSharedPreferences(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    PRIVATE_MODE
-                ).getString(
-                    settingsSwitchData["USER_CONNECT_ID"],
-                    ""
-                )!!
+            this.userId = mainPrefManager.sessIdCookie ?: ""
 
             this.userName =
                 getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
@@ -617,7 +501,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
-            statisticsAPI()
+            mainPrefManager.areStatsAnonymous = status
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
         }
     }
 
@@ -789,7 +674,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             PRIVATE_MODE
         ).getBoolean(
             settingsSwitchData["GESTURES"],
-            false
+            true
         )
     }
 
@@ -815,6 +700,27 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["GESTURES"], status)
+                .apply()
+        }
+    }
+
+    fun getLabelsBelowMenuIconsSettingsSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["LABELS_MENU_ICONS"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["LABELS_MENU_ICONS"],
+            false
+        )
+    }
+
+    fun setLabelsBelowMenuIconsSettingsSwitch(status: Boolean) {
+        if (status != this.getLabelsBelowMenuIconsSettingsSwitch()) {
+            getSharedPreferences(
+                settingsSwitchData["LABELS_MENU_ICONS"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["LABELS_MENU_ICONS"], status)
                 .apply()
         }
     }
@@ -851,6 +757,27 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["SKIP_RECORDING_CONFIRMATION"], status)
+                .apply()
+        }
+    }
+
+    fun getAnimationsEnabledSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
+            true
+        )
+    }
+
+    fun setAnimationsEnabledSwitch(status: Boolean) {
+        if (status != this.getAnimationsEnabledSwitch()) {
+            getSharedPreferences(
+                settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["ARE_ANIMATIONS_ENABLED"], status)
                 .apply()
         }
     }
@@ -1174,26 +1101,30 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun setLanguageSettings(lang: String) {
         try {
-            getSharedPreferences(settingsSwitchData["LANGUAGE_NAME"], PRIVATE_MODE).edit()
-                .putString(settingsSwitchData["LANGUAGE_NAME"], lang)
-                .apply()
-
-            var languageChanged = false
-            if (this.selectedLanguageVar != lang) {
-                languageChanged = true
+            val languageChanged = if (lang != mainPrefManager.language) {
+                true
+            } else {
+                false
             }
 
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                getSharedPreferences(
-                    settingsSwitchData["UI_LANGUAGE_CHANGED"],
-                    PRIVATE_MODE
-                ).edit()
-                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+                mainPrefManager.language = lang
+                mainActivityViewModel.clearDB().invokeOnCompletion {
+                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
+                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
 
-                setLanguageUI("restart")
-                resetDashboardData()
+                    getSharedPreferences(
+                        settingsSwitchData["UI_LANGUAGE_CHANGED"],
+                        PRIVATE_MODE
+                    ).edit()
+                        .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+
+                    setLanguageUI("restart")
+                    resetDashboardData()
+                }
+                dashboardViewModel.lastStatsUpdate = 0
             }
 
         } catch (e: Exception) {
@@ -1202,10 +1133,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun getDailyGoal(): Int {
-        return getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE).getInt(
-            settingsSwitchData["DAILY_GOAL"],
-            0
-        )
+        return statsPrefManager.dailyGoalObjective
     }
 
     fun resetDashboardData() {
@@ -1232,9 +1160,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             val metrics = DisplayMetrics()
             windowManager.defaultDisplay.getMetrics(metrics)
             val width = metrics.widthPixels
-            //val height = metrics.heightPixels
+            val height = metrics.heightPixels
             val message: MessageDialog =
-                MessageDialog(this, this, 1, value = getDailyGoal(), width = width)
+                MessageDialog(this, this, 1, value = getDailyGoal(), width = width, height = height)
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - OPEN DAILY GOAL DIALOG: " + exception.toString() + " --!!")
@@ -1245,24 +1173,24 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         //refresh data of Daily goal in Dashboard
         val goalText = this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
         if (getDailyGoal() == 0) {
-            goalText.setText(getString(R.string.daily_goal_is_not_set))
+            goalText.text = getString(R.string.daily_goal_is_not_set)
             goalText.typeface = Typeface.DEFAULT
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
-                .setText(getString(R.string.set_daily_goal))
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
+                getString(R.string.set_daily_goal)
             //println("Daily goal is not set")
         } else {
-            goalText.setText(getDailyGoal().toString())
+            goalText.text = getDailyGoal().toString()
             goalText.typeface = ResourcesCompat.getFont(this, R.font.sourcecodepro)
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal)
-                .setText(getString(R.string.edit_daily_goal))
+            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
+                getString(R.string.edit_daily_goal)
             //println("Daily goal is set")
         }
     }
 
     fun setDailyGoal(dailyGoalValue: Int = 0) {
-        getSharedPreferences(settingsSwitchData["DAILY_GOAL"], PRIVATE_MODE.toInt())
-            .edit()
-            .putInt(settingsSwitchData["DAILY_GOAL"], dailyGoalValue).apply()
+        var value = dailyGoalValue
+        if (value < 0) value = 0
+        statsPrefManager.dailyGoalObjective = value
     }
 
     fun passedThirtySeconds(
@@ -1316,8 +1244,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         text: String,
         errorCode: String = "",
         details: String = "",
-        type: Int = 1
+        type: Int = 0
     ) {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
         try {
             var messageText = text
             if (errorCode != "") {
@@ -1328,8 +1260,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 }
             }
             val message: MessageDialog =
-                MessageDialog(this, 0, title, messageText, details = details)
-            if (type != 1) message.setMessageType(type)
+                MessageDialog(this, type, title, messageText, details = details, height = height)
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
@@ -1337,21 +1268,61 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun openTutorial() {
-        Intent(this, TutorialActivity::class.java).also {
+        Intent(this, FirstLaunch::class.java).also {
             startActivity(it)
             finish()
         }
     }
 
     fun openSpeakSection() {
+        if (firstRunPrefManager.speak) {
+            Intent(this, FirstRunSpeak::class.java).also {
+                startActivity(it)
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.RECORD_AUDIO),
+                    RECORD_REQUEST_CODE
+                )
+            } else {
+                openActualSpeakSection()
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            RECORD_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    openActualSpeakSection()
+                }
+            }
+        }
+    }
+
+    private fun openActualSpeakSection() {
         Intent(this, SpeakActivity::class.java).also {
             startActivity(it)
         }
     }
 
     fun openListenSection() {
-        Intent(this, ListenActivity::class.java).also {
-            startActivity(it)
+        if (firstRunPrefManager.listen) {
+            Intent(this, FirstRunListen::class.java).also {
+                startActivity(it)
+            }
+        } else {
+            Intent(this, ListenActivity::class.java).also {
+                startActivity(it)
+            }
         }
     }
 
@@ -1375,6 +1346,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if ((requestCode == 111 || requestCode == 110) && resultCode == RESULT_OK) {
             //println("MainActivity updated")
             //data?.extras.getString("key") //to get "putExtra" information by "key"
+            dashboardViewModel.updateStats(force = true)
             recreate()
         } else {
             //println("MainActivity updated (2)")
@@ -1402,46 +1374,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "",
             getString(R.string.toastNoLoginNoDailyGoal)
         )
-    }
-
-    private fun checkPermissions() {
-        try {
-            val PERMISSIONS = arrayOf(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.RECORD_AUDIO
-            )
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-                != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    PERMISSIONS,
-                    RECORD_REQUEST_CODE
-                )
-            }
-        } catch (e: Exception) {
-            //
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED) {
-                    checkPermissions()
-                } else {
-                    checkPermissions()
-                }
-            }
-        }
     }
 
     private fun setLanguageUI(type: String) {
@@ -1514,7 +1446,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 val tl = TranslationsLanguages()
                 var detailsMessage = ""
                 if (tl.isUncompleted(this.getSelectedLanguage())) {
-                    detailsMessage = "\n" + getString(R.string.message_app_not_completed_translated)
+                    detailsMessage =
+                        "\n" + getString(R.string.message_app_not_completely_translated)
                 }
                 showMessageDialog(
                     "",
@@ -1532,42 +1465,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
-    fun showMessage(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-    }
-
     fun checkConnection(): Boolean {
-        if (MainActivity.checkInternet(this)) {
-            return true
-        } else {
-            openNoConnection()
-            return false
-        }
-    }
-
-    companion object {
-        fun checkInternet(context: Context): Boolean {
-            val cm =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = cm.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
-        }
-    }
-
-    fun openNoConnection() {
-        Intent(this, NoConnectionActivity::class.java).also {
-            startActivity(it)
-        }
-    }
-
-    fun startAnimation(img: Button) {
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_out)
-        img.startAnimation(animation)
-    }
-
-    fun stopAnimation(img: Button) {
-        img.clearAnimation()
+        return checkInternet(this)
     }
 
     fun setAutoPlay(status: Boolean) {
@@ -1627,47 +1526,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     fun getContributing(type: String): String {
         //just if the user is logged-in
         if (this.logged) {
-            //user logged
-            val contributing = getSharedPreferences(
-                settingsSwitchData["TODAY_CONTRIBUTING"],
-                PRIVATE_MODE
-            ).getString(
-                settingsSwitchData["TODAY_CONTRIBUTING"],
-                "?, ?, ?"
-            )!!.split(", ")
-            val dateContributing = contributing[0]
-            val dateContributingToSave = getDateToSave(dateContributing)
-            var nValidated: String = "?"
-            var nRecorded: String = "?"
-            if (dateContributingToSave == dateContributing) {
-                //same date
-                //println("Same date")
-                nValidated = contributing[2]
-                nRecorded = contributing[1]
-                if (nValidated == "?") {
-                    nValidated = "0"
-                }
-                if (nRecorded == "?") {
-                    nRecorded = "0"
-                }
-            } else {
-                //new date
-                //println("New date")
-                nValidated = "0"
-                nRecorded = "0"
-
-            }
-            var contributingToSave =
-                dateContributingToSave + ", " + nRecorded + ", " + nValidated
-            getSharedPreferences(settingsSwitchData["TODAY_CONTRIBUTING"], PRIVATE_MODE).edit()
-                .putString(settingsSwitchData["TODAY_CONTRIBUTING"], contributingToSave).apply()
-            //println("dateSaved: " + dateContributing + " dateToSave: " + dateContributingToSave)
             when (type) {
                 "validations" -> {
-                    return nValidated
+                    return statsPrefManager.todayValidated.toString()
                 }
                 "recordings" -> {
-                    return nRecorded
+                    return statsPrefManager.todayRecorded.toString()
                 }
                 else -> {
                     return "?"

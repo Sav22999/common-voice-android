@@ -1,7 +1,6 @@
 package org.commonvoice.saverio
 
 import android.content.Context
-import android.os.Build
 import android.view.View
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -12,9 +11,34 @@ class DarkLightTheme {
     private var PRIVATE_MODE = 0
     private val DARK_THEME = "DARK_THEME"
     private var isDark = false
+    private var colorBackground: Int = R.color.colorBackground
+    private var colorBackgroundDT: Int = R.color.colorBackgroundDT
+    private var colorText: Int = R.color.colorBlack
+    private var colorTextDT: Int = R.color.colorWhite
+
+    /*
+    //these are for a future "Theme" feature:
+    //(there is another class which set these colours eventually)
+    //there won't exist anymore only "Light" and "Dark" theme
+    private var colourBackgroundPrimary: Int = R.color.colorBackground
+    private var colourBackgroundSecondary: Int = R.color.colorWhite
+    private var colourBackgroundTertiary: Int = ?
+
+    private var colourTextPrimary: Int = R.color.colorBlack
+    private var colourTextSecondary: Int = R.color.colorBlack
+    private var colourTextTertiary: Int = ?
+    */
+
 
     constructor() {
 
+    }
+
+    fun setColours(colorBackground: Int, colorBackgroundDT: Int, colorText: Int, colorTextDT: Int) {
+        this.colorBackground = colorBackground
+        this.colorBackgroundDT = colorBackgroundDT
+        this.colorText = colorText
+        this.colorTextDT = colorTextDT
     }
 
     fun setTheme(view: Context, status: Boolean) {
@@ -57,20 +81,71 @@ class DarkLightTheme {
         }
     }
 
-    fun setElement(theme: Boolean, element: ConstraintLayout) {
+    fun setElement(
+        theme: Boolean,
+        element: ConstraintLayout
+    ) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorBackgroundDT)
+            element.setBackgroundResource(this.colorBackgroundDT)
         } else {
-            element.setBackgroundResource(R.color.colorBackground)
+            element.setBackgroundResource(this.colorBackground)
         }
     }
 
-    fun setElement(theme: Boolean, view: Context, element: TextView) {
+    fun setElement(
+        theme: Boolean,
+        view: Context,
+        top_or_bottom: Int,
+        element: ConstraintLayout,
+        background: Int = R.color.colorWhite,
+        backgroundDT: Int = R.color.colorBlack
+    ) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorBackgroundDT)
+            //top_or_buttom = (border-radius) {-1: both, top and bottom WITH border, 1: just top | 2: just bottom | 3:both, top and bottom}
+            if (top_or_bottom != -1) {
+                if (top_or_bottom == 1) {
+                    element.setBackgroundResource(R.drawable.top_border_radius)
+                } else if (top_or_bottom == 2) {
+                    element.setBackgroundResource(R.drawable.bottom_border_radius)
+                } else {
+                    element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+                }
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, backgroundDT)
+            } else {
+                element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
+            }
+        } else {
+            if (top_or_bottom != -1) {
+                if (top_or_bottom == 1) {
+                    element.setBackgroundResource(R.drawable.top_border_radius)
+                } else if (top_or_bottom == 2) {
+                    element.setBackgroundResource(R.drawable.bottom_border_radius)
+                } else {
+                    element.setBackgroundResource(R.drawable.top_bottom_border_radius)
+                }
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, background)
+            } else {
+                element.setBackgroundResource(R.drawable.txt_rounded_with_border)
+            }
+        }
+    }
+
+    fun setElement(theme: Boolean, view: Context, element: TextView, background: Boolean = false) {
+        if (theme) {
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackgroundDT)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
         } else {
-            element.setBackgroundResource(R.color.colorBackground)
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackground)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
         }
     }
@@ -80,24 +155,45 @@ class DarkLightTheme {
         view: Context,
         element: TextView,
         color_light: Int,
-        color_dark: Int
+        color_dark: Int,
+        background: Boolean = false
     ) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorBackgroundDT)
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackgroundDT)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
+            }
             element.setTextColor(ContextCompat.getColor(view, color_dark))
         } else {
-            element.setBackgroundResource(R.color.colorBackground)
+            if (background) {
+                element.setBackgroundResource(R.color.colorBackground)
+            } else {
+                element.setBackgroundResource(R.color.colorTransparent)
+            }
             element.setTextColor(ContextCompat.getColor(view, color_light))
         }
     }
 
-    fun setTextView(theme: Boolean, view: Context, element: TextView) {
+    fun setTextView(theme: Boolean, view: Context, element: TextView, border: Boolean = true) {
         if (theme) {
-            element.setBackgroundResource(R.drawable.txt_rounded_darktheme)
+            if (border) {
+                element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
+            } else {
+                element.setBackgroundResource(R.drawable.txt_rounded_darktheme)
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, R.color.colorBlack)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccentDT))
         } else {
-            element.setBackgroundResource(R.drawable.txt_rounded)
+            if (border) {
+                element.setBackgroundResource(R.drawable.txt_rounded_with_border)
+            } else {
+                element.setBackgroundResource(R.drawable.txt_rounded)
+                element.backgroundTintList =
+                    ContextCompat.getColorStateList(view, R.color.colorWhite)
+            }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccent))
         }
@@ -141,11 +237,11 @@ class DarkLightTheme {
 
     fun setElement(theme: Boolean, view: Context, element: Switch) {
         if (theme) {
-            element.setBackgroundResource(R.drawable.btn_rounded_darktheme)
-            element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
+            element.setBackgroundResource(this.colorBackgroundDT)
+            element.setTextColor(ContextCompat.getColor(view, this.colorTextDT))
         } else {
-            element.setBackgroundResource(R.drawable.btn_rounded)
-            element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
+            element.setBackgroundResource(this.colorBackground)
+            element.setTextColor(ContextCompat.getColor(view, colorText))
         }
     }
 
@@ -163,7 +259,13 @@ class DarkLightTheme {
         }
     }
 
-    fun setElement(theme: Boolean, view: Context, element: SeekBar, color_light: Int, color_dark: Int) {
+    fun setElement(
+        theme: Boolean,
+        view: Context,
+        element: SeekBar,
+        color_light: Int,
+        color_dark: Int
+    ) {
         if (theme) {
             element.progressTintList = ContextCompat.getColorStateList(view, color_dark)
             element.progressBackgroundTintList = ContextCompat.getColorStateList(view, color_dark)
@@ -171,10 +273,6 @@ class DarkLightTheme {
             element.foregroundTintList = ContextCompat.getColorStateList(view, color_dark)
             element.indeterminateTintList = ContextCompat.getColorStateList(view, color_dark)
             element.secondaryProgressTintList = ContextCompat.getColorStateList(view, color_dark)
-            element.thumbTintList = ContextCompat.getColorStateList(view, color_light)
-            if (Build.VERSION.SDK_INT > 23) {
-                element.tickMarkTintList = ContextCompat.getColorStateList(view, color_light)
-            }
         } else {
             element.progressTintList = ContextCompat.getColorStateList(view, color_light)
             element.progressBackgroundTintList = ContextCompat.getColorStateList(view, color_light)
@@ -182,16 +280,12 @@ class DarkLightTheme {
             element.foregroundTintList = ContextCompat.getColorStateList(view, color_light)
             element.indeterminateTintList = ContextCompat.getColorStateList(view, color_light)
             element.secondaryProgressTintList = ContextCompat.getColorStateList(view, color_light)
-            element.thumbTintList = ContextCompat.getColorStateList(view, color_dark)
-            if (Build.VERSION.SDK_INT > 23) {
-                element.tickMarkTintList = ContextCompat.getColorStateList(view, color_dark)
-            }
         }
     }
 
     fun setTabLayout(theme: Boolean, view: Context, element: TabLayout) {
         if (theme) {
-            element.setBackgroundResource(R.color.colorSelectedBackgroundDT)
+            element.setBackgroundResource(R.color.colorBlack)
             element.setTabTextColors(
                 ContextCompat.getColor(view, R.color.colorWhite),
                 ContextCompat.getColor(view, R.color.colorSelectedDT)
@@ -203,7 +297,7 @@ class DarkLightTheme {
                 )
             )
         } else {
-            element.setBackgroundResource(R.color.colorSelectedBackground)
+            element.setBackgroundResource(R.color.colorWhite)
             element.setTabTextColors(
                 ContextCompat.getColor(view, R.color.colorBlack),
                 ContextCompat.getColor(view, R.color.colorSelected)
