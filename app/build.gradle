@@ -10,8 +10,8 @@ android {
         applicationId 'org.commonvoice.saverio'
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode = 110
-        versionName '1.5b'
+        versionCode = 113
+        versionName '2.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,15 +19,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            minifyEnabled false
-            applicationIdSuffix ".beta"
-            debuggable true
-        }
+    }
+    buildFeatures {
+        viewBinding true
     }
     flavorDimensions "source_store"
     productFlavors {
-        GPS {
+        "GPS" {
             dimension "source_store"
         }
         "FD-GH" {

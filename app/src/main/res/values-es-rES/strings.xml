@@ -8,8 +8,6 @@
     <string name="title_dashboard">Tablero</string>
     <string name="title_settings">Ajustes</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Logo de Common Voice</string>
-    <string name="description_cv_logo">Robot de Common Voice</string>
     <string name="button_home_login">Iniciar sesión / Registrarse</string>
     <string name="button_home_logout">Cerrar sesión</string>
     <string name="button_home_profile">Perfil</string>
@@ -26,20 +24,37 @@
     <string name="toastNoLoginNoDailyGoal">Tienes que iniciar sesión para establecer el objetivo diario</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hora</string>
-    <!-- Tutorial -->
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <!-- First launch -->
     <string name="btn_tutorial1">Empezar</string>
     <string name="btn_tutorial2">Permitir</string>
     <string name="btn_tutorial3">Siguiente</string>
     <string name="btn_tutorial4">Inténtalo de nuevo</string>
     <string name="btn_tutorial5">Finalizar</string>
-    <string name="txt_permission_successful">Permiso exitoso</string>
-    <string name="txt_permission_failed">Error: falló el permiso</string>
+    <string name="btn_skip">Saltar</string>
+    <string name="txt_permission_obtained_first_launch">Permiso obtenido</string>
+    <string name="txt_permission_denied_first_launch">Error: permiso denegado</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/es/terms</string>
-    <string name="tutorial_text1">Esta no es la aplicación oficial de Common Voice. Ha sido desarrollada por Saverio Morelli sin ningún apoyo o asociación con Mozilla.</string>
-    <string name="tutorial_terms">Al continuar, usted acepta los Términos de Servicio de Common Voice.</string>
-    <string name="tutorial_text2">La aplicación de Common Voice necesita el permiso de \"Micrófono\" para funcionar correctamente.</string>
-    <string name="tutorial_text3">La aplicación de Common Voice necesita el permiso de \"Almacenamiento\" para funcionar correctamente.</string>
-    <string name="tutorial_text4">Seleccione su idioma nativo. Las frases que grabará y validará estarán en este idioma.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android es una aplicación no oficial para Mozilla Common Voice. Ha sido desarrollada por Saverio Morelli sin ningún tipo de apoyo o asociación con Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch">Esta aplicación necesita el permiso \"Micrófono\" para grabar tu voz.</string>
+    <string name="txt_storage_permission_first_launch">Puede reportar errores en GitHub o Telegram. Para ayudar al desarrollador a entender el problema rápidamente, debes adjuntar el archivo de registro de la aplicación a tu informe. La aplicación necesita el permiso \"Almacenar\" para guardar el archivo de registro.</string>
+    <string name="txt_offline_mode_first_launch">Incluso puedes contribuir mientras estás fuera de línea. El \"modo sin conexión\" de la aplicación se habilitará automáticamente, y puede continuar grabando y escuchando sin conexión a Internet.</string>
+    <string name="txt_themes_first_launch">Puedes elegir un tema claro o un tema oscuro. Puedes cambiar esto más tarde en Configuración.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Tema oscuro</string>
+    <string name="txt_gestures_first_launch">Algunas acciones tienen gestos correspondientes. Por ejemplo, puedes omitir una frase en Hablar deslizando hacia la izquierda.</string>
+    <string name="txt_customise_gestures_first_launch">Puede personalizar estos gestos en Configuración.</string>
+    <string name="txt_telegram_group_first_launch">Puedes unirte al grupo de Telegram para obtener noticias y apoyo.</string>
+    <string name="btn_join_telegram_first_launch">Unirse al grupo</string>
+    <string name="txt_choose_language_first_launch">¡Vamos! Elige en qué idioma te gustaría hablar o escuchar. La aplicación también se mostrará en ese idioma si una traducción está disponible.</string>
     <!-- Login -->
     <string name="txt_loading_page">Cargando...</string>
     <string name="txt_profile_username">Usuario</string>
@@ -53,16 +68,6 @@
     <string name="txt_gender_other">Otro</string>
     <string name="btn_badges_loggedin">Todas las insignias</string>
     <string name="txt_your_level">Nivel {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Infante</string>
-    <string name="txt_level2_name">Bebé</string>
-    <string name="txt_level3_name">Adolescente</string>
-    <string name="txt_level4_name">Joven</string>
-    <string name="txt_level5_name">Adulto joven</string>
-    <string name="txt_level6_name">Adulto</string>
-    <string name="txt_level7_name">Senior</string>
-    <string name="txt_level8_name">Pro</string>
-    <string name="txt_level9_name">Maestro</string>
-    <string name="txt_level10_name">Campeón</string>
     <string name="level_up_message">¡Enhorabuena! Acabas de alcanzar el nivel {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Volver a abrir el Tutorial</string>
@@ -110,8 +115,14 @@
     <string name="toast_gestures_off">Gestos desactivados.</string>
     <string name="message_review_app_on_play_store">Por favor, si te gusta esta aplicación, recuerda valorarla en Google Play Store.</string>
     <string name="message_app_not_completely_translated">La aplicación no está traducida (completamente) en este idioma.\nPuedes contribuir a traducir la aplicación en Crowdin.</string>
+    <string name="txt_animations">Animaciones</string>
+    <string name="txt_customise_the_font_size">Personalizar el tamaño de fuente</string>
+    <string name="txt_customise_gestures">Personalizar gestos</string>
+    <string name="txt_themes_settings">Temas</string>
+    <string name="txt_telegram_group_settings">Grupo de Telegram de la aplicación</string>
+    <string name="txt_show_labels_below_menu_icons">Mostrar etiquetas debajo de los iconos del menú</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Cargando una frase...</string>
+    <string name="txt_loading_sentence">Cargando frase...</string>
     <string name="btn_skip_sentence">Saltar</string>
     <string name="btn_send_sentence">Enviar grabación</string>
     <string name="txt_loading_clip">Cargando clip...</string>
@@ -151,6 +162,12 @@
     <string name="checkbox_reason4_report">Difícil de pronunciar</string>
     <string name="checkbox_reason5_report">Otro</string>
     <string name="checkbox_reason5_comment_report">Comentario</string>
+    <string name="txt_sentences_finished_offline_mode">Se ha quedado sin oraciones sin conexión. Conéctese a Internet para descargar más oraciones para grabar.</string>
+    <string name="txt_clips_finished_offline_mode">Te has quedado sin clips sin conexión. Conéctate a Internet para descargar más clips para validar.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">Puede grabar {{*{{n_sentences}}*}} oraciones más antes de que necesite conectarse a Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">Puedes validar {{*{{n_clips}}*}} clips más antes de tener que conectar a Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Revisar de nuevo</string>
     <string name="txt_noconnection">No estás conectado a internet. Conéctate a Wi-Fi o datos móviles, luego pulsa el botón de abajo.</string>
@@ -185,10 +202,20 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Error al iniciar sesión</string>
     <string name="youHaveToAcceptPrivacyPolicy">Primero debes iniciar sesión en el sitio web de Common Voice y aceptar la política de privacidad de Common Voice.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Abrir Common Voice</string>
+    <string name="text_warning">Advertencia</string>
+    <string name="text_tip">Sugerencia</string>
+    <string name="text_changelog">Registro de cambios</string>
+    <string name="text_help">Ayuda</string>
+    <string name="text_info">Información</string>
+    <string name="check_box_message_dialog">No mostrar más</string>
+    <string name="text_offline_mode">Offline mode</string>
+    <string name="text_offline_mode_enabled">Estás desconectado y la aplicación cambió automáticamente al modo sin conexión.\nEsto significa que puede continuar grabando y validando, pero las solicitudes se enviarán más tarde.</string>
+    <string name="text_offline_mode_enabled_2">Puedes saber cuándo estás en modo sin conexión buscando este icono en la pantalla:</string>
+    <string name="text_offline_mode_enabled_3">Puede tocar ese icono para ver los clips descargados y las frases.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Objetivo diario</string>
-    <string name="daily_goal_is_not_set">No goal set</string>
-    <string name="set_daily_goal">Set a goal</string>
+    <string name="daily_goal_is_not_set">Ningún objetivo fijado</string>
+    <string name="set_daily_goal">Establecer objetivo</string>
     <string name="edit_daily_goal">Editar objetivo</string>
     <string name="save_daily_goal">Guardar</string>
     <string name="delete_daily_goal">Eliminar</string>
@@ -196,10 +223,10 @@
     <string name="description_setting_daily_goal">Elija cuántas oraciones desea grabar y clips que desea validar (suma de ellas) al día.</string>
     <string name="daily_goal_achieved_today">Alcanzado hoy</string>
     <string name="daily_goal_not_achieved_today">No alcanzado hoy</string>
-    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="daily_goal_is_not_official_by_mozilla">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <string name="daily_goal_achieved_message">¡Bien hecho! Has alcanzado tu meta diaria.\nHas validado {{*{{n_clips}}*}} clip(s) y has grabado {{*{{n_sentences}}*}} frase(s).\nSiéntete libre de seguir contribuyendo a Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla">El objetivo diario no es una característica oficial de Mozilla. Es sólo una característica de esta aplicación.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available">Una nueva versión de la aplicación está disponible (lanzamiento {{*{{n_version}}*}}). Puedes actualizarla desde tu tienda favorita (F-Droid, Google Play Store) o directamente desde GitHub.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

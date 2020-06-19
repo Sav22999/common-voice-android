@@ -2,6 +2,7 @@ package org.commonvoice.saverio_lib.background
 
 import android.content.Context
 import androidx.work.*
+import kotlinx.coroutines.coroutineScope
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.Recording
@@ -26,38 +27,38 @@ class RecordingsUploadWorker(
     private val mainPrefManager = MainPrefManager(appContext)
     private val statsPrefManager = StatsPrefManager(appContext)
 
-    override suspend fun doWork(): Result {
-        recordingsRepository.deleteOldRecordings(getTimestampOfNowPlus(seconds = 0))
-        recordingsRepository.deleteFailedRecordings()
+    override suspend fun doWork(): Result = coroutineScope {
+        try {
+            recordingsRepository.deleteOldRecordings(getTimestampOfNowPlus(seconds = 0))
+            recordingsRepository.deleteFailedRecordings()
 
-        if (recordingsRepository.getRecordingsCount() == 0) {
-            db.close()
-            return Result.success()
-        }
-
-        val availableRecordings = recordingsRepository.getAllRecordings()
-
-        availableRecordings.forEach { recording ->
-            val result = sendRecording(recording) //false
-
-            if (result) {
-                recordingsRepository.deleteRecording(recording)
-                if (mainPrefManager.sessIdCookie != null) {
-                    statsPrefManager.todayRecorded++
-                }
-            } else {
-                recordingsRepository.updateRecording(recording.increaseAttempt())
+            if (recordingsRepository.getRecordingsCount() == 0) {
+                return@coroutineScope Result.success()
             }
-        }
 
-        return if (recordingsRepository.getRecordingsCount() != 0) {
-            db.close()
-            Result.retry()
-        } else {
-            db.close()
-            Result.success()
-        }
+            val availableRecordings = recordingsRepository.getAllRecordings()
 
+            availableRecordings.forEach { recording ->
+                val result = sendRecording(recording) //false
+
+                if (result) {
+                    recordingsRepository.deleteRecording(recording)
+                    if (mainPrefManager.sessIdCookie != null) {
+                        statsPrefManager.todayRecorded++
+                    }
+                } else {
+                    recordingsRepository.updateRecording(recording.increaseAttempt())
+                }
+            }
+
+            return@coroutineScope if (recordingsRepository.getRecordingsCount() != 0) {
+                Result.retry()
+            } else {
+                Result.success()
+            }
+        } finally {
+            db.close()
+        }
     }
 
     private suspend fun sendRecording(recording: Recording): Boolean {

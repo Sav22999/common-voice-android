@@ -8,8 +8,6 @@
     <string name="title_dashboard">Tresnak</string>
     <string name="title_settings">Ezarpenak</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">Common Voice ikurra</string>
-    <string name="description_cv_logo">Common Voice robota</string>
     <string name="button_home_login">Hasi saioa / eman izena</string>
     <string name="button_home_logout">Amaitu saioa</string>
     <string name="button_home_profile">Profila</string>
@@ -26,20 +24,37 @@
     <string name="toastNoLoginNoDailyGoal">Saioa hasi behar duzu eguneroko helburua zehazteko</string>
     <string name="textHoursAbbreviation">ord</string>
     <string name="textHour">Orduak</string>
-    <!-- Tutorial -->
+    <string name="txt_top_contributors">Parte-hartzaile nagusiak</string>
+    <string name="txt_top_contributors_recorded">Grabatuta</string>
+    <string name="txt_top_contributors_validated">Baliozkotua</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">Aplikazioaren estatistikak</string>
+    <string name="txt_current_language">Uneko hizkuntza</string>
+    <string name="txt_all_languages">Hizkuntza guztiak</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Ez dago eskuragarri lineaz kanpo</string>
+    <!-- First launch -->
     <string name="btn_tutorial1">Hasi</string>
     <string name="btn_tutorial2">Baimendu</string>
     <string name="btn_tutorial3">Hurrengoa</string>
     <string name="btn_tutorial4">Saiatu berriro</string>
     <string name="btn_tutorial5">Amaitu</string>
-    <string name="txt_permission_successful">Baimena arrakastatsua</string>
-    <string name="txt_permission_failed">Errorea: baimena arrakastatsua</string>
+    <string name="btn_skip">Saltatu</string>
+    <string name="txt_permission_obtained_first_launch">Lortutako baimena</string>
+    <string name="txt_permission_denied_first_launch">Errorea: baimena ukatuta</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/eu/terms</string>
-    <string name="tutorial_text1">Hau ez da Common Voiceren aplikazio ofiziala. Saverio Morellik Mozillarekin inolako euskarri edo atseginik gabe garatzen du.</string>
-    <string name="tutorial_terms">Aurrera egitean, Common Voiceren baldintzak eta zerbitzuak onartzen dituzu.</string>
-    <string name="tutorial_text2">Common Voice aplikazioak mikrofonoaren baimena behar du behar bezala funtzionatzeko.</string>
-    <string name="tutorial_text3">Common Voice aplikazioak biltegiratzeko baimena behar du behar bezala funtzionatzeko.</string>
-    <string name="tutorial_text4">Aukeratu zure jatorrizko hizkuntza. Erregistratu eta baliozkotuko dituen perpausak hizkuntza horretan egongo dira.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice Android aplikazio ez-ofiziala da Mozilla Common Voicerentzako. Saverio Morellik garatu du, Mozillarekin inolako laguntzarik edo elkarterik gabe.</string>
+    <string name="txt_accept_terms_first_launch">Aurrera egitean, Mozillaren ahots-zerbitzu komunaren baldintzak onartzen dituzu.</string>
+    <string name="txt_microphone_permission_first_launch">Aplikazio honek \"Mikrofonoa\" baimena behar du zure ahotsa grabatzeko.</string>
+    <string name="txt_storage_permission_first_launch">GitHub edo Telegramen akatsen berri eman dezakezu. Garatzaileari arazoa azkar ulertzen laguntzeko, aplikazioaren erregistro-fitxategia erantsi behar diozu txostenari. Aplikazioak \"Gorde\" baimena behar du erregistro-fitxategia gordetzeko.</string>
+    <string name="txt_offline_mode_first_launch">Lineaz kanpo zaudenean ere lagun dezakezu. Aplikazioaren \"konexiorik gabeko modua\" automatikoki gaituko da, eta Interneteko konexiorik gabe grabatzen eta entzuten jarrai dezakezu.</string>
+    <string name="txt_themes_first_launch">Gai argi bat edo gai ilun bat aukera dezakezu. Hori geroago alda dezakezu Ezarpenak atalean.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">Gai iluna</string>
+    <string name="txt_gestures_first_launch">Ekintza batzuek dagozkien keinuak dituzte. Adibidez, esaldi bat ezaba dezakezu Hitz egin ezkerrera eramanez.</string>
+    <string name="txt_customise_gestures_first_launch">Ezarpenak atalean pertsonaliza ditzakezu keinu horiek.</string>
+    <string name="txt_telegram_group_first_launch">Telegram taldearekin bat egin dezakezu albisteak edota laguntza eskuratzeko.</string>
+    <string name="btn_join_telegram_first_launch">Elkartu taldera</string>
+    <string name="txt_choose_language_first_launch">Goazen! Aukeratu hitz egin edo entzun nahi duzun hizkuntza. Aplikazioa hizkuntza horretan ere agertuko da, baldin eta itzulpenik badago.</string>
     <!-- Login -->
     <string name="txt_loading_page">Kargatzen ...</string>
     <string name="txt_profile_username">Erabiltzaile izena</string>
@@ -53,16 +68,6 @@
     <string name="txt_gender_other">Beste bat</string>
     <string name="btn_badges_loggedin">Identifikazio-txartel guztiak</string>
     <string name="txt_your_level">Maila {{*{{level}}*}}</string>
-    <string name="txt_level1_name">Haurra</string>
-    <string name="txt_level2_name">Umetxoa</string>
-    <string name="txt_level3_name">Nerabea</string>
-    <string name="txt_level4_name">Gaztea</string>
-    <string name="txt_level5_name">Gazte heldua</string>
-    <string name="txt_level6_name">Heldua</string>
-    <string name="txt_level7_name">Seniorra</string>
-    <string name="txt_level8_name">Pro</string>
-    <string name="txt_level9_name">Maisua</string>
-    <string name="txt_level10_name">Irabazlea</string>
     <string name="level_up_message">Zorionak! {{*{{n_level}}*}} maila lortu duzu.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Ireki berriro tutoriala</string>
@@ -110,8 +115,14 @@
     <string name="toast_gestures_off">Keinuak desgaituta daude orain.</string>
     <string name="message_review_app_on_play_store">Mesedez, aplikazio hau gustatzen bazaizu, gogoratu Google Play Storen berrikustea.</string>
     <string name="message_app_not_completely_translated">Aplikazioa ez dago hizkuntza honetara itzulita (osatuta).\Aplikazioa Crowdin-en itzultzen lagun dezakezu.</string>
+    <string name="txt_animations">Animazioak</string>
+    <string name="txt_customise_the_font_size">Pertsonalizatu letra-tamaina</string>
+    <string name="txt_customise_gestures">Pertsonalizatu keinuak</string>
+    <string name="txt_themes_settings">Gaiak</string>
+    <string name="txt_telegram_group_settings">Aplikazioaren Telegram taldea</string>
+    <string name="txt_show_labels_below_menu_icons">Erakutsi etiketak menuaren ikonoen azpian</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Esaldi bat kargatzen...</string>
+    <string name="txt_loading_sentence">Esaldia kargatzen...</string>
     <string name="btn_skip_sentence">Saltatu</string>
     <string name="btn_send_sentence">Bidali grabazioa</string>
     <string name="txt_loading_clip">Klipa kargatzen...</string>
@@ -151,6 +162,12 @@
     <string name="checkbox_reason4_report">Ahoskatzeko zaila</string>
     <string name="checkbox_reason5_report">Beste bat</string>
     <string name="checkbox_reason5_comment_report">Iruzkinak</string>
+    <string name="txt_sentences_finished_offline_mode">Konexiorik gabeko esaldirik gabe geratu zara. Konektatu Internetera grabatzeko esaldi gehiago deskargatzeko.</string>
+    <string name="txt_clips_finished_offline_mode">Konexiorik gabeko klipik gabe geratu zara. Konektatu Internetera balidatzeko klip gehiago deskargatzeko.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">{{*{{n_sentences}}*}} esaldi gehiago grabatu ditzakezu Internetera konektatu aurretik.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">{{*{{n_clips}}*}} klip gehiago balidatu ditzakezu Internetera konektatu aurretik.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">Berriz begiratu</string>
     <string name="txt_noconnection">Ez zaude Internetera konektatuta. Konektatu Wi-Fi edo datu mugikorrekin, ondoren sakatu botoia.</string>
@@ -185,6 +202,16 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">Saio-hasierak huts egin du</string>
     <string name="youHaveToAcceptPrivacyPolicy">Lehenik eta behin, Common Voice-ren webgunean saioa hasi behar duzu eta Common Voice-ren pribatutasun-politika onartu.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Ireki Common Voice</string>
+    <string name="text_warning">Kontuz</string>
+    <string name="text_tip">Aholkua</string>
+    <string name="text_changelog">Aldaketa erregistroa</string>
+    <string name="text_help">Laguntza</string>
+    <string name="text_info">Informazioa</string>
+    <string name="check_box_message_dialog">Ez erakutsi gehiago</string>
+    <string name="text_offline_mode">Lineaz-kanpo Modua</string>
+    <string name="text_offline_mode_enabled">Deskonektatuta zaude eta aplikazioa automatikoki aldatu da konexiorik gabeko modura.\nHorrek esan nahi du grabatzen eta baliozkotzen jarrai dezakezula, baina eskaerak geroago bidaliko dira.</string>
+    <string name="text_offline_mode_enabled_2">Konexiorik gabeko moduan noiz zauden jakin dezakezu, pantailan ikono hau bilatuz:</string>
+    <string name="text_offline_mode_enabled_3">Ikono hori ukitu dezakezu deskargatutako klipak eta esaldiak ikusteko.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Eguneko helburua</string>
     <string name="daily_goal_is_not_set">Ezarritako helbururik gabe</string>

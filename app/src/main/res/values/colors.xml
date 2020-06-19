@@ -16,7 +16,7 @@
     <color name="colorLightGreen">#228822</color>
     <color name="colorLightGray">#999999</color>
     <color name="colorDarkDarkGray">#222222</color>
-    <color name="colorLightBlack">#111111</color>
+    <color name="colorLightBlack">#222222</color>
     <color name="colorDarkWhite">#EEEEEE</color>
     <color name="colorSeparator">#404040</color>
     <color name="colorMenuInactive">#777777</color>
@@ -28,6 +28,12 @@
     <color name="colorTransparent">#00000000</color>
     <color name="colorWhiteTransparent">#88EEEEEE</color>
     <color name="colorBackgroundDarkTransparent">#AA000000</color>
+
+    <color name="colorTabBackgroundInactive">#EEEEEE</color>
+    <color name="colorTabBackgroundInactiveDT">#222222</color>
+
+    <color name="colorYouTopContributors">#BBBBBB</color>
+    <color name="colorYouTopContributorsDT">#555555</color>
 
     <!-- Message dialogs -->
     <color name="colorWarning">#FF5722</color>

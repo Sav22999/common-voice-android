@@ -93,7 +93,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        homeViewModel.postStats(BuildConfig.VERSION_NAME, MainActivity.SOURCE_STORE)
+        homeViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, MainActivity.SOURCE_STORE)
     }
 
     fun setTheme(view: Context, root: View) {

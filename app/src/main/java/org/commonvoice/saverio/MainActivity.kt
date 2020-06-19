@@ -12,10 +12,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -25,6 +22,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -32,12 +30,14 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
@@ -46,13 +46,13 @@ import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.HashMap
-import kotlin.random.Random
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val workManager: WorkManager by inject()
     private val mainActivityViewModel: MainActivityViewModel by viewModel()
+    private val dashboardViewModel: DashboardViewModel by viewModel()
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
@@ -76,7 +76,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     //"TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
 
     val urlWithoutLang: String =
-        "https://voice.allizom.org/api/v1/" //API url (without lang)
+        "https://voice.mozilla.org/api/v1/" //API url (without lang)
 
     val urlStatistics =
         "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request for anonymous statistics
@@ -119,7 +119,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "LEVEL_SAVED" to "LEVEL_SAVED",
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
             "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
-            "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED"
+            "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED",
+            "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -153,6 +154,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        if (mainPrefManager.areLabelsBelowMenuIcons) {
+            navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+        } else {
+            navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+        }
+
         //checkConnection()
 
         // import languages from array
@@ -176,7 +183,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
             ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
-            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
         }
 
         this.checkUserLoggedIn()
@@ -495,7 +502,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
             mainPrefManager.areStatsAnonymous = status
-            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, SOURCE_STORE)
+            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
         }
     }
 
@@ -693,6 +700,27 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 PRIVATE_MODE
             ).edit()
                 .putBoolean(settingsSwitchData["GESTURES"], status)
+                .apply()
+        }
+    }
+
+    fun getLabelsBelowMenuIconsSettingsSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["LABELS_MENU_ICONS"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["LABELS_MENU_ICONS"],
+            false
+        )
+    }
+
+    fun setLabelsBelowMenuIconsSettingsSwitch(status: Boolean) {
+        if (status != this.getLabelsBelowMenuIconsSettingsSwitch()) {
+            getSharedPreferences(
+                settingsSwitchData["LABELS_MENU_ICONS"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["LABELS_MENU_ICONS"], status)
                 .apply()
         }
     }
@@ -1079,25 +1107,24 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 false
             }
 
-            if (languageChanged) {
-                mainPrefManager.language = lang
-                mainActivityViewModel.clearDB()
-
-                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-            }
-
             this.selectedLanguageVar = lang
 
             if (languageChanged) {
-                getSharedPreferences(
-                    settingsSwitchData["UI_LANGUAGE_CHANGED"],
-                    PRIVATE_MODE
-                ).edit()
-                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+                mainPrefManager.language = lang
+                mainActivityViewModel.clearDB().invokeOnCompletion {
+                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
+                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
 
-                setLanguageUI("restart")
-                resetDashboardData()
+                    getSharedPreferences(
+                        settingsSwitchData["UI_LANGUAGE_CHANGED"],
+                        PRIVATE_MODE
+                    ).edit()
+                        .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+
+                    setLanguageUI("restart")
+                    resetDashboardData()
+                }
+                dashboardViewModel.lastStatsUpdate = 0
             }
 
         } catch (e: Exception) {
@@ -1319,6 +1346,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if ((requestCode == 111 || requestCode == 110) && resultCode == RESULT_OK) {
             //println("MainActivity updated")
             //data?.extras.getString("key") //to get "putExtra" information by "key"
+            dashboardViewModel.updateStats(force = true)
             recreate()
         } else {
             //println("MainActivity updated (2)")

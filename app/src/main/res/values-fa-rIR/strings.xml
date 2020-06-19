@@ -8,8 +8,6 @@
     <string name="title_dashboard">پیشخان</string>
     <string name="title_settings">تنظیمات</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">نشان صداهای اشتراکی</string>
-    <string name="description_cv_logo">روبات صداهای اشتراکی</string>
     <string name="button_home_login">ورود یا ثبت‌نام</string>
     <string name="button_home_logout">خروج</string>
     <string name="button_home_profile">نمایه</string>
@@ -26,20 +24,37 @@
     <string name="toastNoLoginNoDailyGoal">برای تنظیم هدف روزانه باید وارد شوید</string>
     <string name="textHoursAbbreviation">س</string>
     <string name="textHour">ساعت</string>
-    <!-- Tutorial -->
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">در حالت برون‌خط موجود نیست</string>
+    <!-- First launch -->
     <string name="btn_tutorial1">شروع</string>
     <string name="btn_tutorial2">اجازه</string>
     <string name="btn_tutorial3">بعدی</string>
     <string name="btn_tutorial4">تلاش دوباره</string>
     <string name="btn_tutorial5">پايان</string>
-    <string name="txt_permission_successful">دسترسی موفقیت‌آمیز</string>
-    <string name="txt_permission_failed">خطا: دسترسی شکست خورد</string>
+    <string name="btn_skip">پرش</string>
+    <string name="txt_permission_obtained_first_launch">دسترسی اعطا شد</string>
+    <string name="txt_permission_denied_first_launch">خطا: دسترسی رد شد</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/fa/terms</string>
-    <string name="tutorial_text1">این، کارهٔ رسمی صداهای اشتراکی نیست، بلکه به دست ساوریو مورلی بدون هیچ پشتیبانی یا شراکتی با موزیلا توسعه یافته است.</string>
-    <string name="tutorial_terms">ادامه دادن، به منزلهٔ پذیرش شرایط خدمات صداهای اشتراکی است.</string>
-    <string name="tutorial_text2">کارهٔ صداهای اشتراکی برای کار کردن درست به دسترسی «میکروفون» نیاز دارد.</string>
-    <string name="tutorial_text3">کارهٔ صداهای اشتراکی برای کار کردن درست به دسترسی «ذخیره‌سازی» نیاز دارد.</string>
-    <string name="tutorial_text4">زبان بومیتان را برگزینید. جمله‌هایی که ضبط و تأیید می‌کنید، بدین زبان خواهند بود.</string>
+    <string name="txt_introduction_app_first_launch">صداهای اشتراکی اندروید کاره‌ای غیرسمی برای صداهای اشتراکی موزیلا است. به دست سوریو مورلی بدون هیچ پشتیبانی یا شراکت موزیلا توسعه داده شده.</string>
+    <string name="txt_accept_terms_first_launch">با ادامه دادن، با شرایط خدمت صداهای اشتراکی موزیلا موافقت می‌کنید.</string>
+    <string name="txt_microphone_permission_first_launch">این کاره برای ضبط صدایتان به دسترسی «میکروفون» نیاز دارد.</string>
+    <string name="txt_storage_permission_first_launch">می‌توانید مشکلات را روی گیت‌هاب یا تلگرام گزارش کنید. برای کمک به توسعه‌دهنده برای درک سریع‌تر مشکل، باید پروندهٔ گزارش را به گزارشتان پیوست کنید. کاره برای ذخیرهٔ پروندهٔ گزارش، نیاز به دسترسی «ذخیره‌سازی» دارد.</string>
+    <string name="txt_offline_mode_first_launch">می‌توانید حتا وقتی برون‌خط هستید نیز مشارکت کنید. «حالت برون‌خط» کاره به صورت خودکار به کار می‌افتد و می‌توانید بدون اتّصال اینترنتی، ضبط و شنیدن را ادامه دهید.</string>
+    <string name="txt_themes_first_launch">می‌توانید زمینهٔ روشن یا تیره را برگزینید. می‌توانید بعداً این زمینه را در تنظیمات عوض کنید.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">زمینهٔ تاریک</string>
+    <string name="txt_gestures_first_launch">برخی کنش‌ها، اشاره‌های متناظری دارند. برای مثال، می‌توانید در حالت صحبت، با کشیدن به چپ، از جمله‌ای بپرید.</string>
+    <string name="txt_customise_gestures_first_launch">می‌توانید این اشاره‌ها را در تنظیمات شخصی‌سازی کنید.</string>
+    <string name="txt_telegram_group_first_launch">می‌توانید برای گرفتن اخبار و پشتیبانی به گروه تلگرام بپیوندید.</string>
+    <string name="btn_join_telegram_first_launch">پیوستن به گروه</string>
+    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page">در حال بار کردن…</string>
     <string name="txt_profile_username">نام کاربری</string>
@@ -53,16 +68,6 @@
     <string name="txt_gender_other">ديگر</string>
     <string name="btn_badges_loggedin">همهٔ نشان‌ها</string>
     <string name="txt_your_level">سطح {{*{{level}}*}}</string>
-    <string name="txt_level1_name">نوزاد</string>
-    <string name="txt_level2_name">کودک</string>
-    <string name="txt_level3_name">نوجوان</string>
-    <string name="txt_level4_name">جوان</string>
-    <string name="txt_level5_name">بزرگسال جوان</string>
-    <string name="txt_level6_name">بزرگسال</string>
-    <string name="txt_level7_name">ارشد</string>
-    <string name="txt_level8_name">حرفه‌ای</string>
-    <string name="txt_level9_name">استاد</string>
-    <string name="txt_level10_name">قهرمان</string>
     <string name="level_up_message">تبریک! به سطح {{*{{n_level}}*}} رسیدید.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">گشودن دوبارهٔ خودآموز</string>
@@ -86,8 +91,8 @@
     <string name="toast_experimental_features_on">ویژگی‌های آزمایشی روشن شدند.\nویژگی‌های جدید می‌توانند ناپایدار و ناامن باشند.</string>
     <string name="toast_experimental_featured_off">ویژگی‌های آزمایشی خاموش شدند.</string>
     <string name="txt_log_on_file">ذخیرهٔ گزارش‌ها به یک پرونده</string>
-    <string name="toast_log_on_file_on">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="toast_log_on_file_off">Saving logs to a file turned off.</string>
+    <string name="toast_log_on_file_on">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.\nمی‌توانید هنگام گزارش یک مشکل، پروندهٔ log.txt را پیوست کنید.\nدر گیت‌هاب بیش‌تر بخوانید.</string>
+    <string name="toast_log_on_file_off">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.</string>
     <string name="txt_anonymous_statistics">آمار ناشناس</string>
     <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -100,18 +105,24 @@
     <string name="toast_recording_indicator_sound_on">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
     <string name="toast_recording_indicator_sound_off">Recording indicator sound is now turned off.</string>
     <string name="txt_check_for_updates">بررسی برای به‌روز رسانی‌ها</string>
-    <string name="toast_check_for_updated_on">Check for updates turned on.</string>
-    <string name="toast_check_for_updated_off">Check for updates turned off.</string>
+    <string name="toast_check_for_updated_on">بررسی به‌روز رسانی‌ها روشن شد.</string>
+    <string name="toast_check_for_updated_off">بررسی به‌روز رسانی‌ها خاموش شد.</string>
     <string name="txt_abort_confirmation_dialogs_in_settings">رد کردن گفت‌وگوهای تأیید در تنظیمات</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
     <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
     <string name="txt_gestures">اشاره‌ها</string>
-    <string name="toast_gestures_on">Gestures are now turned on.</string>
-    <string name="toast_gestures_off">Gestures are now turned off.</string>
+    <string name="toast_gestures_on">اشاره‌ها الآن روشنند.</string>
+    <string name="toast_gestures_off">اشاره‌ها الآن خاموشند.</string>
     <string name="message_review_app_on_play_store">اگر این کاره را دوست دارید، لطفاً روی فروشگاه پلی گوگل بازبینیش کنید.</string>
     <string name="message_app_not_completely_translated">این کاره (کاملاً) به این زبان ترجمه نشده است.\nمی‌توانید روی کرودین در ترجمه‌اش مشارکت کنید.</string>
+    <string name="txt_animations">پویانمایی‌ها</string>
+    <string name="txt_customise_the_font_size">سفارشی‌سازی اندازهٔ قلم</string>
+    <string name="txt_customise_gestures">شخصی‌سازی اشاره‌ها</string>
+    <string name="txt_themes_settings">زمینه‌ها</string>
+    <string name="txt_telegram_group_settings">گروه تلگرام کاره</string>
+    <string name="txt_show_labels_below_menu_icons">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">در حال بار کردن یک جمله…</string>
+    <string name="txt_loading_sentence">در حال بار کردن جمله…</string>
     <string name="btn_skip_sentence">پرش</string>
     <string name="btn_send_sentence">فرستادن ضبط</string>
     <string name="txt_loading_clip">در حال بار کردن قطعه…</string>
@@ -151,6 +162,12 @@
     <string name="checkbox_reason4_report">گویش دشوار</string>
     <string name="checkbox_reason5_report">ديگر</string>
     <string name="checkbox_reason5_comment_report">نظر</string>
+    <string name="txt_sentences_finished_offline_mode">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">بررسی دوباره</string>
     <string name="txt_noconnection">به اینترنت وصل نیستید. به وای‌فای یا دادهٔ همراه وصل شده، سپس دکمهٔ زیر را بزنید.</string>
@@ -185,6 +202,16 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">ورود شکست خورد</string>
     <string name="youHaveToAcceptPrivacyPolicy">نخست باید وارد پایگاه وب صداهای اشتراکی شده و سیاست محرمانگیش را بپذیرید.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">گشودن صداهای اشتراکی</string>
+    <string name="text_warning">هشدار</string>
+    <string name="text_tip">نکته</string>
+    <string name="text_changelog">گزارش تغییرات</string>
+    <string name="text_help">راهنما</string>
+    <string name="text_info">اطلاعات</string>
+    <string name="check_box_message_dialog">دیگر نشان داده نشود</string>
+    <string name="text_offline_mode">Offline mode</string>
+    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">هدف روزانه</string>
     <string name="daily_goal_is_not_set">هدفی تنظیم نشده</string>
@@ -199,7 +226,7 @@
     <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">هدف روزانه یک ویژگی رسمی موزیلا نیست. فقط ویژگی‌ای از این کاره است.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available">نگارشی جدید از کاره موجود است (ارایه {{*{{n_version}}*}}). می‌توانید از فروشگاه دلخواهتان (اف‌دروید یا فروشگاه پلی گوگل) به‌روزش کرده یا مستقیماً از گیت‌هاب بگیرید.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

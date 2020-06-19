@@ -5,10 +5,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -53,6 +50,8 @@ class SpeakViewModel(
         set(value) {
             savedStateHandle["currentRecording"] = value
         }
+
+    val hasFinishedSentences = sentencesRepository.getLiveSentenceCount().map { it == 0 }
 
     init {
         mediaRecorderRepository.setupRecorder()
@@ -112,6 +111,11 @@ class SpeakViewModel(
     }
 
     fun skipSentence() = viewModelScope.launch(Dispatchers.IO) {
+        when (_state.value) {
+            State.RECORDING -> stopRecording()
+            State.LISTENING -> stopListening()
+        }
+
         currentSentence.value?.let {
             sentencesRepository.deleteSentence(it)
         }
@@ -162,6 +166,7 @@ class SpeakViewModel(
         } else {
             delay(500) //Just to avoid a loop
             _state.postValue(State.STANDBY)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
 
@@ -189,6 +194,8 @@ class SpeakViewModel(
             skipSentence()
         }
     }
+
+    suspend fun getSentencesCount() = sentencesRepository.getSentenceCount()
 
     override fun onCleared() {
         mediaRecorderRepository.clean()

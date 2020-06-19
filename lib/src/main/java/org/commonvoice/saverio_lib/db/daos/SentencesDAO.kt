@@ -25,10 +25,10 @@ interface SentencesDAO {
     @Query("SELECT * FROM sentences ORDER BY expiry ASC LIMIT 1")
     suspend fun getOldestSentence(): Sentence?
 
-    @Query("SELECT * FROM sentences WHERE expiry <= :dateOfToday")
-    suspend fun getOldSentences(dateOfToday: Long): List<Sentence>
-
     @Query("DELETE FROM sentences WHERE expiry <= :dateOfToday")
     suspend fun deleteOldSentences(dateOfToday: Long)
+
+    @Query("DELETE FROM sentences WHERE lang IS NOT :language")
+    suspend fun deleteWrongSentences(language: String)
 
 }

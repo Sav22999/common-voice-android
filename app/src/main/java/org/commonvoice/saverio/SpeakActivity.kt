@@ -9,10 +9,6 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -20,9 +16,13 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_listen.*
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_speak.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -52,10 +52,6 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         setupInitialUIState()
 
         setupUI()
-
-        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            checkOfflineMode(available)
-        })
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -64,6 +60,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             if (!available) {
                 startAnimation(imageOfflineModeSpeak, R.anim.zoom_in_speak_listen)
                 speakViewModel.offlineModeIconVisible = true
+                if (mainPrefManager.showOfflineModeMessage) {
+                    showMessageDialog("", "", 10)
+                }
             } else {
                 startAnimation(imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false
@@ -73,10 +72,14 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
+    public fun setShowOfflineModeMessage(value: Boolean = true) {
+        mainPrefManager.showOfflineModeMessage = value
+    }
+
     override fun onBackPressed() {
         textMessageAlertSpeak.setText(R.string.txt_closing)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
-        textSentenceSpeak.text = "..."
+        textSentenceSpeak.text = "···"
         textSentenceSpeak.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
             resources.getDimension(R.dimen.title_very_big)
@@ -94,6 +97,27 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun setupUI() {
+        imageOfflineModeSpeak.onClick {
+            lifecycleScope.launch {
+                val count = speakViewModel.getSentencesCount()
+                withContext(Dispatchers.Main) {
+                    NoClipsSentencesAvailableDialog(this@SpeakActivity, true, count).show()
+                }
+            }
+        }
+
+        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+            checkOfflineMode(available)
+        })
+
+        speakViewModel.hasFinishedSentences.observe(this, Observer {
+            if (it && !connectionManager.isInternetAvailable) {
+                NoClipsSentencesAvailableDialog(this, true, 0).show {
+                    onBackPressed()
+                }
+            }
+        })
+
         speakViewModel.currentSentence.observe(this, Observer { sentence ->
             setupUIStateStandby(sentence)
         })
@@ -172,7 +196,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         windowManager.defaultDisplay.getMetrics(metrics)
         //val width = metrics.widthPixels
         val height = metrics.heightPixels
-        MessageDialog(this, type, title, text, details = "", height = height).show()
+        val msg = MessageDialog(this, type, title, text, details = "", height = height)
+        msg.setSpeakActivity(this)
+        msg.show()
     }
 
     private fun setupGestures() {
@@ -251,7 +277,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun loadUIStateLoading() {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
-        textSentenceSpeak.text = "..."
+        textSentenceSpeak.text = "···"
 
         buttonRecordOrListenAgain.isGone = true
         buttonReportSpeak.isGone = true

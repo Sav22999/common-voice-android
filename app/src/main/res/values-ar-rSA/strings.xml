@@ -8,8 +8,6 @@
     <string name="title_dashboard">لوحة التحكم</string>
     <string name="title_settings">الإعدادات</string>
     <!-- Home (main) -->
-    <string name="description_cv_robot">شعار Common Voice</string>
-    <string name="description_cv_logo">روبوت Common Voice</string>
     <string name="button_home_login">تسجيل الدخول / حساب جدبد</string>
     <string name="button_home_logout">تسجيل الخروج</string>
     <string name="button_home_profile">الملف الشخصي</string>
@@ -26,20 +24,37 @@
     <string name="toastNoLoginNoDailyGoal">يجب عليك تسجيل الدخول لتحدّد الهدف اليومي</string>
     <string name="textHoursAbbreviation">س</string>
     <string name="textHour">ساعة</string>
-    <!-- Tutorial -->
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <!-- 4, ..., 100, etc. -->
+    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_app_statistics">App statistics</string>
+    <string name="txt_current_language">Current language</string>
+    <string name="txt_all_languages">All languages</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <!-- First launch -->
     <string name="btn_tutorial1">ابدأ</string>
     <string name="btn_tutorial2">تصريح</string>
     <string name="btn_tutorial3">التالي</string>
     <string name="btn_tutorial4">حاول مجددًا</string>
     <string name="btn_tutorial5">إنهاء</string>
-    <string name="txt_permission_successful">تم إعطاء التصريح بنجاح</string>
-    <string name="txt_permission_failed">خطأ: فشل الإذن بالتصريح</string>
+    <string name="btn_skip">تخطي</string>
+    <string name="txt_permission_obtained_first_launch">تم الحصول على الإذن</string>
+    <string name="txt_permission_denied_first_launch">خطأ: لقد تم رفض الإذن</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
-    <string name="tutorial_text1">هذا ليس التطبيق الرسمي لCommon Voice. لقد تمّ تطويره من طرف Saverio Morelli بدون أي دعم أو شراكة مع موزيلا.</string>
-    <string name="tutorial_terms">من خلال المتابعة فأنت توافق على شروط خدمة Common Voice.</string>
-    <string name="tutorial_text2">تطبيق Common Voice يحتاج إلى تصريح \"الميكروفون\" للعمل بشكل صحيح.</string>
-    <string name="tutorial_text3">تطبيق Common Voice يحتاج إلى تصريح \"التخزين\" للعمل بشكل صحيح.</string>
-    <string name="tutorial_text4">حدد لغتك الأم، الجمل التي ستسجّلها و تتحقق منها ستكون بهذه اللغة.</string>
+    <string name="txt_introduction_app_first_launch">Common Voice هو تطبيق غير رسمي لصوت موزيلا Common Voice. تم تطويره من قبل Saverio Morelli بدون أي دعم أو شراكة مع موزيلا.</string>
+    <string name="txt_accept_terms_first_launch">من خلال المتابعة، أنت توافق على شروط خدمة الخاصة بموزيلا Common Voice.</string>
+    <string name="txt_microphone_permission_first_launch">يحتاج هذا التطبيق إلى إذن \"الميكروفون\" لتسجيل صوتك.</string>
+    <string name="txt_storage_permission_first_launch">يمكنك الإبلاغ عن الأخطاء في GitHub أو Telegram. لمساعدة المطور على فهم المشكلة بسرعة، يجب عليك إرفاق ملف سِجل التطبيق بتقريرك. التطبيق يحتاج إلى إذن \"التخزين\" لحفظ ملف السِجل.</string>
+    <string name="txt_offline_mode_first_launch">يمكنك حتى المساهمة عندما تكون غير متصل. سيتم تفعيل وضعية\"غير متصل\" على التطبيق بشكل تلقائي، ويمكنك الاستمرار في التسجيل والاستماع بدون اتصال بالإنترنت.</string>
+    <string name="txt_themes_first_launch">يمكنك اختيار إما سمة الضوء أو السمة المظلمة. يمكنك تغيير هذا لاحقاً في الإعدادات.</string>
+    <string name="txt_turn_on_dark_theme_first_launch">المظهر الأسود</string>
+    <string name="txt_gestures_first_launch">بعض الإجراءات لها إيماءات مقابلة. على سبيل المثال، يمكنك تخطي جملة في التحدث بالسحب إلى اليسار.</string>
+    <string name="txt_customise_gestures_first_launch">يمكنك تخصيص هذه الإيماءات في الإعدادات.</string>
+    <string name="txt_telegram_group_first_launch">يمكنك الانضمام إلى مجموعة تيليجرام للحصول على الأخبار والدعم.</string>
+    <string name="btn_join_telegram_first_launch">انضم إلى المجموعة</string>
+    <string name="txt_choose_language_first_launch">دعنا نذهب! اختر اللغة التي ترغب في التحدث أو الاستماع إليها. سيتم عرض التطبيق أيضا بتلك اللغة إذا كانت الترجمة متاحة.</string>
     <!-- Login -->
     <string name="txt_loading_page">جاري التحميل...</string>
     <string name="txt_profile_username">اسم المستخدم</string>
@@ -53,16 +68,6 @@
     <string name="txt_gender_other">فئة أحرى</string>
     <string name="btn_badges_loggedin">جميع الشارات</string>
     <string name="txt_your_level">المستوى {{*{{level}}*}}</string>
-    <string name="txt_level1_name">رضيع</string>
-    <string name="txt_level2_name">طفل</string>
-    <string name="txt_level3_name">مراهق</string>
-    <string name="txt_level4_name">شاب</string>
-    <string name="txt_level5_name">شاب بالغ</string>
-    <string name="txt_level6_name">بالغ</string>
-    <string name="txt_level7_name">خبير</string>
-    <string name="txt_level8_name">محترف</string>
-    <string name="txt_level9_name">بارع</string>
-    <string name="txt_level10_name">بطل</string>
     <string name="level_up_message">تهانينا! لقد وصلت للتو إلى مستوى {{*{{n_level}}*}}.</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">فتح التعليمات مجدداُ</string>
@@ -110,6 +115,12 @@
     <string name="toast_gestures_off">تم الآن إيقاف تشغيل الإيماءات.</string>
     <string name="message_review_app_on_play_store">رجاءاُ، إذا أعجبك التطبيق، تذكر أن تعمل له مراجعة في متجر Google Play.</string>
     <string name="message_app_not_completely_translated">التطبيق غير مترجم إلى هذه اللغة (أو ترجمة غير مكتملة).\n يمكنك المساهمة في ترجمة التطبيق على منصة Crowdin.</string>
+    <string name="txt_animations">الحركات</string>
+    <string name="txt_customise_the_font_size">تخصيص حجم الخط</string>
+    <string name="txt_customise_gestures">تخصيص الإيماءات</string>
+    <string name="txt_themes_settings">السمات</string>
+    <string name="txt_telegram_group_settings">مجموعة تيليجرام الخاصة بالتطبيق</string>
+    <string name="txt_show_labels_below_menu_icons">إظهار التسميات أسفل أيقونات القائمة</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">جاري تحميل الجملة...</string>
     <string name="btn_skip_sentence">تخطي</string>
@@ -151,6 +162,12 @@
     <string name="checkbox_reason4_report">صعبة في النطق</string>
     <string name="checkbox_reason5_report">أخرى</string>
     <string name="checkbox_reason5_comment_report">تعليق</string>
+    <string name="txt_sentences_finished_offline_mode">لقد نفدت الجمل بدون اتصال. اتصل بالإنترنت لتنزيل المزيد من الجمل للتسجيل.</string>
+    <string name="txt_clips_finished_offline_mode">لقد نفد لديك أقراص غير متصلة. اتصل بالإنترنت لتنزيل المزيد من المقاطع للتحقق من صحتها.</string>
+    <!-- Don't translate {{*{{n_sentences}}*}} -->
+    <string name="txt_residual_sentences_offline_mode">يمكنك تسجيل {{*{{n_sentences}}*}} المزيد من الجمل قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
+    <!-- Don't translate {{*{{n_clips}}*}} -->
+    <string name="txt_residual_clips_offline_mode">يمكنك التحقق من صحة {{*{{n_clips}}*}} المزيد من المقاطع قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection">التحقق مجدداً</string>
     <string name="txt_noconnection">أنت غير متصل بالأنترنيت، اتصل بشبكة الواي فاي أو بيانات الجوال، ثم اضغط على الرمز أسفله.</string>
@@ -185,6 +202,16 @@
     <string name="youHaveToAcceptPrivacyPolicyTitle">فشل تسجبل الدخول</string>
     <string name="youHaveToAcceptPrivacyPolicy">يجب عليك أولاً تسجيل الدخول في موقع Common Voice و قبول سياسة الخصوصية الخاصة بCommon Voice.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">فتح Common Voice</string>
+    <string name="text_warning">تحذير</string>
+    <string name="text_tip">Tip</string>
+    <string name="text_changelog">تغيير</string>
+    <string name="text_help">مساعدة</string>
+    <string name="text_info">معلومات</string>
+    <string name="check_box_message_dialog">لا تعرضها بعد الآن</string>
+    <string name="text_offline_mode">Offline mode</string>
+    <string name="text_offline_mode_enabled">أنت الآن غير متصل بالإنترنت والتطبيق تم تشغيله إلى وضع عدم الاتصال تلقائياً.\nهذا يعني أنه يمكنك الاستمرار في التسجيل والتحقق من الصحة، ولكن سيتم إرسال الطلبات في وقت لاحق.</string>
+    <string name="text_offline_mode_enabled_2">يمكنك معرفة متى تكون في وضع غير متصل بالإنترنت من خلال البحث عن هذا الرمز على الشاشة:</string>
+    <string name="text_offline_mode_enabled_3">يمكنك النقر على هذا الرمز لرؤية المقاطع والجمل التي تم تحميلها.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">الهدف اليومي</string>
     <string name="daily_goal_is_not_set">لم يتم تحديد أي هدف</string>

@@ -1,7 +1,10 @@
 package org.commonvoice.saverio_lib.background
 
 import android.content.Context
+import android.util.Log
 import androidx.work.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.currentCoroutineContext
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
@@ -16,10 +19,8 @@ class ClipsDownloadWorker(
 ): CoroutineWorker(appContext, workerParams) {
 
     private val db = AppDB.build(appContext)
-    private val prefManager =
-        MainPrefManager(appContext)
-    private val listenPrefManager =
-        ListenPrefManager(appContext)
+    private val prefManager = MainPrefManager(appContext)
+    private val listenPrefManager = ListenPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
 
     private val requiredClips: Int = listenPrefManager.requiredClipsCount
@@ -28,42 +29,40 @@ class ClipsDownloadWorker(
 
     private val clipsRepository = ClipsRepository(db, retrofitFactory)
 
-    override suspend fun doWork(): Result {
+    override suspend fun doWork(): Result = coroutineScope {
+        try {
+            clipsRepository.deleteOldClips(getTimestampOfNowPlus(seconds = 0))
+            clipsRepository.deleteWrongClips(currentLanguage)
 
-        clipsRepository.deleteOldClips(getTimestampOfNowPlus(seconds = 0))
+            val numberDifference = requiredClips - clipsRepository.getClipsCount()
 
-        val numberDifference = requiredClips - clipsRepository.getClipsCount()
-
-        return when {
-            numberDifference < 0 -> {
-                db.close()
-                Result.failure()
-            }
-            numberDifference == 0 -> {
-                db.close()
-                Result.success()
-            }
-            else -> {
-                var result = Result.success()
-
-                clipsRepository.loadNewClips(numberDifference, forEachClip = { clip ->
-                    clipsRepository.insertClip(clip.also {
-                        it.sentence.setLanguage(currentLanguage)
+            return@coroutineScope when {
+                numberDifference < 0 -> {
+                    Result.failure()
+                }
+                numberDifference == 0 -> {
+                    Result.success()
+                }
+                else -> {
+                    var result = Result.success()
+                    clipsRepository.loadNewClips(numberDifference, forEachClip = { clip ->
+                        clipsRepository.insertClip(clip.also {
+                            it.sentence.setLanguage(currentLanguage)
+                        })
+                    }, onError = {
+                        result = if (workerParams.runAttemptCount > 5) {
+                            Result.failure()
+                        } else {
+                            Result.retry()
+                        }
                     })
-                }, onError = {
-                    result = if (workerParams.runAttemptCount > 5) {
-                        Result.failure()
-                    } else {
-                        Result.retry()
-                    }
-                })
-
-                db.close()
-
-                result
+                    result
+                }
             }
+        } finally {
+            clipsRepository.deleteWrongClips(currentLanguage)
+            db.close()
         }
-
     }
 
     companion object {
@@ -88,10 +87,13 @@ class ClipsDownloadWorker(
             .setConstraints(oneTimeWorkConstraints)
             .build()
 
-        fun attachOneTimeJobToWorkManager(wm: WorkManager) {
+        fun attachOneTimeJobToWorkManager(
+            wm: WorkManager,
+            workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP
+        ) {
             wm.enqueueUniqueWork(
                 "oneTimeClipsDownloadWorker",
-                ExistingWorkPolicy.KEEP,
+                workPolicy,
                 oneTimeWorkRequest
             )
         }

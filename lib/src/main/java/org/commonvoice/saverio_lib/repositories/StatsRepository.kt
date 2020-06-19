@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitStatsUpdate
+import org.commonvoice.saverio_lib.api.responseBodies.ResponseDailyUsage
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.sql.Timestamp
@@ -20,7 +21,11 @@ class StatsRepository(
 
     private var lastStatsUpdateTime: Timestamp = Timestamp(0)
 
-    suspend fun postStatsUpdate(appVersion: String, appSource: String) = withContext(Dispatchers.IO) {
+    suspend fun postStatsUpdate(
+        appVersion: String,
+        versionCode: String,
+        appSource: String
+    ) = withContext(Dispatchers.IO) {
         if (appVersion.contains('a') || appVersion.contains('b')) return@withContext
 
         val timeOfNow = getTimestampOfNowPlus(seconds = 0)
@@ -32,7 +37,7 @@ class StatsRepository(
                 getUserId(),
                 isLogged(),
                 mainPrefManager.language,
-                appVersion,
+                versionCode,
                 mainPrefManager.areStatsAnonymous.toString(),
                 appSource
             )
@@ -44,6 +49,8 @@ class StatsRepository(
             }
         }
     }
+
+    suspend fun getStats(): Map<String, ResponseDailyUsage> = statsClient.getStats().body() ?: mapOf()
 
     private fun getUserId(): String {
         val userId = mainPrefManager.statsUserId

@@ -7,6 +7,7 @@ import org.commonvoice.saverio_lib.api.services.*
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 /**
  * RetrofitFactory injects our AuthenticationInterceptor inside the OkHttp client used by Retrofit
@@ -14,14 +15,14 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
-    private val genericURL = "https://voice.allizom.org/api/v1/"
+    private val genericURL = "https://voice.mozilla.org/api/v1/"
 
     private val langURL = genericURL + mainPrefManager.language + "/"
 
-    private val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/v2/"
+    private val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/"
 
     private val baseRetrofit = Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create().withNullSerialization())
         .client(
             OkHttpClient.Builder()
                 .addInterceptor(
@@ -29,6 +30,7 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
                         mainPrefManager
                     )
                 )
+                .connectTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
         )
@@ -52,6 +54,8 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
     fun makeReportsService(): ReportsService = genericRetrofit.create(ReportsService::class.java)
 
     fun makeStatsService(): StatsService = unauthRetrofit.create(StatsService::class.java)
+
+    fun makeCVStatsService(): CVStatsService = genericRetrofit.create(CVStatsService::class.java)
 
     fun makeClipsService(): ClipsService = langRetrofit.create(ClipsService::class.java)
 

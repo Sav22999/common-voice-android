@@ -5,16 +5,17 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_listen.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
+import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
@@ -39,10 +40,6 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         setupInitialUIState()
 
         setupUI()
-
-        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
-            checkOfflineMode(available)
-        })
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -51,6 +48,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             if (!available) {
                 this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_in)
                 listenViewModel.offlineModeIconVisible = true
+                if (mainPrefManager.showOfflineModeMessage) {
+                    showMessageDialog("", "", 10)
+                }
             } else {
                 this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
@@ -58,6 +58,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             listenViewModel.showingHidingOfflineIcon = false
             this.imageOfflineModeListen.isGone = available
         }
+    }
+
+    public fun setShowOfflineModeMessage(value: Boolean = true) {
+        mainPrefManager.showOfflineModeMessage = value
     }
 
     private fun setupInitialUIState() {
@@ -70,6 +74,27 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun setupUI() {
+        imageOfflineModeListen.onClick {
+            lifecycleScope.launch {
+                val count = listenViewModel.getClipsCount()
+                withContext(Dispatchers.Main) {
+                    NoClipsSentencesAvailableDialog(this@ListenActivity, false, count).show()
+                }
+            }
+        }
+
+        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+            checkOfflineMode(available)
+        })
+
+        listenViewModel.hasFinishedClips.observe(this, Observer {
+            if (it && !connectionManager.isInternetAvailable) {
+                NoClipsSentencesAvailableDialog(this, false, 0).show {
+                    onBackPressed()
+                }
+            }
+        })
+
         listenViewModel.currentClip.observe(this, Observer { clip ->
             loadUIStateStandby(clip)
         })
@@ -114,12 +139,14 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         setTheme(this)
     }
 
-    private fun showMessageDialog(title: String, text: String) {
+    private fun showMessageDialog(title: String, text: String, type: Int = 0) {
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
         //val width = metrics.widthPixels
         val height = metrics.heightPixels
-        MessageDialog(this, 0, title, text, details = "", height = height).show()
+        val msg = MessageDialog(this, type, title, text, details = "", height = height)
+        msg.setListenActivity(this)
+        msg.show()
     }
 
     private fun setupGestures() {
@@ -174,7 +201,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private fun loadUIStateLoading() {
         if (!listenViewModel.stopped) {
-            textSentenceListen.text = "..."
+            textSentenceListen.text = "···"
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
             buttonReportListen.isGone = true
@@ -273,6 +300,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         buttonNoClip.onClick {
             listenViewModel.validate(result = false)
             this.numberSentThisSession++
+            hideButtons()
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -280,12 +308,14 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun loadUIStateListened() {
-        buttonYesClip.isVisible = true
         buttonNoClip.isVisible = true
-        if (!listenViewModel.listenedOnce) startAnimation(
-            buttonYesClip,
-            R.anim.zoom_in_speak_listen
-        )
+        if (!listenViewModel.listenedOnce) {
+            buttonYesClip.isVisible = true
+            startAnimation(
+                buttonYesClip,
+                R.anim.zoom_in_speak_listen
+            )
+        }
         listenViewModel.listenedOnce = true
 
         textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
@@ -293,6 +323,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
 
         buttonYesClip.onClick {
+            hideButtons()
             listenViewModel.validate(result = true)
             this.numberSentThisSession++
         }
@@ -304,7 +335,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     override fun onBackPressed() {
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
-        textSentenceListen.text = "..."
+        textSentenceListen.text = "···"
         textSentenceListen.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
             resources.getDimension(R.dimen.title_very_big)

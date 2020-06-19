@@ -30,6 +30,12 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putString(Keys.SESSID_COOKIE.name, value).apply()
         }
 
+    var showOfflineModeMessage: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_OFFLINE_MODE_MESSAGE.name, true)
+        set(value) {
+            preferences.edit().putBoolean(Keys.SHOW_OFFLINE_MODE_MESSAGE.name, value).apply()
+        }
+
     var areGesturesEnabled: Boolean
         get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, true)
         set(value) {
@@ -46,7 +52,7 @@ class MainPrefManager(private val ctx: Context) {
         }
 
     var areStatsAnonymous: Boolean
-        get() = preferences.getBoolean(Keys.ARE_STATS_ANONYMOUS.name, false)
+        get() = preferences.getBoolean(Keys.ARE_STATS_ANONYMOUS.name, true)
         set(value) {
             preferences.edit().putBoolean(Keys.ARE_STATS_ANONYMOUS.name, value).apply()
         }
@@ -57,6 +63,12 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putBoolean(Keys.ARE_ANIMATIONS_ENABLED.name, value).apply()
         }
 
+    var areLabelsBelowMenuIcons: Boolean
+        get() = preferences.getBoolean(Keys.LABELS_MENU_ICONS.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.LABELS_MENU_ICONS.name, value).apply()
+        }
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
@@ -65,7 +77,9 @@ class MainPrefManager(private val ctx: Context) {
         GESTURES_ENABLED,
         STATS_USERID,
         ARE_STATS_ANONYMOUS,
-        ARE_ANIMATIONS_ENABLED
+        ARE_ANIMATIONS_ENABLED,
+        LABELS_MENU_ICONS,
+        SHOW_OFFLINE_MODE_MESSAGE
     }
 
 }

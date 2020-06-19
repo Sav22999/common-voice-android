@@ -15,6 +15,7 @@ import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.models.Report
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
@@ -26,6 +27,7 @@ class ListenViewModel(
     private val mediaPlayerRepository: MediaPlayerRepository,
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
+    private val mainPrefManager: MainPrefManager,
     private val listenPrefManager: ListenPrefManager
 ) : ViewModel() {
 
@@ -42,8 +44,10 @@ class ListenViewModel(
     private val _currentClip: MutableLiveData<Clip> = handle.getLiveData("currentClip")
     val currentClip: LiveData<Clip> get() = _currentClip
 
+    val hasFinishedClips = clipsRepository.getLiveClipsCount().map { it == 0 }
+
     fun loadNewClip() = viewModelScope.launch {
-        val clip = clipsRepository.getOldestClip()
+        val clip = clipsRepository.getOldestClip(mainPrefManager.language)
         if (clip != null) {
             _currentClip.postValue(clip)
         } else {
@@ -54,6 +58,7 @@ class ListenViewModel(
 
     fun skipClip() = viewModelScope.launch {
         stopped = false
+        mediaPlayerRepository.stopPlaying()
         currentClip.value?.let {
             clipsRepository.deleteClip(it)
         }
@@ -81,6 +86,7 @@ class ListenViewModel(
 
     fun validate(result: Boolean) = viewModelScope.launch(Dispatchers.IO) {
         currentClip.value?.let { clip ->
+            mediaPlayerRepository.stopPlaying()
             val validation = clip.toValidation(result)
 
             validationsRepository.insertValidation(validation)
@@ -109,6 +115,8 @@ class ListenViewModel(
             skipClip()
         }
     }
+
+    suspend fun getClipsCount() = clipsRepository.getClipsCount()
 
     fun autoPlay(): Boolean {
         return listenPrefManager.isAutoPlayClipEnabled

@@ -11,6 +11,9 @@ import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_settings.*
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
@@ -144,25 +147,6 @@ class SettingsFragment : Fragment() {
         }
         switchStatisticsSettings.isChecked = main.getStatisticsSwitch()
 
-        val switchExperimentalFeaturesSettings: Switch =
-            root.findViewById(R.id.switchExperimentalFeatures)
-        val sectionExperimentalFeatures: ConstraintLayout =
-            root.findViewById(R.id.settingsSectionExperimentalFeatures)
-        switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-                //Reset all settings as default
-                mainPrefManager.areAnimationsEnabled = true
-                main.setAnimationsEnabledSwitch(true)
-                switchEnableAnimations.isChecked = true
-            }
-            main.setExperimentalFeaturesSwitch(isChecked)
-            sectionExperimentalFeatures.isGone = !isChecked
-        }
-        switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
-        sectionExperimentalFeatures.isGone = !(main.getExperimentalFeaturesSwitch())
 
         val btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
         btnTranslateTheApp.setOnClickListener {
@@ -253,6 +237,33 @@ class SettingsFragment : Fragment() {
         }
         skipRecordingsConfirmationSettings.isChecked = main.getSkipRecordingsConfirmationSwitch()
 
+        val switchExperimentalFeaturesSettings: Switch =
+            root.findViewById(R.id.switchExperimentalFeatures)
+        val sectionExperimentalFeatures: ConstraintLayout =
+            root.findViewById(R.id.settingsSectionExperimentalFeatures)
+        switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                //ON
+            } else {
+                //OFF
+                //Reset all settings as default
+                //reset animations at true
+                mainPrefManager.areAnimationsEnabled = true
+                main.setAnimationsEnabledSwitch(true)
+                switchEnableAnimations.isChecked = true
+                //reset show labels at false
+                val navView: BottomNavigationView = main.findViewById(R.id.nav_view)
+                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+                mainPrefManager.areLabelsBelowMenuIcons = false
+                main.setLabelsBelowMenuIconsSettingsSwitch(false)
+                switchShowLabelsBelowMenuIcons.isChecked = false
+            }
+            main.setExperimentalFeaturesSwitch(isChecked)
+            sectionExperimentalFeatures.isGone = !isChecked
+        }
+        switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
+        sectionExperimentalFeatures.isGone = !(main.getExperimentalFeaturesSwitch())
+
         val animationsEnabledSettings: Switch =
             root.findViewById(R.id.switchEnableAnimations)
         animationsEnabledSettings.setOnCheckedChangeListener { _, isChecked ->
@@ -265,6 +276,22 @@ class SettingsFragment : Fragment() {
             main.setAnimationsEnabledSwitch(isChecked)
         }
         animationsEnabledSettings.isChecked = main.getAnimationsEnabledSwitch()
+
+        val showLablesMenuIconsSettings: Switch =
+            root.findViewById(R.id.switchShowLabelsBelowMenuIcons)
+        showLablesMenuIconsSettings.setOnCheckedChangeListener { _, isChecked ->
+            val navView: BottomNavigationView = main.findViewById(R.id.nav_view)
+            if (isChecked) {
+                //ON
+                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+            } else {
+                //OFF
+                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+            }
+            mainPrefManager.areLabelsBelowMenuIcons = isChecked
+            main.setLabelsBelowMenuIconsSettingsSwitch(isChecked)
+        }
+        showLablesMenuIconsSettings.isChecked = main.getLabelsBelowMenuIconsSettingsSwitch()
 
         root.findViewById<Button>(R.id.buttonTelegramGroup).setOnClickListener {
             startActivity(

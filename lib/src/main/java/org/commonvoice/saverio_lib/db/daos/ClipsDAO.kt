@@ -22,13 +22,13 @@ interface ClipsDAO {
     @Query("SELECT COUNT(clip_id) FROM clips")
     fun getLiveCount(): LiveData<Int>
 
-    @Query("SELECT * FROM clips ORDER BY expiry ASC LIMIT 1")
-    suspend fun getOldestClip(): Clip?
-
-    @Query("SELECT * FROM clips WHERE expiry <= :dateOfToday")
-    suspend fun getOldClips(dateOfToday: Long): List<Clip>
+    @Query("SELECT * FROM clips WHERE lang IS :language ORDER BY expiry ASC LIMIT 1")
+    suspend fun getOldestClip(language: String): Clip?
 
     @Query("DELETE FROM clips WHERE expiry <= :dateOfToday")
     suspend fun deleteOldClips(dateOfToday: Long)
+
+    @Query("DELETE FROM clips WHERE lang IS NOT :language")
+    suspend fun deleteWrongClips(language: String)
 
 }

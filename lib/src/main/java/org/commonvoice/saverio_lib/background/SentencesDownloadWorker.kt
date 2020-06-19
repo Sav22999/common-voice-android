@@ -2,6 +2,7 @@ package org.commonvoice.saverio_lib.background
 
 import android.content.Context
 import androidx.work.*
+import kotlinx.coroutines.coroutineScope
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
@@ -28,42 +29,46 @@ class SentencesDownloadWorker(
 
     private val sentenceRepository = SentencesRepository(db, retrofitFactory)
 
-    override suspend fun doWork(): Result {
+    override suspend fun doWork(): Result = coroutineScope {
+        try {
+            sentenceRepository.deleteOldSentences(getTimestampOfNowPlus(seconds = 0))
+            sentenceRepository.deleteWrongSentences(currentLanguage)
 
-        sentenceRepository.deleteOldSentences(getTimestampOfNowPlus(seconds = 0))
+            val numberDifference = requiredSentences - sentenceRepository.getSentenceCount()
 
-        val numberDifference = requiredSentences - sentenceRepository.getSentenceCount()
-
-        return when {
-            numberDifference < 0 -> {
-                db.close()
-                Result.failure()
-            }
-            numberDifference == 0 -> {
-                db.close()
-                Result.success()
-            }
-            else -> {
-                val newSentences = sentenceRepository.getNewSentences(numberDifference)
-                if (!newSentences.isSuccessful) {
-                    db.close()
-
-                    if (workerParams.runAttemptCount > 5) {
-                        Result.failure()
-                    } else {
-                        Result.retry()
-                    }
-                } else {
-                    newSentences.body()?.let { sentences ->
-                        sentenceRepository.insertSentences(sentences.map { it.setLanguage(currentLanguage) })
-                    }
-
-                    db.close()
+            return@coroutineScope when {
+                numberDifference < 0 -> {
+                    Result.failure()
+                }
+                numberDifference == 0 -> {
                     Result.success()
                 }
-            }
-        }
+                else -> {
+                    val newSentences = sentenceRepository.getNewSentences(numberDifference)
+                    if (!newSentences.isSuccessful) {
 
+                        if (workerParams.runAttemptCount > 5) {
+                            Result.failure()
+                        } else {
+                            Result.retry()
+                        }
+                    } else {
+                        newSentences.body()?.let { sentences ->
+                            sentenceRepository.insertSentences(sentences.map {
+                                it.setLanguage(
+                                    currentLanguage
+                                )
+                            })
+                        }
+
+                        Result.success()
+                    }
+                }
+            }
+        } finally {
+            sentenceRepository.deleteWrongSentences(currentLanguage)
+            db.close()
+        }
     }
 
     companion object {
@@ -88,10 +93,13 @@ class SentencesDownloadWorker(
             .setConstraints(oneTimeWorkConstraints)
             .build()
 
-        fun attachOneTimeJobToWorkManager(wm: WorkManager) {
+        fun attachOneTimeJobToWorkManager(
+            wm: WorkManager,
+            workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP
+        ) {
             wm.enqueueUniqueWork(
                 "oneTimeSentencesDownloadWorker",
-                ExistingWorkPolicy.KEEP,
+                workPolicy,
                 oneTimeWorkRequest
             )
         }
