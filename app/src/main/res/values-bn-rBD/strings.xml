@@ -2,7 +2,7 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">bn</string>
+    <string name="language">en</string>
     <!-- Buttons (nav) -->
     <string name="title_home">মূল পাতা</string>
     <string name="title_dashboard">ড্যাশবোর্ড</string>

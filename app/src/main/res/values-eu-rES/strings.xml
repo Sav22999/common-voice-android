@@ -32,7 +32,7 @@
     <string name="txt_app_statistics">Aplikazioaren estatistikak</string>
     <string name="txt_current_language">Uneko hizkuntza</string>
     <string name="txt_all_languages">Hizkuntza guztiak</string>
-    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Ez dago eskuragarri lineaz kanpo</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Hasi</string>
     <string name="btn_tutorial2">Baimendu</string>
