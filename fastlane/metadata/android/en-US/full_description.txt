@@ -3,55 +3,39 @@ This is not the official app of Common Voice. It's developed by Saverio Morelli
 </p>
 <p>
 <b>App features:</b>
-<br>
+
 - The user interface (UI) is smart, clear and modern
-<br>
 - Log in to your Common Voice account
-<br>
 - Validate clips
-<br>
 - Record sentences
-<br>
 - Report sentences/clips in the relative sections
-<br>
 - Multi-languages supported
-<br>
 - Offline mode (continue to contribute also when you aren't connected to the Internet!)
-<br>
 - Common Voice statistics (of the selected language)
-<br>
 - Top contributors (of the selected language)
-<br>
 - App statistics (anonymous)
-<br>
 - Voices online (of the selected language)
-<br>
 - Dark theme supported
-<br>
 - Daily goal
-<br>
 - Gestures
-<br>
 - The app experience is totally customisable in Settings
-<br>
+
 Join the Telegram group: https://t.me/common_voice_android (@common_voice_android)
 You can see complete app statistics here: https://bit.ly/3clgfkg
-<br>
 Read more about this app on GitHub: http://bit.ly/2PeOGRg
 </p>
 <p>
 <b>What is Common Voice project?</b>
-<br>
+
 Common Voice is Mozilla's initiative to help teach machines how real people speak.
 Voice is natural, voice is human. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
 Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
 Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-<br>
 You can find more details on the official website https://voice.mozilla.org/
 </p>
 <p>
 <b>Why should you use the app instead of the website on mobile?</b>
-<br>
+
 The app is developed exactly for smartphones so it's native. It has many features that website don't provide you, such as dark theme, offline mode, customisation, gestures, etc.
 The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
 In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.

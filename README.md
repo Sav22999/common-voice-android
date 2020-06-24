@@ -20,9 +20,9 @@ You can contact me also on Telegram, with the username `@Sav22999` (I speak `Ita
 
 If you like this project, leave a *Star* to receive updates on your *GitHub dashboard*.
 
-To support me, you can do a donation :smile: with PayPal:
+To support me, you can do a donation :smile: with PayPal or Ko-fi:
 
-[<img src="images/badges/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7)
+[<img src="images/badges/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7) [<img height='36' style='border:0px;height:48px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' />](https://ko-fi.com/R5R31UQ8G)
 
 ### How contribute
 
