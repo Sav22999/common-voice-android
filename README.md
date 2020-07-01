@@ -22,7 +22,7 @@ If you like this project, leave a *Star* to receive updates on your *GitHub dash
 
 To support me, you can do a donation :smile: with PayPal:
 
-[<img src="images/badges/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7)
+[<img src="images/badges/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7) [<img src="https://cdn.ko-fi.com/cdn/kofi1.png?v=2" width="200px"></img>](https://ko-fi.com/R5R31UQ8G)
 
 ### How contribute
 
@@ -80,7 +80,7 @@ Legend:
 |   ✅    |    100%    |      `ar`       | Arabic             | [**ABDELGHANI HOURANI**](https://crowdin.com/profile/abdelghani.me) | **[Translate](https://crowdin.com/project/common-voice-android/ar)** |
 |   🔶    |     3%     |      `as`       | Assamese           | [**Mohsin Ali**](https://crowdin.com/profile/Mohsin_Ali)     | **[Translate](https://crowdin.com/project/common-voice-android/as)** |
 |   ✅🔴   |     100%     |      `bn`       | Bengali            | [**Oymate**](https://crowdin.com/profile/Oymate)             | **[Translate](https://crowdin.com/project/common-voice-android/bn)** |
-|   🔶    |    50%    |      `ca`       | Catalan            | [**Carles Paredes Lanau**](https://crowdin.com/profile/carlesparedes), [**ivnvitx**](https://crowdin.com/profile/ivnvitx) | **[Translate](https://crowdin.com/project/common-voice-android/ca)** |
+|   🔶    |    90%    |      `ca`       | Catalan            | [**Carles Paredes Lanau**](https://crowdin.com/profile/carlesparedes), [**ivnvitx**](https://crowdin.com/profile/ivnvitx) | **[Translate](https://crowdin.com/project/common-voice-android/ca)** |
 |   ✅    |    100%    |      `cs`       | Czech              | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**JaMamPravoSedet**](https://crowdin.com/profile/JaMamPravoSedet) | **[Translate](https://crowdin.com/project/common-voice-android/cs)** |
 |   ✅   |    100%    |      `de`       | German             | [**acrylicpaintboy**](https://crowdin.com/profile/acrylicpaintboy), [**Moini**](https://github.com/Moini), [**akoyaxd**](https://crowdin.com/profile/akoyaxd), [**enissen99**](https://crowdin.com/profile/enissen99), [**rYR79435**](https://crowdin.com/profile/rYR79435) | **[Translate](https://crowdin.com/project/common-voice-android/de)** |
 |   ✅    |  *(main)*  |      `en`       | English            | [**Saverio Morelli**](https://github.com/Sav22999), [**Cadence Ember**](https://github.com/cloudrac3r) |                         _(nothing)_                          |
