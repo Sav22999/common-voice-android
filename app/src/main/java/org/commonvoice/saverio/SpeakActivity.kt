@@ -15,8 +15,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -44,6 +46,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     private val statsPrefManager: StatsPrefManager by inject()
 
     private var numberSentThisSession: Int = 0
+    private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
+
     private var isAudioBarVisible: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -146,6 +150,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
         })
 
+        setupNestedScroll()
+
         setTheme(this)
     }
 
@@ -201,6 +207,23 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         msg.show()
     }
 
+    private fun setupNestedScroll() {
+        nestedScrollSpeak.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (scrollY > oldScrollY) {
+                verticalScrollStatus = 1
+            }
+            if (scrollY < oldScrollY) {
+                verticalScrollStatus = 1
+            }
+            if (scrollY == 0) {
+                verticalScrollStatus = 0
+            }
+            if (nestedScrollView.measuredHeight == (nestedScrollView.getChildAt(0).measuredHeight - scrollY)) {
+                verticalScrollStatus = 2
+            }
+        })
+    }
+
     private fun setupGestures() {
         nestedScrollSpeak.setOnTouchListener(object : OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
@@ -212,7 +235,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
 
             override fun onSwipeTop() {
-                if (mainPrefManager.deviceOrientation == ORIENTATION_PORTRAIT) {
+                if (verticalScrollStatus == 2) {
                     openReportDialog()
                 }
             }
