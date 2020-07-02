@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.widget.Button
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -289,8 +290,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
 
-        buttonNoClip.isVisible = true
-        if (!listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_in_speak_listen)
+        if (!listenViewModel.startedOnce) {
+            showButton(buttonNoClip)
+        }
         if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
         listenViewModel.startedOnce = true
         buttonSkipListen.isEnabled = true
@@ -310,11 +312,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     private fun loadUIStateListened() {
         buttonNoClip.isVisible = true
         if (!listenViewModel.listenedOnce) {
-            buttonYesClip.isVisible = true
-            startAnimation(
-                buttonYesClip,
-                R.anim.zoom_in_speak_listen
-            )
+            showButton(buttonYesClip)
         }
         listenViewModel.listenedOnce = true
 
@@ -353,17 +351,28 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private fun hideButtons() {
         stopButtons()
-        buttonYesClip.isEnabled = false
-        buttonNoClip.isEnabled = false
-        if (listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_out_speak_listen)
-        if (listenViewModel.listenedOnce) startAnimation(
-            buttonYesClip,
+        if (listenViewModel.startedOnce) hideButton(buttonNoClip)
+        if (listenViewModel.listenedOnce) hideButton(buttonYesClip)
+    }
+
+    private fun showButton(button: Button) {
+        if (!button.isVisible) {
+            button.isVisible = true
+            button.isEnabled = true
+            startAnimation(
+                button,
+                R.anim.zoom_in_speak_listen
+            )
+        }
+    }
+
+    private fun hideButton(button: Button) {
+        button.isEnabled = false
+        startAnimation(
+            button,
             R.anim.zoom_out_speak_listen
         )
-        buttonYesClip.isVisible = false
-        buttonNoClip.isVisible = false
-        buttonYesClip.isEnabled = true
-        buttonNoClip.isEnabled = true
+        button.isVisible = false
     }
 
     private fun stopButtons() {
