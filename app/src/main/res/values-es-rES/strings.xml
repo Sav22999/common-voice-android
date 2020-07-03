@@ -24,15 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Tienes que iniciar sesión para establecer el objetivo diario</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Hora</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
+    <string name="txt_top_contributors">Principales contribuyentes</string>
+    <string name="txt_top_contributors_recorded">Grabado</string>
+    <string name="txt_top_contributors_validated">Validado</string>
     <!-- 4, ..., 100, etc. -->
     <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
-    <string name="txt_app_statistics">App statistics</string>
-    <string name="txt_current_language">Current language</string>
-    <string name="txt_all_languages">All languages</string>
-    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Not available in offline mode</string>
+    <string name="txt_app_statistics">Estadísticas de la app</string>
+    <string name="txt_current_language">Idioma actual</string>
+    <string name="txt_all_languages">Todos los idiomas</string>
+    <string name="txt_not_available_offline">No disponible en modo sin conexión</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Empezar</string>
     <string name="btn_tutorial2">Permitir</string>
@@ -44,7 +44,7 @@
     <string name="txt_permission_denied_first_launch">Error: permiso denegado</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/es/terms</string>
     <string name="txt_introduction_app_first_launch">Common Voice Android es una aplicación no oficial para Mozilla Common Voice. Ha sido desarrollada por Saverio Morelli sin ningún tipo de apoyo o asociación con Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_accept_terms_first_launch">Al continuar, aceptas los Términos del Servicio de Common Voice de Mozilla.</string>
     <string name="txt_microphone_permission_first_launch">Esta aplicación necesita el permiso \"Micrófono\" para grabar tu voz.</string>
     <string name="txt_storage_permission_first_launch">Puede reportar errores en GitHub o Telegram. Para ayudar al desarrollador a entender el problema rápidamente, debes adjuntar el archivo de registro de la aplicación a tu informe. La aplicación necesita el permiso \"Almacenar\" para guardar el archivo de registro.</string>
     <string name="txt_offline_mode_first_launch">Incluso puedes contribuir mientras estás fuera de línea. El \"modo sin conexión\" de la aplicación se habilitará automáticamente, y puede continuar grabando y escuchando sin conexión a Internet.</string>
@@ -208,7 +208,16 @@
     <string name="text_help">Ayuda</string>
     <string name="text_info">Información</string>
     <string name="check_box_message_dialog">No mostrar más</string>
-    <string name="text_offline_mode">Offline mode</string>
+    <string name="discontinue_app_1">Anuncio importante</string>
+    <string name="discontinue_app_2">Por favor lee el siguiente texto.\nEl principal objetivo de la aplicación era mejorar el proyecto de Common Voice y demostrar a Mozilla que una aplicación nativa era necesaria para este proyecto fantástico.\nEl día 1 de julio pregunté a Mozilla si el uso del nombre \"Common Voice\" era una violación de los Términos de Mozilla (porque no hay presente ninguna información sobre \"TM\" en el sitio web)... me han contestado el 3 de julio y sí que lo es. Es una violación.\nAdemás, me han dicho (cito textualmente): \"Por desgracia cualquier dato que se haya coleccionado desde tu aplicación no será usado para el dataset oficial de Common Voice\", por lo que, básicamente los usuarios que usan la aplicación no están contribuyendo al proyecto porque sus grabaciones y validaciones no serán usadas en el dataset.\nPuedes seguir la discusión en Mozilla Discourse y te aconsejo que le cuentes a Mozilla tu opinión ahí (en la misma discosión o abriendo nuevos tickets en la sección de \"Common Voice\") o puedes enviar mensajes directamente a miembros de Mozilla, usando Riot (o Mozilla Matrix), en el grupo oficial de Common Voice.</string>
+    <string name="discontinue_app_3">Abre una discusión en Mozilal Discourse</string>
+    <string name="discontinue_app_4">Abre el grupo de Common Voice en Mozilla Matrix</string>
+    <string name="discontinue_app_5">No quiero tener problemas legales y no quiero recoger tus validaciones y grabaciones si no serán usadas para el dataset, como dijo el miembro de Mozilla.\nPor estas razones lamentablemente anuncio oficialmente que la aplicación queda suspendida y NO se actualizará más.\nPuedes seguir usándola, pero no soy responsable de nada.</string>
+    <string name="discontinue_app_6">Gracias a todos. Me habéis dado la oportunidad de crecer mentalmente.\nPuedes continuar siguiéndome, quizás en el futuro crearé otro proyecto que te guste.\nSiento mucho este anuncio.</string>
+    <string name="discontinue_app_6_bis">con cariño, Saverio Morelli.</string>
+    <string name="discontinue_app_7">Sígueme en redes sociales:</string>
+    <string name="discontinue_app_8">Invítame a un café:</string>
+    <string name="text_offline_mode">Modo sin conexión</string>
     <string name="text_offline_mode_enabled">Estás desconectado y la aplicación cambió automáticamente al modo sin conexión.\nEsto significa que puede continuar grabando y validando, pero las solicitudes se enviarán más tarde.</string>
     <string name="text_offline_mode_enabled_2">Puedes saber cuándo estás en modo sin conexión buscando este icono en la pantalla:</string>
     <string name="text_offline_mode_enabled_3">Puede tocar ese icono para ver los clips descargados y las frases.</string>

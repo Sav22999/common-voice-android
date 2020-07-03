@@ -1,9 +1,11 @@
 package org.commonvoice.saverio
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.media.Image
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.daily_goal.view.*
+import kotlinx.android.synthetic.main.discontinue_app_message.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
 import kotlinx.android.synthetic.main.offline_mode_message.view.*
 
@@ -26,7 +29,7 @@ class MessageDialog {
         0 /*0->standard (Ok), 1->dailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off),
             3->reportClip (listen), 4->reportSentence (Speak)
             5->info, 6->help, 7->warning, 8->news/changelog, 9->tip
-            10->offlineModeMessage*/
+            10->offlineModeMessage, 99->discontinued app message*/
     private var message_text: String = ""
     private var message_title: String = ""
     private var message_details: String = ""
@@ -218,6 +221,75 @@ class MessageDialog {
                             } else if (listen != null) {
                                 listen?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymore.isChecked)
                             }
+                            alertDialog.dismiss()
+                        }
+                        setTheme(this.context!!, dialogView)
+                    } catch (exception: Exception) {
+                        println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
+                    }
+                }
+                99 -> {
+                    try {
+                        val dialogView =
+                            LayoutInflater.from(this.context)
+                                .inflate(R.layout.discontinue_app_message, null)
+
+                        val builder =
+                            AlertDialog.Builder(this.context!!)
+                                .setView(dialogView)
+                                .setTitle("")
+                        //show dialog
+                        val alertDialog = builder.show()
+
+                        if (main?.getSourceStore() == "GPS") {
+                            dialogView.text7DiscontinueApp.isGone = true
+                            dialogView.buttonPayPalDiscontinueApp.isGone = true
+                            dialogView.buttonKofiDiscontinueApp.isGone = true
+                        }
+
+                        dialogView.buttonDiscourseDiscontinueApp.setOnClickListener {
+                            main?.goToDiscourseDiscussionDiscontinued()
+                        }
+
+                        dialogView.buttonMatrixDiscontinueApp.setOnClickListener {
+                            main?.goToCommonVoiceMozillaMatrixDiscontinued()
+                        }
+
+                        dialogView.buttonGitHubDiscontinueApp.setOnClickListener {
+                            main?.goToMyGitHubDiscontinued()
+                        }
+
+                        dialogView.buttonFacebookDiscontinueApp.setOnClickListener {
+                            main?.goToMyFacebookDiscontinued()
+                        }
+
+                        dialogView.buttonTwitterDiscontinueApp.setOnClickListener {
+                            main?.goToMyTwitterDiscontinued()
+                        }
+
+                        dialogView.buttonInstagramDiscontinueApp.setOnClickListener {
+                            main?.goToMyInstagramDiscontinued()
+                        }
+
+                        dialogView.buttonTelegramDiscontinueApp.setOnClickListener {
+                            main?.goToMyTelegramDiscontinued()
+                        }
+
+                        dialogView.buttonLinkedInDiscontinueApp.setOnClickListener {
+                            main?.goToMyLinkedInDiscountinued()
+                        }
+
+                        dialogView.buttonPayPalDiscontinueApp.setOnClickListener {
+                            main?.goToMyPayPalDiscontinued()
+                        }
+
+                        dialogView.buttonKofiDiscontinueApp.setOnClickListener {
+                            main?.goToMyKoFiDiscontinued()
+                        }
+
+                        dialogView.buttonOkDiscontinueApp.setOnClickListener {
+                            //dismiss dialog
+                            main?.setDiscountinuedApp(!dialogView.checkDiscontinueApp.isChecked)
                             alertDialog.dismiss()
                         }
                         setTheme(this.context!!, dialogView)

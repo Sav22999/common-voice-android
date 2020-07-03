@@ -5,8 +5,11 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.widget.Button
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.core.widget.NestedScrollView
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_listen.*
@@ -24,15 +27,15 @@ import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
+
 class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private val listenViewModel: ListenViewModel by stateViewModel()
-
     private val connectionManager: ConnectionManager by inject()
-
     private val statsPrefManager: StatsPrefManager by inject()
 
     private var numberSentThisSession: Int = 0
+    private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -136,6 +139,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         checkOfflineMode(connectionManager.isInternetAvailable)
 
+        setupNestedScroll()
+
         setTheme(this)
     }
 
@@ -149,6 +154,23 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         msg.show()
     }
 
+    private fun setupNestedScroll() {
+        nestedScrollListen.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (scrollY > oldScrollY) {
+                verticalScrollStatus = 1
+            }
+            if (scrollY < oldScrollY) {
+                verticalScrollStatus = 1
+            }
+            if (scrollY == 0) {
+                verticalScrollStatus = 0
+            }
+            if (nestedScrollView.measuredHeight == (nestedScrollView.getChildAt(0).measuredHeight - scrollY)) {
+                verticalScrollStatus = 2
+            }
+        })
+    }
+
     private fun setupGestures() {
         nestedScrollListen.setOnTouchListener(object : OnSwipeTouchListener(this@ListenActivity) {
             override fun onSwipeLeft() {
@@ -160,7 +182,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             }
 
             override fun onSwipeTop() {
-                if (mainPrefManager.deviceOrientation == Configuration.ORIENTATION_PORTRAIT) {
+                if (verticalScrollStatus == 2) {
                     openReportDialog()
                 }
             }
@@ -289,8 +311,9 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
 
-        buttonNoClip.isVisible = true
-        if (!listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_in_speak_listen)
+        if (!listenViewModel.startedOnce) {
+            showButton(buttonNoClip)
+        }
         if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
         listenViewModel.startedOnce = true
         buttonSkipListen.isEnabled = true
@@ -310,11 +333,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     private fun loadUIStateListened() {
         buttonNoClip.isVisible = true
         if (!listenViewModel.listenedOnce) {
-            buttonYesClip.isVisible = true
-            startAnimation(
-                buttonYesClip,
-                R.anim.zoom_in_speak_listen
-            )
+            showButton(buttonYesClip)
         }
         listenViewModel.listenedOnce = true
 
@@ -353,17 +372,28 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private fun hideButtons() {
         stopButtons()
-        buttonYesClip.isEnabled = false
-        buttonNoClip.isEnabled = false
-        if (listenViewModel.startedOnce) startAnimation(buttonNoClip, R.anim.zoom_out_speak_listen)
-        if (listenViewModel.listenedOnce) startAnimation(
-            buttonYesClip,
+        if (listenViewModel.startedOnce) hideButton(buttonNoClip)
+        if (listenViewModel.listenedOnce) hideButton(buttonYesClip)
+    }
+
+    private fun showButton(button: Button) {
+        if (!button.isVisible) {
+            button.isVisible = true
+            button.isEnabled = true
+            startAnimation(
+                button,
+                R.anim.zoom_in_speak_listen
+            )
+        }
+    }
+
+    private fun hideButton(button: Button) {
+        button.isEnabled = false
+        startAnimation(
+            button,
             R.anim.zoom_out_speak_listen
         )
-        buttonYesClip.isVisible = false
-        buttonNoClip.isVisible = false
-        buttonYesClip.isEnabled = true
-        buttonNoClip.isEnabled = true
+        button.isVisible = false
     }
 
     private fun stopButtons() {

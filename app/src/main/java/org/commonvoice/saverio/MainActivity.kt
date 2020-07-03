@@ -9,6 +9,7 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Typeface
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -183,7 +184,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
             ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
-            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
+            mainActivityViewModel.postStats(
+                BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_CODE,
+                SOURCE_STORE
+            )
         }
 
         this.checkUserLoggedIn()
@@ -191,7 +196,87 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         this.checkIfSessionIsExpired()
         this.reviewOnPlayStore()
+
+        this.checkDiscontinuedApp()
+
+        this
     }
+
+    fun checkDiscontinuedApp() {
+        if (getSharedPreferences(
+                "DISCONTINUED",
+                PRIVATE_MODE
+            ).getBoolean(
+                "DISCONTINUED",
+                true
+            )
+        ) {
+            showMessageDialog("", "", "", "", 99)
+        }
+    }
+
+    fun setDiscountinuedApp(value: Boolean = true) {
+        getSharedPreferences(
+            "DISCONTINUED",
+            PRIVATE_MODE
+        ).edit()
+            .putBoolean(
+                "DISCONTINUED",
+                value
+            )
+            .apply()
+    }
+
+    fun goToDiscourseDiscussionDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3dVw6a4")))
+    }
+
+    fun goToCommonVoiceMozillaMatrixDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3eYz8M5")))
+    }
+
+    fun goToMyFacebookDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/morellisav")))
+    }
+
+    fun goToMyTwitterDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/MorelliSaverio")))
+    }
+
+    fun goToMyGitHubDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sav22999")))
+    }
+
+    fun goToMyInstagramDiscontinued() {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.instagram.com/sav.morelli/")
+            )
+        )
+    }
+
+    fun goToMyLinkedInDiscountinued() {
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.linkedin.com/in/saveriomorelli")
+            )
+        )
+    }
+
+    fun goToMyTelegramDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Sav22999")))
+    }
+
+    fun goToMyKoFiDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://ko-fi.com/saveriomorelli")))
+    }
+
+    fun goToMyPayPalDiscontinued() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+    }
+
 
     fun checkIfSessionIsExpired() {
         //if the userid returns "null", to the user have to log in again
@@ -502,7 +587,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             ).edit()
                 .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
             mainPrefManager.areStatsAnonymous = status
-            mainActivityViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, SOURCE_STORE)
+            mainActivityViewModel.postStats(
+                BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_CODE,
+                SOURCE_STORE
+            )
         }
     }
 
@@ -1112,8 +1201,14 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             if (languageChanged) {
                 mainPrefManager.language = lang
                 mainActivityViewModel.clearDB().invokeOnCompletion {
-                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
-                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager, ExistingWorkPolicy.REPLACE)
+                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                        workManager,
+                        ExistingWorkPolicy.REPLACE
+                    )
+                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                        workManager,
+                        ExistingWorkPolicy.REPLACE
+                    )
 
                     getSharedPreferences(
                         settingsSwitchData["UI_LANGUAGE_CHANGED"],
@@ -1259,9 +1354,20 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
                 }
             }
-            val message: MessageDialog =
-                MessageDialog(this, type, title, messageText, details = details, height = height)
-            message.show()
+            var message: MessageDialog? = null
+            if (type != 99) {
+                message = MessageDialog(
+                    this,
+                    type,
+                    title,
+                    messageText,
+                    details = details,
+                    height = height
+                )
+            } else {
+                message = MessageDialog(this, this, 99)
+            }
+            message?.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
