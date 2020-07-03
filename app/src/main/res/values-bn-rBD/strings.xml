@@ -32,21 +32,21 @@
     <string name="txt_app_statistics">অ্যাপের পরিসংখ্যান</string>
     <string name="txt_current_language">বর্তমান ভাষা</string>
     <string name="txt_all_languages">সব ভাষা</string>
-    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">অফলাইনে বিদ্যমান নয়</string>
+    <string name="txt_not_available_offline">অফলাইনে বিদ্যমান নয়</string>
     <!-- First launch -->
     <string name="btn_tutorial1">শুরু করি</string>
     <string name="btn_tutorial2">অনুমতি</string>
     <string name="btn_tutorial3">পরেরটা</string>
     <string name="btn_tutorial4">আবার চেষ্টা করো</string>
     <string name="btn_tutorial5">শেষ</string>
-    <string name="btn_skip">উপেক্ষা কর</string>
+    <string name="btn_skip">উপেক্ষা</string>
     <string name="txt_permission_obtained_first_launch">অনুমতি পাওয়া গেছে</string>
     <string name="txt_permission_denied_first_launch">ত্রুটি: অনুমতি পাওয়া যায়নি</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/bn/terms</string>
     <string name="txt_introduction_app_first_launch">Common Voice আয়ান্ড্রয়েড(কমন ভইস)-অ্যাপটা Mozilla Common Voice-এর অফিসিয়াল অ্যাপ না৷ এইটা Saverio Morelli দ্বারা তৈরিকৃত, Mozilla-র সাহায্য বা (আর্থিক) সহায়তা ছাড়া৷</string>
     <string name="txt_accept_terms_first_launch">আগানোর মাধ্যমে, তুমি Mozilla-র Common Voice-এর সেবার শর্ত অনুমোদন করবে।</string>
     <string name="txt_microphone_permission_first_launch">Common Voice Android অ্যাপের \"মাইক্রোফোন\" অনুমতি লাগবে সঠিকভাবে কাজ করার জন্য।</string>
-    <string name="txt_storage_permission_first_launch">তুমি গিটহাব(GitHub) বা টেলিগ্রামে(Telegram) বাগগুলি প্রতিবেদন করতে পারেন। ডেভেলপারকে সমস্যাটি দ্রুত বুঝতে সহায়তা করার জন্য অ্যাপ্লিকেশনটির লগ ফাইলটি তোমার প্রতিবেদনের সাথে সংযুক্ত করা উচিত। অ্যাপ্লিকেশনটির লগ ফাইলটি সংরক্ষণের জন্য \"স্টোরেজ\" অনুমতি প্রয়োজন।</string>
+    <string name="txt_storage_permission_first_launch">তুমি গিটহাব(GitHub) বা টেলিগ্রামে(Telegram) বাগগুলি প্রতিবেদন করতে পারবে। ডেভেলপারকে সমস্যাটি দ্রুত বুঝতে সহায়তা করার জন্য অ্যাপ্লিকেশনটির লগ ফাইলটি তোমার প্রতিবেদনের সাথে সংযুক্ত করা উচিত। অ্যাপ্লিকেশনটির লগ ফাইলটি সংরক্ষণের জন্য \"স্টোরেজ\" অনুমতি প্রয়োজন।</string>
     <string name="txt_offline_mode_first_launch">এমনকি তুমি অফলাইনে থাকাকালীনও অবদান রাখতে পারেন। অ্যাপ্লিকেশনটির \"অফলাইন মোড\" স্বয়ংক্রিয়ভাবে সক্ষম হবে এবং তুমি কোনও ইন্টারনেট সংযোগ ছাড়াই রেকর্ড করতে এবং শুনতে শুনতে পারেন।</string>
     <string name="txt_themes_first_launch">তুমি আলোময় থিম বা অন্ধকার থিম বেছে নিতে পারেন।তুমি পরে সেটিংসে এটা পরিবর্তন করতে পারবে।</string>
     <string name="txt_turn_on_dark_theme_first_launch">অন্ধকার ভাব(থিম)</string>
@@ -208,6 +208,15 @@
     <string name="text_help">সাহায্য</string>
     <string name="text_info">তথ্য</string>
     <string name="check_box_message_dialog">আবার দেখাবে না</string>
+    <string name="discontinue_app_1">Important announcement</string>
+    <string name="discontinue_app_2">Please read everything below.\nThe main goal of the app was to improve the Common Voice project and to demonstrate to Mozilla that a native app is necessary to this fantastic project.\nIn the 1st July I\'ve asked to Mozilla if the use of the \"Common Voice\" name was a violation of the Mozilla Terms (because there is not present any \"TM\" information on the website)... they answered to me in the 3rd July and it is. It\'s a violation.\nIn addiction, they said to me (quote textually): \"Regrettably any data that has been collected via your app will not be used for the official Common Voice dataset.\" so, basically users who use the app are not contributing to the project because their recordings and validations won\'t be used in the dataset.\nYou can follow the discussion on Mozilla Discourse and I advise you to tell Mozilla your opinion there (in the same discussion or also opening new tickets in \"Common Voice\" section) or you can send messages directly to members of Mozilla, using Riot (or Mozilla Matrix), in the official Common Voice group.</string>
+    <string name="discontinue_app_3">Open discussion on Mozilla Discourse</string>
+    <string name="discontinue_app_4">Open Common Voice group on Mozilla Matrix</string>
+    <string name="discontinue_app_5">I don\'t want to legal issue and I don\'t want to collect your validations and recordings if they won\'t be used for the dataset as the Mozilla member said.\nFor these reasons I sadly announce officially the app is now discontinued and it will NOT be updated anymore.\nYou can continue to use it, but I\'m not responsible of anything.</string>
+    <string name="discontinue_app_6">Thanks you everyone guys. You gave me opportunity to grow mentally.\nYou can continue to follow me, maybe in future I\'ll create other project you like.\nI\'m really sorry about this announcement.</string>
+    <string name="discontinue_app_6_bis">lovely, Saverio Morelli.</string>
+    <string name="discontinue_app_7">Follow me on socials:</string>
+    <string name="discontinue_app_8">Buy me a coffee:</string>
     <string name="text_offline_mode">অফলাইন মোড</string>
     <string name="text_offline_mode_enabled">তুমি এখন অফলাইন এবং অ্যাপটি স্বয়ংক্রিয়ভাবে অফলাইন মোডে এসেছে।\n যার অর্থ তুমি রেকর্ড এবং সত্যায়ন করা অবিরত রাখতে পারবেন তবে অনুরোধগুলি পরে প্রেরণ করা হবে।</string>
     <string name="text_offline_mode_enabled_2">তুমি কখন অফলাইনে মোডে আছো এই আইকন দেখে তা বলতে পারবে:</string>

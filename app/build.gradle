@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId 'org.commonvoice.saverio.beta'
+        applicationId 'org.commonvoice.saverio'
         minSdkVersion 23
         targetSdkVersion 29
         versionCode = 114
-        versionName '2.0.1b'
+        versionName '2.0.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
