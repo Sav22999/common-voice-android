@@ -1,10 +1,8 @@
 package org.commonvoice.saverio_lib.background
 
 import android.content.Context
-import android.util.Log
 import androidx.work.*
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.currentCoroutineContext
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
@@ -18,7 +16,7 @@ class ClipsDownloadWorker(
     private val workerParams: WorkerParameters
 ): CoroutineWorker(appContext, workerParams) {
 
-    private val db = AppDB.build(appContext)
+    private val db = AppDB.getNewInstance(appContext)
     private val prefManager = MainPrefManager(appContext)
     private val listenPrefManager = ListenPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
