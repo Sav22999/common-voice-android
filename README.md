@@ -1,21 +1,10 @@
 
 
-#  <img src="images/icon.png" width="40px" alt=""></img> Common Voice Android
+#  <img src="images/icon.png" width="40px" alt=""></img> CV Android
 
 [**Official web page of this project**](https://www.saveriomorelli.com/commonvoice/): you can find F.A.Q. and some useful links.
 
-**THE APP IS NOW DISCONTINUED due to a discussion, to follow it go to Mozilla Discourse: https://discourse.mozilla.org/t/common-voice-android-app-legal-question-about-the-logo-and-the-name-common-voice/62892/5**
-
-**Please, to contribute to Common Voice, use the official website**.
-
--------------------
-You can follow me on socials or you can support my work by donation ("Buy me a coffee"):
-[My website](https://www.saveriomorelli.com/)
-
-[Twitter](https://twitter.com/MorelliSaverio), [Telegram](https://t.me/Sav22999), [Facebook](https://www.facebook.com/morellisav), [Instagram](https://www.instagram.com/sav.morelli/), [LinkedIn](https://www.linkedin.com/in/saveriomorelli)
-
-[<img src="images/badges/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7) [<img src="https://cdn.ko-fi.com/cdn/kofi1.png?v=2" width="200px"></img>](https://ko-fi.com/R5R31UQ8G)
--------------------------------
+[*If you have issues with the official Common Voice website, please report them on GitHub repository so that Mozilla can fix them.*](https://bit.ly/2Z73TZZ)
 
 This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
 
@@ -74,7 +63,7 @@ The app is translated in many languages, see list on Crowdin:  [<img src="images
 
 ### License
 
-The license of *Common Voice Android* is GPLv3.
+The license of *CV Android* is GPLv3.
 
 <img src="images/icons/gpl.png" width="100px"></img>
 
