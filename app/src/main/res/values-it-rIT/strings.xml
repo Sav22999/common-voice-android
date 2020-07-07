@@ -32,7 +32,7 @@
     <string name="txt_app_statistics">Statistiche dell\'app</string>
     <string name="txt_current_language">Lingua attuale</string>
     <string name="txt_all_languages">Tutte le lingue</string>
-    <string name="txt_not_available_offline" comment="Text message when you are in Offline mode and want to see dashboard">Non disponibile in modalità offline</string>
+    <string name="txt_not_available_offline">Non disponibile in modalità offline</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Inizia</string>
     <string name="btn_tutorial2">Permetti</string>
@@ -208,6 +208,15 @@
     <string name="text_help">Guida</string>
     <string name="text_info">Informazioni</string>
     <string name="check_box_message_dialog">Non mostrare più</string>
+    <string name="discontinue_app_1">Annuncio importante</string>
+    <string name="discontinue_app_2">Per favore leggi tutto ciò che segue.\nIl principale obiettivo dell\'app era quello di migliorare il progetto Common Voice e dimostrare a Mozilla che un\'app nativa è necessaria per questo fantastico progetto.\nIl 1 luglio ho chiesto a Mozilla se l\'utilizzo del nome \"Common Voice\" fosse una violazione dei termini di servizio di Mozilla (perché nel sito web non è presente alcuna informazione riguardo a \"TM\")... hanno risposto il 3 luglio che lo è. È una violazione.\nIn aggiunta, mi hanno detto (cito testualmente): \"Regrettably any data that has been collected via your app will not be used for the official Common Voice dataset.\" quindi, in pratica gli utenti che usano l\'app non stanno contribuendo al progetto perché le loro registrazioni e convalide non saranno usate nel dataset.\nPuoi seguire la discussione su Mozilla Discourse e ti consiglio di lasciare una tua opinione lì (nella stessa discussione oppure aprendo un nuovo ticket nella sezione \"Common Voice\") o puoi inviare messaggi direttamente ai membri di Mozilla, usando Riot (oppure Mozilla Matrix), nel gruppo ufficiale di Common Voice.</string>
+    <string name="discontinue_app_3">Vedi la discussione su Mozilla Discourse</string>
+    <string name="discontinue_app_4">Apri gruppo Common Voice su Mozilla Matrix</string>
+    <string name="discontinue_app_5">Non voglio problemi legali e non voglio raccogliere le tue convalide o registrazioni se puoi non saranno usate per il dataset, come la dipendente Mozilla ha detto.\nPer queste ragioni annuncio tristemente e ufficialmente che l\'app è ora dismessa e non verrà più aggiornata.\nPuoi continuare ad usarla, ma personalmente non sarà responsabile di nulla.</string>
+    <string name="discontinue_app_6">Grazie a tutti i ragazzi. Mi hai dato l\'opportunità di crescere mentalmente.\nPuoi continuare a seguirmi, forse in futuro creerò un altro progetto che ti piace.\nMi dispiace davvero di questo annuncio.</string>
+    <string name="discontinue_app_6_bis">con affetto, Saverio Morelli.</string>
+    <string name="discontinue_app_7">Seguimi sui social:</string>
+    <string name="discontinue_app_8">Offrimi un caffè:</string>
     <string name="text_offline_mode">Modalità offline</string>
     <string name="text_offline_mode_enabled">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno inviate successivamente.</string>
     <string name="text_offline_mode_enabled_2">Puoi capire facilmente quando sei in modalità offline in quanto è presente questa icona sullo schermo:</string>

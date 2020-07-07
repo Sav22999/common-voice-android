@@ -1,7 +1,7 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
-    <string name="app_name" translatable="false">Common Voice</string>
-    <string name="app_name_long" translatable="false">Common Voice Android</string>
+    <string name="app_name" translatable="false">CV Android</string>
+    <string name="app_name_long" translatable="false">CV Android</string>
 
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language">en</string>
@@ -49,7 +49,7 @@
     <string name="txt_permission_obtained_first_launch">Permission obtained</string>
     <string name="txt_permission_denied_first_launch">Error: permission denied</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
-    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch">This app needs the "Microphone" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the "Storage" permission to save the log file.</string>
@@ -129,6 +129,9 @@
     <string name="txt_themes_settings">Themes</string>
     <string name="txt_telegram_group_settings">Telegram group of the app</string>
     <string name="txt_show_labels_below_menu_icons">Show labels below the menu icons</string>
+    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
+    <string name="txt_read_guidelines">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play">Review on Google Play</string>
 
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading sentence...</string>
@@ -223,6 +226,10 @@
     <string name="text_help">Help</string>
     <string name="text_info">Info</string>
     <string name="check_box_message_dialog">Do not show anymore</string>
+
+    <string name="text_report_website_bug">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="github_name" translatable="false">GitHub</string>
+    <string name="mozilla_discourse_name" translatable="false">Mozilla Discourse</string>
 
     <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
