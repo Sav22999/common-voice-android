@@ -197,84 +197,27 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         this.checkIfSessionIsExpired()
         this.reviewOnPlayStore()
 
-        this.checkDiscontinuedApp()
+        this.checkReportWebsiteBugs()
 
         this
     }
 
-    fun checkDiscontinuedApp() {
-        if (getSharedPreferences(
-                "DISCONTINUED",
-                PRIVATE_MODE
-            ).getBoolean(
-                "DISCONTINUED",
-                true
-            )
-        ) {
-            showMessageDialog("", "", "", "", 99)
+    fun checkReportWebsiteBugs() {
+        if (mainPrefManager.showReportWebsiteBugs) {
+            showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
         }
     }
 
-    fun setDiscountinuedApp(value: Boolean = true) {
-        getSharedPreferences(
-            "DISCONTINUED",
-            PRIVATE_MODE
-        ).edit()
-            .putBoolean(
-                "DISCONTINUED",
-                value
-            )
-            .apply()
+    fun setReportWebsiteBugs(value: Boolean = true) {
+        mainPrefManager.showReportWebsiteBugs = value
     }
 
-    fun goToDiscourseDiscussionDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3dVw6a4")))
+    fun reportBugOnMozillaDiscourse() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3f7sHqj")))
     }
 
-    fun goToCommonVoiceMozillaMatrixDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3eYz8M5")))
-    }
-
-    fun goToMyFacebookDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/morellisav")))
-    }
-
-    fun goToMyTwitterDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/MorelliSaverio")))
-    }
-
-    fun goToMyGitHubDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Sav22999")))
-    }
-
-    fun goToMyInstagramDiscontinued() {
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://www.instagram.com/sav.morelli/")
-            )
-        )
-    }
-
-    fun goToMyLinkedInDiscountinued() {
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://www.linkedin.com/in/saveriomorelli")
-            )
-        )
-    }
-
-    fun goToMyTelegramDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Sav22999")))
-    }
-
-    fun goToMyKoFiDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://ko-fi.com/saveriomorelli")))
-    }
-
-    fun goToMyPayPalDiscontinued() {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+    fun reportBugOnGitHubRepository() {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/2Z73TZZ")))
     }
 
 
@@ -1355,18 +1298,15 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 }
             }
             var message: MessageDialog? = null
-            if (type != 99) {
-                message = MessageDialog(
-                    this,
-                    type,
-                    title,
-                    messageText,
-                    details = details,
-                    height = height
-                )
-            } else {
-                message = MessageDialog(this, this, 99)
-            }
+            message = MessageDialog(
+                this,
+                type,
+                title,
+                messageText,
+                details = details,
+                height = height
+            )
+            if (type == 11) message.setMainActivity(this)
             message?.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")

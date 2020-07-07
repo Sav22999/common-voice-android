@@ -1,12 +1,8 @@
 package org.commonvoice.saverio
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
-import android.media.Image
-import android.net.Uri
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
@@ -16,20 +12,16 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.daily_goal.view.*
-import kotlinx.android.synthetic.main.discontinue_app_message.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
 import kotlinx.android.synthetic.main.offline_mode_message.view.*
+import kotlinx.android.synthetic.main.report_bugs_message.view.*
 
 class MessageDialog {
-
-
-    private val REQUEST_CODE: Int = 101
-    private val DAILY_GOAL = "DAILY_GOAL"
     private var message_type: Int =
         0 /*0->standard (Ok), 1->dailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off),
             3->reportClip (listen), 4->reportSentence (Speak)
             5->info, 6->help, 7->warning, 8->news/changelog, 9->tip
-            10->offlineModeMessage, 99->discontinued app message*/
+            10->offlineModeMessage, 11->report bug on website*/
     private var message_text: String = ""
     private var message_title: String = ""
     private var message_details: String = ""
@@ -83,6 +75,10 @@ class MessageDialog {
 
     fun setMessageType(type: Int) {
         this.message_type = type
+    }
+
+    fun setMainActivity(main: MainActivity) {
+        this.main = main
     }
 
     fun setListenActivity(listen: ListenActivity) {
@@ -217,9 +213,9 @@ class MessageDialog {
                         dialogView.btnOkMessageDialogOfflineMode.setOnClickListener {
                             //dismiss dialog
                             if (speak != null) {
-                                speak?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymore.isChecked)
+                                speak?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymoreOfflineMode.isChecked)
                             } else if (listen != null) {
-                                listen?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymore.isChecked)
+                                listen?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymoreOfflineMode.isChecked)
                             }
                             alertDialog.dismiss()
                         }
@@ -228,75 +224,46 @@ class MessageDialog {
                         println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
                     }
                 }
-                99 -> {
+                11 -> {
                     try {
                         val dialogView =
                             LayoutInflater.from(this.context)
-                                .inflate(R.layout.discontinue_app_message, null)
+                                .inflate(R.layout.report_bugs_message, null)
 
                         val builder =
-                            AlertDialog.Builder(this.context!!)
+                            AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
                                 .setView(dialogView)
                                 .setTitle("")
                         //show dialog
                         val alertDialog = builder.show()
 
-                        if (main?.getSourceStore() == "GPS") {
-                            dialogView.text7DiscontinueApp.isGone = true
-                            dialogView.buttonPayPalDiscontinueApp.isGone = true
-                            dialogView.buttonKofiDiscontinueApp.isGone = true
-                        }
-
-                        dialogView.buttonDiscourseDiscontinueApp.setOnClickListener {
-                            main?.goToDiscourseDiscussionDiscontinued()
-                        }
-
-                        dialogView.buttonMatrixDiscontinueApp.setOnClickListener {
-                            main?.goToCommonVoiceMozillaMatrixDiscontinued()
-                        }
-
-                        dialogView.buttonGitHubDiscontinueApp.setOnClickListener {
-                            main?.goToMyGitHubDiscontinued()
-                        }
-
-                        dialogView.buttonFacebookDiscontinueApp.setOnClickListener {
-                            main?.goToMyFacebookDiscontinued()
-                        }
-
-                        dialogView.buttonTwitterDiscontinueApp.setOnClickListener {
-                            main?.goToMyTwitterDiscontinued()
-                        }
-
-                        dialogView.buttonInstagramDiscontinueApp.setOnClickListener {
-                            main?.goToMyInstagramDiscontinued()
-                        }
-
-                        dialogView.buttonTelegramDiscontinueApp.setOnClickListener {
-                            main?.goToMyTelegramDiscontinued()
-                        }
-
-                        dialogView.buttonLinkedInDiscontinueApp.setOnClickListener {
-                            main?.goToMyLinkedInDiscountinued()
-                        }
-
-                        dialogView.buttonPayPalDiscontinueApp.setOnClickListener {
-                            main?.goToMyPayPalDiscontinued()
-                        }
-
-                        dialogView.buttonKofiDiscontinueApp.setOnClickListener {
-                            main?.goToMyKoFiDiscontinued()
-                        }
-
-                        dialogView.buttonOkDiscontinueApp.setOnClickListener {
+                        dialogView.btnOkMessageDialogReportBug.setOnClickListener {
                             //dismiss dialog
-                            main?.setDiscountinuedApp(!dialogView.checkDiscontinueApp.isChecked)
+                            if (main != null) {
+                                main?.setReportWebsiteBugs(!dialogView.checkDoNotShowAnymoreReportBug.isChecked)
+                            }
                             alertDialog.dismiss()
+                        }
+
+                        if (main != null) {
+                            dialogView.btnMessageDialogReportBugMozillaDiscourse.setOnClickListener {
+                                main?.reportBugOnMozillaDiscourse()
+                            }
+
+                            dialogView.btnMessageDialogReportBugGitHub.setOnClickListener {
+                                main?.reportBugOnGitHubRepository()
+                            }
                         }
                         setTheme(this.context!!, dialogView)
                     } catch (exception: Exception) {
                         println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
                     }
                 }
+            }
+        }
+        when (this.message_type) {
+            11 -> {
+
             }
         }
     }
@@ -519,7 +486,56 @@ class MessageDialog {
                 theme.setElement(
                     isDark,
                     view,
-                    dialogView.findViewById(R.id.checkDoNotShowAnymore) as CheckBox
+                    dialogView.findViewById(R.id.checkDoNotShowAnymoreOfflineMode) as CheckBox
+                )
+
+                setImageNoWifi(view, dialogView, isDark)
+            }
+            11 -> {
+                //report website bug message
+                if (this.height > 500) {
+                    dialogView.messageDialogSectionBackgroundReportBug.layoutParams.height =
+                        this.height
+                    dialogView.messageDialogSectionBackgroundReportBug.requestLayout()
+                } else {
+                    dialogView.messageDialogSectionBackgroundReportBug.backgroundTintList =
+                        ContextCompat.getColorStateList(view, R.color.colorTransparent)
+                }
+
+                theme.setElement(
+                    isDark,
+                    dialogView.findViewById(R.id.messageDialogSectionMiddleReportBug) as ConstraintLayout
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    -1,
+                    dialogView.findViewById(R.id.messageDialogSectionMiddleReportBug) as ConstraintLayout
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.btnOkMessageDialogReportBug) as Button
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.btnMessageDialogReportBugGitHub) as Button
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.btnMessageDialogReportBugMozillaDiscourse) as Button
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.textDescriptionReportBug) as TextView
+                )
+                theme.setElement(
+                    isDark,
+                    view,
+                    dialogView.findViewById(R.id.checkDoNotShowAnymoreReportBug) as CheckBox
                 )
 
                 setImageNoWifi(view, dialogView, isDark)

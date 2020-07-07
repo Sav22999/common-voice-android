@@ -302,6 +302,33 @@ class SettingsFragment : Fragment() {
             )
         }
 
+        val btnReadCommonVoiceToS: Button = root.findViewById(R.id.buttonReadGuidelines)
+        btnReadCommonVoiceToS.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ"))
+            startActivity(browserIntent)
+        }
+
+        val buttonReadCommonVoiceToS: Button = root.findViewById(R.id.buttonReadCommonVoiceToS)
+        buttonReadCommonVoiceToS.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2ZNuj1W"))
+            startActivity(browserIntent)
+        }
+
+        val buttonReviewOnGooglePlay: Button = root.findViewById(R.id.buttonReviewOnGooglePlay)
+        buttonReviewOnGooglePlay.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=org.commonvoice.saverio"))
+            startActivity(browserIntent)
+        }
+
+        if (main.getSourceStore() == "GPS") {
+            buttonReviewOnGooglePlay.isGone = false
+            val separator10: View = root.findViewById(R.id.separator10)
+            separator10.isGone = false
+        }
+
         setTheme(main, root)
 
         return root
@@ -396,6 +423,24 @@ class SettingsFragment : Fragment() {
             isDark,
             view,
             root.findViewById(R.id.buttonTelegramGroup),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonReadGuidelines),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonReadCommonVoiceToS),
+            background = false
+        )
+        theme.setElement(
+            isDark,
+            view,
+            root.findViewById(R.id.buttonReviewOnGooglePlay),
             background = false
         )
 

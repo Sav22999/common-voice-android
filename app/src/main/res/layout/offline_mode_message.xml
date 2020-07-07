@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:viewBindingIgnore="true"
-    android:id="@+id/layoutMessageDialog"
+    android:id="@+id/layoutMessageDialogOfflineMode"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -138,11 +138,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageMessageOfflineMode" />
 
             <CheckBox
-                android:id="@+id/checkDoNotShowAnymore"
+                android:id="@+id/checkDoNotShowAnymoreOfflineMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:buttonTint="@color/colorBlack"
                 android:foregroundTint="@color/colorWhite"
@@ -168,7 +168,7 @@
                 android:textSize="@dimen/text_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkDoNotShowAnymore" />
+                app:layout_constraintTop_toBottomOf="@+id/checkDoNotShowAnymoreOfflineMode" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
