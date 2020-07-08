@@ -43,7 +43,7 @@
     <string name="txt_permission_obtained_first_launch">Autorizzazione ottenuta</string>
     <string name="txt_permission_denied_first_launch">Errore: permesso negato</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/it/terms</string>
-    <string name="txt_introduction_app_first_launch">Common Voice Android è un\'app non ufficiale per Mozilla Common Voice. È sviluppata da Saverio Morelli senza alcun supporto o accordo con Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android è un\'app non ufficiale per Mozilla Common Voice. È sviluppata da Saverio Morelli senza alcun supporto o accordo con Mozilla.</string>
     <string name="txt_accept_terms_first_launch">Procedendo, accetti i Termini di Servizio Voce Comune di Mozilla.</string>
     <string name="txt_microphone_permission_first_launch">Questa app ha bisogno del permesso \"Microfono\" per registrare la voce.</string>
     <string name="txt_storage_permission_first_launch">Puoi segnalare bug su GitHub o Telegram. Per aiutare lo sviluppatore a capire rapidamente il problema, è necessario allegare il file di log dell\'app alla segnalazione. L\'applicazione ha bisogno dell\'autorizzazione \"Archiviazione\" per salvare il file di log.</string>
@@ -121,6 +121,9 @@
     <string name="txt_themes_settings">Temi</string>
     <string name="txt_telegram_group_settings">Gruppo Telegram dell\'app</string>
     <string name="txt_show_labels_below_menu_icons">Mostra le etichette sotto alle icone del menu</string>
+    <string name="txt_read_tos_mozilla_common_voice">Leggi i Termini di Servizio di Mozilla Common Voice</string>
+    <string name="txt_read_guidelines">Leggi le linee guida per le validazioni</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Recensisci su Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>
@@ -208,15 +211,7 @@
     <string name="text_help">Guida</string>
     <string name="text_info">Informazioni</string>
     <string name="check_box_message_dialog">Non mostrare più</string>
-    <string name="discontinue_app_1">Annuncio importante</string>
-    <string name="discontinue_app_2">Per favore leggi tutto ciò che segue.\nIl principale obiettivo dell\'app era quello di migliorare il progetto Common Voice e dimostrare a Mozilla che un\'app nativa è necessaria per questo fantastico progetto.\nIl 1 luglio ho chiesto a Mozilla se l\'utilizzo del nome \"Common Voice\" fosse una violazione dei termini di servizio di Mozilla (perché nel sito web non è presente alcuna informazione riguardo a \"TM\")... hanno risposto il 3 luglio che lo è. È una violazione.\nIn aggiunta, mi hanno detto (cito testualmente): \"Regrettably any data that has been collected via your app will not be used for the official Common Voice dataset.\" quindi, in pratica gli utenti che usano l\'app non stanno contribuendo al progetto perché le loro registrazioni e convalide non saranno usate nel dataset.\nPuoi seguire la discussione su Mozilla Discourse e ti consiglio di lasciare una tua opinione lì (nella stessa discussione oppure aprendo un nuovo ticket nella sezione \"Common Voice\") o puoi inviare messaggi direttamente ai membri di Mozilla, usando Riot (oppure Mozilla Matrix), nel gruppo ufficiale di Common Voice.</string>
-    <string name="discontinue_app_3">Vedi la discussione su Mozilla Discourse</string>
-    <string name="discontinue_app_4">Apri gruppo Common Voice su Mozilla Matrix</string>
-    <string name="discontinue_app_5">Non voglio problemi legali e non voglio raccogliere le tue convalide o registrazioni se puoi non saranno usate per il dataset, come la dipendente Mozilla ha detto.\nPer queste ragioni annuncio tristemente e ufficialmente che l\'app è ora dismessa e non verrà più aggiornata.\nPuoi continuare ad usarla, ma personalmente non sarà responsabile di nulla.</string>
-    <string name="discontinue_app_6">Grazie a tutti i ragazzi. Mi hai dato l\'opportunità di crescere mentalmente.\nPuoi continuare a seguirmi, forse in futuro creerò un altro progetto che ti piace.\nMi dispiace davvero di questo annuncio.</string>
-    <string name="discontinue_app_6_bis">con affetto, Saverio Morelli.</string>
-    <string name="discontinue_app_7">Seguimi sui social:</string>
-    <string name="discontinue_app_8">Offrimi un caffè:</string>
+    <string name="text_report_website_bug">Se hai problemi con il sito ufficiale di Common Voice, ti invito a segnalarli sul forum di Mozilla Discourse o sul repository GitHub in modo che Mozilla possa correggerli.</string>
     <string name="text_offline_mode">Modalità offline</string>
     <string name="text_offline_mode_enabled">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno inviate successivamente.</string>
     <string name="text_offline_mode_enabled_2">Puoi capire facilmente quando sei in modalità offline in quanto è presente questa icona sullo schermo:</string>
