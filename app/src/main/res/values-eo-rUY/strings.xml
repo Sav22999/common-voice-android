@@ -43,7 +43,7 @@
     <string name="txt_permission_obtained_first_launch">Permission obtained</string>
     <string name="txt_permission_denied_first_launch">Error: permission denied</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
-    <string name="txt_introduction_app_first_launch">Common Voice Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
@@ -121,6 +121,9 @@
     <string name="txt_themes_settings">Themes</string>
     <string name="txt_telegram_group_settings">Telegram group of the app</string>
     <string name="txt_show_labels_below_menu_icons">Show labels below the menu icons</string>
+    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
+    <string name="txt_read_guidelines">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">Preterlasi</string>
@@ -208,15 +211,7 @@
     <string name="text_help">Helpo</string>
     <string name="text_info">Informoj</string>
     <string name="check_box_message_dialog">Ne plu montri</string>
-    <string name="discontinue_app_1">Important announcement</string>
-    <string name="discontinue_app_2">Please read everything below.\nThe main goal of the app was to improve the Common Voice project and to demonstrate to Mozilla that a native app is necessary to this fantastic project.\nIn the 1st July I\'ve asked to Mozilla if the use of the \"Common Voice\" name was a violation of the Mozilla Terms (because there is not present any \"TM\" information on the website)... they answered to me in the 3rd July and it is. It\'s a violation.\nIn addiction, they said to me (quote textually): \"Regrettably any data that has been collected via your app will not be used for the official Common Voice dataset.\" so, basically users who use the app are not contributing to the project because their recordings and validations won\'t be used in the dataset.\nYou can follow the discussion on Mozilla Discourse and I advise you to tell Mozilla your opinion there (in the same discussion or also opening new tickets in \"Common Voice\" section) or you can send messages directly to members of Mozilla, using Riot (or Mozilla Matrix), in the official Common Voice group.</string>
-    <string name="discontinue_app_3">Open discussion on Mozilla Discourse</string>
-    <string name="discontinue_app_4">Open Common Voice group on Mozilla Matrix</string>
-    <string name="discontinue_app_5">I don\'t want to legal issue and I don\'t want to collect your validations and recordings if they won\'t be used for the dataset as the Mozilla member said.\nFor these reasons I sadly announce officially the app is now discontinued and it will NOT be updated anymore.\nYou can continue to use it, but I\'m not responsible of anything.</string>
-    <string name="discontinue_app_6">Thanks you everyone guys. You gave me opportunity to grow mentally.\nYou can continue to follow me, maybe in future I\'ll create other project you like.\nI\'m really sorry about this announcement.</string>
-    <string name="discontinue_app_6_bis">lovely, Saverio Morelli.</string>
-    <string name="discontinue_app_7">Follow me on socials:</string>
-    <string name="discontinue_app_8">Buy me a coffee:</string>
+    <string name="text_report_website_bug">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
     <string name="text_offline_mode">Offline mode</string>
     <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
