@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId 'org.commonvoice.saverio'
+        applicationId 'org.commonvoice.saverio.beta'
         minSdkVersion 23
         targetSdkVersion 29
         versionCode = 117
@@ -72,8 +72,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
     //Koin
-    //TODO after updating remove SharedStateViewModelExtensions.kt
-    implementation "org.koin:koin-androidx-viewmodel:2.1.5"
+    implementation "org.koin:koin-androidx-viewmodel:2.1.6"
     //https://github.com/InsertKoinIO/koin
 
     //MVVM
