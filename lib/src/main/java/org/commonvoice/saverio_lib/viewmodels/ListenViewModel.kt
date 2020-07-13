@@ -1,6 +1,7 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
+import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
 import kotlinx.android.parcel.Parcelize
@@ -19,6 +20,7 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
+import kotlin.math.log
 
 class ListenViewModel(
     handle: SavedStateHandle,
@@ -73,8 +75,12 @@ class ListenViewModel(
             mediaPlayerRepository.setup {
                 _state.postValue(State.LISTENED)
             }
-            mediaPlayerRepository.playClip(clip)
-            _state.postValue(State.LISTENING)
+            if (mediaPlayerRepository.playClip(clip)) {
+                _state.postValue(State.LISTENING)
+            } else {
+                //TODO
+                _state.postValue(State.ERROR)
+            }
         }
     }
 
@@ -127,7 +133,8 @@ class ListenViewModel(
         enum class State : Parcelable {
             STANDBY,
             LISTENING,
-            LISTENED
+            LISTENED,
+            ERROR
         }
     }
 

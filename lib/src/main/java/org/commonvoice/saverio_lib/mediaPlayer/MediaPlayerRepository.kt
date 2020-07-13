@@ -1,6 +1,8 @@
 package org.commonvoice.saverio_lib.mediaPlayer
 
+import android.content.Context
 import android.media.MediaPlayer
+import org.commonvoice.saverio_lib.R
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.models.Recording
 
@@ -25,12 +27,19 @@ class MediaPlayerRepository {
         }
     }
 
-    fun playClip(clip: Clip) {
+    fun playClip(clip: Clip): Boolean {
         mediaPlayer?.apply {
             setDataSource(ByteArrayDataSource(clip))
-            prepare()
+            try {
+                prepare()
+            } catch (e: Exception) {
+                //TODO
+                println("Exception: " + e.toString())
+                return false
+            }
             start()
         }
+        return true
     }
 
     fun stopPlaying() {
