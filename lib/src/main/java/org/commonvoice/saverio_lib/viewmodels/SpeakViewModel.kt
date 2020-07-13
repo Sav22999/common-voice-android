@@ -145,6 +145,7 @@ class SpeakViewModel(
     }
 
     fun sendRecording() = viewModelScope.launch(Dispatchers.IO) {
+        stopListening()
         currentRecording?.let { recording ->
             recordingsRepository.insertRecording(recording)
             currentSentence.value?.let {
@@ -185,6 +186,8 @@ class SpeakViewModel(
         mediaRecorderRepository.clean()
         mediaPlayerRepository.clean()
         recordingSoundIndicatorRepository.clean()
+
+        mediaRecorderRepository.setupRecorder()
     }
 
     fun reportSentence(reasons: List<String>) = viewModelScope.launch {

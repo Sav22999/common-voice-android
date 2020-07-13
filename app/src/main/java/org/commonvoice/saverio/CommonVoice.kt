@@ -27,7 +27,7 @@ import org.koin.dsl.module
 class CommonVoice : Application() {
 
     private val dbModule = module {
-        single { AppDB.build(androidContext()) }
+        single { AppDB.getInstance(androidContext()) }
     }
 
     private val utilsModule = module {

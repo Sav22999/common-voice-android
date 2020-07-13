@@ -26,9 +26,17 @@ abstract class AppDB : RoomDatabase() {
 
     companion object {
 
-        fun build(ctx: Context): AppDB {
-            return Room.databaseBuilder(ctx, AppDB::class.java, "local.db")
+        @Volatile private var INSTANCE: AppDB? = null
+
+        fun getInstance(context: Context): AppDB =
+            INSTANCE ?: synchronized(this) {
+                INSTANCE ?: getNewInstance(context).also { INSTANCE = it }
+            }
+
+        fun getNewInstance(ctx: Context): AppDB {
+            return Room.databaseBuilder(ctx.applicationContext, AppDB::class.java, "local.db")
                 .fallbackToDestructiveMigration()
+                .setJournalMode(JournalMode.AUTOMATIC)
                 .build()
         }
 

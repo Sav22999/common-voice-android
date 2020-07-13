@@ -24,15 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Ви повинні увійти, щоб встановити щоденну мету</string>
     <string name="textHoursAbbreviation">г</string>
     <string name="textHour">Година</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
+    <string name="txt_top_contributors">Найактивніші користувачі</string>
+    <string name="txt_top_contributors_recorded">Записано</string>
+    <string name="txt_top_contributors_validated">Перевірено</string>
     <!-- 4, ..., 100, etc. -->
     <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
-    <string name="txt_app_statistics">App statistics</string>
-    <string name="txt_current_language">Current language</string>
-    <string name="txt_all_languages">All languages</string>
-    <string name="txt_not_available_offline">Not available in offline mode</string>
+    <string name="txt_app_statistics">Статистика додатку</string>
+    <string name="txt_current_language">Поточна мова</string>
+    <string name="txt_all_languages">Усі мови</string>
+    <string name="txt_not_available_offline">Недоступно в режимі офлайн</string>
     <!-- First launch -->
     <string name="btn_tutorial1">Старт</string>
     <string name="btn_tutorial2">Permit</string>
@@ -43,8 +43,8 @@
     <string name="txt_permission_obtained_first_launch">Дозвіл отримано</string>
     <string name="txt_permission_denied_first_launch">Помилка: немає дозволу</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/uk/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android - це неофіційний додаток для Mozilla Common Voice. Він розроблений Saverio Morelli без будь-якої підтримки або партнерства з Mozilla.</string>
+    <string name="txt_accept_terms_first_launch">Продовжуючи, ви погоджуєтеся з умовами використання Mozilla\'s Common Voice.</string>
     <string name="txt_microphone_permission_first_launch">Програмі необхідний дозвіл \"Мікрофон\" для запису вашого голосу.</string>
     <string name="txt_storage_permission_first_launch">Ви можете повідомити про помилки на GitHub або Telegram. Щоб допомогти розробнику швидко зрозуміти проблему, ви повинні додати лог-файл програми до вашого звіту. Додатку потрібен дозвіл \"Сховище\" для збереження файлу журналу.</string>
     <string name="txt_offline_mode_first_launch">Навіть ви можете внести свій внесок, поки ви не в мережі. Додаток \"Автономний режим\" буде увімкнено автоматично, тож ви можете продовжити запис і слухати без підключення до Інтернету.</string>
@@ -61,7 +61,7 @@
     <string name="txt_profile_email">Ел. пошта</string>
     <string name="txt_profile_age">Вік</string>
     <string name="txt_profile_gender">Стать</string>
-    <string name="txt_profile_edit_data_alert">To modify your profile information, go to the Common Voice website.</string>
+    <string name="txt_profile_edit_data_alert">Щоб змінити інформацію Вашого профілю, перейдіть на сайт Common Voice.</string>
     <string name="txt_login_successful_alert">Ви успішно зайшли!</string>
     <string name="txt_gender_male">Чоловік</string>
     <string name="txt_gender_female">Жінка</string>
@@ -121,9 +121,9 @@
     <string name="txt_themes_settings">Теми оформлення</string>
     <string name="txt_telegram_group_settings">Група додатку Telegram</string>
     <string name="txt_show_labels_below_menu_icons">Відображати ярлики під піктограмами меню</string>
-    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_read_tos_mozilla_common_voice">Прочитайте умови використання Mozilla Common Voice</string>
+    <string name="txt_read_guidelines">Прочитати рекомендації для перевірки</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Написати відгук в Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Завантаження речення...</string>
     <string name="btn_skip_sentence">Пропустити</string>

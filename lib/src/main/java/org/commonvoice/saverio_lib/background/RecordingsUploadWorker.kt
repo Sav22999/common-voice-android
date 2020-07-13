@@ -17,7 +17,7 @@ class RecordingsUploadWorker(
     workerParams: WorkerParameters
 ) : CoroutineWorker(appContext, workerParams) {
 
-    private val db = AppDB.build(appContext)
+    private val db = AppDB.getNewInstance(appContext)
     private val prefManager =
         MainPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
