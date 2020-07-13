@@ -12,12 +12,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottomsheet_report.*
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.utils.onClick
-import org.commonvoice.saverio.utils.sharedStateViewModel
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
+import org.koin.androidx.viewmodel.ext.android.stateSharedViewModel
 
 class ListenReportDialogFragment : BottomSheetDialogFragment() {
 
-    private val listenViewModel: ListenViewModel by sharedStateViewModel()
+    private val listenViewModel: ListenViewModel by stateSharedViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,

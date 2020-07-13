@@ -43,7 +43,7 @@
     <string name="txt_permission_obtained_first_launch">Permís obtingut</string>
     <string name="txt_permission_denied_first_launch">Error: permís denegat</string>
     <string name="linkTermsCommonVoice">https://voice.mozilla.org/ca/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android es una aplicació no oficial de Mozilla Common Voice. Ha sigut desenvolupada per Saverio Morelli sense cap suport o col·laboració amb Mozilla.</string>
     <string name="txt_accept_terms_first_launch">En continuar, accepteu els termes d\'ús de Common Voice de Mozilla.</string>
     <string name="txt_microphone_permission_first_launch">Aquesta aplicació necessita el permís \"Micròfon\" per a gravar la teva veu.</string>
     <string name="txt_storage_permission_first_launch">Pots reportar bugs a GitHub o Telegram. Per ajudar al desenvolupador a entendre el problema ràpid, deuries adjuntar el archiu de registre de la aplicació al report. La aplicació necessita el permís de \"Magatzematge\" per guardar el archiu del registre.</string>
@@ -121,9 +121,9 @@
     <string name="txt_themes_settings">Modes</string>
     <string name="txt_telegram_group_settings">Grup de Telegram de l\'aplicació</string>
     <string name="txt_show_labels_below_menu_icons">Mostra etiquetes davall de les icones del menú</string>
-    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_read_tos_mozilla_common_voice">Llegeix els Termes del Servei de Mozilla Common Voice</string>
+    <string name="txt_read_guidelines">Llegeix les guies de validacions</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Valora a Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Carregant frase...</string>
     <string name="btn_skip_sentence">Saltar</string>
@@ -201,9 +201,9 @@
     <string name="btnOk">D\'acord</string>
     <string name="messageDialogErrorTitle">Error</string>
     <string name="messageDialogGenericError">Això no ha funcionat.\nPer favor, intenta-ho una altra vegada, o contacta amb el desenvolupador.</string>
-    <string name="messageDialogErrorCode">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
+    <string name="messageDialogErrorCode">Això no ha funcionat. Per favor, intenta-ho una altra vegada, o contacta amb el desenvolupador.\nCodi d\'error: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle">Error en inici de sessió</string>
-    <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
+    <string name="youHaveToAcceptPrivacyPolicy">Deus iniciar sessió en la pàgina web de Common Voice i acceptar la política de privacitat de Common Voice.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Obrir Common Voice</string>
     <string name="text_warning">Avís</string>
     <string name="text_tip">Consell</string>
@@ -211,11 +211,11 @@
     <string name="text_help">Ajuda</string>
     <string name="text_info">Informació</string>
     <string name="check_box_message_dialog">No mostrar més</string>
-    <string name="text_report_website_bug">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode">Offline mode</string>
-    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
-    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
+    <string name="text_report_website_bug">Si tens problemes amb la web oficial de Common Voice, per favor reporta-ho als fòrums de Mozilla Discourse o al repositori de GitHub per que Mozilla ho arregle.</string>
+    <string name="text_offline_mode">Mode sense connexió</string>
+    <string name="text_offline_mode_enabled">Ara estàs sense connexió i la aplicació ha canviat al mode offline automàticament.\nAçò significa que pots continuar gravant i validant, però les sol·licituds seràn enviades quan recuperes la connexió.</string>
+    <string name="text_offline_mode_enabled_2">Pots saber que estàs en el mode sense connexió si veus aquesta icona a la pantalla:</string>
+    <string name="text_offline_mode_enabled_3">Pots tocar aquesta icona per vore els clips i frases descarregades.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title">Objectiu diari</string>
     <string name="daily_goal_is_not_set">No heu fixat cap objectiu</string>
@@ -224,13 +224,13 @@
     <string name="save_daily_goal">Desa</string>
     <string name="delete_daily_goal">Elimina</string>
     <string name="cancel_daily_goal">Cancel·la</string>
-    <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
+    <string name="description_setting_daily_goal">Elegeix quantes frases vols gravar i els clips que vols validar (la suma d\'aquests) per dia.</string>
     <string name="daily_goal_achieved_today">Aconseguit avui</string>
     <string name="daily_goal_not_achieved_today">No aconseguit avui</string>
     <string name="daily_goal_achieved_message">Ben fet! Has aconseguit el teu objectiu diari.\nHas validat {{*{{n_clips}}*}} tall(s) de veu i n\'has gravat {{*{{n_sentences}}*}}.\nSentet lliure de seguir contribuint al projecte Common Voice.</string>
     <string name="daily_goal_is_not_official_by_mozilla">L\'objectiu diari no és una funcionalitat oficial de Mozilla. És una funcionalitat específica de l\'aplicació.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available">Una nova versió de la app està disponible (versió {{*{{n_version}}*}}), Pots actualitzar-la des de la teva tenda favorita (F-Droid, Google Play Store) o directament des de GitHub.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

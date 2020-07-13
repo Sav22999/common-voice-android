@@ -114,6 +114,10 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                 ListenViewModel.Companion.State.LISTENED -> {
                     loadUIStateListened()
                 }
+                ListenViewModel.Companion.State.ERROR -> {
+                    //TODO
+                    loadUIStateListening()
+                }
             }
         })
 
