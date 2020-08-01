@@ -42,8 +42,7 @@
     <string name="btn_skip">Preterlasi</string>
     <string name="txt_permission_obtained_first_launch">Permission obtained</string>
     <string name="txt_permission_denied_first_launch">Error: permission denied</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch">This app needs the \"Microphone\" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Show labels below the menu icons</string>
     <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_review_on_google_play">Review on Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Loading sentence...</string>
     <string name="btn_skip_sentence">Preterlasi</string>

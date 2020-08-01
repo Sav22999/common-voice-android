@@ -42,8 +42,7 @@
     <string name="btn_skip">Überspringen</string>
     <string name="txt_permission_obtained_first_launch">Berechtigung erhalten</string>
     <string name="txt_permission_denied_first_launch">Fehler: Berechtigung verweigert</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/de/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android ist eine inoffizielle App für Mozilla Common Voice. Sie wurde von Saverio Morelli ohne Unterstützung oder Partnerschaft mit Mozilla entwickelt.</string>
+    <string name="txt_introduction_app_first_launch">CV Android ist eine inoffizielle App für Mozilla Common Voice. Sie wurde von Saverio Morelli ohne Unterstützung oder Partnerschaft mit Mozilla entwickelt.</string>
     <string name="txt_accept_terms_first_launch">Indem Du fortfährst, stimmst Du den Nutzungsbedingungen von Mozilla Common Voice zu.</string>
     <string name="txt_microphone_permission_first_launch">Diese App benötigt die \"Mikrofon\"-Berechtigung, um Deine Stimme aufnehmen zu können.</string>
     <string name="txt_storage_permission_first_launch">Programmfehler können auf GitHub oder über Telegram gemeldet werden. Damit der Entwickler schnell verstehen kann, worin das Problem besteht, solltest Du die Protokolldatei der App an Deinen Fehlerbericht anhängen. Die App benötigt die \"Speicher\"-Berechtigung um die Protokolldatei zu speichern.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Beschriftungen unterhalb der Menüsymbole anzeigen</string>
     <string name="txt_read_tos_mozilla_common_voice">Lesen Sie die Nutzungsbedingungen für Mozilla Common Voice</string>
     <string name="txt_read_guidelines">Lesen Sie die Richtlinien für Validierungen</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Auf Google Play bewerten</string>
+    <string name="txt_review_on_google_play">Auf Google Play bewerten</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Lade Satz...</string>
     <string name="btn_skip_sentence">Überspringen</string>

@@ -12,7 +12,7 @@ The *Experimental features* could be unsafe and unstable, so pay attention if yo
 
 There are "two" versions: one for "Google Play Store", and another for "F-Droid/GitHub". In the first one the app show, sometimes a message "Review the app ... on Google Play Store", in the second one there is a button, in Settings, which permits you to "buy me a coffee". But the rest of the code is absolutely the same.
 
-If you want additional information about the Policy privacy of Common Voice project, [read the official doc](https://voice.mozilla.org/en/privacy).
+If you want additional information about the Policy privacy of Common Voice project, [read the official doc](https://commonvoice.mozilla.org/en/privacy).
 
 ### Anonymous statistics
 

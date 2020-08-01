@@ -42,8 +42,7 @@
     <string name="btn_skip">Пропустити</string>
     <string name="txt_permission_obtained_first_launch">Дозвіл отримано</string>
     <string name="txt_permission_denied_first_launch">Помилка: немає дозволу</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/uk/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android - це неофіційний додаток для Mozilla Common Voice. Він розроблений Saverio Morelli без будь-якої підтримки або партнерства з Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android - це неофіційний додаток для Mozilla Common Voice. Він розроблений Saverio Morelli без будь-якої підтримки або партнерства з Mozilla.</string>
     <string name="txt_accept_terms_first_launch">Продовжуючи, ви погоджуєтеся з умовами використання Mozilla\'s Common Voice.</string>
     <string name="txt_microphone_permission_first_launch">Програмі необхідний дозвіл \"Мікрофон\" для запису вашого голосу.</string>
     <string name="txt_storage_permission_first_launch">Ви можете повідомити про помилки на GitHub або Telegram. Щоб допомогти розробнику швидко зрозуміти проблему, ви повинні додати лог-файл програми до вашого звіту. Додатку потрібен дозвіл \"Сховище\" для збереження файлу журналу.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Відображати ярлики під піктограмами меню</string>
     <string name="txt_read_tos_mozilla_common_voice">Прочитайте умови використання Mozilla Common Voice</string>
     <string name="txt_read_guidelines">Прочитати рекомендації для перевірки</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Написати відгук в Google Play</string>
+    <string name="txt_review_on_google_play">Написати відгук в Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Завантаження речення...</string>
     <string name="btn_skip_sentence">Пропустити</string>

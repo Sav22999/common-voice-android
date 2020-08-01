@@ -35,7 +35,7 @@ You can contribute also to translate the app (follow every step, please):
 1. **Open a new issue** (use `Translation` template), so others know you are translating the app in that language
 1. Then go to [Crowdin](https://bit.ly/3bNBoUU), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
 
-_If your language is not now supported by [Common Voice](https://voice.mozilla.org/it), **don't worry!** You can translate the app anyway, when it will be supported, the app will be already translated in your language!_
+_If your language is not now supported by [Common Voice](https://commonvoice.mozilla.org/it), **don't worry!** You can translate the app anyway, when it will be supported, the app will be already translated in your language!_
 
 ### Screenshots
 

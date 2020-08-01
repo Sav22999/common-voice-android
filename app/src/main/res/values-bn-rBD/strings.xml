@@ -42,8 +42,7 @@
     <string name="btn_skip">উপেক্ষা</string>
     <string name="txt_permission_obtained_first_launch">অনুমতি পাওয়া গেছে</string>
     <string name="txt_permission_denied_first_launch">ত্রুটি: অনুমতি পাওয়া যায়নি</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/bn/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">আগানোর মাধ্যমে, তুমি Mozilla-র Common Voice-এর সেবার শর্ত অনুমোদন করবে।</string>
     <string name="txt_microphone_permission_first_launch">Common Voice Android অ্যাপের \"মাইক্রোফোন\" অনুমতি লাগবে সঠিকভাবে কাজ করার জন্য।</string>
     <string name="txt_storage_permission_first_launch">তুমি গিটহাব(GitHub) বা টেলিগ্রামে(Telegram) বাগগুলি প্রতিবেদন করতে পারবে। ডেভেলপারকে সমস্যাটি দ্রুত বুঝতে সহায়তা করার জন্য অ্যাপ্লিকেশনটির লগ ফাইলটি তোমার প্রতিবেদনের সাথে সংযুক্ত করা উচিত। অ্যাপ্লিকেশনটির লগ ফাইলটি সংরক্ষণের জন্য \"স্টোরেজ\" অনুমতি প্রয়োজন।</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">মেনু চিহ্নগুলোর নিচে লেবেলগুলো দেখাও</string>
     <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_review_on_google_play">Review on Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">বাক্য লোড হচ্ছে...</string>
     <string name="btn_skip_sentence">উপেক্ষা কর</string>

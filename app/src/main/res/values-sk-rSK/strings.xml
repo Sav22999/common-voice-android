@@ -42,8 +42,7 @@
     <string name="btn_skip">Preskočiť</string>
     <string name="txt_permission_obtained_first_launch">Povolenie úspešné</string>
     <string name="txt_permission_denied_first_launch">Chyba: Povolenie neúspešné</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/sk/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android je neoficiálna aplikácia pre Mozilla Common Voice. Je vyvíjana developerom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android je neoficiálna aplikácia pre Mozilla Common Voice. Je vyvíjana developerom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
     <string name="txt_accept_terms_first_launch">Pokračovaním súhlasíte so Všeobecnými podmienkami používania Mozilla Common Voice aplikácie.</string>
     <string name="txt_microphone_permission_first_launch">Táto aplikácia potrebuje prístup k povoleniu \"Mikrofón\" aby mohla nahrávať Váš hlas.</string>
     <string name="txt_storage_permission_first_launch">Chyby môžete nahlasovať na GitHub alebo Telegram. Pre ľahšie a rýchlejšie vyriešenie chyby, zvážte pridanie záznamového súboru appky do Vášho hlásenia. Aplikácia potrebuje prístup ku právu \"Úložisko\" pre uloženie záznamového súboru.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Ukazovať popisy pod menu ikonami</string>
     <string name="txt_read_tos_mozilla_common_voice">Prečítať Všeobecné podmienky používania Mozilla Common Voice</string>
     <string name="txt_read_guidelines">Prečítať odporúčania pre overovanie</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Ohodnotiť v Google Play</string>
+    <string name="txt_review_on_google_play">Ohodnotiť v Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Načítava sa veta...</string>
     <string name="btn_skip_sentence">Preskočiť</string>

@@ -42,8 +42,7 @@
     <string name="btn_skip">Пропустить</string>
     <string name="txt_permission_obtained_first_launch">Получено разрешение</string>
     <string name="txt_permission_denied_first_launch">Ошибка: разрешение отказано</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/ru/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">Продолжая, вы соглашаетесь с условиями использования Mozilla Common Voice.</string>
     <string name="txt_microphone_permission_first_launch">Для записи голоса приложению требуется разрешение \"Микрофон\".</string>
     <string name="txt_storage_permission_first_launch">Вы можете сообщать об ошибках на GitHub или Telegram. Чтобы помочь разработчику быстро понять проблему, вы должны прикрепить лог файл приложения к отчету. Приложению требуется разрешение \"Хранилище\", чтобы сохранить лог файл.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Показывать метки под значками меню</string>
     <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_review_on_google_play">Review on Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Загрузка предложения...</string>
     <string name="btn_skip_sentence">Пропустить</string>

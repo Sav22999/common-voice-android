@@ -42,8 +42,7 @@
     <string name="btn_skip">Přeskočit</string>
     <string name="txt_permission_obtained_first_launch">Oprávnění získáno</string>
     <string name="txt_permission_denied_first_launch">Chyba: oprávnění odepřeno</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/cs/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">Pokračováním souhlasíte s podmínkami služby Mozilla\'s Common Voice.</string>
     <string name="txt_microphone_permission_first_launch">Tato aplikace potřebuje k nahrávání vašeho hlasu oprávnění \"Mikrofon\".</string>
     <string name="txt_storage_permission_first_launch">Můžete nahlašovat chyby na GitHubu nebo Telegramu. Aby vývojář rychle pochopil problém, měli byste k vaší zprávě připojit soubor záznamu aplikace. Pro ukládání souborů záznamů musíte aplikaci povolit oprávnění \"Úložiště\".</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Zobrazit popisky pod ikonami menu</string>
     <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_review_on_google_play">Ohodnotit na Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Načítá se věta...</string>
     <string name="btn_skip_sentence">Přeskočit</string>

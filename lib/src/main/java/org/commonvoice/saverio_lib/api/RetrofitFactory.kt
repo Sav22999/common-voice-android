@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
  */
 class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
-    private val genericURL = "https://voice.mozilla.org/api/v1/"
+    private val genericURL = "https://commonvoice.mozilla.org/api/v1/"
 
     private val langURL = genericURL + mainPrefManager.language + "/"
 

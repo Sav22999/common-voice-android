@@ -48,7 +48,7 @@
     <string name="btn_skip">Skip</string>
     <string name="txt_permission_obtained_first_launch">Permission obtained</string>
     <string name="txt_permission_denied_first_launch">Error: permission denied</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/en/terms</string>
+    <string name="linkTermsCommonVoice" translatable="false">https://commonvoice.mozilla.org/terms</string>
     <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch">This app needs the "Microphone" permission to record your voice.</string>

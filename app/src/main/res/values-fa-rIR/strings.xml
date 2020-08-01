@@ -42,8 +42,7 @@
     <string name="btn_skip">پرش</string>
     <string name="txt_permission_obtained_first_launch">دسترسی اعطا شد</string>
     <string name="txt_permission_denied_first_launch">خطا: دسترسی رد شد</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/fa/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">اندروید CV کاره‌ای غیرسمی برای صداهای اشتراکی موزیلا است. به دست سوریو مورلی بدون هیچ پشتیبانی یا شراکت موزیلا توسعه داده شده.</string>
+    <string name="txt_introduction_app_first_launch">اندروید CV کاره‌ای غیرسمی برای صداهای اشتراکی موزیلا است. به دست سوریو مورلی بدون هیچ پشتیبانی یا شراکت موزیلا توسعه داده شده.</string>
     <string name="txt_accept_terms_first_launch">با ادامه دادن، با شرایط خدمت صداهای اشتراکی موزیلا موافقت می‌کنید.</string>
     <string name="txt_microphone_permission_first_launch">این کاره برای ضبط صدایتان به دسترسی «میکروفون» نیاز دارد.</string>
     <string name="txt_storage_permission_first_launch">می‌توانید مشکلات را روی گیت‌هاب یا تلگرام گزارش کنید. برای کمک به توسعه‌دهنده برای درک سریع‌تر مشکل، باید پروندهٔ گزارش را به گزارشتان پیوست کنید. کاره برای ذخیرهٔ پروندهٔ گزارش، نیاز به دسترسی «ذخیره‌سازی» دارد.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
     <string name="txt_read_tos_mozilla_common_voice">شرایط خدمت آواهای مشترک موزیلا را بخوانید</string>
     <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">بازبینی روی گوگل پلی</string>
+    <string name="txt_review_on_google_play">بازبینی روی گوگل پلی</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">در حال بار کردن جمله…</string>
     <string name="btn_skip_sentence">پرش</string>

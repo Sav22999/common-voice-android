@@ -42,8 +42,7 @@
     <string name="btn_skip">Salta</string>
     <string name="txt_permission_obtained_first_launch">Autorizzazione ottenuta</string>
     <string name="txt_permission_denied_first_launch">Errore: permesso negato</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/it/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android è un\'app non ufficiale per Mozilla Common Voice. È sviluppata da Saverio Morelli senza alcun supporto o accordo con Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android è un\'app non ufficiale per Mozilla Common Voice. È sviluppata da Saverio Morelli senza alcun supporto o accordo con Mozilla.</string>
     <string name="txt_accept_terms_first_launch">Procedendo, accetti i Termini di Servizio Voce Comune di Mozilla.</string>
     <string name="txt_microphone_permission_first_launch">Questa app ha bisogno del permesso \"Microfono\" per registrare la voce.</string>
     <string name="txt_storage_permission_first_launch">Puoi segnalare bug su GitHub o Telegram. Per aiutare lo sviluppatore a capire rapidamente il problema, è necessario allegare il file di log dell\'app alla segnalazione. L\'applicazione ha bisogno dell\'autorizzazione \"Archiviazione\" per salvare il file di log.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Mostra le etichette sotto alle icone del menu</string>
     <string name="txt_read_tos_mozilla_common_voice">Leggi i Termini di Servizio di Mozilla Common Voice</string>
     <string name="txt_read_guidelines">Leggi le linee guida per le validazioni</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Recensisci su Google Play</string>
+    <string name="txt_review_on_google_play">Recensisci su Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Caricamento di una frase...</string>
     <string name="btn_skip_sentence">Salta</string>

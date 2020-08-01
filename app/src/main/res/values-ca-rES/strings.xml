@@ -42,8 +42,7 @@
     <string name="btn_skip">Saltar</string>
     <string name="txt_permission_obtained_first_launch">Permís obtingut</string>
     <string name="txt_permission_denied_first_launch">Error: permís denegat</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/ca/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android es una aplicació no oficial de Mozilla Common Voice. Ha sigut desenvolupada per Saverio Morelli sense cap suport o col·laboració amb Mozilla.</string>
+    <string name="txt_introduction_app_first_launch">CV Android es una aplicació no oficial de Mozilla Common Voice. Ha sigut desenvolupada per Saverio Morelli sense cap suport o col·laboració amb Mozilla.</string>
     <string name="txt_accept_terms_first_launch">En continuar, accepteu els termes d\'ús de Common Voice de Mozilla.</string>
     <string name="txt_microphone_permission_first_launch">Aquesta aplicació necessita el permís \"Micròfon\" per a gravar la teva veu.</string>
     <string name="txt_storage_permission_first_launch">Pots reportar bugs a GitHub o Telegram. Per ajudar al desenvolupador a entendre el problema ràpid, deuries adjuntar el archiu de registre de la aplicació al report. La aplicació necessita el permís de \"Magatzematge\" per guardar el archiu del registre.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Mostra etiquetes davall de les icones del menú</string>
     <string name="txt_read_tos_mozilla_common_voice">Llegeix els Termes del Servei de Mozilla Common Voice</string>
     <string name="txt_read_guidelines">Llegeix les guies de validacions</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Valora a Google Play</string>
+    <string name="txt_review_on_google_play">Valora a Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Carregant frase...</string>
     <string name="btn_skip_sentence">Saltar</string>

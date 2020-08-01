@@ -77,7 +77,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     //"TODAY_CONTRIBUTING" //saved as "yyyy/mm/dd, n_recorded, n_validated"
 
     val urlWithoutLang: String =
-        "https://voice.mozilla.org/api/v1/" //API url (without lang)
+        "https://commonvoice.mozilla.org/api/v1/" //API url (without lang)
 
     val urlStatistics =
         "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request for anonymous statistics

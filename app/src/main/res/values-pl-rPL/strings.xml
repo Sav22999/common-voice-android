@@ -42,8 +42,7 @@
     <string name="btn_skip">Pomiń</string>
     <string name="txt_permission_obtained_first_launch">Otrzymano uprawnienie</string>
     <string name="txt_permission_denied_first_launch">Błąd: odmówiono uprawnienie</string>
-    <string name="linkTermsCommonVoice">https://voice.mozilla.org/pl/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="This is a description (the first screen when you open the app for the first time)">CV Android jest nieoficjalną aplikacją dla Mozilla Common Voice. Jest stworzona przez Saverio Morelli\'ego bez wsparcia ani partnerstwa z Mozillą.</string>
+    <string name="txt_introduction_app_first_launch">CV Android jest nieoficjalną aplikacją dla Mozilla Common Voice. Jest stworzona przez Saverio Morelli\'ego bez wsparcia ani partnerstwa z Mozillą.</string>
     <string name="txt_accept_terms_first_launch">Kontynuując, zgadzasz się na warunki korzystania z usługi Common Voice Mozilli.</string>
     <string name="txt_microphone_permission_first_launch">Ta aplikacja potrzebuje uprawnienia \"Mikrofon\", aby nagrywać Twój głos.</string>
     <string name="txt_storage_permission_first_launch">Możesz zgłaszać błędy na GitHub lub Telegram. Aby pomóc deweloperowi w szybkim zrozumieniu problemu, powinieneś dołączyć do raportu plik dziennika aplikacji. Aplikacja potrzebuje uprawnienia \"Pamięć\", aby zapisać plik dziennika.</string>
@@ -123,7 +122,7 @@
     <string name="txt_show_labels_below_menu_icons">Pokaż etykiety pod ikonami menu</string>
     <string name="txt_read_tos_mozilla_common_voice">Przeczytaj warunki korzystania z Common Voice Mozilli</string>
     <string name="txt_read_guidelines">Przeczytaj wytyczne dotyczące walidacji</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Oceń aplikację w Google Play</string>
+    <string name="txt_review_on_google_play">Oceń aplikację w Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence">Ładowanie zdania...</string>
     <string name="btn_skip_sentence">Pomiń</string>
