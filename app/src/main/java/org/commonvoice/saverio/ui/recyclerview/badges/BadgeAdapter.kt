@@ -31,8 +31,6 @@ class BadgeAdapter(
             data[position].descriptionImage?.let {
                 badgeDescriptionImage.setImageResource(it)
             }
-
-            itemView.alpha = if (data[position].unlocked) 1.0f else 0.2f
         }
     }
 

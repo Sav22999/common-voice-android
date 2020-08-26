@@ -1,16 +1,16 @@
 package org.commonvoice.saverio
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.widget.Button
-import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.all_badges.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeAdapter
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeData
+import kotlin.math.roundToInt
 
 
 class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
@@ -54,9 +54,11 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         }
     }
 
-    fun loadBadges() {
+    private fun loadBadges() {
+        val columnsNumber = determineColumnNumber()
+
         badgesRecyclerView.apply {
-            layoutManager = GridLayoutManager(this@BadgesActivity, 3)
+            layoutManager = GridLayoutManager(this@BadgesActivity, columnsNumber)
             adapter = BadgeAdapter(
                 BadgeData.generateBadgeData(
                     getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0),
@@ -69,7 +71,16 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         setTheme(this)
     }
 
-    fun setTheme(view: Context) {
+    private fun determineColumnNumber(): Int {
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+        val widthDp = displayMetrics.widthPixels / displayMetrics.density
+
+        return (widthDp / 120.0f).roundToInt()
+    }
+
+    private fun setTheme(view: Context) {
         val theme = DarkLightTheme()
 
         val isDark = theme.getTheme(view)
