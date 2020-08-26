@@ -66,4 +66,25 @@
         app:layout_constraintTop_toBottomOf="@+id/imgRobotWebBrowser"
         tools:visibility="visible" />
 
+    <Button
+        android:id="@+id/btnAlreadyAVerificationLinkWebBrowser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_rounded"
+        android:paddingStart="50dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="5dp"
+        android:text="@string/btn_use_a_verification_link_login"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

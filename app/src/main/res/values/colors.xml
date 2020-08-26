@@ -35,6 +35,10 @@
     <color name="colorYouTopContributors">#BBBBBB</color>
     <color name="colorYouTopContributorsDT">#555555</color>
 
+    <!-- Navigation bar -->
+    <color name="colorNavigationBarBackground">@color/colorBlack</color>
+    <color name="colorNavigationBarBorder">#141414</color>
+
     <!-- Message dialogs -->
     <color name="colorWarning">#FF5722</color>
     <color name="colorTip">@color/colorBlack</color>

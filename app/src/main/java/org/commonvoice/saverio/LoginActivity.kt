@@ -11,16 +11,14 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.KeyEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -31,8 +29,10 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_webbrowser.*
+import kotlinx.android.synthetic.main.bottomsheet_login.view.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -126,9 +126,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                     openWebBrowser(url.toString())
                 } else {
                     openWebBrowser("login")
+                    setTheme2(this)
                 }
             } catch (e: Exception) {
                 openWebBrowser("login")
+                setTheme2(this)
             }
 
             if (mainPrefManager.areGesturesEnabled) {
@@ -189,9 +191,9 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
+        val theme: DarkLightTheme = DarkLightTheme()
 
-        var isDark = theme.getTheme(view)
+        val isDark = theme.getTheme(view)
         theme.setElement(isDark, this.findViewById(R.id.layoutLogin) as ConstraintLayout)
         theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionData))
         theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionInformation))
@@ -238,6 +240,16 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         )
     }
 
+    fun setTheme2(view: Context) {
+        val theme: DarkLightTheme = DarkLightTheme()
+        val isDark = theme.getTheme(view)
+        theme.setElement(
+            isDark,
+            view,
+            this.findViewById(R.id.btnAlreadyAVerificationLinkWebBrowser) as Button
+        )
+    }
+
     fun openProfileSection() {
         //setContentView(R.layout.activity_login)
         //loadUserData("profile")
@@ -248,20 +260,28 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
         var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
         var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
+        var btnHaveLink: Button = findViewById(R.id.btnAlreadyAVerificationLinkWebBrowser)
         txtLoading.isGone = false
         bgLoading.isGone = false
         imgLoading.isGone = false
+        btnHaveLink.isGone = true
+        stopAnimation(btnHaveLink)
         startAnimation(imgLoading, R.anim.login)
     }
 
-    fun hideLoading() {
+    fun hideLoading(showButton: Boolean = false) {
         var txtLoading: TextView = findViewById(R.id.txtLoadingWebBrowser)
         var bgLoading: ImageView = findViewById(R.id.imgBackgroundWebBrowser)
         var imgLoading: ImageView = findViewById(R.id.imgRobotWebBrowser)
+        var btnHaveLink: Button = findViewById(R.id.btnAlreadyAVerificationLinkWebBrowser)
         txtLoading.isGone = true
         bgLoading.isGone = true
         imgLoading.isGone = true
         stopAnimation(imgLoading)
+        if (showButton) {
+            btnHaveLink.isGone = false
+            startAnimation(btnHaveLink, R.anim.zoom_in)
+        }
     }
 
     fun openWebBrowser(type: String) {
@@ -269,6 +289,34 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
         if (type == "login" || (type != "login" && type != "logout" && type.contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?"))) {
             setContentView(R.layout.activity_webbrowser)
+
+            val bottomSheet = BottomSheetDialog(this)
+            val viewBottomSheet = layoutInflater.inflate(R.layout.bottomsheet_login, null)
+            bottomSheet.setContentView(viewBottomSheet)
+
+            btnAlreadyAVerificationLinkWebBrowser.setOnClickListener {
+                bottomSheet.show()
+                viewBottomSheet.textURLVerificationLink.setText("")
+                viewBottomSheet.textURLVerificationLink.requestFocus()
+            }
+            viewBottomSheet.textURLVerificationLink.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+                if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                    if ((viewBottomSheet.textURLVerificationLink.text).contains("https://auth.mozilla.auth0.com/passwordless/verify_redirect?")) {
+                        bottomSheet.dismiss()
+                        showLoading()
+                        webView.loadUrl(viewBottomSheet.textURLVerificationLink.text.toString())
+                        return@OnKeyListener true
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            getString(R.string.txt_verification_link_not_valid),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    return@OnKeyListener false
+                }
+                false
+            })
 
             webView = findViewById(R.id.webViewBrowser)
 
@@ -284,7 +332,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     // Loading finished
-                    hideLoading()
+                    hideLoading(showButton = (webView.url.contains("https://auth.mozilla.auth0.com/login")))
                     //println("-->> PageFinished - URL: " + url + "<<--")
 
                     var cookies: String? = CookieManager.getInstance().getCookie(url)
@@ -396,14 +444,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         return false
     }
 
-    fun doAnimation() {
-        val img = findViewById<View>(R.id.imgRobotWebBrowser) as ImageView
-
-        val aniSlide: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.zoom_in)
-        img.startAnimation(aniSlide)
-    }
-
     fun loadUserData(type: String) {
         if (type == "profile") {
             var profileImage: ImageView = findViewById(R.id.imageProfileImage)
@@ -433,7 +473,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             }
 
             val que = Volley.newRequestQueue(this)
-            //SystemClock.sleep(1000L);
             val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
                 Response.Listener {
                     //println("-->> " + it.toString() + " <<--")

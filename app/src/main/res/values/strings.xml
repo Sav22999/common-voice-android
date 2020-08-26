@@ -76,6 +76,9 @@
     <string name="btn_badges_loggedin">All badges</string>
     <string name="txt_your_level">Level {{*{{level}}*}}</string>
     <string name="level_up_message">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
+    <string name="btn_use_a_verification_link_login">I have already a verification link</string>
+    <string name="txt_verification_link">Verification link</string>
+    <string name="txt_verification_link_not_valid">The verification link is not valid</string>
 
     <!-- Settings -->
     <string name="btn_open_tutorial_settings">Open tutorial again</string>
