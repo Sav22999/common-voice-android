@@ -5,11 +5,12 @@
          It doesn't work -> "App doesn't respond" -> TEMPORARILY SOLUTION: actionBarSize = 1dp  -->
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item><!-- Action bar color -->
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:colorAccent">@color/colorPrimaryDark</item>
         <item name="android:colorBackground">@color/colorBackground</item>
-        <item name="android:statusBarColor">@color/colorBackgroundDT</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:actionBarSize">1dp</item>
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
@@ -17,6 +18,7 @@
 
     <style name="AppTheme.TitleBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorBlack</item><!-- Action bar color -->
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorAccent">@color/colorBlack</item>
         <item name="android:colorBackground">@color/colorBackground</item>
@@ -30,8 +32,9 @@
         <item name="android:colorPrimary">@color/colorPrimary</item>
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:colorBackground">@color/colorBackground</item>
-        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
