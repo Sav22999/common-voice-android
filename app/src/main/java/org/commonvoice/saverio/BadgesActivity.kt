@@ -8,8 +8,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.all_badges.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.recyclerview.badges.Badge
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeAdapter
-import org.commonvoice.saverio.ui.recyclerview.badges.BadgeData
 import kotlin.math.roundToInt
 
 
@@ -60,7 +60,7 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         badgesRecyclerView.apply {
             layoutManager = GridLayoutManager(this@BadgesActivity, columnsNumber)
             adapter = BadgeAdapter(
-                BadgeData.generateBadgeData(
+                Badge.generateBadgeData(
                     getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0),
                     getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).getInt(RECORDINGS_SAVED, 0),
                     getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).getInt(VALIDATIONS_SAVED, 0)

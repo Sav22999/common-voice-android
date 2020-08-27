@@ -12,7 +12,7 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg6"
-   sodipodi:docname="l1.svg"
+   sodipodi:docname="l_empty.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    inkscape:export-filename="/home/mrindeciso/StudioProjects/common-voice-android/images/badges/app/levels/l_empty.png"
    inkscape:export-xdpi="491.51999"
@@ -25,6 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -95,29 +96,4 @@
       </g>
     </g>
   </g>
-  <text
-     inkscape:export-ydpi="480"
-     inkscape:export-xdpi="480"
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f0f0f0;fill-opacity:1;stroke:none"
-     x="49.992188"
-     y="40.077"
-     id="text822"><tspan
-       sodipodi:role="line"
-       id="tspan820"
-       x="49.992188"
-       y="40.077"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';fill:#f0f0f0;fill-opacity:1">1</tspan></text>
-  <text
-     inkscape:export-ydpi="480"
-     inkscape:export-xdpi="480"
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;line-height:1.25;font-family:Pecita;-inkscape-font-specification:Pecita;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f0f0f0;fill-opacity:1;stroke:none"
-     x="49.987499"
-     y="63.424988"
-     id="text826"><tspan
-       sodipodi:role="line"
-       id="tspan824"
-       x="49.987499"
-       y="63.424988">level</tspan></text>
 </svg>

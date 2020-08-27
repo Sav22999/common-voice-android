@@ -1,21 +1,23 @@
 package org.commonvoice.saverio.ui.recyclerview.badges
 
-import android.graphics.Color
-import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import org.commonvoice.saverio.R
 
-data class BadgeData(
+sealed class Badge {
 
-    val badgeValue: String,
+    data class Level(
 
-    val descriptionText: String? = null,
+        val levelNumber: Int
 
-    @ColorInt val backgroundTint: Int = Color.parseColor("#F0323232"),
+    ): Badge()
 
-    @DrawableRes val descriptionImage: Int? = null
+    data class Achievement(
 
-) {
+        val achievementText: String,
+
+        @DrawableRes val achievementImage: Int
+
+    ): Badge()
 
     companion object {
 
@@ -26,23 +28,13 @@ data class BadgeData(
             "500",
             "1K",
             "5K",
-            "10K"
+            "10K",
+            "50K",
+            "100K",
+            "200K",
         )
 
-        private val levelTints = listOf(
-            Color.parseColor("#F0FF0000"),
-            Color.parseColor("#F0C80000"),
-            Color.parseColor("#F06400FF"),
-            Color.parseColor("#F0FF00FF"),
-            Color.parseColor("#F00000FF"),
-            Color.parseColor("#F0FF9600"),
-            Color.parseColor("#F0CD7F32"),
-            Color.parseColor("#F0C0C0C0"),
-            Color.parseColor("#F0D4AF37"),
-            Color.parseColor("#F0E5E4E2")
-        )
-
-        private fun getLevel(savedLevel: Int) = when(savedLevel) {
+        private fun switchLevel(savedLevel: Int) = when(savedLevel) {
             in 0..9 -> 1
             in 10..49 -> 2
             in 50..99 -> 3
@@ -64,7 +56,10 @@ data class BadgeData(
             in 500..999 -> 4
             in 1000..4999 -> 5
             in 5000..9999 -> 6
-            in 10000..100000000 -> 7
+            in 10000..49999 -> 7
+            in 50000..99999 -> 8
+            in 100000..199999 -> 9
+            in 200000..1000000000 -> 10
             else -> 0
         }
 
@@ -72,37 +67,33 @@ data class BadgeData(
             savedLevel: Int,
             recordingsNumber: Int,
             validationsNumber: Int
-        ): List<BadgeData> {
-            val baseList = mutableListOf<BadgeData>()
+        ): List<Badge> {
+            val baseList = mutableListOf<Badge>()
 
-            val levelNum = getLevel(savedLevel)
+            val levelNum = switchLevel(savedLevel)
             val recordingsIndex = getTextArrayIndex(recordingsNumber)
             val validationsIndex = getTextArrayIndex(validationsNumber)
 
             for(x in 1 .. levelNum) {
                 baseList.add(
-                    BadgeData(
-                        "$x",
-                        "level",
-                        levelTints[x - 1]
-                    )
+                    Level(x)
                 )
             }
 
             for (x in 0 until recordingsIndex) {
                 baseList.add(
-                    BadgeData(
+                    Achievement(
                         textValue[x],
-                        descriptionImage = R.drawable.speak_cv
+                        R.drawable.speak_cv
                     )
                 )
             }
 
             for (x in 0 until validationsIndex) {
                 baseList.add(
-                    BadgeData(
+                    Achievement(
                         textValue[x],
-                        descriptionImage = R.drawable.listen_cv
+                        R.drawable.listen_cv
                     )
                 )
             }
