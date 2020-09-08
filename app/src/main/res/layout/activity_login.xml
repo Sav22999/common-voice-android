@@ -192,28 +192,14 @@
 
         <ImageView
             android:id="@+id/imageProfileImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="50dp"
-            android:background="@color/colorWhite"
-            android:scaleType="fitCenter"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_profileimagerobot"
-            tools:visibility="visible" />
-
-        <ImageView
-            android:id="@+id/imageProfileImageBorder"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
             android:scaleType="centerCrop"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_profile_image"
+            tools:srcCompat="@drawable/ic_profileimagerobot"
             tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -264,7 +250,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/top_bottom_border_radius"
             android:backgroundTint="@color/colorWhite"

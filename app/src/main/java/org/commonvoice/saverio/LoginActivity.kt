@@ -232,12 +232,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileAge) as TextView)
         theme.setElement(isDark, view, this.findViewById(R.id.labelProfileGender) as TextView)
         theme.setTextView(isDark, view, textLevel as TextView, border = false)
-        theme.setElement(
-            isDark,
-            this.findViewById(R.id.imageProfileImageBorder) as ImageView,
-            R.drawable.background_profile_image,
-            R.drawable.background_profile_image_darktheme
-        )
     }
 
     fun setTheme2(view: Context) {
@@ -446,7 +440,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
     fun loadUserData(type: String) {
         if (type == "profile") {
-            var profileImage: ImageView = findViewById(R.id.imageProfileImage)
+            //var profileImage: ImageView = findViewById(R.id.imageProfileImage)
             var profileEmail: EditText = findViewById(R.id.textProfileEmail)
             var profileUsername: EditText = findViewById(R.id.textProfileUsername)
             var profileAge: EditText = findViewById(R.id.textProfileAge)
@@ -494,9 +488,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
 
                                     var profileImage: ImageView =
                                         findViewById(R.id.imageProfileImage)
-                                    var profileImageBorder: ImageView =
-                                        findViewById(R.id.imageProfileImageBorder)
-                                    //should set also the profileImage
                                     var profileEmail: EditText = findViewById(R.id.textProfileEmail)
                                     var profileUsername: EditText =
                                         findViewById(R.id.textProfileUsername)
@@ -525,13 +516,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                     )
                                     if (imageUrl != "null" && imageUrl != "") {
                                         DownLoadImage(
-                                            profileImage,
-                                            profileImageBorder
+                                            profileImage
                                         ).execute(imageUrl)
                                     } else {
                                         DownLoadImage(
-                                            profileImage,
-                                            profileImageBorder
+                                            profileImage
                                         ).execute("null")
                                     }
                                     val clips_count =
