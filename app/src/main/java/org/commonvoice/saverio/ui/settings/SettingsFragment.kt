@@ -104,9 +104,6 @@ class SettingsFragment : Fragment() {
             main.openTutorial()
         }
 
-        val txtContributors: TextView = root.findViewById(R.id.textContributors)
-        txtContributors.text = getString(R.string.txt_contributors)
-
         val txtDevelopedBy: TextView = root.findViewById(R.id.textDevelopedBy)
         txtDevelopedBy.text = getString(R.string.txt_developed_by)
 

@@ -1035,6 +1035,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:text="@string/txt_developed_by"
                 android:textAlignment="center"
@@ -1042,7 +1043,7 @@
                 android:textSize="@dimen/text_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <TextView
                 android:id="@+id/textDeveloper"
@@ -1050,43 +1051,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
                 android:text="Saverio Morelli"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/text_very_big"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textDevelopedBy" />
 
-            <TextView
-                android:id="@+id/textContributors"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="@string/txt_contributors"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_small"
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textDeveloper" />
-
-            <TextView
-                android:id="@+id/textContributor1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="Damiano Gualandri\nSimone Massaro"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/text_normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textContributors" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/me_circle" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
