@@ -206,6 +206,8 @@
     <string name="txt6_tutorial_listen">Tap on this icon if you want to listen to the clip again.</string>
     <string name="txt7_tutorial_listen">If the clip matches the sentence, tap on this icon to accept it.</string>
     <string name="txt8_tutorial_listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+    <string name="txt_guidelines_review_listen">You can read the official guidelines guidelines for recording validation on Mozilla Discourse. You can read right now, just tapping the button below.\nYou will find this button also in the app Settings.</string>
+    <string name="btn_read_now_guidelines_listen">Read guidelines now</string>
 
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>

@@ -10,8 +10,8 @@ android {
         applicationId 'org.commonvoice.saverio'
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode = 118
-        versionName '2.0.4'
+        versionCode = 119
+        versionName '2.1a'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
