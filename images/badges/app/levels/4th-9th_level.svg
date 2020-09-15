@@ -12,11 +12,11 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg6"
-   sodipodi:docname="l1.svg"
+   sodipodi:docname="4th-9th_level.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   inkscape:export-filename="/home/mrindeciso/StudioProjects/common-voice-android/images/badges/app/levels/l_empty.png"
-   inkscape:export-xdpi="491.51999"
-   inkscape:export-ydpi="491.51999">
+   inkscape:export-filename="C:\Users\saver\Documents\GitHub\Sav22999\common-voice-android\Images\icon512.png"
+   inkscape:export-xdpi="1638.4"
+   inkscape:export-ydpi="1638.4">
   <metadata
      id="metadata12">
     <rdf:RDF>
@@ -39,15 +39,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1043"
+     inkscape:window-width="1536"
+     inkscape:window-height="801"
      id="namedview8"
      showgrid="false"
      inkscape:zoom="4"
      inkscape:cx="57.128901"
      inkscape:cy="55.316297"
-     inkscape:window-x="0"
-     inkscape:window-y="1080"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg6"
      inkscape:document-rotation="0" />
@@ -99,19 +99,6 @@
      inkscape:export-ydpi="480"
      inkscape:export-xdpi="480"
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f0f0f0;fill-opacity:1;stroke:none"
-     x="49.992188"
-     y="40.077"
-     id="text822"><tspan
-       sodipodi:role="line"
-       id="tspan820"
-       x="49.992188"
-       y="40.077"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';fill:#f0f0f0;fill-opacity:1">1</tspan></text>
-  <text
-     inkscape:export-ydpi="480"
-     inkscape:export-xdpi="480"
-     xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;line-height:1.25;font-family:Pecita;-inkscape-font-specification:Pecita;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f0f0f0;fill-opacity:1;stroke:none"
      x="49.987499"
      y="63.424988"
@@ -120,4 +107,36 @@
        id="tspan824"
        x="49.987499"
        y="63.424988">level</tspan></text>
+  <g
+     inkscape:export-ydpi="480"
+     inkscape:export-xdpi="480"
+     id="g852"
+     transform="translate(3.1167587)">
+    <text
+       id="text822"
+       y="40.077"
+       x="52.653316"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f0f0f0;fill-opacity:1;stroke:none"
+       xml:space="preserve"
+       inkscape:export-xdpi="480"
+       inkscape:export-ydpi="480"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro Bold';text-align:end;text-anchor:end;fill:#f0f0f0;fill-opacity:1"
+         y="40.077"
+         x="52.653316"
+         id="tspan820"
+         sodipodi:role="line">4</tspan></text>
+    <text
+       inkscape:export-ydpi="480"
+       inkscape:export-xdpi="480"
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;line-height:1.25;font-family:Pecita;-inkscape-font-specification:Pecita;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f0f0f0;fill-opacity:1;stroke:none"
+       x="51.723003"
+       y="39.493309"
+       id="text826-6"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';text-align:start;text-anchor:start"
+         sodipodi:role="line"
+         id="tspan824-6"
+         x="51.723003"
+         y="39.493309">th</tspan></text>
+  </g>
 </svg>
