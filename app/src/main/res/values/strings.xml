@@ -33,7 +33,7 @@
     <string name="txt_top_contributors_recorded">Recorded</string>
     <string name="txt_top_contributors_validated">Validated</string>
     <!-- 4, ..., 100, etc. -->
-    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
+    <string name="txt_top_contributors_n_position" translatable="false">{{*{{n_position}}*}}</string>
     <string name="txt_app_statistics">App statistics</string>
     <string name="txt_current_language">Current language</string>
     <string name="txt_all_languages">All languages</string>
@@ -206,8 +206,8 @@
     <string name="txt6_tutorial_listen">Tap on this icon if you want to listen to the clip again.</string>
     <string name="txt7_tutorial_listen">If the clip matches the sentence, tap on this icon to accept it.</string>
     <string name="txt8_tutorial_listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
-    <string name="txt_guidelines_review_listen">You can read the official guidelines guidelines for recording validation on Mozilla Discourse. You can read right now, just tapping the button below.\nYou will find this button also in the app Settings.</string>
-    <string name="btn_read_now_guidelines_listen">Read guidelines now</string>
+    <string name="txt_guidelines_review_listen">If you're not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen">Read now</string>
 
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>

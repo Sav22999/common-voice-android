@@ -11,15 +11,15 @@
     <string name="button_home_login">Přihlásit se / Zaregistrovat se</string>
     <string name="button_home_logout">Odhlásit se</string>
     <string name="button_home_profile">Profil</string>
-    <string name="text_hi_username">Ahoj</string>
+    <string name="text_hi_username">Hi</string>
     <string name="message_log_in_again">Relace vypršela, musíte se přihlásit znovu</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiky</string>
     <string name="dashboardVoicesOnline">Hlasy online</string>
     <string name="dashboardTabYou">Vy</string>
     <string name="dashboardTabEveryone">Všichni</string>
-    <string name="dashboardToday">Dnes</string>
-    <string name="dashboardEver">Za celou dobu</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Dnes</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Za celou dobu</string>
     <string name="toastNoLoginNoStatistics">Pro zobrazení vašich statistik se musíte přihlásit</string>
     <string name="toastNoLoginNoDailyGoal">Pro nastavení denního cíle se musíte přihlásit</string>
     <string name="textHoursAbbreviation">h</string>
@@ -28,208 +28,212 @@
     <string name="txt_top_contributors_recorded">Nahráno</string>
     <string name="txt_top_contributors_validated">Ověřeno</string>
     <!-- 4, ..., 100, etc. -->
-    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
-    <string name="txt_app_statistics">Statistiky aplikace</string>
-    <string name="txt_current_language">Aktuální jazyk</string>
-    <string name="txt_all_languages">Všechny jazyky</string>
-    <string name="txt_not_available_offline">Není dostupné v offline režimu</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Statistiky aplikace</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Aktuální jazyk</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Všechny jazyky</string>
+    <string name="txt_not_available_offline" comment="Message text">Není dostupné v offline režimu</string>
     <!-- First launch -->
-    <string name="btn_tutorial1">Začít</string>
-    <string name="btn_tutorial2">Permit</string>
-    <string name="btn_tutorial3">Další</string>
-    <string name="btn_tutorial4">Zkuste to znovu</string>
-    <string name="btn_tutorial5">Dokončit</string>
-    <string name="btn_skip">Přeskočit</string>
-    <string name="txt_permission_obtained_first_launch">Oprávnění získáno</string>
-    <string name="txt_permission_denied_first_launch">Chyba: oprávnění odepřeno</string>
-    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">Pokračováním souhlasíte s podmínkami služby Mozilla\'s Common Voice.</string>
-    <string name="txt_microphone_permission_first_launch">Tato aplikace potřebuje k nahrávání vašeho hlasu oprávnění \"Mikrofon\".</string>
-    <string name="txt_storage_permission_first_launch">Můžete nahlašovat chyby na GitHubu nebo Telegramu. Aby vývojář rychle pochopil problém, měli byste k vaší zprávě připojit soubor záznamu aplikace. Pro ukládání souborů záznamů musíte aplikaci povolit oprávnění \"Úložiště\".</string>
-    <string name="txt_offline_mode_first_launch">Přispívat můžete dokonce, i když jste offline. „Offline režim“ aplikace bude aktivován automaticky a budete moci pokračovat v nahrávání a poslechu i bez připojení k internetu.</string>
-    <string name="txt_themes_first_launch">Můžete si vybrat buď světlý nebo tmavý motiv. Později to můžete změnit v nastavení.</string>
-    <string name="txt_turn_on_dark_theme_first_launch">Tmavý motiv</string>
-    <string name="txt_gestures_first_launch">Některé akce mají odpovídající gesta. Například větu můžete přeskočit přejetím doleva.</string>
-    <string name="txt_customise_gestures_first_launch">Tato gesta si můžete přizpůsobit v nastavení.</string>
-    <string name="txt_telegram_group_first_launch">Abyste dostávali novinky a měli přístup k podpoře, můžete se připojit k Telegram skupině.</string>
-    <string name="btn_join_telegram_first_launch">Připojit se ke skupině</string>
-    <string name="txt_choose_language_first_launch">Pojďme na to! Vyberte jazyk, který chcete mluvit nebo poslouchat. Aplikace se také zobrazí v tomto jazyce, pokud je k dispozici překlad.</string>
+    <string name="btn_tutorial1" comment="Button">Začít</string>
+    <string name="btn_tutorial2" comment="Button">Permit</string>
+    <string name="btn_tutorial3" comment="Button">Další</string>
+    <string name="btn_tutorial4" comment="Button">Zkuste to znovu</string>
+    <string name="btn_tutorial5" comment="Button">Dokončit</string>
+    <string name="btn_skip" comment="Button">Přeskočit</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Oprávnění získáno</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Chyba: oprávnění odepřeno</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android je neoficiální aplikace pro Mozilla Common Voice. Je vyvinuta Saverio Morelli bez jakékoliv podpory nebo partnerství s Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Pokračováním souhlasíte s podmínkami služby Mozilla\'s Common Voice.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Tato aplikace potřebuje k nahrávání vašeho hlasu oprávnění \"Mikrofon\".</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Můžete nahlašovat chyby na GitHubu nebo Telegramu. Aby vývojář rychle pochopil problém, měli byste k vaší zprávě připojit soubor záznamu aplikace. Pro ukládání souborů záznamů musíte aplikaci povolit oprávnění \"Úložiště\".</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Přispívat můžete dokonce, i když jste offline. „Offline režim“ aplikace bude aktivován automaticky a budete moci pokračovat v nahrávání a poslechu i bez připojení k internetu.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Můžete si vybrat buď světlý nebo tmavý motiv. Později to můžete změnit v nastavení.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tmavý motiv</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Některé akce mají odpovídající gesta. Například větu můžete přeskočit přejetím doleva.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Tato gesta si můžete přizpůsobit v nastavení.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Abyste dostávali novinky a měli přístup k podpoře, můžete se připojit k Telegram skupině.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Připojit se ke skupině</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Pojďme na to! Vyberte jazyk, který chcete mluvit nebo poslouchat. Aplikace se také zobrazí v tomto jazyce, pokud je k dispozici překlad.</string>
     <!-- Login -->
-    <string name="txt_loading_page">Načítání...</string>
-    <string name="txt_profile_username">Uživatelské jméno</string>
-    <string name="txt_profile_email">E-mailová adresa</string>
-    <string name="txt_profile_age">Věk</string>
-    <string name="txt_profile_gender">Pohlaví</string>
-    <string name="txt_profile_edit_data_alert">Pro úpravu informací o vašem profilu jděte na stránku Common Voice.</string>
-    <string name="txt_login_successful_alert">Přihlášení úspěšné!</string>
-    <string name="txt_gender_male">Muž</string>
-    <string name="txt_gender_female">Samice</string>
-    <string name="txt_gender_other">Ostatní</string>
-    <string name="btn_badges_loggedin">Všechny odznaky</string>
-    <string name="txt_your_level">Úroveň {{*{{level}}*}}</string>
-    <string name="level_up_message">Gratulujeme! Právě jsi dosáhl {{*{{n_level}}*}} úrovně.</string>
+    <string name="txt_loading_page" comment="Label">Načítání...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Uživatelské jméno</string>
+    <string name="txt_profile_email" comment="Label in Profile">E-mailová adresa</string>
+    <string name="txt_profile_age" comment="Label in Profile">Věk</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Pohlaví</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Pro úpravu informací o vašem profilu jděte na stránku Common Voice.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Přihlášení úspěšné!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Muž</string>
+    <string name="txt_gender_female" comment="Label in Profile">Samice</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Ostatní</string>
+    <string name="btn_badges_loggedin" comment="Button">Všechny odznaky</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Úroveň {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Gratulujeme! Právě jsi dosáhl {{*{{n_level}}*}} úrovně.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Už mám ověřovací odkaz</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Ověřovací odkaz</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Ověřovací odkaz není platný</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings">Otevřít tutoriál znovu</string>
-    <string name="txt_project_github_settings">Projekt open-source na GitHub</string>
-    <string name="txt_contributors">hlavní přispěvatelé</string>
-    <string name="txt_developed_by">vyvinul</string>
-    <string name="toast_language_changed">Jazyk změněn správně na {{*{{lang}}*}}</string>
-    <string name="settingsLanguage">Jazyk</string>
-    <string name="settingsListen">Poslouchat</string>
-    <string name="settingsSpeak">Mluvit</string>
-    <string name="settingsOther">Ostatní</string>
-    <string name="txt_donate_paypal_settings">Podpořte moji práci. Kupte mi kávu 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings">Automaticky přehrát klip po načtení</string>
-    <string name="toast_autoplay_clip_on">Automatické přehrávání klipu je zapnuto.</string>
-    <string name="toast_autoplay_clip_off">Automatické přehrávání klipu je vypnuto.</string>
-    <string name="txt_dark_theme_settings">Tmavý motiv</string>
-    <string name="toast_dark_theme_on">Tmavý motiv je zapnutý.</string>
-    <string name="toast_dark_theme_off">Tmavý motiv je vypnutý.</string>
-    <string name="contact_developer_on_telegram">Kontaktujte vývojáře na Telegram</string>
-    <string name="txt_experimental_features">Experimentální funkce</string>
-    <string name="toast_experimental_features_on">Experimentální funkce jsou zapnuty.\nNové funkce mohou být nestabilní nebo nespolehlivé.</string>
-    <string name="toast_experimental_featured_off">Experimentální funkce vypnuty.</string>
-    <string name="txt_log_on_file">Ukládat záznamy do souboru</string>
-    <string name="toast_log_on_file_on">Ukládání záznamů do souboru je zapnuto.\nPři nahlašování problému můžete připojit soubor log.txt.\nPřečtěte si více na platformě GitHub.</string>
-    <string name="toast_log_on_file_off">Ukládání záznamů do souboru je vypnuto.</string>
-    <string name="txt_anonymous_statistics">Anonymní statistiky</string>
-    <string name="toast_anonymous_statistics_on">Anonymní statistiky jsou zapnuty.\nNeshromažďujeme vaše osobní data. Statistiky používáme pouze, abychom zjistili, kolik lidí denně aplikaci používá.</string>
-    <string name="toast_anonymous_statistics_off">Anonymní statistiky jsou vypnuty. Berte prosím na vědomí, že statistiky používáme pouze za účelem toho, abychom zjistili, kolik lidí denně aplikaci používá. Neshromažďujeme žádná osobní data. Prosím zvažte opětovné zapnutí statistik.</string>
-    <string name="txt_skip_recording_confirmation">Přeskakovat potvrzení nahrávání</string>
-    <string name="toast_skip_recording_confirmation_on">Přeskakování potvrzení nahrávání je zapnuto.\nBudete moct posílat nahrávky, aniž byste si je museli pustit.</string>
-    <string name="toast_skip_recording_confirmation_off">Přeskakování potvrzení nahrávání je vypnuto.</string>
-    <string name="txt_translate_the_app_on_crowdin">Překládejte aplikaci na Crowdin</string>
-    <string name="txt_see_statistics_of_the_app">Zobrazit statistiky aplikace</string>
-    <string name="txt_recording_indicator_sound">Zvuk nahrávání</string>
-    <string name="toast_recording_indicator_sound_on">Zvuk nahrávání je zapnut.\nKdyž začnete a skončíte s nahráváním, přehraje se zvuk.</string>
-    <string name="toast_recording_indicator_sound_off">Zvuk nahrávání je vypnut.</string>
-    <string name="txt_check_for_updates">Sledovat aktualizace</string>
-    <string name="toast_check_for_updated_on">Sledování aktualizací je zapnuto.</string>
-    <string name="toast_check_for_updated_off">Sledování aktualizací je vypnuto.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings">Přerušit potvrzovací dialogová okna v nastavení</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on">Přerušení potvrzovacích dialogových oken je zapnuto.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off">Přerušení potvrzovacích dialogových oken je vypnuto.</string>
-    <string name="txt_gestures">Gesta</string>
-    <string name="toast_gestures_on">Gesta jsou zapnuta.</string>
-    <string name="toast_gestures_off">Gesta jsou vypnuta.</string>
-    <string name="message_review_app_on_play_store">Pokud se vám tato aplikace líbí, prosím nezapomeňte ji ohodnotit na Google Play Store.</string>
-    <string name="message_app_not_completely_translated">Tato aplikace není (zcela) přeložena do tohoto jazyka.\nMůžete ji pomoct přeložit na platformě Crowdin.</string>
-    <string name="txt_animations">Animace</string>
-    <string name="txt_customise_the_font_size">Přizpůsobit velikost písma</string>
-    <string name="txt_customise_gestures">Přizpůsobit gesta</string>
-    <string name="txt_themes_settings">Motivy</string>
-    <string name="txt_telegram_group_settings">Telegram skupina aplikace</string>
-    <string name="txt_show_labels_below_menu_icons">Zobrazit popisky pod ikonami menu</string>
-    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play">Ohodnotit na Google Play</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Otevřít tutoriál znovu</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Projekt open-source na GitHub</string>
+    <string name="txt_contributors" comment="Label in Settings">hlavní přispěvatelé</string>
+    <string name="txt_developed_by" comment="Label in Settings">vyvinul</string>
+    <string name="toast_language_changed" comment="Message text">Jazyk změněn správně na {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Jazyk</string>
+    <string name="settingsListen" comment="Title in Settings">Poslouchat</string>
+    <string name="settingsSpeak" comment="Title in Settings">Mluvit</string>
+    <string name="settingsOther" comment="Title in Settings">Ostatní</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Podpořte moji práci. Kupte mi kávu 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Automaticky přehrát klip po načtení</string>
+    <string name="toast_autoplay_clip_on" comment="Message text">Automatické přehrávání klipu je zapnuto.</string>
+    <string name="toast_autoplay_clip_off" comment="Message text">Automatické přehrávání klipu je vypnuto.</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tmavý motiv</string>
+    <string name="toast_dark_theme_on" comment="Message text">Tmavý motiv je zapnutý.</string>
+    <string name="toast_dark_theme_off" comment="Message text">Tmavý motiv je vypnutý.</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Kontaktujte vývojáře na Telegram</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimentální funkce</string>
+    <string name="toast_experimental_features_on" comment="Message text">Experimentální funkce jsou zapnuty.\nNové funkce mohou být nestabilní nebo nespolehlivé.</string>
+    <string name="toast_experimental_featured_off" comment="Message text">Experimentální funkce vypnuty.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Ukládat záznamy do souboru</string>
+    <string name="toast_log_on_file_on" comment="Message text">Ukládání záznamů do souboru je zapnuto.\nPři nahlašování problému můžete připojit soubor log.txt.\nPřečtěte si více na platformě GitHub.</string>
+    <string name="toast_log_on_file_off" comment="Message text">Ukládání záznamů do souboru je vypnuto.</string>
+    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Anonymní statistiky</string>
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymní statistiky jsou zapnuty.\nNeshromažďujeme vaše osobní data. Statistiky používáme pouze, abychom zjistili, kolik lidí denně aplikaci používá.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymní statistiky jsou vypnuty. Berte prosím na vědomí, že statistiky používáme pouze za účelem toho, abychom zjistili, kolik lidí denně aplikaci používá. Neshromažďujeme žádná osobní data. Prosím zvažte opětovné zapnutí statistik.</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Přeskakovat potvrzení nahrávání</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Přeskakování potvrzení nahrávání je zapnuto.\nBudete moct posílat nahrávky, aniž byste si je museli pustit.</string>
+    <string name="toast_skip_recording_confirmation_off" comment="Message text">Přeskakování potvrzení nahrávání je vypnuto.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Překládejte aplikaci na Crowdin</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Zobrazit statistiky aplikace</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Zvuk nahrávání</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Zvuk nahrávání je zapnut.\nKdyž začnete a skončíte s nahráváním, přehraje se zvuk.</string>
+    <string name="toast_recording_indicator_sound_off" comment="Message text">Zvuk nahrávání je vypnut.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Sledovat aktualizace</string>
+    <string name="toast_check_for_updated_on" comment="Message text">Sledování aktualizací je zapnuto.</string>
+    <string name="toast_check_for_updated_off" comment="Message text">Sledování aktualizací je vypnuto.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Přerušit potvrzovací dialogová okna v nastavení</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Přerušení potvrzovacích dialogových oken je zapnuto.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Přerušení potvrzovacích dialogových oken je vypnuto.</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Gesta</string>
+    <string name="toast_gestures_on" comment="Message text">Gesta jsou zapnuta.</string>
+    <string name="toast_gestures_off" comment="Message text">Gesta jsou vypnuta.</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Pokud se vám tato aplikace líbí, prosím nezapomeňte ji ohodnotit na Google Play Store.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Tato aplikace není (zcela) přeložena do tohoto jazyka.\nMůžete ji pomoct přeložit na platformě Crowdin.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animace</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Přizpůsobit velikost písma</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Přizpůsobit gesta</string>
+    <string name="txt_themes_settings" comment="Button in Settings">Motivy</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram skupina aplikace</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Zobrazit popisky pod ikonami menu</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Ohodnotit na Google Play</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Načítá se věta...</string>
-    <string name="btn_skip_sentence">Přeskočit</string>
-    <string name="btn_send_sentence">Odeslat záznam</string>
-    <string name="txt_loading_clip">Načítá se klip...</string>
-    <string name="txt_press_icon_below_speak_1">Stiskněte ikonu níže pro spuštění nahrávání.</string>
-    <string name="txt_press_icon_below_speak_2">Stiskněte ikonu níže pro zastavení nahrávání.</string>
-    <string name="txt_sentence_recorded">Věta nahrána. Poslechněte si nahrávku.</string>
-    <string name="txt_sentence_record_failed">Nahrávání selhalo. Zkuste to prosím znovu.</string>
-    <string name="txt_recorded_correct_or_wrong">Pokud jste mluvili správně, odešlete nahrávku.\nPokud jste se přeřekli, můžete větu nahrát znovu.</string>
-    <string name="txt_listening_stopped">Poslechněte si celou nahrávku a ujistěte se, že je správně.</string>
-    <string name="txt_listening_again_recording">Stiskněte ikonu níže pro zastavení poslechu.</string>
-    <string name="txt_recording_too_long">Nahrávání je příliš dlouhé. Maximální doba trvání je 10 sekund.</string>
-    <string name="txt_recording_too_short">Nahrávka je příliš krátká. Zkuste to prosím znovu.</string>
-    <string name="txt_sending_recording">Odesílá se nahrávka...</string>
-    <string name="txt_recording_sent">Nahrávání odesláno!</string>
-    <string name="txt_sending_recording_failed">Nepodařilo se odeslat nahrávku!</string>
-    <string name="txt_sending_recording_failed_and_skip">Nepodařilo se odeslat nahrávku! Můžete to buď zkusit znovu nebo stisknout tlačítko {{*{{skip_button}}*}}.</string>
-    <string name="txt_press_icon_below_listen_1">Stiskněte ikonu níže pro spuštění klipu.</string>
-    <string name="txt_press_icon_below_listen_2">Chcete-li klip zastavit, stiskněte ikonu níže.</string>
-    <string name="txt_clip_correct_or_wrong">Pokud je klip správně, stiskněte palec nahoru.\nPokud není, stiskněte palec dolů.</string>
-    <string name="txt_clip_again">Stisknutím ikony níže spustíte klip znovu.</string>
-    <string name="txt_clip_validated_yes">Klip označen jako správný!</string>
-    <string name="txt_clip_validated_no">Klip označen jako nesprávný!</string>
-    <string name="txt_error_1_try_again_tap_skip">Chyba. Pro pokračování stiskněte tlačítko {{*{{skip_button}}*}}.</string>
-    <string name="txt_error_2_sending_failed">Nepodařilo se odeslat nahrávku.</string>
-    <string name="txt_sending_validation">Odesílání...</string>
-    <string name="txt_error_3_sending_validation_failed">Nepodařilo se odeslat výsledek. Můžete to buď zkusit znovu nebo stisknout tlačítko {{*{{skip_button}}*}}.</string>
-    <string name="txt_closing">Zavírání...</string>
-    <string name="txt_error_4_clips_no_available">Chyba. Pro tento jazyk nejsou dostupné žádné další klipy.</string>
-    <string name="button_report">Nahlásit</string>
-    <string name="title_report_clip">Nahlásit klip:</string>
-    <string name="title_report_sentence">Nahlásit větu:</string>
-    <string name="button_send_report">Odeslat nahlášení</string>
-    <string name="checkbox_reason1_report_sentence">Urážlivý jazyk</string>
-    <string name="checkbox_reason1_report_clip">Urážlivý projev</string>
-    <string name="checkbox_reason2_report">Chyba v gramatice / pravopise</string>
-    <string name="checkbox_reason3_report">Jiný jazyk</string>
-    <string name="checkbox_reason4_report">Obtížné na vyslovení</string>
-    <string name="checkbox_reason5_report">Ostatní</string>
-    <string name="checkbox_reason5_comment_report">Komentář</string>
-    <string name="txt_sentences_finished_offline_mode">Vyčerpali jste offline věty. Připojte se k Internetu a stáhněte si další věty pro nahrávání.</string>
-    <string name="txt_clips_finished_offline_mode">Vyčerpali jste offline klipy. Připojte se k Internetu a stáhněte si další klipy pro ověření.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Načítá se věta...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Přeskočit</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Odeslat záznam</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Načítá se klip...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Stiskněte ikonu níže pro spuštění nahrávání.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Stiskněte ikonu níže pro zastavení nahrávání.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Věta nahrána. Poslechněte si nahrávku.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Nahrávání selhalo. Zkuste to prosím znovu.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Pokud jste mluvili správně, odešlete nahrávku.\nPokud jste se přeřekli, můžete větu nahrát znovu.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Poslechněte si celou nahrávku a ujistěte se, že je správně.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Stiskněte ikonu níže pro zastavení poslechu.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Nahrávání je příliš dlouhé. Maximální doba trvání je 10 sekund.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Nahrávka je příliš krátká. Zkuste to prosím znovu.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Odesílá se nahrávka...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Nahrávání odesláno!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Nepodařilo se odeslat nahrávku!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Nepodařilo se odeslat nahrávku! Můžete to buď zkusit znovu nebo stisknout tlačítko {{*{{skip_button}}*}}.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Stiskněte ikonu níže pro spuštění klipu.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Chcete-li klip zastavit, stiskněte ikonu níže.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Pokud je klip správně, stiskněte palec nahoru.\nPokud není, stiskněte palec dolů.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Stisknutím ikony níže spustíte klip znovu.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Klip označen jako správný!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Klip označen jako nesprávný!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Chyba. Pro pokračování stiskněte tlačítko {{*{{skip_button}}*}}.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Nepodařilo se odeslat nahrávku.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Odesílání...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Nepodařilo se odeslat výsledek. Můžete to buď zkusit znovu nebo stisknout tlačítko {{*{{skip_button}}*}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Zavírání...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Chyba. Pro tento jazyk nejsou dostupné žádné další klipy.</string>
+    <string name="button_report" comment="Button">Nahlásit</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Nahlásit klip:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Nahlásit větu:</string>
+    <string name="button_send_report" comment="Button">Odeslat nahlášení</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Urážlivý jazyk</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Urážlivý projev</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Chyba v gramatice / pravopise</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Jiný jazyk</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Obtížné na vyslovení</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Ostatní</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Komentář</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Vyčerpali jste offline věty. Připojte se k Internetu a stáhněte si další věty pro nahrávání.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Vyčerpali jste offline klipy. Připojte se k Internetu a stáhněte si další klipy pro ověření.</string>
     <!-- Don't translate {{*{{n_sentences}}*}} -->
-    <string name="txt_residual_sentences_offline_mode">Můžete nahrát ještě {{*{{n_sentences}}*}} vět/y předtím, než se budete muset připojit k internetu.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Můžete nahrát ještě {{*{{n_sentences}}*}} vět/y předtím, než se budete muset připojit k internetu.</string>
     <!-- Don't translate {{*{{n_clips}}*}} -->
-    <string name="txt_residual_clips_offline_mode">Před připojením k internetu můžete ověřit ještě {{*{{n_clips}}*}} klipů/y.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Před připojením k internetu můžete ověřit ještě {{*{{n_clips}}*}} klipů/y.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">Zkontrolovat znovu</string>
-    <string name="txt_noconnection">Nejste připojeni k internetu. Připojte se k Wi-Fi nebo k mobilním datům a poté stiskněte tlačítko níže.</string>
+    <string name="btn_check_again_noconnection" comment="Button">Zkontrolovat znovu</string>
+    <string name="txt_noconnection" comment="Message text">Nejste připojeni k internetu. Připojte se k Wi-Fi nebo k mobilním datům a poté stiskněte tlačítko níže.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">Toto je věta, kterou musíte zaznamenat.</string>
-    <string name="txt2_tutorial_speak_and_listen">Zpráva, která vás provede, se objeví zde.</string>
-    <string name="txt3_tutorial_speak">Pokud se vám věta nelíbí, můžete stisknout toto tlačítko pro její přeskočení a získání další.</string>
-    <string name="txt4_tutorial_speak">Klepnutím na tuto ikonu zahájíte nahrávání.</string>
-    <string name="txt5_tutorial_speak">Klepnutím na tuto ikonu zastavíte nahrávání.</string>
-    <string name="txt6_tutorial_speak">Klepnutím na tuto ikonu si poslechnete nahrávku.</string>
-    <string name="txt7_tutorial_speak">Pokud jste udělali chybu, klepněte na tuto ikonu pro opětovné nahrávání.</string>
-    <string name="txt8_tutorial_speak">Klepnutím na tuto ikonu si znovu poslechnete nahrávku.</string>
-    <string name="txt9_tutorial_speak">Klepnutím na toto tlačítko odešlete nahrávku.</string>
-    <string name="txt1_tutorial_listen">Toto je věta/klip musíte potvrdit.</string>
-    <string name="txt3_tutorial_listen">Pokud se vám klip nelíbí, můžete klepnutím na toto tlačítko přeskočit a získat další.</string>
-    <string name="txt4_tutorial_listen">Klepnutím na tuto ikonu přehrajete klip.</string>
-    <string name="txt5_tutorial_listen">Klepnutím na tuto ikonu zastavíte klip.</string>
-    <string name="txt6_tutorial_listen">Klepnutím na tuto ikonu přehrajete klip znovu.</string>
-    <string name="txt7_tutorial_listen">Pokud klip odpovídá větě, klepněte na tuto ikonu pro přijetí.</string>
-    <string name="txt8_tutorial_listen">Pokud klip neodpovídá větě, klepněte na tuto ikonu pro odmítnutí.</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Toto je věta, kterou musíte zaznamenat.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Zpráva, která vás provede, se objeví zde.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Pokud se vám věta nelíbí, můžete stisknout toto tlačítko pro její přeskočení a získání další.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Klepnutím na tuto ikonu zahájíte nahrávání.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Klepnutím na tuto ikonu zastavíte nahrávání.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Klepnutím na tuto ikonu si poslechnete nahrávku.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Pokud jste udělali chybu, klepněte na tuto ikonu pro opětovné nahrávání.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Klepnutím na tuto ikonu si znovu poslechnete nahrávku.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Klepnutím na toto tlačítko odešlete nahrávku.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Toto je věta/klip musíte potvrdit.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Pokud se vám klip nelíbí, můžete klepnutím na toto tlačítko přeskočit a získat další.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Klepnutím na tuto ikonu přehrajete klip.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Klepnutím na tuto ikonu zastavíte klip.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Klepnutím na tuto ikonu přehrajete klip znovu.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Pokud klip odpovídá větě, klepněte na tuto ikonu pro přijetí.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Pokud klip neodpovídá větě, klepněte na tuto ikonu pro odmítnutí.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow">Omlouváme se, ale tato funkce ještě neexistuje.\nJelikož stále pracujeme na vylepšování aplikace, vraťte se později, abyste zjistili, jestli byla přidána.</string>
+    <string name="txtNotAvailableNow" comment="Message text">Omlouváme se, ale tato funkce ještě neexistuje.\nJelikož stále pracujeme na vylepšování aplikace, vraťte se později, abyste zjistili, jestli byla přidána.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges">Zavřít</string>
-    <string name="labelAllBadges">Všechny odznaky</string>
-    <string name="new_badge_earnt_message">Hurá! Právě jste dostali nový odznak.</string>
+    <string name="btnCloseBadges" comment="Button">Zavřít</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Všechny odznaky</string>
+    <string name="new_badge_earnt_message" comment="Message text">Hurá! Právě jste dostali nový odznak.</string>
     <!-- Message dialog -->
-    <string name="btnOk">Ok</string>
-    <string name="messageDialogErrorTitle">Chyba</string>
-    <string name="messageDialogGenericError">To nefungovalo.\nZkuste to prosím znovu nebo kontaktujte vývojáře.</string>
-    <string name="messageDialogErrorCode">To nefungovalo. Zkuste to prosím znovu nebo kontaktujte vývojáře.\nKód chyby: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle">Přihlášení se nezdařilo</string>
-    <string name="youHaveToAcceptPrivacyPolicy">Nejprve se musíte přihlásit na stránce Common Voice a přijmout zásady ochrany osobních údajů Common Voice.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Otevřít Common Voice</string>
-    <string name="text_warning">Upozornění</string>
-    <string name="text_tip">Tip</string>
-    <string name="text_changelog">Seznam změn</string>
-    <string name="text_help">Nápověda</string>
-    <string name="text_info">Informace</string>
-    <string name="check_box_message_dialog">Již nezobrazovat</string>
-    <string name="text_report_website_bug">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode">Offline režim</string>
-    <string name="text_offline_mode_enabled">Nyní jste offline a aplikace se automaticky přepnula do offline režimu.\nTo znamená, že můžete pokračovat v nahrávání a ověřování, ale žádosti budou odeslány později.</string>
-    <string name="text_offline_mode_enabled_2">To, zda jste v offline režimu, zjistíte tak, že uvidíte tuto ikonu na obrazovce:</string>
-    <string name="text_offline_mode_enabled_3">Kliknutím na tuto ikonu zobrazíte stažené klipy a věty.</string>
+    <string name="btnOk" comment="Button">Ok</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Chyba</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">To nefungovalo.\nZkuste to prosím znovu nebo kontaktujte vývojáře.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">To nefungovalo. Zkuste to prosím znovu nebo kontaktujte vývojáře.\nKód chyby: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Přihlášení se nezdařilo</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Nejprve se musíte přihlásit na stránce Common Voice a přijmout zásady ochrany osobních údajů Common Voice.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Otevřít Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">Upozornění</string>
+    <string name="text_tip" comment="Title for Message text">Tip</string>
+    <string name="text_changelog" comment="Title for Message text">Seznam změn</string>
+    <string name="text_help" comment="Title for Message text">Nápověda</string>
+    <string name="text_info" comment="Title for Message text">Informace</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Již nezobrazovat</string>
+    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="text_offline_mode" comment="Title">Offline režim</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Nyní jste offline a aplikace se automaticky přepnula do offline režimu.\nTo znamená, že můžete pokračovat v nahrávání a ověřování, ale žádosti budou odeslány později.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">To, zda jste v offline režimu, zjistíte tak, že uvidíte tuto ikonu na obrazovce:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Kliknutím na tuto ikonu zobrazíte stažené klipy a věty.</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title">Denní cíl</string>
-    <string name="daily_goal_is_not_set">Není nastaven žádný cíl</string>
-    <string name="set_daily_goal">Nastavit cíl</string>
-    <string name="edit_daily_goal">Upravit cíl</string>
-    <string name="save_daily_goal">Uložit</string>
-    <string name="delete_daily_goal">Vymazat</string>
-    <string name="cancel_daily_goal">Zrušit</string>
-    <string name="description_setting_daily_goal">Vyberte kolik vět chcete nahrávat a klipy, které chcete ověřit (součet vět) za den.</string>
-    <string name="daily_goal_achieved_today">Dosaženo dnes</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">Denní cíl</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Není nastaven žádný cíl</string>
+    <string name="set_daily_goal" comment="Button">Nastavit cíl</string>
+    <string name="edit_daily_goal" comment="Button">Upravit cíl</string>
+    <string name="save_daily_goal" comment="Button">Uložit</string>
+    <string name="delete_daily_goal" comment="Button">Vymazat</string>
+    <string name="cancel_daily_goal" comment="Button">Zrušit</string>
+    <string name="description_setting_daily_goal" comment="Message text">Vyberte kolik vět chcete nahrávat a klipy, které chcete ověřit (součet vět) za den.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Dosaženo dnes</string>
     <string name="daily_goal_not_achieved_today">Dnes nebylo dosaženo</string>
-    <string name="daily_goal_achieved_message">Dobrá práce! Dosáhli jste svého denního cíle.\nPočet ověřených klipů: {{*{{n_clips}}*}}, počet nahraných vět: {{*{{n_sentences}}*}}\nNeváhejte dále přispívat do Common Voice.</string>
-    <string name="daily_goal_is_not_official_by_mozilla">Tento denní cíl není oficiální funkcí Mozilla. Je to jen funkce aplikace.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Dobrá práce! Dosáhli jste svého denního cíle.\nPočet ověřených klipů: {{*{{n_clips}}*}}, počet nahraných vět: {{*{{n_sentences}}*}}\nNeváhejte dále přispívat do Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Tento denní cíl není oficiální funkcí Mozilla. Je to jen funkce aplikace.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">Je k dispozici nová verze aplikace (vydání {{*{{n_version}}*}}). Můžete si ji aktualizovat ve svém oblíbeném obchodě (F-Droid, Google Play Store) nebo přímo na GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Je k dispozici nová verze aplikace (vydání {{*{{n_version}}*}}). Můžete si ji aktualizovat ve svém oblíbeném obchodě (F-Droid, Google Play Store) nebo přímo na GitHub.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
