@@ -196,7 +196,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you're not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
