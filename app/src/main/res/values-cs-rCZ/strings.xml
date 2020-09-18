@@ -122,8 +122,8 @@
     <string name="txt_themes_settings" comment="Button in Settings">Motivy</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram skupina aplikace</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Zobrazit popisky pod ikonami menu</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Přečtěte si podmínky služby Mozilla Common Voice</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Přečtěte si pokyny pro ověřování</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Ohodnotit na Google Play</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Načítá se věta...</string>
@@ -192,8 +192,8 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Klepnutím na tuto ikonu přehrajete klip znovu.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Pokud klip odpovídá větě, klepněte na tuto ikonu pro přijetí.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Pokud klip neodpovídá větě, klepněte na tuto ikonu pro odmítnutí.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Pokud si nejste jisti, zda schválit, nebo odmítnout nahrávku, můžete si přečíst oficiální pokyny pro ověřování na Mozilla Discourse.\nTento odkaz také naleznete později v nastavení.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Přečíst</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Omlouváme se, ale tato funkce ještě neexistuje.\nJelikož stále pracujeme na vylepšování aplikace, vraťte se později, abyste zjistili, jestli byla přidána.</string>
     <!-- Badges -->
@@ -214,7 +214,7 @@
     <string name="text_help" comment="Title for Message text">Nápověda</string>
     <string name="text_info" comment="Title for Message text">Informace</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Již nezobrazovat</string>
-    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="text_report_website_bug" comment="Message text">Pokud máte problémy s oficiální stránkou Common Voice, nahlaste je prosím na fórech Mozilla Discourse nebo na GitHub, aby je mohla společnost Mozilla opravit.</string>
     <string name="text_offline_mode" comment="Title">Offline režim</string>
     <string name="text_offline_mode_enabled" comment="Message text">Nyní jste offline a aplikace se automaticky přepnula do offline režimu.\nTo znamená, že můžete pokračovat v nahrávání a ověřování, ale žádosti budou odeslány později.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">To, zda jste v offline režimu, zjistíte tak, že uvidíte tuto ikonu na obrazovce:</string>

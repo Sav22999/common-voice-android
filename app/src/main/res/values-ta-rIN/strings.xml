@@ -24,8 +24,8 @@
     <string name="toastNoLoginNoDailyGoal">தினசரி இலக்கை நிர்ணயிக்க நீங்கள் உள்நுழைய வேண்டும்</string>
     <string name="textHoursAbbreviation">ம. நே</string>
     <string name="textHour">மணி நேரம்</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors">சிறந்த பங்களிப்பாளர்கள்</string>
+    <string name="txt_top_contributors_recorded">பதிவு செய்யப்பட்டது</string>
     <string name="txt_top_contributors_validated">Validated</string>
     <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
