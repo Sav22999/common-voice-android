@@ -558,7 +558,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             ) {
                 @Throws(AuthFailureError::class)
                 override fun getHeaders(): Map<String, String> {
-                    println(">>1>>" + userId)
+                    //println(">>1>>" + userId)
                     val headers = HashMap<String, String>()
                     headers.put(
                         "Cookie",
