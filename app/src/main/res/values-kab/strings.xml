@@ -202,7 +202,7 @@
     <string name="new_badge_earnt_message" comment="Message text">Ayuz! Aql-ak·akem trebḥeḍ tasakezt tamaynut.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Trebḥeḍ tasakezt-a acku tesnetmeḍ ma drus {{*{{n_clips}}*}} yiklipen.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Tewwiḍ tasakezt-a acku tesnetmeḍ ma drus {{*{{n_sentences}}*}} yiklipen.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">Trebḥeḍ tasakezt-a acku tesnetmeḍ neɣ teskelseḍ ma drus {{*{{n_total}}*}} yiklipen.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ih</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Tuccḍa</string>
