@@ -1,0 +1,1 @@
+此应用让您从智能手机上为 Mozilla 的 Common Voice 做出贡献。

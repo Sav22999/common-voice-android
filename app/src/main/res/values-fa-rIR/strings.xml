@@ -18,8 +18,8 @@
     <string name="dashboardVoicesOnline">صداهای برخط</string>
     <string name="dashboardTabYou">شما</string>
     <string name="dashboardTabEveryone">همه</string>
-    <string name="dashboardToday">امروز</string>
-    <string name="dashboardEver">همیشه</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">امروز</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">همیشه</string>
     <string name="toastNoLoginNoStatistics">برای دیدن آمارتان باید وارد شوید</string>
     <string name="toastNoLoginNoDailyGoal">برای تنظیم هدف روزانه باید وارد شوید</string>
     <string name="textHoursAbbreviation">س</string>
@@ -28,208 +28,215 @@
     <string name="txt_top_contributors_recorded">ضبط‌شده</string>
     <string name="txt_top_contributors_validated">تأییدشده</string>
     <!-- 4, ..., 100, etc. -->
-    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
-    <string name="txt_app_statistics">آمار کاره</string>
-    <string name="txt_current_language">زبان کنونی</string>
-    <string name="txt_all_languages">همۀ زبان‌ها</string>
-    <string name="txt_not_available_offline">در حالت برون‌خط موجود نیست</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">آمار کاره</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">زبان کنونی</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">همۀ زبان‌ها</string>
+    <string name="txt_not_available_offline" comment="Message text">در حالت برون‌خط موجود نیست</string>
     <!-- First launch -->
-    <string name="btn_tutorial1">شروع</string>
-    <string name="btn_tutorial2">اجازه</string>
-    <string name="btn_tutorial3">بعدی</string>
-    <string name="btn_tutorial4">تلاش دوباره</string>
-    <string name="btn_tutorial5">پايان</string>
-    <string name="btn_skip">پرش</string>
-    <string name="txt_permission_obtained_first_launch">دسترسی اعطا شد</string>
-    <string name="txt_permission_denied_first_launch">خطا: دسترسی رد شد</string>
-    <string name="txt_introduction_app_first_launch">اندروید CV کاره‌ای غیرسمی برای صداهای اشتراکی موزیلا است. به دست سوریو مورلی بدون هیچ پشتیبانی یا شراکت موزیلا توسعه داده شده.</string>
-    <string name="txt_accept_terms_first_launch">با ادامه دادن، با شرایط خدمت صداهای اشتراکی موزیلا موافقت می‌کنید.</string>
-    <string name="txt_microphone_permission_first_launch">این کاره برای ضبط صدایتان به دسترسی «میکروفون» نیاز دارد.</string>
-    <string name="txt_storage_permission_first_launch">می‌توانید مشکلات را روی گیت‌هاب یا تلگرام گزارش کنید. برای کمک به توسعه‌دهنده برای درک سریع‌تر مشکل، باید پروندهٔ گزارش را به گزارشتان پیوست کنید. کاره برای ذخیرهٔ پروندهٔ گزارش، نیاز به دسترسی «ذخیره‌سازی» دارد.</string>
-    <string name="txt_offline_mode_first_launch">می‌توانید حتا وقتی برون‌خط هستید نیز مشارکت کنید. «حالت برون‌خط» کاره به صورت خودکار به کار می‌افتد و می‌توانید بدون اتّصال اینترنتی، ضبط و شنیدن را ادامه دهید.</string>
-    <string name="txt_themes_first_launch">می‌توانید زمینهٔ روشن یا تیره را برگزینید. می‌توانید بعداً این زمینه را در تنظیمات عوض کنید.</string>
-    <string name="txt_turn_on_dark_theme_first_launch">زمینهٔ تاریک</string>
-    <string name="txt_gestures_first_launch">برخی کنش‌ها، اشاره‌های متناظری دارند. برای مثال، می‌توانید در حالت صحبت، با کشیدن به چپ، از جمله‌ای بپرید.</string>
-    <string name="txt_customise_gestures_first_launch">می‌توانید این اشاره‌ها را در تنظیمات شخصی‌سازی کنید.</string>
-    <string name="txt_telegram_group_first_launch">می‌توانید برای گرفتن اخبار و پشتیبانی به گروه تلگرام بپیوندید.</string>
-    <string name="btn_join_telegram_first_launch">پیوستن به گروه</string>
-    <string name="txt_choose_language_first_launch">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="btn_tutorial1" comment="Button">شروع</string>
+    <string name="btn_tutorial2" comment="Button">اجازه</string>
+    <string name="btn_tutorial3" comment="Button">بعدی</string>
+    <string name="btn_tutorial4" comment="Button">تلاش دوباره</string>
+    <string name="btn_tutorial5" comment="Button">پايان</string>
+    <string name="btn_skip" comment="Button">پرش</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">دسترسی اعطا شد</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">خطا: دسترسی رد شد</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">اندروید CV کاره‌ای غیرسمی برای صداهای اشتراکی موزیلا است. به دست سوریو مورلی بدون هیچ پشتیبانی یا شراکت موزیلا توسعه داده شده.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">با ادامه دادن، با شرایط خدمت صداهای اشتراکی موزیلا موافقت می‌کنید.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">این کاره برای ضبط صدایتان به دسترسی «میکروفون» نیاز دارد.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">می‌توانید مشکلات را روی گیت‌هاب یا تلگرام گزارش کنید. برای کمک به توسعه‌دهنده برای درک سریع‌تر مشکل، باید پروندهٔ گزارش را به گزارشتان پیوست کنید. کاره برای ذخیرهٔ پروندهٔ گزارش، نیاز به دسترسی «ذخیره‌سازی» دارد.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">می‌توانید حتا وقتی برون‌خط هستید نیز مشارکت کنید. «حالت برون‌خط» کاره به صورت خودکار به کار می‌افتد و می‌توانید بدون اتّصال اینترنتی، ضبط و شنیدن را ادامه دهید.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">می‌توانید زمینهٔ روشن یا تیره را برگزینید. می‌توانید بعداً این زمینه را در تنظیمات عوض کنید.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">زمینهٔ تاریک</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">برخی کنش‌ها، اشاره‌های متناظری دارند. برای مثال، می‌توانید در حالت صحبت، با کشیدن به چپ، از جمله‌ای بپرید.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">می‌توانید این اشاره‌ها را در تنظیمات شخصی‌سازی کنید.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">می‌توانید برای گرفتن اخبار و پشتیبانی به گروه تلگرام بپیوندید.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">پیوستن به گروه</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
-    <string name="txt_loading_page">در حال بار کردن…</string>
-    <string name="txt_profile_username">نام کاربری</string>
-    <string name="txt_profile_email">رایانامه</string>
-    <string name="txt_profile_age">سن</string>
-    <string name="txt_profile_gender">جنسیت</string>
-    <string name="txt_profile_edit_data_alert">برای دستکاری اطلاعات نمایه‌تان به پایگاه وب صداهای اشتراکی بروید.</string>
-    <string name="txt_login_successful_alert">ورود موفق!</string>
-    <string name="txt_gender_male">نر</string>
-    <string name="txt_gender_female">ماده</string>
-    <string name="txt_gender_other">ديگر</string>
-    <string name="btn_badges_loggedin">همهٔ نشان‌ها</string>
-    <string name="txt_your_level">سطح {{*{{level}}*}}</string>
-    <string name="level_up_message">تبریک! به سطح {{*{{n_level}}*}} رسیدید.</string>
+    <string name="txt_loading_page" comment="Label">در حال بار کردن…</string>
+    <string name="txt_profile_username" comment="Label in Profile">نام کاربری</string>
+    <string name="txt_profile_email" comment="Label in Profile">رایانامه</string>
+    <string name="txt_profile_age" comment="Label in Profile">سن</string>
+    <string name="txt_profile_gender" comment="Label in Profile">جنسیت</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">برای دستکاری اطلاعات نمایه‌تان به پایگاه وب صداهای اشتراکی بروید.</string>
+    <string name="txt_login_successful_alert" comment="Message text">ورود موفق!</string>
+    <string name="txt_gender_male" comment="Label in Profile">نر</string>
+    <string name="txt_gender_female" comment="Label in Profile">ماده</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">ديگر</string>
+    <string name="btn_badges_loggedin" comment="Button">همهٔ نشان‌ها</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">سطح {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">تبریک! به سطح {{*{{n_level}}*}} رسیدید.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings">گشودن دوبارهٔ خودآموز</string>
-    <string name="txt_project_github_settings">پروژهٔ نرم‌افزار آزاد روی گیت‌هاب</string>
-    <string name="txt_contributors">مشارکت‌کنندگان اصلی</string>
-    <string name="txt_developed_by">توسعه‌یافته به دست</string>
-    <string name="toast_language_changed">زبان به درستی به {{*{{lang}}*}} تغییر یافت</string>
-    <string name="settingsLanguage">زبان</string>
-    <string name="settingsListen">شنیدن</string>
-    <string name="settingsSpeak">گفتن</string>
-    <string name="settingsOther">ديگر</string>
-    <string name="txt_donate_paypal_settings">حمایت از کارم. برایم قهوه بخرید 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings">پخش خودکار قطعه هنگام بار شدن</string>
-    <string name="toast_autoplay_clip_on">اکنون پخش خودکار قطعه روشن است.</string>
-    <string name="toast_autoplay_clip_off">اکنون پخش خودکار قطعه خاموش است.</string>
-    <string name="txt_dark_theme_settings">زمینهٔ تاریک</string>
-    <string name="toast_dark_theme_on">اکنون زمینهٔ تاریک روشن است.</string>
-    <string name="toast_dark_theme_off">اکنون زمینهٔ تاریک خاموش است.</string>
-    <string name="contact_developer_on_telegram">تماس با توسعه‌دهنده روی تلگرام</string>
-    <string name="txt_experimental_features">ویژگی‌های آزمایشی</string>
-    <string name="toast_experimental_features_on">ویژگی‌های آزمایشی روشن شدند.\nویژگی‌های جدید می‌توانند ناپایدار و ناامن باشند.</string>
-    <string name="toast_experimental_featured_off">ویژگی‌های آزمایشی خاموش شدند.</string>
-    <string name="txt_log_on_file">ذخیرهٔ گزارش‌ها به یک پرونده</string>
-    <string name="toast_log_on_file_on">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.\nمی‌توانید هنگام گزارش یک مشکل، پروندهٔ log.txt را پیوست کنید.\nدر گیت‌هاب بیش‌تر بخوانید.</string>
-    <string name="toast_log_on_file_off">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.</string>
-    <string name="txt_anonymous_statistics">آمار ناشناس</string>
-    <string name="toast_anonymous_statistics_on">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    <string name="txt_skip_recording_confirmation">پرش از تأیید ضبط</string>
-    <string name="toast_skip_recording_confirmation_on">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
-    <string name="toast_skip_recording_confirmation_off">Skip recording confirmation turned off.</string>
-    <string name="txt_translate_the_app_on_crowdin">ترجمهٔ کاره روی کرودین</string>
-    <string name="txt_see_statistics_of_the_app">دیدن آمار کاره</string>
-    <string name="txt_recording_indicator_sound">صدای نشانگر ضبط</string>
-    <string name="toast_recording_indicator_sound_on">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
-    <string name="toast_recording_indicator_sound_off">Recording indicator sound is now turned off.</string>
-    <string name="txt_check_for_updates">بررسی برای به‌روز رسانی‌ها</string>
-    <string name="toast_check_for_updated_on">بررسی به‌روز رسانی‌ها روشن شد.</string>
-    <string name="toast_check_for_updated_off">بررسی به‌روز رسانی‌ها خاموش شد.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings">رد کردن گفت‌وگوهای تأیید در تنظیمات</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on">Abort confirmation dialogs are now turned on.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off">Abort confirmation dialogs are now turned off.</string>
-    <string name="txt_gestures">اشاره‌ها</string>
-    <string name="toast_gestures_on">اشاره‌ها الآن روشنند.</string>
-    <string name="toast_gestures_off">اشاره‌ها الآن خاموشند.</string>
-    <string name="message_review_app_on_play_store">اگر این کاره را دوست دارید، لطفاً روی فروشگاه پلی گوگل بازبینیش کنید.</string>
-    <string name="message_app_not_completely_translated">این کاره (کاملاً) به این زبان ترجمه نشده است.\nمی‌توانید روی کرودین در ترجمه‌اش مشارکت کنید.</string>
-    <string name="txt_animations">پویانمایی‌ها</string>
-    <string name="txt_customise_the_font_size">سفارشی‌سازی اندازهٔ قلم</string>
-    <string name="txt_customise_gestures">شخصی‌سازی اشاره‌ها</string>
-    <string name="txt_themes_settings">زمینه‌ها</string>
-    <string name="txt_telegram_group_settings">گروه تلگرام کاره</string>
-    <string name="txt_show_labels_below_menu_icons">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
-    <string name="txt_read_tos_mozilla_common_voice">شرایط خدمت آواهای مشترک موزیلا را بخوانید</string>
-    <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play">بازبینی روی گوگل پلی</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">گشودن دوبارهٔ خودآموز</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">پروژهٔ نرم‌افزار آزاد روی گیت‌هاب</string>
+    <string name="txt_contributors" comment="Label in Settings">مشارکت‌کنندگان اصلی</string>
+    <string name="txt_developed_by" comment="Label in Settings">توسعه‌یافته به دست</string>
+    <string name="toast_language_changed" comment="Message text">زبان به درستی به {{*{{lang}}*}} تغییر یافت</string>
+    <string name="settingsLanguage" comment="Title in Settings">زبان</string>
+    <string name="settingsListen" comment="Title in Settings">شنیدن</string>
+    <string name="settingsSpeak" comment="Title in Settings">گفتن</string>
+    <string name="settingsOther" comment="Title in Settings">ديگر</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">حمایت از کارم. برایم قهوه بخرید 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">پخش خودکار قطعه هنگام بار شدن</string>
+    <string name="toast_autoplay_clip_on" comment="Message text">اکنون پخش خودکار قطعه روشن است.</string>
+    <string name="toast_autoplay_clip_off" comment="Message text">اکنون پخش خودکار قطعه خاموش است.</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">زمینهٔ تاریک</string>
+    <string name="toast_dark_theme_on" comment="Message text">اکنون زمینهٔ تاریک روشن است.</string>
+    <string name="toast_dark_theme_off" comment="Message text">اکنون زمینهٔ تاریک خاموش است.</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">تماس با توسعه‌دهنده روی تلگرام</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">ویژگی‌های آزمایشی</string>
+    <string name="toast_experimental_features_on" comment="Message text">ویژگی‌های آزمایشی روشن شدند.\nویژگی‌های جدید می‌توانند ناپایدار و ناامن باشند.</string>
+    <string name="toast_experimental_featured_off" comment="Message text">ویژگی‌های آزمایشی خاموش شدند.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">ذخیرهٔ گزارش‌ها به یک پرونده</string>
+    <string name="toast_log_on_file_on" comment="Message text">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.\nمی‌توانید هنگام گزارش یک مشکل، پروندهٔ log.txt را پیوست کنید.\nدر گیت‌هاب بیش‌تر بخوانید.</string>
+    <string name="toast_log_on_file_off" comment="Message text">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.</string>
+    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">آمار ناشناس</string>
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">پرش از تأیید ضبط</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
+    <string name="toast_skip_recording_confirmation_off" comment="Message text">Skip recording confirmation turned off.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">ترجمهٔ کاره روی کرودین</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">دیدن آمار کاره</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">صدای نشانگر ضبط</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
+    <string name="toast_recording_indicator_sound_off" comment="Message text">Recording indicator sound is now turned off.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">بررسی برای به‌روز رسانی‌ها</string>
+    <string name="toast_check_for_updated_on" comment="Message text">بررسی به‌روز رسانی‌ها روشن شد.</string>
+    <string name="toast_check_for_updated_off" comment="Message text">بررسی به‌روز رسانی‌ها خاموش شد.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">رد کردن گفت‌وگوهای تأیید در تنظیمات</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Abort confirmation dialogs are now turned on.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Abort confirmation dialogs are now turned off.</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">اشاره‌ها</string>
+    <string name="toast_gestures_on" comment="Message text">اشاره‌ها الآن روشنند.</string>
+    <string name="toast_gestures_off" comment="Message text">اشاره‌ها الآن خاموشند.</string>
+    <string name="message_review_app_on_play_store" comment="Message text">اگر این کاره را دوست دارید، لطفاً روی فروشگاه پلی گوگل بازبینیش کنید.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">این کاره (کاملاً) به این زبان ترجمه نشده است.\nمی‌توانید روی کرودین در ترجمه‌اش مشارکت کنید.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">پویانمایی‌ها</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">سفارشی‌سازی اندازهٔ قلم</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">شخصی‌سازی اشاره‌ها</string>
+    <string name="txt_themes_settings" comment="Button in Settings">زمینه‌ها</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">گروه تلگرام کاره</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">شرایط خدمت آواهای مشترک موزیلا را بخوانید</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">بازبینی روی گوگل پلی</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">در حال بار کردن جمله…</string>
-    <string name="btn_skip_sentence">پرش</string>
-    <string name="btn_send_sentence">فرستادن ضبط</string>
-    <string name="txt_loading_clip">در حال بار کردن قطعه…</string>
-    <string name="txt_press_icon_below_speak_1">برای شروع ضبط، نقشک زیر را بزنید.</string>
-    <string name="txt_press_icon_below_speak_2">برای پایان ضبط، نقشک زیر را بزنید.</string>
-    <string name="txt_sentence_recorded">جمله ضبط شد. به ضبط گوش دهید.</string>
-    <string name="txt_sentence_record_failed">ضبط شکست خورد. لطفاً دوباره تلاش کنید.</string>
-    <string name="txt_recorded_correct_or_wrong">اگر درست صحبت کردید، ضبط را بفرستید.\nاگر اشتباه صحبت کردید، می‌توانید دوباره جمله را ضبط کنید.</string>
-    <string name="txt_listening_stopped">برای اطمینان از درستی ضبط، به تمامش گوش کنید.</string>
-    <string name="txt_listening_again_recording">برای پایان شنیدن، نقشک زیر را بزنید.</string>
-    <string name="txt_recording_too_long">ضبط خیلی طولانی است. بیشینهٔ طول، ۱۰ ثانیه است.</string>
-    <string name="txt_recording_too_short">ضبط بیش از حد کوتاه است. لطفاً دوباره تلاش کنید.</string>
-    <string name="txt_sending_recording">در حال فرستادن ضبط…</string>
-    <string name="txt_recording_sent">ضبط فرستاده شد!</string>
-    <string name="txt_sending_recording_failed">شکست در فرستادن ضبط!</string>
-    <string name="txt_sending_recording_failed_and_skip">شکست در فرستادن ضبط! می‌توانید دوباره تلاش کرده یا دکمهٔ {{*{{skip_button}}*}} را بزنید.</string>
-    <string name="txt_press_icon_below_listen_1">برای شروع قطعه، نقشک زیر را بزنید.</string>
-    <string name="txt_press_icon_below_listen_2">برای پایان قطعه، نقشک زیر را بزنید.</string>
-    <string name="txt_clip_correct_or_wrong">اگر قطعه درست است، شست بالا را بزنید.\nاگر قطعه اشتباه است، شست پایین را بزنید.</string>
-    <string name="txt_clip_again">برای پخش دوبارهٔ قطعه، نقشک زیر را بزنید.</string>
-    <string name="txt_clip_validated_yes">قطعه به عنوان درست، علامت خورد!</string>
-    <string name="txt_clip_validated_no">قطعه به عنوان نادرست، علامت خورد!</string>
-    <string name="txt_error_1_try_again_tap_skip">خطا. برای ادامه، دکمهٔ {{*{{skip_button}}*}} را بزنید.</string>
-    <string name="txt_error_2_sending_failed">شکست در فرستادن ضبط.</string>
-    <string name="txt_sending_validation">در حال فرستادن…</string>
-    <string name="txt_error_3_sending_validation_failed">شکست در فرستادن نتایج. می‌توانید دوباره تلاش کرده یا دکمهٔ {{*{{skip_button}}*}} را بزنید.</string>
-    <string name="txt_closing">در حال بستن…</string>
-    <string name="txt_error_4_clips_no_available">خطا. قطعه‌های موجود بیش‌تری برای این زبان وجود ندارد.</string>
-    <string name="button_report">گزارش</string>
-    <string name="title_report_clip">گزارش قطعه:</string>
-    <string name="title_report_sentence">گزارش جمله:</string>
-    <string name="button_send_report">فرستادن گزارش</string>
-    <string name="checkbox_reason1_report_sentence">زبان تهاجمی</string>
-    <string name="checkbox_reason1_report_clip">صحبت تهاجمی</string>
-    <string name="checkbox_reason2_report">خطای نوشتاری یا نگارشی</string>
-    <string name="checkbox_reason3_report">زبان دیگر</string>
-    <string name="checkbox_reason4_report">گویش دشوار</string>
-    <string name="checkbox_reason5_report">ديگر</string>
-    <string name="checkbox_reason5_comment_report">نظر</string>
-    <string name="txt_sentences_finished_offline_mode">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
-    <string name="txt_clips_finished_offline_mode">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">در حال بار کردن جمله…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">پرش</string>
+    <string name="btn_send_sentence" comment="Button in Speak">فرستادن ضبط</string>
+    <string name="txt_loading_clip" comment="Label in Listen">در حال بار کردن قطعه…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">برای شروع ضبط، نقشک زیر را بزنید.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">برای پایان ضبط، نقشک زیر را بزنید.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">جمله ضبط شد. به ضبط گوش دهید.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">ضبط شکست خورد. لطفاً دوباره تلاش کنید.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">اگر درست صحبت کردید، ضبط را بفرستید.\nاگر اشتباه صحبت کردید، می‌توانید دوباره جمله را ضبط کنید.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">برای اطمینان از درستی ضبط، به تمامش گوش کنید.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">برای پایان شنیدن، نقشک زیر را بزنید.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">ضبط خیلی طولانی است. بیشینهٔ طول، ۱۰ ثانیه است.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">ضبط بیش از حد کوتاه است. لطفاً دوباره تلاش کنید.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">در حال فرستادن ضبط…</string>
+    <string name="txt_recording_sent" comment="Label in Speak">ضبط فرستاده شد!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">شکست در فرستادن ضبط!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">شکست در فرستادن ضبط! می‌توانید دوباره تلاش کرده یا دکمهٔ {{*{{skip_button}}*}} را بزنید.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">برای شروع قطعه، نقشک زیر را بزنید.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">برای پایان قطعه، نقشک زیر را بزنید.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">اگر قطعه درست است، شست بالا را بزنید.\nاگر قطعه اشتباه است، شست پایین را بزنید.</string>
+    <string name="txt_clip_again" comment="Label in Listen">برای پخش دوبارهٔ قطعه، نقشک زیر را بزنید.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">قطعه به عنوان درست، علامت خورد!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">قطعه به عنوان نادرست، علامت خورد!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">خطا. برای ادامه، دکمهٔ {{*{{skip_button}}*}} را بزنید.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">شکست در فرستادن ضبط.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">در حال فرستادن…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">شکست در فرستادن نتایج. می‌توانید دوباره تلاش کرده یا دکمهٔ {{*{{skip_button}}*}} را بزنید.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">در حال بستن…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">خطا. قطعه‌های موجود بیش‌تری برای این زبان وجود ندارد.</string>
+    <string name="button_report" comment="Button">گزارش</string>
+    <string name="title_report_clip" comment="Title in Report a clip">گزارش قطعه:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">گزارش جمله:</string>
+    <string name="button_send_report" comment="Button">فرستادن گزارش</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">زبان تهاجمی</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">صحبت تهاجمی</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">خطای نوشتاری یا نگارشی</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">زبان دیگر</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">گویش دشوار</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">ديگر</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">نظر</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
     <!-- Don't translate {{*{{n_sentences}}*}} -->
-    <string name="txt_residual_sentences_offline_mode">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
     <!-- Don't translate {{*{{n_clips}}*}} -->
-    <string name="txt_residual_clips_offline_mode">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">بررسی دوباره</string>
-    <string name="txt_noconnection">به اینترنت وصل نیستید. به وای‌فای یا دادهٔ همراه وصل شده، سپس دکمهٔ زیر را بزنید.</string>
+    <string name="btn_check_again_noconnection" comment="Button">بررسی دوباره</string>
+    <string name="txt_noconnection" comment="Message text">به اینترنت وصل نیستید. به وای‌فای یا دادهٔ همراه وصل شده، سپس دکمهٔ زیر را بزنید.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">این جمله‌ایست که باید ضبط کنید.</string>
-    <string name="txt2_tutorial_speak_and_listen">این‌جا پیامی برای راهنماییتان ظاهر خواهد شد.</string>
-    <string name="txt3_tutorial_speak">اگر جمله را دوست ندارید، می‌توانید این‌جا زده و جملهٔ دیگری بگیرید.</string>
-    <string name="txt4_tutorial_speak">برای شروع ضبط، این نقشک را بزنید.</string>
-    <string name="txt5_tutorial_speak">برای پایان ضبط، این نقشک را بزنید.</string>
-    <string name="txt6_tutorial_speak">برای پخش ضبطتان، این نقشک را بزنید.</string>
-    <string name="txt7_tutorial_speak">اگر اشتباهی کردید، برای ضبط دوباره، این نقشک را بزنید.</string>
-    <string name="txt8_tutorial_speak">برای پخش دوبارهٔ ضبطتان، این نقشک را بزنید.</string>
-    <string name="txt9_tutorial_speak">برای فرستادن ضبط، این دکمه را بزنید.</string>
-    <string name="txt1_tutorial_listen">این جمله و قطعه‌ایست که باید تأیید کنید.</string>
-    <string name="txt3_tutorial_listen">اگر قطعه را دوست ندارید، می‌توانید این دکمه را زده و قطعهٔ دیگری بگیرید.</string>
-    <string name="txt4_tutorial_listen">برای پخش قطعه، روی این نقشک بزنید.</string>
-    <string name="txt5_tutorial_listen">برای توقّف پخش قطعه، روی این نقشک بزنید.</string>
-    <string name="txt6_tutorial_listen">اگر می‌خواهید دوباره به قطعه گوش کنید، روی این نقشک بزنید.</string>
-    <string name="txt7_tutorial_listen">اگر قطعه با جمله مطابق است، برای پذیرشش، روی این نقشک بزنید.</string>
-    <string name="txt8_tutorial_listen">اگر قطعه با جمله مطابق نیست، برای ردش، روی این نقشک بزنید.</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">این جمله‌ایست که باید ضبط کنید.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">این‌جا پیامی برای راهنماییتان ظاهر خواهد شد.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">اگر جمله را دوست ندارید، می‌توانید این‌جا زده و جملهٔ دیگری بگیرید.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">برای شروع ضبط، این نقشک را بزنید.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">برای پایان ضبط، این نقشک را بزنید.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">برای پخش ضبطتان، این نقشک را بزنید.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">اگر اشتباهی کردید، برای ضبط دوباره، این نقشک را بزنید.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">برای پخش دوبارهٔ ضبطتان، این نقشک را بزنید.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">برای فرستادن ضبط، این دکمه را بزنید.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">این جمله و قطعه‌ایست که باید تأیید کنید.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">اگر قطعه را دوست ندارید، می‌توانید این دکمه را زده و قطعهٔ دیگری بگیرید.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">برای پخش قطعه، روی این نقشک بزنید.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">برای توقّف پخش قطعه، روی این نقشک بزنید.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">اگر می‌خواهید دوباره به قطعه گوش کنید، روی این نقشک بزنید.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">اگر قطعه با جمله مطابق است، برای پذیرشش، روی این نقشک بزنید.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">اگر قطعه با جمله مطابق نیست، برای ردش، روی این نقشک بزنید.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges">بستن</string>
-    <string name="labelAllBadges">همهٔ نشان‌ها</string>
-    <string name="new_badge_earnt_message">ایول! یک نشان جدید کسب کردید.</string>
+    <string name="btnCloseBadges" comment="Button">بستن</string>
+    <string name="labelAllBadges" comment="Title for All badge section">همهٔ نشان‌ها</string>
+    <string name="new_badge_earnt_message" comment="Message text">ایول! یک نشان جدید کسب کردید.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
-    <string name="btnOk">قبول</string>
-    <string name="messageDialogErrorTitle">خطا</string>
-    <string name="messageDialogGenericError">کار نکرد.\nلطفاً دوباره تلاش‌کرده یا با توسعه‌دهنده تماس بگیرید.</string>
-    <string name="messageDialogErrorCode">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle">ورود شکست خورد</string>
-    <string name="youHaveToAcceptPrivacyPolicy">نخست باید وارد پایگاه وب صداهای اشتراکی شده و سیاست محرمانگیش را بپذیرید.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">گشودن صداهای اشتراکی</string>
-    <string name="text_warning">هشدار</string>
-    <string name="text_tip">نکته</string>
-    <string name="text_changelog">گزارش تغییرات</string>
-    <string name="text_help">راهنما</string>
-    <string name="text_info">اطلاعات</string>
-    <string name="check_box_message_dialog">دیگر نشان داده نشود</string>
-    <string name="text_report_website_bug">اگر با پایگاه رسمی آواهای مشترک مشکل دارید، در انجمن‌های دیسکورس یا مخزن گیت‌هاب موزیلا گزارش کنید تا بتوانند رفعش کنند.</string>
-    <string name="text_offline_mode">حالت برون‌خط</string>
-    <string name="text_offline_mode_enabled">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
-    <string name="text_offline_mode_enabled_2">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3">You can tap that icon to see downloaded clips and sentences.</string>
+    <string name="btnOk" comment="Button">قبول</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">خطا</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">کار نکرد.\nلطفاً دوباره تلاش‌کرده یا با توسعه‌دهنده تماس بگیرید.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">ورود شکست خورد</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">نخست باید وارد پایگاه وب صداهای اشتراکی شده و سیاست محرمانگیش را بپذیرید.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">گشودن صداهای اشتراکی</string>
+    <string name="text_warning" comment="Title for Message text">هشدار</string>
+    <string name="text_tip" comment="Title for Message text">نکته</string>
+    <string name="text_changelog" comment="Title for Message text">گزارش تغییرات</string>
+    <string name="text_help" comment="Title for Message text">راهنما</string>
+    <string name="text_info" comment="Title for Message text">اطلاعات</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">دیگر نشان داده نشود</string>
+    <string name="text_report_website_bug" comment="Message text">اگر با پایگاه رسمی آواهای مشترک مشکل دارید، در انجمن‌های دیسکورس یا مخزن گیت‌هاب موزیلا گزارش کنید تا بتوانند رفعش کنند.</string>
+    <string name="text_offline_mode" comment="Title">حالت برون‌خط</string>
+    <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title">هدف روزانه</string>
-    <string name="daily_goal_is_not_set">هدفی تنظیم نشده</string>
-    <string name="set_daily_goal">تنظیم یک هدف</string>
-    <string name="edit_daily_goal">ویرایش هدف</string>
-    <string name="save_daily_goal">ذخیره</string>
-    <string name="delete_daily_goal">حذف</string>
-    <string name="cancel_daily_goal">لغو</string>
-    <string name="description_setting_daily_goal">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
-    <string name="daily_goal_achieved_today">امروز کسب شده</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">هدف روزانه</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">هدفی تنظیم نشده</string>
+    <string name="set_daily_goal" comment="Button">تنظیم یک هدف</string>
+    <string name="edit_daily_goal" comment="Button">ویرایش هدف</string>
+    <string name="save_daily_goal" comment="Button">ذخیره</string>
+    <string name="delete_daily_goal" comment="Button">حذف</string>
+    <string name="cancel_daily_goal" comment="Button">لغو</string>
+    <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">امروز کسب شده</string>
     <string name="daily_goal_not_achieved_today">امروز کسب نشده</string>
-    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="daily_goal_is_not_official_by_mozilla">هدف روزانه یک ویژگی رسمی موزیلا نیست. فقط ویژگی‌ای از این کاره است.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">هدف روزانه یک ویژگی رسمی موزیلا نیست. فقط ویژگی‌ای از این کاره است.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">نگارشی جدید از کاره موجود است (ارایه {{*{{n_version}}*}}). می‌توانید از فروشگاه دلخواهتان (اف‌دروید یا فروشگاه پلی گوگل) به‌روزش کرده یا مستقیماً از گیت‌هاب بگیرید.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">نگارشی جدید از کاره موجود است (ارایه {{*{{n_version}}*}}). می‌توانید از فروشگاه دلخواهتان (اف‌دروید یا فروشگاه پلی گوگل) به‌روزش کرده یا مستقیماً از گیت‌هاب بگیرید.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

@@ -1,0 +1,42 @@
+<p>
+Questa non è l'app ufficiale di Common Voice. È sviluppata da Saverio Morelli
+</p>
+<p>
+<b>Funzionalità app:</b>
+
+- Interfaccia utente chiara, pulita e moderna
+- Accedi al tuo account Common Voice
+- Convalida registrazioni
+- Registra frasi
+- Segnala frasi o registrazioni
+- Supportate molte lingue
+- Modalità offline (continua a contribuire anche quando non sei connesso a Internet!)
+- Statistiche di Common Voice (della lingua selezionata)
+- Collaboratori principali  (della lingua selezionata)
+- Statistiche dell'app (anonime)
+- Voci online (della lingua selezionata)
+- Tema scuro supportato
+- Obiettivo giornaliero
+- Gesti
+- L'esperienza dell'app è completamente personalizzabile nelle Impostazioni
+
+Unisciti al gruppo Telegram: https://t.me/common_voice_android (@common_voice_android)
+Puoi vedere le statistiche complete dell'app qui: https://bit.ly/3clgfkg
+Scopri di più su questa app su GitHub: http://bit.ly/2PeOGRg</p>
+</p>
+<p>
+<b>Che cos'è il progetto Common Voice?</b>
+
+Il progetto Common Voice è un’iniziativa di Mozilla per insegnare alle macchine come parlano le persone nella vita reale.
+La voce è naturale, la voce è umanità. Per questo l’idea di creare una tecnologia vocale utilizzabile dalle nostre macchine ci affascina così tanto. Per creare sistemi basati sulla tecnologia vocale, però, è necessaria un’altissima quantità di campioni.
+Buona parte dei dati usati dalle grandi aziende non è accessibile alla maggioranza delle persone. Secondo noi questo soffoca l’innovazione. Per questa ragione abbiamo sviluppato Common Voice, un progetto di riconoscimento vocale aperto a tutti.
+Ora puoi donare la tua voce per aiutarci a costruire un database vocale open source a disposizione di tutti gli sviluppatori di applicazioni per dispositivi o per il Web. Leggi una frase per insegnare alle macchine come le persone parlano nella vita reale. Verifica le registrazioni audio degli altri collaboratori per migliorare la qualità del database. Contribuire è semplicissimo!
+Puoi trovare maggiori informazioni sul sito ufficiale https://commonvoice.mozilla.org/
+</p>
+<p>
+<b>Perché dovrei usare l'app invece del sito web su mobile?</b>
+
+L'app è sviluppata esattamente per gli smartphone, quindi è nativa. Ha molte funzionalità che il sito web non offre come il tema scuro, la modalità offline, la personalizzazione, i gesti, e altro.
+L'app è più leggera del sito web, senza fastidiose animazioni (e quelle presenti nell'app sono disattivabili nelle Impostazioni).
+In più, il sito web è pieno di bug, specialmente per la versione mobile, quindi non puoi godere di un'esperienza completa.
+</p>

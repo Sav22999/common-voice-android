@@ -23,6 +23,7 @@ class TranslationsLanguages {
                 "ia",
                 "it",
                 "ja",
+                "kab",
                 "nl",
                 "pl",
                 "pt",

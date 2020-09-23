@@ -1,0 +1,3 @@
+- Improvements to the dark theme
+- Added button in Settings to contact the developer on Telegram
+- Adde 4 newsupported languages (Assamese, Punjabi, Polish and Rumantsch Vallader)

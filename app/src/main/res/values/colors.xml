@@ -15,6 +15,7 @@
     <color name="colorLightRed">#FFAAAA</color>
     <color name="colorLightGreen">#228822</color>
     <color name="colorLightGray">#999999</color>
+    <color name="colorLightLightGray">#BBBBBB</color>
     <color name="colorDarkDarkGray">#222222</color>
     <color name="colorLightBlack">#222222</color>
     <color name="colorDarkWhite">#EEEEEE</color>
@@ -34,6 +35,10 @@
 
     <color name="colorYouTopContributors">#BBBBBB</color>
     <color name="colorYouTopContributorsDT">#555555</color>
+
+    <!-- Navigation bar -->
+    <color name="colorNavigationBarBackground">@color/colorBlack</color>
+    <color name="colorNavigationBarBorder">#141414</color>
 
     <!-- Message dialogs -->
     <color name="colorWarning">#FF5722</color>

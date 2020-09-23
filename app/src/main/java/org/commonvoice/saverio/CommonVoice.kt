@@ -124,7 +124,7 @@ class CommonVoice : Application() {
 
         startKoin {
             androidContext(this@CommonVoice)
-            androidLogger()
+            //androidLogger()
             modules(
                 listOf(
                     prefsModule,
