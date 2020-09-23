@@ -7,7 +7,8 @@ import org.commonvoice.saverio.databinding.ViewholderBadgeLevelBinding
 import org.commonvoice.saverio.utils.inflateBinding
 
 class BadgeAdapter(
-    private val data: List<Badge>
+    private val data: List<Badge>,
+    private val onBadgeClick: (Badge) -> Unit
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,9 +30,16 @@ class BadgeAdapter(
         when(holder) {
             is LevelBadgeViewHolder -> {
                 holder.bind(data[position] as Badge.Level)
+                holder.registerOnClick(onBadgeClick, data[position])
             }
             is AchievementBadgeViewHolder -> {
-                holder.bind(data[position] as Badge.Achievement)
+                (data[position] as? Badge.SpeakAchievement)?.let {
+                    holder.bind(it)
+                }
+                (data[position] as? Badge.ListenAchievement)?.let {
+                    holder.bind(it)
+                }
+                holder.registerOnClick(onBadgeClick, data[position])
             }
         }
     }
@@ -41,7 +49,8 @@ class BadgeAdapter(
     override fun getItemViewType(position: Int): Int {
         return when(data[position]) {
             is Badge.Level -> Type.LEVEL.ordinal
-            is Badge.Achievement -> Type.ACHIEVEMENT.ordinal
+            is Badge.SpeakAchievement -> Type.ACHIEVEMENT.ordinal
+            is Badge.ListenAchievement -> Type.ACHIEVEMENT.ordinal
         }
     }
 

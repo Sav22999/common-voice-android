@@ -2,6 +2,7 @@ package org.commonvoice.saverio.ui.recyclerview.badges
 
 import androidx.recyclerview.widget.RecyclerView
 import org.commonvoice.saverio.databinding.ViewholderBadgeLevelBinding
+import org.commonvoice.saverio.utils.onClick
 
 class LevelBadgeViewHolder(
     private val binding: ViewholderBadgeLevelBinding
@@ -14,6 +15,12 @@ class LevelBadgeViewHolder(
             2 -> "nd"
             3 -> "rd"
             else -> "th"
+        }
+    }
+
+    fun registerOnClick(onClick: (Badge) -> Unit, badge: Badge) {
+        binding.root.onClick {
+            onClick(badge)
         }
     }
 
