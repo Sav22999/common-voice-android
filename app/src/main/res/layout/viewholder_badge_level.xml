@@ -1,49 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingStart="8dp"
-    android:paddingEnd="12dp"
     android:paddingTop="12dp"
-    android:paddingBottom="8dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:paddingEnd="12dp"
+    android:paddingBottom="8dp">
 
     <ImageView
+        android:id="@+id/imageBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/ic_level"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/levelNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/sourcecodepro_black"
-        android:textSize="40sp"
-        android:textColor="#FFFFFF"
-        tools:text="14"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.2"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="level"
-        android:fontFamily="@font/pecita"
-        android:textSize="32sp"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/innerConstraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageBackground"
+        app:layout_constraintEnd_toEndOf="@id/imageBackground"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="@id/imageBackground"
+        app:layout_constraintTop_toTopOf="@id/imageBackground"
+        app:layout_constraintVertical_bias="0.18">
+
+        <TextView
+            android:id="@+id/levelNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcecodepro_black"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="0sp"
+            android:maxLines="1"
+            android:paddingTop="0dp"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            app:firstBaselineToTopHeight="0dp"
+            app:lastBaselineToBottomHeight="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvFixed"
+            app:layout_constraintEnd_toStartOf="@+id/levelNumeral"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="14" />
+
+        <TextView
+            android:id="@+id/levelNumeral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcecodepro"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/levelNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/levelNumber"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="th" />
+
+        <TextView
+            android:id="@+id/tvFixed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pecita"
+            android:text="level"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/levelNumber" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
