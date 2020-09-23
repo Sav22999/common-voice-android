@@ -18,8 +18,8 @@
     <string name="dashboardVoicesOnline">الأصوات الأونلاين</string>
     <string name="dashboardTabYou">أنت</string>
     <string name="dashboardTabEveryone">الجميع</string>
-    <string name="dashboardToday">اليوم</string>
-    <string name="dashboardEver">كل الوقت</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">اليوم</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">كل الوقت</string>
     <string name="toastNoLoginNoStatistics">يجب عليك تسجيل الدخول لترى إحصائياتك</string>
     <string name="toastNoLoginNoDailyGoal">يجب عليك تسجيل الدخول لتحدّد الهدف اليومي</string>
     <string name="textHoursAbbreviation">س</string>
@@ -28,208 +28,215 @@
     <string name="txt_top_contributors_recorded">التسجيلات</string>
     <string name="txt_top_contributors_validated">Validated</string>
     <!-- 4, ..., 100, etc. -->
-    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
-    <string name="txt_app_statistics">إحصائيات التطبيق</string>
-    <string name="txt_current_language">اللغة الحالية</string>
-    <string name="txt_all_languages">كل اللغات</string>
-    <string name="txt_not_available_offline">غير متوفر في وضع عدم الاتصال</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">إحصائيات التطبيق</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">اللغة الحالية</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">كل اللغات</string>
+    <string name="txt_not_available_offline" comment="Message text">غير متوفر في وضع عدم الاتصال</string>
     <!-- First launch -->
-    <string name="btn_tutorial1">ابدأ</string>
-    <string name="btn_tutorial2">تصريح</string>
-    <string name="btn_tutorial3">التالي</string>
-    <string name="btn_tutorial4">حاول مجددًا</string>
-    <string name="btn_tutorial5">إنهاء</string>
-    <string name="btn_skip">تخطي</string>
-    <string name="txt_permission_obtained_first_launch">تم الحصول على الإذن</string>
-    <string name="txt_permission_denied_first_launch">خطأ: لقد تم رفض الإذن</string>
-    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">من خلال المتابعة، أنت توافق على شروط خدمة الخاصة بموزيلا Common Voice.</string>
-    <string name="txt_microphone_permission_first_launch">يحتاج هذا التطبيق إلى إذن \"الميكروفون\" لتسجيل صوتك.</string>
-    <string name="txt_storage_permission_first_launch">يمكنك الإبلاغ عن الأخطاء في GitHub أو Telegram. لمساعدة المطور على فهم المشكلة بسرعة، يجب عليك إرفاق ملف سِجل التطبيق بتقريرك. التطبيق يحتاج إلى إذن \"التخزين\" لحفظ ملف السِجل.</string>
-    <string name="txt_offline_mode_first_launch">يمكنك حتى المساهمة عندما تكون غير متصل. سيتم تفعيل وضعية\"غير متصل\" على التطبيق بشكل تلقائي، ويمكنك الاستمرار في التسجيل والاستماع بدون اتصال بالإنترنت.</string>
-    <string name="txt_themes_first_launch">يمكنك اختيار إما سمة الضوء أو السمة المظلمة. يمكنك تغيير هذا لاحقاً في الإعدادات.</string>
-    <string name="txt_turn_on_dark_theme_first_launch">المظهر الأسود</string>
-    <string name="txt_gestures_first_launch">بعض الإجراءات لها إيماءات مقابلة. على سبيل المثال، يمكنك تخطي جملة في التحدث بالسحب إلى اليسار.</string>
-    <string name="txt_customise_gestures_first_launch">يمكنك تخصيص هذه الإيماءات في الإعدادات.</string>
-    <string name="txt_telegram_group_first_launch">يمكنك الانضمام إلى مجموعة تيليجرام للحصول على الأخبار والدعم.</string>
-    <string name="btn_join_telegram_first_launch">انضم إلى المجموعة</string>
-    <string name="txt_choose_language_first_launch">دعنا نذهب! اختر اللغة التي ترغب في التحدث أو الاستماع إليها. سيتم عرض التطبيق أيضا بتلك اللغة إذا كانت الترجمة متاحة.</string>
+    <string name="btn_tutorial1" comment="Button">ابدأ</string>
+    <string name="btn_tutorial2" comment="Button">تصريح</string>
+    <string name="btn_tutorial3" comment="Button">التالي</string>
+    <string name="btn_tutorial4" comment="Button">حاول مجددًا</string>
+    <string name="btn_tutorial5" comment="Button">إنهاء</string>
+    <string name="btn_skip" comment="Button">تخطي</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">تم الحصول على الإذن</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">خطأ: لقد تم رفض الإذن</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">من خلال المتابعة، أنت توافق على شروط خدمة الخاصة بموزيلا Common Voice.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">يحتاج هذا التطبيق إلى إذن \"الميكروفون\" لتسجيل صوتك.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">يمكنك الإبلاغ عن الأخطاء في GitHub أو Telegram. لمساعدة المطور على فهم المشكلة بسرعة، يجب عليك إرفاق ملف سِجل التطبيق بتقريرك. التطبيق يحتاج إلى إذن \"التخزين\" لحفظ ملف السِجل.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">يمكنك حتى المساهمة عندما تكون غير متصل. سيتم تفعيل وضعية\"غير متصل\" على التطبيق بشكل تلقائي، ويمكنك الاستمرار في التسجيل والاستماع بدون اتصال بالإنترنت.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">يمكنك اختيار إما سمة الضوء أو السمة المظلمة. يمكنك تغيير هذا لاحقاً في الإعدادات.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">المظهر الأسود</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">بعض الإجراءات لها إيماءات مقابلة. على سبيل المثال، يمكنك تخطي جملة في التحدث بالسحب إلى اليسار.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">يمكنك تخصيص هذه الإيماءات في الإعدادات.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">يمكنك الانضمام إلى مجموعة تيليجرام للحصول على الأخبار والدعم.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">انضم إلى المجموعة</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">دعنا نذهب! اختر اللغة التي ترغب في التحدث أو الاستماع إليها. سيتم عرض التطبيق أيضا بتلك اللغة إذا كانت الترجمة متاحة.</string>
     <!-- Login -->
-    <string name="txt_loading_page">جاري التحميل...</string>
-    <string name="txt_profile_username">اسم المستخدم</string>
-    <string name="txt_profile_email">الايميل</string>
-    <string name="txt_profile_age">العمر</string>
-    <string name="txt_profile_gender">الجنس</string>
-    <string name="txt_profile_edit_data_alert">لتّعديل على معلومات ملفط الشخصي، توجه إلى موقع Common Voice.</string>
-    <string name="txt_login_successful_alert">تم تسجيل الدخول بنجاح!</string>
-    <string name="txt_gender_male">ذكر</string>
-    <string name="txt_gender_female">أنثى</string>
-    <string name="txt_gender_other">فئة أحرى</string>
-    <string name="btn_badges_loggedin">جميع الشارات</string>
-    <string name="txt_your_level">المستوى {{*{{level}}*}}</string>
-    <string name="level_up_message">تهانينا! لقد وصلت للتو إلى مستوى {{*{{n_level}}*}}.</string>
+    <string name="txt_loading_page" comment="Label">جاري التحميل...</string>
+    <string name="txt_profile_username" comment="Label in Profile">اسم المستخدم</string>
+    <string name="txt_profile_email" comment="Label in Profile">الايميل</string>
+    <string name="txt_profile_age" comment="Label in Profile">العمر</string>
+    <string name="txt_profile_gender" comment="Label in Profile">الجنس</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">لتّعديل على معلومات ملفط الشخصي، توجه إلى موقع Common Voice.</string>
+    <string name="txt_login_successful_alert" comment="Message text">تم تسجيل الدخول بنجاح!</string>
+    <string name="txt_gender_male" comment="Label in Profile">ذكر</string>
+    <string name="txt_gender_female" comment="Label in Profile">أنثى</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">أخرى</string>
+    <string name="btn_badges_loggedin" comment="Button">جميع الشارات</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">المستوى {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">تهانينا! لقد وصلت للتو إلى مستوى {{*{{n_level}}*}}.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings">فتح التعليمات مجدداُ</string>
-    <string name="txt_project_github_settings">المشروع مفتوح المصدر في GitHub</string>
-    <string name="txt_contributors">المساهمون الرئيسيون</string>
-    <string name="txt_developed_by">تم تطويره من طرف</string>
-    <string name="toast_language_changed">تم تغيير اللغة بشكل صحيح إلى {{*{{lang}}*}}</string>
-    <string name="settingsLanguage">اللغة</string>
-    <string name="settingsListen">الاستماع</string>
-    <string name="settingsSpeak">التحدّث</string>
-    <string name="settingsOther">أخرى</string>
-    <string name="txt_donate_paypal_settings">ادعم عملي، Buy me a coffee 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings">التشغيل تلقائيا فور تحميله</string>
-    <string name="toast_autoplay_clip_on">تم الآن تفعيل تشغيل المقطع تلقائيا.</string>
-    <string name="toast_autoplay_clip_off">تم الآن إلغاء تفعيل تشغيل المقطع تلقائيا.</string>
-    <string name="txt_dark_theme_settings">المظهر الأسود</string>
-    <string name="toast_dark_theme_on">المظهر الأسود مفعل الآن.</string>
-    <string name="toast_dark_theme_off">تم الآن إلغاء تفعيل المظهر الأسود.</string>
-    <string name="contact_developer_on_telegram">التواصل مع المطور على التيليجرام</string>
-    <string name="txt_experimental_features">الميزات التجريبية</string>
-    <string name="toast_experimental_features_on">تم تشغيل الميزات التجريبية.\nقد تكون الميزات الجديدة غير مستقرة وغير آمنة.</string>
-    <string name="toast_experimental_featured_off">تم إيقاف تشغيل الميزات التجريبية.</string>
-    <string name="txt_log_on_file">حفظ السجلات في ملف</string>
-    <string name="toast_log_on_file_on">تم تشغيل حفظ السجلات في ملف.\n يمكنك إرفاق ملف log.txt عند الإبلاغ عن مشكلة.\n اقرأ و تعرف على المزيد في Github.</string>
-    <string name="toast_log_on_file_off">تم إيقاف تشغيل حفظ السجلات في ملف.</string>
-    <string name="txt_anonymous_statistics">إحصائيات مجهولة</string>
-    <string name="toast_anonymous_statistics_on">تم تفعيل الإحصائيات المجهولة.\n لا نجمع بياناتك الشخصية بل نستخدم الإحصائيات فقط من أجل معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم.</string>
-    <string name="toast_anonymous_statistics_off">تم إلغاء تفعيل الإحصائيات المجهولة، يرجى الملاحظة أننا نستخدم الإحصائيات فقط لغرض معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم، لا نجمع أي بيانات شخصية، يرجى إعادة النظر بشأن إعادة تفعيل الإحصائيات.</string>
-    <string name="txt_skip_recording_confirmation">تخطّي تأكيد التسجيل</string>
-    <string name="toast_skip_recording_confirmation_on">تم الآن تشغيل تخطي تأكيد التسجيل.\nستتمكن الآن من إرسال التسجيلات دون الحاجة إلى الاستماع إليها أولا.</string>
-    <string name="toast_skip_recording_confirmation_off">تم إيقاف تشغيل تخطي تأكيد التسجيل.</string>
-    <string name="txt_translate_the_app_on_crowdin">ترجمة التطبيق في منصة Crowdin</string>
-    <string name="txt_see_statistics_of_the_app">نظرة حول إحصائيات التطبيق</string>
-    <string name="txt_recording_indicator_sound">تسجيل مؤشر الصوت</string>
-    <string name="toast_recording_indicator_sound_on">تم الآن تشغيل تسجيل مؤشر الصوت.\nA سيتم تشغيل الصوت عند بدء التسجيل و إيقافه.</string>
-    <string name="toast_recording_indicator_sound_off">تم الآن إيقاف تشغيل تسجيل مؤشر الصوت.</string>
-    <string name="txt_check_for_updates">التحقق من التحديثات</string>
-    <string name="toast_check_for_updated_on">التحقق من التحديثات مفعّل.</string>
-    <string name="toast_check_for_updated_off">التحقق من التحديثات غير مفعّل.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings">إلغاء تأكيد الحوارات في الإعدادات</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on">تم الآن تشغيل إلغاء تأكيد الحوارات.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off">تم الآن إيقاف تشغيل تأكيد الحوارات.</string>
-    <string name="txt_gestures">الإيماءات</string>
-    <string name="toast_gestures_on">تم الآن تشغيل الإيماءات.</string>
-    <string name="toast_gestures_off">تم الآن إيقاف تشغيل الإيماءات.</string>
-    <string name="message_review_app_on_play_store">رجاءاُ، إذا أعجبك التطبيق، تذكر أن تعمل له مراجعة في متجر Google Play.</string>
-    <string name="message_app_not_completely_translated">التطبيق غير مترجم إلى هذه اللغة (أو ترجمة غير مكتملة).\n يمكنك المساهمة في ترجمة التطبيق على منصة Crowdin.</string>
-    <string name="txt_animations">الحركات</string>
-    <string name="txt_customise_the_font_size">تخصيص حجم الخط</string>
-    <string name="txt_customise_gestures">تخصيص الإيماءات</string>
-    <string name="txt_themes_settings">السمات</string>
-    <string name="txt_telegram_group_settings">مجموعة تيليجرام الخاصة بالتطبيق</string>
-    <string name="txt_show_labels_below_menu_icons">إظهار التسميات أسفل أيقونات القائمة</string>
-    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play">Review on Google Play</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">فتح التعليمات مجدداُ</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">المشروع مفتوح المصدر في GitHub</string>
+    <string name="txt_contributors" comment="Label in Settings">المساهمون الرئيسيون</string>
+    <string name="txt_developed_by" comment="Label in Settings">تم تطويره من طرف</string>
+    <string name="toast_language_changed" comment="Message text">تم تغيير اللغة بشكل صحيح إلى {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">اللغة</string>
+    <string name="settingsListen" comment="Title in Settings">الاستماع</string>
+    <string name="settingsSpeak" comment="Title in Settings">التحدّث</string>
+    <string name="settingsOther" comment="Title in Settings">أخرى</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">ادعم عملي، Buy me a coffee 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">التشغيل تلقائيا فور تحميله</string>
+    <string name="toast_autoplay_clip_on" comment="Message text">تم الآن تفعيل تشغيل المقطع تلقائيا.</string>
+    <string name="toast_autoplay_clip_off" comment="Message text">تم الآن إلغاء تفعيل تشغيل المقطع تلقائيا.</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">المظهر الأسود</string>
+    <string name="toast_dark_theme_on" comment="Message text">المظهر الأسود مفعل الآن.</string>
+    <string name="toast_dark_theme_off" comment="Message text">تم الآن إلغاء تفعيل المظهر الأسود.</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">التواصل مع المطور على التيليجرام</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">الميزات التجريبية</string>
+    <string name="toast_experimental_features_on" comment="Message text">تم تشغيل الميزات التجريبية.\nقد تكون الميزات الجديدة غير مستقرة وغير آمنة.</string>
+    <string name="toast_experimental_featured_off" comment="Message text">تم إيقاف تشغيل الميزات التجريبية.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">حفظ السجلات في ملف</string>
+    <string name="toast_log_on_file_on" comment="Message text">تم تشغيل حفظ السجلات في ملف.\n يمكنك إرفاق ملف log.txt عند الإبلاغ عن مشكلة.\n اقرأ و تعرف على المزيد في Github.</string>
+    <string name="toast_log_on_file_off" comment="Message text">تم إيقاف تشغيل حفظ السجلات في ملف.</string>
+    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">إحصائيات مجهولة</string>
+    <string name="toast_anonymous_statistics_on" comment="Message text">تم تفعيل الإحصائيات المجهولة.\n لا نجمع بياناتك الشخصية بل نستخدم الإحصائيات فقط من أجل معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">تم إلغاء تفعيل الإحصائيات المجهولة، يرجى الملاحظة أننا نستخدم الإحصائيات فقط لغرض معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم، لا نجمع أي بيانات شخصية، يرجى إعادة النظر بشأن إعادة تفعيل الإحصائيات.</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">تخطّي تأكيد التسجيل</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">تم الآن تشغيل تخطي تأكيد التسجيل.\nستتمكن الآن من إرسال التسجيلات دون الحاجة إلى الاستماع إليها أولا.</string>
+    <string name="toast_skip_recording_confirmation_off" comment="Message text">تم إيقاف تشغيل تخطي تأكيد التسجيل.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">ترجمة التطبيق في منصة Crowdin</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">نظرة حول إحصائيات التطبيق</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">تسجيل مؤشر الصوت</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">تم الآن تشغيل تسجيل مؤشر الصوت.\nA سيتم تشغيل الصوت عند بدء التسجيل و إيقافه.</string>
+    <string name="toast_recording_indicator_sound_off" comment="Message text">تم الآن إيقاف تشغيل تسجيل مؤشر الصوت.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">التحقق من التحديثات</string>
+    <string name="toast_check_for_updated_on" comment="Message text">التحقق من التحديثات مفعّل.</string>
+    <string name="toast_check_for_updated_off" comment="Message text">التحقق من التحديثات غير مفعّل.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">إلغاء تأكيد الحوارات في الإعدادات</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">تم الآن تشغيل إلغاء تأكيد الحوارات.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">تم الآن إيقاف تشغيل تأكيد الحوارات.</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">الإيماءات</string>
+    <string name="toast_gestures_on" comment="Message text">تم الآن تشغيل الإيماءات.</string>
+    <string name="toast_gestures_off" comment="Message text">تم الآن إيقاف تشغيل الإيماءات.</string>
+    <string name="message_review_app_on_play_store" comment="Message text">رجاءاُ، إذا أعجبك التطبيق، تذكر أن تعمل له مراجعة في متجر Google Play.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">التطبيق غير مترجم إلى هذه اللغة (أو ترجمة غير مكتملة).\n يمكنك المساهمة في ترجمة التطبيق على منصة Crowdin.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">الحركات</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">تخصيص حجم الخط</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">تخصيص الإيماءات</string>
+    <string name="txt_themes_settings" comment="Button in Settings">السمات</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">مجموعة تيليجرام الخاصة بالتطبيق</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">إظهار التسميات أسفل أيقونات القائمة</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">جاري تحميل الجملة...</string>
-    <string name="btn_skip_sentence">تخطي</string>
-    <string name="btn_send_sentence">إرسال التسجيل</string>
-    <string name="txt_loading_clip">جاري تحميل المقطع...</string>
-    <string name="txt_press_icon_below_speak_1">اضغط على الرمز أسفله لبدء التسجيل.</string>
-    <string name="txt_press_icon_below_speak_2">اضغط على الرمز أسفله لإيقاف التشغيل.</string>
-    <string name="txt_sentence_recorded">تم تسجيل الجملة، اسمتع للتسجيل.</string>
-    <string name="txt_sentence_record_failed">فشل التسجيل، الرجاء المحاولة مجدداً.</string>
-    <string name="txt_recorded_correct_or_wrong">إذا نطقت بشكل صحيح، أرسل التسجيل.\n إذا اخطأت، يمكنك تسجيل الجملة مرة أخرى.</string>
-    <string name="txt_listening_stopped">استمع للتسجيل بشكل كامل للتأكذ من صحّته.</string>
-    <string name="txt_listening_again_recording">اضغط على الرمز أسفله لإيقاف الاستماع.</string>
-    <string name="txt_recording_too_long">مدة التسجيل طويلة، المدة القصوى هي 10 ثواني.</string>
-    <string name="txt_recording_too_short">التسجيل قصيرا جدًا، المرجو المحاولة مرة أخرى.</string>
-    <string name="txt_sending_recording">جاري ارسال التسجيل...</string>
-    <string name="txt_recording_sent">تم إرسال التسجيل!</string>
-    <string name="txt_sending_recording_failed">فشل إرسال التسجيل!</string>
-    <string name="txt_sending_recording_failed_and_skip">فشل إرسال التسجيل! يمكنك المحاولة مجدداً أو الضغط على خيار {{*{{skip_button}}*}}.</string>
-    <string name="txt_press_icon_below_listen_1">اضغط على الرمز أسفله لتشغيل المقطع.</string>
-    <string name="txt_press_icon_below_listen_2">اضغط على الرمز أسفله لإيقاف المقطع.</string>
-    <string name="txt_clip_correct_or_wrong">إذا كان المقطع صحيحاً، اضغط على رمز الإعجاب.\n إذا كان المقطع خاطئاً اضغط على رمز عدم الإعجاب.</string>
-    <string name="txt_clip_again">اضغط على الرمز أسفله لتشغيل المقطع مجدداً.</string>
-    <string name="txt_clip_validated_yes">تم وضع علامة على أن المقطع صحيح!</string>
-    <string name="txt_clip_validated_no">تم وضع علامة على أن المقطع غير صحيح!</string>
-    <string name="txt_error_1_try_again_tap_skip">خطأ. اضغط على خيار {{*{{skip_button}}*}} للمتابعة.</string>
-    <string name="txt_error_2_sending_failed">فشل إرسال التسجيل.</string>
-    <string name="txt_sending_validation">جاري الإرسال...</string>
-    <string name="txt_error_3_sending_validation_failed">فشل إرسال النتيجة، يمكنك المحاولة مجدداً أو الضغط على خيار {{*{{skip_button}}*}}.</string>
-    <string name="txt_closing">جاري الإغلاق...</string>
-    <string name="txt_error_4_clips_no_available">خطأ. لا توجد مقاطع إضافية متاحة لهذه اللغة.</string>
-    <string name="button_report">إبلاغ</string>
-    <string name="title_report_clip">الإبلاغ عن المقطع:</string>
-    <string name="title_report_sentence">الإبلاغ عن الجملة:</string>
-    <string name="button_send_report">إرسال الإبلاغ</string>
-    <string name="checkbox_reason1_report_sentence">لغة بذيئة</string>
-    <string name="checkbox_reason1_report_clip">كلام بذيئ</string>
-    <string name="checkbox_reason2_report">خطأ نحويٌ / هجائي</string>
-    <string name="checkbox_reason3_report">لغة مختلفة</string>
-    <string name="checkbox_reason4_report">صعبة في النطق</string>
-    <string name="checkbox_reason5_report">أخرى</string>
-    <string name="checkbox_reason5_comment_report">تعليق</string>
-    <string name="txt_sentences_finished_offline_mode">لقد نفدت الجمل بدون اتصال. اتصل بالإنترنت لتنزيل المزيد من الجمل للتسجيل.</string>
-    <string name="txt_clips_finished_offline_mode">لقد نفد لديك أقراص غير متصلة. اتصل بالإنترنت لتنزيل المزيد من المقاطع للتحقق من صحتها.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">جاري تحميل الجملة...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">تخطي</string>
+    <string name="btn_send_sentence" comment="Button in Speak">إرسال التسجيل</string>
+    <string name="txt_loading_clip" comment="Label in Listen">جاري تحميل المقطع...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">اضغط على الرمز أسفله لبدء التسجيل.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">اضغط على الرمز أسفله لإيقاف التشغيل.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">تم تسجيل الجملة، اسمتع للتسجيل.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">فشل التسجيل، الرجاء المحاولة مجدداً.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">إذا نطقت بشكل صحيح، أرسل التسجيل.\n إذا اخطأت، يمكنك تسجيل الجملة مرة أخرى.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">استمع للتسجيل بشكل كامل للتأكذ من صحّته.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">اضغط على الرمز أسفله لإيقاف الاستماع.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">مدة التسجيل طويلة، المدة القصوى هي 10 ثواني.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">التسجيل قصيرا جدًا، المرجو المحاولة مرة أخرى.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">جاري ارسال التسجيل...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">تم إرسال التسجيل!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">فشل إرسال التسجيل!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">فشل إرسال التسجيل! يمكنك المحاولة مجدداً أو الضغط على خيار {{*{{skip_button}}*}}.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">اضغط على الرمز أسفله لتشغيل المقطع.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">اضغط على الرمز أسفله لإيقاف المقطع.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">إذا كان المقطع صحيحاً، اضغط على رمز الإعجاب.\n إذا كان المقطع خاطئاً اضغط على رمز عدم الإعجاب.</string>
+    <string name="txt_clip_again" comment="Label in Listen">اضغط على الرمز أسفله لتشغيل المقطع مجدداً.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">تم وضع علامة على أن المقطع صحيح!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">تم وضع علامة على أن المقطع غير صحيح!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">خطأ. اضغط على خيار {{*{{skip_button}}*}} للمتابعة.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">فشل إرسال التسجيل.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">جاري الإرسال...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">فشل إرسال النتيجة، يمكنك المحاولة مجدداً أو الضغط على خيار {{*{{skip_button}}*}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">جاري الإغلاق...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">خطأ. لا توجد مقاطع إضافية متاحة لهذه اللغة.</string>
+    <string name="button_report" comment="Button">إبلاغ</string>
+    <string name="title_report_clip" comment="Title in Report a clip">الإبلاغ عن المقطع:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">الإبلاغ عن الجملة:</string>
+    <string name="button_send_report" comment="Button">إرسال الإبلاغ</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">لغة بذيئة</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">كلام بذيئ</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">خطأ نحويٌ / هجائي</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">لغة مختلفة</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">صعبة في النطق</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">أخرى</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">تعليق</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">لقد نفدت الجمل بدون اتصال. اتصل بالإنترنت لتنزيل المزيد من الجمل للتسجيل.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">لقد نفد لديك أقراص غير متصلة. اتصل بالإنترنت لتنزيل المزيد من المقاطع للتحقق من صحتها.</string>
     <!-- Don't translate {{*{{n_sentences}}*}} -->
-    <string name="txt_residual_sentences_offline_mode">يمكنك تسجيل {{*{{n_sentences}}*}} المزيد من الجمل قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">يمكنك تسجيل {{*{{n_sentences}}*}} المزيد من الجمل قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
     <!-- Don't translate {{*{{n_clips}}*}} -->
-    <string name="txt_residual_clips_offline_mode">يمكنك التحقق من صحة {{*{{n_clips}}*}} المزيد من المقاطع قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">يمكنك التحقق من صحة {{*{{n_clips}}*}} المزيد من المقاطع قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">التحقق مجدداً</string>
-    <string name="txt_noconnection">أنت غير متصل بالأنترنيت، اتصل بشبكة الواي فاي أو بيانات الجوال، ثم اضغط على الرمز أسفله.</string>
+    <string name="btn_check_again_noconnection" comment="Button">التحقق مجدداً</string>
+    <string name="txt_noconnection" comment="Message text">أنت غير متصل بالأنترنيت، اتصل بشبكة الواي فاي أو بيانات الجوال، ثم اضغط على الرمز أسفله.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">هذه هي الجملة التي يجب عليك تسجيلها.</string>
-    <string name="txt2_tutorial_speak_and_listen">ستظهر هنا رسالة لتوجيهك.</string>
-    <string name="txt3_tutorial_speak">إذا لم تعجبك الجملة يمكنك الضغط هنا للتخطّي و الحصول على جملة أخرى.</string>
-    <string name="txt4_tutorial_speak">اضغط على هذا الرمز لبدء التسجيل.</string>
-    <string name="txt5_tutorial_speak">اضغط على هذا الرمز لإيقاف التسجيل.</string>
-    <string name="txt6_tutorial_speak">اضغط على هذا الرمز لإعادة تشغيل التسجيل الخاص بك.</string>
-    <string name="txt7_tutorial_speak">إذا ارتكبت خطأً، اضغط على هذا الرمز لتُعيد التسجيل.</string>
-    <string name="txt8_tutorial_speak">اضغط على هذا الرمز لإعادة تشغيل التسجيل الخاص بك مجدداً.</string>
-    <string name="txt9_tutorial_speak">اضغط على هذا الخيار لإرسال التسجيل الخاص بك.</string>
-    <string name="txt1_tutorial_listen">هذه هي الجملة/المقطع الذي يجب عليك التحقق منه.</string>
-    <string name="txt3_tutorial_listen">إذا لم يعجبك المقطع، يمكنك الضغط على هذا الخيار للتخطّي و الحصول على مقطع آخر.</string>
-    <string name="txt4_tutorial_listen">اضغط على هذا الرمز لتشغيل المقطع.</string>
-    <string name="txt5_tutorial_listen">اضغط على هذا الرمز لإيقاف تشغيل المقطع.</string>
-    <string name="txt6_tutorial_listen">اضغط على هذا الرمز إذا أردت الاستماع للمقطع مجدداً.</string>
-    <string name="txt7_tutorial_listen">إذا كان المقطع يطابقُ الحملة فاضغط على هذا الرمز لقبوله.</string>
-    <string name="txt8_tutorial_listen">إذا كان المقطع لا يتطابقُ مع الجملة فاضغط على هذا الرمز لرفضه.</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">هذه هي الجملة التي يجب عليك تسجيلها.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">ستظهر هنا رسالة لتوجيهك.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">إذا لم تعجبك الجملة يمكنك الضغط هنا للتخطّي و الحصول على جملة أخرى.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">اضغط على هذا الرمز لبدء التسجيل.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">اضغط على هذا الرمز لإيقاف التسجيل.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">اضغط على هذا الرمز لإعادة تشغيل التسجيل الخاص بك.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">إذا ارتكبت خطأً، اضغط على هذا الرمز لتُعيد التسجيل.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">اضغط على هذا الرمز لإعادة تشغيل التسجيل الخاص بك مجدداً.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">اضغط على هذا الخيار لإرسال التسجيل الخاص بك.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">هذه هي الجملة/المقطع الذي يجب عليك التحقق منه.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">إذا لم يعجبك المقطع، يمكنك الضغط على هذا الخيار للتخطّي و الحصول على مقطع آخر.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">اضغط على هذا الرمز لتشغيل المقطع.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">اضغط على هذا الرمز لإيقاف تشغيل المقطع.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">اضغط على هذا الرمز إذا أردت الاستماع للمقطع مجدداً.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">إذا كان المقطع يطابقُ الحملة فاضغط على هذا الرمز لقبوله.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">إذا كان المقطع لا يتطابقُ مع الجملة فاضغط على هذا الرمز لرفضه.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow">المعذرة، هذه الميزة غير موجودة حاليا.\n نعمل باستمرار لتحسين التطبيق، لذلك تحقق لاحقاً لترى إذا ما قد تمت إضافتها.</string>
+    <string name="txtNotAvailableNow" comment="Message text">المعذرة، هذه الميزة غير موجودة حاليا.\n نعمل باستمرار لتحسين التطبيق، لذلك تحقق لاحقاً لترى إذا ما قد تمت إضافتها.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges">إغلاق</string>
-    <string name="labelAllBadges">جميع الشارات</string>
-    <string name="new_badge_earnt_message">مرحى! لقد حصلت للتو على شارة جديدة.</string>
+    <string name="btnCloseBadges" comment="Button">إغلاق</string>
+    <string name="labelAllBadges" comment="Title for All badge section">جميع الشارات</string>
+    <string name="new_badge_earnt_message" comment="Message text">مرحى! لقد حصلت للتو على شارة جديدة.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
-    <string name="btnOk">حسناً</string>
-    <string name="messageDialogErrorTitle">خطأ</string>
-    <string name="messageDialogGenericError">لم يُفلح الأمر.\n الرجاء المحاولة مجدداً أو التواصل مع المطور.</string>
-    <string name="messageDialogErrorCode">لم يُفلح الأمر، الرجاء المحاولة مجدداً أو التواصل مع المطور.\n رمز الخطأ: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle">فشل تسجبل الدخول</string>
-    <string name="youHaveToAcceptPrivacyPolicy">يجب عليك أولاً تسجيل الدخول في موقع Common Voice و قبول سياسة الخصوصية الخاصة بCommon Voice.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">فتح Common Voice</string>
-    <string name="text_warning">تحذير</string>
-    <string name="text_tip">Tip</string>
-    <string name="text_changelog">تغيير</string>
-    <string name="text_help">مساعدة</string>
-    <string name="text_info">معلومات</string>
-    <string name="check_box_message_dialog">لا تعرضها بعد الآن</string>
-    <string name="text_report_website_bug">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode">وضعية بدون اتصال</string>
-    <string name="text_offline_mode_enabled">أنت الآن غير متصل بالإنترنت والتطبيق تم تشغيله إلى وضع عدم الاتصال تلقائياً.\nهذا يعني أنه يمكنك الاستمرار في التسجيل والتحقق من الصحة، ولكن سيتم إرسال الطلبات في وقت لاحق.</string>
-    <string name="text_offline_mode_enabled_2">يمكنك معرفة متى تكون في وضع غير متصل بالإنترنت من خلال البحث عن هذا الرمز على الشاشة:</string>
-    <string name="text_offline_mode_enabled_3">يمكنك النقر على هذا الرمز لرؤية المقاطع والجمل التي تم تحميلها.</string>
+    <string name="btnOk" comment="Button">حسناً</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">خطأ</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">لم يُفلح الأمر.\n الرجاء المحاولة مجدداً أو التواصل مع المطور.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">لم يُفلح الأمر، الرجاء المحاولة مجدداً أو التواصل مع المطور.\n رمز الخطأ: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">فشل تسجبل الدخول</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">يجب عليك أولاً تسجيل الدخول في موقع Common Voice و قبول سياسة الخصوصية الخاصة بCommon Voice.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">فتح Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">تحذير</string>
+    <string name="text_tip" comment="Title for Message text">Tip</string>
+    <string name="text_changelog" comment="Title for Message text">تغيير</string>
+    <string name="text_help" comment="Title for Message text">مساعدة</string>
+    <string name="text_info" comment="Title for Message text">معلومات</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">لا تعرضها بعد الآن</string>
+    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="text_offline_mode" comment="Title">وضعية بدون اتصال</string>
+    <string name="text_offline_mode_enabled" comment="Message text">أنت الآن غير متصل بالإنترنت والتطبيق تم تشغيله إلى وضع عدم الاتصال تلقائياً.\nهذا يعني أنه يمكنك الاستمرار في التسجيل والتحقق من الصحة، ولكن سيتم إرسال الطلبات في وقت لاحق.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">يمكنك معرفة متى تكون في وضع غير متصل بالإنترنت من خلال البحث عن هذا الرمز على الشاشة:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">يمكنك النقر على هذا الرمز لرؤية المقاطع والجمل التي تم تحميلها.</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title">الهدف اليومي</string>
-    <string name="daily_goal_is_not_set">لم يتم تحديد أي هدف</string>
-    <string name="set_daily_goal">حدد هدفاً</string>
-    <string name="edit_daily_goal">تعديل الهدف</string>
-    <string name="save_daily_goal">حفظ</string>
-    <string name="delete_daily_goal">حذف</string>
-    <string name="cancel_daily_goal">إلغاء</string>
-    <string name="description_setting_daily_goal">اختر عدد الجملِ التي تودّ تسجيلها و المقاطع الني نودّ التحقق منها (مجموعهم) في اليوم.</string>
-    <string name="daily_goal_achieved_today">تم تحقيقها اليوم</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">الهدف اليومي</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">لم يتم تحديد أي هدف</string>
+    <string name="set_daily_goal" comment="Button">حدد هدفاً</string>
+    <string name="edit_daily_goal" comment="Button">تعديل الهدف</string>
+    <string name="save_daily_goal" comment="Button">حفظ</string>
+    <string name="delete_daily_goal" comment="Button">حذف</string>
+    <string name="cancel_daily_goal" comment="Button">إلغاء</string>
+    <string name="description_setting_daily_goal" comment="Message text">اختر عدد الجملِ التي تودّ تسجيلها و المقاطع الني نودّ التحقق منها (مجموعهم) في اليوم.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">تم تحقيقها اليوم</string>
     <string name="daily_goal_not_achieved_today">لم يتم تحقيقها اليوم</string>
-    <string name="daily_goal_achieved_message">أحسنت! لقد حققت هدفك اليومي.\nقمت بالتحقق من صحة{{*{{n_clips}}*}}مقطع (مقاطع)وسجلت{{*{{n_sentences}}*}  }جملة (جمل).\n لا تتردد في مواصلة المساهمة في Common Voice.</string>
-    <string name="daily_goal_is_not_official_by_mozilla">هذا الهدف اليومي ليس ميزة موزيلا الرسمية بل هي فقط ميزة لهذا التطبيق.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">أحسنت! لقد حققت هدفك اليومي.\nقمت بالتحقق من صحة{{*{{n_clips}}*}}مقطع (مقاطع)وسجلت{{*{{n_sentences}}*}  }جملة (جمل).\n لا تتردد في مواصلة المساهمة في Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">هذا الهدف اليومي ليس ميزة موزيلا الرسمية بل هي فقط ميزة لهذا التطبيق.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">إصدار جديد من التطبيق متوفر حاليا (الإصدار {{*{{n_version}}*}}). يمكنك تحديثه من متجرك المفضل (F-Droid, Google Play Store) أو مباشرة من GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">إصدار جديد من التطبيق متوفر حاليا (الإصدار {{*{{n_version}}*}}). يمكنك تحديثه من متجرك المفضل (F-Droid, Google Play Store) أو مباشرة من GitHub.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

@@ -11,7 +11,7 @@ import java.util.*
 
 
 // Class to download an image from url and display it into an image view
-class DownLoadImage(private val imageView: ImageView, val imageViewBackground: ImageView?) :
+class DownLoadImage(private val imageView: ImageView) :
     AsyncTask<String, Void, Bitmap?>() {
 
     private var noImagePassed = false
@@ -24,6 +24,9 @@ class DownLoadImage(private val imageView: ImageView, val imageViewBackground: I
             return null
         } else if (!urlOfImage.contains("data:image/jpeg;base64,")) {
             return try {
+                if (urlOfImage.contains("gravatar.com/avatar")) {
+                    urlOfImage += "?s=1000"
+                }
                 val inputStream = URL(urlOfImage).openStream()
                 val bitMap = BitmapFactory.decodeStream(inputStream)
                 //println(bitMap)
@@ -57,18 +60,11 @@ class DownLoadImage(private val imageView: ImageView, val imageViewBackground: I
             // Successful
             imageView.setImageBitmap(result)
             imageView.isGone = false
-            if (imageViewBackground != null) {
-                imageViewBackground.isGone = false
-            }
 
             //println("Successful")
         } else if (this.noImagePassed) {
-            // Set a "random" robot profileImage
             imageView.setImageResource(R.drawable.ic_profileimagerobot)
             imageView.isGone = false
-            if (imageViewBackground != null) {
-                imageViewBackground.isGone = false
-            }
         } else {
             // Error
 

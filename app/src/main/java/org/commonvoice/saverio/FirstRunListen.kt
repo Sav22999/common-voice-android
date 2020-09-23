@@ -2,6 +2,7 @@ package org.commonvoice.saverio
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.first_run_listen.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.koin.android.ext.android.inject
@@ -32,7 +34,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
         this.seekBarFirstRunListen.progress = 0
 
         goNextOrBack()
-        var btnNext: Button = this.findViewById(R.id.btnNextListen)
+        val btnNext: Button = this.findViewById(R.id.btnNextListen)
         btnNext.setOnClickListener {
             goNextOrBack()
         }
@@ -52,12 +54,18 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
     }
 
     fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
+        val theme: DarkLightTheme = DarkLightTheme()
 
-        var isDark = theme.getTheme(view)
+        val isDark = theme.getTheme(view)
         theme.setElements(view, this.findViewById(R.id.firstRunListenSectionBottom))
         theme.setElement(isDark, view, 1, findViewById(R.id.firstRunListenSectionBottom))
         theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
+        theme.setElements(view, this.findViewById(R.id.layoutFirstRunListenNoSmartphone))
+        theme.setElement(
+            isDark,
+            this.findViewById(R.id.layoutFirstRunListenNoSmartphone) as ConstraintLayout
+        )
+        theme.setElement(isDark, view, this.findViewById(R.id.btnReadNowGuidelinesListen) as Button)
         theme.setElement(isDark, view, this.findViewById(R.id.btnNextListen) as Button)
         theme.setElement(
             isDark,
@@ -73,21 +81,22 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
     }
 
     fun goNextOrBack(next: Boolean = true) {
-        var btnNext: Button = this.findViewById(R.id.btnNextListen)
-        var txtNumberBottom: Button = this.findViewById(R.id.btnNumberBottomListen)
-        var txtTextBottom: TextView = this.findViewById(R.id.txtTutorialMessageBottomListen)
-        var txtNumberTop: Button = this.findViewById(R.id.btnNumberTopListen)
-        var txtTextTop: TextView = this.findViewById(R.id.txtTutorialMessageTopListen)
-        var txtOne: Button = this.findViewById(R.id.btnOneListen)
-        var txtTwo: Button = this.findViewById(R.id.btnTwoListen)
-        var txtThree: Button = this.findViewById(R.id.btnThreeListen)
-        var txtFour: Button = this.findViewById(R.id.btnFourListen)
-        var txtSeven: Button = this.findViewById(R.id.btnSevenListen)
-        var txtEight: Button = this.findViewById(R.id.btnEightListen)
-        var btnPlay: ImageView = this.findViewById(R.id.imgBtnPlayListen)
-        var btnYes: ImageView = this.findViewById(R.id.imgBtnYesListen)
-        var btnNo: ImageView = this.findViewById(R.id.imgBtnNoListen)
-        if (this.status >= 0 && this.status < 8) {
+        val btnNext: Button = this.findViewById(R.id.btnNextListen)
+        val txtNumberBottom: Button = this.findViewById(R.id.btnNumberBottomListen)
+        val txtTextBottom: TextView = this.findViewById(R.id.txtTutorialMessageBottomListen)
+        val txtNumberTop: Button = this.findViewById(R.id.btnNumberTopListen)
+        val txtTextTop: TextView = this.findViewById(R.id.txtTutorialMessageTopListen)
+        val txtOne: Button = this.findViewById(R.id.btnOneListen)
+        val txtTwo: Button = this.findViewById(R.id.btnTwoListen)
+        val txtThree: Button = this.findViewById(R.id.btnThreeListen)
+        val txtFour: Button = this.findViewById(R.id.btnFourListen)
+        val txtSeven: Button = this.findViewById(R.id.btnSevenListen)
+        val txtEight: Button = this.findViewById(R.id.btnEightListen)
+        val btnPlay: ImageView = this.findViewById(R.id.imgBtnPlayListen)
+        val btnYes: ImageView = this.findViewById(R.id.imgBtnYesListen)
+        val btnNo: ImageView = this.findViewById(R.id.imgBtnNoListen)
+        val btnReadGuidelines: Button = this.findViewById(R.id.btnReadNowGuidelinesListen)
+        if (this.status >= 0 && this.status < 9) {
             txtNumberBottom.isGone = true
             txtTextBottom.isGone = true
             txtNumberTop.isGone = true
@@ -192,7 +201,7 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             startAnimation(txtSeven, R.anim.zoom_in)
         } else if (this.status == 7 || this.status == 9 && !next) {
             this.status = 8
-            btnNext.setText(getString(R.string.btn_tutorial5))
+            btnNext.setText(getString(R.string.btn_tutorial3))
             txtNumberTop.setText("8")
             txtTextTop.setText(getString(R.string.txt8_tutorial_listen))
             txtNumberTop.isGone = false
@@ -201,9 +210,22 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             btnPlay.setImageResource(R.drawable.listen2_cv)
             btnYes.isGone = false
             btnNo.isGone = false
+            layoutFirstRunListenNoSmartphone.isGone = true
             stopAnimation(txtSeven)
+            stopAnimation(btnReadNowGuidelinesListen)
             startAnimation(txtEight, R.anim.zoom_in)
-        } else if (this.status == 8) {
+        } else if (this.status == 8 || this.status == 10 && !next) {
+            this.status = 9
+            btnNext.setText(getString(R.string.btn_tutorial5))
+            layoutFirstRunListenNoSmartphone.isGone = false
+            stopAnimation(txtEight)
+            startAnimation(btnReadGuidelines, R.anim.zoom_in_first_launch)
+            btnReadGuidelines.setOnClickListener {
+                val browserIntent =
+                    Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ"))
+                startActivity(browserIntent)
+            }
+        } else if (this.status == 9) {
             getSharedPreferences(FIRST_RUN_LISTEN, PRIVATE_MODE).edit()
                 .putBoolean(FIRST_RUN_LISTEN, false).apply()
             firstRunPrefManager.listen = false

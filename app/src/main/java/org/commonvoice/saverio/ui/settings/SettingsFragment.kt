@@ -104,9 +104,6 @@ class SettingsFragment : Fragment() {
             main.openTutorial()
         }
 
-        val txtContributors: TextView = root.findViewById(R.id.textContributors)
-        txtContributors.text = getString(R.string.txt_contributors)
-
         val txtDevelopedBy: TextView = root.findViewById(R.id.textDevelopedBy)
         txtDevelopedBy.text = getString(R.string.txt_developed_by)
 
@@ -312,7 +309,7 @@ class SettingsFragment : Fragment() {
         val buttonReadCommonVoiceToS: Button = root.findViewById(R.id.buttonReadCommonVoiceToS)
         buttonReadCommonVoiceToS.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2ZNuj1W"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R"))
             startActivity(browserIntent)
         }
 

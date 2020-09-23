@@ -4,22 +4,22 @@
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language">zh-CN</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">首页</string>
+    <string name="title_home">主页</string>
     <string name="title_dashboard">概览</string>
     <string name="title_settings">设置</string>
     <!-- Home (main) -->
     <string name="button_home_login">登录/注册</string>
     <string name="button_home_logout">退出登录</string>
     <string name="button_home_profile">个人信息</string>
-    <string name="text_hi_username">Hi</string>
+    <string name="text_hi_username">你好！</string>
     <string name="message_log_in_again">会话ID已过期，您需要重新登录</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">统计</string>
     <string name="dashboardVoicesOnline">在线声音</string>
-    <string name="dashboardTabYou">你</string>
-    <string name="dashboardTabEveryone">每个人</string>
-    <string name="dashboardToday">今日：</string>
-    <string name="dashboardEver">埃弗文</string>
+    <string name="dashboardTabYou">我的</string>
+    <string name="dashboardTabEveryone">所有人</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">今天</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">历史记录</string>
     <string name="toastNoLoginNoStatistics">您必须登录才能查看您的统计</string>
     <string name="toastNoLoginNoDailyGoal">您必须登录才能设置每日目标</string>
     <string name="textHoursAbbreviation">小时</string>
@@ -28,208 +28,215 @@
     <string name="txt_top_contributors_recorded">录音数</string>
     <string name="txt_top_contributors_validated">验证数</string>
     <!-- 4, ..., 100, etc. -->
-    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
-    <string name="txt_app_statistics">应用统计</string>
-    <string name="txt_current_language">当前语言</string>
-    <string name="txt_all_languages">所有语言</string>
-    <string name="txt_not_available_offline">在离线模式下不可用</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">应用统计</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">当前语言</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">所有语言</string>
+    <string name="txt_not_available_offline" comment="Message text">在离线模式下不可用</string>
     <!-- First launch -->
-    <string name="btn_tutorial1">开始</string>
-    <string name="btn_tutorial2">Permit</string>
-    <string name="btn_tutorial3">下一个</string>
-    <string name="btn_tutorial4">再试一次</string>
-    <string name="btn_tutorial5">完成</string>
-    <string name="btn_skip">跳过</string>
-    <string name="txt_permission_obtained_first_launch">已获得权限</string>
-    <string name="txt_permission_denied_first_launch">错误：权限被拒绝</string>
-    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">如果继续，代表你同意Mozilla Common Voice的服务条款.</string>
-    <string name="txt_microphone_permission_first_launch">此应用需要“麦克风”权限才能录制您的声音。</string>
-    <string name="txt_storage_permission_first_launch">您可以在 GitHub 或 Telegram 上报告漏洞。 为了帮助开发者迅速理解这个问题，您应该将应用的日志文件添加到您的报告中。 该应用需要保存日志文件的“存储”权限。</string>
-    <string name="txt_offline_mode_first_launch">您甚至可以在离线时捐款。 应用的“离线模式”将被自动启用，您可以在没有互联网连接的情况下继续录制和监听。</string>
-    <string name="txt_themes_first_launch">您可以选择亮色主题或暗色主题。您可以稍后在设置中更改此主题。</string>
-    <string name="txt_turn_on_dark_theme_first_launch">暗色主题</string>
-    <string name="txt_gestures_first_launch">一些动作有相应的手势。例如，你可以通过向左滑动跳过朗读句子。</string>
-    <string name="txt_customise_gestures_first_launch">您可以在设置中自定义这些手势。</string>
-    <string name="txt_telegram_group_first_launch">您可以加入 Telegram 群組获得消息和支持。</string>
-    <string name="btn_join_telegram_first_launch">加入群组</string>
-    <string name="txt_choose_language_first_launch">让我们开始吧！选择你想要发言或倾听的哪种语言。 如果有翻译，应用也将以该语言显示。</string>
+    <string name="btn_tutorial1" comment="Button">开始</string>
+    <string name="btn_tutorial2" comment="Button">授予权限</string>
+    <string name="btn_tutorial3" comment="Button">下一个</string>
+    <string name="btn_tutorial4" comment="Button">再试一次</string>
+    <string name="btn_tutorial5" comment="Button">完成</string>
+    <string name="btn_skip" comment="Button">跳过</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">已获得权限</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">错误：权限请求被拒绝</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android是由Saverio Morelli独立开发的Mozilla Common Voice的非官方应用程序，该应用和Mozilla没有伙伴关系。</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">如果继续，代表你同意Mozilla Common Voice的服务条款.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">此应用需要“麦克风”权限才能录制您的声音。</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">您可以在 GitHub 或 Telegram 上报告漏洞。 为了帮助开发者迅速理解这个问题，您应该将应用的日志文件添加到您的报告中。 该应用需要保存日志文件的“存储”权限。</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">您可以在离线时继续使用该应用。 应用的“离线模式”将被自动启用，这样您可以在没有互联网连接的情况下继续录制和听录音。</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">您可以选择亮色主题或暗色主题。您可以稍后在设置中更改此主题。</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">暗色主题</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">一些动作有相应的手势。例如，你可以通过向左滑动跳过朗读句子。</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">您可以在设置中自定义这些手势。</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">您可以加入 Telegram 群組获得消息和支持。</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">加入群组</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">让我们开始吧！选择你想要录制或验证的语言。 如果此应用有你选择的语言所对应的版本，则应用界面也将以该语言显示。</string>
     <!-- Login -->
-    <string name="txt_loading_page">正在载入...</string>
-    <string name="txt_profile_username">用户名</string>
-    <string name="txt_profile_email">电子邮件地址</string>
-    <string name="txt_profile_age">年龄</string>
-    <string name="txt_profile_gender">两性平等</string>
-    <string name="txt_profile_edit_data_alert">若要修改您的个人资料，请访问Common Voice网站。</string>
-    <string name="txt_login_successful_alert">登录成功！</string>
-    <string name="txt_gender_male">男性</string>
-    <string name="txt_gender_female">女</string>
-    <string name="txt_gender_other">其他</string>
-    <string name="btn_badges_loggedin">所有徽章</string>
-    <string name="txt_your_level">等级 {{*{{level}}*}}</string>
-    <string name="level_up_message">恭喜！您刚刚达到了等级 {{*{{n_level}}*}}。</string>
+    <string name="txt_loading_page" comment="Label">加载中...</string>
+    <string name="txt_profile_username" comment="Label in Profile">用户名</string>
+    <string name="txt_profile_email" comment="Label in Profile">电子邮件地址</string>
+    <string name="txt_profile_age" comment="Label in Profile">年龄</string>
+    <string name="txt_profile_gender" comment="Label in Profile">两性平等</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">若要修改您的个人资料，请访问Common Voice网站。</string>
+    <string name="txt_login_successful_alert" comment="Message text">登录成功！</string>
+    <string name="txt_gender_male" comment="Label in Profile">男性</string>
+    <string name="txt_gender_female" comment="Label in Profile">女</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">其他</string>
+    <string name="btn_badges_loggedin" comment="Button">所有徽章</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">等级 {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">恭喜！您刚刚达到了等级 {{*{{n_level}}*}}。</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">我已有验证链接</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">输入验证链接的网址</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">此链接无效</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings">再次打开教程</string>
-    <string name="txt_project_github_settings">GitHub 上的项目开源</string>
-    <string name="txt_contributors">主要贡献者</string>
-    <string name="txt_developed_by">开发者</string>
-    <string name="toast_language_changed">语言已正确修改为 {{*{{lang}}*}}</string>
-    <string name="settingsLanguage">语言</string>
-    <string name="settingsListen">监听</string>
-    <string name="settingsSpeak">朗读</string>
-    <string name="settingsOther">其他</string>
-    <string name="txt_donate_paypal_settings">支持我的工作。购买一杯咖啡 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings">加载时自动播放素材</string>
-    <string name="toast_autoplay_clip_on">自动播放片段已开启。</string>
-    <string name="toast_autoplay_clip_off">自动播放片段已关闭。</string>
-    <string name="txt_dark_theme_settings">暗色主题</string>
-    <string name="toast_dark_theme_on">黑暗主题已开启。</string>
-    <string name="toast_dark_theme_off">暗色主题已关闭。</string>
-    <string name="contact_developer_on_telegram">在 Telegram 上联系开发者</string>
-    <string name="txt_experimental_features">实验性功能</string>
-    <string name="toast_experimental_features_on">实验功能已开启。\n新功能可能不稳定和不安全。</string>
-    <string name="toast_experimental_featured_off">实验功能已关闭。</string>
-    <string name="txt_log_on_file">保存日志到文件</string>
-    <string name="toast_log_on_file_on">将日志保存到文件已开启。\n您可以在报告问题时附上log.txt文件。\n在 GitHub 上阅读更多信息。</string>
-    <string name="toast_log_on_file_off">保存日志到文件已关闭。</string>
-    <string name="txt_anonymous_statistics">匿名统计</string>
-    <string name="toast_anonymous_statistics_on">匿名统计已开启。\n我们不收集您的个人数据。我们只使用统计来查看每天有多少人使用应用程序。</string>
-    <string name="toast_anonymous_statistics_off">匿名统计已关闭。请注意我们仅使用统计来查看每天有多少人使用该应用程序。 我们不收集任何个人数据。请考虑重新开启统计。</string>
-    <string name="txt_skip_recording_confirmation">跳过录制确认</string>
-    <string name="toast_skip_recording_confirmation_on">跳过录音确认已开启。\n您现在可以发送录音，而无需先收听。</string>
-    <string name="toast_skip_recording_confirmation_off">跳过录制确认关闭</string>
-    <string name="txt_translate_the_app_on_crowdin">在 Crowdin 上翻译应用程序</string>
-    <string name="txt_see_statistics_of_the_app">查看应用统计</string>
-    <string name="txt_recording_indicator_sound">录制指示器提示音</string>
-    <string name="toast_recording_indicator_sound_on">录制指示器声音现在已开启。\n当您开始并停止录制时，将播放声音。</string>
-    <string name="toast_recording_indicator_sound_off">录制指示器声音已关闭。</string>
-    <string name="txt_check_for_updates">检查更新</string>
-    <string name="toast_check_for_updated_on">检查更新已开启。</string>
-    <string name="toast_check_for_updated_off">检查更新已关闭。</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings">在设置中中止确认对话框</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on">中止确认对话框已开启。</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off">中止确认对话框已关闭。</string>
-    <string name="txt_gestures">手势</string>
-    <string name="toast_gestures_on">手势已开启。</string>
-    <string name="toast_gestures_off">手势已关闭。</string>
-    <string name="message_review_app_on_play_store">如果您喜欢这个应用，请记得在 Google Play 商店查看。</string>
-    <string name="message_app_not_completely_translated">应用程序没有翻译成这种语言。\n您可以在 Crowdin 上贡献翻译应用程序。</string>
-    <string name="txt_animations">动画</string>
-    <string name="txt_customise_the_font_size">自定义字体大小</string>
-    <string name="txt_customise_gestures">自定义手势</string>
-    <string name="txt_themes_settings">主题</string>
-    <string name="txt_telegram_group_settings">Telegram 群組應用程式</string>
-    <string name="txt_show_labels_below_menu_icons">在菜单图标下方显示标签</string>
-    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play">Review on Google Play</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">再次打开教程</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">GitHub 上的项目开源</string>
+    <string name="txt_contributors" comment="Label in Settings">主要贡献者</string>
+    <string name="txt_developed_by" comment="Label in Settings">开发者</string>
+    <string name="toast_language_changed" comment="Message text">语言已正确修改为 {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">语言</string>
+    <string name="settingsListen" comment="Title in Settings">监听</string>
+    <string name="settingsSpeak" comment="Title in Settings">朗读</string>
+    <string name="settingsOther" comment="Title in Settings">其他</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">支持我的工作。购买一杯咖啡 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">加载时自动播放素材</string>
+    <string name="toast_autoplay_clip_on" comment="Message text">自动播放片段已开启。</string>
+    <string name="toast_autoplay_clip_off" comment="Message text">自动播放片段已关闭。</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">暗色主题</string>
+    <string name="toast_dark_theme_on" comment="Message text">黑暗主题已开启。</string>
+    <string name="toast_dark_theme_off" comment="Message text">暗色主题已关闭。</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">在 Telegram 上联系开发者</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">实验性功能</string>
+    <string name="toast_experimental_features_on" comment="Message text">实验功能已开启。\n新功能可能不稳定和不安全。</string>
+    <string name="toast_experimental_featured_off" comment="Message text">实验功能已关闭。</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">保存日志到文件</string>
+    <string name="toast_log_on_file_on" comment="Message text">将日志保存到文件已开启。\n您可以在报告问题时附上log.txt文件。\n在 GitHub 上阅读更多信息。</string>
+    <string name="toast_log_on_file_off" comment="Message text">保存日志到文件已关闭。</string>
+    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">匿名统计</string>
+    <string name="toast_anonymous_statistics_on" comment="Message text">匿名统计已开启。\n我们不收集您的个人数据。我们只使用统计来查看每天有多少人使用应用程序。</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">匿名统计已关闭。请注意我们仅使用统计来查看每天有多少人使用该应用程序。 我们不收集任何个人数据。请考虑重新开启统计。</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">跳过录制确认</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">跳过录音确认已开启。\n您现在可以发送录音，而无需先收听。</string>
+    <string name="toast_skip_recording_confirmation_off" comment="Message text">跳过录制确认关闭</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">在 Crowdin 上翻译应用程序</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">查看应用统计</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">录制指示器提示音</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">录制指示器声音现在已开启。\n当您开始并停止录制时，将播放声音。</string>
+    <string name="toast_recording_indicator_sound_off" comment="Message text">录制指示器声音已关闭。</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">检查更新</string>
+    <string name="toast_check_for_updated_on" comment="Message text">检查更新已开启。</string>
+    <string name="toast_check_for_updated_off" comment="Message text">检查更新已关闭。</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">在设置中中止确认对话框</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">中止确认对话框已开启。</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">中止确认对话框已关闭。</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">手势</string>
+    <string name="toast_gestures_on" comment="Message text">手势已开启。</string>
+    <string name="toast_gestures_off" comment="Message text">手势已关闭。</string>
+    <string name="message_review_app_on_play_store" comment="Message text">如果您喜欢这个应用，请记得在 Google Play 商店查看。</string>
+    <string name="message_app_not_completely_translated" comment="Message text">应用程序没有翻译成这种语言。\n您可以在 Crowdin 上贡献翻译应用程序。</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">动画</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">自定义字体大小</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">自定义手势</string>
+    <string name="txt_themes_settings" comment="Button in Settings">主题</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram 群組應用程式</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">在菜单图标下方显示标签</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">查看 Mozilla Common Voice 服务条款</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">查看验证语音片段的指引</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">在 Google Play 上评价</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">加载句子...</string>
-    <string name="btn_skip_sentence">跳过</string>
-    <string name="btn_send_sentence">发送录音</string>
-    <string name="txt_loading_clip">正在加载片段...</string>
-    <string name="txt_press_icon_below_speak_1">按下面的图标开始录制。</string>
-    <string name="txt_press_icon_below_speak_2">按下面的图标停止录制。</string>
-    <string name="txt_sentence_recorded">已记录句子。聆听录音。</string>
-    <string name="txt_sentence_record_failed">录制失败。请重试。</string>
-    <string name="txt_recorded_correct_or_wrong">如果你说话正确，发送录制。\n如果你说错了，你可以再次录制句子。</string>
-    <string name="txt_listening_stopped">聆听整个录音以确保正确无误。</string>
-    <string name="txt_listening_again_recording">按下面的图标来停止监听。</string>
-    <string name="txt_recording_too_long">录制过长。最大持续时间为10秒。</string>
-    <string name="txt_recording_too_short">录制太短。请再试一次。</string>
-    <string name="txt_sending_recording">正在发送录制...</string>
-    <string name="txt_recording_sent">录制已发送！</string>
-    <string name="txt_sending_recording_failed">发送录制失败！</string>
-    <string name="txt_sending_recording_failed_and_skip">发送录制失败！您可以重试，也可以按 {{*{{skip_button}}*}} 键。</string>
-    <string name="txt_press_icon_below_listen_1">按下面的图标开始片段。</string>
-    <string name="txt_press_icon_below_listen_2">按下面的图标停止片段。</string>
-    <string name="txt_clip_correct_or_wrong">如果素材正确，请按下缩略图。\n如果素材错误，请按下缩略图。</string>
-    <string name="txt_clip_again">按下面的图标来再次播放素材。</string>
-    <string name="txt_clip_validated_yes">片段标记为正确！</string>
-    <string name="txt_clip_validated_no">片段标记为不正确！</string>
-    <string name="txt_error_1_try_again_tap_skip">错误。按 {*{{skip_button}}*}} 按钮继续。</string>
-    <string name="txt_error_2_sending_failed">发送录制失败。</string>
-    <string name="txt_sending_validation">正在发送...</string>
-    <string name="txt_error_3_sending_validation_failed">发送结果失败。您可以重试，或者按 {{*{{skip_button}}*}} 按钮。</string>
-    <string name="txt_closing">正在关闭...</string>
-    <string name="txt_error_4_clips_no_available">错误。这种语言没有更多可用的素材。</string>
-    <string name="button_report">报告</string>
-    <string name="title_report_clip">报告片段:</string>
-    <string name="title_report_sentence">报告句子：</string>
-    <string name="button_send_report">发送报告</string>
-    <string name="checkbox_reason1_report_sentence">进攻性语言</string>
-    <string name="checkbox_reason1_report_clip">攻击性的语句</string>
-    <string name="checkbox_reason2_report">语法/拼写错误</string>
-    <string name="checkbox_reason3_report">不同的语言</string>
-    <string name="checkbox_reason4_report">发音难度</string>
-    <string name="checkbox_reason5_report">其他</string>
-    <string name="checkbox_reason5_comment_report">评论</string>
-    <string name="txt_sentences_finished_offline_mode">您已经用完了离线句子。连接到互联网下载更多句子以便录制。</string>
-    <string name="txt_clips_finished_offline_mode">您的离线片段已用完。连接到互联网下载更多片段以进行验证。</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">加载句子...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>
+    <string name="btn_send_sentence" comment="Button in Speak">发送录音</string>
+    <string name="txt_loading_clip" comment="Label in Listen">正在加载片段...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">按下面的图标开始录制。</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">按下面的图标停止录制。</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">已记录句子。聆听录音。</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">录制失败。请重试。</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">如果你说话正确，发送录制。\n如果你说错了，你可以再次录制句子。</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">聆听整个录音以确保正确无误。</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">按下面的图标来停止监听。</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">录制过长。最大持续时间为10秒。</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">录制太短。请再试一次。</string>
+    <string name="txt_sending_recording" comment="Label in Speak">正在发送录制...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">录制已发送！</string>
+    <string name="txt_sending_recording_failed" comment="Message text">发送录制失败！</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">发送录制失败！您可以重试，也可以按 {{*{{skip_button}}*}} 键。</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">按下面的图标开始片段。</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">按下面的图标停止片段。</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">如果素材正确，请按下缩略图。\n如果素材错误，请按下缩略图。</string>
+    <string name="txt_clip_again" comment="Label in Listen">按下面的图标来再次播放素材。</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">片段标记为正确！</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">片段标记为不正确！</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">错误。按 {*{{skip_button}}*}} 按钮继续。</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">发送录制失败。</string>
+    <string name="txt_sending_validation" comment="Label in Listen">正在发送...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">发送结果失败。您可以重试，或者按 {{*{{skip_button}}*}} 按钮。</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">正在关闭...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">错误。这种语言没有更多可用的素材。</string>
+    <string name="button_report" comment="Button">报告</string>
+    <string name="title_report_clip" comment="Title in Report a clip">报告片段:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">报告句子：</string>
+    <string name="button_send_report" comment="Button">发送报告</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">进攻性语言</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">攻击性的语句</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">语法/拼写错误</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">不同的语言</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">发音难度</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">其他</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">评论</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">您已经用完了离线句子。连接到互联网下载更多句子以便录制。</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">您的离线片段已用完。连接到互联网下载更多片段以进行验证。</string>
     <!-- Don't translate {{*{{n_sentences}}*}} -->
-    <string name="txt_residual_sentences_offline_mode">您可以先录制{{*{{n_sentences}}*}} 句子才需要连接到互联网。</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">您可以先录制{{*{{n_sentences}}*}} 句子才需要连接到互联网。</string>
     <!-- Don't translate {{*{{n_clips}}*}} -->
-    <string name="txt_residual_clips_offline_mode">在您需要连接到互联网之前，您可以验证更多片段{{*{{n_clips}}*}} 。</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">在您需要连接到互联网之前，您可以验证更多片段{{*{{n_clips}}*}} 。</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">再次检查</string>
-    <string name="txt_noconnection">您没有连接到互联网。连接到 Wi-Fi 或移动数据，然后按下面的按钮。</string>
+    <string name="btn_check_again_noconnection" comment="Button">再次检查</string>
+    <string name="txt_noconnection" comment="Message text">您没有连接到互联网。连接到 Wi-Fi 或移动数据，然后按下面的按钮。</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">这是您必须记录的句子。</string>
-    <string name="txt2_tutorial_speak_and_listen">您将在这里显示一个要指导您的消息。</string>
-    <string name="txt3_tutorial_speak">如果你不喜欢这句话，你可以点击这里跳过另一句话。</string>
-    <string name="txt4_tutorial_speak">点击此图标开始录制。</string>
-    <string name="txt5_tutorial_speak">点击此图标停止录制。</string>
-    <string name="txt6_tutorial_speak">点击此图标来播放您的录音。</string>
-    <string name="txt7_tutorial_speak">如果您犯了错误，点击此图标以重新记录。</string>
-    <string name="txt8_tutorial_speak">点击此图标重新播放您的录音。</string>
-    <string name="txt9_tutorial_speak">点击此按钮来发送您的录音。</string>
-    <string name="txt1_tutorial_listen">这是您必须验证的句子/素材。</string>
-    <string name="txt3_tutorial_listen">如果你不喜欢剪辑，你可以点击此按钮跳过另一个按钮。</string>
-    <string name="txt4_tutorial_listen">点击此图标来播放片段。</string>
-    <string name="txt5_tutorial_listen">点击此图标停止播放片段。</string>
-    <string name="txt6_tutorial_listen">如果你想要再次聆听剪辑，请点击此图标。</string>
-    <string name="txt7_tutorial_listen">如果素材与句子相匹配，请点击此图标来接受。</string>
-    <string name="txt8_tutorial_listen">如果素材与句子不匹配，请点击此图标拒绝它。</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">这是您必须记录的句子。</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">您将在这里显示一个要指导您的消息。</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">如果你不喜欢这句话，你可以点击这里跳过另一句话。</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">点击此图标开始录制。</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">点击此图标停止录制。</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">点击此图标来播放您的录音。</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">如果您犯了错误，点击此图标以重新记录。</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">点击此图标重新播放您的录音。</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">点击此按钮来发送您的录音。</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">这是您必须验证的句子/素材。</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">如果你不喜欢剪辑，你可以点击此按钮跳过另一个按钮。</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">点击此图标来播放片段。</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">点击此图标停止播放片段。</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">如果你想要再次聆听剪辑，请点击此图标。</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">如果素材与句子相匹配，请点击此图标来接受。</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">如果素材与句子不匹配，请点击此图标拒绝它。</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow">抱歉，此功能尚不存在。\n我们正在不断努力改进应用，所以稍后再回来看看是否添加了。</string>
+    <string name="txtNotAvailableNow" comment="Message text">抱歉，此功能尚不存在。\n我们正在不断努力改进应用，所以稍后再回来看看是否添加了。</string>
     <!-- Badges -->
-    <string name="btnCloseBadges">关闭</string>
-    <string name="labelAllBadges">所有徽章</string>
-    <string name="new_badge_earnt_message">喜欢！你刚刚赢得了一个新徽章。</string>
+    <string name="btnCloseBadges" comment="Button">关闭</string>
+    <string name="labelAllBadges" comment="Title for All badge section">所有徽章</string>
+    <string name="new_badge_earnt_message" comment="Message text">喜欢！你刚刚赢得了一个新徽章。</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
-    <string name="btnOk">好的</string>
-    <string name="messageDialogErrorTitle">错误</string>
-    <string name="messageDialogGenericError">无效。\n请再试一次，或联系开发者。</string>
-    <string name="messageDialogErrorCode">无法工作。请再试一次，或联系开发者。\n错误代码：EX-{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle">登录失败</string>
-    <string name="youHaveToAcceptPrivacyPolicy">您必须先登录Common Voice网站并接受Common Voice隐私政策。</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">打开Common Voice</string>
-    <string name="text_warning">警告</string>
-    <string name="text_tip">Tip</string>
-    <string name="text_changelog">更新日志</string>
-    <string name="text_help">帮助</string>
-    <string name="text_info">信息</string>
-    <string name="check_box_message_dialog">不再显示</string>
-    <string name="text_report_website_bug">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode">离线模式</string>
-    <string name="text_offline_mode_enabled">您现在处于离线状态，应用程序已自动切换到离线模式。\n这意味着您可以继续记录和验证，但请求将在以后发送。</string>
-    <string name="text_offline_mode_enabled_2">您可以通过在屏幕上查找此图标来告诉何时处于离线模式：</string>
-    <string name="text_offline_mode_enabled_3">您可以点击该图标来查看已下载的剪辑和句子。</string>
+    <string name="btnOk" comment="Button">好的</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">错误</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">无效。\n请再试一次，或联系开发者。</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">无法工作。请再试一次，或联系开发者。\n错误代码：EX-{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">登录失败</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">您必须先登录Common Voice网站并接受Common Voice隐私政策。</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">打开Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">警告</string>
+    <string name="text_tip" comment="Title for Message text">Tip</string>
+    <string name="text_changelog" comment="Title for Message text">更新日志</string>
+    <string name="text_help" comment="Title for Message text">帮助</string>
+    <string name="text_info" comment="Title for Message text">信息</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">不再显示</string>
+    <string name="text_report_website_bug" comment="Message text">如果您在 Common Voice 官方网站遇到了问题, 请在 Mozilla Discourse 论坛或 GitHub 上报告它们，以便Mozilla 能够修复它们。</string>
+    <string name="text_offline_mode" comment="Title">离线模式</string>
+    <string name="text_offline_mode_enabled" comment="Message text">您现在处于离线状态，应用程序已自动切换到离线模式。\n这意味着您可以继续记录和验证，但请求将在以后发送。</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">您可以通过在屏幕上查找此图标来告诉何时处于离线模式：</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">您可以点击该图标来查看已下载的剪辑和句子。</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title">每日目标</string>
-    <string name="daily_goal_is_not_set">未设定目标</string>
-    <string name="set_daily_goal">设置目标</string>
-    <string name="edit_daily_goal">编辑目标</string>
-    <string name="save_daily_goal">保存</string>
-    <string name="delete_daily_goal">删除</string>
-    <string name="cancel_daily_goal">取消</string>
-    <string name="description_setting_daily_goal">选择您想要每天记录多少句子和片断(他们的总和)。</string>
-    <string name="daily_goal_achieved_today">今天实现</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">每日目标</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">未设定目标</string>
+    <string name="set_daily_goal" comment="Button">设置目标</string>
+    <string name="edit_daily_goal" comment="Button">编辑目标</string>
+    <string name="save_daily_goal" comment="Button">保存</string>
+    <string name="delete_daily_goal" comment="Button">删除</string>
+    <string name="cancel_daily_goal" comment="Button">取消</string>
+    <string name="description_setting_daily_goal" comment="Message text">选择您想要每天记录多少句子和片断(他们的总和)。</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">今天实现</string>
     <string name="daily_goal_not_achieved_today">今天没有实现</string>
-    <string name="daily_goal_achieved_message">做得好！您实现了您的日常目标。\n您验证了 {{*{{n_clips}}*}} 个剪辑，并录制了{{*{{n_sentences}}*}} 句子。\n继续为共同声音做出贡献的自由。</string>
-    <string name="daily_goal_is_not_official_by_mozilla">这个每日目标不是官方的 Mozilla 功能。它只是此应用程序的一个功能。</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">做得好！您实现了您的日常目标。\n您验证了 {{*{{n_clips}}*}} 个剪辑，并录制了{{*{{n_sentences}}*}} 句子。\n继续为共同声音做出贡献的自由。</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">这个每日目标不是官方的 Mozilla 功能。它只是此应用程序的一个功能。</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">有新版本的应用程序可用(版本 {*{{n_version}}*}})。 您可以从您最喜欢的商店(F-Droid, Google Play 商店)或直接从 GitHub 更新</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">有新版本的应用程序可用(版本 {*{{n_version}}*}})。 您可以从您最喜欢的商店(F-Droid, Google Play 商店)或直接从 GitHub 更新</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->

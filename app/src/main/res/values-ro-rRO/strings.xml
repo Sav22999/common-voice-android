@@ -18,8 +18,8 @@
     <string name="dashboardVoicesOnline">Voci online</string>
     <string name="dashboardTabYou">Tu</string>
     <string name="dashboardTabEveryone">Toată lumea</string>
-    <string name="dashboardToday">Astăzi</string>
-    <string name="dashboardEver">Niciodată</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Astăzi</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Niciodată</string>
     <string name="toastNoLoginNoStatistics">Trebuie să te autentifici pentru a-ți vedea statisticile</string>
     <string name="toastNoLoginNoDailyGoal">Trebuie să te autentifici pentru a seta obiectivul zilnic</string>
     <string name="textHoursAbbreviation">h</string>
@@ -28,208 +28,215 @@
     <string name="txt_top_contributors_recorded">Recorded</string>
     <string name="txt_top_contributors_validated">Validated</string>
     <!-- 4, ..., 100, etc. -->
-    <string name="txt_top_contributors_n_position">{{*{{n_position}}*}}</string>
-    <string name="txt_app_statistics">App statistics</string>
-    <string name="txt_current_language">Current language</string>
-    <string name="txt_all_languages">All languages</string>
-    <string name="txt_not_available_offline">Not available in offline mode</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
+    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
     <!-- First launch -->
-    <string name="btn_tutorial1">Pornire</string>
-    <string name="btn_tutorial2">Permit</string>
-    <string name="btn_tutorial3">Următoarea</string>
-    <string name="btn_tutorial4">Încercați din nou</string>
-    <string name="btn_tutorial5">Terminare</string>
-    <string name="btn_skip">Omitere</string>
-    <string name="txt_permission_obtained_first_launch">Permisiune obținută</string>
-    <string name="txt_permission_denied_first_launch">Eroare: permisiune refuzată</string>
-    <string name="txt_introduction_app_first_launch">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch">Această aplicație are nevoie de permisiunea \"Microfon\" pentru a vă înregistra vocea.</string>
-    <string name="txt_storage_permission_first_launch">Puteți raporta erori pe GitHub sau Telegram. Pentru a ajuta dezvoltatorul sa inteleaga problema rapid, trebuie sa atasezi fisierul jurnal al aplicatiei la raportul tau. Aplicația are nevoie de permisiunea \"Stocare\" pentru a salva fișierul jurnal.</string>
-    <string name="txt_offline_mode_first_launch">Poți contribui chiar și în timp ce ești offline. Modul \"Offline\" al aplicației va fi activat automat, și puteți continua să înregistrați și să ascultați fără o conexiune la internet.</string>
-    <string name="txt_themes_first_launch">Puteți alege fie tema luminoasă, fie tema întunecată. Puteți modifica acest lucru mai târziu în Setări.</string>
-    <string name="txt_turn_on_dark_theme_first_launch">Temă întunecată</string>
-    <string name="txt_gestures_first_launch">Unele acțiuni au gesturi corespunzătoare. De exemplu, puteți sări peste o propoziție în vorbire, glisând la stânga.</string>
-    <string name="txt_customise_gestures_first_launch">Puteți personaliza aceste gesturi în Setări.</string>
-    <string name="txt_telegram_group_first_launch">Puteți să vă alăturați grupului Telegram pentru a primi știri și sprijin.</string>
-    <string name="btn_join_telegram_first_launch">Alătură-te grupului</string>
-    <string name="txt_choose_language_first_launch">Hai să mergem! Alege limba în care vrei să vorbești sau să asculți. Aplicația va fi, de asemenea, afișată în acea limbă dacă este disponibilă o traducere.</string>
+    <string name="btn_tutorial1" comment="Button">Pornire</string>
+    <string name="btn_tutorial2" comment="Button">Permit</string>
+    <string name="btn_tutorial3" comment="Button">Următoarea</string>
+    <string name="btn_tutorial4" comment="Button">Încercați din nou</string>
+    <string name="btn_tutorial5" comment="Button">Terminare</string>
+    <string name="btn_skip" comment="Button">Omitere</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Permisiune obținută</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Eroare: permisiune refuzată</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Această aplicație are nevoie de permisiunea \"Microfon\" pentru a vă înregistra vocea.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Puteți raporta erori pe GitHub sau Telegram. Pentru a ajuta dezvoltatorul sa inteleaga problema rapid, trebuie sa atasezi fisierul jurnal al aplicatiei la raportul tau. Aplicația are nevoie de permisiunea \"Stocare\" pentru a salva fișierul jurnal.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Poți contribui chiar și în timp ce ești offline. Modul \"Offline\" al aplicației va fi activat automat, și puteți continua să înregistrați și să ascultați fără o conexiune la internet.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Puteți alege fie tema luminoasă, fie tema întunecată. Puteți modifica acest lucru mai târziu în Setări.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Temă întunecată</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Unele acțiuni au gesturi corespunzătoare. De exemplu, puteți sări peste o propoziție în vorbire, glisând la stânga.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Puteți personaliza aceste gesturi în Setări.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Puteți să vă alăturați grupului Telegram pentru a primi știri și sprijin.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Alătură-te grupului</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Hai să mergem! Alege limba în care vrei să vorbești sau să asculți. Aplicația va fi, de asemenea, afișată în acea limbă dacă este disponibilă o traducere.</string>
     <!-- Login -->
-    <string name="txt_loading_page">Se încarcă ...</string>
-    <string name="txt_profile_username">Nume</string>
-    <string name="txt_profile_email">E-mail</string>
-    <string name="txt_profile_age">Vârsta</string>
-    <string name="txt_profile_gender">Sex</string>
-    <string name="txt_profile_edit_data_alert">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert">Autentificare reușită!</string>
-    <string name="txt_gender_male">Bărbat</string>
-    <string name="txt_gender_female">Femeie</string>
-    <string name="txt_gender_other">Altele</string>
-    <string name="btn_badges_loggedin">Toate insignele</string>
-    <string name="txt_your_level">Nivel {{*{{level}}*}}</string>
-    <string name="level_up_message">Felicitări! Tocmai ați atins nivelul {{*{{n_level}}*}}.</string>
+    <string name="txt_loading_page" comment="Label">Se încarcă ...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Nume</string>
+    <string name="txt_profile_email" comment="Label in Profile">E-mail</string>
+    <string name="txt_profile_age" comment="Label in Profile">Vârsta</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Sex</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Autentificare reușită!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Bărbat</string>
+    <string name="txt_gender_female" comment="Label in Profile">Femeie</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Altele</string>
+    <string name="btn_badges_loggedin" comment="Button">Toate insignele</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivel {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Felicitări! Tocmai ați atins nivelul {{*{{n_level}}*}}.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings">Deschide din nou tutorialul</string>
-    <string name="txt_project_github_settings">Proiectul open-source pe GitHub</string>
-    <string name="txt_contributors">colaboratori principali</string>
-    <string name="txt_developed_by">dezvoltat de</string>
-    <string name="toast_language_changed">Limbă schimbată corect în {{*{{lang}}*}}</string>
-    <string name="settingsLanguage">Limba</string>
-    <string name="settingsListen">Ascultă</string>
-    <string name="settingsSpeak">Vorbește</string>
-    <string name="settingsOther">Altele</string>
-    <string name="txt_donate_paypal_settings">Susțin munca mea. Cumpără-mi o cafea 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings">Redare automată clip când este încărcat</string>
-    <string name="toast_autoplay_clip_on">Redare automată clipul este acum activat.</string>
-    <string name="toast_autoplay_clip_off">Redarea automată a clipului este acum dezactivată.</string>
-    <string name="txt_dark_theme_settings">Temă întunecată</string>
-    <string name="toast_dark_theme_on">Tema întunecată este acum activată.</string>
-    <string name="toast_dark_theme_off">Tema întunecată este acum dezactivată.</string>
-    <string name="contact_developer_on_telegram">Contactați dezvoltatorul pe Telegram</string>
-    <string name="txt_experimental_features">Caracteristici experimentale</string>
-    <string name="toast_experimental_features_on">Funcțiile experimentale au fost activate.\nNoile funcții ar putea fi instabile și nesigure.</string>
-    <string name="toast_experimental_featured_off">Caracteristici experimentale dezactivate.</string>
-    <string name="txt_log_on_file">Salvează jurnalele într-un fișier</string>
-    <string name="toast_log_on_file_on">Salvarea jurnalelor într-un fișier activat.\nPuteți atașa fișierul log.txt când raportați o problemă.\nCitiți mai multe pe GitHub.</string>
-    <string name="toast_log_on_file_off">Salvarea jurnalelor într-un fișier a fost dezactivată.</string>
-    <string name="txt_anonymous_statistics">Statistici anonime</string>
-    <string name="toast_anonymous_statistics_on">Statistici anonime pornite.\nNu colectăm datele dvs. personale. Folosim doar statistici pentru a vedea câți oameni folosesc aplicația în fiecare zi.</string>
-    <string name="toast_anonymous_statistics_off">Statisticile anonime au fost dezactivate. Rețineți că folosim statistici doar pentru a vedea câți oameni folosesc aplicația în fiecare zi. Nu colectăm date personale. Vă rugăm să luați în considerare reactivarea statisticilor.</string>
-    <string name="txt_skip_recording_confirmation">Sari peste confirmarea înregistrării</string>
-    <string name="toast_skip_recording_confirmation_on">Săriți peste confirmarea înregistrării activată.\nAcum veți putea trimite înregistrări fără a fi nevoie să le ascultați mai întâi.</string>
-    <string name="toast_skip_recording_confirmation_off">Săriți peste confirmarea înregistrării oprită.</string>
-    <string name="txt_translate_the_app_on_crowdin">Tradu aplicația pe Crowdin</string>
-    <string name="txt_see_statistics_of_the_app">Vezi statisticile aplicațiilor</string>
-    <string name="txt_recording_indicator_sound">Sunet indicator de înregistrare</string>
-    <string name="toast_recording_indicator_sound_on">Sunetul indicatorului de înregistrare este acum activat.\nUn sunet va reda atunci când începeți și opriți înregistrarea.</string>
-    <string name="toast_recording_indicator_sound_off">Sunetul indicatorului de înregistrare este acum oprit.</string>
-    <string name="txt_check_for_updates">Verifică pentru actualizări</string>
-    <string name="toast_check_for_updated_on">Verificarea actualizărilor a fost activată.</string>
-    <string name="toast_check_for_updated_off">Verificarea actualizărilor a fost dezactivată.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings">Abandonează dialogurile de confirmare în Setări</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on">Dezarhivarea dialogurilor de confirmare este acum activată.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off">Abandonarea dialogurilor de confirmare este acum oprită.</string>
-    <string name="txt_gestures">Gesturi</string>
-    <string name="toast_gestures_on">Gesturile sunt acum activate.</string>
-    <string name="toast_gestures_off">Gesturile sunt acum dezactivate.</string>
-    <string name="message_review_app_on_play_store">Vă rugăm, dacă vă place această aplicație, nu uitați să o revizuiți pe Google Play Store.</string>
-    <string name="message_app_not_completely_translated">Aplicația nu este (complet) tradusă în această limbă.\nPoți contribui la traducerea aplicației pe Crowdin.</string>
-    <string name="txt_animations">Animații</string>
-    <string name="txt_customise_the_font_size">Personalizați dimensiunea fontului</string>
-    <string name="txt_customise_gestures">Personalizați gesturi</string>
-    <string name="txt_themes_settings">Teme</string>
-    <string name="txt_telegram_group_settings">Grupul Telegram al aplicației</string>
-    <string name="txt_show_labels_below_menu_icons">Arată etichetele sub pictogramele meniului</string>
-    <string name="txt_read_tos_mozilla_common_voice">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play">Review on Google Play</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Deschide din nou tutorialul</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Proiectul open-source pe GitHub</string>
+    <string name="txt_contributors" comment="Label in Settings">colaboratori principali</string>
+    <string name="txt_developed_by" comment="Label in Settings">dezvoltat de</string>
+    <string name="toast_language_changed" comment="Message text">Limbă schimbată corect în {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Limba</string>
+    <string name="settingsListen" comment="Title in Settings">Ascultă</string>
+    <string name="settingsSpeak" comment="Title in Settings">Vorbește</string>
+    <string name="settingsOther" comment="Title in Settings">Altele</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Susțin munca mea. Cumpără-mi o cafea 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Redare automată clip când este încărcat</string>
+    <string name="toast_autoplay_clip_on" comment="Message text">Redare automată clipul este acum activat.</string>
+    <string name="toast_autoplay_clip_off" comment="Message text">Redarea automată a clipului este acum dezactivată.</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Temă întunecată</string>
+    <string name="toast_dark_theme_on" comment="Message text">Tema întunecată este acum activată.</string>
+    <string name="toast_dark_theme_off" comment="Message text">Tema întunecată este acum dezactivată.</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Contactați dezvoltatorul pe Telegram</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Caracteristici experimentale</string>
+    <string name="toast_experimental_features_on" comment="Message text">Funcțiile experimentale au fost activate.\nNoile funcții ar putea fi instabile și nesigure.</string>
+    <string name="toast_experimental_featured_off" comment="Message text">Caracteristici experimentale dezactivate.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Salvează jurnalele într-un fișier</string>
+    <string name="toast_log_on_file_on" comment="Message text">Salvarea jurnalelor într-un fișier activat.\nPuteți atașa fișierul log.txt când raportați o problemă.\nCitiți mai multe pe GitHub.</string>
+    <string name="toast_log_on_file_off" comment="Message text">Salvarea jurnalelor într-un fișier a fost dezactivată.</string>
+    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Statistici anonime</string>
+    <string name="toast_anonymous_statistics_on" comment="Message text">Statistici anonime pornite.\nNu colectăm datele dvs. personale. Folosim doar statistici pentru a vedea câți oameni folosesc aplicația în fiecare zi.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Statisticile anonime au fost dezactivate. Rețineți că folosim statistici doar pentru a vedea câți oameni folosesc aplicația în fiecare zi. Nu colectăm date personale. Vă rugăm să luați în considerare reactivarea statisticilor.</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Sari peste confirmarea înregistrării</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Săriți peste confirmarea înregistrării activată.\nAcum veți putea trimite înregistrări fără a fi nevoie să le ascultați mai întâi.</string>
+    <string name="toast_skip_recording_confirmation_off" comment="Message text">Săriți peste confirmarea înregistrării oprită.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Tradu aplicația pe Crowdin</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Vezi statisticile aplicațiilor</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Sunet indicator de înregistrare</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Sunetul indicatorului de înregistrare este acum activat.\nUn sunet va reda atunci când începeți și opriți înregistrarea.</string>
+    <string name="toast_recording_indicator_sound_off" comment="Message text">Sunetul indicatorului de înregistrare este acum oprit.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Verifică pentru actualizări</string>
+    <string name="toast_check_for_updated_on" comment="Message text">Verificarea actualizărilor a fost activată.</string>
+    <string name="toast_check_for_updated_off" comment="Message text">Verificarea actualizărilor a fost dezactivată.</string>
+    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Abandonează dialogurile de confirmare în Setări</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Dezarhivarea dialogurilor de confirmare este acum activată.</string>
+    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Abandonarea dialogurilor de confirmare este acum oprită.</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Gesturi</string>
+    <string name="toast_gestures_on" comment="Message text">Gesturile sunt acum activate.</string>
+    <string name="toast_gestures_off" comment="Message text">Gesturile sunt acum dezactivate.</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Vă rugăm, dacă vă place această aplicație, nu uitați să o revizuiți pe Google Play Store.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Aplicația nu este (complet) tradusă în această limbă.\nPoți contribui la traducerea aplicației pe Crowdin.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animații</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Personalizați dimensiunea fontului</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Personalizați gesturi</string>
+    <string name="txt_themes_settings" comment="Button in Settings">Teme</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Grupul Telegram al aplicației</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Arată etichetele sub pictogramele meniului</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence">Se încarcă propoziția...</string>
-    <string name="btn_skip_sentence">Omitere</string>
-    <string name="btn_send_sentence">Trimite înregistrare</string>
-    <string name="txt_loading_clip">Se încarcă clipul...</string>
-    <string name="txt_press_icon_below_speak_1">Apăsaţi pictograma de mai jos pentru a începe înregistrarea.</string>
-    <string name="txt_press_icon_below_speak_2">Apăsaţi pictograma de mai jos pentru a opri înregistrarea.</string>
-    <string name="txt_sentence_recorded">Sentinţă înregistrată. Ascultaţi înregistrarea.</string>
-    <string name="txt_sentence_record_failed">Înregistrarea a eșuat. Încercați din nou.</string>
-    <string name="txt_recorded_correct_or_wrong">Dacă aţi vorbit corect, trimiteţi înregistrarea.\nDacă aţi vorbit greşit, puteţi înregistra din nou propoziţia.</string>
-    <string name="txt_listening_stopped">Ascultați întreaga înregistrare pentru a vă asigura că este corectă.</string>
-    <string name="txt_listening_again_recording">Apasă pictograma de mai jos pentru a nu mai asculta.</string>
-    <string name="txt_recording_too_long">Înregistrarea este prea lungă. Durata maximă este de 10 secunde.</string>
-    <string name="txt_recording_too_short">Înregistrarea este prea scurtă. Vă rugăm să încercați din nou.</string>
-    <string name="txt_sending_recording">Se trimite înregistrarea...</string>
-    <string name="txt_recording_sent">Înregistrare trimisă!</string>
-    <string name="txt_sending_recording_failed">Înregistrarea a eșuat!</string>
-    <string name="txt_sending_recording_failed_and_skip">Nu s-a reușit trimiterea înregistrării! Puteți încerca din nou, sau apăsați butonul {{*{{skip_button}}*}}.</string>
-    <string name="txt_press_icon_below_listen_1">Apasă pictograma de mai jos pentru a porni clipul.</string>
-    <string name="txt_press_icon_below_listen_2">Apăsați pictograma de mai jos pentru a opri clipul.</string>
-    <string name="txt_clip_correct_or_wrong">Dacă clipul este corect, apăsați degetul de la zero.\nÎn cazul în care clipul este greșit, apăsați degetul în jos.</string>
-    <string name="txt_clip_again">Apasă pictograma de mai jos pentru a reda videoclipul.</string>
-    <string name="txt_clip_validated_yes">Clip marcat ca corect!</string>
-    <string name="txt_clip_validated_no">Clip marcat ca incorect!</string>
-    <string name="txt_error_1_try_again_tap_skip">Eroare. Apăsați butonul {{*{{skip_button}}*}} pentru a continua.</string>
-    <string name="txt_error_2_sending_failed">Nu s-a putut trimite înregistrarea.</string>
-    <string name="txt_sending_validation">Trimitere...</string>
-    <string name="txt_error_3_sending_validation_failed">Nu s-a putut trimite rezultatul. Puteți încerca din nou, sau apăsați butonul {{*{{skip_button}}*}}.</string>
-    <string name="txt_closing">Închidere...</string>
-    <string name="txt_error_4_clips_no_available">Eroare. Nu mai sunt videoclipuri disponibile pentru această limbă.</string>
-    <string name="button_report">Raport</string>
-    <string name="title_report_clip">Ceasul raportării:</string>
-    <string name="title_report_sentence">Fraza raportului:</string>
-    <string name="button_send_report">Trimite raport</string>
-    <string name="checkbox_reason1_report_sentence">Limbă ofensivă</string>
-    <string name="checkbox_reason1_report_clip">Discurs ofensator</string>
-    <string name="checkbox_reason2_report">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report">Limbă diferită</string>
-    <string name="checkbox_reason4_report">Dificultăţi de pronunţare</string>
-    <string name="checkbox_reason5_report">Altele</string>
-    <string name="checkbox_reason5_comment_report">Comentariu</string>
-    <string name="txt_sentences_finished_offline_mode">Ai rămas fără propoziții offline. Conectează-te la internet pentru a descărca mai multe propoziții în înregistrare.</string>
-    <string name="txt_clips_finished_offline_mode">Ai rămas fără clipuri offline. Conectează-te la internet pentru a descărca mai multe clipuri pentru validare.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Se încarcă propoziția...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Omitere</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Trimite înregistrare</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Se încarcă clipul...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Apăsaţi pictograma de mai jos pentru a începe înregistrarea.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Apăsaţi pictograma de mai jos pentru a opri înregistrarea.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Sentinţă înregistrată. Ascultaţi înregistrarea.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Înregistrarea a eșuat. Încercați din nou.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Dacă aţi vorbit corect, trimiteţi înregistrarea.\nDacă aţi vorbit greşit, puteţi înregistra din nou propoziţia.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Ascultați întreaga înregistrare pentru a vă asigura că este corectă.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Apasă pictograma de mai jos pentru a nu mai asculta.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Înregistrarea este prea lungă. Durata maximă este de 10 secunde.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Înregistrarea este prea scurtă. Vă rugăm să încercați din nou.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Se trimite înregistrarea...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Înregistrare trimisă!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Înregistrarea a eșuat!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Nu s-a reușit trimiterea înregistrării! Puteți încerca din nou, sau apăsați butonul {{*{{skip_button}}*}}.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Apasă pictograma de mai jos pentru a porni clipul.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Apăsați pictograma de mai jos pentru a opri clipul.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Dacă clipul este corect, apăsați degetul de la zero.\nÎn cazul în care clipul este greșit, apăsați degetul în jos.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Apasă pictograma de mai jos pentru a reda videoclipul.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marcat ca corect!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marcat ca incorect!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Eroare. Apăsați butonul {{*{{skip_button}}*}} pentru a continua.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Nu s-a putut trimite înregistrarea.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Trimitere...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Nu s-a putut trimite rezultatul. Puteți încerca din nou, sau apăsați butonul {{*{{skip_button}}*}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Închidere...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Eroare. Nu mai sunt videoclipuri disponibile pentru această limbă.</string>
+    <string name="button_report" comment="Button">Raport</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Ceasul raportării:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Fraza raportului:</string>
+    <string name="button_send_report" comment="Button">Trimite raport</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Limbă ofensivă</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Discurs ofensator</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Limbă diferită</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Dificultăţi de pronunţare</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Altele</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comentariu</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Ai rămas fără propoziții offline. Conectează-te la internet pentru a descărca mai multe propoziții în înregistrare.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Ai rămas fără clipuri offline. Conectează-te la internet pentru a descărca mai multe clipuri pentru validare.</string>
     <!-- Don't translate {{*{{n_sentences}}*}} -->
-    <string name="txt_residual_sentences_offline_mode">Puteți înregistra mai multe propoziții {{*{{n_sentences}}*}} înainte de a vă conecta la internet.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Puteți înregistra mai multe propoziții {{*{{n_sentences}}*}} înainte de a vă conecta la internet.</string>
     <!-- Don't translate {{*{{n_clips}}*}} -->
-    <string name="txt_residual_clips_offline_mode">Puteți valida mai multe clipuri {{*{{n_clips}}*}} înainte de a vă conecta la internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Puteți valida mai multe clipuri {{*{{n_clips}}*}} înainte de a vă conecta la internet.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection">Verifică din nou</string>
-    <string name="txt_noconnection">Nu ești conectat la internet. Conectează-te la datele Wi-Fi sau mobile, apoi apasă butonul de mai jos.</string>
+    <string name="btn_check_again_noconnection" comment="Button">Verifică din nou</string>
+    <string name="txt_noconnection" comment="Message text">Nu ești conectat la internet. Conectează-te la datele Wi-Fi sau mobile, apoi apasă butonul de mai jos.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak">Aceasta este propoziția pe care trebuie să o înregistrați.</string>
-    <string name="txt2_tutorial_speak_and_listen">Un mesaj pentru a vă ghida va apărea aici.</string>
-    <string name="txt3_tutorial_speak">Dacă nu vă place propoziția, puteți apăsa aici pentru a sări și a obține altul.</string>
-    <string name="txt4_tutorial_speak">Apăsați pe această pictogramă pentru a începe înregistrarea.</string>
-    <string name="txt5_tutorial_speak">Apăsați pe această pictogramă pentru a opri înregistrarea.</string>
-    <string name="txt6_tutorial_speak">Apăsați pe această pictogramă pentru a reda înregistrarea.</string>
-    <string name="txt7_tutorial_speak">Apăsați pe această pictogramă pentru a reînregistra dacă ați făcut o greșeală.</string>
-    <string name="txt8_tutorial_speak">Apăsați pe această pictogramă pentru a reda din nou înregistrarea.</string>
-    <string name="txt9_tutorial_speak">Apăsaţi pe acest buton pentru a trimite înregistrarea.</string>
-    <string name="txt1_tutorial_listen">Aceasta este propoziția/clipul pe care trebuie să îl validați.</string>
-    <string name="txt3_tutorial_listen">Dacă nu îți place clipul, poți apăsa pe acest buton pentru a sări și a obține altul.</string>
-    <string name="txt4_tutorial_listen">Apăsați pe această pictogramă pentru a reda clipul.</string>
-    <string name="txt5_tutorial_listen">Apasă pe această pictogramă pentru a opri redarea clipului.</string>
-    <string name="txt6_tutorial_listen">Apăsați pe această pictogramă dacă doriți să ascultați din nou clipul.</string>
-    <string name="txt7_tutorial_listen">Dacă clipul se potrivește cu propoziția, apasă pe această pictogramă pentru a o accepta.</string>
-    <string name="txt8_tutorial_listen">Dacă clipul nu se potrivește cu propoziția, apasă pe această pictogramă pentru a o respinge.</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Aceasta este propoziția pe care trebuie să o înregistrați.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Un mesaj pentru a vă ghida va apărea aici.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Dacă nu vă place propoziția, puteți apăsa aici pentru a sări și a obține altul.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Apăsați pe această pictogramă pentru a începe înregistrarea.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Apăsați pe această pictogramă pentru a opri înregistrarea.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Apăsați pe această pictogramă pentru a reda înregistrarea.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Apăsați pe această pictogramă pentru a reînregistra dacă ați făcut o greșeală.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Apăsați pe această pictogramă pentru a reda din nou înregistrarea.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Apăsaţi pe acest buton pentru a trimite înregistrarea.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Aceasta este propoziția/clipul pe care trebuie să îl validați.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Dacă nu îți place clipul, poți apăsa pe acest buton pentru a sări și a obține altul.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Apăsați pe această pictogramă pentru a reda clipul.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Apasă pe această pictogramă pentru a opri redarea clipului.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Apăsați pe această pictogramă dacă doriți să ascultați din nou clipul.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Dacă clipul se potrivește cu propoziția, apasă pe această pictogramă pentru a o accepta.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Dacă clipul nu se potrivește cu propoziția, apasă pe această pictogramă pentru a o respinge.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow">Ne pare rău, această caracteristică nu există încă.\nLucrăm constant pentru a îmbunătăți aplicația, așa că verificați mai târziu pentru a vedea dacă a fost adăugată.</string>
+    <string name="txtNotAvailableNow" comment="Message text">Ne pare rău, această caracteristică nu există încă.\nLucrăm constant pentru a îmbunătăți aplicația, așa că verificați mai târziu pentru a vedea dacă a fost adăugată.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges">Inchide</string>
-    <string name="labelAllBadges">Toate insignele</string>
-    <string name="new_badge_earnt_message">Ura! Tocmai ai câștigat o insignă nouă.</string>
+    <string name="btnCloseBadges" comment="Button">Inchide</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Toate insignele</string>
+    <string name="new_badge_earnt_message" comment="Message text">Ura! Tocmai ai câștigat o insignă nouă.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
-    <string name="btnOk">Ok</string>
-    <string name="messageDialogErrorTitle">Eroare</string>
-    <string name="messageDialogGenericError">Nu a funcționat.\nVă rugăm să încercați din nou, sau contactați dezvoltatorul.</string>
-    <string name="messageDialogErrorCode">Nu a funcționat. Încercați din nou sau contactați dezvoltatorul.\nCod de eroare: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle">Autentificare eșuată</string>
-    <string name="youHaveToAcceptPrivacyPolicy">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice">Open Common Voice</string>
-    <string name="text_warning">Avertizare</string>
-    <string name="text_tip">Tip</string>
-    <string name="text_changelog">Jurnal modificări</string>
-    <string name="text_help">Ajutor</string>
-    <string name="text_info">Info</string>
-    <string name="check_box_message_dialog">Nu mai arăta</string>
-    <string name="text_report_website_bug">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode">Offline mode</string>
-    <string name="text_offline_mode_enabled">Ești deconectat și aplicația a trecut automat la modul offline.\nAcest lucru înseamnă că puteți continua să înregistrați și să validați, dar cererile vor fi trimise mai târziu.</string>
-    <string name="text_offline_mode_enabled_2">Poți să-ți dai seama când ești în modul offline căutând această pictogramă pe ecran:</string>
-    <string name="text_offline_mode_enabled_3">Poți apăsa acea pictogramă pentru a vedea clipurile descărcate și propozițiile.</string>
+    <string name="btnOk" comment="Button">Ok</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Eroare</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Nu a funcționat.\nVă rugăm să încercați din nou, sau contactați dezvoltatorul.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Nu a funcționat. Încercați din nou sau contactați dezvoltatorul.\nCod de eroare: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Autentificare eșuată</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">Avertizare</string>
+    <string name="text_tip" comment="Title for Message text">Tip</string>
+    <string name="text_changelog" comment="Title for Message text">Jurnal modificări</string>
+    <string name="text_help" comment="Title for Message text">Ajutor</string>
+    <string name="text_info" comment="Title for Message text">Info</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Nu mai arăta</string>
+    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="text_offline_mode" comment="Title">Offline mode</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Ești deconectat și aplicația a trecut automat la modul offline.\nAcest lucru înseamnă că puteți continua să înregistrați și să validați, dar cererile vor fi trimise mai târziu.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Poți să-ți dai seama când ești în modul offline căutând această pictogramă pe ecran:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Poți apăsa acea pictogramă pentru a vedea clipurile descărcate și propozițiile.</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title">Obiectiv zilnic</string>
-    <string name="daily_goal_is_not_set">Niciun obiectiv stabilit</string>
-    <string name="set_daily_goal">Setați un obiectiv</string>
-    <string name="edit_daily_goal">Editare obiectiv</string>
-    <string name="save_daily_goal">Salvează</string>
-    <string name="delete_daily_goal">Ștergere</string>
-    <string name="cancel_daily_goal">Anulează</string>
-    <string name="description_setting_daily_goal">Alegeți câte propoziții doriți să înregistrați și clipuri doriți să validați (suma lor) pe zi.</string>
-    <string name="daily_goal_achieved_today">Realizat astăzi</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">Obiectiv zilnic</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Niciun obiectiv stabilit</string>
+    <string name="set_daily_goal" comment="Button">Setați un obiectiv</string>
+    <string name="edit_daily_goal" comment="Button">Editare obiectiv</string>
+    <string name="save_daily_goal" comment="Button">Salvează</string>
+    <string name="delete_daily_goal" comment="Button">Ștergere</string>
+    <string name="cancel_daily_goal" comment="Button">Anulează</string>
+    <string name="description_setting_daily_goal" comment="Message text">Alegeți câte propoziții doriți să înregistrați și clipuri doriți să validați (suma lor) pe zi.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Realizat astăzi</string>
     <string name="daily_goal_not_achieved_today">Nu s-a realizat astăzi</string>
-    <string name="daily_goal_achieved_message">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="daily_goal_is_not_official_by_mozilla">Acest țel zilnic nu este o caracteristică oficială a Mozilla. Este doar o caracteristică a acestei aplicații.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Acest țel zilnic nu este o caracteristică oficială a Mozilla. Este doar o caracteristică a acestei aplicații.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available">O nouă versiune a aplicației este disponibilă (release {{*{{n_version}}*}}). Îl puteți actualiza din magazinul dvs. preferat (F-Droid, Google Play Store) sau direct din GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">O nouă versiune a aplicației este disponibilă (release {{*{{n_version}}*}}). Îl puteți actualiza din magazinul dvs. preferat (F-Droid, Google Play Store) sau direct din GitHub.</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
