@@ -200,6 +200,9 @@
     <string name="btnCloseBadges" comment="Button">Cerrar</string>
     <string name="labelAllBadges" comment="Title for All badge section">Todas las insignias</string>
     <string name="new_badge_earnt_message" comment="Message text">¡Genial! Acabas de ganar una nueva insignia.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ok</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>

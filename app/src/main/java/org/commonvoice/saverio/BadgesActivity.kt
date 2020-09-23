@@ -65,12 +65,18 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
             adapter = BadgeAdapter(
                 Badge.generateBadgeData(
                     getSharedPreferences(LEVEL_SAVED, PRIVATE_MODE).getInt(LEVEL_SAVED, 0),
-                    getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).getInt(RECORDINGS_SAVED, 0),
-                    getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).getInt(VALIDATIONS_SAVED, 0)
+                    getSharedPreferences(RECORDINGS_SAVED, PRIVATE_MODE).getInt(
+                        RECORDINGS_SAVED,
+                        0
+                    ),
+                    getSharedPreferences(VALIDATIONS_SAVED, PRIVATE_MODE).getInt(
+                        VALIDATIONS_SAVED,
+                        0
+                    )
                 )
             ) { badge ->
                 val message = badge.let {
-                    when(it) {
+                    when (it) {
                         is Badge.Level -> {
                             getString(R.string.message_got_badge_because_levels).replace(
                                 "{{*{{n_total}}*}}",
@@ -92,12 +98,7 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
                     }
                 }
 
-                AlertDialog(this@BadgesActivity, R.layout.dialog_badgeinfo).apply {
-                    withButton(R.id.btnOkMessageDialog) {
-                        dismiss()
-                    }
-                    withTextView(R.id.labelTextMessageDialog, textLiteral = message)
-                }
+                showMessageDialog("", message, type = 5)
             }
         }
 
@@ -111,6 +112,41 @@ class BadgesActivity : VariableLanguageActivity(R.layout.all_badges) {
         val widthDp = displayMetrics.widthPixels / displayMetrics.density
 
         return (widthDp / 120.0f).roundToInt()
+    }
+
+    private fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = "",
+        type: Int = 0
+    ) {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        try {
+            var messageText = text
+            if (errorCode != "") {
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
+            }
+            var message: MessageDialog? = null
+            message = MessageDialog(
+                this,
+                type,
+                title,
+                messageText,
+                details = details,
+                height = height
+            )
+            message?.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
+        }
     }
 
     private fun setTheme(view: Context) {
