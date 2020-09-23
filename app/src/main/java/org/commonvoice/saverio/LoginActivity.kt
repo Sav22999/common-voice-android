@@ -176,7 +176,12 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             in 5000..9999 -> 7
             in 10000..49999 -> 8
             in 50000..99999 -> 9
-            in 100000..100000000 -> 10
+            in 100000..199999 -> 10
+            in 200000..399999 -> 11
+            in 400000..999999 -> 12
+            in 1000000..1999999 -> 13
+            in 2000000..3999999 -> 14
+            in 4000000..99999990000 -> 15
             else -> 1
         }
     }
@@ -445,10 +450,12 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             var profileUsername: EditText = findViewById(R.id.textProfileUsername)
             var profileAge: EditText = findViewById(R.id.textProfileAge)
             var profileGender: EditText = findViewById(R.id.textProfileGender)
+            var allBadgesButton: Button = findViewById(R.id.btnBadges)
             profileEmail.setText("···")
             profileUsername.setText("···")
             profileAge.setText("···")
             profileGender.setText("···")
+            allBadgesButton.isEnabled = false
         }
         try {
             val path = "user_client" //API to get sentences
@@ -523,6 +530,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                             profileImage
                                         ).execute("null")
                                     }
+                                    var allBadgesButton: Button = findViewById(R.id.btnBadges)
+                                    allBadgesButton.isEnabled = true
                                     val clips_count =
                                         jsonObj.getString("clips_count").toInt() //recordings
                                     val votes_count =

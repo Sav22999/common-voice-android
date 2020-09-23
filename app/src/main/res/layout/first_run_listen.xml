@@ -308,7 +308,7 @@
         android:id="@+id/layoutFirstRunListenNoSmartphone"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorWhite"
+        android:background="@color/colorBackground"
         android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/firstRunListenSectionBottom"
