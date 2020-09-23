@@ -1,41 +1,62 @@
 package org.commonvoice.saverio.ui.recyclerview.badges
 
-import android.content.res.ColorStateList
-import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import org.commonvoice.saverio.R
+import org.commonvoice.saverio.databinding.ViewholderBadgeAchievementBinding
+import org.commonvoice.saverio.databinding.ViewholderBadgeLevelBinding
+import org.commonvoice.saverio.utils.inflateBinding
 
 class BadgeAdapter(
-    private val data: List<BadgeData>
-): RecyclerView.Adapter<BadgeViewHolder>() {
+    private val data: List<Badge>,
+    private val onBadgeClick: (Badge) -> Unit
+): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BadgeViewHolder {
-        return BadgeViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.viewholder_badge, parent, false)
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when(Type.values()[viewType]) {
+            Type.LEVEL -> {
+                LevelBadgeViewHolder(
+                    parent.inflateBinding(ViewholderBadgeLevelBinding::inflate)
+                )
+            }
+            Type.ACHIEVEMENT -> {
+                AchievementBadgeViewHolder(
+                    parent.inflateBinding(ViewholderBadgeAchievementBinding::inflate)
+                )
+            }
+        }
     }
 
-    override fun onBindViewHolder(holder: BadgeViewHolder, position: Int) {
-        holder.apply {
-            badgeBackground.imageTintList = ColorStateList.valueOf(
-                data[position].backgroundTint
-            )
-
-            badgeLevel.text = data[position].badgeValue
-
-            badgeDescription.text = data[position].descriptionText
-
-            badgeDescriptionImage.isVisible = data[position].descriptionImage != null
-            data[position].descriptionImage?.let {
-                badgeDescriptionImage.setImageResource(it)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when(holder) {
+            is LevelBadgeViewHolder -> {
+                holder.bind(data[position] as Badge.Level)
+                holder.registerOnClick(onBadgeClick, data[position])
             }
-
-            itemView.alpha = if (data[position].unlocked) 1.0f else 0.2f
+            is AchievementBadgeViewHolder -> {
+                (data[position] as? Badge.SpeakAchievement)?.let {
+                    holder.bind(it)
+                }
+                (data[position] as? Badge.ListenAchievement)?.let {
+                    holder.bind(it)
+                }
+                holder.registerOnClick(onBadgeClick, data[position])
+            }
         }
     }
 
     override fun getItemCount(): Int = data.size
+
+    override fun getItemViewType(position: Int): Int {
+        return when(data[position]) {
+            is Badge.Level -> Type.LEVEL.ordinal
+            is Badge.SpeakAchievement -> Type.ACHIEVEMENT.ordinal
+            is Badge.ListenAchievement -> Type.ACHIEVEMENT.ordinal
+        }
+    }
+
+    private enum class Type {
+        LEVEL,
+        ACHIEVEMENT,
+    }
 
 }
