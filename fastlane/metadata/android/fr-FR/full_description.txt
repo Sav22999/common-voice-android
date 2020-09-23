@@ -1,0 +1,42 @@
+<p>
+Ceci n'est pas l'application officielle de Common Voice. Elle est développée par Saverio Morelli
+</p>
+<p>
+<b>Fonctionnalités de l'application :</b>
+
+- L'interface utilisateur (UI) est ingénieuse, claire et moderne
+- Connectez-vous à votre compte Common Voice
+- Validez les échantillons
+- Enregistrez des phrases
+- Signalez des phrases/échantillons dans les sections relatives
+- Support de la gestion multi-langues
+- Mode hors-ligne (Continuez de contribuer même lorsque vous n'êtes pas connecté·e à Internet !)
+- Statistiques Common Voice (pour la langue sélectionnée)
+- Contributeurs et contributrices remarquables (pour la langue sélectionnée)
+- Statistiques de l'application (anonymes)
+- Voix en ligne (pour la langue sélectionnée)
+- Thème sombre supporté
+- Objectif quotidien
+- Gestes
+- L'expérience de l'application est entièrement personnalisable dans les Paramètres
+
+Rejoignez le groupe Telegram : https://t.me/common_voice_android (@common_voice_android)
+Vous pouvez voir les statistiques complètes de l'application ici : https://bit.ly/3clgfkg
+Lisez-en plus sur cette application sur Github : http://bit.ly/2PeOGRg
+</p>
+<p>
+<b>Qu'est-ce que le projet Common Voice ?</b>
+
+Le projet Common Voice est une initiative de Mozilla pour aider à apprendre aux machines comment les humains parlent vraiment.
+La voix est naturelle, la voix est humaine. C’est pourquoi nous sommes impatients de créer une technologie vocale pour nos appareils. Mais pour élaborer de tels systèmes vocaux, les développeurs ont besoin de vastes échantillons de données vocales.
+La plupart des données utilisées par les grandes entreprises ne sont pas disponibles pour le grand public. Nous estimons que cela entrave l’innovation. C’est pourquoi nous avons lancé le projet Common Voice, destiné à rendre la reconnaissance vocale ouverte et accessible à tout le monde.
+Vous pouvez donner un peu de votre voix pour nous aider à créer une base de données libre, utilisable par n’importe qui pour réaliser des applications innovantes, y compris sur le Web. Lisez une phrase pour aider les machines à apprendre la façon de parler des êtres humains. Écoutez les enregistrements que d’autres ont réalisés pour les valider et ainsi améliorer la qualité des données. C’est aussi simple que ça !
+Vous trouverez plus d'informations sur le site officiel https://commonvoice.mozilla.org/
+</p>
+<p>
+<b>Pourquoi devriez-vous utiliser l'application plutôt que le site Web sur mobile ?</b>
+
+L'application est développée spécifiquement pour les smartphones et est donc native. Elle a de nombreuses fonctionnalités que le site Web ne vous propose pas, comme un thème sombre, le mode hors-ligne, des options de personnalisation, les gestes, etc.
+L'application est plus légère que le site Web, sans animations ennuyeuses (et les animations de l'application peuvent aussi être arrêtées dans les Paramètres).
+Enfin, le site Web a de nombreux bogues, en particulier pour la version mobile, donc vous ne pouvez y faire tout ce que vous désirez correctement.
+</p>

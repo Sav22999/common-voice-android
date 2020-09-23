@@ -1,0 +1,1 @@
+- Fixed "Log in with Google" bug
