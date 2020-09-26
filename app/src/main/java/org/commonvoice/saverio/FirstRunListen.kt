@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.SeekBar
@@ -13,7 +11,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.first_run_listen.*
-import kotlinx.android.synthetic.main.fragment_settings.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager

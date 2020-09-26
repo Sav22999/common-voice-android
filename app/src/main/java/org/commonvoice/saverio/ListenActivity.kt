@@ -1,7 +1,6 @@
 package org.commonvoice.saverio
 
 import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -9,7 +8,6 @@ import android.widget.Button
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_listen.*

@@ -13,8 +13,6 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient

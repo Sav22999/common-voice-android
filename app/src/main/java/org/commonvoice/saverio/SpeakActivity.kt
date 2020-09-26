@@ -4,7 +4,6 @@ import android.Manifest
 import android.animation.ValueAnimator
 import android.content.Context
 import android.content.pm.PackageManager
-import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -18,13 +17,13 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.databinding.ActivitySpeakBinding
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -34,7 +33,9 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
-class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
+class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
+    ActivitySpeakBinding::inflate
+) {
 
     companion object {
         private const val RECORD_REQUEST_CODE = 101
@@ -62,25 +63,25 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         if (!speakViewModel.showingHidingOfflineIcon && (speakViewModel.offlineModeIconVisible == available)) {
             speakViewModel.showingHidingOfflineIcon = true
             if (!available) {
-                startAnimation(imageOfflineModeSpeak, R.anim.zoom_in_speak_listen)
+                startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_in_speak_listen)
                 speakViewModel.offlineModeIconVisible = true
                 if (mainPrefManager.showOfflineModeMessage) {
                     showMessageDialog("", "", 10)
                 }
             } else {
-                startAnimation(imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
+                startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false
             }
             speakViewModel.showingHidingOfflineIcon = false
-            this.imageOfflineModeSpeak.isGone = available
+            binding.imageOfflineModeSpeak.isGone = available
         }
     }
 
-    public fun setShowOfflineModeMessage(value: Boolean = true) {
+    fun setShowOfflineModeMessage(value: Boolean = true) {
         mainPrefManager.showOfflineModeMessage = value
     }
 
-    override fun onBackPressed() {
+    override fun onBackPressed() = withBinding {
         textMessageAlertSpeak.setText(R.string.txt_closing)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
         textSentenceSpeak.text = "···"
@@ -101,7 +102,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun setupUI() {
-        imageOfflineModeSpeak.onClick {
+        binding.imageOfflineModeSpeak.onClick {
             lifecycleScope.launch {
                 val count = speakViewModel.getSentencesCount()
                 withContext(Dispatchers.Main) {
@@ -110,11 +111,11 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
         }
 
-        connectionManager.liveInternetAvailability.observe(this, Observer { available ->
+        connectionManager.liveInternetAvailability.observe(this, { available ->
             checkOfflineMode(available)
         })
 
-        speakViewModel.hasFinishedSentences.observe(this, Observer {
+        speakViewModel.hasFinishedSentences.observe(this, {
             if (it && !connectionManager.isInternetAvailable) {
                 NoClipsSentencesAvailableDialog(this, true, 0).show {
                     onBackPressed()
@@ -122,7 +123,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
         })
 
-        speakViewModel.currentSentence.observe(this, Observer { sentence ->
+        speakViewModel.currentSentence.observe(this, { sentence ->
             setupUIStateStandby(sentence)
         })
 
@@ -130,13 +131,13 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             setupGestures()
         }
 
-        speakViewModel.state.observe(this, Observer {
+        speakViewModel.state.observe(this, {
             checkState(it)
         })
 
-        statsPrefManager.dailyGoal.observe(this, Observer {
-            if ((this.numberSentThisSession > 0) && it.checkDailyGoal()) {
-                this.stopAndRefresh()
+        statsPrefManager.dailyGoal.observe(this, {
+            if ((numberSentThisSession > 0) && it.checkDailyGoal()) {
+                stopAndRefresh()
                 showMessageDialog(
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
@@ -163,7 +164,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
             }
             SpeakViewModel.Companion.State.RECORDING -> {
                 loadUIStateRecording()
-                this.isAudioBarVisible = true
+                isAudioBarVisible = true
                 animateAudioBar()
             }
             SpeakViewModel.Companion.State.RECORDED -> {
@@ -208,7 +209,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun setupNestedScroll() {
-        nestedScrollSpeak.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, scrollX, scrollY, oldScrollX, oldScrollY ->
+        binding.nestedScrollSpeak.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > oldScrollY) {
                 verticalScrollStatus = 1
             }
@@ -225,7 +226,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun setupGestures() {
-        nestedScrollSpeak.setOnTouchListener(object : OnSwipeTouchListener(this@SpeakActivity) {
+        binding.nestedScrollSpeak.setOnTouchListener(object : OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
                 speakViewModel.skipSentence()
             }
@@ -242,7 +243,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         })
     }
 
-    fun setTheme(view: Context) {
+    fun setTheme(view: Context) = withBinding {
         val theme: DarkLightTheme = DarkLightTheme()
 
         val isDark = theme.getTheme(view)
@@ -261,8 +262,8 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
     }
 
     private fun openReportDialog() {
-        if (!buttonReportSpeak.isGone) {
-            this.stopAndRefresh()
+        if (!binding.buttonReportSpeak.isGone) {
+            stopAndRefresh()
 
             SpeakReportDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
         }
@@ -276,7 +277,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         hideAudioBar()
     }
 
-    private fun setupInitialUIState() {
+    private fun setupInitialUIState() = withBinding {
         buttonSkipSpeak.onClick {
             speakViewModel.skipSentence()
         }
@@ -291,14 +292,14 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
         buttonSendSpeak.onClick {
             speakViewModel.sendRecording()
-            this.numberSentThisSession++
+            numberSentThisSession++
         }
 
         startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
         startAnimation(buttonSkipSpeak, R.anim.zoom_in_speak_listen)
     }
 
-    private fun loadUIStateLoading() {
+    private fun loadUIStateLoading() = withBinding {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
         textSentenceSpeak.text = "···"
 
@@ -309,7 +310,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         buttonStartStopSpeak.isEnabled = false
     }
 
-    private fun setupUIStateStandby(sentence: Sentence) {
+    private fun setupUIStateStandby(sentence: Sentence) = withBinding {
         buttonSkipSpeak.isEnabled = true
         buttonStartStopSpeak.isEnabled = true
 
@@ -363,7 +364,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun loadUIStateRecording() {
+    private fun loadUIStateRecording() = withBinding {
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
 
@@ -377,7 +378,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun loadUIStateRecorded() {
+    private fun loadUIStateRecorded() = withBinding {
         buttonRecordOrListenAgain.isGone = false
         startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
@@ -395,7 +396,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun loadUIStateListening() {
+    private fun loadUIStateListening() = withBinding {
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
@@ -405,7 +406,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
         }
     }
 
-    private fun loadUIStateListened() {
+    private fun loadUIStateListened() = withBinding {
         buttonSendSpeak.isGone = false
 
         if (speakViewModel.isFirstTimeListening) {
@@ -458,7 +459,7 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun animateAudioBar() {
         if (mainPrefManager.areAnimationsEnabled) {
-            speakSectionAudioBar.children.forEach {
+            binding.speakSectionAudioBar.children.forEach {
                 animateAudioBar(it)
             }
         }
@@ -466,9 +467,9 @@ class SpeakActivity : VariableLanguageActivity(R.layout.activity_speak) {
 
     private fun hideAudioBar() {
         if (mainPrefManager.areAnimationsEnabled) {
-            if (imageAudioBarCenter.isVisible && this.isAudioBarVisible) {
-                this.isAudioBarVisible = false
-                speakSectionAudioBar.children.forEach {
+            if (binding.imageAudioBarCenter.isVisible && isAudioBarVisible) {
+                isAudioBarVisible = false
+                binding.speakSectionAudioBar.children.forEach {
                     animateAudioBar(it)
                 }
             }

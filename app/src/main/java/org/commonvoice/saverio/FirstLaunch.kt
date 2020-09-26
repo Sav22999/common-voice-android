@@ -8,22 +8,15 @@ import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.webkit.WebView
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.first_launch.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
-import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
 
