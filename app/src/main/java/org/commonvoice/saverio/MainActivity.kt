@@ -33,6 +33,7 @@ import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.utils.TranslationLanguages
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -1442,9 +1443,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             //Android 6.0
             val tempLang = getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
             var lang = tempLang!!.split("-")[0]
-            val langSupportedYesOrNot = TranslationsLanguages()
-            if (!langSupportedYesOrNot.isSupported(lang)) {
-                lang = langSupportedYesOrNot.getDefaultLanguage()
+            if (!TranslationLanguages.isSupported(lang)) {
+                lang = TranslationLanguages.defaultLanguage
             }
             val locale: Locale = Locale(lang)
             Locale.setDefault(locale)
@@ -1489,9 +1489,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         )
                     )*/
                 //EXM04
-                val tl = TranslationsLanguages()
                 var detailsMessage = ""
-                if (tl.isUncompleted(this.getSelectedLanguage())) {
+                if (TranslationLanguages.isUncompleted(this.getSelectedLanguage())) {
                     detailsMessage =
                         "\n" + getString(R.string.message_app_not_completely_translated)
                 }
