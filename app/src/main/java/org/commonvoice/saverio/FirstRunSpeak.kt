@@ -18,6 +18,7 @@ import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.android.synthetic.main.first_run_speak.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.koin.android.ext.android.inject
 

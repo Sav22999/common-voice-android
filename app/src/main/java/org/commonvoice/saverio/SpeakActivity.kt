@@ -25,6 +25,7 @@ import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Sentence

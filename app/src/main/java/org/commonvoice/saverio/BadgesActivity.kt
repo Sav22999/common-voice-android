@@ -11,6 +11,7 @@ import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.recyclerview.badges.Badge
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeAdapter
 import org.commonvoice.saverio.utils.AlertDialog
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.withButton
 import org.commonvoice.saverio.utils.withTextView
 import kotlin.math.roundToInt

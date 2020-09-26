@@ -21,6 +21,7 @@ import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.first_launch.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
