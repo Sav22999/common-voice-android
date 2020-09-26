@@ -2,11 +2,12 @@ package org.commonvoice.saverio
 
 import android.content.Context
 import android.os.Bundle
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.databinding.NotAvailableNowBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 
-class NotAvailableNow : VariableLanguageActivity(R.layout.not_available_now) {
+class NotAvailableNow : ViewBoundActivity<NotAvailableNowBinding>(
+    NotAvailableNowBinding::inflate
+) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,14 +16,14 @@ class NotAvailableNow : VariableLanguageActivity(R.layout.not_available_now) {
     }
 
     fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
+        val theme: DarkLightTheme = DarkLightTheme()
 
-        var isDark = theme.getTheme(view)
-        theme.setElement(isDark, this.findViewById(R.id.layoutNotAvailableNow) as ConstraintLayout)
+        val isDark = theme.getTheme(view)
+        theme.setElement(isDark, binding.layoutNotAvailableNow)
         theme.setElement(
             isDark,
             view,
-            this.findViewById(R.id.txtNotAvailableNow) as TextView,
+            binding.txtNotAvailableNow,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
