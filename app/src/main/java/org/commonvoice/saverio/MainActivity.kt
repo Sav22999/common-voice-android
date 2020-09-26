@@ -102,8 +102,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "LAST_VOICES_ONLINE_NOW" to "LAST_VOICES_ONLINE_NOW",
             "LAST_VOICES_ONLINE_NOW_VALUE" to "LAST_VOICES_ONLINE_NOW_VALUE",
             "LAST_VOICES_ONLINE_BEFORE_VALUE" to "LAST_VOICES_ONLINE_BEFORE_VALUE",
-            "UI_LANGUAGE_CHANGED" to "UI_LANGUAGE_CHANGED",
-            "UI_LANGUAGE_CHANGED2" to "UI_LANGUAGE_CHANGED2",
             "AUTO_PLAY_CLIPS" to "AUTO_PLAY_CLIPS",
             "APP_ANONYMOUS_STATISTICS" to "APP_ANONYMOUS_STATISTICS",
             "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
@@ -1134,11 +1132,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun setLanguageSettings(lang: String) {
         try {
-            val languageChanged = if (lang != mainPrefManager.language) {
-                true
-            } else {
-                false
-            }
+            val languageChanged = lang != mainPrefManager.language
 
             this.selectedLanguageVar = lang
 
@@ -1154,11 +1148,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         ExistingWorkPolicy.REPLACE
                     )
 
-                    getSharedPreferences(
-                        settingsSwitchData["UI_LANGUAGE_CHANGED"],
-                        PRIVATE_MODE
-                    ).edit()
-                        .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+                    mainPrefManager.hasLanguageChanged = true
 
                     setLanguageUI("restart")
                     resetDashboardData()
@@ -1424,17 +1414,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     private fun setLanguageUI(type: String) {
-        val restart: Boolean = getSharedPreferences(
-            settingsSwitchData["UI_LANGUAGE_CHANGED"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["UI_LANGUAGE_CHANGED"],
-            true
-        )
-        val restart2: Boolean = getSharedPreferences(
-            settingsSwitchData["UI_LANGUAGE_CHANGED2"],
-            PRIVATE_MODE
-        ).getBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], false)
+        val restart: Boolean = mainPrefManager.hasLanguageChanged
+        val restart2: Boolean = mainPrefManager.hasLanguageChanged2
 
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
         //println("-->index: " + translations_languages.indexOf(lang))
@@ -1454,18 +1435,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             res.updateConfiguration(config, res.displayMetrics)
         }
         if (restart || type == "restart") {
-            getSharedPreferences(
-                settingsSwitchData["UI_LANGUAGE_CHANGED2"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], true).apply()
+            mainPrefManager.hasLanguageChanged = true
 
             if (android6) {
-                getSharedPreferences(
-                    settingsSwitchData["UI_LANGUAGE_CHANGED"],
-                    PRIVATE_MODE
-                ).edit()
-                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], false).apply()
+                mainPrefManager.hasLanguageChanged = false
+
                 Intent(this, MainActivity::class.java).also {
                     startActivity(it)
                 }
@@ -1477,18 +1451,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             finish()
         } else {
             if (restart2) {
-                getSharedPreferences(
-                    settingsSwitchData["UI_LANGUAGE_CHANGED2"],
-                    PRIVATE_MODE
-                ).edit()
-                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], false).apply()
-                /*showMessage(
-                        getString(R.string.toast_language_changed).replace(
-                            "{{*{{lang}}*}}",
-                            this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                        )
-                    )*/
-                //EXM04
+                mainPrefManager.hasLanguageChanged2 = false
+
                 var detailsMessage = ""
                 if (TranslationLanguages.isUncompleted(this.getSelectedLanguage())) {
                     detailsMessage =

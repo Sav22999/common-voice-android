@@ -18,7 +18,6 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

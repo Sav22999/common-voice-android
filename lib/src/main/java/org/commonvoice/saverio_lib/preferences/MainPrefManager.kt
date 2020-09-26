@@ -48,9 +48,6 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putBoolean(Keys.GESTURES_ENABLED.name, value).apply()
         }
 
-    val deviceOrientation: Int
-        get() = ctx.resources.configuration.orientation
-
     var statsUserId: String
         get() = preferences.getString(Keys.STATS_USERID.name, "") ?: ""
         set(value) {
@@ -75,6 +72,18 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putBoolean(Keys.LABELS_MENU_ICONS.name, value).apply()
         }
 
+    var hasLanguageChanged: Boolean
+        get() = preferences.getBoolean(Keys.LANGUAGE_CHANGED.name, true)
+        set(value) {
+            preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED.name, value).apply()
+        }
+
+    var hasLanguageChanged2: Boolean // I don't know what this is
+        get() = preferences.getBoolean(Keys.LANGUAGE_CHANGED2.name, true)
+        set(value) {
+            preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED2.name, value).apply()
+        }
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
@@ -86,7 +95,9 @@ class MainPrefManager(private val ctx: Context) {
         ARE_ANIMATIONS_ENABLED,
         LABELS_MENU_ICONS,
         SHOW_OFFLINE_MODE_MESSAGE,
-        SHOW_REPORT_WEBSITE_BUGS
+        SHOW_REPORT_WEBSITE_BUGS,
+        LANGUAGE_CHANGED,
+        LANGUAGE_CHANGED2,
     }
 
 }
