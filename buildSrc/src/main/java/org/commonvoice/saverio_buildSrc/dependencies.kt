@@ -46,16 +46,15 @@ object Libs {
             const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
             const val commonJava8 = "androidx.lifecycle:lifecycle-common-java8:$version"
             const val compiler = "androidx.lifecycle:lifecycle-compiler:$version"
-            const val viewModelSavedState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$version"
+            const val viewModelSavedState =
+                "androidx.lifecycle:lifecycle-viewmodel-savedstate:$version"
         }
 
         object Room {
             private const val version = "2.2.5"
-            const val common = "androidx.room:room-common:$version"
             const val runtime = "androidx.room:room-runtime:$version"
             const val compiler = "androidx.room:room-compiler:$version"
             const val ktx = "androidx.room:room-ktx:$version"
-            const val testing = "androidx.room:room-testing:$version"
         }
 
         object Navigation {
@@ -69,53 +68,16 @@ object Libs {
 
     object Google {
         const val material = "com.google.android.material:material:1.2.1"
-        const val googleServicesPluginClassPath = "com.google.gms:google-services:4.3.3"
-        const val ossLicencesPluginClassPath = "com.google.android.gms:oss-licenses-plugin:0.10.2"
-        const val ossLicences = "com.google.android.gms:play-services-oss-licenses:17.0.0"
-        const val firebaseCrashlyticsPluginClassPath =
-            "com.google.firebase:firebase-crashlytics-gradle:2.0.0"
-        const val firebaseCore = "com.google.firebase:firebase-core:17.2.3"
-        const val firebaseCrashlytics = "com.google.firebase:firebase-crashlytics:17.0.0"
-        const val firebasePerformance = "com.google.firebase:firebase-perf:19.0.7"
-        const val firebasePerformancePluginClassPath = "com.google.firebase:perf-plugin:1.3.1"
-        const val firebaseAnalytics = "com.google.firebase:firebase-analytics:17.5.0"
-        const val firebaseMessaging = "com.google.firebase:firebase-messaging:20.2.4"
-        const val gson = "com.google.code.gson:gson:2.8.6"
-        const val auth = "com.google.android.gms:play-services-auth:18.1.0"
         const val volley = "com.android.volley:volley:1.1.1"
     }
 
     object Test {
-        const val kotestVersion = "4.2.3"
-
         const val junit4 = "junit:junit:4.13"
-        const val robolectric = "org.robolectric:robolectric:4.4"
-        const val junit5Plugin = "de.mannodermaus.gradle.plugins:android-junit5:1.6.2.0"
-        const val kotestMatchers = "io.kotest:kotest-assertions-core-jvm:${kotestVersion}"
-        const val kotestProperties = "io.kotest:kotest-property-jvm:${kotestVersion}"
-        const val kotlinTest = "org.jetbrains.kotlin:kotlin-test:1.4.0"
-        const val kotlinCoroutineTest =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.8-1.4.0-rc"
-        const val kotlinTestJunit = "org.jetbrains.kotlin:kotlin-test-junit5:1.4.0"
-        const val mockk = "io.mockk:mockk:1.10.0"
-        const val assertJ = "org.assertj:assertj-core:3.17.1"
 
-        object Jupiter {
-            private const val version = "5.6.1"
-
-            // (Required) Writing and executing Unit Tests on the JUnit5 Platform
-            const val api = "org.junit.jupiter:junit-jupiter-api:$version"
-            const val engine = "org.junit.jupiter:junit-jupiter-engine:$version"
-
-            // (Optional) If you need "Parameterized Tests"
-            const val params = "org.junit.jupiter:junit-jupiter-params:$version"
-        }
     }
 
     object Coroutines {
-        private const val version = "1.3.8-1.4.0-rc"
-        const val playservices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$version"
-        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
+        private const val version = "1.3.9"
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
     }
 
@@ -130,6 +92,12 @@ object Libs {
             private const val version = "1.10.0"
             const val core = "com.squareup.moshi:moshi:$version"
             const val codegen = "com.squareup.moshi:moshi-kotlin-codegen:$version"
+        }
+
+        object Okhttp {
+            private const val version = "4.9.0"
+            const val okhttp = "com.squareup.okhttp3:okhttp:$version"
+            const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
         }
     }
 
