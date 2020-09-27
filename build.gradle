@@ -1,4 +1,4 @@
-import org.commonvoice.saverio_buildSrc.Libs
+//import org.commonvoice.saverio_buildSrc.Libs
 
 ext {
     var = 29
@@ -13,7 +13,7 @@ buildscript {
     }
     dependencies {
         classpath Libs.androidGradlePlugin
-        classpath Libs.Kotlin.gradlePlugin
+        classpath Libs.kotlinGradlePlugin
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

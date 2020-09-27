@@ -1,4 +1,4 @@
-import org.commonvoice.saverio_buildSrc.Libs
+//import org.commonvoice.saverio_buildSrc.Libs
 
 apply plugin: 'com.android.application'
 
@@ -42,6 +42,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    lintOptions {
+        enable "VersionCheckerGradleLint"
+    }
 
     bundle {
         language {
@@ -56,37 +59,37 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation Libs.Kotlin.stdlib
-    implementation Libs.AndroidX.appcompat
-    implementation Libs.AndroidX.coreKtx
-    implementation Libs.Google.material
-    implementation Libs.AndroidX.constraintlayout
-    implementation Libs.AndroidX.Navigation.fragment
-    implementation Libs.AndroidX.Navigation.fragmentKtx
-    implementation Libs.AndroidX.Navigation.ui
-    implementation Libs.AndroidX.Navigation.uiKtx
-    implementation Libs.AndroidX.Lifecycle.extensions
-    implementation Libs.AndroidX.legacySupport
-    testImplementation Libs.Test.junit4
-    androidTestImplementation Libs.AndroidX.Test.junitExt
-    androidTestImplementation Libs.AndroidX.Test.espressoCore
+    implementation Libs.kotlinStdLib
+    implementation Libs.appcompat
+    implementation Libs.coreKtx
+    implementation Libs.material
+    implementation Libs.constraintlayout
+    implementation Libs.navFragment
+    implementation Libs.navFragmentKtx
+    implementation Libs.navUi
+    implementation Libs.navUiKtx
+    implementation Libs.extensions
+    implementation Libs.legacySupport
+    testImplementation Libs.junit4
+    androidTestImplementation Libs.junitExt
+    androidTestImplementation Libs.espressoCore
 
     //volley
-    implementation Libs.Google.volley
+    implementation Libs.volley
 
     //Koin
-    implementation Libs.Koin.viewModel
+    implementation Libs.koinViewModel
     //https://github.com/InsertKoinIO/koin
 
     //MVVM
-    implementation Libs.AndroidX.Lifecycle.viewModel
-    implementation Libs.AndroidX.Lifecycle.liveData
-    implementation Libs.AndroidX.Lifecycle.viewModelSavedState
-    implementation Libs.AndroidX.Lifecycle.commonJava8
+    implementation Libs.viewModel
+    implementation Libs.liveData
+    implementation Libs.viewModelSavedState
+    implementation Libs.commonJava8
     //https://developer.android.com/topic/libraries/architecture/viewmodel
 
     //WorkManager
-    implementation Libs.AndroidX.Work.runtimeKtx
+    implementation Libs.workRuntimeKtx
     //https://developer.android.com/topic/libraries/architecture/workmanager/basics
 
     implementation project(":lib")
