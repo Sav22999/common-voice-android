@@ -11,15 +11,10 @@ object Libs {
         private const val version = "1.4.10"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
-        const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:$version"
     }
 
     object AndroidX {
         const val appcompat = "androidx.appcompat:appcompat:1.2.0"
-        const val recyclerview = "androidx.recyclerview:recyclerview:1.2.0-alpha05"
-        const val fragment = "androidx.fragment:fragment:1.0.0"
-        const val activityKtx = "androidx.activity:activity-ktx:1.2.0-alpha08"
-        const val swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
         const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.1"
         const val coreKtx = "androidx.core:core-ktx:1.5.0-alpha02"
         const val legacySupport = "androidx.legacy:legacy-support-v4:1.0.0"
