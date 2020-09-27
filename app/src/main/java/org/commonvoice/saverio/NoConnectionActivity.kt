@@ -1,38 +1,40 @@
 package org.commonvoice.saverio
 
 import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.databinding.ActivityNoconnectionBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.koin.android.ext.android.inject
 
-class NoConnectionActivity : VariableLanguageActivity(R.layout.activity_noconnection) {
+class NoConnectionActivity : ViewBoundActivity<ActivityNoconnectionBinding>(
+    ActivityNoconnectionBinding::inflate
+) {
+
+    private val connectionManager by inject<ConnectionManager>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         checkConnection()
 
-        var btnCheckNetwork: Button = this.findViewById(R.id.btnCheckAgain)
-        btnCheckNetwork.setOnClickListener {
+        binding.btnCheckAgain.setOnClickListener {
             checkConnection()
         }
 
         setTheme(this)
     }
 
-    fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
+    private fun setTheme(view: Context) {
+        val theme = DarkLightTheme()
 
-        var isDark = theme.getTheme(view)
-        theme.setElement(isDark, this.findViewById(R.id.layoutNoConnection) as ConstraintLayout)
-        theme.setElement(isDark, view, this.findViewById(R.id.btnCheckAgain) as Button)
+        val isDark = theme.getTheme(view)
+        theme.setElement(isDark, binding.layoutNoConnection)
+        theme.setElement(isDark, view, binding.btnCheckAgain)
         theme.setElement(
             isDark,
             view,
-            this.findViewById(R.id.txtNoInternetConnection) as TextView,
+            binding.txtNoInternetConnection,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
@@ -42,27 +44,9 @@ class NoConnectionActivity : VariableLanguageActivity(R.layout.activity_noconnec
         checkConnection()
     }
 
-    fun checkConnection(): Boolean {
-        if (MainActivity.checkInternet(this)) {
+    private fun checkConnection() {
+        if (connectionManager.isInternetAvailable) {
             finish()
-            return true
-        } else {
-            return false
-        }
-    }
-
-    companion object {
-        fun checkInternet(context: Context): Boolean {
-            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = cm.activeNetworkInfo
-            if (networkInfo != null && networkInfo.isConnected) {
-                //Connection OK
-                return true
-            } else {
-                //No connection
-                return false
-            }
-
         }
     }
 
