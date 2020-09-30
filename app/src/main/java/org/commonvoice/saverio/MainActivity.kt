@@ -116,9 +116,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS",
             "GESTURES" to "GESTURES",
             "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE",
-            "LEVEL_SAVED" to "LEVEL_SAVED",
-            "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
-            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
             "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED",
             "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS"
         )
@@ -275,18 +272,15 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         when (type) {
             0 -> {
                 //level
-                getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["LEVEL_SAVED"], value).apply()
+                statsPrefManager.allTimeLevel = value
             }
             1 -> {
                 //recordings
-                getSharedPreferences(settingsSwitchData["RECORDINGS_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["RECORDINGS_SAVED"], value).apply()
+                statsPrefManager.allTimeRecorded = value
             }
             2 -> {
                 //validations
-                getSharedPreferences(settingsSwitchData["VALIDATIONS_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["VALIDATIONS_SAVED"], value).apply()
+                statsPrefManager.allTimeValidated = value
             }
         }
     }
