@@ -16,3 +16,4 @@
 *.jks
 /screenshots/sample/*
 */desktop.ini
+buildSrc/build/*
