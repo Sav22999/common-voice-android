@@ -12,13 +12,12 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
-import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
@@ -178,7 +177,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             binding.labelDashboardDailyGoalValue.text =
                 statsPrefManager.dailyGoalObjective.toString()
             binding.labelDashboardDailyGoalValue.typeface =
-                ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
+                ResourcesCompat.getFont(requireContext(), R.font.sourcecodepro)
         }
     }
 

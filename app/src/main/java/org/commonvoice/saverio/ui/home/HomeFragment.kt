@@ -7,87 +7,88 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.AnimRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
+import org.commonvoice.saverio.databinding.FragmentHomeBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
+
+    override fun inflate(
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentHomeBinding {
+        return FragmentHomeBinding.inflate(layoutInflater, container, false)
+    }
 
     private val homeViewModel: HomeViewModel by viewModel()
 
     private val mainPrefManager: MainPrefManager by inject()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        /*homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)*/
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+    override fun onStart() {
+        super.onStart()
 
-        val main = activity as MainActivity
-        main.dashboard_selected = false
+        //TODO fix this mess once MainActivity is fixed
 
-        val btnSpeak: Button = root.findViewById(R.id.buttonSpeak)
-        val btnListen: Button = root.findViewById(R.id.buttonListen)
-        val btnLogin: Button = root.findViewById(R.id.buttonHomeLogin)
+        (activity as? MainActivity)?.let {
+            it.dashboard_selected = false
 
-        btnSpeak.setOnClickListener {
-            main.openSpeakSection()
-        }
+            it.checkUserLoggedIn()
 
-        btnListen.setOnClickListener {
-            main.openListenSection()
-        }
+            if (it.logged) {
+                val textLoggedIn = binding.textLoggedUsername
+                textLoggedIn.isGone = false
+                textLoggedIn.isVisible = true
+                textLoggedIn.text = it.getHiUsernameLoggedIn()
 
-        main.checkUserLoggedIn()
+                binding.buttonHomeLogin.setText(R.string.button_home_profile)
 
-        if (main.logged) {
-            //login successful -> show username and profile button
-
-            val textLoggedIn: TextView = root.findViewById(R.id.textLoggedUsername)
-            textLoggedIn.isGone = false
-            textLoggedIn.isVisible = true
-            textLoggedIn.text = main.getHiUsernameLoggedIn()
-            val btnLogOut: Button = root.findViewById(R.id.buttonHomeLogin)
-            btnLogOut.text = getString(R.string.button_home_profile)
-
-            btnLogin.setOnClickListener {
-                main.openProfileSection()
-                main.checkUserLoggedIn()
+                binding.buttonHomeLogin.setOnClickListener {
+                    (activity as? MainActivity)?.let { main ->
+                        main.openProfileSection()
+                        main.checkUserLoggedIn()
+                    }
+                }
+            } else {
+                binding.buttonHomeLogin.setOnClickListener {
+                    (activity as? MainActivity)?.let { main ->
+                        main.openProfileSection()
+                        main.checkUserLoggedIn()
+                    }
+                }
             }
-        } else {
-            btnLogin.setOnClickListener {
-                main.openLoginSection()
-                main.checkUserLoggedIn()
-            }
+
+            it.checkConnection()
+
+            it.checkNewVersionAvailable()
+
+            it.reviewOnPlayStore()
         }
 
-        main.checkConnection()
+        binding.buttonSpeak.setOnClickListener {
+            (activity as? MainActivity)?.openSpeakSection()
+        }
 
-        setTheme(main, root)
+        binding.buttonListen.setOnClickListener {
+            (activity as? MainActivity)?.openListenSection()
+        }
 
-        startAnimation(btnSpeak, R.anim.zoom_out)
-        startAnimation(btnListen, R.anim.zoom_out)
 
-        main.checkNewVersionAvailable()
+        setTheme(requireContext(), binding.root)
 
-        main.reviewOnPlayStore()
-
-        return root
+        startAnimation(binding.buttonSpeak, R.anim.zoom_out)
+        startAnimation(binding.buttonListen, R.anim.zoom_out)
     }
 
     override fun onResume() {
@@ -96,27 +97,26 @@ class HomeFragment : Fragment() {
         homeViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, MainActivity.SOURCE_STORE)
     }
 
-    fun setTheme(view: Context, root: View) {
+    fun setTheme(view: Context, root: View) = withBinding {
         val theme = DarkLightTheme()
-        //theme.setElements(view, root.findViewById(R.id.layoutHome))
 
         val isDark = theme.getTheme(view)
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionCVAndroid))
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionLoginSignup))
+        theme.setElement(isDark, view, 3, homeSectionCVAndroid)
+        theme.setElement(isDark, view, 3, homeSectionLoginSignup)
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.textCommonVoiceAndroid) as TextView,
+            textCommonVoiceAndroid,
             background = false
         )
         theme.setElement(
             isDark,
             view,
-            root.findViewById(R.id.textLoggedUsername) as TextView,
+            textLoggedUsername,
             background = false
         )
-        theme.setElement(isDark, view, root.findViewById(R.id.buttonHomeLogin) as Button)
-        theme.setElement(isDark, root.findViewById(R.id.layoutHome) as ConstraintLayout)
+        theme.setElement(isDark, view, buttonHomeLogin)
+        theme.setElement(isDark, layoutHome)
     }
 
     private fun startAnimation(view: View, @AnimRes res: Int) {
@@ -125,10 +125,6 @@ class HomeFragment : Fragment() {
                 view.startAnimation(it)
             }
         }
-    }
-
-    private fun stopAnimation(view: View) {
-        view.clearAnimation()
     }
 
 }
