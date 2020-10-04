@@ -33,4 +33,7 @@ object Versions {
 
     // Koin
     const val koinVersion = "2.1.6"
+
+    // Debug
+    const val timberVersion = "4.7.1"
 }

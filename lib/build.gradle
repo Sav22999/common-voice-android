@@ -84,4 +84,7 @@ dependencies {
     //WorkManager
     implementation Libs.workRuntimeKtx
     //https://developer.android.com/topic/libraries/architecture/workmanager/basics
+
+    // Debug
+    implementation Libs.timber
 }

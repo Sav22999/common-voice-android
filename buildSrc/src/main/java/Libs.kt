@@ -84,4 +84,7 @@ object Libs {
 
     // Koin
     const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koinVersion}"
+
+    // Debug
+    const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
 }
