@@ -54,13 +54,15 @@ object Libs {
     const val navUiKtx =
         "androidx.navigation:navigation-ui-ktx:${Versions.navigationVersion}"
 
+    // App Startup
+    const val startUp = "androidx.startup:startup-runtime:${Versions.startupVersion}"
+
     // Google
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
     const val volley = "com.android.volley:volley:${Versions.volleyVersion}"
 
     // Junit
     const val junit4 = "junit:junit:${Versions.junitVersion}"
-
 
     // Coroutines
     const val couroutineAndroid =
