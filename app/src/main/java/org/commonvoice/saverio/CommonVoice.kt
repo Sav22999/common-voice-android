@@ -63,6 +63,11 @@ class CommonVoice : Application() {
                 androidContext()
             )
         }
+        single {
+            LogPrefManager(
+                androidContext()
+            )
+        }
     }
 
     private val logModul = module {
