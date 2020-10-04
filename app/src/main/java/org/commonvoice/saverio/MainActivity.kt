@@ -122,7 +122,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
             "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
             "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED",
-            "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS"
+            "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS",
+            "SAVE_LOG_FILE" to "SAVE_LOG_FILE"
         )
 
     var isExperimentalFeaturesActived: Boolean? = null
@@ -764,6 +765,27 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             PRIVATE_MODE
         ).getBoolean(
             settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
+            false
+        )
+    }
+
+    fun setSaveLogFile(status: Boolean) {
+        if (status != this.getSaveLogFileSwitch()) {
+            getSharedPreferences(
+                settingsSwitchData["SAVE_LOG_FILE"],
+                PRIVATE_MODE
+            ).edit()
+                .putBoolean(settingsSwitchData["SAVE_LOG_FILE"], status)
+                .apply()
+        }
+    }
+
+    fun getSaveLogFileSwitch(): Boolean {
+        return getSharedPreferences(
+            settingsSwitchData["SAVE_LOG_FILE"],
+            PRIVATE_MODE
+        ).getBoolean(
+            settingsSwitchData["SAVE_LOG_FILE"],
             false
         )
     }

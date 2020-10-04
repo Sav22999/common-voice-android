@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import org.commonvoice.saverio.TranslationsLanguages
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.annotation.AnimRes
+import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 import timber.log.Timber
@@ -35,6 +35,7 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     constructor(@LayoutRes layout: Int) : super(layout)
 
     protected val mainPrefManager: MainPrefManager by inject()
+    protected val logPrefManager: LogPrefManager by inject()
 
     override fun attachBaseContext(newBase: Context) {
         val tempLang = mainPrefManager.language
@@ -48,9 +49,11 @@ abstract class VariableLanguageActivity : AppCompatActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread.setDefaultUncaughtExceptionHandler { _, paramThrowable ->
-            //Catch exception
-            Timber.e(paramThrowable)
+        if (logPrefManager.saveLogFile) {
+            Thread.setDefaultUncaughtExceptionHandler { _, paramThrowable ->
+                //Catch exception
+                Timber.e(paramThrowable)
+            }
         }
     }
 
