@@ -140,10 +140,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     var darkTheme: Boolean = false
     var theme: DarkLightTheme = DarkLightTheme()
     var isAbortConfirmation: Boolean = false
-    lateinit var test: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.d(test)
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
