@@ -895,7 +895,7 @@
                 android:showText="false"
                 android:stateListAnimator="@null"
                 android:switchPadding="4dp"
-                android:text="@string/txt_save_logfile"
+                android:text="@string/txt_log_on_file"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_normal"

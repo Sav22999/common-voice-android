@@ -129,7 +129,6 @@
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="txt_save_logfile" comment="Switch-Button in Settings">Save Log File</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
