@@ -95,5 +95,8 @@ dependencies {
     //App Startup
     implementation Libs.startUp
 
+    // Debug
+    implementation Libs.timber
+
     implementation project(":lib")
 }

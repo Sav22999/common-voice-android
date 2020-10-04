@@ -3,15 +3,18 @@ package org.commonvoice.saverio.ui
 import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
+import android.os.Bundle
 import android.os.LocaleList
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import org.commonvoice.saverio.TranslationsLanguages
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.annotation.AnimRes
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
+import timber.log.Timber
 import java.util.*
 
 /**
@@ -41,6 +44,14 @@ abstract class VariableLanguageActivity : AppCompatActivity {
             lang = langSupportedYesOrNot.getDefaultLanguage()
         }
         super.attachBaseContext(newBase.wrap(Locale(lang)))
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Thread.setDefaultUncaughtExceptionHandler { _, paramThrowable ->
+            //Catch exception
+            Timber.e(paramThrowable)
+        }
     }
 
     private fun Context.wrap(desiredLocale: Locale): Context {

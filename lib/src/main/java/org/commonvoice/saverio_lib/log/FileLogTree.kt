@@ -12,7 +12,7 @@ class FileLogTree(val ctx: Context) : Timber.Tree() {
 
     override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
 
-        if (priority == Log.DEBUG) {
+        if (priority == Log.ERROR) {
             try {
                 val directory =
                     File(
@@ -20,32 +20,38 @@ class FileLogTree(val ctx: Context) : Timber.Tree() {
                             null
                         ), "logs"
                     )
-//                    Environment.getExternalStoragePublicDirectory("${Environment.DIRECTORY_DOCUMENTS}/logs")
 
                 if (!directory.exists()) {
-                    Log.d("FileLogTree","no exist")
                     directory.mkdirs()
-                } else {
-                    Log.d("FileLogTree","exist")
                 }
 
                 val fileName = "log.txt"
+                val oldFileName = "log_old.txt"
 
-//                Timber.d("Path: ${directory.absolutePath}")
                 val file = File("${directory.absolutePath}${File.separator}$fileName")
+                val oldFile = File("${directory.absolutePath}${File.separator}$oldFileName")
 
-                file.createNewFile()
+//                file.createNewFile()
 
                 if (file.exists()) {
-                    val fos = FileOutputStream(file, true)
-
-                    fos.write("$message\n".toByteArray(Charsets.UTF_8))
-                    fos.close()
+                    file.renameTo(oldFile)
+                    file.createNewFile()
+                    writeLogToFile(file, message)
+                } else {
+                    file.createNewFile()
+                    writeLogToFile(file, message)
                 }
 
             } catch (e: IOException) {
                 Timber.e("Error while logging into file: $e")
             }
         }
+    }
+
+    private fun writeLogToFile(file: File, message: String) {
+        val fos = FileOutputStream(file, true)
+
+        fos.write("$message\n".toByteArray(Charsets.UTF_8))
+        fos.close()
     }
 }
