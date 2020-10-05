@@ -70,7 +70,7 @@ class CommonVoice : Application() {
         }
     }
 
-    private val logModul = module {
+    private val logModule = module {
         single {
             FileLogTree(androidContext())
         }
@@ -147,7 +147,7 @@ class CommonVoice : Application() {
                     apiModules,
                     mvvmRepos,
                     mvvmViewmodels,
-                    logModul
+                    logModule
                 )
             )
         }
