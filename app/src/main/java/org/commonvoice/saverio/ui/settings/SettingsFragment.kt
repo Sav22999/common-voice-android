@@ -296,9 +296,8 @@ class SettingsFragment : Fragment() {
             root.findViewById(R.id.switchSaveLogFile)
         saveLogFileSettings.setOnCheckedChangeListener { _, isChecked ->
             logPrefManager.saveLogFile = isChecked
-            main.setSaveLogFile(isChecked)
         }
-        saveLogFileSettings.isChecked = main.getSaveLogFileSwitch()
+        saveLogFileSettings.isChecked = logPrefManager.saveLogFile
 
         root.findViewById<Button>(R.id.buttonTelegramGroup).setOnClickListener {
             startActivity(
