@@ -106,7 +106,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             lifecycleScope.launch {
                 val count = speakViewModel.getSentencesCount()
                 withContext(Dispatchers.Main) {
-                    NoClipsSentencesAvailableDialog(this@SpeakActivity, true, count).show()
+                    NoClipsSentencesAvailableDialog(this@SpeakActivity, true, count, theme).show()
                 }
             }
         }
@@ -117,7 +117,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         speakViewModel.hasFinishedSentences.observe(this, {
             if (it && !connectionManager.isInternetAvailable) {
-                NoClipsSentencesAvailableDialog(this, true, 0).show {
+                NoClipsSentencesAvailableDialog(this, true, 0, theme).show {
                     onBackPressed()
                 }
             }
@@ -244,21 +244,17 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     fun setTheme(view: Context) = withBinding {
-        val theme: DarkLightTheme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, layoutSpeak)
-        theme.setElement(isDark, view, buttonSendSpeak)
-        theme.setElement(isDark, view, 1, speakSectionBottom)
+        theme.setElement(layoutSpeak)
+        theme.setElement(view, buttonSendSpeak)
+        theme.setElement(view, 1, speakSectionBottom)
         theme.setElement(
-            isDark,
             view,
             textMessageAlertSpeak,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
-        theme.setElement(isDark, view, buttonReportSpeak, background = false)
-        theme.setElement(isDark, view, buttonSkipSpeak)
+        theme.setElement(view, buttonReportSpeak, background = false)
+        theme.setElement(view, buttonSkipSpeak)
     }
 
     private fun openReportDialog() {

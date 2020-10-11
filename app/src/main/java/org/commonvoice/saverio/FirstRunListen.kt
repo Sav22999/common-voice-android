@@ -48,26 +48,21 @@ class FirstRunListen : VariableLanguageActivity(R.layout.first_run_listen) {
             }
         })
 
-        setTheme(this)
+        setTheme()
     }
 
-    fun setTheme(view: Context) {
-        val theme: DarkLightTheme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElements(view, this.findViewById(R.id.firstRunListenSectionBottom))
-        theme.setElement(isDark, view, 1, findViewById(R.id.firstRunListenSectionBottom))
-        theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
-        theme.setElements(view, this.findViewById(R.id.layoutFirstRunListenNoSmartphone))
+    fun setTheme() {
+        theme.setElements(this, this.findViewById(R.id.firstRunListenSectionBottom))
+        theme.setElement(this, 1, findViewById(R.id.firstRunListenSectionBottom))
+        theme.setElement(this.findViewById(R.id.layoutFirstRunListen) as ConstraintLayout)
+        theme.setElements(this, this.findViewById(R.id.layoutFirstRunListenNoSmartphone))
         theme.setElement(
-            isDark,
             this.findViewById(R.id.layoutFirstRunListenNoSmartphone) as ConstraintLayout
         )
-        theme.setElement(isDark, view, this.findViewById(R.id.btnReadNowGuidelinesListen) as Button)
-        theme.setElement(isDark, view, this.findViewById(R.id.btnNextListen) as Button)
+        theme.setElement(this, this.findViewById(R.id.btnReadNowGuidelinesListen) as Button)
+        theme.setElement(this, this.findViewById(R.id.btnNextListen) as Button)
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.seekBarFirstRunListen) as SeekBar,
             R.color.colorBackground,
             R.color.colorBackgroundDT

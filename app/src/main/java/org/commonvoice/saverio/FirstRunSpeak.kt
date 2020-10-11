@@ -51,20 +51,16 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
             }
         })
 
-        setTheme(this)
+        setTheme()
     }
 
-    fun setTheme(view: Context) {
-        var theme: DarkLightTheme = DarkLightTheme()
-
-        var isDark = theme.getTheme(view)
-        theme.setElements(view, this.findViewById(R.id.firstRunSpeakSectionBottom))
-        theme.setElement(isDark, view, 1, findViewById(R.id.firstRunSpeakSectionBottom))
-        theme.setElement(isDark, this.findViewById(R.id.layoutFirstRunSpeak) as ConstraintLayout)
-        theme.setElement(isDark, view, this.findViewById(R.id.btnNextSpeak) as Button)
+    fun setTheme() {
+        theme.setElements(this, this.findViewById(R.id.firstRunSpeakSectionBottom))
+        theme.setElement(this, 1, findViewById(R.id.firstRunSpeakSectionBottom))
+        theme.setElement(this.findViewById(R.id.layoutFirstRunSpeak) as ConstraintLayout)
+        theme.setElement(this, this.findViewById(R.id.btnNextSpeak) as Button)
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.seekBarFirstRunSpeak) as SeekBar,
             R.color.colorBackground,
             R.color.colorBackgroundDT

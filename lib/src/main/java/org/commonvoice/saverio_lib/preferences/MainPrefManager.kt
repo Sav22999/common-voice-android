@@ -84,6 +84,10 @@ class MainPrefManager(private val ctx: Context) {
             preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED2.name, value).apply()
         }
 
+    var isDarkThemeEnabled: Boolean // I don't know what this is
+        get() = preferences.getBoolean(Keys.IS_DARK.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.IS_DARK.name, value).apply()
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
@@ -98,6 +102,7 @@ class MainPrefManager(private val ctx: Context) {
         SHOW_REPORT_WEBSITE_BUGS,
         LANGUAGE_CHANGED,
         LANGUAGE_CHANGED2,
+        IS_DARK,
     }
 
 }

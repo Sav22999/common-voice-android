@@ -30,7 +30,6 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
         arrayOf("en") // don't change manually -> it's imported from strings.xml
     private var languagesList =
         arrayOf("English") // don't change manually -> it's imported from strings.xml
-    private var theme: DarkLightTheme = DarkLightTheme()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,7 +93,7 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
             }
         languageListFirstLaunch.setSelection(languagesListShort.indexOf(getString(R.string.language)))
 
-        this.setTheme(this)
+        setTheme()
     }
 
     private fun openTerms() {
@@ -201,9 +200,9 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 switchEnableDarkThemeFirstLaunch.setOnCheckedChangeListener { _, isChecked ->
                     switchEnableDarkThemeFirstLaunch.isChecked = isChecked
                     setDarkThemeSwitch(isChecked)
-                    this.setTheme(this)
+                    setTheme()
                 }
-                switchEnableDarkThemeFirstLaunch.isChecked = theme.getTheme(this)
+                switchEnableDarkThemeFirstLaunch.isChecked = theme.isDark
             } else if (status == 4) {
                 //gestures
                 imageFirstLaunch.setImageResource(R.drawable.ic_gestures)
@@ -242,35 +241,32 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
     }
 
     fun setDarkThemeSwitch(status: Boolean) {
-        if (status != theme.getTheme(this)) {
-            theme.setTheme(this, status)
+        if (status != theme.isDark) {
+            theme.isDark = status
         }
     }
 
-    fun setTheme(view: Context) {
-        val isDark = theme.getTheme(view)
-        theme.setElements(view, this.findViewById(R.id.layoutFirstLaunch))
-        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionCVAndroid))
-        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionDescription))
-        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionMiddleBottom))
-        theme.setElements(view, this.findViewById(R.id.firstLaunchSectionBottom))
+    fun setTheme() {
+        theme.setElements(this, this.findViewById(R.id.layoutFirstLaunch))
+        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionCVAndroid))
+        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionDescription))
+        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionMiddleBottom))
+        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionBottom))
 
-        theme.setElement(isDark, view, 3, findViewById(R.id.firstLaunchSectionCVAndroid))
-        theme.setElement(isDark, view, 3, findViewById(R.id.firstLaunchSectionDescription))
-        theme.setElement(isDark, view, 3, findViewById(R.id.firstLaunchSectionMiddleBottom))
-        theme.setElement(isDark, view, 1, findViewById(R.id.firstLaunchSectionBottom))
+        theme.setElement(this, 3, findViewById(R.id.firstLaunchSectionCVAndroid))
+        theme.setElement(this, 3, findViewById(R.id.firstLaunchSectionDescription))
+        theme.setElement(this, 3, findViewById(R.id.firstLaunchSectionMiddleBottom))
+        theme.setElement(this, 1, findViewById(R.id.firstLaunchSectionBottom))
 
-        theme.setTextView(!isDark, view, textMessageFirstLaunch, border = false)
+        theme.setTextView(this, textMessageFirstLaunch, border = false, darkTeme = !theme.isDark)
 
-        theme.setElement(isDark, view, this.findViewById(R.id.buttonNextFirstLaunch) as Button)
+        theme.setElement(this, this.findViewById(R.id.buttonNextFirstLaunch) as Button)
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.buttonOpenTelegramFirstLaunch) as Button
         )
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.seekBarFirstLaunch) as SeekBar,
             R.color.colorBackground,
             R.color.colorBackgroundDT

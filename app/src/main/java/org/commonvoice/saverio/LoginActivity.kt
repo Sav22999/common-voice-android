@@ -125,11 +125,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                     openWebBrowser(url.toString())
                 } else {
                     openWebBrowser("login")
-                    setTheme2(this)
+                    setTheme2()
                 }
             } catch (e: Exception) {
                 openWebBrowser("login")
-                setTheme2(this)
+                setTheme2()
             }
 
             if (mainPrefManager.areGesturesEnabled) {
@@ -142,7 +142,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             }
         } else {
             loadUserData("profile")
-            setTheme(this)
+            setTheme()
 
             if (mainPrefManager.areGesturesEnabled) {
                 nestedScrollLogin.setOnTouchListener(object :
@@ -172,56 +172,45 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         )
     }
 
-    fun setTheme(view: Context) {
-        val theme: DarkLightTheme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, this.findViewById(R.id.layoutLogin) as ConstraintLayout)
-        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionData))
-        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionInformation))
-        theme.setElement(isDark, view, 1, this.findViewById(R.id.loginSectionLogout))
-        theme.setElement(isDark, view, this.findViewById(R.id.btnBadges) as Button)
-        theme.setElement(isDark, view, this.findViewById(R.id.btnLogout) as Button)
+    fun setTheme() {
+        theme.setElement(this.findViewById(R.id.layoutLogin) as ConstraintLayout)
+        theme.setElement(this, 3, this.findViewById(R.id.loginSectionData))
+        theme.setElement(this, 3, this.findViewById(R.id.loginSectionInformation))
+        theme.setElement(this, 1, this.findViewById(R.id.loginSectionLogout))
+        theme.setElement(this, this.findViewById(R.id.btnBadges) as Button)
+        theme.setElement(this, this.findViewById(R.id.btnLogout) as Button)
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.labelToModifyInformation) as TextView,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileUsername) as TextView
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileEmail) as TextView
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileAge) as TextView
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileGender) as TextView
         )
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileUsername) as TextView)
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileEmail) as TextView)
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileAge) as TextView)
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileGender) as TextView)
-        theme.setTextView(isDark, view, textLevel as TextView, border = false)
+        theme.setElement(this, this.findViewById(R.id.labelProfileUsername) as TextView)
+        theme.setElement(this, this.findViewById(R.id.labelProfileEmail) as TextView)
+        theme.setElement(this, this.findViewById(R.id.labelProfileAge) as TextView)
+        theme.setElement(this, this.findViewById(R.id.labelProfileGender) as TextView)
+        theme.setTextView(this, textLevel as TextView, border = false)
     }
 
-    fun setTheme2(view: Context) {
-        val theme: DarkLightTheme = DarkLightTheme()
-        val isDark = theme.getTheme(view)
+    fun setTheme2() {
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.btnAlreadyAVerificationLinkWebBrowser) as Button
         )
     }

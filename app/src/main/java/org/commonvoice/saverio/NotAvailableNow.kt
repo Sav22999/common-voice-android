@@ -12,17 +12,13 @@ class NotAvailableNow : ViewBoundActivity<NotAvailableNowBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setTheme(this)
+        setTheme()
     }
 
-    fun setTheme(view: Context) {
-        val theme: DarkLightTheme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, binding.layoutNotAvailableNow)
+    fun setTheme() {
+        theme.setElement(binding.layoutNotAvailableNow)
         theme.setElement(
-            isDark,
-            view,
+            this,
             binding.txtNotAvailableNow,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT

@@ -1,19 +1,14 @@
 package org.commonvoice.saverio.ui.home
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
 import androidx.annotation.AnimRes
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import org.commonvoice.saverio.BuildConfig
-import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentHomeBinding
@@ -85,7 +80,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         }
 
 
-        setTheme(requireContext(), binding.root)
+        setTheme(requireContext())
 
         startAnimation(binding.buttonSpeak, R.anim.zoom_out)
         startAnimation(binding.buttonListen, R.anim.zoom_out)
@@ -97,26 +92,21 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         homeViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, MainActivity.SOURCE_STORE)
     }
 
-    fun setTheme(view: Context, root: View) = withBinding {
-        val theme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, view, 3, homeSectionCVAndroid)
-        theme.setElement(isDark, view, 3, homeSectionLoginSignup)
+    fun setTheme(view: Context) = withBinding {
+        theme.setElement(view, 3, homeSectionCVAndroid)
+        theme.setElement(view, 3, homeSectionLoginSignup)
         theme.setElement(
-            isDark,
             view,
             textCommonVoiceAndroid,
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             textLoggedUsername,
             background = false
         )
-        theme.setElement(isDark, view, buttonHomeLogin)
-        theme.setElement(isDark, layoutHome)
+        theme.setElement(view, buttonHomeLogin)
+        theme.setElement(layoutHome)
     }
 
     private fun startAnimation(view: View, @AnimRes res: Int) {

@@ -133,7 +133,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     var userId: String = ""
     var userName: String = ""
     var darkTheme: Boolean = false
-    var theme: DarkLightTheme = DarkLightTheme()
     var isAbortConfirmation: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -472,7 +471,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun setDarkThemeSwitch(status: Boolean) {
-        if (status != theme.getTheme(this)) {
+        if (status != theme.isDark) {
             if (status) {
                 //this.showMessage(getString(R.string.toast_dark_theme_on))
                 //EXM02
@@ -494,7 +493,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     )
                 }
             }
-            theme.setTheme(this, status)
+            theme.isDark = status
         }
     }
 

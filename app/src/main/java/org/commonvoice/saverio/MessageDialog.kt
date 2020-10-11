@@ -15,8 +15,10 @@ import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
 import kotlinx.android.synthetic.main.offline_mode_message.view.*
 import kotlinx.android.synthetic.main.report_bugs_message.view.*
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class MessageDialog {
+class MessageDialog: KoinComponent {
     private var message_type: Int =
         0 /*0->standard (Ok), 1->dailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off),
             3->reportClip (listen), 4->reportSentence (Speak)
@@ -32,6 +34,8 @@ class MessageDialog {
     private var main: MainActivity? = null
     private var listen: ListenActivity? = null
     private var speak: SpeakActivity? = null
+
+    private val theme: DarkLightTheme by inject() //TODO change this if we want to switch to Dagger-Hilt
 
     constructor(context: Context, title: String, text: String, height: Int = 0) {
         this.context = context
@@ -342,9 +346,6 @@ class MessageDialog {
     }
 
     fun setTheme(view: Context, dialogView: View) {
-        var theme: DarkLightTheme = DarkLightTheme()
-        var isDark = theme.getTheme(view)
-
         when (this.message_type) {
             0, 2, 5, 6, 7, 8, 9 -> {
                 //standard message dialog
@@ -356,38 +357,37 @@ class MessageDialog {
                         ContextCompat.getColorStateList(view, R.color.colorTransparent)
                 }
 
-                if (this.message_type == 2) isDark = !isDark
                 theme.setElement(
-                    isDark,
-                    dialogView.findViewById(R.id.messageDialogSectionMiddle) as ConstraintLayout
+                    dialogView.findViewById(R.id.messageDialogSectionMiddle) as ConstraintLayout,
+                    invert = message_type == 2
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     -1,
-                    dialogView.findViewById(R.id.messageDialogSectionMiddle) as ConstraintLayout
+                    dialogView.findViewById(R.id.messageDialogSectionMiddle) as ConstraintLayout,
+                    invert = message_type == 2
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.labelDetailsMessageDialog) as TextView,
                     R.color.colorAlertMessage,
-                    R.color.colorAlertMessageDT
+                    R.color.colorAlertMessageDT,
+                    invert = message_type == 2
                 )
                 theme.setElement(
-                    isDark,
                     view,
-                    dialogView.findViewById(R.id.btnOkMessageDialog) as Button
+                    dialogView.findViewById(R.id.btnOkMessageDialog) as Button,
+                    invert = message_type == 2
                 )
                 theme.setElement(
-                    isDark,
                     view,
-                    dialogView.findViewById(R.id.labelTextMessageDialog) as TextView
+                    dialogView.findViewById(R.id.labelTextMessageDialog) as TextView,
+                    invert = message_type == 2
                 )
                 theme.setElement(
-                    isDark,
                     view,
-                    dialogView.findViewById(R.id.btnShowHideDetailsMessageDialog) as TextView
+                    dialogView.findViewById(R.id.btnShowHideDetailsMessageDialog) as TextView,
+                    invert = message_type == 2
                 )
             }
             1 -> {
@@ -400,44 +400,36 @@ class MessageDialog {
                         ContextCompat.getColorStateList(view, R.color.colorTransparent)
                 }
                 theme.setElement(
-                    isDark,
                     dialogView.findViewById(R.id.dailyGoalSectionMiddle) as ConstraintLayout
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     -1,
                     dialogView.findViewById(R.id.dailyGoalSectionMiddle) as ConstraintLayout
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.labelTextAlertDailyGoalFeature) as TextView,
                     R.color.colorAlertMessage,
                     R.color.colorAlertMessageDT
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.btnDailyGoalCancel) as Button
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.btnDailyGoalDelete) as Button
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.labelTextDailyGoal) as TextView
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.labelDailyGoalValue) as TextView
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
                 )
@@ -454,42 +446,35 @@ class MessageDialog {
                 }
 
                 theme.setElement(
-                    isDark,
                     dialogView.findViewById(R.id.messageDialogSectionMiddleOfflineMode) as ConstraintLayout
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     -1,
                     dialogView.findViewById(R.id.messageDialogSectionMiddleOfflineMode) as ConstraintLayout
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.btnOkMessageDialogOfflineMode) as Button
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.textDescriptionOfflineMode) as TextView
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.textDescriptionOfflineMode2) as TextView
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.textDescriptionOfflineMode3) as TextView
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.checkDoNotShowAnymoreOfflineMode) as CheckBox
                 )
 
-                setImageNoWifi(view, dialogView, isDark)
+                setImageNoWifi(view, dialogView, theme.isDark)
             }
             11 -> {
                 //report website bug message
@@ -503,42 +488,35 @@ class MessageDialog {
                 }
 
                 theme.setElement(
-                    isDark,
                     dialogView.findViewById(R.id.messageDialogSectionMiddleReportBug) as ConstraintLayout
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     -1,
                     dialogView.findViewById(R.id.messageDialogSectionMiddleReportBug) as ConstraintLayout
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.btnOkMessageDialogReportBug) as Button
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.btnMessageDialogReportBugGitHub) as Button
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.btnMessageDialogReportBugMozillaDiscourse) as Button
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.textDescriptionReportBug) as TextView
                 )
                 theme.setElement(
-                    isDark,
                     view,
                     dialogView.findViewById(R.id.checkDoNotShowAnymoreReportBug) as CheckBox
                 )
 
-                setImageNoWifi(view, dialogView, isDark)
+                setImageNoWifi(view, dialogView, theme.isDark)
             }
         }
     }

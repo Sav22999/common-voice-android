@@ -30,13 +30,13 @@ class SettingsFragment : Fragment() {
     private val mainPrefManager: MainPrefManager by inject()
     private val speakPrefManager: SpeakPrefManager by inject()
     private val listenPrefManager: ListenPrefManager by inject()
+    private val theme: DarkLightTheme by inject()
 
     var languagesListShort =
         arrayOf("en") // don't change it manually -> it will import automatically
     var languagesList =
         arrayOf("English") // don't change it manually -> it will import automatically
     var isAlpha: Boolean = false
-    var theme: DarkLightTheme = DarkLightTheme()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -131,7 +131,7 @@ class SettingsFragment : Fragment() {
             main.setDarkThemeSwitch(isChecked)
             setTheme(main, root)
         }
-        switchDarkThemeSettings.isChecked = theme.getTheme(main)
+        switchDarkThemeSettings.isChecked = theme.isDark
 
         val switchStatisticsSettings: Switch = root.findViewById(R.id.switchAnonymousStatistics)
         switchStatisticsSettings.setOnCheckedChangeListener { _, isChecked ->
@@ -332,7 +332,6 @@ class SettingsFragment : Fragment() {
     }
 
     fun setTheme(view: Context, root: View) {
-        val isDark = theme.getTheme(view)
         theme.setElements(view, root.findViewById(R.id.layoutSettings))
 
         theme.setElements(view, root.findViewById(R.id.settingsSectionLanguage))
@@ -342,107 +341,91 @@ class SettingsFragment : Fragment() {
         theme.setElements(view, root.findViewById(R.id.settingsSectionExperimentalFeatures))
         theme.setElements(view, root.findViewById(R.id.settingsSectionBottom))
 
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionLanguage))
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionListen))
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionSpeak))
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.settingsSectionOther))
+        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionLanguage))
+        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionListen))
+        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionSpeak))
+        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionOther))
         theme.setElement(
-            isDark,
             view,
             3,
             root.findViewById(R.id.settingsSectionExperimentalFeatures)
         )
-        theme.setElement(isDark, view, 1, root.findViewById(R.id.settingsSectionBottom))
+        theme.setElement(view, 1, root.findViewById(R.id.settingsSectionBottom))
 
 
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.textRelease),
             background = false
         )
 
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonContactOnTelegram),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonBuyMeACoffee),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonProjectGitHub),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonTranslateTheApp),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonOpenTutorial),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonSeeStatistics),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonCustomiseTheFontSize),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonCustomiseGestures),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonThemes),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonTelegramGroup),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonReadGuidelines),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonReadCommonVoiceToS),
             background = false
         )
         theme.setElement(
-            isDark,
             view,
             root.findViewById(R.id.buttonReviewOnGooglePlay),
             background = false
         )
 
         theme.setElement(
-            isDark,
             root.findViewById(R.id.imageLanguageIcon) as ImageView,
             R.drawable.ic_language,
             R.drawable.ic_language

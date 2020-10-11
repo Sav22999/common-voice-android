@@ -22,18 +22,14 @@ class NoConnectionActivity : ViewBoundActivity<ActivityNoconnectionBinding>(
             checkConnection()
         }
 
-        setTheme(this)
+        setTheme()
     }
 
-    private fun setTheme(view: Context) {
-        val theme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, binding.layoutNoConnection)
-        theme.setElement(isDark, view, binding.btnCheckAgain)
+    private fun setTheme() {
+        theme.setElement(binding.layoutNoConnection)
+        theme.setElement(this, binding.btnCheckAgain)
         theme.setElement(
-            isDark,
-            view,
+            this,
             binding.txtNoInternetConnection,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT

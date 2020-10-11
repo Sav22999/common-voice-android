@@ -86,7 +86,7 @@ class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
             }
         }
 
-        setTheme(this)
+        setTheme()
     }
 
     private fun determineColumnNumber(): Int {
@@ -133,12 +133,9 @@ class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
         }
     }
 
-    private fun setTheme(view: Context) {
-        val theme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, binding.layoutAllBadges)
-        theme.setElement(isDark, view, binding.btnCloseBadges)
+    private fun setTheme() {
+        theme.setElement(binding.layoutAllBadges)
+        theme.setElement(this, binding.btnCloseBadges)
     }
 
 }

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
+import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.utils.TranslationLanguages
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
@@ -32,6 +33,8 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     constructor(@LayoutRes layout: Int) : super(layout)
 
     protected val mainPrefManager: MainPrefManager by inject()
+
+    protected val theme: DarkLightTheme by inject()
 
     override fun attachBaseContext(newBase: Context) {
         val tempLang = mainPrefManager.language
