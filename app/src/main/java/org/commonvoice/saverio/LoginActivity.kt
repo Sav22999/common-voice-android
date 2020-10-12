@@ -21,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -31,11 +32,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_webbrowser.*
 import kotlinx.android.synthetic.main.bottomsheet_login.view.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.utils.ImageDownloader
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
@@ -485,13 +489,13 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                         )
                                     )
                                     if (imageUrl != "null" && imageUrl != "") {
-                                        DownLoadImage(
-                                            profileImage
-                                        ).execute(imageUrl)
+                                        lifecycleScope.launch {
+                                            ImageDownloader.loadImageIntoImageView(imageUrl, profileImage)
+                                        }
                                     } else {
-                                        DownLoadImage(
-                                            profileImage
-                                        ).execute("null")
+                                        lifecycleScope.launch {
+                                            ImageDownloader.loadImageIntoImageView("null", profileImage)
+                                        }
                                     }
                                     var allBadgesButton: Button = findViewById(R.id.btnBadges)
                                     allBadgesButton.isEnabled = true
