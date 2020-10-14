@@ -1,14 +1,10 @@
 package org.commonvoice.saverio
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.widget.Button
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import org.commonvoice.saverio.databinding.AllBadgesBinding
-import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.recyclerview.badges.Badge
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeAdapter
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity

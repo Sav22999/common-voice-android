@@ -1,68 +1,70 @@
 package org.commonvoice.saverio
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import kotlinx.android.synthetic.main.first_launch.*
-import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.databinding.FirstLaunchBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
+import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.koin.android.ext.android.inject
 
 
-class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
+class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
+    FirstLaunchBinding::inflate
+) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
 
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
-    private var languagesListShort =
-        arrayOf("en") // don't change manually -> it's imported from strings.xml
-    private var languagesList =
-        arrayOf("English") // don't change manually -> it's imported from strings.xml
+    
+    private val languagesListShort by lazy {
+        resources.getStringArray(R.array.languages_short)
+    } 
+    
+    private val languagesList by lazy {
+        resources.getStringArray(R.array.languages)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        seekBarFirstLaunch.isEnabled = false
-        seekBarFirstLaunch.progress = 0
-
-        // import languages from array
-        languagesList = resources.getStringArray(R.array.languages)
-        languagesListShort = resources.getStringArray(R.array.languages_short)
-
-        val textTerms = this.textTermsFirstLaunch
-        textTerms.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        textTerms.setOnClickListener {
+        binding.seekBarFirstLaunch.isEnabled = false
+        binding.seekBarFirstLaunch.progress = 0
+        
+        binding.textTermsFirstLaunch.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        binding.textTermsFirstLaunch.onClick {
             openTerms()
         }
 
-        this.buttonNextFirstLaunch.setOnClickListener {
+        binding.buttonNextFirstLaunch.onClick {
             checkStatus(swipe = false)
         }
         // startup
         checkStatus(start = true)
 
-        buttonSkipFirstLaunch.setOnClickListener {
+        binding.buttonSkipFirstLaunch.onClick {
             checkStatus(next = true)
         }
 
-        buttonOpenTelegramFirstLaunch.setOnClickListener {
+        binding.buttonOpenTelegramFirstLaunch.onClick {
             openTelegramGroup()
         }
 
         // set gestures
-        nestedScrollFirstLaunch.setOnTouchListener(object :
+        binding.nestedScrollFirstLaunch.setOnTouchListener(object :
             OnSwipeTouchListener(this@FirstLaunch) {
             override fun onSwipeLeft() {
                 checkStatus(next = true) //forward
@@ -74,9 +76,9 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
         })
 
         // set languages imported
-        languageListFirstLaunch.adapter =
-            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, languagesList)
-        languageListFirstLaunch.onItemSelectedListener =
+        binding.languageListFirstLaunch.adapter =
+            ArrayAdapter(this, android.R.layout.simple_list_item_1, languagesList)
+        binding.languageListFirstLaunch.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     //setLanguage("")
@@ -88,10 +90,10 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                     position: Int,
                     id: Long
                 ) {
-                    setLanguage(languagesListShort[position])
+                    mainPrefManager.language = languagesListShort[position]
                 }
             }
-        languageListFirstLaunch.setSelection(languagesListShort.indexOf(getString(R.string.language)))
+        binding.languageListFirstLaunch.setSelection(languagesListShort.indexOf(getString(R.string.language)))
 
         setTheme()
     }
@@ -114,7 +116,12 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
         )
     }
 
-    private fun checkStatus(start: Boolean = false, next: Boolean = true, swipe: Boolean = true) {
+    private fun checkStatus(
+        start: Boolean = false, 
+        next: Boolean = true, 
+        swipe: Boolean = true
+    ): Unit = withBinding {
+        
         if (next && status < 7 || !next && status > 0 || start) {
             imageFirstLaunch.setImageResource(R.drawable.robot)
             stopAnimation(imageFirstLaunch)
@@ -123,9 +130,9 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
             buttonOpenTelegramFirstLaunch.isGone = true
             textMessageFirstLaunch.isGone = true
             imageFirstLaunch.imageTintList =
-                ContextCompat.getColorStateList(this, R.color.colorGray)
+                ContextCompat.getColorStateList(this@FirstLaunch, R.color.colorGray)
             languageListFirstLaunch.isGone = true
-            buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3)
+            buttonNextFirstLaunch.setText(R.string.btn_tutorial3)
             firstLaunchSectionMiddleBottom.isGone = true
             switchEnableDarkThemeFirstLaunch.isGone = true
             textTermsFirstLaunch.isGone = true
@@ -134,7 +141,7 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 if (next) status++
                 else status--
             }
-            buttonNextFirstLaunch.setOnClickListener {
+            buttonNextFirstLaunch.onClick {
                 checkStatus(swipe = false)
             }
 
@@ -148,26 +155,24 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 }
                 //introduction
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
-                textDescriptionFirstLaunch.text =
-                    getString(R.string.txt_introduction_app_first_launch)
+                textDescriptionFirstLaunch.setText(R.string.txt_introduction_app_first_launch)
                 imageFirstLaunch.imageTintList =
-                    ContextCompat.getColorStateList(this, R.color.colorTransparent)
+                    ContextCompat.getColorStateList(this@FirstLaunch, R.color.colorTransparent)
                 firstLaunchSectionMiddleBottom.isGone = false
                 textTermsFirstLaunch.isGone = false
             } else if (status == 1) {
                 //microphone
                 imageFirstLaunch.setImageResource(R.drawable.ic_microphone)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
-                textDescriptionFirstLaunch.text =
-                    getString(R.string.txt_microphone_permission_first_launch)
+                textDescriptionFirstLaunch.setText(R.string.txt_microphone_permission_first_launch)
                 if (!checkPermission(Manifest.permission.RECORD_AUDIO)) {
-                    buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2)
-                    buttonNextFirstLaunch.setOnClickListener {
+                    buttonNextFirstLaunch.setText(R.string.btn_tutorial2)
+                    buttonNextFirstLaunch.onClick {
                         getPermission(Manifest.permission.RECORD_AUDIO)
                     }
                     buttonSkipFirstLaunch.isGone = false
                 } else {
-                    buttonNextFirstLaunch.setOnClickListener {
+                    buttonNextFirstLaunch.onClick {
                         checkStatus(swipe = false)
                     }
                 }
@@ -175,16 +180,15 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 //storage
                 imageFirstLaunch.setImageResource(R.drawable.ic_storage)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
-                textDescriptionFirstLaunch.text =
-                    getString(R.string.txt_storage_permission_first_launch)
+                textDescriptionFirstLaunch.setText(R.string.txt_storage_permission_first_launch)
                 if (!checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    buttonNextFirstLaunch.text = getString(R.string.btn_tutorial2)
-                    buttonNextFirstLaunch.setOnClickListener {
+                    buttonNextFirstLaunch.setText(R.string.btn_tutorial2)
+                    buttonNextFirstLaunch.onClick {
                         getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     }
                     buttonSkipFirstLaunch.isGone = false
                 } else {
-                    buttonNextFirstLaunch.setOnClickListener {
+                    buttonNextFirstLaunch.onClick {
                         checkStatus(swipe = false)
                     }
                 }
@@ -192,14 +196,13 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 //dark theme
                 imageFirstLaunch.setImageResource(R.drawable.ic_dark_mode_first_launch)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
-                textDescriptionFirstLaunch.text =
-                    getString(R.string.txt_themes_first_launch)
+                textDescriptionFirstLaunch.setText(R.string.txt_themes_first_launch)
                 firstLaunchSectionMiddleBottom.isGone = false
                 switchEnableDarkThemeFirstLaunch.isGone = false
 
                 switchEnableDarkThemeFirstLaunch.setOnCheckedChangeListener { _, isChecked ->
                     switchEnableDarkThemeFirstLaunch.isChecked = isChecked
-                    setDarkThemeSwitch(isChecked)
+                    theme.isDark = isChecked
                     setTheme()
                 }
                 switchEnableDarkThemeFirstLaunch.isChecked = theme.isDark
@@ -213,26 +216,23 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
                 //telegram group
                 imageFirstLaunch.setImageResource(R.drawable.ic_telegram)
                 imageFirstLaunch.imageTintList =
-                    ContextCompat.getColorStateList(this, R.color.colorTransparent)
+                    ContextCompat.getColorStateList(this@FirstLaunch, R.color.colorTransparent)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
-                textDescriptionFirstLaunch.text =
-                    getString(R.string.txt_telegram_group_first_launch)
+                textDescriptionFirstLaunch.setText(R.string.txt_telegram_group_first_launch)
                 buttonOpenTelegramFirstLaunch.isGone = false
                 startAnimation(buttonOpenTelegramFirstLaunch, animationFirstLaunch)
             } else if (status == 6) {
                 //offline mode
                 imageFirstLaunch.setImageResource(R.drawable.ic_no_wifi)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
-                textDescriptionFirstLaunch.text =
-                    getString(R.string.txt_offline_mode_first_launch)
+                textDescriptionFirstLaunch.setText(R.string.txt_offline_mode_first_launch)
             } else if (status == 7) {
                 //language
                 imageFirstLaunch.setImageResource(R.drawable.ic_language)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
-                textDescriptionFirstLaunch.text =
-                    getString(R.string.txt_choose_language_first_launch)
+                textDescriptionFirstLaunch.setText(R.string.txt_choose_language_first_launch)
                 languageListFirstLaunch.isGone = false
-                buttonNextFirstLaunch.text = getString(R.string.btn_tutorial5)
+                buttonNextFirstLaunch.setText(R.string.btn_tutorial5)
             }
         } else if (status == 7 && next && !swipe) {
             //close first launch
@@ -240,34 +240,28 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
         }
     }
 
-    fun setDarkThemeSwitch(status: Boolean) {
-        if (status != theme.isDark) {
-            theme.isDark = status
-        }
-    }
+    fun setTheme() = withBinding {
+        theme.setElements(this@FirstLaunch, layoutFirstLaunch)
+        theme.setElements(this@FirstLaunch, firstLaunchSectionCVAndroid)
+        theme.setElements(this@FirstLaunch, firstLaunchSectionDescription)
+        theme.setElements(this@FirstLaunch, firstLaunchSectionMiddleBottom)
+        theme.setElements(this@FirstLaunch, firstLaunchSectionBottom)
 
-    fun setTheme() {
-        theme.setElements(this, this.findViewById(R.id.layoutFirstLaunch))
-        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionCVAndroid))
-        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionDescription))
-        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionMiddleBottom))
-        theme.setElements(this, this.findViewById(R.id.firstLaunchSectionBottom))
+        theme.setElement(this@FirstLaunch, 3, firstLaunchSectionCVAndroid)
+        theme.setElement(this@FirstLaunch, 3, firstLaunchSectionDescription)
+        theme.setElement(this@FirstLaunch, 3, firstLaunchSectionMiddleBottom)
+        theme.setElement(this@FirstLaunch, 1, firstLaunchSectionBottom)
 
-        theme.setElement(this, 3, findViewById(R.id.firstLaunchSectionCVAndroid))
-        theme.setElement(this, 3, findViewById(R.id.firstLaunchSectionDescription))
-        theme.setElement(this, 3, findViewById(R.id.firstLaunchSectionMiddleBottom))
-        theme.setElement(this, 1, findViewById(R.id.firstLaunchSectionBottom))
+        theme.setTextView(this@FirstLaunch, textMessageFirstLaunch, border = false, darkTeme = !theme.isDark)
 
-        theme.setTextView(this, textMessageFirstLaunch, border = false, darkTeme = !theme.isDark)
-
-        theme.setElement(this, this.findViewById(R.id.buttonNextFirstLaunch) as Button)
+        theme.setElement(this@FirstLaunch, buttonNextFirstLaunch)
         theme.setElement(
-            this,
-            this.findViewById(R.id.buttonOpenTelegramFirstLaunch) as Button
+            this@FirstLaunch,
+            buttonOpenTelegramFirstLaunch
         )
         theme.setElement(
-            this,
-            this.findViewById(R.id.seekBarFirstLaunch) as SeekBar,
+            this@FirstLaunch,
+            seekBarFirstLaunch,
             R.color.colorBackground,
             R.color.colorBackgroundDT
         )
@@ -294,26 +288,24 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
 
     private fun permissionDenied() {
         // Permission is not granted
-        textMessageFirstLaunch.isVisible = true
-        if (textMessageFirstLaunch.isGone) {
-            startAnimation(textMessageFirstLaunch, R.anim.zoom_in)
+        binding.textMessageFirstLaunch.isVisible = true
+        if (binding.textMessageFirstLaunch.isGone) {
+            startAnimation(binding.textMessageFirstLaunch, R.anim.zoom_in)
         }
-        textMessageFirstLaunch.text =
-            getString(R.string.txt_permission_denied_first_launch) // permission failed
+        binding.textMessageFirstLaunch.setText(R.string.txt_permission_denied_first_launch) // permission failed
     }
 
-    private fun permissionObtained() {
+    private fun permissionObtained() = withBinding {
         // Permission is granted
         textMessageFirstLaunch.isVisible = true
         if (textMessageFirstLaunch.isGone) {
             startAnimation(textMessageFirstLaunch, R.anim.zoom_in)
         }
-        textMessageFirstLaunch.text =
-            getString(R.string.txt_permission_obtained_first_launch) // permission successful
+        textMessageFirstLaunch.setText(R.string.txt_permission_obtained_first_launch) // permission successful
 
-        buttonNextFirstLaunch.text = getString(R.string.btn_tutorial3)//next
+        buttonNextFirstLaunch.setText(R.string.btn_tutorial3)//next
         buttonSkipFirstLaunch.isGone = true//hide skip button
-        this.buttonNextFirstLaunch.setOnClickListener {
+        buttonNextFirstLaunch.onClick {
             checkStatus(swipe = false)
         }
     }
@@ -324,10 +316,6 @@ class FirstLaunch : VariableLanguageActivity(R.layout.first_launch) {
             startActivity(it)
         }
         finish()
-    }
-
-    fun setLanguage(language: String) {
-        mainPrefManager.language = language
     }
 
     override fun onRequestPermissionsResult(
