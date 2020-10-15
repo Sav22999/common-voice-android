@@ -1,7 +1,6 @@
 package org.commonvoice.saverio
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -13,34 +12,34 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
-import kotlinx.android.synthetic.main.first_run_speak.*
-import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.databinding.FirstRunSpeakBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
+import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.koin.android.ext.android.inject
 
-class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
+class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
+    FirstRunSpeakBinding::inflate
+) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
 
-    var status: Int = 0
-    private var PRIVATE_MODE = 0
-    private val FIRST_RUN_SPEAK = "FIRST_RUN_SPEAK"
+    private var status: Int = 0
     private val RECORD_REQUEST_CODE = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.seekBarFirstRunSpeak.isEnabled = false
-        this.seekBarFirstRunSpeak.progress = 0
+        binding.seekBarFirstRunSpeak.isEnabled = false
+        binding.seekBarFirstRunSpeak.progress = 0
 
         goNextOrBack()
-        var btnNext: Button = this.findViewById(R.id.btnNextSpeak)
-        btnNext.setOnClickListener {
+        binding.btnNextSpeak.onClick {
             goNextOrBack()
         }
 
-        layoutFirstRunSpeak.setOnTouchListener(object :
+        binding.layoutFirstRunSpeak.setOnTouchListener(object :
             OnSwipeTouchListener(this@FirstRunSpeak) {
             override fun onSwipeLeft() {
                 goNextOrBack(true)
@@ -54,14 +53,14 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
         setTheme()
     }
 
-    fun setTheme() {
-        theme.setElements(this, this.findViewById(R.id.firstRunSpeakSectionBottom))
-        theme.setElement(this, 1, findViewById(R.id.firstRunSpeakSectionBottom))
-        theme.setElement(this.findViewById(R.id.layoutFirstRunSpeak) as ConstraintLayout)
-        theme.setElement(this, this.findViewById(R.id.btnNextSpeak) as Button)
+    fun setTheme() = withBinding {
+        theme.setElements(this@FirstRunSpeak, firstRunSpeakSectionBottom)
+        theme.setElement(this@FirstRunSpeak, 1, firstRunSpeakSectionBottom)
+        theme.setElement(layoutFirstRunSpeak)
+        theme.setElement(this@FirstRunSpeak, btnNextSpeak)
         theme.setElement(
-            this,
-            this.findViewById(R.id.seekBarFirstRunSpeak) as SeekBar,
+            this@FirstRunSpeak,
+            seekBarFirstRunSpeak,
             R.color.colorBackground,
             R.color.colorBackgroundDT
         )
@@ -71,167 +70,152 @@ class FirstRunSpeak : VariableLanguageActivity(R.layout.first_run_speak) {
         finish()
     }
 
-    fun goNextOrBack(next: Boolean = true) {
-        var btnNext: Button = this.findViewById(R.id.btnNextSpeak)
-        var txtNumberBottom: Button = this.findViewById(R.id.btnNumberBottomSpeak)
-        var txtTextBottom: TextView = this.findViewById(R.id.txtTutorialMessageBottomSpeak)
-        var txtNumberTop: Button = this.findViewById(R.id.btnNumberTopSpeak)
-        var txtTextTop: TextView = this.findViewById(R.id.txtTutorialMessageTopSpeak)
-        var txtOne: Button = this.findViewById(R.id.btnOneSpeak)
-        var txtTwo: Button = this.findViewById(R.id.btnTwoSpeak)
-        var txtThree: Button = this.findViewById(R.id.btnThreeSpeak)
-        var txtFour: Button = this.findViewById(R.id.btnFourSpeak)
-        var txtEight: Button = this.findViewById(R.id.btnEightSpeak)
-        var txtNine: Button = this.findViewById(R.id.btnNineSpeak)
-        var btnRecord: ImageView = this.findViewById(R.id.imgBtnRecordSpeak)
-        var btnListenAgain: ImageView = this.findViewById(R.id.imgBtnListenAgainSpeak)
-        var btnSend: ImageView = this.findViewById(R.id.imgBtnSendSpeak)
-        var txtSend: ImageView = this.findViewById(R.id.imgTxt4Speak)
-        if (this.status >= 0 && this.status < 9) {
-            txtNumberBottom.isGone = true
-            txtTextBottom.isGone = true
-            txtNumberTop.isGone = true
-            txtTextTop.isGone = true
-            txtOne.isGone = true
-            txtTwo.isGone = true
-            txtFour.isGone = true
-            txtThree.isGone = true
-            txtEight.isGone = true
-            txtNine.isGone = true
-            btnRecord.setImageResource(R.drawable.speak_cv)
-            btnListenAgain.isGone = true
-            btnSend.isGone = true
-            txtSend.isGone = true
+    fun goNextOrBack(next: Boolean = true) = withBinding {
+        if (status in 0..8) {
+            btnNumberBottomSpeak.isGone = true
+            txtTutorialMessageBottomSpeak.isGone = true
+            btnNumberTopSpeak.isGone = true
+            txtTutorialMessageTopSpeak.isGone = true
+            btnOneSpeak.isGone = true
+            btnTwoSpeak.isGone = true
+            btnFourSpeak.isGone = true
+            btnThreeSpeak.isGone = true
+            btnEightSpeak.isGone = true
+            btnNineSpeak.isGone = true
+            imgBtnRecordSpeak.setImageResource(R.drawable.speak_cv)
+            imgBtnListenAgainSpeak.isGone = true
+            imgBtnSendSpeak.isGone = true
+            imgTxt4Speak.isGone = true
         }
 
-        if (next) this.seekBarFirstRunSpeak.progress = this.status
-        else if (!next && this.status > 1) this.seekBarFirstRunSpeak.progress = this.status - 2
+        if (next) seekBarFirstRunSpeak.progress = status
+        else if (!next && status > 1) this.seekBarFirstRunSpeak.progress = status - 2
 
-        if (this.status == 0 || this.status == 2 && !next || this.status == 1 && !next) {
-            this.status = 1
-            btnNext.setText(getString(R.string.btn_tutorial1))
-            txtNumberBottom.setText("1")
-            txtTextBottom.setText(getString(R.string.txt1_tutorial_speak))
-            txtNumberBottom.isGone = false
-            txtTextBottom.isGone = false
-            txtOne.isGone = false
-            stopAnimation(txtTwo)
-            startAnimation(txtOne, R.anim.zoom_in)
-        } else if (this.status == 1 || this.status == 3 && !next) {
-            this.status = 2
-            btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberTop.setText("2")
-            txtTextTop.setText(getString(R.string.txt2_tutorial_speak_and_listen))
-            txtNumberTop.isGone = false
-            txtTextTop.isGone = false
-            txtTwo.isGone = false
-            stopAnimation(txtOne)
-            stopAnimation(txtThree)
-            startAnimation(txtTwo, R.anim.zoom_in)
-        } else if (this.status == 2 || this.status == 4 && !next) {
-            this.status = 3
-            btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberTop.setText("3")
-            txtTextTop.setText(getString(R.string.txt3_tutorial_speak))
-            txtNumberTop.isGone = false
-            txtTextTop.isGone = false
-            txtThree.isGone = false
-            stopAnimation(txtTwo)
-            stopAnimation(txtFour)
-            startAnimation(txtThree, R.anim.zoom_in)
-        } else if (this.status == 3 || this.status == 5 && !next) {
-            this.status = 4
-            btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberTop.setText("4")
-            txtTextTop.setText(getString(R.string.txt4_tutorial_speak))
-            txtNumberTop.isGone = false
-            txtTextTop.isGone = false
-            txtFour.isGone = false
-            txtFour.setText("4")
-            stopAnimation(txtThree)
-            stopAnimation(txtFour)
-            startAnimation(txtFour, R.anim.zoom_in)
-        } else if (this.status == 4 || this.status == 6 && !next) {
-            this.status = 5
-            btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberTop.setText("5")
-            txtTextTop.setText(getString(R.string.txt5_tutorial_speak))
-            txtNumberTop.isGone = false
-            txtTextTop.isGone = false
-            txtFour.isGone = false
-            txtFour.setText("5")
-            btnRecord.setImageResource(R.drawable.stop_cv)
-            stopAnimation(txtFour)
-            startAnimation(txtFour, R.anim.zoom_in)
-        } else if (this.status == 5 || this.status == 7 && !next) {
-            this.status = 6
-            btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberTop.setText("6")
-            txtTextTop.setText(getString(R.string.txt6_tutorial_speak))
-            txtNumberTop.isGone = false
-            txtTextTop.isGone = false
-            txtFour.isGone = false
-            txtFour.setText("6")
-            btnRecord.setImageResource(R.drawable.listen2_cv)
-            stopAnimation(txtFour)
-            startAnimation(txtFour, R.anim.zoom_in)
-        } else if (this.status == 6 || this.status == 8 && !next) {
-            this.status = 7
-            btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberTop.setText("7")
-            txtTextTop.setText(getString(R.string.txt7_tutorial_speak))
-            txtNumberTop.isGone = false
-            txtTextTop.isGone = false
-            txtFour.isGone = false
-            txtFour.setText("7")
-            btnListenAgain.isGone = false
-            btnSend.isGone = false
-            txtSend.isGone = false
-            btnRecord.setImageResource(R.drawable.speak2_cv)
-            stopAnimation(txtFour)
-            stopAnimation(txtEight)
-            startAnimation(txtFour, R.anim.zoom_in)
-        } else if (this.status == 7 || this.status == 9 && !next) {
-            this.status = 8
-            btnNext.setText(getString(R.string.btn_tutorial3))
-            txtNumberBottom.setText("8")
-            txtTextBottom.setText(getString(R.string.txt8_tutorial_speak))
-            txtNumberTop.isGone = true
-            txtTextTop.isGone = true
-            txtNumberBottom.isGone = false
-            txtTextBottom.isGone = false
-            txtEight.isGone = false
-            txtNine.isGone = true
-            btnListenAgain.isGone = false
-            btnSend.isGone = false
-            txtSend.isGone = false
-            btnRecord.setImageResource(R.drawable.speak2_cv)
-            stopAnimation(txtFour)
-            stopAnimation(txtNine)
-            startAnimation(txtEight, R.anim.zoom_in)
-        } else if (this.status == 8 || this.status == 10 && !next) {
-            this.status = 9
-            btnNext.setText(getString(R.string.btn_tutorial5))
-            txtNumberTop.setText("9")
-            txtTextTop.setText(getString(R.string.txt9_tutorial_speak))
-            txtNumberTop.isGone = false
-            txtTextTop.isGone = false
-            txtNumberBottom.isGone = true
-            txtTextBottom.isGone = true
-            txtNine.isGone = false
-            btnListenAgain.isGone = false
-            btnRecord.setImageResource(R.drawable.speak2_cv)
-            btnSend.isGone = false
-            txtSend.isGone = false
-            stopAnimation(txtEight)
-            startAnimation(txtNine, R.anim.zoom_in)
-        } else if (this.status == 9) {
+        if (status == 0 || status == 2 && !next || status == 1 && !next) {
+            status = 1
+            btnNextSpeak.setText(R.string.btn_tutorial1)
+            btnNumberBottomSpeak.text = "1"
+            txtTutorialMessageBottomSpeak.setText(R.string.txt1_tutorial_speak)
+            btnNumberBottomSpeak.isGone = false
+            txtTutorialMessageBottomSpeak.isGone = false
+            btnOneSpeak.isGone = false
+            stopAnimation(btnTwoSpeak)
+            startAnimation(btnOneSpeak, R.anim.zoom_in)
+        } else if (status == 1 || status == 3 && !next) {
+            status = 2
+            btnNextSpeak.setText(R.string.btn_tutorial3)
+            btnNumberTopSpeak.text = "2"
+            txtTutorialMessageTopSpeak.setText(R.string.txt2_tutorial_speak_and_listen)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnTwoSpeak.isGone = false
+            stopAnimation(btnOneSpeak)
+            stopAnimation(btnThreeSpeak)
+            startAnimation(btnTwoSpeak, R.anim.zoom_in)
+        } else if (status == 2 || status == 4 && !next) {
+            status = 3
+            btnNextSpeak.setText(R.string.btn_tutorial3)
+            btnNumberTopSpeak.text = "3"
+            txtTutorialMessageTopSpeak.setText(R.string.txt3_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnThreeSpeak.isGone = false
+            stopAnimation(btnTwoSpeak)
+            stopAnimation(btnFourSpeak)
+            startAnimation(btnThreeSpeak, R.anim.zoom_in)
+        } else if (status == 3 || status == 5 && !next) {
+            status = 4
+            btnNextSpeak.setText(R.string.btn_tutorial3)
+            btnNumberTopSpeak.text = "4"
+            txtTutorialMessageTopSpeak.setText(R.string.txt4_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnFourSpeak.isGone = false
+            btnFourSpeak.text = "4"
+            stopAnimation(btnThreeSpeak)
+            stopAnimation(btnFourSpeak)
+            startAnimation(btnFourSpeak, R.anim.zoom_in)
+        } else if (status == 4 || status == 6 && !next) {
+            status = 5
+            btnNextSpeak.setText(R.string.btn_tutorial3)
+            btnNumberTopSpeak.text = "5"
+            txtTutorialMessageTopSpeak.setText(R.string.txt5_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnFourSpeak.isGone = false
+            btnFourSpeak.text = "5"
+            imgBtnRecordSpeak.setImageResource(R.drawable.stop_cv)
+            stopAnimation(btnFourSpeak)
+            startAnimation(btnFourSpeak, R.anim.zoom_in)
+        } else if (status == 5 || status == 7 && !next) {
+            status = 6
+            btnNextSpeak.setText(R.string.btn_tutorial3)
+            btnNumberTopSpeak.text = "6"
+            txtTutorialMessageTopSpeak.setText(R.string.txt6_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnFourSpeak.isGone = false
+            btnFourSpeak.text = "6"
+            imgBtnRecordSpeak.setImageResource(R.drawable.listen2_cv)
+            stopAnimation(btnFourSpeak)
+            startAnimation(btnFourSpeak, R.anim.zoom_in)
+        } else if (status == 6 || status == 8 && !next) {
+            status = 7
+            btnNextSpeak.setText(R.string.btn_tutorial3)
+            btnNumberTopSpeak.text = "7"
+            txtTutorialMessageTopSpeak.setText(R.string.txt7_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnFourSpeak.isGone = false
+            btnFourSpeak.text = "7"
+            imgBtnListenAgainSpeak.isGone = false
+            imgBtnSendSpeak.isGone = false
+            imgTxt4Speak.isGone = false
+            imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
+            stopAnimation(btnFourSpeak)
+            stopAnimation(btnEightSpeak)
+            startAnimation(btnFourSpeak, R.anim.zoom_in)
+        } else if (status == 7 || status == 9 && !next) {
+            status = 8
+            btnNextSpeak.setText(R.string.btn_tutorial3)
+            btnNumberBottomSpeak.text = "8"
+            txtTutorialMessageBottomSpeak.setText(R.string.txt8_tutorial_speak)
+            btnNumberTopSpeak.isGone = true
+            txtTutorialMessageTopSpeak.isGone = true
+            btnNumberBottomSpeak.isGone = false
+            txtTutorialMessageBottomSpeak.isGone = false
+            btnEightSpeak.isGone = false
+            btnNineSpeak.isGone = true
+            imgBtnListenAgainSpeak.isGone = false
+            imgBtnSendSpeak.isGone = false
+            imgTxt4Speak.isGone = false
+            imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
+            stopAnimation(btnFourSpeak)
+            stopAnimation(btnNineSpeak)
+            startAnimation(btnEightSpeak, R.anim.zoom_in)
+        } else if (status == 8 || status == 10 && !next) {
+            status = 9
+            btnNextSpeak.setText(R.string.btn_tutorial5)
+            btnNumberTopSpeak.text = "9"
+            txtTutorialMessageTopSpeak.setText(R.string.txt9_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnNumberBottomSpeak.isGone = true
+            txtTutorialMessageBottomSpeak.isGone = true
+            btnNineSpeak.isGone = false
+            imgBtnListenAgainSpeak.isGone = false
+            imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
+            imgBtnSendSpeak.isGone = false
+            imgTxt4Speak.isGone = false
+            stopAnimation(btnEightSpeak)
+            startAnimation(btnNineSpeak, R.anim.zoom_in)
+        } else if (status == 9) {
             firstRunPrefManager.speak = false
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+            if (ContextCompat.checkSelfPermission(this@FirstRunSpeak, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(
-                    this,
+                    this@FirstRunSpeak,
                     arrayOf(Manifest.permission.RECORD_AUDIO),
                     RECORD_REQUEST_CODE
                 )
