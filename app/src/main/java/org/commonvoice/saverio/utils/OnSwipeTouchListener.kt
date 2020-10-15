@@ -1,4 +1,4 @@
-package org.commonvoice.saverio
+package org.commonvoice.saverio.utils
 
 import android.content.Context
 import android.view.GestureDetector

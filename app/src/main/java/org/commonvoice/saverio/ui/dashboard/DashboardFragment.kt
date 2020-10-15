@@ -12,13 +12,12 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
-import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
@@ -44,9 +43,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     private val mainPrefManager: MainPrefManager by inject()
 
     private val tabTextColors by lazy {
-        val theme = DarkLightTheme()
-
-        if (theme.getTheme(requireContext())) {
+        if (theme.isDark) {
             Pair(
                 ContextCompat.getColor(requireContext(), R.color.colorBlack),
                 ContextCompat.getColor(requireContext(), R.color.colorWhite)
@@ -60,8 +57,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     }
 
     private val tabBackgroundColors by lazy {
-        val theme = DarkLightTheme()
-        if (theme.getTheme(requireContext())) {
+        if (theme.isDark) {
             Pair(
                 ContextCompat.getColorStateList(requireContext(), R.color.colorLightGray),
                 ContextCompat.getColorStateList(
@@ -178,7 +174,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             binding.labelDashboardDailyGoalValue.text =
                 statsPrefManager.dailyGoalObjective.toString()
             binding.labelDashboardDailyGoalValue.typeface =
-                ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
+                ResourcesCompat.getFont(requireContext(), R.font.sourcecodepro)
         }
     }
 
@@ -233,8 +229,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     fun setTheme() = withBinding {
         val context = requireContext()
 
-        val theme = DarkLightTheme()
-        val isDark = theme.getTheme(context)
         theme.setElements(context, layoutDashboard)
 
         theme.setElements(context, dashboardSectionStatistics)
@@ -256,14 +250,13 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         theme.setElements(context, dashboardTopContributorsThird)
         theme.setElements(context, dashboardTopContributorsNTh)
 
-        theme.setElement(isDark, context, 3, dashboardSectionStatistics)
-        theme.setElement(isDark, context, 3, dashboardSectionVoicesOnline)
-        theme.setElement(isDark, context, 3, dashboardSectionDailyGoal)
-        theme.setElement(isDark, context, 3, dashboardSectionAppStatistics)
-        theme.setElement(isDark, context, 3, dashboardSectionTopContributors)
+        theme.setElement(context, 3, dashboardSectionStatistics)
+        theme.setElement(context, 3, dashboardSectionVoicesOnline)
+        theme.setElement(context, 3, dashboardSectionDailyGoal)
+        theme.setElement(context, 3, dashboardSectionAppStatistics)
+        theme.setElement(context, 3, dashboardSectionTopContributors)
 
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardSectionToday,
@@ -271,7 +264,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardSectionEver,
@@ -280,7 +272,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         )
 
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardVoicesOnlineNow,
@@ -288,7 +279,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardVoicesOnlineBefore,
@@ -297,7 +287,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         )
 
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardAppStatisticsCurrentLanguage,
@@ -305,7 +294,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardAppStatisticsAllLanguages,
@@ -313,27 +301,26 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
 
-        theme.setTextView(isDark, context, textDashboardVoicesNow)
-        theme.setTextView(isDark, context, textDashboardVoicesBefore)
+        theme.setTextView(context, textDashboardVoicesNow)
+        theme.setTextView(context, textDashboardVoicesBefore)
 
-        theme.setElement(isDark, context, buttonDashboardSetDailyGoal)
+        theme.setElement(context, buttonDashboardSetDailyGoal)
 
-        theme.setTextView(isDark, context, textDashboardVoicesNow, border = false)
-        theme.setTextView(isDark, context, textDashboardVoicesBefore, border = false)
+        theme.setTextView(context, textDashboardVoicesNow, border = false)
+        theme.setTextView(context, textDashboardVoicesBefore, border = false)
 
         theme.setTextView(
-            isDark,
             context,
             textDashboardAppStatisticsCurrentLanguage,
             border = false
         )
-        theme.setTextView(isDark, context, textDashboardAppStatisticsAllLanguages, border = false)
+        theme.setTextView(context, textDashboardAppStatisticsAllLanguages, border = false)
 
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberFirst, border = false)
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberSecond, border = false)
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberThird, border = false)
-        theme.setElement(isDark, context, labelTopContributorsPoints)
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberNth, border = false)
+        theme.setTextView(context, textDashboardTopContributorsNumberFirst, border = false)
+        theme.setTextView(context, textDashboardTopContributorsNumberSecond, border = false)
+        theme.setTextView(context, textDashboardTopContributorsNumberThird, border = false)
+        theme.setElement(context, labelTopContributorsPoints)
+        theme.setTextView(context, textDashboardTopContributorsNumberNth, border = false)
 
         resetTopContributor()
     }
@@ -359,13 +346,8 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         background: Int = R.color.colorYouTopContributors,
         backgroundDT: Int = R.color.colorYouTopContributorsDT
     ) {
-        val context = requireContext()
-
-        val theme = DarkLightTheme()
-        val isDark = theme.getTheme(context)
         theme.setElement(
-            isDark,
-            context,
+            requireContext(),
             3,
             youTopContributors,
             background = background,

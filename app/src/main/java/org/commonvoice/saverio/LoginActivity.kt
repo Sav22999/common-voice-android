@@ -13,8 +13,6 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.webkit.CookieManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -23,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -33,9 +32,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_webbrowser.*
 import kotlinx.android.synthetic.main.bottomsheet_login.view.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.utils.ImageDownloader
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
@@ -47,6 +51,8 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     private val loginViewModel: LoginViewModel by viewModel()
     private val workManager: WorkManager by inject()
 
+    private val statsPrefManager by inject<StatsPrefManager>()
+
     private val RECORD_REQUEST_CODE = 101
     private lateinit var webView: WebView
     private var PRIVATE_MODE = 0
@@ -57,9 +63,6 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         hashMapOf(
             "LOGGED_IN_NAME" to "LOGGED",
             "USER_NAME" to "USERNAME",
-            "LEVEL_SAVED" to "LEVEL_SAVED",
-            "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
-            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
             "DAILY_GOAL" to "DAILY_GOAL",
             "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING"
         )
@@ -126,11 +129,11 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                     openWebBrowser(url.toString())
                 } else {
                     openWebBrowser("login")
-                    setTheme2(this)
+                    setTheme2()
                 }
             } catch (e: Exception) {
                 openWebBrowser("login")
-                setTheme2(this)
+                setTheme2()
             }
 
             if (mainPrefManager.areGesturesEnabled) {
@@ -143,7 +146,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
             }
         } else {
             loadUserData("profile")
-            setTheme(this)
+            setTheme()
 
             if (mainPrefManager.areGesturesEnabled) {
                 nestedScrollLogin.setOnTouchListener(object :
@@ -161,29 +164,7 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
     }
 
     fun getSavedLevel(): Int {
-        var value = getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).getInt(
-            settingsSwitchData["LEVEL_SAVED"],
-            0
-        )
-        //println("level: " + value)
-        return when (value) {
-            in 0..9 -> 1
-            in 10..49 -> 2
-            in 50..99 -> 3
-            in 100..499 -> 4
-            in 500..999 -> 5
-            in 1000..4999 -> 6
-            in 5000..9999 -> 7
-            in 10000..49999 -> 8
-            in 50000..99999 -> 9
-            in 100000..199999 -> 10
-            in 200000..399999 -> 11
-            in 400000..999999 -> 12
-            in 1000000..1999999 -> 13
-            in 2000000..3999999 -> 14
-            in 4000000..99999990000 -> 15
-            else -> 1
-        }
+        return statsPrefManager.parsedLevel
     }
 
     fun setLevel(textLevel: TextView) {
@@ -195,56 +176,45 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         )
     }
 
-    fun setTheme(view: Context) {
-        val theme: DarkLightTheme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, this.findViewById(R.id.layoutLogin) as ConstraintLayout)
-        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionData))
-        theme.setElement(isDark, view, 3, this.findViewById(R.id.loginSectionInformation))
-        theme.setElement(isDark, view, 1, this.findViewById(R.id.loginSectionLogout))
-        theme.setElement(isDark, view, this.findViewById(R.id.btnBadges) as Button)
-        theme.setElement(isDark, view, this.findViewById(R.id.btnLogout) as Button)
+    fun setTheme() {
+        theme.setElement(this.findViewById(R.id.layoutLogin) as ConstraintLayout)
+        theme.setElement(this, 3, this.findViewById(R.id.loginSectionData))
+        theme.setElement(this, 3, this.findViewById(R.id.loginSectionInformation))
+        theme.setElement(this, 1, this.findViewById(R.id.loginSectionLogout))
+        theme.setElement(this, this.findViewById(R.id.btnBadges) as Button)
+        theme.setElement(this, this.findViewById(R.id.btnLogout) as Button)
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.labelToModifyInformation) as TextView,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileUsername) as TextView
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileEmail) as TextView
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileAge) as TextView
         )
         theme.setTextView(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.textProfileGender) as TextView
         )
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileUsername) as TextView)
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileEmail) as TextView)
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileAge) as TextView)
-        theme.setElement(isDark, view, this.findViewById(R.id.labelProfileGender) as TextView)
-        theme.setTextView(isDark, view, textLevel as TextView, border = false)
+        theme.setElement(this, this.findViewById(R.id.labelProfileUsername) as TextView)
+        theme.setElement(this, this.findViewById(R.id.labelProfileEmail) as TextView)
+        theme.setElement(this, this.findViewById(R.id.labelProfileAge) as TextView)
+        theme.setElement(this, this.findViewById(R.id.labelProfileGender) as TextView)
+        theme.setTextView(this, textLevel as TextView, border = false)
     }
 
-    fun setTheme2(view: Context) {
-        val theme: DarkLightTheme = DarkLightTheme()
-        val isDark = theme.getTheme(view)
+    fun setTheme2() {
         theme.setElement(
-            isDark,
-            view,
+            this,
             this.findViewById(R.id.btnAlreadyAVerificationLinkWebBrowser) as Button
         )
     }
@@ -408,18 +378,15 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         when (type) {
             0 -> {
                 //level
-                getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["LEVEL_SAVED"], value).apply()
+                statsPrefManager.allTimeLevel = value
             }
             1 -> {
                 //recordings
-                getSharedPreferences(settingsSwitchData["RECORDINGS_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["RECORDINGS_SAVED"], value).apply()
+                statsPrefManager.allTimeRecorded = value
             }
             2 -> {
                 //validations
-                getSharedPreferences(settingsSwitchData["VALIDATIONS_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["VALIDATIONS_SAVED"], value).apply()
+                statsPrefManager.allTimeValidated = value
             }
         }
     }
@@ -522,13 +489,13 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
                                         )
                                     )
                                     if (imageUrl != "null" && imageUrl != "") {
-                                        DownLoadImage(
-                                            profileImage
-                                        ).execute(imageUrl)
+                                        lifecycleScope.launch {
+                                            ImageDownloader.loadImageIntoImageView(imageUrl, profileImage)
+                                        }
                                     } else {
-                                        DownLoadImage(
-                                            profileImage
-                                        ).execute("null")
+                                        lifecycleScope.launch {
+                                            ImageDownloader.loadImageIntoImageView("null", profileImage)
+                                        }
                                     }
                                     var allBadgesButton: Button = findViewById(R.id.btnBadges)
                                     allBadgesButton.isEnabled = true

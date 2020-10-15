@@ -1,7 +1,6 @@
 package org.commonvoice.saverio
 
 import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -9,7 +8,6 @@ import android.widget.Button
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_listen.*
@@ -19,6 +17,7 @@ import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
@@ -81,7 +80,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
             lifecycleScope.launch {
                 val count = listenViewModel.getClipsCount()
                 withContext(Dispatchers.Main) {
-                    NoClipsSentencesAvailableDialog(this@ListenActivity, false, count).show()
+                    NoClipsSentencesAvailableDialog(this@ListenActivity, false, count, theme).show()
                 }
             }
         }
@@ -92,7 +91,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         listenViewModel.hasFinishedClips.observe(this, Observer {
             if (it && !connectionManager.isInternetAvailable) {
-                NoClipsSentencesAvailableDialog(this, false, 0).show {
+                NoClipsSentencesAvailableDialog(this, false, 0, theme).show {
                     onBackPressed()
                 }
             }
@@ -145,7 +144,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         setupNestedScroll()
 
-        setTheme(this)
+        setTheme()
     }
 
     private fun showMessageDialog(title: String, text: String, type: Int = 0) {
@@ -193,21 +192,17 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         })
     }
 
-    fun setTheme(view: Context) {
-        val theme: DarkLightTheme = DarkLightTheme()
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, layoutListen)
-        theme.setElement(isDark, view, 1, listenSectionBottom)
+    fun setTheme() {
+        theme.setElement(layoutListen)
+        theme.setElement(this, 1, listenSectionBottom)
         theme.setElement(
-            isDark,
-            view,
+            this,
             textMessageAlertListen,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
-        theme.setElement(isDark, view, buttonReportListen, background = false)
-        theme.setElement(isDark, view, buttonSkipListen)
+        theme.setElement(this, buttonReportListen, background = false)
+        theme.setElement(this, buttonSkipListen)
     }
 
     private fun openReportDialog() {

@@ -6,10 +6,11 @@ import android.os.Build
 import android.os.LocaleList
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import org.commonvoice.saverio.TranslationsLanguages
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
+import org.commonvoice.saverio.DarkLightTheme
+import org.commonvoice.saverio.utils.TranslationLanguages
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 import java.util.*
@@ -33,12 +34,13 @@ abstract class VariableLanguageActivity : AppCompatActivity {
 
     protected val mainPrefManager: MainPrefManager by inject()
 
+    protected val theme: DarkLightTheme by inject()
+
     override fun attachBaseContext(newBase: Context) {
         val tempLang = mainPrefManager.language
         var lang = tempLang.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
+        if (!TranslationLanguages.isSupported(lang)) {
+            lang = TranslationLanguages.defaultLanguage
         }
         super.attachBaseContext(newBase.wrap(Locale(lang)))
     }

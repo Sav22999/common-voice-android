@@ -33,6 +33,7 @@ import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.utils.TranslationLanguages
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -101,8 +102,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "LAST_VOICES_ONLINE_NOW" to "LAST_VOICES_ONLINE_NOW",
             "LAST_VOICES_ONLINE_NOW_VALUE" to "LAST_VOICES_ONLINE_NOW_VALUE",
             "LAST_VOICES_ONLINE_BEFORE_VALUE" to "LAST_VOICES_ONLINE_BEFORE_VALUE",
-            "UI_LANGUAGE_CHANGED" to "UI_LANGUAGE_CHANGED",
-            "UI_LANGUAGE_CHANGED2" to "UI_LANGUAGE_CHANGED2",
             "AUTO_PLAY_CLIPS" to "AUTO_PLAY_CLIPS",
             "APP_ANONYMOUS_STATISTICS" to "APP_ANONYMOUS_STATISTICS",
             "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
@@ -117,9 +116,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "ABORT_CONFIRMATION_DIALOGS_SETTINGS" to "ABORT_CONFIRMATION_DIALOGS_SETTINGS",
             "GESTURES" to "GESTURES",
             "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE",
-            "LEVEL_SAVED" to "LEVEL_SAVED",
-            "RECORDINGS_SAVED" to "RECORDINGS_SAVED",
-            "VALIDATIONS_SAVED" to "VALIDATIONS_SAVED",
             "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED",
             "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS"
         )
@@ -137,7 +133,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     var userId: String = ""
     var userName: String = ""
     var darkTheme: Boolean = false
-    var theme: DarkLightTheme = DarkLightTheme()
     var isAbortConfirmation: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -276,18 +271,15 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         when (type) {
             0 -> {
                 //level
-                getSharedPreferences(settingsSwitchData["LEVEL_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["LEVEL_SAVED"], value).apply()
+                statsPrefManager.allTimeLevel = value
             }
             1 -> {
                 //recordings
-                getSharedPreferences(settingsSwitchData["RECORDINGS_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["RECORDINGS_SAVED"], value).apply()
+                statsPrefManager.allTimeRecorded = value
             }
             2 -> {
                 //validations
-                getSharedPreferences(settingsSwitchData["VALIDATIONS_SAVED"], PRIVATE_MODE).edit()
-                    .putInt(settingsSwitchData["VALIDATIONS_SAVED"], value).apply()
+                statsPrefManager.allTimeValidated = value
             }
         }
     }
@@ -479,7 +471,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun setDarkThemeSwitch(status: Boolean) {
-        if (status != theme.getTheme(this)) {
+        if (status != theme.isDark) {
             if (status) {
                 //this.showMessage(getString(R.string.toast_dark_theme_on))
                 //EXM02
@@ -501,7 +493,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     )
                 }
             }
-            theme.setTheme(this, status)
+            theme.isDark = status
         }
     }
 
@@ -1133,11 +1125,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun setLanguageSettings(lang: String) {
         try {
-            val languageChanged = if (lang != mainPrefManager.language) {
-                true
-            } else {
-                false
-            }
+            val languageChanged = lang != mainPrefManager.language
 
             this.selectedLanguageVar = lang
 
@@ -1153,11 +1141,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         ExistingWorkPolicy.REPLACE
                     )
 
-                    getSharedPreferences(
-                        settingsSwitchData["UI_LANGUAGE_CHANGED"],
-                        PRIVATE_MODE
-                    ).edit()
-                        .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], true).apply()
+                    mainPrefManager.hasLanguageChanged = true
 
                     setLanguageUI("restart")
                     resetDashboardData()
@@ -1423,17 +1407,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     private fun setLanguageUI(type: String) {
-        val restart: Boolean = getSharedPreferences(
-            settingsSwitchData["UI_LANGUAGE_CHANGED"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["UI_LANGUAGE_CHANGED"],
-            true
-        )
-        val restart2: Boolean = getSharedPreferences(
-            settingsSwitchData["UI_LANGUAGE_CHANGED2"],
-            PRIVATE_MODE
-        ).getBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], false)
+        val restart: Boolean = mainPrefManager.hasLanguageChanged
+        val restart2: Boolean = mainPrefManager.hasLanguageChanged2
 
         //println("-->sel: " + selectedLanguageVar + " -->lang: " + getString(R.string.language))
         //println("-->index: " + translations_languages.indexOf(lang))
@@ -1442,9 +1417,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             //Android 6.0
             val tempLang = getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
             var lang = tempLang!!.split("-")[0]
-            val langSupportedYesOrNot = TranslationsLanguages()
-            if (!langSupportedYesOrNot.isSupported(lang)) {
-                lang = langSupportedYesOrNot.getDefaultLanguage()
+            if (!TranslationLanguages.isSupported(lang)) {
+                lang = TranslationLanguages.defaultLanguage
             }
             val locale: Locale = Locale(lang)
             Locale.setDefault(locale)
@@ -1454,18 +1428,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             res.updateConfiguration(config, res.displayMetrics)
         }
         if (restart || type == "restart") {
-            getSharedPreferences(
-                settingsSwitchData["UI_LANGUAGE_CHANGED2"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], true).apply()
+            mainPrefManager.hasLanguageChanged = true
 
             if (android6) {
-                getSharedPreferences(
-                    settingsSwitchData["UI_LANGUAGE_CHANGED"],
-                    PRIVATE_MODE
-                ).edit()
-                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED"], false).apply()
+                mainPrefManager.hasLanguageChanged = false
+
                 Intent(this, MainActivity::class.java).also {
                     startActivity(it)
                 }
@@ -1477,21 +1444,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             finish()
         } else {
             if (restart2) {
-                getSharedPreferences(
-                    settingsSwitchData["UI_LANGUAGE_CHANGED2"],
-                    PRIVATE_MODE
-                ).edit()
-                    .putBoolean(settingsSwitchData["UI_LANGUAGE_CHANGED2"], false).apply()
-                /*showMessage(
-                        getString(R.string.toast_language_changed).replace(
-                            "{{*{{lang}}*}}",
-                            this.languagesListArray.get(this.languagesListShortArray.indexOf(this.getSelectedLanguage()))
-                        )
-                    )*/
-                //EXM04
-                val tl = TranslationsLanguages()
+                mainPrefManager.hasLanguageChanged2 = false
+
                 var detailsMessage = ""
-                if (tl.isUncompleted(this.getSelectedLanguage())) {
+                if (TranslationLanguages.isUncompleted(this.getSelectedLanguage())) {
                     detailsMessage =
                         "\n" + getString(R.string.message_app_not_completely_translated)
                 }

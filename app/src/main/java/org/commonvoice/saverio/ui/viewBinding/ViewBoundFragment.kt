@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import org.commonvoice.saverio.DarkLightTheme
+import org.koin.android.ext.android.inject
 
 abstract class ViewBoundFragment<T: ViewBinding> : Fragment() {
 
     private var _binding: T? = null
 
     protected val binding: T get() = _binding!!
+
+    protected val theme: DarkLightTheme by inject()
 
     abstract fun inflate(layoutInflater: LayoutInflater, container: ViewGroup?): T
 

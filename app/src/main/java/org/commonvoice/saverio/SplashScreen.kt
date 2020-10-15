@@ -2,15 +2,20 @@ package org.commonvoice.saverio
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import org.commonvoice.saverio.databinding.SplashScreenBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 
-class SplashScreen : AppCompatActivity() {
-    private var mDelayHandler: Handler? = null
-    private val SPLASH_DELAY: Long = 3000 //3 seconds
+class SplashScreen : ViewBoundActivity<SplashScreenBinding>(
+    SplashScreenBinding::inflate
+) {
 
-    internal val mRunnable: Runnable = Runnable {
-        if (!isFinishing) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        lifecycleScope.launchWhenCreated {
+            delay(SPLASH_DELAY)
 
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
@@ -18,25 +23,10 @@ class SplashScreen : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.splash_screen)
+    companion object {
 
-        //Initialize the Handler
-        mDelayHandler = Handler()
+        private const val SPLASH_DELAY = 2500L //Lowered from 3000L because this method is lagging a bit, I guess
 
-        //Navigate with delay
-        mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
-
-    }
-
-    public override fun onDestroy() {
-
-        if (mDelayHandler != null) {
-            mDelayHandler!!.removeCallbacks(mRunnable)
-        }
-
-        super.onDestroy()
     }
 
 }
