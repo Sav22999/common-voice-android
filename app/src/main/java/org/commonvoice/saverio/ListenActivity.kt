@@ -1,6 +1,5 @@
 package org.commonvoice.saverio
 
-import android.content.Context
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -10,13 +9,13 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.databinding.ActivityListenBinding
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -27,7 +26,9 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 
-class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
+class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
+    ActivityListenBinding::inflate
+) {
 
     private val listenViewModel: ListenViewModel by stateViewModel()
     private val connectionManager: ConnectionManager by inject()
@@ -48,17 +49,17 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         if (!listenViewModel.showingHidingOfflineIcon && (listenViewModel.offlineModeIconVisible == available)) {
             listenViewModel.showingHidingOfflineIcon = true
             if (!available) {
-                this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_in)
+                startAnimation(binding.imageOfflineModeListen, R.anim.zoom_in)
                 listenViewModel.offlineModeIconVisible = true
                 if (mainPrefManager.showOfflineModeMessage) {
                     showMessageDialog("", "", 10)
                 }
             } else {
-                this.startAnimation(this.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
+                startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
             }
             listenViewModel.showingHidingOfflineIcon = false
-            this.imageOfflineModeListen.isGone = available
+            binding.imageOfflineModeListen.isGone = available
         }
     }
 
@@ -66,7 +67,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         mainPrefManager.showOfflineModeMessage = value
     }
 
-    private fun setupInitialUIState() {
+    private fun setupInitialUIState() = withBinding {
         buttonSkipListen.onClick {
             listenViewModel.skipClip()
         }
@@ -76,7 +77,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun setupUI() {
-        imageOfflineModeListen.onClick {
+        binding.imageOfflineModeListen.onClick {
             lifecycleScope.launch {
                 val count = listenViewModel.getClipsCount()
                 withContext(Dispatchers.Main) {
@@ -117,6 +118,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
                     //TODO
                     loadUIStateListening()
                 }
+                else -> {}
             }
         })
 
@@ -125,8 +127,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         }
 
         statsPrefManager.dailyGoal.observe(this, Observer {
-            if ((this.numberSentThisSession > 0) && it.checkDailyGoal()) {
-                this.stopAndRefresh()
+            if ((numberSentThisSession > 0) && it.checkDailyGoal()) {
+                stopAndRefresh()
                 showMessageDialog(
                     "",
                     getString(R.string.daily_goal_achieved_message).replace(
@@ -158,7 +160,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun setupNestedScroll() {
-        nestedScrollListen.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, scrollX, scrollY, oldScrollX, oldScrollY ->
+        binding.nestedScrollListen.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, _, scrollY, _, oldScrollY ->
             if (scrollY > oldScrollY) {
                 verticalScrollStatus = 1
             }
@@ -175,7 +177,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun setupGestures() {
-        nestedScrollListen.setOnTouchListener(object : OnSwipeTouchListener(this@ListenActivity) {
+        binding.nestedScrollListen.setOnTouchListener(object : OnSwipeTouchListener(this@ListenActivity) {
             override fun onSwipeLeft() {
                 listenViewModel.skipClip()
             }
@@ -192,22 +194,22 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         })
     }
 
-    fun setTheme() {
+    fun setTheme() = withBinding {
         theme.setElement(layoutListen)
-        theme.setElement(this, 1, listenSectionBottom)
+        theme.setElement(this@ListenActivity, 1, listenSectionBottom)
         theme.setElement(
-            this,
+            this@ListenActivity,
             textMessageAlertListen,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT
         )
-        theme.setElement(this, buttonReportListen, background = false)
-        theme.setElement(this, buttonSkipListen)
+        theme.setElement(this@ListenActivity, buttonReportListen, background = false)
+        theme.setElement(this@ListenActivity, buttonSkipListen)
     }
 
     private fun openReportDialog() {
-        if (!buttonReportListen.isGone) {
-            this.stopAndRefresh()
+        if (!binding.buttonReportListen.isGone) {
+            stopAndRefresh()
 
             ListenReportDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
         }
@@ -220,7 +222,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         })
     }
 
-    private fun loadUIStateLoading() {
+    private fun loadUIStateLoading() = withBinding {
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
@@ -235,7 +237,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         }
     }
 
-    private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) {
+    private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) = withBinding {
         if (!listenViewModel.listenedOnce) {
             textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
 
@@ -301,11 +303,11 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         }
 
         buttonReportListen.onClick {
-            this.openReportDialog()
+            openReportDialog()
         }
     }
 
-    private fun loadUIStateListening() {
+    private fun loadUIStateListening() = withBinding {
         stopButtons()
 
         textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
@@ -321,7 +323,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
         buttonNoClip.onClick {
             listenViewModel.validate(result = false)
-            this.numberSentThisSession++
+            numberSentThisSession++
             hideButtons()
         }
         buttonStartStopListen.onClick {
@@ -329,7 +331,7 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         }
     }
 
-    private fun loadUIStateListened() {
+    private fun loadUIStateListened() = withBinding {
         buttonNoClip.isVisible = true
         if (!listenViewModel.listenedOnce) {
             showButton(buttonYesClip)
@@ -343,14 +345,14 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
         buttonYesClip.onClick {
             hideButtons()
             listenViewModel.validate(result = true)
-            this.numberSentThisSession++
+            numberSentThisSession++
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
         }
     }
 
-    override fun onBackPressed() {
+    override fun onBackPressed() = withBinding {
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         textSentenceListen.text = "···"
@@ -371,8 +373,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
 
     private fun hideButtons() {
         stopButtons()
-        if (listenViewModel.startedOnce) hideButton(buttonNoClip)
-        if (listenViewModel.listenedOnce) hideButton(buttonYesClip)
+        if (listenViewModel.startedOnce) hideButton(binding.buttonNoClip)
+        if (listenViewModel.listenedOnce) hideButton(binding.buttonYesClip)
     }
 
     private fun showButton(button: Button) {
@@ -396,8 +398,8 @@ class ListenActivity : VariableLanguageActivity(R.layout.activity_listen) {
     }
 
     private fun stopButtons() {
-        stopAnimation(buttonNoClip)
-        stopAnimation(buttonYesClip)
+        stopAnimation(binding.buttonNoClip)
+        stopAnimation(binding.buttonYesClip)
     }
 
 }
