@@ -1,5 +1,3 @@
-//import org.commonvoice.saverio_buildSrc.Libs
-
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
