@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.message_dialog.view.*
 import kotlinx.android.synthetic.main.offline_mode_message.view.*
 import kotlinx.android.synthetic.main.report_bugs_message.view.*
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -38,6 +39,7 @@ class MessageDialog: KoinComponent {
 
     private val theme by inject<DarkLightTheme>() //TODO change this if we want to switch to Dagger-Hilt
     private val mainPrefManager by inject<MainPrefManager>()
+    private val statsPrefManager by inject<StatsPrefManager>()
 
     constructor(context: Context, title: String, text: String, height: Int = 0) {
         this.context = context
@@ -183,7 +185,7 @@ class MessageDialog: KoinComponent {
                         val alertDialog = builder.show()
                         buttonSave.setOnClickListener {
                             //save the daily goal
-                            main?.setDailyGoal(this.dailyGoalValue)
+                            statsPrefManager.dailyGoalObjective = dailyGoalValue
                             alertDialog.dismiss()
                             main?.refreshDailyGoalDataInDashboard()
                         }
@@ -194,7 +196,7 @@ class MessageDialog: KoinComponent {
                         }
                         buttonDelete.setOnClickListener {
                             //it delete (set to 0) the daily goal
-                            main?.setDailyGoal(0)
+                            statsPrefManager.dailyGoalObjective = 0
                             alertDialog.dismiss()
                             main?.refreshDailyGoalDataInDashboard()
                         }

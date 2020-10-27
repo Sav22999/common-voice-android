@@ -131,7 +131,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     private fun networkConnectivityCheck() {
         connectionManager.liveInternetAvailability.observe(
             viewLifecycleOwner,
-            Observer { isInternetPresent ->
+            { isInternetPresent ->
                 withBinding {
                     dashboardSectionStatistics.children.filterIsInstance<ConstraintLayout>()
                         .forEach {

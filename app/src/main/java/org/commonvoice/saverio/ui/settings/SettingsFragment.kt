@@ -321,9 +321,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
                         mainPrefManager.hasLanguageChanged = true
 
-                        (activity as? MainActivity)?.selectedLanguageVar = selectedLanguage
                         (activity as? MainActivity)?.setLanguageUI("restart")
-                        (activity as? MainActivity)?.resetDashboardData()
                     }
                     dashboardViewModel.lastStatsUpdate = 0
                 }

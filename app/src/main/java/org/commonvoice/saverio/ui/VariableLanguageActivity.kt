@@ -76,7 +76,7 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     private fun Context.getUpdatedContextApi25(locale: Locale): Context {
         val localeList = LocaleList(locale)
         val configuration = resources.configuration
-        configuration.locales = localeList
+        configuration.setLocales(localeList)
         return createConfigurationContext(configuration)
     }
 

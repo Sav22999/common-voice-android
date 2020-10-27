@@ -27,6 +27,10 @@ class StatsPrefManager(ctx: Context) {
             preferences.edit().putInt(Keys.DAILY_GOAL_OBJECTIVE.name, value).apply()
         }
 
+    var reviewOnPlayStoreCounter: Int
+        get() = preferences.getInt(Keys.REVIEW_ON_PLAYSTORE_COUNTER.name, 0)
+        set(value) = preferences.edit().putInt(Keys.REVIEW_ON_PLAYSTORE_COUNTER.name, value).apply()
+
     private var todayContributingDate: Calendar
         get() = Calendar.getInstance().also {
             val currentMillis = Calendar.getInstance().timeInMillis
@@ -97,6 +101,8 @@ class StatsPrefManager(ctx: Context) {
 
     private enum class Keys {
         DAILY_GOAL_OBJECTIVE,
+
+        REVIEW_ON_PLAYSTORE_COUNTER,
 
         TODAY_CONTRIBUTING_DATE,
         TODAY_VALIDATED,

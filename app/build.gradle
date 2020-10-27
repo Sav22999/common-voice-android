@@ -5,12 +5,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId 'org.commonvoice.saverio.beta'
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode = 119
         versionName '2.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
