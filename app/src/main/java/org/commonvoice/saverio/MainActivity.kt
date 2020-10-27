@@ -38,6 +38,7 @@ import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
@@ -58,16 +59,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     companion object {
         const val SOURCE_STORE = BuildConfig.FLAVOR
-
-        fun checkInternet(context: Context): Boolean {
-            val cm =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = cm.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnected
-        }
     }
 
     private val RECORD_REQUEST_CODE = 101
@@ -79,10 +74,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     val urlWithoutLang: String =
         "https://commonvoice.mozilla.org/api/v1/" //API url (without lang)
-
-    val urlStatistics =
-        "https://www.saveriomorelli.com/api/common-voice-android/v2/" //API to send the request for anonymous statistics
-    var lastStatisticsSending: String = "?"
 
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
@@ -101,7 +92,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "LAST_VOICES_ONLINE_NOW" to "LAST_VOICES_ONLINE_NOW",
             "LAST_VOICES_ONLINE_NOW_VALUE" to "LAST_VOICES_ONLINE_NOW_VALUE",
             "LAST_VOICES_ONLINE_BEFORE_VALUE" to "LAST_VOICES_ONLINE_BEFORE_VALUE",
-            "AUTO_PLAY_CLIPS" to "AUTO_PLAY_CLIPS",
             "APP_ANONYMOUS_STATISTICS" to "APP_ANONYMOUS_STATISTICS",
             "TODAY_CONTRIBUTING" to "TODAY_CONTRIBUTING",
             "DARK_THEME" to "DARK_THEME",
@@ -116,12 +106,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             "GESTURES" to "GESTURES",
             "REVIEW_ON_PLAY_STORE" to "REVIEW_ON_PLAY_STORE",
             "ARE_ANIMATIONS_ENABLED" to "ARE_ANIMATIONS_ENABLED",
-            "LABELS_MENU_ICONS" to "LABELS_MENU_ICONS"
         )
-
-    var isExperimentalFeaturesActived: Boolean? = null
-
-    var dashboard_selected = false
 
     var languagesListShortArray =
         arrayOf("en") // don't change manually -> it's imported from strings.xml
@@ -132,7 +117,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     var userId: String = ""
     var userName: String = ""
     var darkTheme: Boolean = false
-    var isAbortConfirmation: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -312,7 +296,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun checkNewVersionAvailable(forcedCheck: Boolean = false) {
-        if (this.getCheckForUpdatesSwitch() or forcedCheck == true) {
+        if (settingsPrefManager.automaticallyCheckForUpdates or forcedCheck) {
             try {
                 val urlApiGithub =
                     "https://api.github.com/repos/Sav22999/common-voice-android/releases/latest"
@@ -450,342 +434,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             //println("Error: " + e.toString())
         }
         return returnStatistics
-    }
-
-    fun setDarkThemeSwitch(status: Boolean) {
-        if (status != theme.isDark) {
-            if (status) {
-                //this.showMessage(getString(R.string.toast_dark_theme_on))
-                //EXM02
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_dark_theme_on),
-                        type = 2
-                    )
-                }
-            } else {
-                //this.showMessage(getString(R.string.toast_dark_theme_off))
-                //EXM03
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_dark_theme_off),
-                        type = 2
-                    )
-                }
-            }
-            theme.isDark = status
-        }
-    }
-
-    fun setStatisticsSwitch(status: Boolean) {
-        if (status != this.getStatisticsSwitch()) {
-            if (status) {
-                //EXM07
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_anonymous_statistics_on)
-                    )
-                }
-            } else {
-                //EXM08
-                //if (!isAbortConfirmation) {
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_anonymous_statistics_off)
-                )
-                //}
-            }
-            getSharedPreferences(
-                settingsSwitchData["APP_ANONYMOUS_STATISTICS"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["APP_ANONYMOUS_STATISTICS"], status).apply()
-            mainPrefManager.areStatsAnonymous = status
-            mainActivityViewModel.postStats(
-                BuildConfig.VERSION_NAME,
-                BuildConfig.VERSION_CODE,
-                SOURCE_STORE
-            )
-        }
-    }
-
-    fun getExperimentalFeaturesSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["EXPERIMENTAL_FEATURES"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["EXPERIMENTAL_FEATURES"],
-            false
-        )
-    }
-
-    fun getExperimentalFeaturesValue(): Boolean {
-        if (this.isExperimentalFeaturesActived == null) {
-            this.isExperimentalFeaturesActived = getExperimentalFeaturesSwitch()
-        }
-        return this.isExperimentalFeaturesActived!!
-    }
-
-    fun setExperimentalFeaturesSwitch(status: Boolean) {
-        if (status != this.getExperimentalFeaturesSwitch()) {
-            if (status) {
-                //EXM07
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_experimental_features_on)
-                    )
-                }
-            } else {
-                //EXM08
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_experimental_featured_off)
-                    )
-                }
-            }
-            getSharedPreferences(
-                settingsSwitchData["EXPERIMENTAL_FEATURES"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["EXPERIMENTAL_FEATURES"], status).apply()
-        }
-    }
-
-    fun getStatisticsSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["APP_ANONYMOUS_STATISTICS"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["APP_ANONYMOUS_STATISTICS"],
-            true
-        )
-    }
-
-    fun getRecordingIndicatorSoundSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["RECORDING_INDICATOR_SOUND"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["RECORDING_INDICATOR_SOUND"],
-            false
-        )
-    }
-
-    fun setRecordingIndicatorSoundSwitch(status: Boolean) {
-        if (status != this.getRecordingIndicatorSoundSwitch()) {
-            if (status) {
-                //EXM07
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_recording_indicator_sound_on)
-                    )
-                }
-            } else {
-                //EXM08
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_recording_indicator_sound_off)
-                    )
-                }
-            }
-            getSharedPreferences(
-                settingsSwitchData["RECORDING_INDICATOR_SOUND"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["RECORDING_INDICATOR_SOUND"], status).apply()
-        }
-    }
-
-    fun getCheckForUpdatesSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["CHECK_FOR_UPDATES"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["CHECK_FOR_UPDATES"],
-            true
-        )
-    }
-
-    fun setCheckForUpdatesSwitch(status: Boolean) {
-        if (status != this.getCheckForUpdatesSwitch()) {
-            if (status) {
-                //EXM07
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_check_for_updated_on)
-                    )
-                }
-            } else {
-                //EXM08
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_check_for_updated_off)
-                    )
-                }
-            }
-            getSharedPreferences(settingsSwitchData["CHECK_FOR_UPDATES"], PRIVATE_MODE).edit()
-                .putBoolean(settingsSwitchData["CHECK_FOR_UPDATES"], status).apply()
-        }
-    }
-
-    fun getAbortConfirmationDialogsInSettingsSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"],
-            false
-        )
-    }
-
-    fun setAbortConfirmationDialogsInSettingsSwitch(status: Boolean) {
-        if (status != this.getAbortConfirmationDialogsInSettingsSwitch()) {
-            if (status) {
-                //EXM07
-                /*
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_abort_confirmation_dialogs_in_settings_on)
-                    )
-                */
-            } else {
-                //EXM08
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_abort_confirmation_dialogs_in_settings_off)
-                )
-            }
-            this.isAbortConfirmation = status
-            getSharedPreferences(
-                settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["ABORT_CONFIRMATION_DIALOGS_SETTINGS"], status)
-                .apply()
-        }
-    }
-
-    fun getGesturesSettingsSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["GESTURES"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["GESTURES"],
-            true
-        )
-    }
-
-    fun setGesturesSettingsSwitch(status: Boolean) {
-        if (status != this.getGesturesSettingsSwitch()) {
-            if (status) {
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_gestures_on)
-                    )
-                }
-            } else {
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_gestures_off)
-                    )
-                }
-            }
-            getSharedPreferences(
-                settingsSwitchData["GESTURES"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["GESTURES"], status)
-                .apply()
-        }
-    }
-
-    fun getLabelsBelowMenuIconsSettingsSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["LABELS_MENU_ICONS"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["LABELS_MENU_ICONS"],
-            false
-        )
-    }
-
-    fun setLabelsBelowMenuIconsSettingsSwitch(status: Boolean) {
-        if (status != this.getLabelsBelowMenuIconsSettingsSwitch()) {
-            getSharedPreferences(
-                settingsSwitchData["LABELS_MENU_ICONS"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["LABELS_MENU_ICONS"], status)
-                .apply()
-        }
-    }
-
-    fun getSkipRecordingsConfirmationSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
-            false
-        )
-    }
-
-    fun setSkipRecordingsConfirmationSwitch(status: Boolean) {
-        if (status != this.getSkipRecordingsConfirmationSwitch()) {
-            if (status) {
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_skip_recording_confirmation_on)
-                    )
-                }
-            } else {
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_skip_recording_confirmation_off)
-                    )
-                }
-            }
-            getSharedPreferences(
-                settingsSwitchData["SKIP_RECORDING_CONFIRMATION"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["SKIP_RECORDING_CONFIRMATION"], status)
-                .apply()
-        }
-    }
-
-    fun getAnimationsEnabledSwitch(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
-            true
-        )
-    }
-
-    fun setAnimationsEnabledSwitch(status: Boolean) {
-        if (status != this.getAnimationsEnabledSwitch()) {
-            getSharedPreferences(
-                settingsSwitchData["ARE_ANIMATIONS_ENABLED"],
-                PRIVATE_MODE
-            ).edit()
-                .putBoolean(settingsSwitchData["ARE_ANIMATIONS_ENABLED"], status)
-                .apply()
-        }
     }
 
     fun setSavedStatistics(type: String, statistics: String) {
@@ -1105,37 +753,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
-    fun setLanguageSettings(lang: String) {
-        try {
-            val languageChanged = lang != mainPrefManager.language
-
-            this.selectedLanguageVar = lang
-
-            if (languageChanged) {
-                mainPrefManager.language = lang
-                mainActivityViewModel.clearDB().invokeOnCompletion {
-                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                        workManager,
-                        ExistingWorkPolicy.REPLACE
-                    )
-                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                        workManager,
-                        ExistingWorkPolicy.REPLACE
-                    )
-
-                    mainPrefManager.hasLanguageChanged = true
-
-                    setLanguageUI("restart")
-                    resetDashboardData()
-                }
-                dashboardViewModel.lastStatsUpdate = 0
-            }
-
-        } catch (e: Exception) {
-            //println("Error: " + e.toString())
-        }
-    }
-
     fun getDailyGoal(): Int {
         return statsPrefManager.dailyGoalObjective
     }
@@ -1145,14 +762,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         setSavedStatistics("everyone", "?")
         setSavedVoicesOnline("voicesNow", "?")
         setSavedVoicesOnline("voicesBefore", "?")
-    }
-
-    fun getLanguageList(): ArrayAdapter<String> {
-        return ArrayAdapter<String>(
-            this,
-            android.R.layout.simple_list_item_1,
-            languagesListArray
-        )
     }
 
     fun getSelectedLanguage(): String {
@@ -1388,7 +997,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         )
     }
 
-    private fun setLanguageUI(type: String) {
+    fun setLanguageUI(type: String) {
         val restart: Boolean = mainPrefManager.hasLanguageChanged
         val restart2: Boolean = mainPrefManager.hasLanguageChanged2
 
@@ -1447,84 +1056,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     }
                 }*/
         }
-    }
-
-    fun checkConnection(): Boolean {
-        return checkInternet(this)
-    }
-
-    fun setAutoPlay(status: Boolean) {
-        if (status != this.getAutoPlay()) {
-            if (status) {
-                //this.showMessage(getString(R.string.toast_autoplay_clip_on))
-                //EXM05
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_autoplay_clip_on)
-                    )
-                }
-            } else {
-                //this.showMessage(getString(R.string.toast_autoplay_clip_off))
-                //EXM06
-                if (!isAbortConfirmation) {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toast_autoplay_clip_off)
-                    )
-                }
-            }
-            getSharedPreferences(settingsSwitchData["AUTO_PLAY_CLIPS"], PRIVATE_MODE).edit()
-                .putBoolean(settingsSwitchData["AUTO_PLAY_CLIPS"], status).apply()
-        }
-    }
-
-    fun getAutoPlay(): Boolean {
-        return getSharedPreferences(
-            settingsSwitchData["AUTO_PLAY_CLIPS"],
-            PRIVATE_MODE
-        ).getBoolean(
-            settingsSwitchData["AUTO_PLAY_CLIPS"],
-            false
-        )
-    }
-
-    fun getDateToSave(savedDate: String): String {
-        var todayDate: String = "?"
-        if (Build.VERSION.SDK_INT < 26) {
-            val dateTemp = SimpleDateFormat("yyyy/MM/dd")
-            todayDate = dateTemp.format(Date()).toString()
-        } else {
-            val dateTemp = LocalDateTime.now()
-            todayDate =
-                dateTemp.year.toString() + "/" + dateTemp.monthValue.toString() + "/" + dateTemp.dayOfMonth.toString()
-        }
-        //println("todayDate: " + todayDate + " savedDate: " + savedDate)
-        if (todayDate == savedDate) {
-            return savedDate
-        } else {
-            return todayDate
-        }
-    }
-
-    fun getContributing(type: String): String {
-        //just if the user is logged-in
-        if (this.logged) {
-            when (type) {
-                "validations" -> {
-                    return statsPrefManager.todayValidated.toString()
-                }
-                "recordings" -> {
-                    return statsPrefManager.todayRecorded.toString()
-                }
-                else -> {
-                    return "?"
-                }
-            }
-        } else {
-            //user no logged
-        }
-        return "?"
     }
 
 }

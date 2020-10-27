@@ -37,8 +37,6 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         //TODO fix this mess once MainActivity is fixed
 
         (activity as? MainActivity)?.let {
-            it.dashboard_selected = false
-
             it.checkUserLoggedIn()
 
             if (it.logged) {
@@ -63,8 +61,6 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
                     }
                 }
             }
-
-            it.checkConnection()
 
             it.checkNewVersionAvailable()
 

@@ -1,73 +1,299 @@
 package org.commonvoice.saverio.ui.settings
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
-import androidx.fragment.app.Fragment
+import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
+import androidx.work.ExistingWorkPolicy
+import androidx.work.WorkManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_settings.*
-import org.commonvoice.saverio.BuildConfig
-import org.commonvoice.saverio.DarkLightTheme
-import org.commonvoice.saverio.MainActivity
-import org.commonvoice.saverio.R
+import org.commonvoice.saverio.*
+import org.commonvoice.saverio.databinding.FragmentSettingsBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
+
+    override fun inflate(
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentSettingsBinding {
+        return FragmentSettingsBinding.inflate(layoutInflater, container, false)
+    }
 
     private val mainPrefManager: MainPrefManager by inject()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager: SpeakPrefManager by inject()
     private val listenPrefManager: ListenPrefManager by inject()
-    private val theme: DarkLightTheme by inject()
+    private val workManager by inject<WorkManager>()
 
-    var languagesListShort =
-        arrayOf("en") // don't change it manually -> it will import automatically
-    var languagesList =
-        arrayOf("English") // don't change it manually -> it will import automatically
-    var isAlpha: Boolean = false
+    private val mainViewModel by viewModel<MainActivityViewModel>()
+    private val dashboardViewModel by activityViewModels<DashboardViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private val languagesListShort by lazy {
+        resources.getStringArray(R.array.languages_short)
+    }
 
-        val root = inflater.inflate(R.layout.fragment_settings, container, false)
+    override fun onStart() = withBinding {
+        super.onStart()
 
-        val main = (activity as MainActivity)
-        main.dashboard_selected = false
+        setupLanguageSpinner()
 
-        val textLanguage: TextView = root.findViewById(R.id.text_settingsLanguage)
-        textLanguage.text = getText(R.string.settingsLanguage)
-        //val model = ViewModelProviders.of(activity!!).get(SettingsViewModel::class.java)
+        text_settingsLanguage.setText(R.string.settingsLanguage)
 
-        val releaseNumber: TextView = root.findViewById(R.id.textRelease)
-        releaseNumber.text = (BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")")
+        textRelease.text = "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})"
 
-        // import the languages list (short and "standard" from mainactivity)
-        this.languagesListShort = main.languagesListShortArray
-        this.languagesList = main.languagesListArray
+        textDevelopedBy.setText(R.string.txt_developed_by)
 
-        val language: Spinner = root.findViewById(R.id.languageList)
-        language.adapter = main.getLanguageList()
+        setupSwitches()
+        setupButtons()
+        additionalGPSSettings()
 
-        val selectedLanguage: String = main.getSelectedLanguage()
+        setTheme()
+    }
 
-        language.setSelection(languagesListShort.indexOf(selectedLanguage))
+    private fun setupSwitches() {
+        switchAnonymousStatistics.setOnCheckedChangeListener { _, isChecked ->
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_anonymous_statistics_on)
+                    else getString(R.string.toast_anonymous_statistics_off)
+                )
+            }
 
-        language.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            mainPrefManager.areStatsAnonymous = isChecked
+            mainViewModel.postStats(
+                BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_CODE,
+                MainActivity.SOURCE_STORE
+            )
+        }
+        switchAnonymousStatistics.isChecked = mainPrefManager.areStatsAnonymous
+
+        switchAutoPlayClips.setOnCheckedChangeListener { _, isChecked ->
+            listenPrefManager.isAutoPlayClipEnabled = isChecked
+
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_autoplay_clip_on)
+                    else getString(R.string.toast_autoplay_clip_off)
+                )
+            }
+        }
+        switchAutoPlayClips.isChecked = listenPrefManager.isAutoPlayClipEnabled
+
+        switchDarkTheme.setOnCheckedChangeListener { _, isChecked ->
+            theme.isDark = isChecked
+            setTheme()
+
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_dark_theme_on)
+                    else getString(R.string.toast_dark_theme_off),
+                    type = 2
+                )
+            }
+        }
+        switchDarkTheme.isChecked = theme.isDark
+
+        switchRecordingSound.setOnCheckedChangeListener { _, isChecked ->
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_recording_indicator_sound_on)
+                    else getString(R.string.toast_recording_indicator_sound_off)
+                )
+            }
+
+            speakPrefManager.playRecordingSoundIndicator = isChecked
+        }
+        switchRecordingSound.isChecked = speakPrefManager.playRecordingSoundIndicator
+
+        switchCheckForUpdates.setOnCheckedChangeListener { _, isChecked ->
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_check_for_updated_on)
+                    else getString(R.string.toast_check_for_updated_off)
+                )
+            }
+
+            settingsPrefManager.automaticallyCheckForUpdates = isChecked
+        }
+        switchCheckForUpdates.isChecked = settingsPrefManager.automaticallyCheckForUpdates
+
+        switchAbortConfirmationDialogsInSettings.setOnCheckedChangeListener { _, isChecked ->
+            if (!isChecked) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.toast_abort_confirmation_dialogs_in_settings_off)
+                )
+            }
+
+            settingsPrefManager.showConfirmationMessages = !isChecked
+        }
+        switchAbortConfirmationDialogsInSettings.isChecked = settingsPrefManager.showConfirmationMessages
+
+        switchGestures.setOnCheckedChangeListener { _, isChecked ->
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_gestures_on)
+                    else getString(R.string.toast_gestures_off)
+                )
+            }
+
+            mainPrefManager.areGesturesEnabled = isChecked
+        }
+        switchGestures.isChecked = mainPrefManager.areGesturesEnabled
+
+        switchSkipRecordingsConfirmation.setOnCheckedChangeListener { _, isChecked ->
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_skip_recording_confirmation_on)
+                    else getString(R.string.toast_skip_recording_confirmation_off)
+                )
+            }
+
+            speakPrefManager.skipRecordingConfirmation = isChecked
+        }
+        switchSkipRecordingsConfirmation.isChecked = speakPrefManager.skipRecordingConfirmation
+
+
+        switchExperimentalFeatures.setOnCheckedChangeListener { _, isChecked ->
+            if (!isChecked) {
+                //reset animations at true
+                mainPrefManager.areAnimationsEnabled = true
+                switchEnableAnimations.isChecked = true
+
+                //reset show labels at false
+                val navView: BottomNavigationView? = activity?.findViewById(R.id.nav_view)
+                navView?.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+                mainPrefManager.areLabelsBelowMenuIcons = false
+                switchShowLabelsBelowMenuIcons.isChecked = false
+            }
+
+            if (settingsPrefManager.showConfirmationMessages) {
+                showMessageDialog(
+                    "",
+                    if (isChecked) getString(R.string.toast_experimental_features_on)
+                    else getString(R.string.toast_experimental_featured_off)
+                )
+            }
+
+            settingsSectionExperimentalFeatures.isGone = !isChecked
+        }
+        switchExperimentalFeatures.isChecked = settingsPrefManager.enableExperimentalFeatures
+        settingsSectionExperimentalFeatures.isVisible = settingsPrefManager.enableExperimentalFeatures
+
+        switchEnableAnimations.setOnCheckedChangeListener { _, isChecked ->
+            mainPrefManager.areAnimationsEnabled = isChecked
+        }
+        switchEnableAnimations.isChecked = mainPrefManager.areAnimationsEnabled
+
+        switchShowLabelsBelowMenuIcons.setOnCheckedChangeListener { _, isChecked ->
+            val navView: BottomNavigationView? = activity?.findViewById(R.id.nav_view)
+            if (isChecked) {
+                navView?.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+            } else {
+                navView?.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+            }
+            mainPrefManager.areLabelsBelowMenuIcons = isChecked
+        }
+        switchShowLabelsBelowMenuIcons.isChecked = mainPrefManager.areLabelsBelowMenuIcons
+    }
+
+    private fun setupButtons() {
+        buttonProjectGitHub.onClick {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2PeOGRg")))
+        }
+
+        buttonContactOnTelegram.onClick {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/359wgbg")))
+        }
+
+        buttonOpenTutorial.onClick {
+            Intent(requireContext(), FirstLaunch::class.java).also {
+                startActivity(it)
+                activity?.finish()
+            }
+        }
+
+        buttonTranslateTheApp.onClick {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3bNBoUU")))
+        }
+
+        buttonSeeStatistics.onClick {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/35d2dza")))
+        }
+
+        buttonBuyMeACoffee.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+        }
+
+        buttonTelegramGroup.onClick {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3clgfkg")))
+        }
+
+        buttonReadGuidelines.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ")))
+        }
+
+        buttonReadCommonVoiceToS.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R")))
+        }
+    }
+
+    private fun additionalGPSSettings() {
+        if (MainActivity.SOURCE_STORE == "GPS") {
+            buttonBuyMeACoffee.isGone = true
+            separator17.isGone = true
+        }
+
+        buttonReviewOnGooglePlay.onClick {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=org.commonvoice.saverio")))
+        }
+
+        if (MainActivity.SOURCE_STORE == "GPS") {
+            buttonReviewOnGooglePlay.isGone = false
+            separator10.isGone = false
+        }
+    }
+
+    private fun setupLanguageSpinner() {
+        languageList.adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            resources.getStringArray(R.array.languages)
+        )
+
+        languageList.setSelection(languagesListShort.indexOf(mainPrefManager.language))
+
+        languageList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 //
             }
@@ -78,357 +304,102 @@ class SettingsFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                main.setLanguageSettings(languagesListShort.get(position))
+                val selectedLanguage = languagesListShort[position]
+
+                if (selectedLanguage != mainPrefManager.language) {
+                    mainPrefManager.language = selectedLanguage
+
+                    mainViewModel.clearDB().invokeOnCompletion {
+                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                            workManager,
+                            ExistingWorkPolicy.REPLACE
+                        )
+                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                            workManager,
+                            ExistingWorkPolicy.REPLACE
+                        )
+
+                        mainPrefManager.hasLanguageChanged = true
+
+                        (activity as? MainActivity)?.selectedLanguageVar = selectedLanguage
+                        (activity as? MainActivity)?.setLanguageUI("restart")
+                        (activity as? MainActivity)?.resetDashboardData()
+                    }
+                    dashboardViewModel.lastStatsUpdate = 0
+                }
             }
         }
+    }
 
-        val textProjectGithub: Button = root.findViewById(R.id.buttonProjectGitHub)
-        textProjectGithub.setOnClickListener {
-            val browserIntent =
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("http://bit.ly/2PeOGRg")
-                )
-            startActivity(browserIntent)
-        }
+    private fun setTheme() = withBinding {
+        theme.setElements(requireContext(), layoutSettings)
 
-        val btnContactDeveloperTelegram: Button = root.findViewById(R.id.buttonContactOnTelegram)
-        btnContactDeveloperTelegram.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/359wgbg"))
-            startActivity(browserIntent)
-        }
+        theme.setElements(requireContext(), settingsSectionLanguage)
+        theme.setElements(requireContext(), settingsSectionListen)
+        theme.setElements(requireContext(), settingsSectionSpeak)
+        theme.setElements(requireContext(), settingsSectionOther)
+        theme.setElements(requireContext(), settingsSectionExperimentalFeatures)
+        theme.setElements(requireContext(), settingsSectionBottom)
 
-        val btnOpenTutorial: Button = root.findViewById(R.id.buttonOpenTutorial)
-        btnOpenTutorial.setOnClickListener {
-            main.openTutorial()
-        }
+        theme.setElement(requireContext(), 3, settingsSectionLanguage)
+        theme.setElement(requireContext(), 3, settingsSectionListen)
+        theme.setElement(requireContext(), 3, settingsSectionSpeak)
+        theme.setElement(requireContext(), 3, settingsSectionOther)
+        theme.setElement(requireContext(), 3, settingsSectionExperimentalFeatures)
+        theme.setElement(requireContext(), 1, settingsSectionBottom)
 
-        val txtDevelopedBy: TextView = root.findViewById(R.id.textDevelopedBy)
-        txtDevelopedBy.text = getString(R.string.txt_developed_by)
 
-        main.checkConnection()
+        theme.setElement(requireContext(), textRelease, background = false)
 
-        val switchAutoPlaySettings: Switch = root.findViewById(R.id.switchAutoPlayClips)
-        switchAutoPlaySettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
+        theme.setElement(requireContext(), buttonContactOnTelegram, background = false)
+        theme.setElement(requireContext(), buttonBuyMeACoffee, background = false)
+        theme.setElement(requireContext(), buttonProjectGitHub, background = false)
+        theme.setElement(requireContext(), buttonTranslateTheApp, background = false)
+        theme.setElement(requireContext(), buttonOpenTutorial, background = false)
+        theme.setElement(requireContext(), buttonSeeStatistics,)
+        theme.setElement(requireContext(), buttonCustomiseTheFontSize, background = false)
+        theme.setElement(requireContext(), buttonCustomiseGestures, background = false)
+        theme.setElement(requireContext(), buttonThemes, background = false)
+        theme.setElement(requireContext(), buttonTelegramGroup, background = false)
+        theme.setElement(requireContext(), buttonReadGuidelines, background = false)
+        theme.setElement(requireContext(), buttonReadCommonVoiceToS, background = false)
+        theme.setElement(requireContext(), buttonReviewOnGooglePlay, background = false)
+
+        theme.setElement(imageLanguageIcon, R.drawable.ic_language, R.drawable.ic_language)
+    }
+
+    private fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = "",
+        type: Int = 0
+    ) {
+        val metrics = DisplayMetrics()
+        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        try {
+            var messageText = text
+            if (errorCode != "") {
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
             }
-            listenPrefManager.isAutoPlayClipEnabled = isChecked
-            main.setAutoPlay(isChecked)
-        }
-        switchAutoPlaySettings.isChecked = main.getAutoPlay()
-
-        val switchDarkThemeSettings: Switch = root.findViewById(R.id.switchDarkTheme)
-        switchDarkThemeSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            main.setDarkThemeSwitch(isChecked)
-            setTheme(main, root)
-        }
-        switchDarkThemeSettings.isChecked = theme.isDark
-
-        val switchStatisticsSettings: Switch = root.findViewById(R.id.switchAnonymousStatistics)
-        switchStatisticsSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            main.setStatisticsSwitch(isChecked)
-        }
-        switchStatisticsSettings.isChecked = main.getStatisticsSwitch()
-
-
-        val btnTranslateTheApp: Button = root.findViewById(R.id.buttonTranslateTheApp)
-        btnTranslateTheApp.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3bNBoUU"))
-            startActivity(browserIntent)
-        }
-
-        val btnSeeStatistics: Button = root.findViewById(R.id.buttonSeeStatistics)
-        btnSeeStatistics.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/35d2dza"))
-            startActivity(browserIntent)
-        }
-
-        val btnBuyMeACoffee: Button = root.findViewById(R.id.buttonBuyMeACoffee)
-        btnBuyMeACoffee.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7"))
-            startActivity(browserIntent)
-        }
-
-        if (main.getSourceStore() == "GPS") {
-            btnBuyMeACoffee.isGone = true
-            val separator17: View = root.findViewById(R.id.separator17)
-            separator17.isGone = true
-        }
-
-        val recordingIndicatorSoundSettings: Switch = root.findViewById(R.id.switchRecordingSound)
-        recordingIndicatorSoundSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            speakPrefManager.playRecordingSoundIndicator = isChecked
-            main.setRecordingIndicatorSoundSwitch(isChecked)
-        }
-        recordingIndicatorSoundSettings.isChecked = main.getRecordingIndicatorSoundSwitch()
-
-        val checkForUpdatesSettings: Switch = root.findViewById(R.id.switchCheckForUpdates)
-        checkForUpdatesSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            main.setCheckForUpdatesSwitch(isChecked)
-        }
-        checkForUpdatesSettings.isChecked = main.getCheckForUpdatesSwitch()
-
-        val abortConfirmationDialogsSettings: Switch =
-            root.findViewById(R.id.switchAbortConfirmationDialogsInSettings)
-        abortConfirmationDialogsSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            main.setAbortConfirmationDialogsInSettingsSwitch(isChecked)
-        }
-        abortConfirmationDialogsSettings.isChecked =
-            main.getAbortConfirmationDialogsInSettingsSwitch()
-        main.isAbortConfirmation = abortConfirmationDialogsSettings.isChecked
-
-        val gesturesSettings: Switch = root.findViewById(R.id.switchGestures)
-        gesturesSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            mainPrefManager.areGesturesEnabled = isChecked
-            main.setGesturesSettingsSwitch(isChecked)
-        }
-        gesturesSettings.isChecked = main.getGesturesSettingsSwitch()
-
-        val skipRecordingsConfirmationSettings: Switch =
-            root.findViewById(R.id.switchSkipRecordingsConfirmation)
-        skipRecordingsConfirmationSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            speakPrefManager.skipRecordingConfirmation = isChecked
-            main.setSkipRecordingsConfirmationSwitch(isChecked)
-        }
-        skipRecordingsConfirmationSettings.isChecked = main.getSkipRecordingsConfirmationSwitch()
-
-        val switchExperimentalFeaturesSettings: Switch =
-            root.findViewById(R.id.switchExperimentalFeatures)
-        val sectionExperimentalFeatures: ConstraintLayout =
-            root.findViewById(R.id.settingsSectionExperimentalFeatures)
-        switchExperimentalFeaturesSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-                //Reset all settings as default
-                //reset animations at true
-                mainPrefManager.areAnimationsEnabled = true
-                main.setAnimationsEnabledSwitch(true)
-                switchEnableAnimations.isChecked = true
-                //reset show labels at false
-                val navView: BottomNavigationView = main.findViewById(R.id.nav_view)
-                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
-                mainPrefManager.areLabelsBelowMenuIcons = false
-                main.setLabelsBelowMenuIconsSettingsSwitch(false)
-                switchShowLabelsBelowMenuIcons.isChecked = false
-            }
-            main.setExperimentalFeaturesSwitch(isChecked)
-            sectionExperimentalFeatures.isGone = !isChecked
-        }
-        switchExperimentalFeaturesSettings.isChecked = main.getExperimentalFeaturesSwitch()
-        sectionExperimentalFeatures.isGone = !(main.getExperimentalFeaturesSwitch())
-
-        val animationsEnabledSettings: Switch =
-            root.findViewById(R.id.switchEnableAnimations)
-        animationsEnabledSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                //ON
-            } else {
-                //OFF
-            }
-            mainPrefManager.areAnimationsEnabled = isChecked
-            main.setAnimationsEnabledSwitch(isChecked)
-        }
-        animationsEnabledSettings.isChecked = main.getAnimationsEnabledSwitch()
-
-        val showLablesMenuIconsSettings: Switch =
-            root.findViewById(R.id.switchShowLabelsBelowMenuIcons)
-        showLablesMenuIconsSettings.setOnCheckedChangeListener { _, isChecked ->
-            val navView: BottomNavigationView = main.findViewById(R.id.nav_view)
-            if (isChecked) {
-                //ON
-                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
-            } else {
-                //OFF
-                navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
-            }
-            mainPrefManager.areLabelsBelowMenuIcons = isChecked
-            main.setLabelsBelowMenuIconsSettingsSwitch(isChecked)
-        }
-        showLablesMenuIconsSettings.isChecked = main.getLabelsBelowMenuIconsSettingsSwitch()
-
-        root.findViewById<Button>(R.id.buttonTelegramGroup).setOnClickListener {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW,
-                    Uri.parse("https://bit.ly/3clgfkg")
-                )
+            val message = MessageDialog(
+                requireContext(),
+                type,
+                title,
+                messageText,
+                details = details,
+                height = height
             )
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
-
-        val btnReadCommonVoiceToS: Button = root.findViewById(R.id.buttonReadGuidelines)
-        btnReadCommonVoiceToS.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ"))
-            startActivity(browserIntent)
-        }
-
-        val buttonReadCommonVoiceToS: Button = root.findViewById(R.id.buttonReadCommonVoiceToS)
-        buttonReadCommonVoiceToS.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R"))
-            startActivity(browserIntent)
-        }
-
-        val buttonReviewOnGooglePlay: Button = root.findViewById(R.id.buttonReviewOnGooglePlay)
-        buttonReviewOnGooglePlay.setOnClickListener {
-            val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=org.commonvoice.saverio"))
-            startActivity(browserIntent)
-        }
-
-        if (main.getSourceStore() == "GPS") {
-            buttonReviewOnGooglePlay.isGone = false
-            val separator10: View = root.findViewById(R.id.separator10)
-            separator10.isGone = false
-        }
-
-        setTheme(main, root)
-
-        return root
     }
 
-    fun setTheme(view: Context, root: View) {
-        theme.setElements(view, root.findViewById(R.id.layoutSettings))
-
-        theme.setElements(view, root.findViewById(R.id.settingsSectionLanguage))
-        theme.setElements(view, root.findViewById(R.id.settingsSectionListen))
-        theme.setElements(view, root.findViewById(R.id.settingsSectionSpeak))
-        theme.setElements(view, root.findViewById(R.id.settingsSectionOther))
-        theme.setElements(view, root.findViewById(R.id.settingsSectionExperimentalFeatures))
-        theme.setElements(view, root.findViewById(R.id.settingsSectionBottom))
-
-        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionLanguage))
-        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionListen))
-        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionSpeak))
-        theme.setElement(view, 3, root.findViewById(R.id.settingsSectionOther))
-        theme.setElement(
-            view,
-            3,
-            root.findViewById(R.id.settingsSectionExperimentalFeatures)
-        )
-        theme.setElement(view, 1, root.findViewById(R.id.settingsSectionBottom))
-
-
-        theme.setElement(
-            view,
-            root.findViewById(R.id.textRelease),
-            background = false
-        )
-
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonContactOnTelegram),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonBuyMeACoffee),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonProjectGitHub),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonTranslateTheApp),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonOpenTutorial),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonSeeStatistics),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonCustomiseTheFontSize),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonCustomiseGestures),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonThemes),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonTelegramGroup),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonReadGuidelines),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonReadCommonVoiceToS),
-            background = false
-        )
-        theme.setElement(
-            view,
-            root.findViewById(R.id.buttonReviewOnGooglePlay),
-            background = false
-        )
-
-        theme.setElement(
-            root.findViewById(R.id.imageLanguageIcon) as ImageView,
-            R.drawable.ic_language,
-            R.drawable.ic_language
-        )
-    }
 }

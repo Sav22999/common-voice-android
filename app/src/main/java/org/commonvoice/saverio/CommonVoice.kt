@@ -38,31 +38,12 @@ class CommonVoice : Application() {
     }
 
     private val prefsModule = module {
-        single {
-            MainPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            FirstRunPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            SpeakPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            ListenPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            StatsPrefManager(
-                androidContext()
-            )
-        }
+        single { MainPrefManager(androidContext()) }
+        single { FirstRunPrefManager(androidContext()) }
+        single { SpeakPrefManager(androidContext()) }
+        single { ListenPrefManager(androidContext()) }
+        single { StatsPrefManager(androidContext()) }
+        single { SettingsPrefManager(androidContext()) }
     }
 
     private val apiModules = module {

@@ -24,7 +24,7 @@ object Versions {
     const val volleyVersion = "1.1.1"
 
     // Coroutines
-    const val androidVersion = "1.3.9"
+    const val androidVersion = "1.4.0"
 
     // Square
     const val retrofitVersion = "2.9.0"
