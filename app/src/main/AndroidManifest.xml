@@ -15,7 +15,7 @@
         android:allowBackup="true"
         android:configChanges="locale"
         android:icon="@mipmap/ic_commonvoice_stable"
-        android:label="CV Android Beta"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_commonvoice_stable_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
