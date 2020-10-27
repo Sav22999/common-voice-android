@@ -87,7 +87,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val settingsSwitchData: HashMap<String, String> =
         hashMapOf(
             "FIRST_LAUNCH" to "FIRST_LAUNCH",
-            "LOGGED_IN_NAME" to "LOGGED",
             "USER_NAME" to "USERNAME",
             "LAST_STATS_EVERYONE" to "LAST_STATS_EVERYONE",
             "LAST_STATS_YOU" to "LAST_STATS_YOU",
@@ -255,8 +254,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         )
         logged = false
         mainPrefManager.sessIdCookie = null
-        getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).edit()
-            .putBoolean(settingsSwitchData["LOGGED_IN_NAME"], false).apply()
+        mainPrefManager.isLoggedIn = false
         getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).edit()
             .putString(settingsSwitchData["USER_NAME"], "").apply()
         setLevelRecordingsValidations(0, 0)
@@ -375,19 +373,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun getHiUsernameLoggedIn(): String {
-        this.logged =
-            getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
-                settingsSwitchData["LOGGED_IN_NAME"],
-                false
-            )
+        this.logged = mainPrefManager.isLoggedIn
 
         if (logged) {
             this.userId = mainPrefManager.sessIdCookie!!
-            this.userName =
-                getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
-                    settingsSwitchData["USER_NAME"],
-                    ""
-                )!!
+            this.userName = mainPrefManager.username
         }
 
         if (this.userName == "") {
@@ -408,20 +398,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     fun checkUserLoggedIn() {
-        this.logged =
-            getSharedPreferences(settingsSwitchData["LOGGED_IN_NAME"], PRIVATE_MODE).getBoolean(
-                settingsSwitchData["LOGGED_IN_NAME"],
-                false
-            )
+        this.logged = mainPrefManager.isLoggedIn
 
         if (logged) {
             this.userId = mainPrefManager.sessIdCookie ?: ""
 
-            this.userName =
-                getSharedPreferences(settingsSwitchData["USER_NAME"], PRIVATE_MODE).getString(
-                    settingsSwitchData["USER_NAME"],
-                    ""
-                )!!
+            this.userName = mainPrefManager.username
         }
     }
 

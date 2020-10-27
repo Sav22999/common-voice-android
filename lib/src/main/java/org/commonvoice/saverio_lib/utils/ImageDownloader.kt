@@ -15,11 +15,11 @@ object ImageDownloader {
 
     @WorkerThread
     suspend fun loadImageIntoImageView(
-        imageUrl: String,
+        imageUrl: String?,
         imageView: ImageView
     ) = withContext(Dispatchers.IO) {
         val bitmap: Bitmap? = when {
-            imageUrl == "null" -> {
+            imageUrl == "null" || imageUrl == null -> {
                 null
             }
             !imageUrl.contains("data:image/jpeg;base64,") -> {
@@ -50,13 +50,15 @@ object ImageDownloader {
             }
         }
 
-        if (bitmap != null) {
-            imageView.setImageBitmap(bitmap)
-        } else {
-            imageView.setImageResource(R.drawable.ic_profileimagerobot)
-        }
+        withContext(Dispatchers.Main) {
+            if (bitmap != null) {
+                imageView.setImageBitmap(bitmap)
+            } else {
+                imageView.setImageResource(R.drawable.ic_profileimagerobot)
+            }
 
-        imageView.isGone = false
+            imageView.isGone = false
+        }
     }
 
 }

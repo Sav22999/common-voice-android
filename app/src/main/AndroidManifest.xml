@@ -15,7 +15,7 @@
         android:allowBackup="true"
         android:configChanges="locale"
         android:icon="@mipmap/ic_commonvoice_stable"
-        android:label="@string/app_name"
+        android:label="CV Android Beta"
         android:roundIcon="@mipmap/ic_commonvoice_stable_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -67,17 +67,7 @@
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.TitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.APP_BROWSER" />
-
-                <data
-                    android:host="auth.mozilla.auth0.com"
-                    android:scheme="https" />
-            </intent-filter>
+            <nav-graph android:value="@navigation/login_navigation" />
         </activity>
         <!-- NoConnectionActivity -->
         <activity

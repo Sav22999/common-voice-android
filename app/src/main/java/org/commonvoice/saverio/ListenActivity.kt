@@ -63,10 +63,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
     }
 
-    public fun setShowOfflineModeMessage(value: Boolean = true) {
-        mainPrefManager.showOfflineModeMessage = value
-    }
-
     private fun setupInitialUIState() = withBinding {
         buttonSkipListen.onClick {
             listenViewModel.skipClip()

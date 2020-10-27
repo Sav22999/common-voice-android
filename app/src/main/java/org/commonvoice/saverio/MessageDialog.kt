@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
 import kotlinx.android.synthetic.main.offline_mode_message.view.*
 import kotlinx.android.synthetic.main.report_bugs_message.view.*
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -35,7 +36,8 @@ class MessageDialog: KoinComponent {
     private var listen: ListenActivity? = null
     private var speak: SpeakActivity? = null
 
-    private val theme: DarkLightTheme by inject() //TODO change this if we want to switch to Dagger-Hilt
+    private val theme by inject<DarkLightTheme>() //TODO change this if we want to switch to Dagger-Hilt
+    private val mainPrefManager by inject<MainPrefManager>()
 
     constructor(context: Context, title: String, text: String, height: Int = 0) {
         this.context = context
@@ -219,7 +221,7 @@ class MessageDialog: KoinComponent {
                             if (speak != null) {
                                 speak?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymoreOfflineMode.isChecked)
                             } else if (listen != null) {
-                                listen?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymoreOfflineMode.isChecked)
+                                mainPrefManager.showOfflineModeMessage = !dialogView.checkDoNotShowAnymoreOfflineMode.isChecked
                             }
                             alertDialog.dismiss()
                         }

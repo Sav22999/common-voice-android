@@ -115,7 +115,7 @@ class CommonVoice : Application() {
             get<MainPrefManager>(),
             get<StatsPrefManager>()
         ) }
-        viewModel { LoginViewModel(get()) }
+        viewModel { LoginViewModel(get(), get()) }
         viewModel { MainActivityViewModel(get(), get()) }
         viewModel { HomeViewModel(get()) }
     }

@@ -2,7 +2,7 @@ package org.commonvoice.saverio_lib.preferences
 
 import android.content.Context
 
-class MainPrefManager(private val ctx: Context) {
+class MainPrefManager(ctx: Context) {
 
     private val preferences = ctx.getSharedPreferences("mainPreferences", Context.MODE_PRIVATE)
 
@@ -23,6 +23,14 @@ class MainPrefManager(private val ctx: Context) {
         set(value) {
             preferences.edit().putString(Keys.TOKEN_AUTH.name, value).apply()
         }
+
+    var username: String
+        get() = preferences.getString(Keys.USERNAME.name, "") ?: ""
+        set(value) = preferences.edit().putString(Keys.USERNAME.name, value).apply()
+
+    var isLoggedIn: Boolean
+        get() = preferences.getBoolean(Keys.IS_LOGGED_IN.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.IS_LOGGED_IN.name, value).apply()
 
     var sessIdCookie: String?
         get() = preferences.getString(Keys.SESSID_COOKIE.name, null)
@@ -93,6 +101,7 @@ class MainPrefManager(private val ctx: Context) {
         SESSID_COOKIE,
         TOKEN_USERID,
         TOKEN_AUTH,
+        IS_LOGGED_IN,
         GESTURES_ENABLED,
         STATS_USERID,
         ARE_STATS_ANONYMOUS,
@@ -103,6 +112,7 @@ class MainPrefManager(private val ctx: Context) {
         LANGUAGE_CHANGED,
         LANGUAGE_CHANGED2,
         IS_DARK,
+        USERNAME,
     }
 
 }

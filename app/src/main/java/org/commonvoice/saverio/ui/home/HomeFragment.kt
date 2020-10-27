@@ -109,12 +109,4 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         theme.setElement(layoutHome)
     }
 
-    private fun startAnimation(view: View, @AnimRes res: Int) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            AnimationUtils.loadAnimation(requireContext(), res).let {
-                view.startAnimation(it)
-            }
-        }
-    }
-
 }

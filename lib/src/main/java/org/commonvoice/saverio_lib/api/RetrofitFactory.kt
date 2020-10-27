@@ -15,11 +15,7 @@ import java.util.concurrent.TimeUnit
  */
 class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
-    private val genericURL = "https://commonvoice.mozilla.org/api/v1/"
-
     private val langURL = genericURL + mainPrefManager.language + "/"
-
-    private val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/"
 
     private val baseRetrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create().withNullSerialization())
@@ -62,5 +58,10 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
     fun makeValidationsService(): ValidationsService = genericRetrofit.create(ValidationsService::class.java)
 
     fun makeClipsDownloadService(): ClipsDownloadService = unauthRetrofit.create(ClipsDownloadService::class.java)
+
+    companion object {
+        private const val genericURL = "https://commonvoice.mozilla.org/api/v1/"
+        private const val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/"
+    }
 
 }
