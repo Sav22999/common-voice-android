@@ -1,7 +1,6 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -10,7 +9,7 @@ import org.commonvoice.saverio_lib.repositories.StatsRepository
 
 class MainActivityViewModel(
     private val statsRepository: StatsRepository,
-    private val database: AppDB
+    private val database: AppDB,
 ) : ViewModel() {
 
     fun postStats(

@@ -3,7 +3,6 @@ package org.commonvoice.saverio
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import androidx.work.WorkManager
-import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.db.AppDB
@@ -15,7 +14,6 @@ import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.*
 import org.commonvoice.saverio_lib.viewmodels.*
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
@@ -61,6 +59,7 @@ class CommonVoice : Application() {
         single { StatsRepository(get(), get()) }
         single { RecordingSoundIndicatorRepository(get()) }
         single { CVStatsRepository(get(), get()) }
+        single { GithubRepository(get()) }
     }
 
     private val mvvmViewmodels = module {
@@ -98,7 +97,7 @@ class CommonVoice : Application() {
         ) }
         viewModel { LoginViewModel(get(), get()) }
         viewModel { MainActivityViewModel(get(), get()) }
-        viewModel { HomeViewModel(get()) }
+        viewModel { HomeViewModel(get(), get(), get()) }
     }
 
     override fun onCreate() {

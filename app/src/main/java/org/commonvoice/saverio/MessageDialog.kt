@@ -1,8 +1,10 @@
 package org.commonvoice.saverio
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
@@ -15,6 +17,7 @@ import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
 import kotlinx.android.synthetic.main.offline_mode_message.view.*
 import kotlinx.android.synthetic.main.report_bugs_message.view.*
+import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.koin.core.KoinComponent
@@ -29,7 +32,7 @@ class MessageDialog: KoinComponent {
     private var message_text: String = ""
     private var message_title: String = ""
     private var message_details: String = ""
-    private var context: Context? = null;
+    private var context: Context? = null
     private var dailyGoalValue: Int = 0
     private var width: Int = 0
     private var height: Int = 0
@@ -115,19 +118,19 @@ class MessageDialog: KoinComponent {
                         if (this.message_title != "") {
                             message_to_show = this.message_title + "\n" + message_to_show
                         }
-                        dialogView.labelTextMessageDialog.setText(message_to_show)
+                        dialogView.labelTextMessageDialog.text = message_to_show
                         if (this.message_details != "") {
-                            dialogView.labelDetailsMessageDialog.setText(this.message_details)
+                            dialogView.labelDetailsMessageDialog.text = this.message_details
                             dialogView.btnShowHideDetailsMessageDialog.isGone = false
                             dialogView.btnShowHideDetailsMessageDialog.paintFlags =
                                 Paint.UNDERLINE_TEXT_FLAG
-                            dialogView.btnShowHideDetailsMessageDialog.setText("Show details")
+                            dialogView.btnShowHideDetailsMessageDialog.text = "Show details"
                             dialogView.btnShowHideDetailsMessageDialog.setOnClickListener {
                                 if (!dialogView.labelDetailsMessageDialog.isGone) {
-                                    dialogView.btnShowHideDetailsMessageDialog.setText("Show details")
+                                    dialogView.btnShowHideDetailsMessageDialog.text = "Show details"
                                     dialogView.labelDetailsMessageDialog.isGone = true
                                 } else {
-                                    dialogView.btnShowHideDetailsMessageDialog.setText("Hide details")
+                                    dialogView.btnShowHideDetailsMessageDialog.text = "Hide details"
                                     dialogView.labelDetailsMessageDialog.isGone = false
                                 }
                             }
@@ -247,19 +250,29 @@ class MessageDialog: KoinComponent {
 
                         dialogView.btnOkMessageDialogReportBug.setOnClickListener {
                             //dismiss dialog
-                            if (main != null) {
-                                main?.setReportWebsiteBugs(!dialogView.checkDoNotShowAnymoreReportBug.isChecked)
-                            }
+                            mainPrefManager.showReportWebsiteBugs =
+                                !dialogView.checkDoNotShowAnymoreReportBug.isChecked
+
                             alertDialog.dismiss()
                         }
 
                         if (main != null) {
-                            dialogView.btnMessageDialogReportBugMozillaDiscourse.setOnClickListener {
-                                main?.reportBugOnMozillaDiscourse()
+                            dialogView.btnMessageDialogReportBugMozillaDiscourse.onClick {
+                                main?.startActivity(
+                                    Intent(
+                                        Intent.ACTION_VIEW,
+                                        Uri.parse("https://mzl.la/3f7sHqj")
+                                    )
+                                )
                             }
 
-                            dialogView.btnMessageDialogReportBugGitHub.setOnClickListener {
-                                main?.reportBugOnGitHubRepository()
+                            dialogView.btnMessageDialogReportBugGitHub.onClick {
+                                main?.startActivity(
+                                    Intent(
+                                        Intent.ACTION_VIEW,
+                                        Uri.parse("https://bit.ly/2Z73TZZ")
+                                    )
+                                )
                             }
                         }
                         setTheme(this.context!!, dialogView)

@@ -2,6 +2,7 @@ package org.commonvoice.saverio.ui.dashboard
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +13,8 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
+import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
@@ -108,11 +109,29 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             }
 
             buttonDashboardSetDailyGoal.onClick {
-                //TODO absolutely change this
                 if (mainPrefManager.sessIdCookie != null) {
-                    (activity as? MainActivity)?.openDailyGoalDialog()
+                    try {
+                        val metrics = DisplayMetrics()
+                        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+                        val width = metrics.widthPixels
+                        val height = metrics.heightPixels
+                        val message = MessageDialog(
+                            requireContext(),
+                            activity as MainActivity,
+                            1,
+                            value = statsPrefManager.dailyGoalObjective,
+                            width = width,
+                            height = height
+                        )
+                        message.show()
+                    } catch (exception: Exception) {
+                        println("!!-- Exception: MainActivity - OPEN DAILY GOAL DIALOG: " + exception.toString() + " --!!")
+                    }
                 } else {
-                    (activity as? MainActivity)?.noLoggedInNoDailyGoal()
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toastNoLoginNoDailyGoal)
+                    )
                 }
             }
 
@@ -125,6 +144,41 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                 dashboardViewModel.contributorsIsInSpeak.postValue(false)
                 dashboardViewModel.updateStats()
             }
+        }
+    }
+
+    private fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = "",
+        type: Int = 0
+    ) {
+        val metrics = DisplayMetrics()
+        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        try {
+            var messageText = text
+            if (errorCode != "") {
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
+            }
+            var message: MessageDialog? = null
+            message = MessageDialog(
+                requireContext(),
+                type,
+                title,
+                messageText,
+                details = details,
+                height = height
+            )
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
     }
 

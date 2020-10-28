@@ -18,11 +18,15 @@ class SettingsPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.CHECK_FOR_UPDATES.name, true)
         set(value) = preferences.edit().putBoolean(Keys.CHECK_FOR_UPDATES.name, value).apply()
 
+    var latestVersion: String
+        get() = preferences.getString(Keys.CHECK_FOR_UPDATES.name, "") ?: ""
+        set(value) = preferences.edit().putString(Keys.CHECK_FOR_UPDATES.name, value).apply()
+
     private enum class Keys {
         SHOW_CONFIRMATION,
         EXPERIMENTAL_FEATURES,
         CHECK_FOR_UPDATES,
-        ANONYMOUS_STATISTICS
+        LATEST_VERSION,
     }
 
 }
