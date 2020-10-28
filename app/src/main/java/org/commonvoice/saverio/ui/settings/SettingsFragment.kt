@@ -104,6 +104,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         }
         switchAutoPlayClips.isChecked = listenPrefManager.isAutoPlayClipEnabled
 
+        switchDarkTheme.isChecked = theme.isDark
         switchDarkTheme.setOnCheckedChangeListener { _, isChecked ->
             theme.isDark = isChecked
             setTheme()
@@ -117,7 +118,6 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
                 )
             }
         }
-        switchDarkTheme.isChecked = theme.isDark
 
         switchRecordingSound.setOnCheckedChangeListener { _, isChecked ->
             if (settingsPrefManager.showConfirmationMessages) {
