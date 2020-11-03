@@ -15,17 +15,18 @@ class SettingsPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.EXPERIMENTAL_FEATURES.name, value).apply()
 
     var automaticallyCheckForUpdates: Boolean
-        get() = preferences.getBoolean(Keys.CHECK_FOR_UPDATES.name, true)
-        set(value) = preferences.edit().putBoolean(Keys.CHECK_FOR_UPDATES.name, value).apply()
+        get() = preferences.getBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, value)
+            .apply()
 
     var latestVersion: String
-        get() = preferences.getString(Keys.CHECK_FOR_UPDATES.name, "") ?: ""
-        set(value) = preferences.edit().putString(Keys.CHECK_FOR_UPDATES.name, value).apply()
+        get() = preferences.getString(Keys.LATEST_VERSION.name, "") ?: ""
+        set(value) = preferences.edit().putString(Keys.LATEST_VERSION.name, value).apply()
 
     private enum class Keys {
         SHOW_CONFIRMATION,
         EXPERIMENTAL_FEATURES,
-        CHECK_FOR_UPDATES,
+        AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
     }
 

@@ -6,11 +6,10 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.fragment.app.activityViewModels
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,6 +28,7 @@ import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -48,7 +48,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
     private val workManager by inject<WorkManager>()
 
     private val mainViewModel by viewModel<MainActivityViewModel>()
-    private val dashboardViewModel by activityViewModels<DashboardViewModel>()
+    private val dashboardViewModel by sharedViewModel<DashboardViewModel>()
 
     private val languagesListShort by lazy {
         resources.getStringArray(R.array.languages_short)
@@ -354,7 +354,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         theme.setElement(requireContext(), buttonProjectGitHub, background = false)
         theme.setElement(requireContext(), buttonTranslateTheApp, background = false)
         theme.setElement(requireContext(), buttonOpenTutorial, background = false)
-        theme.setElement(requireContext(), buttonSeeStatistics,)
+        theme.setElement(requireContext(), buttonSeeStatistics, background = false)
         theme.setElement(requireContext(), buttonCustomiseTheFontSize, background = false)
         theme.setElement(requireContext(), buttonCustomiseGestures, background = false)
         theme.setElement(requireContext(), buttonThemes, background = false)
