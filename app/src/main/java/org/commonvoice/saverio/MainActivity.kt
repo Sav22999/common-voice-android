@@ -15,11 +15,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.WorkManager
-import com.android.volley.AuthFailureError
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.commonvoice.saverio.ui.VariableLanguageActivity
@@ -34,7 +29,6 @@ import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
-import kotlin.collections.HashMap
 
 
 class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
@@ -51,17 +45,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         const val RECORD_REQUEST_CODE = 8374
     }
 
-    private val urlWithoutLang: String = "https://commonvoice.mozilla.org/api/v1/" //API url (without lang)
-
     private val languagesListShortArray by lazy {
         resources.getStringArray(R.array.languages_short)
     }
     private val languagesListArray by lazy {
         resources.getStringArray(R.array.languages)
     }
-
-    var logged: Boolean = false
-    var userId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,52 +93,29 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
         }
 
-        this.checkIfSessionIsExpired()
-        this.reviewOnPlayStore()
+        checkIfSessionIsExpired()
+        reviewOnPlayStore()
 
         if (mainPrefManager.showReportWebsiteBugs) {
             showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
         }
     }
 
-    fun checkIfSessionIsExpired() {
-        //if the userid returns "null", to the user have to log in again
-        if (logged) {
-            val path = "user_client" //API to get sentences
-            val que = Volley.newRequestQueue(this)
-            //SystemClock.sleep(1000L);
-            val req = object : StringRequest(Request.Method.GET, urlWithoutLang + path,
-                Response.Listener {
-                    //println("-->> " + it.toString() + " <<--")
-                    if (it.toString() != "null") {
-                        val jsonResult = it.toString()
-                    } else {
-                        logoutUser()
-                    }
-                }, Response.ErrorListener {
-                    println(" -->> Something wrong: " + it.toString() + " <<-- ")
-                }
-            ) {
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    headers.put(
-                        "Cookie",
-                        "connect.sid=" + userId
-                    )
-                    return headers
+    private fun checkIfSessionIsExpired() {
+        if (mainPrefManager.sessIdCookie != null) {
+            mainActivityViewModel.getUserClient().observe(this) {
+                if (it == null) {
+                    logoutUser()
                 }
             }
-            que.add(req)
         }
     }
 
-    fun logoutUser() {
+    private fun logoutUser() {
         showMessageDialog(
             "",
             getString(R.string.message_log_in_again)
         )
-        logged = false
         mainPrefManager.sessIdCookie = null
         mainPrefManager.isLoggedIn = false
         mainPrefManager.username = ""

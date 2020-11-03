@@ -21,7 +21,6 @@ object Versions {
 
     // Google
     const val materialVersion = "1.2.1"
-    const val volleyVersion = "1.1.1"
 
     // Coroutines
     const val androidVersion = "1.4.0"

@@ -56,8 +56,6 @@ object Libs {
 
     // Google
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
-    const val volley = "com.android.volley:volley:${Versions.volleyVersion}"
-
     // Junit
     const val junit4 = "junit:junit:${Versions.junitVersion}"
 

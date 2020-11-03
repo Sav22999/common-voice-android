@@ -72,9 +72,6 @@ dependencies {
     androidTestImplementation Libs.junitExt
     androidTestImplementation Libs.espressoCore
 
-    //volley
-    implementation Libs.volley
-
     //Koin
     implementation Libs.koinViewModel
     //https://github.com/InsertKoinIO/koin
