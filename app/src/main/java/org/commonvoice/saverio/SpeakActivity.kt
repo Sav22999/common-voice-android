@@ -15,7 +15,6 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -259,7 +258,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun openReportDialog() {
         if (!binding.buttonReportSpeak.isGone) {
-            stopAndRefresh()
+            if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
+                speakViewModel.stopRecording()
+            }
 
             SpeakReportDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
         }
@@ -321,38 +322,19 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
         textSentenceSpeak.text = sentence.sentenceText
-        when (textSentenceSpeak.text.length) {
-            in 0..10 -> {
-                textSentenceSpeak.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_very_big)
-                )
-            }
-            in 11..20 -> {
-                textSentenceSpeak.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_big)
-                )
-            }
-            in 21..40 -> {
-                textSentenceSpeak.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_medium)
-                )
-            }
-            in 41..70 -> {
-                textSentenceSpeak.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_normal)
-                )
-            }
-            else -> {
-                textSentenceSpeak.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_small)
-                )
-            }
-        }
+
+        textSentenceSpeak.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(
+                when (textSentenceSpeak.text.length) {
+                    in 0..10 -> R.dimen.title_very_big
+                    in 11..20 -> R.dimen.title_big
+                    in 21..40 -> R.dimen.title_medium
+                    in 41..70 -> R.dimen.title_normal
+                    else -> R.dimen.title_small
+                }
+            )
+        )
 
         buttonStartStopSpeak.onClick {
             checkPermission()
