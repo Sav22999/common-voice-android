@@ -19,6 +19,7 @@ import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.BottomsheetLoginBinding
 import org.commonvoice.saverio.databinding.FragmentLoginBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -55,6 +56,15 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
         val bottomSheet = BottomSheetDialog(requireContext()).also {
             it.setContentView(bottomSheetBinding.root)
+        }
+
+        if (mainPrefManager.areGesturesEnabled) {
+            binding.layoutWebBrowser.setOnTouchListener(object :
+                OnSwipeTouchListener(requireContext()) {
+                override fun onSwipeRight() {
+                    activity?.onBackPressed()
+                }
+            })
         }
 
         binding.btnAlreadyAVerificationLinkWebBrowser.onClick {
@@ -148,7 +158,7 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                         SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
                         ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
-                        findNavController().navigate(R.id.profileFragment)
+                        findNavController().navigateUp()
                     }
                 } else {
                     Log.e("LoginFragment", "??-- I can't get cookie - Something was wrong --??")

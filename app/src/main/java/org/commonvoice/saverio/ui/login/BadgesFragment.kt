@@ -1,43 +1,50 @@
-package org.commonvoice.saverio
+package org.commonvoice.saverio.ui.login
 
 import android.annotation.SuppressLint
-import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import org.commonvoice.saverio.MessageDialog
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.AllBadgesBinding
 import org.commonvoice.saverio.ui.recyclerview.badges.Badge
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeAdapter
-import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.koin.android.ext.android.inject
 import kotlin.math.roundToInt
 
 
-class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
-    AllBadgesBinding::inflate
-) {
+class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
 
+    override fun inflate(layoutInflater: LayoutInflater, container: ViewGroup?): AllBadgesBinding {
+        return AllBadgesBinding.inflate(layoutInflater, container, false)
+    }
+
+    private val mainPrefManager by inject<MainPrefManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onStart() {
+        super.onStart()
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        actionBar?.setTitle(R.string.labelAllBadges)
-        supportActionBar?.setTitle(R.string.labelAllBadges)
+        activity?.setTitle(R.string.labelAllBadges)
 
         binding.btnCloseBadges.setOnClickListener {
-            finish()
+            findNavController().navigateUp()
         }
 
         loadBadges()
 
         if (mainPrefManager.areGesturesEnabled) {
-            binding.layoutAllBadges.setOnTouchListener(object : OnSwipeTouchListener(this@BadgesActivity) {
+            binding.layoutAllBadges.setOnTouchListener(object :
+                OnSwipeTouchListener(requireContext()) {
                 override fun onSwipeRight() {
-                    onBackPressed()
+                    activity?.onBackPressed()
                 }
             })
         }
@@ -47,7 +54,14 @@ class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
         val columnsNumber = determineColumnNumber()
 
         binding.badgesRecyclerView.apply {
-            layoutManager = GridLayoutManager(this@BadgesActivity, columnsNumber)
+            setOnTouchListener(
+                object : OnSwipeTouchListener(requireContext()) {
+                    override fun onSwipeRight() {
+                        activity?.onBackPressed()
+                    }
+                }
+            )
+            layoutManager = GridLayoutManager(requireContext(), columnsNumber)
             adapter = BadgeAdapter(
                 Badge.generateBadgeData(
                     statsPrefManager.parsedLevel,
@@ -87,7 +101,7 @@ class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
 
     private fun determineColumnNumber(): Int {
         val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        activity?.windowManager?.defaultDisplay?.getMetrics(displayMetrics)
 
         val widthDp = displayMetrics.widthPixels / displayMetrics.density
 
@@ -102,7 +116,7 @@ class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
         type: Int = 0
     ) {
         val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
+        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
         //val width = metrics.widthPixels
         val height = metrics.heightPixels
         try {
@@ -116,14 +130,14 @@ class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
             }
             var message: MessageDialog? = null
             message = MessageDialog(
-                this,
+                requireContext(),
                 type,
                 title,
                 messageText,
                 details = details,
                 height = height
             )
-            message?.show()
+            message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
@@ -131,7 +145,7 @@ class BadgesActivity : ViewBoundActivity<AllBadgesBinding>(
 
     private fun setTheme() {
         theme.setElement(binding.layoutAllBadges)
-        theme.setElement(this, binding.btnCloseBadges)
+        theme.setElement(requireContext(), binding.btnCloseBadges)
     }
 
 }

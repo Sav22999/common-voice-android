@@ -101,7 +101,7 @@
             android:theme="@style/AppTheme" />
         <!-- Badges -->
         <activity
-            android:name=".BadgesActivity"
+            android:name=".ui.home.BadgesActivity"
             android:label="@string/labelAllBadges"
             android:parentActivityName=".LoginActivity"
             android:theme="@style/AppTheme.TitleBar" />

@@ -24,6 +24,14 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="org.commonvoice.saverio.ui.login.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_badgesFragment"
+            app:destination="@id/badgesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/badgesFragment"
+        android:name="org.commonvoice.saverio.ui.login.BadgesFragment"
+        android:label="BadgesFragment" />
 
 </navigation>

@@ -10,11 +10,11 @@ import android.webkit.CookieManager
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
-import org.commonvoice.saverio.BadgesActivity
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentProfileBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
@@ -45,14 +45,21 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
             return
         }
 
+        if (mainPrefManager.areGesturesEnabled) {
+            binding.nestedScrollLogin.setOnTouchListener(object :
+                OnSwipeTouchListener(requireContext()) {
+                override fun onSwipeRight() {
+                    activity?.onBackPressed()
+                }
+            })
+        }
+
         binding.btnLogout.onClick {
             logoutAndExit()
         }
 
         binding.btnBadges.onClick {
-            Intent(requireContext(), BadgesActivity::class.java).also {
-                startActivity(it)
-            }
+            findNavController().navigate(R.id.badgesFragment)
         }
 
         binding.labelToModifyInformation.paintFlags = Paint.UNDERLINE_TEXT_FLAG
@@ -78,6 +85,8 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
                     textProfileAge.setText(getAgeString(it.age))
                     textProfileGender.setText(getGenderString(it.gender))
                     textProfileUsername.setText(it.username)
+
+                    mainPrefManager.username = it.username
 
                     btnBadges.isEnabled = true
 
