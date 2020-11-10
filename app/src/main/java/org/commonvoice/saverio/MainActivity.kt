@@ -19,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.TranslationLanguages
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -39,6 +40,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+
+    private val connectionManager: ConnectionManager by inject()
 
     companion object {
         const val SOURCE_STORE = BuildConfig.FLAVOR
@@ -102,7 +105,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     private fun checkIfSessionIsExpired() {
-        if (mainPrefManager.sessIdCookie != null) {
+        if (mainPrefManager.sessIdCookie != null && connectionManager.isInternetAvailable) {
             mainActivityViewModel.getUserClient().observe(this) {
                 if (it == null) {
                     logoutUser()
@@ -162,7 +165,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
-    fun showMessageDialog(
+    private fun showMessageDialog(
         title: String,
         text: String,
         errorCode: String = "",

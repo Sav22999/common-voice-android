@@ -16,6 +16,7 @@ import org.commonvoice.saverio.databinding.FragmentProfileBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.utils.ImageDownloader
@@ -30,6 +31,8 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
     private val mainPrefManager by inject<MainPrefManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
 
+    private val connectionManager by inject<ConnectionManager>()
+
     override fun inflate(
         layoutInflater: LayoutInflater,
         container: ViewGroup?
@@ -39,6 +42,11 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
 
     override fun onStart() {
         super.onStart()
+
+        if (!connectionManager.isInternetAvailable) {
+            findNavController().navigate(R.id.noConnectionFragment)
+            return
+        }
 
         if (mainPrefManager.sessIdCookie == null) {
             findNavController().navigate(R.id.loginFragment)

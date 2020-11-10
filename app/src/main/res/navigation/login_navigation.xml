@@ -28,10 +28,17 @@
         <action
             android:id="@+id/action_profileFragment_to_badgesFragment"
             app:destination="@id/badgesFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_noConnectionFragment"
+            app:destination="@id/noConnectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/badgesFragment"
         android:name="org.commonvoice.saverio.ui.login.BadgesFragment"
         android:label="BadgesFragment" />
+    <fragment
+        android:id="@+id/noConnectionFragment"
+        android:name="org.commonvoice.saverio.ui.login.NoConnectionFragment"
+        android:label="NoConnectionFragment" />
 
 </navigation>

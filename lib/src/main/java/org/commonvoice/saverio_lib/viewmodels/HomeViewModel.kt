@@ -24,7 +24,11 @@ class HomeViewModel(
     }
 
     fun checkForNewVersion(localVersion: String): LiveData<String> = liveData {
-        val serverVersion = githubRepository.getLatestVersion().body()?.latestVersion ?: ""
+        val serverVersion = try {
+            githubRepository.getLatestVersion().body()?.latestVersion
+        } catch (e: Exception) {
+            null
+        } ?: localVersion
 
         if (serverVersion != settingsPrefManager.latestVersion && serverVersion != localVersion) {
             settingsPrefManager.latestVersion = serverVersion

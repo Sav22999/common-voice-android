@@ -1,5 +1,6 @@
 package org.commonvoice.saverio_lib.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -30,7 +31,17 @@ class MainActivityViewModel(
     }
 
     fun getUserClient(): LiveData<UserClient?> = liveData {
-        emit(userRepository.getUserClient())
+        emit(
+            try {
+                userRepository.getUserClient()
+            } catch (e: Exception) {
+                Log.e(
+                    "MainActivityViewModel",
+                    "Exception ${e.stackTrace}. Probably Internet is not available."
+                )
+                null
+            }
+        )
     }
 
 }

@@ -69,12 +69,6 @@
             android:theme="@style/AppTheme.TitleBar">
             <nav-graph android:value="@navigation/login_navigation" />
         </activity>
-        <!-- NoConnectionActivity -->
-        <activity
-            android:name=".NoConnectionActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme" />
         <!-- FirstRunListen -->
         <activity
             android:name=".FirstRunListen"
@@ -99,11 +93,5 @@
             android:name=".NotAvailableNow"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
-        <!-- Badges -->
-        <activity
-            android:name=".ui.home.BadgesActivity"
-            android:label="@string/labelAllBadges"
-            android:parentActivityName=".LoginActivity"
-            android:theme="@style/AppTheme.TitleBar" />
     </application>
 </manifest>
