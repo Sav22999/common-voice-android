@@ -97,17 +97,17 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
         setTheme()
     }
 
-    private fun showLoading() = withBinding {
-        try {
+    private fun showLoading() = try {
+        withBinding {
             txtLoadingWebBrowser.isGone = false
             imgBackgroundWebBrowser.isGone = false
             imgRobotWebBrowser.isGone = false
             btnAlreadyAVerificationLinkWebBrowser.isGone = true
             stopAnimation(btnAlreadyAVerificationLinkWebBrowser)
             startAnimation(imgRobotWebBrowser, R.anim.login)
-        } catch (e: Exception) {
-
         }
+    } catch (e: Exception) {
+
     }
 
     fun hideLoading(showButton: Boolean = false) = withBinding {
@@ -158,7 +158,11 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                         SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
                         ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
-                        findNavController().navigateUp()
+                        if (arguments?.getString("loginUrl") != null) {
+                            findNavController().popBackStack(R.id.profileFragment, false)
+                        } else {
+                            findNavController().navigateUp()
+                        }
                     }
                 } else {
                     Log.e("LoginFragment", "??-- I can't get cookie - Something was wrong --??")
@@ -169,6 +173,7 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
     private fun navigateTo(newUrl: String?) = binding.webViewBrowser.apply {
         if ((newUrl != url && newUrl != null) || url == null) {
+            Log.wtf("NewURL", newUrl ?: "https://commonvoice.mozilla.org/login")
             loadUrl(newUrl ?: "https://commonvoice.mozilla.org/login")
         }
     }

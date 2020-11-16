@@ -7,10 +7,6 @@
         android:id="@+id/loginFragment"
         android:name="org.commonvoice.saverio.ui.login.LoginFragment"
         android:label="LoginFragment">
-        <deepLink
-            android:id="@+id/deepLink"
-            app:action="ACTION_VIEW"
-            app:uri="auth.mozilla.auth0.com/{loginUrl}" />
         <argument
             android:name="loginUrl"
             app:argType="string"
@@ -40,5 +36,14 @@
         android:id="@+id/noConnectionFragment"
         android:name="org.commonvoice.saverio.ui.login.NoConnectionFragment"
         android:label="NoConnectionFragment" />
+    <fragment
+        android:id="@+id/placeholderFragment"
+        android:name="org.commonvoice.saverio.ui.login.PlaceholderFragment"
+        android:label="PlaceholderFragment">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:action="ACTION_VIEW"
+            app:uri="auth.mozilla.auth0.com/{login_url}" />
+    </fragment>
 
 </navigation>
