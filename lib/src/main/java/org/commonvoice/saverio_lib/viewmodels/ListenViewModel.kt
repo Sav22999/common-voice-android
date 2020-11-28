@@ -1,14 +1,13 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
-import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.parcelize.Parcelize
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.ValidationsUploadWorker
@@ -20,7 +19,6 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
-import kotlin.math.log
 
 class ListenViewModel(
     handle: SavedStateHandle,
@@ -110,6 +108,8 @@ class ListenViewModel(
     fun stop() {
         when (state.value) {
             State.LISTENING -> mediaPlayerRepository.stopPlaying()
+            else -> {
+            }
         }
         mediaPlayerRepository.clean()
     }

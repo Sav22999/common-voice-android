@@ -1,12 +1,12 @@
 object Versions {
 
-    const val buildGradleVersion = "4.1.0"
-    const val kotlinVersion = "1.4.10"
+    const val buildGradleVersion = "4.1.1"
+    const val kotlinVersion = "1.4.20"
 
     const val junitVersion = "4.13.1"
 
     const val appCompatVersion = "1.2.0"
-    const val constraintLayoutVersion = "2.0.2"
+    const val constraintLayoutVersion = "2.0.4"
     const val coreKtxVersion = "1.3.2"
     const val legacySupportVersion = "1.0.0"
 
@@ -23,7 +23,7 @@ object Versions {
     const val materialVersion = "1.2.1"
 
     // Coroutines
-    const val androidVersion = "1.4.0"
+    const val androidVersion = "1.4.2"
 
     // Square
     const val retrofitVersion = "2.9.0"

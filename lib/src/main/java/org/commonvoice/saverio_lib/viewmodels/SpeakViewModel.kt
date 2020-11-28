@@ -1,24 +1,26 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
-import kotlinx.android.parcel.Parcelize
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlinx.parcelize.Parcelize
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
-import org.commonvoice.saverio_lib.models.Sentence
-import org.commonvoice.saverio_lib.repositories.RecordingsRepository
-import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Report
+import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
+import org.commonvoice.saverio_lib.repositories.SentencesRepository
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
