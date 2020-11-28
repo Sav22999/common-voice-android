@@ -19,7 +19,72 @@
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="org.commonvoice.saverio.ui.settings.SettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.NewSettingsFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_new_settings">
+        <action
+            android:id="@+id/action_navigation_settings_to_UISettingsFragment"
+            app:destination="@id/UISettingsFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_listenSettingsFragment"
+            app:destination="@id/listenSettingsFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_speakSettingsFragment"
+            app:destination="@id/speakSettingsFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_appSettingsFragment"
+            app:destination="@id/appSettingsFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_advancedSettingsFragment"
+            app:destination="@id/advancedSettingsFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_experimentalSettingsFragment"
+            app:destination="@id/experimentalSettingsFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_gesturesSettingsFragment"
+            app:destination="@id/gesturesSettingsFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_offlineModeSettingsFragment"
+            app:destination="@id/offlineModeSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listenSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.ListenSettingsFragment"
+        android:label="ListenSettingsFragment"
+        tools:layout="@layout/fragment_listen_settings" />
+    <fragment
+        android:id="@+id/speakSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.SpeakSettingsFragment"
+        android:label="SpeakSettingsFragment"
+        tools:layout="@layout/fragment_speak_settings" />
+    <fragment
+        android:id="@+id/advancedSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.AdvancedSettingsFragment"
+        android:label="AdvancedSettingsFragment"
+        tools:layout="@layout/fragment_advanced_settings" />
+    <fragment
+        android:id="@+id/appSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.AppSettingsFragment"
+        android:label="AppSettingsFragment"
+        tools:layout="@layout/fragment_app_settings" />
+    <fragment
+        android:id="@+id/experimentalSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.ExperimentalSettingsFragment"
+        android:label="ExperimentalSettingsFragment"
+        tools:layout="@layout/fragment_experimental_settings" />
+    <fragment
+        android:id="@+id/gesturesSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.GesturesSettingsFragment"
+        android:label="GesturesSettingsFragment"
+        tools:layout="@layout/fragment_gestures_settings" />
+    <fragment
+        android:id="@+id/offlineModeSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.OfflineModeSettingsFragment"
+        android:label="OfflineModeSettingsFragment"
+        tools:layout="@layout/fragment_offline_settings" />
+    <fragment
+        android:id="@+id/UISettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.UISettingsFragment"
+        android:label="UISettingsFragment"
+        tools:layout="@layout/fragment_ui_settings" />
 </navigation>
