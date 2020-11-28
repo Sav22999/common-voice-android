@@ -270,9 +270,11 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
         binding.labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
         binding.labelDashboardVoicesBefore.text =
-            "${getString(R.string.textHour)} ${localTimeMinusOne.padStart(
-                2, '0'
-            )}:00"
+            "${getString(R.string.textHour)} ${
+                localTimeMinusOne.padStart(
+                    2, '0'
+                )
+            }:00"
 
         dashboardViewModel.onlineVoices.observe(viewLifecycleOwner, Observer { list ->
             binding.textDashboardVoicesNow.setText(list.now.toString())
@@ -355,26 +357,49 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
 
-        theme.setTextView(context, textDashboardVoicesNow)
-        theme.setTextView(context, textDashboardVoicesBefore)
-
         theme.setElement(context, buttonDashboardSetDailyGoal)
 
-        theme.setTextView(context, textDashboardVoicesNow, border = false)
-        theme.setTextView(context, textDashboardVoicesBefore, border = false)
+        theme.setTextView(context, textDashboardVoicesNow, border = false, intern = true)
+        theme.setTextView(context, textDashboardVoicesBefore, border = false, intern = true)
 
         theme.setTextView(
             context,
             textDashboardAppStatisticsCurrentLanguage,
-            border = false
+            border = false,
+            intern = true
         )
-        theme.setTextView(context, textDashboardAppStatisticsAllLanguages, border = false)
+        theme.setTextView(
+            context,
+            textDashboardAppStatisticsAllLanguages,
+            border = false,
+            intern = true
+        )
 
-        theme.setTextView(context, textDashboardTopContributorsNumberFirst, border = false)
-        theme.setTextView(context, textDashboardTopContributorsNumberSecond, border = false)
-        theme.setTextView(context, textDashboardTopContributorsNumberThird, border = false)
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberFirst,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberSecond,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberThird,
+            border = false,
+            intern = true
+        )
         theme.setElement(context, labelTopContributorsPoints)
-        theme.setTextView(context, textDashboardTopContributorsNumberNth, border = false)
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberNth,
+            border = false,
+            intern = true
+        )
 
         resetTopContributor()
     }
