@@ -30,7 +30,6 @@
     <string name="txt_top_contributors_recorded">Recorded</string>
     <string name="txt_top_contributors_validated">Validated</string>
     <!-- 4, ..., 100, etc. -->
-    <string name="txt_top_contributors_n_position" translatable="false">{{*{{n_position}}*}}</string>
     <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
