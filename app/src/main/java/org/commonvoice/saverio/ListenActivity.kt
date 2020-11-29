@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -139,7 +140,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     ).replace(
                         "{{*{{n_sentences}}*}}",
                         "${it.recordings}"
-                    )
+                    ), type = 12
                 )
             }
             animateProgressBar(
@@ -153,6 +154,17 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         setupNestedScroll()
 
         setTheme()
+    }
+
+    public fun shareCVAndroidDailyGoal() {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "type/palin"
+        val textToShare = getString(R.string.share_daily_goal_text_on_social).replace(
+            "{{*{{link}}*}}",
+            "https://bit.ly/2XhnO7h"
+        )
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
     }
 
     private fun showMessageDialog(title: String, text: String, type: Int = 0) {

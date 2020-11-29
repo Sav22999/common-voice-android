@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.animation.ValueAnimator
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -145,7 +146,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     ).replace(
                         "{{*{{n_sentences}}*}}",
                         "${it.recordings}"
-                    )
+                    ), type = 12
                 )
             }
             animateProgressBar(
@@ -157,6 +158,17 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         setupNestedScroll()
 
         setTheme(this)
+    }
+
+    public fun shareCVAndroidDailyGoal() {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "type/palin"
+        val textToShare = getString(R.string.share_daily_goal_text_on_social).replace(
+            "{{*{{link}}*}}",
+            "https://bit.ly/2XhnO7h"
+        )
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
     }
 
     private fun checkState(status: SpeakViewModel.Companion.State?) {
@@ -229,7 +241,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun setupGestures() {
-        binding.nestedScrollSpeak.setOnTouchListener(object : OnSwipeTouchListener(this@SpeakActivity) {
+        binding.nestedScrollSpeak.setOnTouchListener(object :
+            OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
                 speakViewModel.skipSentence()
             }

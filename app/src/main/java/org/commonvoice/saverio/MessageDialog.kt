@@ -15,6 +15,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.message_dialog.view.*
+import kotlinx.android.synthetic.main.message_dialog_daily_goal_achived.view.*
 import kotlinx.android.synthetic.main.offline_mode_message.view.*
 import kotlinx.android.synthetic.main.report_bugs_message.view.*
 import org.commonvoice.saverio.utils.onClick
@@ -23,12 +24,13 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class MessageDialog: KoinComponent {
+class MessageDialog : KoinComponent {
     private var message_type: Int =
-        0 /*0->standard (Ok), 1->dailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off),
+        0 /*0->standard (Ok), 1->setDailyGoal, 2->standard (Ok) JUST FOR THEME changing ("Dark theme turned on/off),
             3->reportClip (listen), 4->reportSentence (Speak)
             5->info, 6->help, 7->warning, 8->news/changelog, 9->tip
-            10->offlineModeMessage, 11->report bug on website*/
+            10->offlineModeMessage, 11->report bug on website
+            12->daily goal achieved*/
     private var message_text: String = ""
     private var message_title: String = ""
     private var message_details: String = ""
@@ -94,10 +96,12 @@ class MessageDialog: KoinComponent {
 
     fun setListenActivity(listen: ListenActivity) {
         this.listen = listen
+        this.speak = null
     }
 
     fun setSpeakActivity(speak: SpeakActivity) {
         this.speak = speak
+        this.listen = null
     }
 
     fun show() {
@@ -226,7 +230,8 @@ class MessageDialog: KoinComponent {
                             if (speak != null) {
                                 speak?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymoreOfflineMode.isChecked)
                             } else if (listen != null) {
-                                mainPrefManager.showOfflineModeMessage = !dialogView.checkDoNotShowAnymoreOfflineMode.isChecked
+                                mainPrefManager.showOfflineModeMessage =
+                                    !dialogView.checkDoNotShowAnymoreOfflineMode.isChecked
                             }
                             alertDialog.dismiss()
                         }
@@ -280,11 +285,43 @@ class MessageDialog: KoinComponent {
                         println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
                     }
                 }
-            }
-        }
-        when (this.message_type) {
-            11 -> {
+                12 -> {
+                    try {
+                        val dialogView =
+                            LayoutInflater.from(this.context)
+                                .inflate(R.layout.message_dialog_daily_goal_achived, null)
 
+                        val builder =
+                            AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
+                                .setView(dialogView)
+                                .setTitle("")
+                        //show dialog
+                        val alertDialog = builder.show()
+                        var message_to_show = this.message_text
+                        if (this.message_title != "") {
+                            message_to_show = this.message_title + "\n" + message_to_show
+                        }
+                        dialogView.labelTextMessageDialogDailyAchieved.text = message_to_show
+                        dialogView.btnOkMessageDialogDailyAchieved.setOnClickListener {
+                            //dismiss dialog
+                            alertDialog.dismiss()
+                        }
+
+                        dialogView.btnShareMessageDialogDailyAchieved.setOnClickListener {
+                            //share and dismiss dialog
+                            alertDialog.dismiss()
+                            if (speak != null) {
+                                speak?.shareCVAndroidDailyGoal()
+                            } else if (listen != null) {
+                                listen?.shareCVAndroidDailyGoal()
+                            }
+                        }
+                        setTheme(this.context!!, dialogView)
+                        setMessageType(this.context!!, dialogView)
+                    } catch (exception: Exception) {
+                        println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
+                    }
+                }
             }
         }
     }
@@ -534,6 +571,43 @@ class MessageDialog: KoinComponent {
                 )
 
                 setImageNoWifi(view, dialogView, theme.isDark)
+            }
+            12 -> {
+                //standard message dialog
+                if (this.height > 500) {
+                    dialogView.messageDialogSectionBackgroundDailyAchieved.layoutParams.height =
+                        this.height
+                    dialogView.messageDialogSectionBackgroundDailyAchieved.requestLayout()
+                } else {
+                    dialogView.messageDialogSectionBackgroundDailyAchieved.backgroundTintList =
+                        ContextCompat.getColorStateList(view, R.color.colorTransparent)
+                }
+
+                theme.setElement(
+                    dialogView.findViewById(R.id.messageDialogSectionMiddleDailyAchieved) as ConstraintLayout,
+                    invert = message_type == 2
+                )
+                theme.setElement(
+                    view,
+                    -1,
+                    dialogView.findViewById(R.id.messageDialogSectionMiddleDailyAchieved) as ConstraintLayout,
+                    invert = message_type == 2
+                )
+                theme.setElement(
+                    view,
+                    dialogView.findViewById(R.id.btnOkMessageDialogDailyAchieved) as Button,
+                    invert = message_type == 2
+                )
+                theme.setElement(
+                    view,
+                    dialogView.findViewById(R.id.btnShareMessageDialogDailyAchieved) as Button,
+                    invert = message_type == 2
+                )
+                theme.setElement(
+                    view,
+                    dialogView.findViewById(R.id.labelTextMessageDialogDailyAchieved) as TextView,
+                    invert = message_type == 2
+                )
             }
         }
     }
