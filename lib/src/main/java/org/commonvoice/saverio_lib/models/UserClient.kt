@@ -7,13 +7,13 @@ import com.squareup.moshi.JsonClass
 data class UserClient(
 
     @Json(name = "age")
-    val age: String,
+    val age: String?,
 
     @Json(name = "email")
     val email: String,
 
     @Json(name = "gender")
-    val gender: String,
+    val gender: String?,
 
     @Json(name = "username")
     val username: String,

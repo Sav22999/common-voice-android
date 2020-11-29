@@ -1,17 +1,14 @@
 package org.commonvoice.saverio_lib.viewmodels
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
-import org.commonvoice.saverio_lib.api.responseBodies.ResponseEverStats
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseLeaderboardPosition
-import org.commonvoice.saverio_lib.api.responseBodies.ResponseVoicesToday
-import org.commonvoice.saverio_lib.models.UserClient
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.repositories.CVStatsRepository

@@ -90,8 +90,8 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
             it?.let {
                 withBinding {
                     textProfileEmail.setText(it.email)
-                    textProfileAge.setText(getAgeString(it.age))
-                    textProfileGender.setText(getGenderString(it.gender))
+                    textProfileAge.setText(it.age?.let { age -> getAgeString(age) })
+                    textProfileGender.setText(it.gender?.let { gender -> getGenderString(gender) })
                     textProfileUsername.setText(it.username)
 
                     mainPrefManager.username = it.username
