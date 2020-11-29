@@ -520,7 +520,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                             textDashboardTopContributorsNumberNth.setText("${you.total}")
                             setYouTopContributor(dashboardTopContributorsNth)
-                            if (you.position >= 4) { //User is not in the top three, we need to show the dots
+                            if (you.position > 4) { //User is not in the top three, we need to show the dots
                                 dashboardTopContributorsPoints.isGone =
                                     !connectionManager.isInternetAvailable
                             }
@@ -574,7 +574,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
                         setYouTopContributor(dashboardTopContributorsNth)
-                        if (you.total > 5) {
+                        if (you.position > 4) {
                             dashboardTopContributorsPoints.isGone =
                                 !connectionManager.isInternetAvailable
                         }
