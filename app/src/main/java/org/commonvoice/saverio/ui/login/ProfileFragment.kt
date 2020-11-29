@@ -90,11 +90,11 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
             it?.let {
                 withBinding {
                     textProfileEmail.setText(it.email)
-                    textProfileAge.setText(it.age?.let { age -> getAgeString(age) })
-                    textProfileGender.setText(it.gender?.let { gender -> getGenderString(gender) })
+                    textProfileAge.setText(getAgeString(it.age))
+                    textProfileGender.setText(getGenderString(it.gender))
                     textProfileUsername.setText(it.username)
 
-                    mainPrefManager.username = it.username
+                    mainPrefManager.username = it.username ?: ""
 
                     btnBadges.isEnabled = true
 
@@ -118,7 +118,7 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
         setTheme()
     }
 
-    private fun getAgeString(age: String) = when (age) {
+    private fun getAgeString(age: String?) = when (age) {
         "teens" -> "< 19"
         "twenties" -> "19-29"
         "thirties" -> "30-39"
@@ -131,7 +131,7 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
         else -> "?"
     }
 
-    private fun getGenderString(gender: String) = when (gender) {
+    private fun getGenderString(gender: String?) = when (gender) {
         "male" -> getString(R.string.txt_gender_male)
         "female" -> getString(R.string.txt_gender_female)
         "other" -> getString(R.string.txt_gender_other)

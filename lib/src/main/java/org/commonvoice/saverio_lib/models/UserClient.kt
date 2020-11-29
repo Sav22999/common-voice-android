@@ -16,7 +16,7 @@ data class UserClient(
     val gender: String?,
 
     @Json(name = "username")
-    val username: String,
+    val username: String?,
 
     @Json(name = "avatar_url")
     val avatar_url: String?,
