@@ -204,7 +204,9 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             it.isVisible = isInternetPresent
                         }
 
-                    dashboardTopContributorsNTh.isVisible = false
+                    dashboardTopContributorsBeforeNth.isVisible = false
+                    dashboardTopContributorsNth.isVisible = false
+                    dashboardTopContributorsAfterNth.isVisible = false
                     dashboardTopContributorsPoints.isVisible = false
 
                     labelDashboardDailyGoalValue.isVisible = isInternetPresent
@@ -304,7 +306,9 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         theme.setElements(context, dashboardTopContributorsFirst)
         theme.setElements(context, dashboardTopContributorsSecond)
         theme.setElements(context, dashboardTopContributorsThird)
-        theme.setElements(context, dashboardTopContributorsNTh)
+        theme.setElements(context, dashboardTopContributorsBeforeNth)
+        theme.setElements(context, dashboardTopContributorsNth)
+        theme.setElements(context, dashboardTopContributorsAfterNth)
 
         theme.setElement(context, 3, dashboardSectionStatistics)
         theme.setElement(context, 3, dashboardSectionVoicesOnline)
@@ -396,7 +400,19 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         theme.setElement(context, labelTopContributorsPoints)
         theme.setTextView(
             context,
+            textDashboardTopContributorsNumberBeforeNth,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
             textDashboardTopContributorsNumberNth,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberAfterNth,
             border = false,
             intern = true
         )
@@ -405,18 +421,13 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     }
 
     private fun resetTopContributor() {
-        for (x in 0..3) {
+        for (x in 0..6) {
             setYouTopContributor(
                 getContributorSection(x),
                 background = R.color.colorDarkWhite,
                 backgroundDT = R.color.colorLightBlack
             )
         }
-        setYouTopContributor(
-            binding.dashboardTopContributorsNTh,
-            background = R.color.colorDarkWhite,
-            backgroundDT = R.color.colorLightBlack
-        )
         binding.dashboardTopContributorsPoints.isGone = true
     }
 
@@ -474,19 +485,21 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         })
 
         dashboardViewModel.contributors.observe(viewLifecycleOwner, Observer { pair ->
-            dashboardTopContributorsNTh.isVisible = false
+            dashboardTopContributorsBeforeNth.isGone = true
+            dashboardTopContributorsNth.isGone = true
+            dashboardTopContributorsAfterNth.isGone = true
 
             resetTopContributor()
 
             if (pair.second) {
-                pair.first.topContributorsSpeak.take(3)
+                pair.first.topContributorsSpeak.take(4)
                     .forEachIndexed { index, responseLeaderboardPosition ->
                         getContributorNameTextView(index).text =
                             responseLeaderboardPosition.username
                         getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
                     }
                 pair.first.topContributorsSpeak.find { it.isYou }?.let { you ->
-                    if (pair.first.topContributorsSpeak.take(3).contains(you)) {
+                    if (pair.first.topContributorsSpeak.take(4).contains(you)) {
                         getContributorNameTextView(pair.first.topContributorsSpeak.indexOf(you))
                             .setText(R.string.dashboardTabYou)
                         setYouTopContributor(
@@ -497,28 +510,28 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             )
                         )
                     } else {
-                        dashboardTopContributorsNTh.isVisible =
+                        dashboardTopContributorsNth.isVisible =
                             connectionManager.isInternetAvailable
 
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
-                        setYouTopContributor(dashboardTopContributorsNTh)
-                        if (you.total > 4) {
+                        setYouTopContributor(dashboardTopContributorsNth)
+                        if (you.total > 5) {
                             dashboardTopContributorsPoints.isGone =
                                 !connectionManager.isInternetAvailable
                         }
                     }
                 }
             } else {
-                pair.first.topContributorsListen.take(3)
+                pair.first.topContributorsListen.take(4)
                     .forEachIndexed { index, responseLeaderboardPosition ->
                         getContributorNameTextView(index).text =
                             responseLeaderboardPosition.username
                         getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
                     }
                 pair.first.topContributorsListen.find { it.isYou }?.let { you ->
-                    if (pair.first.topContributorsListen.take(3).contains(you)) {
+                    if (pair.first.topContributorsListen.take(4).contains(you)) {
                         getContributorNameTextView(pair.first.topContributorsListen.indexOf(you))
                             .setText(R.string.dashboardTabYou)
                         setYouTopContributor(
@@ -529,14 +542,14 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             )
                         )
                     } else {
-                        dashboardTopContributorsNTh.isVisible =
+                        dashboardTopContributorsNth.isVisible =
                             connectionManager.isInternetAvailable
 
                         labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
                         textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
                         textDashboardTopContributorsNumberNth.setText("${you.total}")
-                        setYouTopContributor(dashboardTopContributorsNTh)
-                        if (you.total > 4) {
+                        setYouTopContributor(dashboardTopContributorsNth)
+                        if (you.total > 5) {
                             dashboardTopContributorsPoints.isGone =
                                 !connectionManager.isInternetAvailable
                         }
@@ -554,19 +567,28 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     private fun getContributorNameTextView(index: Int) = when (index) {
         0 -> binding.textDashboardTopContributorsUsernameFirst
         1 -> binding.textDashboardTopContributorsUsernameSecond
-        else -> binding.textDashboardTopContributorsUsernameThird
+        2 -> binding.textDashboardTopContributorsUsernameThird
+        3 -> binding.textDashboardTopContributorsUsernameBeforeNth
+        4 -> binding.textDashboardTopContributorsUsernameNth
+        else -> binding.textDashboardTopContributorsUsernameAfterNth
     }
 
     private fun getContributorNumberTextView(index: Int) = when (index) {
         0 -> binding.textDashboardTopContributorsNumberFirst
         1 -> binding.textDashboardTopContributorsNumberSecond
-        else -> binding.textDashboardTopContributorsNumberThird
+        2 -> binding.textDashboardTopContributorsNumberThird
+        3 -> binding.textDashboardTopContributorsNumberBeforeNth
+        4 -> binding.textDashboardTopContributorsNumberNth
+        else -> binding.textDashboardTopContributorsNumberAfterNth
     }
 
     private fun getContributorSection(index: Int) = when (index) {
         0 -> binding.dashboardTopContributorsFirst
         1 -> binding.dashboardTopContributorsSecond
-        else -> binding.dashboardTopContributorsThird
+        2 -> binding.dashboardTopContributorsThird
+        3 -> binding.dashboardTopContributorsBeforeNth
+        4 -> binding.dashboardTopContributorsNth
+        else -> binding.dashboardTopContributorsAfterNth
     }
 
     private fun everyoneStats() {

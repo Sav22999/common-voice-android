@@ -1108,7 +1108,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/dashboardTopContributorsN_1Th"
+                android:id="@+id/dashboardTopContributorsBeforeNth"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -1124,7 +1124,7 @@
                 tools:visibility="visible">
 
                 <TextView
-                    android:id="@+id/labelDashboardTopContributorsPositionN_1th"
+                    android:id="@+id/labelDashboardTopContributorsPositionBeforeNth"
                     android:layout_width="70dp"
                     android:layout_height="50dp"
                     android:background="@drawable/top_border_radius"
@@ -1142,7 +1142,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textDashboardTopContributorsUsernameN_1th"
+                    android:id="@+id/textDashboardTopContributorsUsernameBeforeNth"
                     android:layout_width="170dp"
                     android:layout_height="50dp"
                     android:background="@drawable/top_border_radius"
@@ -1155,11 +1155,11 @@
                     android:textSize="@dimen/text_normal"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/labelDashboardTopContributorsPositionN_1th"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardTopContributorsPositionBeforeNth"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/textDashboardTopContributorsNumberN_1th"
+                    android:id="@+id/textDashboardTopContributorsNumberBeforeNth"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="5dp"
@@ -1183,14 +1183,14 @@
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textDashboardTopContributorsUsernameN_1th"
+                    app:layout_constraintStart_toEndOf="@+id/textDashboardTopContributorsUsernameBeforeNth"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/dashboardTopContributorsNTh"
+                android:id="@+id/dashboardTopContributorsNth"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -1202,7 +1202,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsN_1Th"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsBeforeNth"
                 tools:visibility="visible">
 
                 <TextView
@@ -1271,6 +1271,88 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dashboardTopContributorsAfterNth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsNth"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/labelDashboardTopContributorsPositionAfterNth"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="N+1"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textDashboardTopContributorsUsernameAfterNth"
+                    android:layout_width="170dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/top_border_radius"
+                    android:backgroundTint="@color/colorTransparent"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="..."
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDashboardTopContributorsPositionAfterNth"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/textDashboardTopContributorsNumberAfterNth"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded"
+                    android:clickable="false"
+                    android:editable="false"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/sourcecodepro"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="textEmailAddress"
+                    android:text="···"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textDashboardTopContributorsUsernameAfterNth"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <TextView
                 android:id="@+id/textDashboardNotAvailableOfflineTopContributors"
                 android:layout_width="match_parent"
@@ -1292,7 +1374,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsNTh" />
+                app:layout_constraintTop_toBottomOf="@+id/dashboardTopContributorsNth" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
