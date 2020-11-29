@@ -24,7 +24,7 @@ class DarkLightTheme(
         setElement(layout)
 
         layout.children.forEach { child ->
-            when(child) {
+            when (child) {
                 is TextView -> setElement(context, child)
                 is Button -> setElement(context, child)
                 is SwitchCompat -> setElement(context, child)
@@ -91,10 +91,11 @@ class DarkLightTheme(
         }
     }
 
-    fun setElement(context: Context,
-                   element: TextView,
-                   background: Boolean = false,
-                   invert: Boolean = false
+    fun setElement(
+        context: Context,
+        element: TextView,
+        background: Boolean = false,
+        invert: Boolean = false
     ) {
         if (isDark xor invert) {
             if (background) {
@@ -138,24 +139,39 @@ class DarkLightTheme(
         }
     }
 
-    fun setTextView(view: Context, element: TextView, border: Boolean = true, darkTeme: Boolean = isDark) {
+    fun setTextView(
+        view: Context,
+        element: TextView,
+        border: Boolean = true,
+        darkTeme: Boolean = isDark,
+        intern: Boolean = false
+    ) {
         if (darkTeme) {
             if (border) {
                 element.setBackgroundResource(R.drawable.txt_rounded_darktheme_with_border)
             } else {
-                element.setBackgroundResource(R.drawable.txt_rounded_darktheme)
-                element.backgroundTintList =
-                    ContextCompat.getColorStateList(view, R.color.colorBlack)
+                if (intern) {
+                    element.setBackgroundResource(R.drawable.txt_rounded_darktheme_dashboard_intern)
+                } else {
+                    element.setBackgroundResource(R.drawable.txt_rounded_darktheme)
+                    element.backgroundTintList =
+                        ContextCompat.getColorStateList(view, R.color.colorBlack)
+                }
             }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorWhite))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccentDT))
         } else {
             if (border) {
+
                 element.setBackgroundResource(R.drawable.txt_rounded_with_border)
             } else {
-                element.setBackgroundResource(R.drawable.txt_rounded)
-                element.backgroundTintList =
-                    ContextCompat.getColorStateList(view, R.color.colorWhite)
+                if (intern) {
+                    element.setBackgroundResource(R.drawable.txt_rounded_dashboard_intern)
+                } else {
+                    element.setBackgroundResource(R.drawable.txt_rounded)
+                    element.backgroundTintList =
+                        ContextCompat.getColorStateList(view, R.color.colorWhite)
+                }
             }
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccent))
@@ -202,7 +218,8 @@ class DarkLightTheme(
 
     fun setElement(context: Context, element: SeekBar) {
         if (isDark) {
-            element.progressTintList = ContextCompat.getColorStateList(context, R.color.colorAccentDT)
+            element.progressTintList =
+                ContextCompat.getColorStateList(context, R.color.colorAccentDT)
             element.progressBackgroundTintList =
                 ContextCompat.getColorStateList(context, R.color.colorAccentDT)
             element.thumbTintList = ContextCompat.getColorStateList(context, R.color.colorWhite)
@@ -242,18 +259,18 @@ class DarkLightTheme(
         private const val colorText: Int = R.color.colorBlack
         private const val colorTextDT: Int = R.color.colorWhite
 
-            /*
-        //these are for a future "Theme" feature:
-        //(there is another class which set these colours eventually)
-        //there won't exist anymore only "Light" and "Dark" theme
-        private var colourBackgroundPrimary: Int = R.color.colorBackground
-        private var colourBackgroundSecondary: Int = R.color.colorWhite
-        private var colourBackgroundTertiary: Int = ?
+        /*
+    //these are for a future "Theme" feature:
+    //(there is another class which set these colours eventually)
+    //there won't exist anymore only "Light" and "Dark" theme
+    private var colourBackgroundPrimary: Int = R.color.colorBackground
+    private var colourBackgroundSecondary: Int = R.color.colorWhite
+    private var colourBackgroundTertiary: Int = ?
 
-        private var colourTextPrimary: Int = R.color.colorBlack
-        private var colourTextSecondary: Int = R.color.colorBlack
-        private var colourTextTertiary: Int = ?
-        */
+    private var colourTextPrimary: Int = R.color.colorBlack
+    private var colourTextSecondary: Int = R.color.colorBlack
+    private var colourTextTertiary: Int = ?
+    */
 
     }
 

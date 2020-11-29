@@ -80,10 +80,10 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
             )
         }
 
-        binding.textProfileEmail.setText("...")
-        binding.textProfileAge.setText("...")
-        binding.textProfileGender.setText("...")
-        binding.textProfileUsername.setText("...")
+        binding.textProfileEmail.setText("···")
+        binding.textProfileAge.setText("···")
+        binding.textProfileGender.setText("···")
+        binding.textProfileUsername.setText("···")
         binding.btnBadges.isEnabled = false
 
         loginViewModel.getUserClient().observe(this, {
