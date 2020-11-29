@@ -148,6 +148,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     )
                 )
             }
+            animateProgressBar(
+                dailyGoal = it.getDailyGoal(),
+                currentRecordingsValidations = (it.validations + it.recordings)
+            );
         })
 
         setupNestedScroll()
@@ -254,6 +258,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         )
         theme.setElement(view, buttonReportSpeak, background = false)
         theme.setElement(view, buttonSkipSpeak)
+
+        theme.setElement(
+            view,
+            progressBarSpeak,
+            R.color.colorPrimaryDark,
+            R.color.colorLightGray
+        )
     }
 
     private fun openReportDialog() {
@@ -433,6 +444,43 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 }
             }
         }
+    }
+
+    private fun animateProgressBar(dailyGoal: Int = 0, currentRecordingsValidations: Int = 0) {
+        val view: View = binding.progressBarSpeak
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        val width = metrics.widthPixels
+        //val height = metrics.heightPixels
+        var newValue = 0
+
+        if (dailyGoal == 0 || currentRecordingsValidations >= dailyGoal) {
+            newValue = width;
+        } else {
+            //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
+            newValue =
+                ((currentRecordingsValidations.toFloat() / dailyGoal.toFloat()) * width).toInt()
+        }
+
+        if (mainPrefManager.areAnimationsEnabled) {
+            animationProgressBar(view.width, newValue)
+        } else {
+            view.layoutParams.width = newValue
+            view.requestLayout()
+        }
+    }
+
+    private fun animationProgressBar(min: Int, max: Int) {
+        val view: View = binding.progressBarSpeak
+        val animation: ValueAnimator =
+            ValueAnimator.ofInt(min, max)
+        animation.duration = 1000
+        animation.addUpdateListener { anim ->
+            val value = anim.animatedValue as Int
+            view.layoutParams.width = value
+            view.requestLayout()
+        }
+        animation.start()
     }
 
     private fun animateAudioBar() {

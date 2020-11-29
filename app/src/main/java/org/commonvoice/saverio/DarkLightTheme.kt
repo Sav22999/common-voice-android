@@ -116,6 +116,19 @@ class DarkLightTheme(
 
     fun setElement(
         view: Context,
+        element: View,
+        background_light: Int,
+        background_dark: Int
+    ) {
+        if (isDark) {
+            element.setBackgroundColor(ContextCompat.getColor(view, background_dark))
+        } else {
+            element.setBackgroundColor(ContextCompat.getColor(view, background_light))
+        }
+    }
+
+    fun setElement(
+        view: Context,
         element: TextView,
         color_light: Int,
         color_dark: Int,

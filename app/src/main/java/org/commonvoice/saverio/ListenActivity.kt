@@ -1,9 +1,13 @@
 package org.commonvoice.saverio
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.View
 import android.widget.Button
+import androidx.core.animation.doOnEnd
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
@@ -22,6 +26,7 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
+import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
@@ -114,7 +119,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     //TODO
                     loadUIStateListening()
                 }
-                else -> {}
+                else -> {
+                }
             }
         })
 
@@ -136,6 +142,10 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     )
                 )
             }
+            animateProgressBar(
+                dailyGoal = it.getDailyGoal(),
+                currentRecordingsValidations = (it.validations + it.recordings)
+            );
         })
 
         checkOfflineMode(connectionManager.isInternetAvailable)
@@ -173,7 +183,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun setupGestures() {
-        binding.nestedScrollListen.setOnTouchListener(object : OnSwipeTouchListener(this@ListenActivity) {
+        binding.nestedScrollListen.setOnTouchListener(object :
+            OnSwipeTouchListener(this@ListenActivity) {
             override fun onSwipeLeft() {
                 listenViewModel.skipClip()
             }
@@ -190,6 +201,43 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         })
     }
 
+    private fun animateProgressBar(dailyGoal: Int = 0, currentRecordingsValidations: Int = 0) {
+        val view: View = binding.progressBarListen
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        val width = metrics.widthPixels
+        //val height = metrics.heightPixels
+        var newValue = 0
+
+        if (dailyGoal == 0 || currentRecordingsValidations >= dailyGoal) {
+            newValue = width;
+        } else {
+            //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
+            newValue =
+                ((currentRecordingsValidations.toFloat() / dailyGoal.toFloat()) * width).toInt()
+        }
+
+        if (mainPrefManager.areAnimationsEnabled) {
+            animationProgressBar(view.width, newValue)
+        } else {
+            view.layoutParams.width = newValue
+            view.requestLayout()
+        }
+    }
+
+    private fun animationProgressBar(min: Int, max: Int) {
+        val view: View = binding.progressBarListen
+        val animation: ValueAnimator =
+            ValueAnimator.ofInt(min, max)
+        animation.duration = 1000
+        animation.addUpdateListener { anim ->
+            val value = anim.animatedValue as Int
+            view.layoutParams.width = value
+            view.requestLayout()
+        }
+        animation.start()
+    }
+
     fun setTheme() = withBinding {
         theme.setElement(layoutListen)
         theme.setElement(this@ListenActivity, 1, listenSectionBottom)
@@ -201,6 +249,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         )
         theme.setElement(this@ListenActivity, buttonReportListen, background = false)
         theme.setElement(this@ListenActivity, buttonSkipListen)
+
+        theme.setElement(
+            this@ListenActivity,
+            progressBarListen,
+            R.color.colorPrimaryDark,
+            R.color.colorLightGray
+        )
     }
 
     private fun openReportDialog() {
