@@ -69,30 +69,30 @@ class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
                     statsPrefManager.allTimeValidated
                 )
             ) { badge ->
-                val message = badge.let {
-                    when (it) {
-                        is Badge.Level -> {
-                            getString(R.string.message_got_badge_because_levels).replace(
-                                "{{*{{n_total}}*}}",
-                                it.value.toString()
-                            )
-                        }
-                        is Badge.ListenAchievement -> {
-                            getString(R.string.message_got_badge_because_clips).replace(
-                                "{{*{{n_clips}}*}}",
-                                it.value.toString()
-                            )
-                        }
-                        is Badge.SpeakAchievement -> {
-                            getString(R.string.message_got_badge_because_sentences).replace(
-                                "{{*{{n_sentences}}*}}",
-                                it.value.toString()
-                            )
-                        }
+                val message = when (badge) {
+                    is Badge.Level -> {
+                        getString(R.string.message_got_badge_because_levels).replace(
+                            "{{*{{n_total}}*}}",
+                            badge.value.toString()
+                        )
+                    }
+                    is Badge.ListenAchievement -> {
+                        getString(R.string.message_got_badge_because_clips).replace(
+                            "{{*{{n_clips}}*}}",
+                            badge.value.toString()
+                        )
+                    }
+                    is Badge.SpeakAchievement -> {
+                        getString(R.string.message_got_badge_because_sentences).replace(
+                            "{{*{{n_sentences}}*}}",
+                            badge.value.toString()
+                        )
                     }
                 }
 
-                showMessageDialog("", message, type = 5)
+                if (badge.badgeValue > 0) {
+                    showMessageDialog("", message, type = 5)
+                }
             }
         }
 

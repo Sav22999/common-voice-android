@@ -1,6 +1,6 @@
 package org.commonvoice.saverio.ui.recyclerview.badges
 
-sealed class Badge {
+sealed class Badge(val badgeValue: Int) {
 
     data class Level(
 
@@ -8,7 +8,7 @@ sealed class Badge {
 
         val levelNumber: Int,
 
-        ) : Badge()
+        ) : Badge(value)
 
     data class SpeakAchievement(
 
@@ -16,7 +16,7 @@ sealed class Badge {
 
         val achievementText: String,
 
-        ) : Badge()
+        ) : Badge(value)
 
     data class ListenAchievement(
 
@@ -24,7 +24,7 @@ sealed class Badge {
 
         val achievementText: String,
 
-        ) : Badge()
+        ) : Badge(value)
 
     companion object {
 
