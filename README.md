@@ -6,7 +6,7 @@
 
 [*If you have issues with the official Common Voice website, please report them on GitHub repository so that Mozilla can fix them.*](https://bit.ly/2Z73TZZ)
 
-This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
+This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli and other contributors, using the Android Studio IDE.
 
 [![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
@@ -66,6 +66,14 @@ The app is translated in many languages, see list on Crowdin:  [<img src="images
 The license of *CV Android* is GPLv3.
 
 <img src="images/icons/gpl.png" width="100px"></img>
+
+### Privacy policy
+
+You can read the specific file: [PRIVACY.md](PRIVACY.md)
+
+### API Documentation
+
+You can read the specific file about API (just relative to my website): [API.md](API.md)
 
 
 
