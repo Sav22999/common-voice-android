@@ -24,7 +24,7 @@ You can specify these parameters:
 
 | Key        | Value                       | Required   | Explanation                                                  |
 | ---------- | --------------------------- | ---------- | ------------------------------------------------------------ |
-| `language` | `all` or the language code* | `required` | *the language code have to be in the "Common Voice style". For example, if you want to get statistics for the Italian language you need to specify the code `it`.<br />If you don't specify anything, the system will return to you statistics of all languages. |
+| `language` | `all` or the language code* | `optional` | *the language code have to be in the "Common Voice style". For example, if you want to get statistics for the Italian language you need to specify the code `it`.<br />If you don't specify anything, the system will return to you statistics of all languages. |
 
 #### Response
 
@@ -45,7 +45,7 @@ So, for each language this are the information:
 
 To insert data you need to do a `POST request` to https://www.saveriomorelli.com/api/common-voice-android/v2/.
 
-You need to do a `JSON` request with these data:
+You need to send a `JSON` request with these data:
 
 | Key        | Value                        | Required   | Explanation                                                  |
 | ---------- | ---------------------------- | ---------- | ------------------------------------------------------------ |
@@ -79,7 +79,37 @@ The `POST request` could returns these status code:
 
 To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/logs/get/.
 
+You can specify these parameters:
+
+| Key     | Value     | Required   | Explanation                                                  |
+| ------- | --------- | ---------- | ------------------------------------------------------------ |
+| `limit` | *Integer* | `optional` | You can specify an *Integer* which indicates the number of records (logs) you want to see.<br />If you'd like the last 100 logs, for example, you should specify `100`.<br />If you don't specify anything, it's `100` as default. The number have to be in 1 and 1000 interval. |
+
 #### Response
+
+The system returns a `JSON` file, which has a counter from `1` , and it cointains are two big section: `general` and `log`.
+
+`general`:
+
+| Key        | Value      | Explanation |
+| ---------- | ---------- | ----------- |
+| `id`       | *Integer*  |             |
+| `date`     | *DateTime* |             |
+| `language` | *String*   |             |
+| `version`  | *Integer*  |             |
+| `source`   | *String*   |             |
+| `logged`   | `0` or `1` |             |
+
+`log`:
+
+| Key              | Value    | Explanation                                                  |
+| ---------------- | -------- | ------------------------------------------------------------ |
+| `errorLevel`     | *String* | It indicates shortly which type of message it is (like `Error`, `Warning`, etc.) |
+| `tag`            | *Text*   | It's a string which indicates the class name where the error happened |
+| `stackTrace`     | *Text*   | It's the description of the error                            |
+| `additionalLogs` | *Text*   | `optional` \It's omre information (context) about the error. This field is not required. |
+
+
 
 ### POST
 
@@ -87,7 +117,29 @@ To get app statistics you need to do a `GET request` to https://www.saveriomorel
 
 To insert data you need to do a POST request to https://www.saveriomorelli.com/api/common-voice-android/v2/logs/.
 
+| Key  | Value | Required | Explanation |
+| ---- | ----- | -------- | ----------- |
+|      |       |          |             |
+|      |       |          |             |
+|      |       |          |             |
+|      |       |          |             |
+|      |       |          |             |
+|      |       |          |             |
+|      |       |          |             |
+|      |       |          |             |
+
+
+
  #### Response
+
+| Code | Type | Description | Explanation and possible fix |
+| ---- | ---- | ----------- | ---------------------------- |
+|      |      |             |                              |
+|      |      |             |                              |
+|      |      |             |                              |
+|      |      |             |                              |
+
+
 
 ## App usage
 
@@ -97,7 +149,11 @@ To insert data you need to do a POST request to https://www.saveriomorelli.com/a
 
 To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/get/.
 
+
+
 #### Response
+
+
 
 ### POST
 
@@ -105,4 +161,24 @@ To get app statistics you need to do a `GET request` to https://www.saveriomorel
 
 To insert data you need to do a POST request to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/.
 
+| Key        | Value                           | Required   | Explanation                                                  |
+| ---------- | ------------------------------- | ---------- | ------------------------------------------------------------ |
+| `logged`   | `0` or `1`                      | `required` | If the user is logged in, so it's `1`, otherwise it's `0`    |
+| `language` | *String*                        | `required` | It's the language code, like `it`, `en`, etc.                |
+| `version`  | *Integer*                       | `required` | It's the version code of the app                             |
+| `source`   | `GPS` or `FD-GH`                | `required` | It's the app store/source from that you downloaded and installed the app |
+| `type`     | `0` or `1` or `2` or `3` or `4` | `required` | It's an integer value `0 ` or `1` if you validated a clip (the first one "rejected", the latter one "accepted"), `2` if you reported a clip, `3` if you sent a recording and `4` if you reported a sentence.<br />So, the `0`, `1` and `2` are about "Listen", the `3` and `4` are about "Speak" |
+| `username` | *String*                        | `required` |                                                              |
+| `offline`  | `0` or `1`                      | `required` | It indicates if you are using the app in `offline` (`1`) mode (without any connection) or `online` (`0`) |
+
+
+
 #### Response
+
+| Code  | Type    | Description                        | Explanation and possible fix                    |
+| ----- | ------- | ---------------------------------- | ----------------------------------------------- |
+| `200` | `OK`    | `Record inserted correctly.`       | Record inserted correctly in the database       |
+| `400` | `Error` | `Can't insert record on database.` | -                                               |
+| `401` | `Error` | `Parameters are not enough.`       | Parameters are not enough or they are too much. |
+| `500` | `Error` | `Can't connect to the database.`   | -                                               |
+
