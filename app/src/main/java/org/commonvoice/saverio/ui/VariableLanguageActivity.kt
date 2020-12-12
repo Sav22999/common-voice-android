@@ -15,10 +15,8 @@ import kotlinx.coroutines.*
 import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
-import org.koin.androidx.scope.lifecycleScope
 import timber.log.Timber
 import java.util.*
-import kotlin.coroutines.CoroutineContext
 import kotlin.system.exitProcess
 
 /**
@@ -53,18 +51,7 @@ abstract class VariableLanguageActivity : AppCompatActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (logPrefManager.saveLogFile) {
-            Thread.setDefaultUncaughtExceptionHandler { _, paramThrowable ->
-                //Catch exception
-
-                CoroutineScope(Dispatchers.Default).launch {
-                    Timber.e(paramThrowable)
-                    delay(1_500)
-                    android.os.Process.killProcess(android.os.Process.myPid())
-                    exitProcess(10)
-                }
-            }
-        }
+        setCustomDefaultUncaughtExceptionHandler()
     }
 
     private fun Context.wrap(desiredLocale: Locale): Context {
@@ -114,4 +101,18 @@ abstract class VariableLanguageActivity : AppCompatActivity {
         view.clearAnimation()
     }
 
+    private fun setCustomDefaultUncaughtExceptionHandler() {
+        if (logPrefManager.saveLogFile) {
+            Thread.setDefaultUncaughtExceptionHandler { _, paramThrowable ->
+                CoroutineScope(Dispatchers.Default).launch {
+                    logPrefManager.stackTrace = paramThrowable.stackTraceToString()
+                    logPrefManager.isLogFileSent = false
+                    Timber.e(paramThrowable)
+                    delay(1500)
+                    android.os.Process.killProcess(android.os.Process.myPid())
+                    exitProcess(10)
+                }
+            }
+        }
+    }
 }

@@ -28,5 +28,22 @@ data class RetrofitFileLogUpdate(
     val stackTrace: String,
 
     @Json(name = "additionalLogs")
-    val additionalLogs: String,
-)
+    val additionalLogs: String
+) {
+    constructor(
+        isLogged: Int,
+        language: String,
+        appVersion: String,
+        appSource: String,
+        stackTrace: String
+    ) : this(
+        isLogged = isLogged,
+        language = language,
+        appVersion = appVersion,
+        appSource = appSource,
+        errorLevel = "error",
+        stackTrace = stackTrace,
+        tag = "tag",
+        additionalLogs = ""
+    )
+}

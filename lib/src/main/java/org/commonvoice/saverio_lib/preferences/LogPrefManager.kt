@@ -17,8 +17,15 @@ class LogPrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.IS_LogFile_Sent.name, value).apply()
         }
 
+    var stackTrace: String
+        get() = preferences.getString(Keys.STACK_TRACE.name, "").toString()
+        set(value) {
+            preferences.edit().putString(Keys.STACK_TRACE.name, value).apply()
+        }
+
     private enum class Keys {
         Save_LogFile,
-        IS_LogFile_Sent
+        IS_LogFile_Sent,
+        STACK_TRACE
     }
 }

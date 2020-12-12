@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.AnimRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
@@ -36,6 +38,7 @@ class HomeFragment : Fragment() {
     ): View? {
         /*homeViewModel =
             ViewModelProviders.of(this).get(HomeViewModel::class.java)*/
+
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
         val main = activity as MainActivity
@@ -92,8 +95,19 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
-        homeViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, MainActivity.SOURCE_STORE)
+        homeViewModel.postStats(
+            BuildConfig.VERSION_NAME,
+            BuildConfig.VERSION_CODE,
+            MainActivity.SOURCE_STORE
+        )
+        lifecycleScope.launch {
+            delay(1500)
+            homeViewModel.postFileLog(
+                BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_CODE,
+                MainActivity.SOURCE_STORE
+            )
+        }
     }
 
     fun setTheme(view: Context, root: View) {
@@ -130,5 +144,4 @@ class HomeFragment : Fragment() {
     private fun stopAnimation(view: View) {
         view.clearAnimation()
     }
-
 }

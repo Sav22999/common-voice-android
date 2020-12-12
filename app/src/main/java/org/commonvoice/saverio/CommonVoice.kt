@@ -91,6 +91,7 @@ class CommonVoice : Application() {
         single { StatsRepository(get(), get()) }
         single { RecordingSoundIndicatorRepository(get()) }
         single { CVStatsRepository(get(), get()) }
+        single { FileLogsRepository(get(), get(), get()) }
     }
 
     private val mvvmViewmodels = module {
@@ -130,7 +131,7 @@ class CommonVoice : Application() {
         }
         viewModel { LoginViewModel(get()) }
         viewModel { MainActivityViewModel(get(), get()) }
-        viewModel { HomeViewModel(get()) }
+        viewModel { HomeViewModel(get(), get(), get()) }
     }
 
     override fun onCreate() {
