@@ -11,7 +11,14 @@ class LogPrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.Save_LogFile.name, value).apply()
         }
 
+    var isLogFileSent: Boolean
+        get() = preferences.getBoolean(Keys.IS_LogFile_Sent.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.IS_LogFile_Sent.name, value).apply()
+        }
+
     private enum class Keys {
-        Save_LogFile
+        Save_LogFile,
+        IS_LogFile_Sent
     }
 }

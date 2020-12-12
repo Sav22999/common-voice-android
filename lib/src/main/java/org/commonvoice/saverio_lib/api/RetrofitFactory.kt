@@ -63,4 +63,5 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     fun makeClipsDownloadService(): ClipsDownloadService = unauthRetrofit.create(ClipsDownloadService::class.java)
 
+    fun makeFileLogService(): FileLogService = unauthRetrofit.create(FileLogService::class.java)
 }
