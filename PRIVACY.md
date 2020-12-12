@@ -46,7 +46,7 @@ The file log is saved in an internal database, to a file and, also, it's sent to
 | `version`        | *Integer*        | It's the version code of the app (`90`, `91`, ...)           |
 | `source`         | `GPS` or `FD-GH` | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
 | `errorLevel`     | *String*         | It's string which indicates the error level, like `Info`, `Error`, `Warning`, etc. |
-| `tag`            | *Text*           | It's a string which indicates the class name where the error happened |
+| `tag`            | *Text*           | `optional` \| It's a string which indicates the class name where the error happened |
 | `stackTrace`     | *Text*           | It's the description of the error                            |
 | `additionalLogs` | *Text*           | `optional` \| It's more information (context) about the error. This field is not required. |
 

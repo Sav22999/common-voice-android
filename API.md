@@ -87,7 +87,7 @@ You can specify these parameters:
 
 #### Response
 
-The system returns a `JSON` file, which has a counter from `1` , and it cointains are two big section: `general` and `log`.
+The system returns a `JSON` file, which has a counter from `1` , and it contains are two big section: `general` and `log`.
 
 `general`:
 
@@ -117,16 +117,16 @@ The system returns a `JSON` file, which has a counter from `1` , and it cointain
 
 To insert data you need to do a POST request to https://www.saveriomorelli.com/api/common-voice-android/v2/logs/.
 
-| Key              | Value            | Required   | Explanation |
-| ---------------- | ---------------- | ---------- | ----------- |
-| `logged`         | `0` or `1`       | `required` |             |
-| `language`       | *String*         | `required` |             |
-| `version`        | *Integer*        | `required` |             |
-| `source`         | `GPS` or `FD-GH` | `required` |             |
-| `errorLevel`     | *String*         | `required` |             |
-| `tag`            | *Text*           | `required` |             |
-| `stackTrace`     | *Text*           | `required` |             |
-| `additionalLogs` | *Text*           | `optional` |             |
+| Key              | Value            | Required   | Explanation                                                  |
+| ---------------- | ---------------- | ---------- | ------------------------------------------------------------ |
+| `logged`         | `0` or `1`       | `required` | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
+| `language`       | *String*         | `required` | It's the language code you are using the app (`en`, `it`, ...) |
+| `version`        | *Integer*        | `required` | It's the version code of the app (`90`, `91`, ...)           |
+| `source`         | `GPS` or `FD-GH` | `required` | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
+| `errorLevel`     | *String*         | `required` | It's string which indicates the error level, like `Info`, `Error`, `Warning`, etc. |
+| `tag`            | *Text*           | `optional` | It's a string which indicates the class name where the error happened |
+| `stackTrace`     | *Text*           | `required` | It's the description of the error                            |
+| `additionalLogs` | *Text*           | `optional` | It's more information (context) about the error. This field is not required. |
 
 
 
