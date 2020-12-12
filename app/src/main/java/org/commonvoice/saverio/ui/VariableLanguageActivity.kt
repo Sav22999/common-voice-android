@@ -11,11 +11,15 @@ import org.commonvoice.saverio.TranslationsLanguages
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
+import kotlinx.coroutines.*
 import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
+import org.koin.androidx.scope.lifecycleScope
 import timber.log.Timber
 import java.util.*
+import kotlin.coroutines.CoroutineContext
+import kotlin.system.exitProcess
 
 /**
  * An extension of AppCompatActivity which automatically handles language switching
@@ -52,7 +56,13 @@ abstract class VariableLanguageActivity : AppCompatActivity {
         if (logPrefManager.saveLogFile) {
             Thread.setDefaultUncaughtExceptionHandler { _, paramThrowable ->
                 //Catch exception
-                Timber.e(paramThrowable)
+
+                CoroutineScope(Dispatchers.Default).launch {
+                    Timber.e(paramThrowable)
+                    delay(1_500)
+                    android.os.Process.killProcess(android.os.Process.myPid())
+                    exitProcess(10)
+                }
             }
         }
     }
