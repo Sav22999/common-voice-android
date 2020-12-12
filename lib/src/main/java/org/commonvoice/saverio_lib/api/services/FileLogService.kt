@@ -1,6 +1,8 @@
 package org.commonvoice.saverio_lib.api.services
 
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitFileLogUpdate
+import org.commonvoice.saverio_lib.api.responseBodies.ResponseGetFileLog
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -12,6 +14,6 @@ interface FileLogService {
     @POST("v2/logs/")
     suspend fun postFileLog(@Body fileLog: RetrofitFileLogUpdate)
 
-//    @GET("v2/logs/get/")
-//    suspend fun getFileLog
+    @GET("v2/logs/get/")
+    suspend fun getFileLog(): Response<ResponseGetFileLog>
 }
