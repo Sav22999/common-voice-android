@@ -34,6 +34,7 @@ class FileLogsRepository(
             val response = fileLogClient.postFileLog(bodyInfo)
             if (response.isSuccessful && response.body()?.resultCode == 200) {
                 logPrefManager.isLogFileSent = true
+                logPrefManager.stackTrace = ""
             }
         } catch (e: Exception) {
 

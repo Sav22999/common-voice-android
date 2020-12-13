@@ -48,7 +48,7 @@ data class RetrofitFileLogUpdate(
         errorLevel = "error",
         stackTrace = stackTrace,
         logDate = logDate,
-        tag = "tag",
+        tag = "",
         additionalLogs = ""
     )
 }
