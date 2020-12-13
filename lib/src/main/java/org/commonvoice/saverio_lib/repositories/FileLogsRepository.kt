@@ -6,7 +6,7 @@ import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitFileLogUpdate
 import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import timber.log.Timber
+import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 
 class FileLogsRepository(
     private val mainPrefManager: MainPrefManager,
@@ -27,15 +27,11 @@ class FileLogsRepository(
             mainPrefManager.language,
             versionCode,
             appSource,
-            "Error",
-            "tag",
             stackTrace,
-            ""
+            getTimestampOfNowPlus().toString()
         )
         try {
-            Timber.d("bodyInf: ${bodyInfo}")
             val response = fileLogClient.postFileLog(bodyInfo)
-            Timber.d("result code: ${response.body()?.resultCode}")
             if (response.isSuccessful && response.body()?.resultCode == 200) {
                 logPrefManager.isLogFileSent = true
             }

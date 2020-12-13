@@ -27,6 +27,9 @@ data class RetrofitFileLogUpdate(
     @Json(name = "stackTrace")
     val stackTrace: String,
 
+    @Json(name = "logDate")
+    val logDate: String,
+
     @Json(name = "additionalLogs")
     val additionalLogs: String
 ) {
@@ -35,7 +38,8 @@ data class RetrofitFileLogUpdate(
         language: String,
         appVersioncode: String,
         appSource: String,
-        stackTrace: String
+        stackTrace: String,
+        logDate: String
     ) : this(
         isLogged = isLogged,
         language = language,
@@ -43,6 +47,7 @@ data class RetrofitFileLogUpdate(
         appSource = appSource,
         errorLevel = "error",
         stackTrace = stackTrace,
+        logDate = logDate,
         tag = "tag",
         additionalLogs = ""
     )
