@@ -20,6 +20,7 @@ import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
@@ -30,6 +31,7 @@ class SettingsFragment : Fragment() {
     private val mainPrefManager: MainPrefManager by inject()
     private val speakPrefManager: SpeakPrefManager by inject()
     private val listenPrefManager: ListenPrefManager by inject()
+    private val logPrefManager: LogPrefManager by inject()
 
     var languagesListShort =
         arrayOf("en") // don't change it manually -> it will import automatically
@@ -289,6 +291,13 @@ class SettingsFragment : Fragment() {
             main.setLabelsBelowMenuIconsSettingsSwitch(isChecked)
         }
         showLablesMenuIconsSettings.isChecked = main.getLabelsBelowMenuIconsSettingsSwitch()
+
+        val saveLogFileSettings: Switch =
+            root.findViewById(R.id.switchSaveLogFile)
+        saveLogFileSettings.setOnCheckedChangeListener { _, isChecked ->
+            logPrefManager.saveLogFile = isChecked
+        }
+        saveLogFileSettings.isChecked = logPrefManager.saveLogFile
 
         root.findViewById<Button>(R.id.buttonTelegramGroup).setOnClickListener {
             startActivity(

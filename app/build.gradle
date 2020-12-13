@@ -92,5 +92,11 @@ dependencies {
     implementation Libs.workRuntimeKtx
     //https://developer.android.com/topic/libraries/architecture/workmanager/basics
 
+    //App Startup
+    implementation Libs.startUp
+
+    // Debug
+    implementation Libs.timber
+
     implementation project(":lib")
 }

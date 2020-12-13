@@ -7,6 +7,7 @@ import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.db.AppDB
+import org.commonvoice.saverio_lib.log.FileLogTree
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
@@ -62,6 +63,17 @@ class CommonVoice : Application() {
                 androidContext()
             )
         }
+        single {
+            LogPrefManager(
+                androidContext()
+            )
+        }
+    }
+
+    private val logModule = module {
+        single {
+            FileLogTree(androidContext())
+        }
     }
 
     private val apiModules = module {
@@ -79,6 +91,7 @@ class CommonVoice : Application() {
         single { StatsRepository(get(), get()) }
         single { RecordingSoundIndicatorRepository(get()) }
         single { CVStatsRepository(get(), get()) }
+        single { FileLogsRepository(get(), get(), get()) }
     }
 
     private val mvvmViewmodels = module {
@@ -107,16 +120,18 @@ class CommonVoice : Application() {
                 get<ListenPrefManager>()
             )
         }
-        viewModel { DashboardViewModel(
-            get<CVStatsRepository>(),
-            get<StatsRepository>(),
-            get<ConnectionManager>(),
-            get<MainPrefManager>(),
-            get<StatsPrefManager>()
-        ) }
+        viewModel {
+            DashboardViewModel(
+                get<CVStatsRepository>(),
+                get<StatsRepository>(),
+                get<ConnectionManager>(),
+                get<MainPrefManager>(),
+                get<StatsPrefManager>()
+            )
+        }
         viewModel { LoginViewModel(get()) }
         viewModel { MainActivityViewModel(get(), get()) }
-        viewModel { HomeViewModel(get()) }
+        viewModel { HomeViewModel(get(), get(), get()) }
     }
 
     override fun onCreate() {
@@ -132,7 +147,8 @@ class CommonVoice : Application() {
                     utilsModule,
                     apiModules,
                     mvvmRepos,
-                    mvvmViewmodels
+                    mvvmViewmodels,
+                    logModule
                 )
             )
         }
