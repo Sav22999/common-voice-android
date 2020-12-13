@@ -23,14 +23,12 @@ class HomeViewModel(
     }
 
     fun postFileLog(
-        appVersion: String,
         versionCode: Int,
         appSource: String
     ) {
         viewModelScope.launch {
             if (!logPrefManager.isLogFileSent) {
                 fileLogsRepository.postFileLog(
-                    appVersion,
                     versionCode.toString(),
                     appSource,
                     logPrefManager.stackTrace

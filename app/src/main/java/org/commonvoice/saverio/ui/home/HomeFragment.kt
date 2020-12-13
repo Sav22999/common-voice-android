@@ -21,6 +21,7 @@ import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.repositories.StatsRepository
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -103,7 +104,6 @@ class HomeFragment : Fragment() {
         lifecycleScope.launch {
             delay(1500)
             homeViewModel.postFileLog(
-                BuildConfig.VERSION_NAME,
                 BuildConfig.VERSION_CODE,
                 MainActivity.SOURCE_STORE
             )

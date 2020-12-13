@@ -13,7 +13,7 @@ data class RetrofitFileLogUpdate(
     val language: String,
 
     @Json(name = "version")
-    val appVersion: String,
+    val appVersioncode: String,
 
     @Json(name = "source")
     val appSource: String,
@@ -33,13 +33,13 @@ data class RetrofitFileLogUpdate(
     constructor(
         isLogged: Int,
         language: String,
-        appVersion: String,
+        appVersioncode: String,
         appSource: String,
         stackTrace: String
     ) : this(
         isLogged = isLogged,
         language = language,
-        appVersion = appVersion,
+        appVersioncode = appVersioncode,
         appSource = appSource,
         errorLevel = "error",
         stackTrace = stackTrace,

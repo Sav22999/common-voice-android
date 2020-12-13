@@ -12,7 +12,7 @@ class LogPrefManager(ctx: Context) {
         }
 
     var isLogFileSent: Boolean
-        get() = preferences.getBoolean(Keys.IS_LogFile_Sent.name, false)
+        get() = preferences.getBoolean(Keys.IS_LogFile_Sent.name, true)
         set(value) {
             preferences.edit().putBoolean(Keys.IS_LogFile_Sent.name, value).apply()
         }

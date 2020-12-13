@@ -45,3 +45,15 @@ data class LogInfo(
     @Json(name = "additionalLogs")
     val additionalLogs: String,
 )
+
+@JsonClass(generateAdapter = true)
+data class ResponsePostFileLog(
+    @Json(name = "code")
+    val resultCode: Int,
+
+    @Json(name = "status")
+    val resultStatus: String,
+
+    @Json(name = "description")
+    val resultDescription: String,
+)
