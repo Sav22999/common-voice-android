@@ -41,6 +41,7 @@ The file log is saved in an internal database, to a file and, also, it's sent to
 
 | Key              | Value            | Explanation                                                  |
 | ---------------- | ---------------- | ------------------------------------------------------------ |
+| `logDate`        | *DateTime*       | It's the datetime when the issue is verified. This could be different from the datetime when the log arrives in the database.<br/>The format of this data should be: `YYYY-MM-DD HH:MM:SS`. |
 | `logged`         | `0` or `1`       | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
 | `language`       | *String*         | It's the language code you are using the app (`en`, `it`, ...) |
 | `version`        | *Integer*        | It's the version code of the app (`90`, `91`, ...)           |

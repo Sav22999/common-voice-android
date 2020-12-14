@@ -94,6 +94,7 @@ The system returns a `JSON` file, which has a counter from `1` , and it contains
 | Key        | Value      | Explanation                                                  |
 | ---------- | ---------- | ------------------------------------------------------------ |
 | `id`       | *Integer*  | It's the id of the log in the database                       |
+| `logDate`  | *DateTime* | It's the data when the log was verified.                     |
 | `date`     | *DateTime* | It's the date when the log was added in the system           |
 | `language` | *String*   | It's the language code you are using the app (`en`, `it`, ...) |
 | `version`  | *Integer*  | It's the version code of the app (`90`, `91`, ...)           |
@@ -119,6 +120,7 @@ To insert data you need to do a POST request to https://www.saveriomorelli.com/a
 
 | Key              | Value            | Required   | Explanation                                                  |
 | ---------------- | ---------------- | ---------- | ------------------------------------------------------------ |
+| `logDate`        | *DateTime*       | `required` | It's the datetime when the issue is verified. This could be different from the datetime when the log arrives in the database.<br>The format of this data should be: `YYYY-MM-DD HH:MM:SS`. |
 | `logged`         | `0` or `1`       | `required` | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
 | `language`       | *String*         | `required` | It's the language code you are using the app (`en`, `it`, ...) |
 | `version`        | *Integer*        | `required` | It's the version code of the app (`90`, `91`, ...)           |
