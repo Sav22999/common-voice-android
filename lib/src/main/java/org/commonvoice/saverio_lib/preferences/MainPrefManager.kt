@@ -62,7 +62,7 @@ class MainPrefManager(ctx: Context) {
             preferences.edit().putString(Keys.STATS_USERID.name, value).apply()
         }
 
-    var areStatsAnonymous: Boolean
+    var areGeneralStats: Boolean
         get() = preferences.getBoolean(Keys.ARE_STATS_ANONYMOUS.name, true)
         set(value) {
             preferences.edit().putBoolean(Keys.ARE_STATS_ANONYMOUS.name, value).apply()

@@ -38,7 +38,7 @@ class StatsRepository(
                 isLogged(),
                 mainPrefManager.language,
                 versionCode,
-                mainPrefManager.areStatsAnonymous.toString(),
+                mainPrefManager.areGeneralStats.toString(),
                 appSource
             )
 

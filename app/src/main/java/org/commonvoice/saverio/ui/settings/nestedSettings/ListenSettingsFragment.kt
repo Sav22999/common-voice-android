@@ -29,14 +29,6 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
         withBinding {
             switchAutoPlayClips.setOnCheckedChangeListener { _, isChecked ->
                 listenPrefManager.isAutoPlayClipEnabled = isChecked
-
-                if (settingsPrefManager.showConfirmationMessages) {
-                    showMessageDialog(
-                        "",
-                        if (isChecked) getString(R.string.toast_autoplay_clip_on)
-                        else getString(R.string.toast_autoplay_clip_off)
-                    )
-                }
             }
             switchAutoPlayClips.isChecked = listenPrefManager.isAutoPlayClipEnabled
         }

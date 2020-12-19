@@ -47,55 +47,53 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
         super.onStart()
 
         withBinding {
-            settingsSectionAdvanced.onClick {
+            buttonSettingsGoToAdvanced.onClick {
                 findNavController().navigate(R.id.advancedSettingsFragment)
             }
 
-            settingsSectionApp.onClick {
-                findNavController().navigate(R.id.appSettingsFragment)
+            buttonSettingsGoToOther.onClick {
+                findNavController().navigate(R.id.otherSettingsFragment)
             }
 
-            settingsSectionExperimentalFeatures.onClick {
+            buttonSettingsGoToExperimentalFeatures.onClick {
                 findNavController().navigate(R.id.experimentalSettingsFragment)
             }
 
-            settingsSectionGestures.onClick {
+            buttonSettingsGoToGestures.onClick {
                 findNavController().navigate(R.id.gesturesSettingsFragment)
             }
 
-            settingsSectionListen.onClick {
+            buttonSettingsGoToListen.onClick {
                 findNavController().navigate(R.id.listenSettingsFragment)
             }
 
-            settingsSectionSpeak.onClick {
+            buttonSettingsGoToSpeak.onClick {
                 findNavController().navigate(R.id.speakSettingsFragment)
             }
 
-            settingsSectionUI.onClick {
+            buttonSettingsGoToUserInterface.onClick {
                 findNavController().navigate(R.id.UISettingsFragment)
             }
 
-            settingsSectionOfflineMode.onClick {
+            buttonSettingsGoToOfflineMode.onClick {
                 findNavController().navigate(R.id.offlineModeSettingsFragment)
+            }
+
+            buttonSettingsGoToUsefulLinks.onClick {
+                findNavController().navigate(R.id.usefulLinksFragment)
             }
         }
 
         setupLanguageSpinner()
 
-        binding.textRelease.text = "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})"
+        setupButtons()
+
+        binding.textRelease.text = "${BuildConfig.VERSION_NAME} (build#${BuildConfig.VERSION_CODE})"
 
         binding.textDevelopedBy.setText(R.string.txt_developed_by)
     }
 
     private fun setupButtons() = withBinding {
-        buttonReadGuidelines.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ")))
-        }
-
-        buttonReadCommonVoiceToS.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R")))
-        }
-
         buttonBuyMeACoffee.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
         }

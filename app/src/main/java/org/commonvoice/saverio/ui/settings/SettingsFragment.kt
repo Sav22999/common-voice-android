@@ -59,48 +59,33 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
         setupLanguageSpinner()
 
-        text_settingsLanguage.setText(R.string.settingsLanguage)
+        text_settingsTheme.setText(R.string.settingsLanguage)
 
         textRelease.text = "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})"
 
         textDevelopedBy.setText(R.string.txt_developed_by)
 
         setupSwitches()
-        setupButtons()
+        //setupButtons()
         additionalGPSSettings()
 
         setTheme()
     }
 
     private fun setupSwitches() {
+        /*
         switchAnonymousStatistics.setOnCheckedChangeListener { _, isChecked ->
-            if (settingsPrefManager.showConfirmationMessages) {
-                showMessageDialog(
-                    "",
-                    if (isChecked) getString(R.string.toast_anonymous_statistics_on)
-                    else getString(R.string.toast_anonymous_statistics_off)
-                )
-            }
-
-            mainPrefManager.areStatsAnonymous = isChecked
+            mainPrefManager.areGeneralStats = isChecked
             mainViewModel.postStats(
                 BuildConfig.VERSION_NAME,
                 BuildConfig.VERSION_CODE,
                 MainActivity.SOURCE_STORE
             )
         }
-        switchAnonymousStatistics.isChecked = mainPrefManager.areStatsAnonymous
+        switchAnonymousStatistics.isChecked = mainPrefManager.areGeneralStats
 
         switchAutoPlayClips.setOnCheckedChangeListener { _, isChecked ->
             listenPrefManager.isAutoPlayClipEnabled = isChecked
-
-            if (settingsPrefManager.showConfirmationMessages) {
-                showMessageDialog(
-                    "",
-                    if (isChecked) getString(R.string.toast_autoplay_clip_on)
-                    else getString(R.string.toast_autoplay_clip_off)
-                )
-            }
         }
         switchAutoPlayClips.isChecked = listenPrefManager.isAutoPlayClipEnabled
 
@@ -108,54 +93,23 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         switchDarkTheme.setOnCheckedChangeListener { _, isChecked ->
             theme.isDark = isChecked
             setTheme()
-
-            if (settingsPrefManager.showConfirmationMessages) {
-                showMessageDialog(
-                    "",
-                    if (isChecked) getString(R.string.toast_dark_theme_on)
-                    else getString(R.string.toast_dark_theme_off),
-                    type = 2
-                )
-            }
         }
 
         switchRecordingSound.setOnCheckedChangeListener { _, isChecked ->
-            if (settingsPrefManager.showConfirmationMessages) {
+            if (isChecked)
                 showMessageDialog(
                     "",
-                    if (isChecked) getString(R.string.toast_recording_indicator_sound_on)
-                    else getString(R.string.toast_recording_indicator_sound_off)
+                    getString(R.string.toast_recording_indicator_sound_on)
                 )
-            }
 
             speakPrefManager.playRecordingSoundIndicator = isChecked
         }
         switchRecordingSound.isChecked = speakPrefManager.playRecordingSoundIndicator
 
         switchCheckForUpdates.setOnCheckedChangeListener { _, isChecked ->
-            if (settingsPrefManager.showConfirmationMessages) {
-                showMessageDialog(
-                    "",
-                    if (isChecked) getString(R.string.toast_check_for_updated_on)
-                    else getString(R.string.toast_check_for_updated_off)
-                )
-            }
-
             settingsPrefManager.automaticallyCheckForUpdates = isChecked
         }
         switchCheckForUpdates.isChecked = settingsPrefManager.automaticallyCheckForUpdates
-
-        switchAbortConfirmationDialogsInSettings.setOnCheckedChangeListener { _, isChecked ->
-            if (!isChecked) {
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_abort_confirmation_dialogs_in_settings_off)
-                )
-            }
-
-            settingsPrefManager.showConfirmationMessages = !isChecked
-        }
-        switchAbortConfirmationDialogsInSettings.isChecked = settingsPrefManager.showConfirmationMessages
 
         switchGestures.setOnCheckedChangeListener { _, isChecked ->
             if (settingsPrefManager.showConfirmationMessages) {
@@ -208,7 +162,8 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             settingsSectionExperimentalFeatures.isGone = !isChecked
         }
         switchExperimentalFeatures.isChecked = settingsPrefManager.enableExperimentalFeatures
-        settingsSectionExperimentalFeatures.isVisible = settingsPrefManager.enableExperimentalFeatures
+        settingsSectionExperimentalFeatures.isVisible =
+            settingsPrefManager.enableExperimentalFeatures
 
         switchEnableAnimations.setOnCheckedChangeListener { _, isChecked ->
             mainPrefManager.areAnimationsEnabled = isChecked
@@ -266,6 +221,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         buttonReadCommonVoiceToS.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R")))
         }
+        */
     }
 
     private fun additionalGPSSettings() {
@@ -275,7 +231,12 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         }
 
         buttonReviewOnGooglePlay.onClick {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=org.commonvoice.saverio")))
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=org.commonvoice.saverio")
+                )
+            )
         }
 
         if (MainActivity.SOURCE_STORE == "GPS") {
@@ -330,6 +291,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
     }
 
     private fun setTheme() = withBinding {
+        /*
         theme.setElements(requireContext(), layoutSettings)
 
         theme.setElements(requireContext(), settingsSectionLanguage)
@@ -364,6 +326,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         theme.setElement(requireContext(), buttonReviewOnGooglePlay, background = false)
 
         theme.setElement(imageLanguageIcon, R.drawable.ic_language, R.drawable.ic_language)
+        */
     }
 
     private fun showMessageDialog(

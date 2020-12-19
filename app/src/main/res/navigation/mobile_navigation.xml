@@ -33,7 +33,7 @@
             app:destination="@id/speakSettingsFragment" />
         <action
             android:id="@+id/action_navigation_settings_to_appSettingsFragment"
-            app:destination="@id/appSettingsFragment" />
+            app:destination="@id/otherSettingsFragment" />
         <action
             android:id="@+id/action_navigation_settings_to_advancedSettingsFragment"
             app:destination="@id/advancedSettingsFragment" />
@@ -63,10 +63,10 @@
         android:label="AdvancedSettingsFragment"
         tools:layout="@layout/fragment_advanced_settings" />
     <fragment
-        android:id="@+id/appSettingsFragment"
-        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.AppSettingsFragment"
+        android:id="@+id/otherSettingsFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.OtherSettingsFragment"
         android:label="AppSettingsFragment"
-        tools:layout="@layout/fragment_app_settings" />
+        tools:layout="@layout/fragment_other_settings" />
     <fragment
         android:id="@+id/experimentalSettingsFragment"
         android:name="org.commonvoice.saverio.ui.settings.nestedSettings.ExperimentalSettingsFragment"
@@ -87,4 +87,10 @@
         android:name="org.commonvoice.saverio.ui.settings.nestedSettings.UISettingsFragment"
         android:label="UISettingsFragment"
         tools:layout="@layout/fragment_ui_settings" />
+
+    <fragment
+        android:id="@+id/usefulLinksFragment"
+        android:name="org.commonvoice.saverio.ui.settings.nestedSettings.UsefulLinksFragment"
+        android:label="UsefulLinks"
+        tools:layout="@layout/fragment_useful_link_settings" />
 </navigation>

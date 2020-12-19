@@ -13,7 +13,7 @@
         android:isScrollContainer="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/settingsSectionLanguage"
+            android:id="@+id/settingsSectionTheme"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/text_settingsLanguage"
+                android:id="@+id/text_settingsTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -54,7 +54,7 @@
                 android:padding="4dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/text_settingsTheme"
                 app:srcCompat="@drawable/ic_language" />
 
             <Spinner
@@ -73,7 +73,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageLanguageIcon"
-                app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage" />
+                app:layout_constraintTop_toBottomOf="@+id/text_settingsTheme" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -104,7 +104,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionLanguage">
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionTheme"
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/text_settingsListen"
@@ -162,7 +163,8 @@
             android:paddingEnd="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionListen">
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionListen"
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/text_settingsSpeak"
@@ -707,42 +709,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/buttonReviewOnGooglePlay" />
 
             <Switch
-                android:id="@+id/switchAbortConfirmationDialogsInSettings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:drawableStart="@drawable/ic_abort_messages"
-                android:drawablePadding="10dp"
-                android:drawableTint="@color/colorGray"
-                android:foreground="@drawable/ripple"
-                android:gravity="center|clip_vertical|start"
-                android:padding="20dp"
-                android:showText="false"
-                android:stateListAnimator="@null"
-                android:switchPadding="4dp"
-                android:text="@string/txt_abort_confirmation_dialogs_in_settings"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_normal"
-                android:thumbTint="@drawable/thumb_switch"
-                android:trackTint="@drawable/track_switch"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separator10" />
-
-            <View
-                android:id="@+id/separator6"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@color/colorSeparator"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switchAbortConfirmationDialogsInSettings" />
-
-            <Switch
                 android:id="@+id/switchAnonymousStatistics"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -756,7 +722,7 @@
                 android:showText="false"
                 android:stateListAnimator="@null"
                 android:switchPadding="4dp"
-                android:text="@string/txt_anonymous_statistics"
+                android:text="@string/txt_generic_statistics"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_normal"
@@ -764,7 +730,7 @@
                 android:trackTint="@drawable/track_switch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separator6" />
+                tools:layout_editor_absoluteY="941dp" />
 
             <View
                 android:id="@+id/separator"
@@ -886,7 +852,8 @@
             android:paddingEnd="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionOther">
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionOther"
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/text_settingsExperimentalFeatures"
@@ -990,7 +957,7 @@
                 android:gravity="center|clip_vertical|start"
                 android:padding="20dp"
                 android:stateListAnimator="@null"
-                android:text="@string/txt_themes_settings"
+                android:text="@string/title_theme_settings"
                 android:textAllCaps="false"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorBlack"

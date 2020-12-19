@@ -4,25 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonGesturesLearnMore"
+    <Switch
+        android:id="@+id/switchCheckUpdates"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/colorBackground"
-        android:drawableStart="@drawable/ic_info"
+        android:drawableStart="@drawable/ic_check_for_updates"
         android:drawablePadding="10dp"
         android:drawableTint="@color/colorGray"
         android:foreground="@drawable/ripple"
         android:gravity="center|clip_vertical|start"
         android:padding="20dp"
+        android:showText="false"
         android:stateListAnimator="@null"
-        android:text="@string/settingsLearnMore"
-        android:textAllCaps="false"
+        android:switchPadding="4dp"
+        android:text="@string/txt_check_for_updates"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/text_normal"
-        android:textStyle="normal"
+        android:thumbTint="@drawable/thumb_switch"
+        android:trackTint="@drawable/track_switch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

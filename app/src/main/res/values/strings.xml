@@ -76,61 +76,56 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">main contributors</string>
     <string name="txt_developed_by" comment="Label in Settings">developed by</string>
     <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Language</string>
     <string name="settingsListen" comment="Title in Settings">Listen</string>
     <string name="settingsSpeak" comment="Title in Settings">Speak</string>
     <string name="settingsOther" comment="Title in Settings">Other</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Auto-play clip is now turned on.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Auto-play clip is now turned off.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Dark theme</string>
-    <string name="toast_dark_theme_on" comment="Message text">Dark theme is now turned on.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Dark theme is now turned off.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Contact the developer on Telegram</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimental features</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Experimental features turned off.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
     <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Saving logs to a file turned off.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Anonymous statistics</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Skip recording confirmation</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Skip recording confirmation turned off.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Translate the app on Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">See app statistics</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">Recording indicator sound is now turned off.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Check for updates</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Check for updates turned on.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Check for updates turned off.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Abort confirmation dialogs in Settings</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Abort confirmation dialogs are now turned on.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Abort confirmation dialogs are now turned off.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Gestures</string>
-    <string name="toast_gestures_on" comment="Message text">Gestures are now turned on.</string>
-    <string name="toast_gestures_off" comment="Message text">Gestures are now turned off.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Themes</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_app_settings" comment="Option in Settings">App</string>
     <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
