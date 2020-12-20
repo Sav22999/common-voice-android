@@ -180,9 +180,11 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             mainPrefManager.areLabelsBelowMenuIcons = isChecked
         }
         switchShowLabelsBelowMenuIcons.isChecked = mainPrefManager.areLabelsBelowMenuIcons
+        */
     }
 
     private fun setupButtons() {
+        /*
         buttonProjectGitHub.onClick {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2PeOGRg")))
         }

@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.isGone
 import androidx.navigation.fragment.findNavController
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
+import com.google.android.play.core.review.ReviewManagerFactory
+import kotlinx.android.synthetic.main.fragment_settings.*
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -96,6 +99,38 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
     private fun setupButtons() = withBinding {
         buttonBuyMeACoffee.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+        }
+
+        //In-App review
+        val manager = ReviewManagerFactory.create(context)
+        buttonReviewOnGooglePlay.setOnClickListener {
+            val request = manager.requestReviewFlow()
+            request.addOnCompleteListener { request ->
+                if (request.isSuccessful) {
+                    // We got the ReviewInfo object
+                    val reviewInfo = request.result
+
+                    val flow = manager.launchReviewFlow(activity, reviewInfo)
+                    flow.addOnCompleteListener { _ ->
+                        // The flow has finished. The API does not indicate whether the user
+                        // reviewed or not, or even whether the review dialog was shown. Thus, no
+                        // matter the result, we continue our app flow.
+                    }
+                } else {
+                    //same error, so the app can't open the in-app review pop-up
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("market://details?id=org.commonvoice.saverio")
+                        )
+                    )
+                }
+            }
+        }
+
+        if (MainActivity.SOURCE_STORE == "GPS") {
+            buttonReviewOnGooglePlay.isGone = false
+            separator37.isGone = false
         }
     }
 
