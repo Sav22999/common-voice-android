@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settingsSectionAdvanced"
+        android:id="@+id/settingsSectionUsefulLinks"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -26,69 +18,33 @@
         android:paddingEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Switch
-            android:id="@+id/switchGenericStatistics"
+        <Button
+            android:id="@+id/buttonTranslateApp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_statistics"
+            android:layout_marginTop="0dp"
+            android:background="@color/colorWhite"
+            android:drawableStart="@drawable/ic_crowdin"
             android:drawablePadding="10dp"
             android:drawableTint="@color/colorGray"
             android:foreground="@drawable/ripple"
             android:gravity="center|clip_vertical|start"
             android:padding="20dp"
-            android:showText="false"
             android:stateListAnimator="@null"
-            android:switchPadding="4dp"
-            android:text="@string/txt_generic_statistics"
+            android:text="@string/txt_translate_the_app_on_crowdin"
+            android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_normal"
-            android:thumbTint="@drawable/thumb_switch"
-            android:trackTint="@drawable/track_switch"
+            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/separator38"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switchGenericStatistics" />
-
-        <Switch
-            android:id="@+id/switchAppUsageStatistics"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_statistics"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/colorGray"
-            android:foreground="@drawable/ripple"
-            android:gravity="center|clip_vertical|start"
-            android:padding="20dp"
-            android:showText="false"
-            android:stateListAnimator="@null"
-            android:switchPadding="4dp"
-            android:text="@string/txt_app_usage_statistics"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/text_normal"
-            android:thumbTint="@drawable/thumb_switch"
-            android:trackTint="@drawable/track_switch"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator38" />
-
-        <View
-            android:id="@+id/separator39"
+            android:id="@+id/separator33"
             android:layout_width="match_parent"
             android:layout_height="1dp"
 
@@ -98,46 +54,113 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switchAppUsageStatistics" />
-
-        <Switch
-            android:id="@+id/switchSaveLogToFile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_save_to_file"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/colorGray"
-            android:foreground="@drawable/ripple"
-            android:gravity="center|clip_vertical|start"
-            android:padding="20dp"
-            android:showText="false"
-            android:stateListAnimator="@null"
-            android:switchPadding="4dp"
-            android:text="@string/txt_log_on_file"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/text_normal"
-            android:thumbTint="@drawable/thumb_switch"
-            android:trackTint="@drawable/track_switch"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator39" />
-
-        <View
-            android:id="@+id/separator40"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switchSaveLogToFile" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonTranslateApp" />
 
         <Button
-            android:id="@+id/buttonShowStringIdentifyMe"
+            android:id="@+id/buttonProjectOnGitHub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:drawableStart="@drawable/ic_github"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorGray"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:stateListAnimator="@null"
+            android:text="@string/txt_project_github_settings"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_normal"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator33" />
+
+        <View
+            android:id="@+id/separator34"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonProjectOnGitHub" />
+
+        <Button
+            android:id="@+id/buttonTelegramGroupCVAndroid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:drawableStart="@drawable/ic_telegram"
+            android:drawablePadding="10dp"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:stateListAnimator="@null"
+            android:text="@string/txt_telegram_group_settings"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_normal"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator34" />
+
+        <View
+            android:id="@+id/separator35"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonTelegramGroupCVAndroid" />
+
+        <Button
+            android:id="@+id/buttonContactDeveloperOnTelegram"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:drawableStart="@drawable/ic_telegram"
+            android:drawablePadding="10dp"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:stateListAnimator="@null"
+            android:text="@string/contact_developer_on_telegram"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_normal"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator35" />
+
+        <View
+            android:id="@+id/separator36"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonContactDeveloperOnTelegram" />
+
+        <Button
+            android:id="@+id/buttonTermsOfService"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -148,7 +171,7 @@
             android:gravity="center|clip_vertical|start"
             android:padding="20dp"
             android:stateListAnimator="@null"
-            android:text="@string/txt_show_string_which_identify_me"
+            android:text="@string/txt_read_tos_mozilla_common_voice"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorBlack"
@@ -156,10 +179,10 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator40" />
+            app:layout_constraintTop_toBottomOf="@+id/separator36" />
 
         <View
-            android:id="@+id/separator41"
+            android:id="@+id/separator32"
             android:layout_width="match_parent"
             android:layout_height="1dp"
 
@@ -169,10 +192,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonShowStringIdentifyMe" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonTermsOfService" />
 
         <Button
-            android:id="@+id/buttonOpenTutorialAgain"
+            android:id="@+id/buttonGuidelinesForValidations"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -183,43 +206,7 @@
             android:gravity="center|clip_vertical|start"
             android:padding="20dp"
             android:stateListAnimator="@null"
-            android:text="@string/btn_open_tutorial_settings"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/text_normal"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator41" />
-
-        <View
-            android:id="@+id/separator42"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/colorSeparator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonOpenTutorialAgain" />
-
-        <Button
-            android:id="@+id/buttonResetData"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            android:drawableStart="@drawable/ic_warning"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/colorGray"
-            android:foreground="@drawable/ripple"
-            android:gravity="center|clip_vertical|start"
-            android:padding="20dp"
-            android:stateListAnimator="@null"
-            android:text="@string/txt_reset_data"
+            android:text="@string/txt_read_guidelines"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorBlack"
@@ -227,6 +214,6 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separator42" />
+            app:layout_constraintTop_toBottomOf="@+id/separator32" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

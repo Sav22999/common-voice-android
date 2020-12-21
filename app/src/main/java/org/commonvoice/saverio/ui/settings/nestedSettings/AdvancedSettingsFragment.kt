@@ -3,9 +3,12 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.fragment_advanced_settings.*
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
+import org.commonvoice.saverio.databinding.ToolbarBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
@@ -25,8 +28,11 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     override fun onStart() {
         super.onStart()
 
-        withBinding {
 
+        withBinding {
+            if (activity is AppCompatActivity) {
+                //(activity as AppCompatActivity).setSupportActionBar(toolbar as Toolbar)
+            }
         }
 
         setupButtons()
@@ -34,7 +40,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
     fun setupButtons() {
         buttonShowStringIdentifyMe.setOnClickListener {
-            showMessageDialog("",mainPrefManager.statsUserId)
+            showMessageDialog("", mainPrefManager.statsUserId)
         }
     }
 

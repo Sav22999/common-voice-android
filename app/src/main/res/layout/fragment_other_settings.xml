@@ -4,27 +4,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Switch
-        android:id="@+id/switchCheckUpdates"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settingsSubSectionOther"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:drawableStart="@drawable/ic_check_for_updates"
-        android:drawablePadding="10dp"
-        android:drawableTint="@color/colorGray"
-        android:foreground="@drawable/ripple"
-        android:gravity="center|clip_vertical|start"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/top_bottom_border_radius"
+        android:backgroundTint="@color/colorWhite"
         android:padding="20dp"
-        android:showText="false"
-        android:stateListAnimator="@null"
-        android:switchPadding="4dp"
-        android:text="@string/txt_check_for_updates"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/text_normal"
-        android:thumbTint="@drawable/thumb_switch"
-        android:trackTint="@drawable/track_switch"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Switch
+            android:id="@+id/switchCheckUpdates"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:drawableStart="@drawable/ic_check_for_updates"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorGray"
+            android:foreground="@drawable/ripple"
+            android:gravity="center|clip_vertical|start"
+            android:padding="20dp"
+            android:showText="false"
+            android:stateListAnimator="@null"
+            android:switchPadding="4dp"
+            android:text="@string/txt_check_for_updates"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_normal"
+            android:thumbTint="@drawable/thumb_switch"
+            android:trackTint="@drawable/track_switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
