@@ -25,6 +25,7 @@ import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Clip
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
@@ -42,6 +43,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private var numberSentThisSession: Int = 0
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
+    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,12 +56,15 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun checkOfflineMode(available: Boolean) {
         if (!listenViewModel.showingHidingOfflineIcon && (listenViewModel.offlineModeIconVisible == available)) {
             listenViewModel.showingHidingOfflineIcon = true
-            if (!available) {
+            if (!available && settingsPrefManager.isOfflineMode) {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_in)
                 listenViewModel.offlineModeIconVisible = true
                 if (mainPrefManager.showOfflineModeMessage) {
                     showMessageDialog("", "", 10)
                 }
+            } else if (!settingsPrefManager.isOfflineMode) {
+                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled))
+                onBackPressed()
             } else {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false

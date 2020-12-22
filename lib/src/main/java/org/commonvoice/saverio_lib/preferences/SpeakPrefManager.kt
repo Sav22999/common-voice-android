@@ -30,11 +30,18 @@ class SpeakPrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.SKIP_RECORDING_CONFIRMATION.name, value).apply()
         }
 
+    var saveRecordingsOnDevice: Boolean
+        get() = preferences.getBoolean(Keys.SAVE_RECORDINGS_ON_DEVICE.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.SAVE_RECORDINGS_ON_DEVICE.name, value).apply()
+        }
+
     private enum class Keys {
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
         ENABLE_RECORDING_SOUND_INDICATOR,
-        SKIP_RECORDING_CONFIRMATION
+        SKIP_RECORDING_CONFIRMATION,
+        SAVE_RECORDINGS_ON_DEVICE
     }
 
 }

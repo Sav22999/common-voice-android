@@ -2,9 +2,20 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.work.ExistingWorkPolicy
+import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.fragment_offline_settings.*
+import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBinding>() {
 
@@ -15,11 +26,39 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         return FragmentOfflineSettingsBinding.inflate(layoutInflater, container, false)
     }
 
+    private val settingsPrefManager by inject<SettingsPrefManager>()
+    private val speakPrefManager by inject<SpeakPrefManager>()
+    private val listenPrefManager by inject<ListenPrefManager>()
+    private val mainViewModel by viewModel<MainActivityViewModel>()
+    private val workManager by inject<WorkManager>()
+
     override fun onStart() {
         super.onStart()
 
         buttonBackSettingsSubSectionOfflineMode.setOnClickListener {
             activity?.onBackPressed()
+        }
+
+        withBinding {
+            switchSettingsSubSectionOfflineMode.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.isOfflineMode = isChecked
+                var count = 50
+                if (!settingsPrefManager.isOfflineMode)
+                    count = 3
+                listenPrefManager.requiredClipsCount = count
+                speakPrefManager.requiredSentencesCount = count
+                mainViewModel.clearDB().invokeOnCompletion {
+                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                        workManager,
+                        ExistingWorkPolicy.REPLACE
+                    )
+                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                        workManager,
+                        ExistingWorkPolicy.REPLACE
+                    )
+                }
+            }
+            switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
         }
     }
 

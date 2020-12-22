@@ -14,6 +14,10 @@ class SettingsPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.EXPERIMENTAL_FEATURES.name, false)
         set(value) = preferences.edit().putBoolean(Keys.EXPERIMENTAL_FEATURES.name, value).apply()
 
+    var isOfflineMode: Boolean
+        get() = preferences.getBoolean(Keys.OFFLINE_MODE.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.OFFLINE_MODE.name, value).apply()
+
     var automaticallyCheckForUpdates: Boolean
         get() = preferences.getBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, true)
         set(value) = preferences.edit().putBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, value)
@@ -28,6 +32,7 @@ class SettingsPrefManager(ctx: Context) {
         EXPERIMENTAL_FEATURES,
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
+        OFFLINE_MODE,
     }
 
 }
