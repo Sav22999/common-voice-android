@@ -1,21 +1,25 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.content.Context
 import android.content.Intent
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.webkit.CookieManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.fragment_advanced_settings.*
 import org.commonvoice.saverio.FirstLaunch
+import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.databinding.ToolbarBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
-import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
+import org.commonvoice.saverio_lib.preferences.*
+import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBinding>() {
 
@@ -27,6 +31,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     }
 
     private val mainPrefManager by inject<MainPrefManager>()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
+    private val statsPrefManager by inject<StatsPrefManager>()
+    private val listenPrefManager by inject<ListenPrefManager>()
+    private val speakPrefManager by inject<SpeakPrefManager>()
+    private val firstRunPrefManager by inject<FirstRunPrefManager>()
+    private val loginViewModel by viewModel<LoginViewModel>()
 
     override fun onStart() {
         super.onStart()
@@ -60,6 +70,70 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
             buttonResetData.setOnClickListener {
                 //TODO: reset data (reset all settings to default value and logout)
+
+                //Reset FirstRun
+                firstRunPrefManager.main = true
+                firstRunPrefManager.listen = true
+                firstRunPrefManager.speak = true
+
+                //Reset Settings
+                settingsPrefManager.isOfflineMode = true
+                settingsPrefManager.showReportIcon = false
+                settingsPrefManager.automaticallyCheckForUpdates = true
+                settingsPrefManager.latestVersion = ""
+
+                //Reset Stats
+                statsPrefManager.dailyGoalObjective = 0
+                statsPrefManager.reviewOnPlayStoreCounter = 0
+                statsPrefManager.todayValidated = 0
+                statsPrefManager.todayRecorded = 0
+                statsPrefManager.allTimeValidated = 0
+                statsPrefManager.allTimeRecorded = 0
+                statsPrefManager.allTimeLevel = 0
+
+                //Reset Listen
+                listenPrefManager.requiredClipsCount = 50
+                listenPrefManager.isAutoPlayClipEnabled = false
+                listenPrefManager.isShowTheSentenceAtTheEnd = false
+
+                //Reset Speak
+                speakPrefManager.requiredSentencesCount = 50
+                speakPrefManager.playRecordingSoundIndicator = false
+                speakPrefManager.skipRecordingConfirmation = false
+                speakPrefManager.saveRecordingsOnDevice = false
+
+                //Reset Main
+                mainPrefManager.language = "en"
+                mainPrefManager.tokenUserId = ""
+                mainPrefManager.tokenAuth = ""
+                mainPrefManager.showOfflineModeMessage = true
+                mainPrefManager.showReportWebsiteBugs = true
+                mainPrefManager.areGesturesEnabled = true
+                mainPrefManager.statsUserId = ""
+                mainPrefManager.areGenericStats = true
+                mainPrefManager.areAppUsageStats = true
+                mainPrefManager.areAnimationsEnabled = true
+                mainPrefManager.areLabelsBelowMenuIcons = false
+                mainPrefManager.hasLanguageChanged = true
+                mainPrefManager.hasLanguageChanged2 = true
+                mainPrefManager.themeType = "light"
+                mainPrefManager.isLogFeature = false
+                mainPrefManager.sessIdCookie = null
+                mainPrefManager.isLoggedIn = false
+                mainPrefManager.username = ""
+
+                //TODO: Can these removed?
+                requireContext().getSharedPreferences("LOGGED", Context.MODE_PRIVATE).edit()
+                    .putBoolean("LOGGED", false).apply()
+                requireContext().getSharedPreferences("DAILY_GOAL", Context.MODE_PRIVATE).edit()
+                    .putInt("DAILY_GOAL", 0).apply()
+
+
+                CookieManager.getInstance().flush()
+                CookieManager.getInstance().removeAllCookies(null)
+                loginViewModel.clearDB()
+
+                startActivity(Intent(requireContext(), MainActivity::class.java))
             }
         }
 

@@ -6,14 +6,6 @@ class SettingsPrefManager(ctx: Context) {
 
     private val preferences = ctx.getSharedPreferences("settingsPreferences", Context.MODE_PRIVATE)
 
-    var showConfirmationMessages: Boolean
-        get() = preferences.getBoolean(Keys.SHOW_CONFIRMATION.name, true)
-        set(value) = preferences.edit().putBoolean(Keys.SHOW_CONFIRMATION.name, value).apply()
-
-    var enableExperimentalFeatures: Boolean
-        get() = preferences.getBoolean(Keys.EXPERIMENTAL_FEATURES.name, false)
-        set(value) = preferences.edit().putBoolean(Keys.EXPERIMENTAL_FEATURES.name, value).apply()
-
     var isOfflineMode: Boolean
         get() = preferences.getBoolean(Keys.OFFLINE_MODE.name, true)
         set(value) = preferences.edit().putBoolean(Keys.OFFLINE_MODE.name, value).apply()
@@ -24,7 +16,7 @@ class SettingsPrefManager(ctx: Context) {
             .apply()
 
     var showReportIcon: Boolean
-        get() = preferences.getBoolean(Keys.SHOW_REPORT_ICON.name, true)
+        get() = preferences.getBoolean(Keys.SHOW_REPORT_ICON.name, false)
         set(value) = preferences.edit().putBoolean(Keys.SHOW_REPORT_ICON.name, value)
             .apply()
 
@@ -33,8 +25,6 @@ class SettingsPrefManager(ctx: Context) {
         set(value) = preferences.edit().putString(Keys.LATEST_VERSION.name, value).apply()
 
     private enum class Keys {
-        SHOW_CONFIRMATION,
-        EXPERIMENTAL_FEATURES,
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
         OFFLINE_MODE,
