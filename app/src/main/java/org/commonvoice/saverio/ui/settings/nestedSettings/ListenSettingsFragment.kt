@@ -3,6 +3,8 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_advanced_settings.*
+import kotlinx.android.synthetic.main.fragment_listen_settings.*
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentListenSettingsBinding
@@ -25,6 +27,10 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
 
     override fun onStart() {
         super.onStart()
+
+        buttonBackSettingsSubSectionListen.setOnClickListener {
+            activity?.onBackPressed()
+        }
 
         withBinding {
             switchAutoPlayClips.setOnCheckedChangeListener { _, isChecked ->

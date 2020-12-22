@@ -52,6 +52,8 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
     override fun onStart() {
         super.onStart()
 
+        activity?.setTitle(R.string.button_home_login)
+
         val bottomSheetBinding = BottomsheetLoginBinding.inflate(layoutInflater)
 
         val bottomSheet = BottomSheetDialog(requireContext()).also {
@@ -126,14 +128,17 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
         settings.domStorageEnabled = true
         settings.userAgentString = settings.userAgentString.replace("; wv", "")
 
-        webViewClient = object: WebViewClient() {
+        webViewClient = object : WebViewClient() {
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 showLoading()
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
-                hideLoading(showButton = (view?.url?.contains("https://auth.mozilla.auth0.com/login") ?: false))
+                hideLoading(
+                    showButton = (view?.url?.contains("https://auth.mozilla.auth0.com/login")
+                        ?: false)
+                )
 
                 val cookies = CookieManager.getInstance().getCookie(url)
 

@@ -24,7 +24,7 @@ import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
+class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
 
     private val loginViewModel by viewModel<LoginViewModel>()
 
@@ -42,6 +42,8 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
 
     override fun onStart() {
         super.onStart()
+
+        activity?.setTitle(R.string.button_home_profile)
 
         if (!connectionManager.isInternetAvailable) {
             findNavController().navigate(R.id.noConnectionFragment)
@@ -178,8 +180,10 @@ class ProfileFragment: ViewBoundFragment<FragmentProfileBinding>() {
         mainPrefManager.sessIdCookie = null
         mainPrefManager.isLoggedIn = false
 
-        requireContext().getSharedPreferences("LOGGED", Context.MODE_PRIVATE).edit().putBoolean("LOGGED", false).apply()
-        requireContext().getSharedPreferences("DAILY_GOAL", Context.MODE_PRIVATE).edit().putInt("DAILY_GOAL", 0).apply()
+        requireContext().getSharedPreferences("LOGGED", Context.MODE_PRIVATE).edit()
+            .putBoolean("LOGGED", false).apply()
+        requireContext().getSharedPreferences("DAILY_GOAL", Context.MODE_PRIVATE).edit()
+            .putInt("DAILY_GOAL", 0).apply()
 
         statsPrefManager.allTimeLevel = 0
         statsPrefManager.allTimeRecorded = 0

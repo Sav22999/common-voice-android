@@ -28,11 +28,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     override fun onStart() {
         super.onStart()
 
+        buttonBackSettingsSubSectionAdvanced.setOnClickListener {
+            activity?.onBackPressed()
+        }
 
         withBinding {
-            if (activity is AppCompatActivity) {
-                //(activity as AppCompatActivity).setSupportActionBar(toolbar as Toolbar)
-            }
+
         }
 
         setupButtons()

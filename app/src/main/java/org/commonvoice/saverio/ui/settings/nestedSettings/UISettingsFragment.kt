@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.core.widget.CompoundButtonCompat
+import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 
@@ -19,6 +20,10 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
 
     override fun onStart() {
         super.onStart()
+
+        buttonBackSettingsSubSectionUI.setOnClickListener {
+            activity?.onBackPressed()
+        }
 
         withBinding {
             addPaddingRadio(buttonThemeLight)

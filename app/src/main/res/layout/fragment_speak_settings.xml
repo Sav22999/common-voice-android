@@ -5,6 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/toolbarSettingsSubSectionSpeak"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttonBackSettingsSubSectionSpeak"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:elevation="5dp"
+        android:padding="21dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionSpeak"
+        app:srcCompat="@drawable/ic_back_dark" />
+
+    <TextView
+        android:id="@+id/titleSettingsSubSectionSpeak"
+        android:layout_width="0dp"
+        android:layout_height="60sp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:elevation="5dp"
+        android:gravity="left|center_vertical"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/settingsSpeak"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/title_very_small"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarSettingsSubSectionSpeak"
+        app:layout_constraintStart_toStartOf="@+id/toolbarSettingsSubSectionSpeak"
+        app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionSpeak" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settingsSectionSpeak"
         android:layout_width="0dp"
@@ -19,7 +55,7 @@
         android:paddingEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbarSettingsSubSectionSpeak">
 
         <Switch
             android:id="@+id/switchSoundIndicator"
