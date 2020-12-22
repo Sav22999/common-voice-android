@@ -7,8 +7,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
 import android.widget.Button
-import androidx.core.animation.doOnEnd
-import androidx.core.view.children
+import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
@@ -28,7 +27,6 @@ import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
-import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
@@ -291,6 +289,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateLoading() = withBinding {
+        textSentenceListen.setTextColor(
+            ContextCompat.getColor(
+                this@ListenActivity,
+                R.color.colorWhite
+            )
+        )
+
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
@@ -306,12 +311,40 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) = withBinding {
+        textSentenceListen.setTextColor(
+            ContextCompat.getColor(
+                this@ListenActivity,
+                R.color.colorWhite
+            )
+        )
+
         if (!listenViewModel.listenedOnce) {
-            textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_1)
+            textMessageAlertListen.setText(
+                getString(R.string.txt_sentence_feature_enabled).replace(
+                    "{{*{{feature_name}}*}}",
+                    getString(R.string.txt_show_sentence_at_the_ending)
+                ) + "\n" + getString(R.string.txt_press_icon_below_listen_1)
+            )
 
         } else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        textSentenceListen.text = clip.sentence.sentenceText
+        if (!listenViewModel.showSentencesTextAtTheEnd()) {
+            textSentenceListen.text = clip.sentence.sentenceText
+            textSentenceListen.setTextColor(
+                ContextCompat.getColor(
+                    this@ListenActivity,
+                    R.color.colorWhite
+                )
+            )
+        } else {
+            textSentenceListen.setText(R.string.txt_sentence_text_hidden)
+            textSentenceListen.setTextColor(
+                ContextCompat.getColor(
+                    this@ListenActivity,
+                    R.color.colorLightRed
+                )
+            )
+        }
         when (textSentenceListen.text.length) {
             in 0..10 -> {
                 textSentenceListen.setTextSize(
@@ -378,7 +411,43 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun loadUIStateListening() = withBinding {
         stopButtons()
 
-        textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
+        textSentenceListen.setTextColor(
+            ContextCompat.getColor(
+                this@ListenActivity,
+                R.color.colorWhite
+            )
+        )
+
+        var showListeningSentence = true
+        if (listenViewModel.showSentencesTextAtTheEnd()) {
+            if (!listenViewModel.listenedOnce) {
+                textMessageAlertListen.setText(
+                    getString(R.string.txt_sentence_feature_enabled).replace(
+                        "{{*{{feature_name}}*}}",
+                        getString(R.string.txt_show_sentence_at_the_ending)
+                    ) + "\n" + getString(
+                        R.string.txt_press_icon_below_listen_2
+                    )
+                )
+                textSentenceListen.setText(R.string.txt_listening_clip)
+                textSentenceListen.setTextColor(
+                    ContextCompat.getColor(
+                        this@ListenActivity,
+                        R.color.colorLightRed
+                    )
+                )
+            } else {
+                showListeningSentence = false
+            }
+        } else {
+            showListeningSentence = false
+        }
+
+        if (!showListeningSentence) {
+            textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
+            textSentenceListen.text = listenViewModel.getSentenceText()
+        }
+
 
         if (!listenViewModel.startedOnce) {
             showButton(buttonNoClip)
@@ -401,6 +470,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private fun loadUIStateListened() = withBinding {
         buttonNoClip.isVisible = true
+        textSentenceListen.text = listenViewModel.getSentenceText()
+        textSentenceListen.setTextColor(
+            ContextCompat.getColor(
+                this@ListenActivity,
+                R.color.colorWhite
+            )
+        )
         if (!listenViewModel.listenedOnce) {
             showButton(buttonYesClip)
         }
@@ -427,6 +503,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         textSentenceListen.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
             resources.getDimension(R.dimen.title_very_big)
+        )
+        textSentenceListen.setTextColor(
+            ContextCompat.getColor(
+                this@ListenActivity,
+                R.color.colorWhite
+            )
         )
         buttonReportListen.isGone = true
         buttonStartStopListen.isEnabled = false

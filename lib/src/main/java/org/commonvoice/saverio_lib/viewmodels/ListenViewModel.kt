@@ -128,6 +128,14 @@ class ListenViewModel(
         return listenPrefManager.isAutoPlayClipEnabled
     }
 
+    fun showSentencesTextAtTheEnd(): Boolean {
+        return listenPrefManager.isShowTheSentenceAtTheEnd
+    }
+
+    fun getSentenceText(): String? {
+        return currentClip.value?.sentence?.sentenceText
+    }
+
     companion object {
         @Parcelize
         enum class State : Parcelable {

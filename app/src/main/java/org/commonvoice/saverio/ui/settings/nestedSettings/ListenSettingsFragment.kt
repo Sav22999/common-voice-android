@@ -38,6 +38,11 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
             }
             switchAutoPlayClips.isChecked = listenPrefManager.isAutoPlayClipEnabled
         }
+
+        switchShowSentencesTextWhenClipsCompleted.setOnCheckedChangeListener { _, isChecked ->
+            listenPrefManager.isShowTheSentenceAtTheEnd = isChecked
+        }
+        switchShowSentencesTextWhenClipsCompleted.isChecked = listenPrefManager.isShowTheSentenceAtTheEnd
     }
 
     private fun showMessageDialog(

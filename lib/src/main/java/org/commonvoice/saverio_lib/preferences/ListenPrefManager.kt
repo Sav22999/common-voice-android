@@ -18,9 +18,16 @@ class ListenPrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.AUTO_PLAY_CLIPS.name, value).apply()
         }
 
+    var isShowTheSentenceAtTheEnd: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_SENTENCE_AT_THE_END.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.SHOW_SENTENCE_AT_THE_END.name, value).apply()
+        }
+
     private enum class Keys {
         REQUIRED_CLIPS_COUNT,
-        AUTO_PLAY_CLIPS
+        AUTO_PLAY_CLIPS,
+        SHOW_SENTENCE_AT_THE_END,
     }
 
 }
