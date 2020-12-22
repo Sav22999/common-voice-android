@@ -36,5 +36,17 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
             }
             switchSettingsSubSectionGestures.isChecked = mainPrefManager.areGesturesEnabled
         }
+
+        setTheme()
+    }
+
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsGestures)
+
+            theme.setElements(requireContext(), settingsSectionGestures)
+
+            theme.setElement(requireContext(), 3, settingsSectionGestures)
+        }
     }
 }

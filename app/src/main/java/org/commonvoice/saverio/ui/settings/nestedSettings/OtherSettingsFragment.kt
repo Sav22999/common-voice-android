@@ -33,5 +33,17 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
             }
             switchCheckUpdates.isChecked = settingsPrefManager.automaticallyCheckForUpdates
         }
+
+        setTheme()
+    }
+
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsOther)
+
+            theme.setElements(requireContext(), settingsSubSectionOther)
+
+            theme.setElement(requireContext(), 3, settingsSubSectionOther)
+        }
     }
 }

@@ -42,6 +42,7 @@ class DarkLightTheme(
                 is TextView -> setElement(context, child)
                 is Button -> setElement(context, child)
                 is SwitchCompat -> setElement(context, child)
+                is RadioButton -> setElement(context, child)
             }
         }
     }
@@ -240,6 +241,16 @@ class DarkLightTheme(
         } else {
             element.setBackgroundResource(colorBackground)
             element.setTextColor(ContextCompat.getColor(context, colorText))
+        }
+    }
+
+    fun setElement(context: Context, element: RadioButton) {
+        if (isDark) {
+            element.setBackgroundResource(R.color.colorBlack)
+            element.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
+        } else {
+            element.setBackgroundResource(R.color.colorWhite)
+            element.setTextColor(ContextCompat.getColor(context, R.color.colorBlack))
         }
     }
 

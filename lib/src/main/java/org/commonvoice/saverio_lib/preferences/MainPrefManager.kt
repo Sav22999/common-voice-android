@@ -62,10 +62,16 @@ class MainPrefManager(ctx: Context) {
             preferences.edit().putString(Keys.STATS_USERID.name, value).apply()
         }
 
-    var areGeneralStats: Boolean
-        get() = preferences.getBoolean(Keys.ARE_STATS_ANONYMOUS.name, true)
+    var areGenericStats: Boolean
+        get() = preferences.getBoolean(Keys.ARE_GENERIC_STATS.name, true)
         set(value) {
-            preferences.edit().putBoolean(Keys.ARE_STATS_ANONYMOUS.name, value).apply()
+            preferences.edit().putBoolean(Keys.ARE_GENERIC_STATS.name, value).apply()
+        }
+
+    var areAppUsageStats: Boolean
+        get() = preferences.getBoolean(Keys.ARE_APP_USAGE_STATS.name, true)
+        set(value) {
+            preferences.edit().putBoolean(Keys.ARE_APP_USAGE_STATS.name, value).apply()
         }
 
     var areAnimationsEnabled: Boolean
@@ -96,6 +102,12 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.THEME_TYPE.name, "light") //{"light"|"dark"|"auto"}
         set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
 
+    var isLogFeature: Boolean // I don't know what this is
+        get() = preferences.getBoolean(Keys.LOG_FEATURE.name, false)
+        set(value) {
+            preferences.edit().putBoolean(Keys.LOG_FEATURE.name, value).apply()
+        }
+
     private enum class Keys {
         LANGUAGE,
         SESSID_COOKIE,
@@ -104,7 +116,8 @@ class MainPrefManager(ctx: Context) {
         IS_LOGGED_IN,
         GESTURES_ENABLED,
         STATS_USERID,
-        ARE_STATS_ANONYMOUS,
+        ARE_GENERIC_STATS,
+        ARE_APP_USAGE_STATS,
         ARE_ANIMATIONS_ENABLED,
         LABELS_MENU_ICONS,
         SHOW_OFFLINE_MODE_MESSAGE,
@@ -113,6 +126,7 @@ class MainPrefManager(ctx: Context) {
         LANGUAGE_CHANGED2,
         THEME_TYPE,
         USERNAME,
+        LOG_FEATURE,
     }
 
 }

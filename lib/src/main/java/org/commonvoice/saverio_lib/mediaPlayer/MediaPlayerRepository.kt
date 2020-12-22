@@ -2,6 +2,7 @@ package org.commonvoice.saverio_lib.mediaPlayer
 
 import android.content.Context
 import android.media.MediaPlayer
+import android.util.Log
 import org.commonvoice.saverio_lib.R
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.models.Recording
@@ -34,7 +35,7 @@ class MediaPlayerRepository {
                 prepare()
             } catch (e: Exception) {
                 //TODO
-                println("Exception: " + e.toString())
+                Log.e("Exception", e.toString())
                 return false
             }
             start()

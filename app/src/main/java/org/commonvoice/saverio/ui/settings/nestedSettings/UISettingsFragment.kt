@@ -50,16 +50,19 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                 if (isChecked) {
                     mainPrefManager.themeType = "light"
                 }
+                setTheme()
             }
             buttonThemeDark.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     mainPrefManager.themeType = "dark"
                 }
+                setTheme()
             }
             buttonThemeAuto.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     mainPrefManager.themeType = "auto"
                 }
+                setTheme()
             }
             if (mainPrefManager.themeType == "light") {
                 buttonThemeLight.isChecked = true
@@ -68,7 +71,6 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             } else {
                 buttonThemeAuto.isChecked = true
             }
-            //TODO: set the new theme also in Settings
 
             switchAnimations.setOnCheckedChangeListener { _, isChecked ->
                 mainPrefManager.areAnimationsEnabled = isChecked
@@ -92,11 +94,29 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             }
             switchShowIconTopRightInsteadButton.isChecked = settingsPrefManager.showReportIcon
         }
+
+        setTheme()
     }
 
     private fun addPaddingRadio(radioButton: RadioButton) {
         val compoundButtonDrawable = CompoundButtonCompat.getButtonDrawable(radioButton)
         val insetDrawable = InsetDrawable(compoundButtonDrawable, 40, 0, 0, 0)
         radioButton.buttonDrawable = insetDrawable
+    }
+
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsUserInterface)
+
+            theme.setElements(requireContext(), settingsSectionUIGeneric)
+            theme.setElements(requireContext(), settingsSectionTheme)
+
+            theme.setElement(requireContext(), 3, settingsSectionUIGeneric)
+            theme.setElement(requireContext(), 3, settingsSectionTheme)
+
+            theme.setElement(requireContext(), buttonThemeLight)
+            theme.setElement(requireContext(), buttonThemeDark)
+            theme.setElement(requireContext(), buttonThemeAuto)
+        }
     }
 }

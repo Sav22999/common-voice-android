@@ -1,10 +1,14 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_useful_links_settings.*
 import org.commonvoice.saverio.databinding.FragmentUsefulLinksSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.onClick
 
 class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding>() {
 
@@ -20,6 +24,46 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
 
         buttonBackSettingsSubSectionUsefulLinks.setOnClickListener {
             activity?.onBackPressed()
+        }
+
+        buttonTranslateApp.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3bNBoUU")))
+        }
+
+        buttonSeeAppStatistics.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/35d2dza")))
+        }
+
+        buttonTelegramGroupCVAndroid.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3clgfkg")))
+        }
+
+        buttonGuidelinesForValidations.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ")))
+        }
+
+        buttonTermsOfService.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R")))
+        }
+
+        buttonContactDeveloperOnTelegram.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/359wgbg")))
+        }
+
+        buttonProjectOnGitHub.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2PeOGRg")))
+        }
+
+        setTheme()
+    }
+
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsUsefulLinks)
+
+            theme.setElements(requireContext(), settingsSectionUsefulLinks)
+
+            theme.setElement(requireContext(), 3, settingsSectionUsefulLinks)
         }
     }
 }

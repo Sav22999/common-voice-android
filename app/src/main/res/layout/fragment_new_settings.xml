@@ -13,7 +13,7 @@
         android:isScrollContainer="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/settingsSectionTheme"
+            android:id="@+id/settingsSectionLanguage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/text_settingsTheme"
+                android:id="@+id/text_settingsLanguage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -54,7 +54,7 @@
                 android:padding="4dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_settingsTheme"
+                app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage"
                 app:srcCompat="@drawable/ic_language" />
 
             <Spinner
@@ -73,7 +73,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageLanguageIcon"
-                app:layout_constraintTop_toBottomOf="@+id/text_settingsTheme" />
+                app:layout_constraintTop_toBottomOf="@+id/text_settingsLanguage" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,7 +90,7 @@
             android:paddingEnd="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionTheme">
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionLanguage">
 
             <TextView
                 android:id="@+id/titleSettingsGeneral"

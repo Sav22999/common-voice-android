@@ -45,5 +45,17 @@ class SpeakSettingsFragment : ViewBoundFragment<FragmentSpeakSettingsBinding>() 
             }
             switchSaveRecordingsOnDevice.isChecked = speakPrefManager.saveRecordingsOnDevice
         }
+
+        setTheme()
+    }
+
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsSpeak)
+
+            theme.setElements(requireContext(), settingsSectionSpeak)
+
+            theme.setElement(requireContext(), 3, settingsSectionSpeak)
+        }
     }
 }

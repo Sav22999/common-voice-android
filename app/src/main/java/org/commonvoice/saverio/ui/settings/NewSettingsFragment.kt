@@ -94,6 +94,8 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
         binding.textRelease.text = "${BuildConfig.VERSION_NAME} (build#${BuildConfig.VERSION_CODE})"
 
         binding.textDevelopedBy.setText(R.string.txt_developed_by)
+
+        setTheme()
     }
 
     private fun setupButtons() = withBinding {
@@ -169,7 +171,7 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
                             ExistingWorkPolicy.REPLACE
                         )
 
-                        mainPrefManager.hasLanguageChanged = true
+                        mainPrefManager.hasLanguageChanged = false
                         mainPrefManager.hasLanguageChanged2 = true
 
                         (activity as? MainActivity)?.setLanguageUI("restart")
@@ -180,4 +182,19 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
         }
     }
 
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettings)
+
+            theme.setElements(requireContext(), settingsSectionLanguage)
+            theme.setElements(requireContext(), settingsSectionGeneral)
+            theme.setElements(requireContext(), newSettingsSectionOther)
+            theme.setElements(requireContext(), settingsSectionBottom)
+
+            theme.setElement(requireContext(), 3, settingsSectionLanguage)
+            theme.setElement(requireContext(), 3, settingsSectionGeneral)
+            theme.setElement(requireContext(), 3, newSettingsSectionOther)
+            theme.setElement(requireContext(), 1, settingsSectionBottom)
+        }
+    }
 }

@@ -321,6 +321,8 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
 
     private fun finishFirstRun() {
         firstRunPrefManager.main = false
+        mainPrefManager.hasLanguageChanged = false
+        mainPrefManager.hasLanguageChanged2 = false
         Intent(this, MainActivity::class.java).also {
             startActivity(it)
         }

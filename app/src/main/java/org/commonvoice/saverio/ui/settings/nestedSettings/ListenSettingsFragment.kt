@@ -37,45 +37,24 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
                 listenPrefManager.isAutoPlayClipEnabled = isChecked
             }
             switchAutoPlayClips.isChecked = listenPrefManager.isAutoPlayClipEnabled
+
+            switchShowSentencesTextWhenClipsCompleted.setOnCheckedChangeListener { _, isChecked ->
+                listenPrefManager.isShowTheSentenceAtTheEnd = isChecked
+            }
+            switchShowSentencesTextWhenClipsCompleted.isChecked =
+                listenPrefManager.isShowTheSentenceAtTheEnd
         }
 
-        switchShowSentencesTextWhenClipsCompleted.setOnCheckedChangeListener { _, isChecked ->
-            listenPrefManager.isShowTheSentenceAtTheEnd = isChecked
-        }
-        switchShowSentencesTextWhenClipsCompleted.isChecked = listenPrefManager.isShowTheSentenceAtTheEnd
+        setTheme()
     }
 
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = "",
-        type: Int = 0
-    ) {
-        val metrics = DisplayMetrics()
-        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            val message = MessageDialog(
-                requireContext(),
-                type,
-                title,
-                messageText,
-                details = details,
-                height = height
-            )
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsListen)
+
+            theme.setElements(requireContext(), settingsSectionListen)
+
+            theme.setElement(requireContext(), 3, settingsSectionListen)
         }
     }
 
