@@ -1,83 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <include
-        android:id="@+id/toolbarSettingsSubSectionOther"
-        layout="@layout/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
 
-    <ImageView
-        android:id="@+id/buttonBackSettingsSubSectionOther"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
-        android:elevation="5dp"
-        android:padding="21dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionOther"
-        app:srcCompat="@drawable/ic_back_dark" />
-
-    <TextView
-        android:id="@+id/titleSettingsSubSectionOther"
-        android:layout_width="0dp"
-        android:layout_height="60sp"
-        android:layout_marginStart="60dp"
-        android:layout_marginEnd="0dp"
-        android:elevation="5dp"
-        android:gravity="left|center_vertical"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:text="@string/settingsOther"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/title_very_small"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/toolbarSettingsSubSectionOther"
-        app:layout_constraintStart_toStartOf="@+id/toolbarSettingsSubSectionOther"
-        app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionOther" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settingsSubSectionOther"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/top_bottom_border_radius"
-        android:backgroundTint="@color/colorWhite"
-        android:padding="20dp"
-        android:paddingStart="0dp"
-        android:paddingEnd="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarSettingsSubSectionOther">
-
-        <Switch
-            android:id="@+id/switchCheckUpdates"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:drawableStart="@drawable/ic_check_for_updates"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/colorGray"
-            android:foreground="@drawable/ripple"
-            android:gravity="center|clip_vertical|start"
-            android:padding="20dp"
-            android:showText="false"
-            android:stateListAnimator="@null"
-            android:switchPadding="4dp"
-            android:text="@string/txt_check_for_updates"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/text_normal"
-            android:thumbTint="@drawable/thumb_switch"
-            android:trackTint="@drawable/track_switch"
+        <include
+            android:id="@+id/toolbarSettingsSubSectionOther"
+            layout="@layout/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/buttonBackSettingsSubSectionOther"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:elevation="5dp"
+            android:padding="21dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionOther"
+            app:srcCompat="@drawable/ic_back_dark" />
+
+        <TextView
+            android:id="@+id/titleSettingsSubSectionOther"
+            android:layout_width="0dp"
+            android:layout_height="60sp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="0dp"
+            android:elevation="5dp"
+            android:gravity="left|center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/settingsOther"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/title_very_small"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/toolbarSettingsSubSectionOther"
+            app:layout_constraintStart_toStartOf="@+id/toolbarSettingsSubSectionOther"
+            app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionOther" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsSubSectionOther"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarSettingsSubSectionOther">
+
+            <Switch
+                android:id="@+id/switchCheckUpdates"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:drawableStart="@drawable/ic_check_for_updates"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:showText="false"
+                android:stateListAnimator="@null"
+                android:switchPadding="4dp"
+                android:text="@string/txt_check_for_updates"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

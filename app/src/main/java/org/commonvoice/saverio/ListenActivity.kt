@@ -7,6 +7,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -274,7 +275,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun openReportDialog() {
-        if (!binding.buttonReportListen.isGone) {
+        if (!binding.buttonReportListen.isGone || !binding.imageReportIconListen.isGone) {
             stopAndRefresh()
 
             ListenReportDialogFragment().show(supportFragmentManager, "LISTEN_REPORT")
@@ -300,7 +301,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             textSentenceListen.text = "···"
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
-            buttonReportListen.isGone = true
+            if (settingsPrefManager.showReportIcon) {
+                hideImage(imageReportIconListen)
+            } else {
+                buttonReportListen.isGone = true
+            }
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         if (!listenViewModel.opened) {
@@ -318,7 +323,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             )
         )
 
-        if (!listenViewModel.listenedOnce) {
+        if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.setText(
                 getString(R.string.txt_sentence_feature_enabled).replace(
                     "{{*{{feature_name}}*}}",
@@ -377,8 +382,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 )
             }
         }
-
-        buttonReportListen.isGone = false
+        if (settingsPrefManager.showReportIcon) {
+            showImage(imageReportIconListen)
+        } else {
+            buttonReportListen.isGone = false
+        }
 
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
@@ -406,6 +414,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonReportListen.onClick {
             openReportDialog()
         }
+        imageReportIconListen.onClick {
+            openReportDialog()
+        }
     }
 
     private fun loadUIStateListening() = withBinding {
@@ -419,31 +430,23 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         )
 
         var showListeningSentence = true
-        if (listenViewModel.showSentencesTextAtTheEnd()) {
-            if (!listenViewModel.listenedOnce) {
-                textMessageAlertListen.setText(
-                    getString(R.string.txt_sentence_feature_enabled).replace(
-                        "{{*{{feature_name}}*}}",
-                        getString(R.string.txt_show_sentence_at_the_ending)
-                    ) + "\n" + getString(
-                        R.string.txt_press_icon_below_listen_2
-                    )
+        if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
+            textMessageAlertListen.setText(
+                getString(R.string.txt_sentence_feature_enabled).replace(
+                    "{{*{{feature_name}}*}}",
+                    getString(R.string.txt_show_sentence_at_the_ending)
+                ) + "\n" + getString(
+                    R.string.txt_press_icon_below_listen_2
                 )
-                textSentenceListen.setText(R.string.txt_listening_clip)
-                textSentenceListen.setTextColor(
-                    ContextCompat.getColor(
-                        this@ListenActivity,
-                        R.color.colorLightRed
-                    )
+            )
+            textSentenceListen.setText(R.string.txt_listening_clip)
+            textSentenceListen.setTextColor(
+                ContextCompat.getColor(
+                    this@ListenActivity,
+                    R.color.colorLightRed
                 )
-            } else {
-                showListeningSentence = false
-            }
+            )
         } else {
-            showListeningSentence = false
-        }
-
-        if (!showListeningSentence) {
             textMessageAlertListen.setText(R.string.txt_press_icon_below_listen_2)
             textSentenceListen.text = listenViewModel.getSentenceText()
         }
@@ -510,7 +513,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 R.color.colorWhite
             )
         )
-        buttonReportListen.isGone = true
+        if (settingsPrefManager.showReportIcon) {
+            hideImage(imageReportIconListen)
+        } else {
+            buttonReportListen.isGone = true
+        }
         buttonStartStopListen.isEnabled = false
         buttonSkipListen.isEnabled = false
         buttonYesClip.isGone = true
@@ -550,6 +557,31 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun stopButtons() {
         stopAnimation(binding.buttonNoClip)
         stopAnimation(binding.buttonYesClip)
+    }
+
+    private fun showImage(image: ImageView) {
+        if (!image.isVisible) {
+            image.isVisible = true
+            image.isEnabled = true
+            startAnimation(
+                image,
+                R.anim.zoom_in_speak_listen
+            )
+        }
+    }
+
+    private fun hideImage(image: ImageView, stop: Boolean = true) {
+        if (stop) stopImage(image)
+        image.isEnabled = false
+        startAnimation(
+            image,
+            R.anim.zoom_out_speak_listen
+        )
+        image.isVisible = false
+    }
+
+    private fun stopImage(image: ImageView) {
+        stopAnimation(image)
     }
 
 }

@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
+import android.widget.ImageView
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -95,7 +96,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             resources.getDimension(R.dimen.title_very_big)
         )
         buttonRecordOrListenAgain.isGone = true
-        buttonReportSpeak.isGone = true
+        if (settingsPrefManager.showReportIcon) {
+            hideImage(imageReportIconSpeak)
+        } else {
+            buttonReportSpeak.isGone = true
+        }
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
         buttonSendSpeak.isGone = true
@@ -286,7 +291,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun openReportDialog() {
-        if (!binding.buttonReportSpeak.isGone) {
+        if (!binding.buttonReportSpeak.isGone || !binding.imageReportIconSpeak.isGone) {
             if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
                 speakViewModel.stopRecording()
             }
@@ -312,6 +317,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             openReportDialog()
         }
 
+        imageReportIconSpeak.onClick {
+            openReportDialog()
+        }
+
         buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
         }
@@ -330,7 +339,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         textSentenceSpeak.text = "···"
 
         buttonRecordOrListenAgain.isGone = true
-        buttonReportSpeak.isGone = true
+        if (settingsPrefManager.showReportIcon) {
+            hideImage(imageReportIconSpeak)
+        } else {
+            buttonReportSpeak.isGone = true
+        }
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
@@ -340,7 +353,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSkipSpeak.isEnabled = true
         buttonStartStopSpeak.isEnabled = true
 
-        buttonReportSpeak.isGone = false
+        if (settingsPrefManager.showReportIcon) {
+            showImage(imageReportIconSpeak)
+        } else {
+            buttonReportSpeak.isGone = false
+        }
 
         buttonSendSpeak.isGone = true
 
@@ -548,6 +565,31 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             }
         }
         animation.start()
+    }
+
+    private fun showImage(image: ImageView) {
+        if (!image.isVisible) {
+            image.isVisible = true
+            image.isEnabled = true
+            startAnimation(
+                image,
+                R.anim.zoom_in_speak_listen
+            )
+        }
+    }
+
+    private fun hideImage(image: ImageView, stop: Boolean = true) {
+        if (stop) stopImage(image)
+        image.isEnabled = false
+        startAnimation(
+            image,
+            R.anim.zoom_out_speak_listen
+        )
+        image.isVisible = false
+    }
+
+    private fun stopImage(image: ImageView) {
+        stopAnimation(image)
     }
 
 }

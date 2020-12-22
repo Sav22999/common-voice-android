@@ -170,6 +170,7 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
                         )
 
                         mainPrefManager.hasLanguageChanged = true
+                        mainPrefManager.hasLanguageChanged2 = true
 
                         (activity as? MainActivity)?.setLanguageUI("restart")
                     }

@@ -18,6 +18,7 @@ import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
 
@@ -29,11 +30,11 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
 
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
-    
+
     private val languagesListShort by lazy {
         resources.getStringArray(R.array.languages_short)
-    } 
-    
+    }
+
     private val languagesList by lazy {
         resources.getStringArray(R.array.languages)
     }
@@ -43,7 +44,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
 
         binding.seekBarFirstLaunch.isEnabled = false
         binding.seekBarFirstLaunch.progress = 0
-        
+
         binding.textTermsFirstLaunch.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         binding.textTermsFirstLaunch.onClick {
             openTerms()
@@ -117,11 +118,11 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
     }
 
     private fun checkStatus(
-        start: Boolean = false, 
-        next: Boolean = true, 
+        start: Boolean = false,
+        next: Boolean = true,
         swipe: Boolean = true
     ): Unit = withBinding {
-        
+
         if (next && status < 7 || !next && status > 0 || start) {
             imageFirstLaunch.setImageResource(R.drawable.robot)
             stopAnimation(imageFirstLaunch)
@@ -201,8 +202,11 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 switchEnableDarkThemeFirstLaunch.isGone = false
 
                 switchEnableDarkThemeFirstLaunch.setOnCheckedChangeListener { _, isChecked ->
-                    switchEnableDarkThemeFirstLaunch.isChecked = isChecked
-                    theme.isDark = isChecked
+                    if (isChecked) {
+                        theme.themeType = "dark"
+                    } else {
+                        theme.themeType = "light"
+                    }
                     setTheme()
                 }
                 switchEnableDarkThemeFirstLaunch.isChecked = theme.isDark
@@ -252,7 +256,12 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
         theme.setElement(this@FirstLaunch, 3, firstLaunchSectionMiddleBottom)
         theme.setElement(this@FirstLaunch, 1, firstLaunchSectionBottom)
 
-        theme.setTextView(this@FirstLaunch, textMessageFirstLaunch, border = false, darkTeme = !theme.isDark)
+        theme.setTextView(
+            this@FirstLaunch,
+            textMessageFirstLaunch,
+            border = false,
+            darkTeme = !theme.isDark
+        )
 
         theme.setElement(this@FirstLaunch, buttonNextFirstLaunch)
         theme.setElement(

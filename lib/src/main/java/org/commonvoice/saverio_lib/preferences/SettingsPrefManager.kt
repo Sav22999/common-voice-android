@@ -23,6 +23,11 @@ class SettingsPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, value)
             .apply()
 
+    var showReportIcon: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_REPORT_ICON.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_REPORT_ICON.name, value)
+            .apply()
+
     var latestVersion: String
         get() = preferences.getString(Keys.LATEST_VERSION.name, "") ?: ""
         set(value) = preferences.edit().putString(Keys.LATEST_VERSION.name, value).apply()
@@ -33,6 +38,7 @@ class SettingsPrefManager(ctx: Context) {
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
         OFFLINE_MODE,
+        SHOW_REPORT_ICON,
     }
 
 }

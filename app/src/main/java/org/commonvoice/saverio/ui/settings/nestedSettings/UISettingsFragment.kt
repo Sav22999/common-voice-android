@@ -9,9 +9,11 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.MainActivity
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
 
 class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
@@ -24,6 +26,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
     }
 
     private val mainPrefManager by inject<MainPrefManager>()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     override fun onStart() {
         super.onStart()
@@ -35,6 +38,12 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
         addPaddingRadio(buttonThemeLight)
         addPaddingRadio(buttonThemeDark)
         addPaddingRadio(buttonThemeAuto)
+
+        switchShowIconTopRightInsteadButton.text =
+            getString(R.string.txt_show_report_icon_instead_of_button).replace(
+                "{{*{{listen_name}}*}}",
+                getString(R.string.settingsListen)
+            ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
 
         withBinding {
             buttonThemeLight.setOnCheckedChangeListener { _, isChecked ->
@@ -69,12 +78,19 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             switchShowLabels.setOnCheckedChangeListener { _, isChecked ->
                 mainPrefManager.areLabelsBelowMenuIcons = isChecked
                 if (isChecked) {
-                    (activity as MainActivity).nav_view.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+                    (activity as MainActivity).nav_view.labelVisibilityMode =
+                        LabelVisibilityMode.LABEL_VISIBILITY_LABELED
                 } else {
-                    (activity as MainActivity).nav_view.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+                    (activity as MainActivity).nav_view.labelVisibilityMode =
+                        LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
                 }
             }
             switchShowLabels.isChecked = mainPrefManager.areLabelsBelowMenuIcons
+
+            switchShowIconTopRightInsteadButton.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.showReportIcon = isChecked
+            }
+            switchShowIconTopRightInsteadButton.isChecked = settingsPrefManager.showReportIcon
         }
     }
 
