@@ -92,9 +92,9 @@ class MainPrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED2.name, value).apply()
         }
 
-    var isDarkThemeEnabled: Boolean // I don't know what this is
-        get() = preferences.getBoolean(Keys.IS_DARK.name, false)
-        set(value) = preferences.edit().putBoolean(Keys.IS_DARK.name, value).apply()
+    var themeType: String? // I don't know what this is
+        get() = preferences.getString(Keys.THEME_TYPE.name, "light") //{"light"|"dark"|"auto"}
+        set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
 
     private enum class Keys {
         LANGUAGE,
@@ -111,7 +111,7 @@ class MainPrefManager(ctx: Context) {
         SHOW_REPORT_WEBSITE_BUGS,
         LANGUAGE_CHANGED,
         LANGUAGE_CHANGED2,
-        IS_DARK,
+        THEME_TYPE,
         USERNAME,
     }
 

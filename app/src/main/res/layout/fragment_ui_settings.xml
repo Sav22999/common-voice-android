@@ -152,6 +152,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
+            android:id="@+id/radioGroupTheme"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -160,12 +161,12 @@
             app:layout_constraintTop_toBottomOf="@+id/text_settingsTheme">
 
             <RadioButton
-                android:id="@+id/buttonThemeDark"
+                android:id="@+id/buttonThemeLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorWhite"
                 android:buttonTint="@color/colorGray"
-                android:drawableEnd="@drawable/ic_theme_dark"
+                android:drawableEnd="@drawable/ic_theme_light"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorGray"
                 android:foreground="@drawable/ripple"
@@ -183,12 +184,12 @@
                 android:textStyle="normal" />
 
             <RadioButton
-                android:id="@+id/buttonThemeLight"
+                android:id="@+id/buttonThemeDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorWhite"
                 android:buttonTint="@color/colorGray"
-                android:drawableEnd="@drawable/ic_theme_light"
+                android:drawableEnd="@drawable/ic_theme_dark"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorGray"
                 android:foreground="@drawable/ripple"

@@ -7,17 +7,31 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
-import com.google.android.material.tabs.TabLayout
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import java.util.*
 
 class DarkLightTheme(
     private val mainPrefManager: MainPrefManager
 ) {
+    var themeType: String?
+        get() = mainPrefManager.themeType
+        set(value) {
+            mainPrefManager.themeType = value
+        }
 
     var isDark: Boolean
-        get() = mainPrefManager.isDarkThemeEnabled
+        get() {
+            var themeValueDark: Boolean = false
+            if (themeType == "light") themeValueDark = false
+            else if (themeType == "dark") themeValueDark = true
+            else {
+                var currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+                if (currentHour >= 8 && currentHour < 18) themeValueDark = false
+                else themeValueDark = true
+            }
+            return themeValueDark
+        }
         set(value) {
-            mainPrefManager.isDarkThemeEnabled = value
         }
 
     fun setElements(context: Context, layout: ConstraintLayout) {
@@ -266,7 +280,6 @@ class DarkLightTheme(
 
     companion object {
 
-        private const val DARK_THEME = "DARK_THEME"
         private const val colorBackground: Int = R.color.colorBackground
         private const val colorBackgroundDT: Int = R.color.colorBackgroundDT
         private const val colorText: Int = R.color.colorBlack
