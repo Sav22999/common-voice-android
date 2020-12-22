@@ -59,6 +59,10 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 }
             }
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
+
+            buttonOfflineModeLearnMore.setOnClickListener {
+                //TODO
+            }
         }
     }
 
