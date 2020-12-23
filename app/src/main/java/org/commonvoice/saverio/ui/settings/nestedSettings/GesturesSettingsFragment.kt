@@ -1,5 +1,7 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.work.ExistingWorkPolicy
@@ -37,7 +39,7 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
             switchSettingsSubSectionGestures.isChecked = mainPrefManager.areGesturesEnabled
 
             buttonGesturesLearnMore.setOnClickListener {
-                //TODO
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/3phQ0lP")))
             }
         }
 

@@ -1,5 +1,7 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.work.ExistingWorkPolicy
@@ -61,7 +63,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
 
             buttonOfflineModeLearnMore.setOnClickListener {
-                //TODO
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/3nJwpuq")))
             }
         }
     }
