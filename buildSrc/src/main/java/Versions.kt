@@ -1,7 +1,7 @@
 object Versions {
 
     const val buildGradleVersion = "4.1.1"
-    const val kotlinVersion = "1.4.20"
+    const val kotlinVersion = "1.4.21"
 
     const val junitVersion = "4.13.1"
 
@@ -12,8 +12,8 @@ object Versions {
 
     const val workVersion = "2.4.0"
     const val lifeCycleVersion = "2.2.0"
-    const val roomVersion = "2.2.5"
-    const val navigationVersion = "2.3.1"
+    const val roomVersion = "2.2.6"
+    const val navigationVersion = "2.3.2"
 
     const val testVersion = "1.3.0"
     const val espressoVersion = "3.3.0"

@@ -85,6 +85,6 @@ dependencies {
     implementation Libs.workRuntimeKtx
     //https://developer.android.com/topic/libraries/architecture/workmanager/basics
 
-    implementation 'com.google.android.play:core:1.8.2'
+    implementation 'com.google.android.play:core:1.9.0'
     implementation 'com.google.android.play:core-ktx:1.8.1'
 }
