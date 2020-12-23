@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Environment
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
@@ -30,10 +31,14 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import java.io.File
+import java.io.PrintWriter
+import java.util.*
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     ActivitySpeakBinding::inflate
@@ -53,6 +58,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private var isAudioBarVisible: Boolean = false
     private val settingsPrefManager by inject<SettingsPrefManager>()
+    private val speakPrefManager by inject<SpeakPrefManager>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -179,6 +185,27 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         )
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
+    }
+
+    fun saveToFile() {
+        if (speakPrefManager.saveRecordingsOnDevice) {
+            val path_name = Environment.getExternalStorageDirectory().absolutePath + "/cv-android/"
+            val path = File(path_name)
+            var success = true
+            if (!path.exists())
+                success = path.mkdir()
+
+            if (success) {
+                val file_name =
+                    speakViewModel.currentSentence.value?.sentenceId.toString() + " " + Calendar.getInstance().timeInMillis + ".mp3"
+
+                // directory exists or already created
+                val dest = File(path_name + file_name)
+                val text = ""
+
+                //TODO: save the audio to file
+            }
+        }
     }
 
     private fun checkState(status: SpeakViewModel.Companion.State?) {

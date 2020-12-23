@@ -2,17 +2,22 @@ package org.commonvoice.saverio.ui.settings
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.navigation.fragment.findNavController
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
+import com.android.billingclient.api.*
 import com.google.android.play.core.review.ReviewManagerFactory
 import kotlinx.android.synthetic.main.fragment_settings.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -45,6 +50,8 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
     private val languagesListShort by lazy {
         resources.getStringArray(R.array.languages_short)
     }
+
+    private var SOURCE_STORE: String = ""
 
     override fun onStart() {
         super.onStart()
@@ -85,6 +92,8 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
             buttonSettingsGoToUsefulLinks.onClick {
                 findNavController().navigate(R.id.usefulLinksFragment)
             }
+
+            SOURCE_STORE = MainActivity.SOURCE_STORE
         }
 
         setupLanguageSpinner()
@@ -99,11 +108,13 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
     }
 
     private fun setupButtons() = withBinding {
-        buttonBuyMeACoffee.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+        if (SOURCE_STORE == "GPS") {
+            buttonReviewOnGooglePlay.isGone = false
+            separator37.isGone = false
         }
 
         //In-App review
+        //TODO: doesn't appear the flow "pop-up"
         val manager = ReviewManagerFactory.create(context)
         buttonReviewOnGooglePlay.setOnClickListener {
             val request = manager.requestReviewFlow()
@@ -130,10 +141,18 @@ class NewSettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
             }
         }
 
-        if (MainActivity.SOURCE_STORE == "GPS") {
-            buttonReviewOnGooglePlay.isGone = false
-            separator37.isGone = false
+        //In-App purchase
+        if (SOURCE_STORE == "GPS") {
+            inAppPurchase()
+        } else {
+            buttonBuyMeACoffee.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+            }
         }
+    }
+
+    private fun inAppPurchase() {
+        //TODO In-App purchase
     }
 
     private fun setupLanguageSpinner() {

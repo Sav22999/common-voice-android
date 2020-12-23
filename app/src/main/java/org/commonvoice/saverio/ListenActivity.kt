@@ -160,7 +160,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         setTheme()
     }
 
-    public fun shareCVAndroidDailyGoal() {
+    fun shareCVAndroidDailyGoal() {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "type/palin"
         val textToShare = getString(R.string.share_daily_goal_text_on_social).replace(
