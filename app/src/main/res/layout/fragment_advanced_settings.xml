@@ -23,7 +23,7 @@
             android:layout_width="60sp"
             android:layout_height="60sp"
             android:elevation="5dp"
-            android:padding="21dp"
+            android:padding="18dp"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionAdvanced"
