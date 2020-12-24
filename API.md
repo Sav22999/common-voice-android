@@ -205,3 +205,40 @@ To insert data you need to do a POST request to https://www.saveriomorelli.com/a
 | `401` | `Error` | `Parameters are not enough.`       | Parameters are not enough or they are too much.              |
 | `500` | `Error` | `Can't connect to the database.`   | It's unavailable the connection with the database in that moment |
 
+## App usage for a user
+
+### GET
+
+#### Request
+
+To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/get/.
+
+You can insert these parameters to the `GET` request:
+
+| Key          | Value                 | Required   | Explanation                                                  |
+| ------------ | --------------------- | ---------- | ------------------------------------------------------------ |
+| `id`         | *String*              | `required` | It's the username* of the user you want to see the statistics. You can find your username in `Settings | Advanced | Show the string which identify me inside the app `. |
+| `start_date` | *Date* (`YYYY-MM-DD`) | `optional` | It indicates the date since ("**from**") which you want to see the statistics. Its format have to be `YYYY-MM-DD`.<br />If you want the contributions of ever, you can specify `always`.<br/>If you want the contributions of today, you can specify `today`.<br/>If you don't specify anything, the system automatically will show you statistics of ever. |
+| `end_date`   | *Date* (`YYYY-MM-DD`) | `optional` | It indicates the date until ("**to**") which you want to see the statistics. Its format have to be `YYYY-MM-DD`.<br />If you want the contributions of today, you can specify `today`.<br/>If you don't specify anything, the system automatically will show you statistics of today. |
+
+**It's the CV Android username of the user. It's anonymous and if you clear data of the app, the username changes.*
+
+#### Response
+
+You will get a which has as key the *language code* of the language selected (or all languages). This key contains other two big section: `listen` and `speak`, these contain other fields.
+
+`listen`:
+
+| Key         | Value     | Explanation                                         |
+| ----------- | --------- | --------------------------------------------------- |
+| `validated` | *Integer* | Indicates all clips validated (both "Yes" and "No") |
+| `accepted`  | *Integer* | Indicates all clips you accepted ("Yes")            |
+| `rejected`  | *Integer* | Indicates all clips you rejected ("No")             |
+| `reported`  | *Integer* | Indicates all clips you reported ("Report")         |
+
+`speak`:
+
+| Key        | Value     | Explanation                                                  |
+| ---------- | --------- | ------------------------------------------------------------ |
+| `sent`     | *Integer* | Indicates all sentences you recorded and you sent the recording to the Common Voice server |
+| `reported` | *Integer* | Indicates all sentences you reported ("Report")              |
