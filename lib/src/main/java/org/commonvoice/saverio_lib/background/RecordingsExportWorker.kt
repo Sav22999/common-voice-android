@@ -32,11 +32,11 @@ class RecordingsExportWorker(
     private val resolver = appContext.contentResolver
 
     private val recordingCollection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        MediaStore.Audio.Media.getContentUri(
+        MediaStore.Downloads.getContentUri(
             MediaStore.VOLUME_EXTERNAL_PRIMARY
         )
     } else {
-        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+        MediaStore.Downloads.EXTERNAL_CONTENT_URI
     }
 
     override suspend fun doWork(): Result = coroutineScope {
@@ -49,14 +49,18 @@ class RecordingsExportWorker(
             availableRecordings.forEach { recording ->
                 val recordingDetails = ContentValues().apply {
                     put(
-                        MediaStore.Audio.Media.DISPLAY_NAME,
+                        MediaStore.Downloads.DISPLAY_NAME,
                         recording.sentenceId + '_' + System.currentTimeMillis()
                     )
+                    put(
+                        MediaStore.Downloads.MIME_TYPE,
+                        "audio/mpeg"
+                    )
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        put(MediaStore.Audio.Media.IS_PENDING, 1)
+                        put(MediaStore.Downloads.IS_PENDING, 1)
                         put(
-                            MediaStore.Audio.Media.RELATIVE_PATH,
-                            Environment.DIRECTORY_PODCASTS + speakPrefManager.deviceRecordingsLocation
+                            MediaStore.Downloads.RELATIVE_PATH,
+                            Environment.DIRECTORY_DOWNLOADS + speakPrefManager.deviceRecordingsLocation
                         )
                     }
                 }
@@ -79,10 +83,10 @@ class RecordingsExportWorker(
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     recordingDetails.clear()
-                    recordingDetails.put(MediaStore.Audio.Media.IS_PENDING, 0)
+                    recordingDetails.put(MediaStore.Downloads.IS_PENDING, 0)
                     recordingDetails.put(
-                        MediaStore.Audio.Media.RELATIVE_PATH,
-                        Environment.DIRECTORY_PODCASTS + speakPrefManager.deviceRecordingsLocation
+                        MediaStore.Downloads.RELATIVE_PATH,
+                        Environment.DIRECTORY_DOWNLOADS + speakPrefManager.deviceRecordingsLocation
                     )
                     resolver.update(recordingContentUri, recordingDetails, null, null)
                 }

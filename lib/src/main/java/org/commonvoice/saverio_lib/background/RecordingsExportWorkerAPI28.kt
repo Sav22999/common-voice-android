@@ -33,18 +33,8 @@ internal class RecordingsExportWorkerAPI28(
             val availableRecordings = recordingsRepository.getAllRecordings()
 
             val saveDirectory =
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PODCASTS)
-
-            if (!saveDirectory.exists())
-                saveDirectory.mkdir()
-
-            //drop and dropLast to remove initial and final /
-            saveDirectory.openDirectory(
-                speakPrefManager.deviceRecordingsLocation.drop(1).dropLast(1)
-            )
-
-            if (!saveDirectory.exists())
-                saveDirectory.mkdir()
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                    .openDirectory(speakPrefManager.deviceRecordingsLocation.drop(1).dropLast(1))
 
             availableRecordings.forEach { recording ->
                 val file =
