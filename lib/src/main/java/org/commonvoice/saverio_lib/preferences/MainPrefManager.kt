@@ -102,11 +102,6 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.THEME_TYPE.name, "light") //{"light"|"dark"|"auto"}
         set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
 
-    var isLogFeature: Boolean // I don't know what this is
-        get() = preferences.getBoolean(Keys.LOG_FEATURE.name, false)
-        set(value) {
-            preferences.edit().putBoolean(Keys.LOG_FEATURE.name, value).apply()
-        }
 
     private enum class Keys {
         LANGUAGE,
@@ -126,7 +121,6 @@ class MainPrefManager(ctx: Context) {
         LANGUAGE_CHANGED2,
         THEME_TYPE,
         USERNAME,
-        LOG_FEATURE,
     }
 
 }

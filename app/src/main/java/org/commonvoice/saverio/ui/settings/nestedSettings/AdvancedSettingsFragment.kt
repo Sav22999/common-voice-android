@@ -6,16 +6,12 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.fragment_advanced_settings.*
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
-import org.commonvoice.saverio.databinding.ToolbarBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
-import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
@@ -36,6 +32,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     private val listenPrefManager by inject<ListenPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
     private val firstRunPrefManager by inject<FirstRunPrefManager>()
+    private val logPrefManager by inject<LogPrefManager>()
     private val loginViewModel by viewModel<LoginViewModel>()
 
     override fun onStart() {
@@ -57,9 +54,9 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             switchAppUsageStatistics.isChecked = mainPrefManager.areAppUsageStats
 
             switchSaveLogToFile.setOnCheckedChangeListener { _, isChecked ->
-                mainPrefManager.isLogFeature = isChecked
+                logPrefManager.saveLogFile = isChecked
             }
-            switchSaveLogToFile.isChecked = mainPrefManager.isLogFeature
+            switchSaveLogToFile.isChecked = logPrefManager.saveLogFile
 
             buttonOpenTutorialAgain.setOnClickListener {
                 Intent(requireContext(), FirstLaunch::class.java).also {
@@ -117,10 +114,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 mainPrefManager.hasLanguageChanged = true
                 mainPrefManager.hasLanguageChanged2 = true
                 mainPrefManager.themeType = "light"
-                mainPrefManager.isLogFeature = false
                 mainPrefManager.sessIdCookie = null
                 mainPrefManager.isLoggedIn = false
                 mainPrefManager.username = ""
+
+                //Reset Log
+                logPrefManager.saveLogFile = false
 
                 //TODO: Can these removed?
                 requireContext().getSharedPreferences("LOGGED", Context.MODE_PRIVATE).edit()

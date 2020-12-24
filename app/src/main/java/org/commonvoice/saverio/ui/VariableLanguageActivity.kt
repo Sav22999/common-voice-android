@@ -5,20 +5,21 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.LocaleList
-import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.utils.TranslationLanguages
-import kotlinx.coroutines.*
 import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 import java.util.*
-import kotlin.system.exitProcess
 
 /**
  * An extension of AppCompatActivity which automatically handles language switching
@@ -105,14 +106,15 @@ abstract class VariableLanguageActivity : AppCompatActivity {
 
     private fun setCustomDefaultUncaughtExceptionHandler() {
         if (logPrefManager.saveLogFile) {
-            Thread.setDefaultUncaughtExceptionHandler { _, paramThrowable ->
+            val defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler()
+
+            Thread.setDefaultUncaughtExceptionHandler { t, paramThrowable ->
                 CoroutineScope(Dispatchers.Default).launch {
                     logPrefManager.stackTrace = paramThrowable.stackTraceToString()
                     logPrefManager.isLogFileSent = false
                     Timber.e(paramThrowable)
-                    delay(1500)
-                    android.os.Process.killProcess(android.os.Process.myPid())
-                    exitProcess(10)
+
+                    defaultExceptionHandler?.uncaughtException(t, paramThrowable)
                 }
             }
         }

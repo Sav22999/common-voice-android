@@ -43,6 +43,7 @@ class CommonVoice : Application() {
         single { ListenPrefManager(androidContext()) }
         single { StatsPrefManager(androidContext()) }
         single { SettingsPrefManager(androidContext()) }
+        single { LogPrefManager(androidContext()) }
     }
 
     private val logModule = module {
