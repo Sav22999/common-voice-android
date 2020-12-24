@@ -33,6 +33,7 @@ class CommonVoice : Application() {
         factory { WorkManager.getInstance(androidContext()) }
         single { FileHolder(androidContext()) }
         single(createdAtStart = true) { ConnectionManager(androidContext()) }
+        single { DarkLightTheme(get()) }
     }
 
     private val prefsModule = module {
@@ -121,7 +122,7 @@ class CommonVoice : Application() {
                     apiModules,
                     mvvmRepos,
                     mvvmViewmodels,
-                    logModule
+                    logModule,
                 )
             )
         }
