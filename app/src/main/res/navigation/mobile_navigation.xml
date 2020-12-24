@@ -21,7 +21,7 @@
         android:id="@+id/navigation_settings"
         android:name="org.commonvoice.saverio.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_new_settings">
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_navigation_settings_to_UISettingsFragment"
             app:destination="@id/UISettingsFragment" />

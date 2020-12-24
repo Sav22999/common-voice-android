@@ -15,7 +15,7 @@ import com.google.android.play.core.review.ReviewManagerFactory
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
-import org.commonvoice.saverio.databinding.FragmentNewSettingsBinding
+import org.commonvoice.saverio.databinding.FragmentSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
@@ -27,13 +27,13 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
+class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
     override fun inflate(
         layoutInflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentNewSettingsBinding {
-        return FragmentNewSettingsBinding.inflate(layoutInflater, container, false)
+    ): FragmentSettingsBinding {
+        return FragmentSettingsBinding.inflate(layoutInflater, container, false)
     }
 
     private val mainPrefManager: MainPrefManager by inject()
@@ -94,7 +94,7 @@ class SettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
 
         setupButtons()
 
-        binding.textRelease.text = "${BuildConfig.VERSION_NAME} (build#${BuildConfig.VERSION_CODE})"
+        binding.textRelease.text = "${BuildConfig.VERSION_NAME} (build#${BuildConfig.VERSION_CODE}::${MainActivity.SOURCE_STORE})"
 
         binding.textDevelopedBy.setText(R.string.txt_developed_by)
 
@@ -109,8 +109,9 @@ class SettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
 
         //In-App review
         //TODO: doesn't appear the flow "pop-up"
-        val manager = ReviewManagerFactory.create(requireContext())
+        /*val manager = ReviewManagerFactory.create(requireContext())*/
         buttonReviewOnGooglePlay.setOnClickListener {
+            /*
             val request = manager.requestReviewFlow()
             request.addOnCompleteListener { request ->
                 if (request.isSuccessful) {
@@ -123,26 +124,28 @@ class SettingsFragment : ViewBoundFragment<FragmentNewSettingsBinding>() {
                         // reviewed or not, or even whether the review dialog was shown. Thus, no
                         // matter the result, we continue our app flow.
                     }
-                } else {
-                    //same error, so the app can't open the in-app review pop-up
+                } else {*/
+                    //some errors, so the app can't open the in-app review pop-up
                     startActivity(
                         Intent(
                             Intent.ACTION_VIEW,
                             Uri.parse("market://details?id=org.commonvoice.saverio")
                         )
                     )
-                }
-            }
+                /*}
+            }*/
         }
 
         //In-App purchase
+        //TODO: remove as comments when it's implemented
+        /*
         if (SOURCE_STORE == "GPS") {
             inAppPurchase()
-        } else {
+        } else {*/
             buttonBuyMeACoffee.setOnClickListener {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
             }
-        }
+        /*}*/
     }
 
     private fun inAppPurchase() {

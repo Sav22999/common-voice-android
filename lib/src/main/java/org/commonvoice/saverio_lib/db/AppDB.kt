@@ -10,7 +10,7 @@ import org.commonvoice.saverio_lib.models.*
 
 @Database(
     entities = [Clip::class, Recording::class, Sentence::class, Validation::class, Report::class, AppAction::class],
-    version = 2,
+    version = 3,
     exportSchema = false //eventually set "true"
 )
 @TypeConverters(DBTypeConverters::class)
