@@ -14,6 +14,7 @@ object Versions {
     const val lifeCycleVersion = "2.2.0"
     const val roomVersion = "2.2.6"
     const val navigationVersion = "2.3.2"
+    const val startupVersion = "1.0.0-beta01"
 
     const val testVersion = "1.3.0"
     const val espressoVersion = "3.3.0"
@@ -32,4 +33,7 @@ object Versions {
 
     // Koin
     const val koinVersion = "2.1.6"
+
+    // Debug
+    const val timberVersion = "4.7.1"
 }

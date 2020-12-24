@@ -1,12 +1,15 @@
 package org.commonvoice.saverio.ui.home
 
-import android.Manifest
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.util.DisplayMetrics
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.TextView
+import androidx.annotation.AnimRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
@@ -16,6 +19,14 @@ import org.commonvoice.saverio.databinding.FragmentHomeBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.commonvoice.saverio.BuildConfig
+import org.commonvoice.saverio.DarkLightTheme
+import org.commonvoice.saverio.MainActivity
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.koin.android.ext.android.inject
@@ -32,7 +43,6 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
     private val homeViewModel: HomeViewModel by viewModel()
 
-    private val firstRunPrefManager by inject<FirstRunPrefManager>()
     private val mainPrefManager: MainPrefManager by inject()
 
     override fun onStart() {
@@ -104,21 +114,27 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
             )
         }
 
+        main.checkNewVersionAvailable()
 
-        setTheme(requireContext())
+        main.reviewOnPlayStore()
 
-        startAnimation(binding.buttonSpeak, R.anim.zoom_out)
-        startAnimation(binding.buttonListen, R.anim.zoom_out)
+        return root
     }
 
     override fun onResume() {
         super.onResume()
-
         homeViewModel.postStats(
             BuildConfig.VERSION_NAME,
             BuildConfig.VERSION_CODE,
             MainActivity.SOURCE_STORE
         )
+        lifecycleScope.launch {
+            delay(1500)
+            homeViewModel.postFileLog(
+                BuildConfig.VERSION_CODE,
+                MainActivity.SOURCE_STORE
+            )
+        }
     }
 
     private fun showMessageDialog(

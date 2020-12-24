@@ -73,4 +73,5 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
         private const val githubURL = "https://api.github.com/repos/Sav22999/common-voice-android/"
     }
 
+    fun makeFileLogService(): FileLogService = unauthRetrofit.create(FileLogService::class.java)
 }

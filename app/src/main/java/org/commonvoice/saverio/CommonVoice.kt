@@ -6,6 +6,7 @@ import androidx.work.WorkManager
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.db.AppDB
+import org.commonvoice.saverio_lib.log.FileLogTree
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
@@ -32,7 +33,6 @@ class CommonVoice : Application() {
         factory { WorkManager.getInstance(androidContext()) }
         single { FileHolder(androidContext()) }
         single(createdAtStart = true) { ConnectionManager(androidContext()) }
-        single { DarkLightTheme(get()) }
     }
 
     private val prefsModule = module {
@@ -42,6 +42,12 @@ class CommonVoice : Application() {
         single { ListenPrefManager(androidContext()) }
         single { StatsPrefManager(androidContext()) }
         single { SettingsPrefManager(androidContext()) }
+    }
+
+    private val logModule = module {
+        single {
+            FileLogTree(androidContext())
+        }
     }
 
     private val apiModules = module {
@@ -60,6 +66,7 @@ class CommonVoice : Application() {
         single { RecordingSoundIndicatorRepository(get()) }
         single { CVStatsRepository(get(), get()) }
         single { GithubRepository(get()) }
+        single { FileLogsRepository(get(), get(), get()) }
     }
 
     private val mvvmViewmodels = module {
@@ -113,7 +120,8 @@ class CommonVoice : Application() {
                     utilsModule,
                     apiModules,
                     mvvmRepos,
-                    mvvmViewmodels
+                    mvvmViewmodels,
+                    logModule
                 )
             )
         }
