@@ -57,6 +57,8 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
         activity?.setTitle(R.string.button_home_login)
 
+        showLoading()
+
         val bottomSheetBinding = BottomsheetLoginBinding.inflate(layoutInflater)
 
         val bottomSheet = BottomSheetDialog(requireContext()).also {
@@ -166,11 +168,16 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                         SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
                         ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
+                        if (mainPrefManager.isLoggedIn) {
+                            (activity as LoginActivity).closeAndReopenLogin()
+                        }
+
                         if (arguments?.getString("loginUrl") != null) {
                             //login done
                             //findNavController().popBackStack(R.id.profileFragment, false)
                             //TODO: improve this operation
                             (activity as LoginActivity).closeAndReopenLogin()
+                            (activity as LoginActivity).resetDataLoginLogout()
                         } else {
                             findNavController().navigateUp()
                         }
@@ -195,6 +202,4 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
             binding.btnAlreadyAVerificationLinkWebBrowser
         )
     }
-
-
 }

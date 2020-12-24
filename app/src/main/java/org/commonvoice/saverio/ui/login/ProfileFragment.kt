@@ -10,6 +10,7 @@ import android.webkit.CookieManager
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
+import org.commonvoice.saverio.LoginActivity
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentProfileBinding
@@ -182,17 +183,9 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
     private fun logoutAndExit() {
         mainPrefManager.sessIdCookie = null
         mainPrefManager.isLoggedIn = false
-
-        requireContext().getSharedPreferences("LOGGED", Context.MODE_PRIVATE).edit()
-            .putBoolean("LOGGED", false).apply()
-        requireContext().getSharedPreferences("DAILY_GOAL", Context.MODE_PRIVATE).edit()
-            .putInt("DAILY_GOAL", 0).apply()
-
-        statsPrefManager.allTimeLevel = 0
-        statsPrefManager.allTimeRecorded = 0
-        statsPrefManager.allTimeValidated = 0
-
         mainPrefManager.username = ""
+
+        (activity as LoginActivity).resetDataLoginLogout()
 
         CookieManager.getInstance().flush()
         CookieManager.getInstance().removeAllCookies(null)
@@ -200,5 +193,4 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
 
         startActivity(Intent(requireContext(), MainActivity::class.java))
     }
-
 }

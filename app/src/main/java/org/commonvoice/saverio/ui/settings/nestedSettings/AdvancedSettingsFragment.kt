@@ -121,13 +121,6 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 //Reset Log
                 logPrefManager.saveLogFile = false
 
-                //TODO: Can these removed?
-                requireContext().getSharedPreferences("LOGGED", Context.MODE_PRIVATE).edit()
-                    .putBoolean("LOGGED", false).apply()
-                requireContext().getSharedPreferences("DAILY_GOAL", Context.MODE_PRIVATE).edit()
-                    .putInt("DAILY_GOAL", 0).apply()
-
-
                 CookieManager.getInstance().flush()
                 CookieManager.getInstance().removeAllCookies(null)
                 loginViewModel.clearDB()

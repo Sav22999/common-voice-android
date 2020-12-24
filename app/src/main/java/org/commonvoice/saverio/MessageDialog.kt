@@ -469,6 +469,10 @@ class MessageDialog : KoinComponent {
                 )
                 theme.setElement(
                     view,
+                    dialogView.findViewById(R.id.btnDailyGoalSave) as Button
+                )
+                theme.setElement(
+                    view,
                     dialogView.findViewById(R.id.btnDailyGoalCancel) as Button
                 )
                 theme.setElement(
