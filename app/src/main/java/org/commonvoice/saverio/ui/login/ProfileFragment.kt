@@ -95,6 +95,9 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
                     textProfileAge.setText(getAgeString(it.age))
                     textProfileGender.setText(getGenderString(it.gender))
                     textProfileUsername.setText(it.username)
+                    if (it.username == "") {
+                        textProfileUsername.setText("?")
+                    }
 
                     mainPrefManager.username = it.username ?: ""
 

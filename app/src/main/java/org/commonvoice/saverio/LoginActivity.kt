@@ -1,9 +1,11 @@
 package org.commonvoice.saverio
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.login.LoginFragment
 
 
 class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
@@ -28,4 +30,14 @@ class LoginActivity : VariableLanguageActivity(R.layout.activity_login) {
         }
     }
 
+    fun closeAndReopenLogin() {
+        Intent(this, LoginActivity::class.java).also {
+            startActivity(it)
+        }
+        finish()
+    }
+
+    fun goToProfile() {
+        findNavController(R.id.profileFragment).navigateUp()
+    }
 }

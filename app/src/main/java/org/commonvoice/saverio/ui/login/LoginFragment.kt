@@ -1,5 +1,6 @@
 package org.commonvoice.saverio.ui.login
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,8 @@ import androidx.core.view.isGone
 import androidx.navigation.fragment.findNavController
 import androidx.work.WorkManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import org.commonvoice.saverio.LoginActivity
+import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.BottomsheetLoginBinding
 import org.commonvoice.saverio.databinding.FragmentLoginBinding
@@ -164,7 +167,10 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                         ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
                         if (arguments?.getString("loginUrl") != null) {
-                            findNavController().popBackStack(R.id.profileFragment, false)
+                            //login done
+                            //findNavController().popBackStack(R.id.profileFragment, false)
+                            //TODO: improve this operation
+                            (activity as LoginActivity).closeAndReopenLogin()
                         } else {
                             findNavController().navigateUp()
                         }
