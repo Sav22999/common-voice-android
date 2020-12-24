@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Environment
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
@@ -36,8 +35,6 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
-import java.io.File
-import java.io.PrintWriter
 import java.util.*
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
@@ -168,7 +165,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             animateProgressBar(
                 dailyGoal = it.getDailyGoal(),
                 currentRecordingsValidations = (it.validations + it.recordings)
-            );
+            )
         })
 
         setupNestedScroll()
@@ -176,7 +173,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         setTheme(this)
     }
 
-    public fun shareCVAndroidDailyGoal() {
+    fun shareCVAndroidDailyGoal() {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "type/palin"
         val textToShare = getString(R.string.share_daily_goal_text_on_social).replace(
@@ -185,27 +182,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         )
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
-    }
-
-    fun saveToFile() {
-        if (speakPrefManager.saveRecordingsOnDevice) {
-            val path_name = Environment.getExternalStorageDirectory().absolutePath + "/cv-android/"
-            val path = File(path_name)
-            var success = true
-            if (!path.exists())
-                success = path.mkdir()
-
-            if (success) {
-                val file_name =
-                    speakViewModel.currentSentence.value?.sentenceId.toString() + " " + Calendar.getInstance().timeInMillis + ".mp3"
-
-                // directory exists or already created
-                val dest = File(path_name + file_name)
-                val text = ""
-
-                //TODO: save the audio to file
-            }
-        }
     }
 
     private fun checkState(status: SpeakViewModel.Companion.State?) {
@@ -261,7 +237,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun setupNestedScroll() {
-        binding.nestedScrollSpeak.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, scrollX, scrollY, oldScrollX, oldScrollY ->
+        binding.nestedScrollSpeak.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, _, scrollY, _, oldScrollY ->
             if (scrollY > oldScrollY) {
                 verticalScrollStatus = 1
             }
@@ -517,7 +493,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         var newValue = 0
 
         if (dailyGoal == 0 || currentRecordingsValidations >= dailyGoal) {
-            newValue = width;
+            newValue = width
         } else {
             //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
             newValue =

@@ -36,12 +36,18 @@ class SpeakPrefManager(ctx: Context) {
             preferences.edit().putBoolean(Keys.SAVE_RECORDINGS_ON_DEVICE.name, value).apply()
         }
 
+    var deviceRecordingsLocation: String
+        get() = preferences.getString(Keys.DEVICE_RECORDINGS_LOCATION.name, null) ?: "/cv-android/"
+        set(value) = preferences.edit().putString(Keys.DEVICE_RECORDINGS_LOCATION.name, value)
+            .apply()
+
     private enum class Keys {
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
         ENABLE_RECORDING_SOUND_INDICATOR,
         SKIP_RECORDING_CONFIRMATION,
-        SAVE_RECORDINGS_ON_DEVICE
+        SAVE_RECORDINGS_ON_DEVICE,
+        DEVICE_RECORDINGS_LOCATION,
     }
 
 }
