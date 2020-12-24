@@ -9,7 +9,7 @@ import org.commonvoice.saverio_lib.db.daos.*
 import org.commonvoice.saverio_lib.models.*
 
 @Database(
-    entities = [Clip::class, Recording::class, Sentence::class, Validation::class, Report::class],
+    entities = [Clip::class, Recording::class, Sentence::class, Validation::class, Report::class, AppAction::class],
     version = 2,
     exportSchema = false //eventually set "true"
 )
@@ -23,6 +23,7 @@ abstract class AppDB : RoomDatabase() {
     abstract fun sentences(): SentencesDAO
     abstract fun validations(): ValidationsDAO
     abstract fun reports(): ReportsDAO
+    abstract fun appActions(): AppActionsDAO
 
     companion object {
 
