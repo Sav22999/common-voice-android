@@ -46,6 +46,8 @@ internal class RecordingsExportWorkerAPI28(
             Result.success()
         } catch (e: Exception) {
             Result.failure()
+        } finally {
+            db.close()
         }
     }
 
