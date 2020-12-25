@@ -1,0 +1,44 @@
+<p>
+Asnas-a mačči d asnas unṣib n Common Voice. Infel-it-id Saverio Morelli
+</p>
+<p>
+<b>Timahilin n usnas:</b>
+
+- Agrudem n useqdac (UI) d uḥric, yeṣfa d atrar
+- Qqen ɣer umiḍan-ik·im Common Voice
+- Sentem iklipen
+- Sekles tifyar
+- Mel Tifyar/iklipen deg tgezmin yesɛan assaɣ
+- Agtutlay yettwasefrak
+- Askar aruqqin (kemmel attekki ula mi ara ur teqqineḍ ara ɣer Internet!)
+- Tiddadanin n Common Voice (n tutlayt i d-yettwafernen)
+- Imettekkiyen imezwura (n tutlayt yettwafernen)
+- Tiddadanin n usnas (d tudrigin)
+- Tuɣac srid (n tutlayt i d-yettwafernen)
+- Asentel aberkan yettusefrak
+- Iswi n yal ass
+- Isillifen
+- Sekles iseklas-inek·inem ɣef yibenk-inek·inem
+- Aṭas n tmahilin-nniḍen
+- Tarmit n usnas d tudmawant s umata deg yiɣewwaren
+
+Rnu ɣer ugraw n Telegram: https://t.me/common_voice_android (@common_voice_android)
+Tzemreḍ ad twaliḍ tiddadanin n usnas yemmden da: https://bit.ly/3clgfkg
+Ɣeṛ ugar ɣef usnas-a deg GitHub: http://bit.ly/2PeOGRg
+</p>
+<p>
+<b>D acu-t usenfar n Common Voice?</b>
+
+Common Voice d assumer n Mozilla i tallalt n uselmed n tmacinin ɣef wamek i ttmeslayen yimdanen n tidet.
+Taɣect d tagmawit, taɣect n umdan. Ɣef waya i nḥar ad d-nesnulfu tatiknulujit n taɣect i zemrent ad sqedcent tmacinin-nneɣ. Maca i usnulfu n yinagrawen n taɣect, ineflayen sran tasmekta meqqren n yisefka n taɣect.
+Amur ameqqran n yisefka i seqdacent tkebbaniyin timeqqranin ur yewjid ara i tugget n medden. Nettwali aya yettarez asnulfu. Ihi nsekker-d Common Voice, asenfar ara yerren aɛqal n taɣect yeldi i yal yiwen akken ad ikcem ɣur-s.
+Tura tzemreḍ ad d-tefkeḍ taɣect-ik•im akken ad aɣ-tɛawneḍ ad d-nebnu taffa n yisefka n taɣect n uɣbalu yeldin i yezmer ad isseqdec yal yiwen deg usnulfu n yisnasen i yibenken akked uẓeṭṭa web. Ɣeṛ tafyirt akken ad tɛawneḍ timacinin ad lemdent amek i ttmeslayen yimdanen n tidet. Senqed amahil n yimettekkiyen-nniḍen i usnerni n tɣara. Ishel maḍi!
+Tzemreḍ ad tafeḍ ugar n telqayt deg usmel web unṣib https://commonvoice.mozilla.org/
+</p>
+<p>
+<b>Ayɣer i ilaq ad tesqedceḍ asnas deg wadeg n usmel web ɣef uziraz?</b>
+
+Asnas yettusnefli swaswa i tiliɣriyin tuḥricin ihi d anaṣli. Llant ddeqs n tmahilin ur d-yettak ara usmel web, am usentel aberkan, askar aruqqin, aggan, iwehhiyen, atg.
+Asnas fessus ugar n usmel web, war imrayen ur nemɛin (imrayen deg usnas tzemreḍ ad ten-tesḥebseḍ deg yiɣewwaṛen).
+Rnu ɣer-s, asmel web yesɛa ddeqs n yibugen, ladɣa deg usmel aziraz, ihi ur tzemmreḍ ara ad tgeḍ ula d kra akken iwata.
+</p>

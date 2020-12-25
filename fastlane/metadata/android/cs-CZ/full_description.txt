@@ -18,6 +18,8 @@ Toto není oficiální aplikace projektu Common Voice. Jejím vývojářem je Sa
 - Tmavý motiv podporován
 - Denní cíl
 - Gesta
+- Save your recordings on your device
+- Many other features
 - Zážitek z aplikace si lze zcela přizpůsobit v nastavení
 
 Připojte se do Telegram skupiny: https://t.me/common_voice_android (@common_voice_android)
