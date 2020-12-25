@@ -8,21 +8,15 @@ class MainPrefManager(ctx: Context) {
 
     var language: String
         get() = preferences.getString(Keys.LANGUAGE.name, "en") ?: "en"
-        set(value) {
-            preferences.edit().putString(Keys.LANGUAGE.name, value).apply()
-        }
+        set(value) = preferences.edit().putString(Keys.LANGUAGE.name, value).apply()
 
     var tokenUserId: String
         get() = preferences.getString(Keys.TOKEN_USERID.name, "") ?: ""
-        set(value) {
-            preferences.edit().putString(Keys.TOKEN_USERID.name, value).apply()
-        }
+        set(value) = preferences.edit().putString(Keys.TOKEN_USERID.name, value).apply()
 
     var tokenAuth: String
         get() = preferences.getString(Keys.TOKEN_AUTH.name, "") ?: ""
-        set(value) {
-            preferences.edit().putString(Keys.TOKEN_AUTH.name, value).apply()
-        }
+        set(value) = preferences.edit().putString(Keys.TOKEN_AUTH.name, value).apply()
 
     var username: String
         get() = preferences.getString(Keys.USERNAME.name, "") ?: ""
@@ -34,73 +28,61 @@ class MainPrefManager(ctx: Context) {
 
     var sessIdCookie: String?
         get() = preferences.getString(Keys.SESSID_COOKIE.name, null)
-        set(value) {
-            preferences.edit().putString(Keys.SESSID_COOKIE.name, value).apply()
-        }
+        set(value) = preferences.edit().putString(Keys.SESSID_COOKIE.name, value).apply()
 
     var showOfflineModeMessage: Boolean
         get() = preferences.getBoolean(Keys.SHOW_OFFLINE_MODE_MESSAGE.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.SHOW_OFFLINE_MODE_MESSAGE.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_OFFLINE_MODE_MESSAGE.name, value)
+            .apply()
 
     var showReportWebsiteBugs: Boolean
         get() = preferences.getBoolean(Keys.SHOW_REPORT_WEBSITE_BUGS.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.SHOW_REPORT_WEBSITE_BUGS.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_REPORT_WEBSITE_BUGS.name, value)
+            .apply()
 
     var areGesturesEnabled: Boolean
         get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.GESTURES_ENABLED.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.GESTURES_ENABLED.name, value).apply()
 
     var statsUserId: String
         get() = preferences.getString(Keys.STATS_USERID.name, "") ?: ""
-        set(value) {
-            preferences.edit().putString(Keys.STATS_USERID.name, value).apply()
-        }
+        set(value) = preferences.edit().putString(Keys.STATS_USERID.name, value).apply()
 
     var areGenericStats: Boolean
         get() = preferences.getBoolean(Keys.ARE_GENERIC_STATS.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.ARE_GENERIC_STATS.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.ARE_GENERIC_STATS.name, value).apply()
 
     var areAppUsageStats: Boolean
         get() = preferences.getBoolean(Keys.ARE_APP_USAGE_STATS.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.ARE_APP_USAGE_STATS.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.ARE_APP_USAGE_STATS.name, value).apply()
 
     var areAnimationsEnabled: Boolean
         get() = preferences.getBoolean(Keys.ARE_ANIMATIONS_ENABLED.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.ARE_ANIMATIONS_ENABLED.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.ARE_ANIMATIONS_ENABLED.name, value).apply()
 
     var areLabelsBelowMenuIcons: Boolean
         get() = preferences.getBoolean(Keys.LABELS_MENU_ICONS.name, false)
-        set(value) {
-            preferences.edit().putBoolean(Keys.LABELS_MENU_ICONS.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.LABELS_MENU_ICONS.name, value).apply()
 
     var hasLanguageChanged: Boolean
         get() = preferences.getBoolean(Keys.LANGUAGE_CHANGED.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED.name, value).apply()
 
-    var hasLanguageChanged2: Boolean // I don't know what this is
+    var hasLanguageChanged2: Boolean
         get() = preferences.getBoolean(Keys.LANGUAGE_CHANGED2.name, true)
-        set(value) {
-            preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED2.name, value).apply()
-        }
+        set(value) = preferences.edit().putBoolean(Keys.LANGUAGE_CHANGED2.name, value).apply()
 
-    var themeType: String? // I don't know what this is
+    var themeType: String?
         get() = preferences.getString(Keys.THEME_TYPE.name, "light") //{"light"|"dark"|"auto"}
         set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
+
+    var appVersionCode: Int
+        get() = preferences.getInt(Keys.APP_VERSION_CODE.name, 0)
+        set(value) = preferences.edit().putInt(Keys.APP_VERSION_CODE.name, value).apply()
+
+    var appSourceStore: String
+        get() = preferences.getString(Keys.APP_SOURCE_STORE.name, null) ?: ""
+        set(value) = preferences.edit().putString(Keys.APP_SOURCE_STORE.name, value).apply()
 
 
     private enum class Keys {
@@ -121,6 +103,9 @@ class MainPrefManager(ctx: Context) {
         LANGUAGE_CHANGED2,
         THEME_TYPE,
         USERNAME,
+
+        APP_VERSION_CODE,
+        APP_SOURCE_STORE,
     }
 
 }

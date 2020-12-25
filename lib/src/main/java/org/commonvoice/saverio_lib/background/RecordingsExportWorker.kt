@@ -95,6 +95,8 @@ class RecordingsExportWorker(
             Result.success()
         } catch (e: Exception) {
             Result.failure()
+        } finally {
+            db.close()
         }
     }
 

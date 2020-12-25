@@ -32,4 +32,11 @@ interface StatsService {
         @Body body: RetrofitUserAppUsageBody
     )
 
+    @GET("v2/app-usage/get/")
+    suspend fun getUserAppUsageStatistics(
+        @Query("id") id: String,
+        @Query("start_date") start_date: String?,
+        @Query("end_date") end_date: String?
+    ): Response<ResponseAppUsage>
+
 }

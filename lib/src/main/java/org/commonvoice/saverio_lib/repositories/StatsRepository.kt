@@ -68,7 +68,7 @@ class StatsRepository(
         appVersionCode: Int,
         appSource: String,
         appAction: AppAction
-    ) = withContext(Dispatchers.IO) {
+    ): Boolean = withContext(Dispatchers.IO) {
         val body = RetrofitUserAppUsageBody(
             isLogged(),
             appAction.language,
@@ -81,9 +81,19 @@ class StatsRepository(
 
         try {
             statsClient.postAppUsageStatistics(body)
+            true
         } catch (e: Exception) {
             Timber.e(e)
+            false
         }
+    }
+
+    suspend fun getUserAppUsageStatistics(
+        userId: String,
+        startDate: String? = null,
+        endDate: String? = null
+    ): ResponseAppUsage? {
+        return statsClient.getUserAppUsageStatistics(userId, startDate, endDate).body()
     }
 
     private fun getUserId(): String {
