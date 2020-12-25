@@ -76,6 +76,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             navView.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
         }
 
+        //Needed for the App Usage worker
+        mainPrefManager.appVersionCode = BuildConfig.VERSION_CODE
+        mainPrefManager.appSourceStore = SOURCE_STORE
+
         if (firstRunPrefManager.main) {
             Intent(this, FirstLaunch::class.java).also {
                 startActivity(it)
@@ -283,7 +287,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
-    fun resetData() {
+    private fun resetData() {
         statsPrefManager.todayValidated = 0
         statsPrefManager.todayRecorded = 0
         statsPrefManager.allTimeValidated = 0
