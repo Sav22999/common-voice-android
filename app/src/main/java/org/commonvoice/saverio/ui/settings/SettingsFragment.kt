@@ -11,7 +11,6 @@ import androidx.core.view.isGone
 import androidx.navigation.fragment.findNavController
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
-import com.google.android.play.core.review.ReviewManagerFactory
 import org.commonvoice.saverio.BuildConfig
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
