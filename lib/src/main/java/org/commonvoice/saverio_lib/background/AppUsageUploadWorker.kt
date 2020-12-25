@@ -8,6 +8,7 @@ import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.repositories.AppActionsRepository
 import org.commonvoice.saverio_lib.repositories.StatsRepository
+import java.util.concurrent.TimeUnit
 
 class AppUsageUploadWorker(
     appContext: Context,
@@ -19,7 +20,7 @@ class AppUsageUploadWorker(
     private val retrofitFactory = RetrofitFactory(prefManager)
 
     private val statsRepository = StatsRepository(prefManager, retrofitFactory)
-    private val appActionsRepository = AppActionsRepository(db, prefManager)
+    private val appActionsRepository = AppActionsRepository(db, prefManager, null)
 
     override suspend fun doWork(): Result = coroutineScope {
         return@coroutineScope try {
@@ -52,6 +53,7 @@ class AppUsageUploadWorker(
 
         private val request = OneTimeWorkRequestBuilder<AppUsageUploadWorker>()
             .setConstraints(constraint)
+            .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30, TimeUnit.SECONDS)
             .build()
 
         fun attachToWorkManager(wm: WorkManager) {

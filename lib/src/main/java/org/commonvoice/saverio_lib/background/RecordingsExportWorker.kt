@@ -21,7 +21,7 @@ class RecordingsExportWorker(
     workerParams: WorkerParameters
 ) : CoroutineWorker(appContext, workerParams) {
 
-    private val db = AppDB.getInstance(appContext)
+    private val db = AppDB.getNewInstance(appContext)
     private val prefManager = MainPrefManager(appContext)
     private val retrofitFactory = RetrofitFactory(prefManager)
 

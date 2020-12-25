@@ -69,7 +69,7 @@ class CommonVoice : Application() {
         single { CVStatsRepository(get(), get()) }
         single { GithubRepository(get()) }
         single { FileLogsRepository(get(), get(), get()) }
-        single { AppActionsRepository(get(), get()) }
+        single { AppActionsRepository(get(), get(), get()) }
     }
 
     private val mvvmViewmodels = module {
@@ -83,7 +83,8 @@ class CommonVoice : Application() {
                 get<RecordingSoundIndicatorRepository>(),
                 get<ReportsRepository>(),
                 get<WorkManager>(),
-                get<SpeakPrefManager>()
+                get<SpeakPrefManager>(),
+                get<AppActionsRepository>(),
             )
         }
         viewModel { (handle: SavedStateHandle) ->
@@ -95,7 +96,8 @@ class CommonVoice : Application() {
                 get<ReportsRepository>(),
                 get<WorkManager>(),
                 get<MainPrefManager>(),
-                get<ListenPrefManager>()
+                get<ListenPrefManager>(),
+                get<AppActionsRepository>(),
             )
         }
         viewModel { DashboardViewModel(

@@ -52,7 +52,7 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.ARE_GENERIC_STATS.name, true)
         set(value) = preferences.edit().putBoolean(Keys.ARE_GENERIC_STATS.name, value).apply()
 
-    var areAppUsageStats: Boolean
+    var areAppUsageStatsEnabled: Boolean
         get() = preferences.getBoolean(Keys.ARE_APP_USAGE_STATS.name, true)
         set(value) = preferences.edit().putBoolean(Keys.ARE_APP_USAGE_STATS.name, value).apply()
 

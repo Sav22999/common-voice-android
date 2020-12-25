@@ -1,6 +1,5 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
-import android.content.Context
 import android.content.Intent
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
@@ -49,9 +48,9 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             switchGenericStatistics.isChecked = mainPrefManager.areGenericStats
 
             switchAppUsageStatistics.setOnCheckedChangeListener { _, isChecked ->
-                mainPrefManager.areAppUsageStats = isChecked
+                mainPrefManager.areAppUsageStatsEnabled = isChecked
             }
-            switchAppUsageStatistics.isChecked = mainPrefManager.areAppUsageStats
+            switchAppUsageStatistics.isChecked = mainPrefManager.areAppUsageStatsEnabled
 
             switchSaveLogToFile.setOnCheckedChangeListener { _, isChecked ->
                 logPrefManager.saveLogFile = isChecked
@@ -108,7 +107,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 mainPrefManager.areGesturesEnabled = true
                 mainPrefManager.statsUserId = ""
                 mainPrefManager.areGenericStats = true
-                mainPrefManager.areAppUsageStats = true
+                mainPrefManager.areAppUsageStatsEnabled = true
                 mainPrefManager.areAnimationsEnabled = true
                 mainPrefManager.areLabelsBelowMenuIcons = false
                 mainPrefManager.hasLanguageChanged = true

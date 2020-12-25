@@ -12,12 +12,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.work.WorkManager
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.*
 import org.commonvoice.saverio.databinding.FragmentHomeBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.background.AppUsageUploadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
@@ -37,6 +39,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
     private val firstRunPrefManager by inject<FirstRunPrefManager>()
     private val mainPrefManager: MainPrefManager by inject()
+    private val workManager: WorkManager by inject()
 
     override fun onStart() {
         super.onStart()
@@ -130,6 +133,8 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
                 MainActivity.SOURCE_STORE
             )
         }
+
+        AppUsageUploadWorker.attachToWorkManager(workManager)
     }
 
     private fun showMessageDialog(

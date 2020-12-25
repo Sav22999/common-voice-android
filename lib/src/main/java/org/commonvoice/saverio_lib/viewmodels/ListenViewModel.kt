@@ -12,10 +12,12 @@ import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.ValidationsUploadWorker
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
+import org.commonvoice.saverio_lib.models.AppAction
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.models.Report
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.repositories.AppActionsRepository
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
@@ -28,7 +30,8 @@ class ListenViewModel(
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
     private val mainPrefManager: MainPrefManager,
-    private val listenPrefManager: ListenPrefManager
+    private val listenPrefManager: ListenPrefManager,
+    private val appActionsRepository: AppActionsRepository,
 ) : ViewModel() {
 
     private val _state = handle.getLiveData("state", State.STANDBY)
@@ -101,6 +104,8 @@ class ListenViewModel(
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
                 ValidationsUploadWorker.attachToWorkManager(workManager)
             }
+
+            appActionsRepository.insertAction(if (result) AppAction.Type.LISTEN_ACCEPTED else AppAction.Type.LISTEN_REJECTED)
         }
         stopped = false
     }
@@ -117,6 +122,7 @@ class ListenViewModel(
     fun reportClip(reasons: List<String>) = viewModelScope.launch {
         currentClip.value?.let {
             reportsRepository.insertReport(Report(it, reasons))
+            appActionsRepository.insertAction(AppAction.Type.LISTEN_REPORTED)
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipClip()
         }
