@@ -168,6 +168,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             )
         })
 
+        checkPermission()
+
         setupNestedScroll()
 
         setTheme(this)
