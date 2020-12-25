@@ -461,12 +461,28 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun checkPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
+        var conditions = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.RECORD_AUDIO
+        ) != PackageManager.PERMISSION_GRANTED
+        var permissionsArray = arrayOf(Manifest.permission.RECORD_AUDIO)
+        if (speakPrefManager.saveRecordingsOnDevice) {
+            conditions = ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.RECORD_AUDIO
+            ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+            permissionsArray = arrayOf(
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+        }
+        if (conditions) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.RECORD_AUDIO),
+                permissionsArray,
                 RECORD_REQUEST_CODE
             )
         }
@@ -477,9 +493,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         permissions: Array<String>,
         grantResults: IntArray
     ) {
+        var conditions =
+            grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED
+        if (speakPrefManager.saveRecordingsOnDevice) conditions =
+            grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED || grantResults[1] != PackageManager.PERMISSION_GRANTED
         when (requestCode) {
             RECORD_REQUEST_CODE -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                if (conditions) {
                     onBackPressed()
                 }
             }
