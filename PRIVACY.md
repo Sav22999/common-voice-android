@@ -4,17 +4,19 @@
 
 The app doesn’t collect your personal data. Anyway, some data are saved on your device (*user_id* of Common Voice, *selected language*, *validations and recordings number*, and others data). You can clear them just *Clear data* of the app (but they are necessary to use Common Voice Android).
 
-The app requires *Storage* and *Microphone* permissions when you use *Speak section*: because the app saves your recordings, and the app deletes automatically them (after sent to the Common Voice server).
+The app requires *Storage* and *Microphone* permissions when you use *Speak section*: because the app saves your recordings, and the app deletes automatically them (after sent to the Common Voice server). The app will ask permissions just when it needs of them.
 
 If you turn on "Save logs to a file", the app requires *Storage* and will be save logs to files, but they won't contain your personal data. Read more about this in *Saving the logs* section (below).
 
 The *Experimental features* could be unsafe and unstable, so pay attention if you use that option.
 
-There are "two" versions: one for "Google Play Store", and another for "F-Droid/GitHub". In the first one the app show, sometimes a message "Review the app ... on Google Play Store", in the second one there is a button, in Settings, which permits you to "buy me a coffee". But the rest of the code is absolutely the same.
+There are "two" versions: one for "Google Play Store" (GPS), and another for "F-Droid/GitHub" (FD-GH). In the first one the app show, sometimes a message "Review the app ... on Google Play Store", in the second one there is a button, in Settings, which permits you to "buy me a coffee". But the rest of the code is absolutely the same.
 
-If you want additional information about the Policy privacy of Common Voice project, [read the official doc](https://commonvoice.mozilla.org/en/privacy).
+If you want additional information about the Policy privacy of Common Voice project, [read the official doc by Mozilla](https://commonvoice.mozilla.org/en/privacy).
 
-### Anonymous statistics
+**All statistics** are anonymous. CV Android nor Saverio Morelli collect your personal data. The statistics are useful just to see how many users use the app and how many contributions are done in the app.
+
+### Generic statistics
 
 *You can disable Anonymous Statistics always, in Settings. If you disable statistics, you will not be in public statistics, but app sent anyway data to my database.*
 
