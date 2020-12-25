@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language">tr</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Ana Sayfa</string>
+    <string name="title_dashboard">Kontrol paneli</string>
+    <string name="title_settings">Ayarlar</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">Giriş yap/Kayıt ol</string>
+    <string name="button_home_logout">Çıkış yap</string>
+    <string name="button_home_profile">Profil</string>
+    <string name="text_hi_username">Merhaba</string>
+    <string name="message_log_in_again">Oturum kimliğinin süresi doldu, tekrar oturum açmanız gerekiyor</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">İstatistikler</string>
+    <string name="dashboardVoicesOnline">Voices online</string>
+    <string name="dashboardTabYou">Sen</string>
+    <string name="dashboardTabEveryone">Herkes</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Bugün</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
+    <string name="toastNoLoginNoStatistics">İstatistiklerini görmek için giriş yapmalısın</string>
+    <string name="toastNoLoginNoDailyGoal">Günlük hedefi belirlemek için giriş yapmalısın</string>
+    <string name="textHoursAbbreviation">h</string>
+    <string name="textHour">Saat</string>
+    <string name="txt_top_contributors">En çok katkıda bulunanlar</string>
+    <string name="txt_top_contributors_recorded">Kayıt</string>
+    <string name="txt_top_contributors_validated">Doğrulama</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Uygulama istatistikleri</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Geçerli dil</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Tüm diller</string>
+    <string name="txt_not_available_offline" comment="Message text">Çevrimdışı modda mevcut değil</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1" comment="Button">Başlat</string>
+    <string name="btn_tutorial2" comment="Button">İzin</string>
+    <string name="btn_tutorial3" comment="Button">Sonraki</string>
+    <string name="btn_tutorial4" comment="Button">Tekrar deneyin</string>
+    <string name="btn_tutorial5" comment="Button">Bitiş</string>
+    <string name="btn_skip" comment="Button">Atla</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">İzin alındı</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Hata: izin reddedildi</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android, Mozilla Common Voice projesi için resmi olmayan bir uygulamadır. Saverio Morelli tarafından Mozilla ile herhangi bir destek veya ortaklık olmaksızın geliştirildi.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Devam ederek Mozilla\'nın Common Voice Hizmet Şartlarını kabul etmiş olursunuz.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Bu uygulamanın sesinizi kaydetmek için \"Mikrofon\" iznine ihtiyacı var.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Hataları GitHub veya Telegram\'da bildirebilirsiniz. Geliştiricinin sorunu hızlı bir şekilde anlamasına yardımcı olmak için uygulamanın günlük dosyasını raporunuza eklemelisiniz. Günlük dosyasını kaydetmek için uygulamanın \"Depolama\" iznine ihtiyacı var.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Çevrimdışıyken bile katkıda bulunabilirsiniz. Uygulamanın \"Çevrimdışı modu\" otomatik olarak etkinleştirilir ve İnternet bağlantısı olmadan kayıt yapmaya ve dinlemeye devam edebilirsiniz.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Açık veya koyu temayı seçebilirsiniz. Bunu daha sonra Ayarlar\'da değiştirebilirsiniz.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Karanlık Tema</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Bazı eylemlere karşılık gelen hareketler var. Örneğin, sola kaydırarak Konuşma\'da bir cümleyi atlayabilirsiniz.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Bu hareketleri Ayarlar\'da özelleştirebilirsiniz.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Haberler yada destek almak için Telegram grubumuza katılabilirsiniz.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Gruba katıl</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Hadi başlayalım! Hangi dili konuşmak veya dinlemek istediğinizi seçin. Uygulama, bir çevirisi varsa o dilde de gösterilecektir.</string>
+    <!-- Login -->
+    <string name="txt_loading_page" comment="Label">Yükleniyor ...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Kullanıcı Adı</string>
+    <string name="txt_profile_email" comment="Label in Profile">E-Posta</string>
+    <string name="txt_profile_age" comment="Label in Profile">Yaş</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Cinsiyet</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Profil bilgilerinizi değiştirmek için Common Voice web sitesine gidin.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Oturum açma başarılı!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Erkek</string>
+    <string name="txt_gender_female" comment="Label in Profile">Kadın</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Diğer</string>
+    <string name="btn_badges_loggedin" comment="Button">Tüm rozetler</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Seviye {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Tebrikler! {{*{{n_level}}*}} seviyesine ulaştınız.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Bir doğrulama bağlantım var</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Doğrulama bağlantısı</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Doğrulama bağlantısı geçerli değil</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Öğreticiyi tekrardan aç</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Projenin Github sayfası</string>
+    <string name="txt_developed_by" comment="Label in Settings">geliştiren</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Dil</string>
+    <string name="settingsListen" comment="Title in Settings">Dinle</string>
+    <string name="settingsSpeak" comment="Title in Settings">Konuş</string>
+    <string name="settingsOther" comment="Title in Settings">Diğer</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">İşime destek ol. Bana bir kahve satın al 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Klip yüklendiğinde otomatik oynat</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Karanlık Tema</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Yapımcı ile Telegram üzerinden iletişim kur</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Deneysel özellikler</string>
+    <string name="toast_experimental_features_on" comment="Message text">Deneysel özellikler açıldı.\nYeni özellikler kararsız ve güvenli olmayabilir.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Kayıtları bir dosyaya kaydet</string>
+    <string name="toast_log_on_file_on" comment="Message text">Günlükler düz metin dosyasına kaydediliyor.\nBir sorun bildirdiğinizde log.txt dosyasını ekleyebilirsiniz.\nGitHub ile ilgili daha fazla bilgi edinin.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Kayıt onayını atla</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Kaydı atlama açık.\nArtık kayıtları önce dinlemek zorunda kalmadan gönderebileceksiniz.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Crowdin\'de uygulamayı çevir</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Uygulama istatistiklerini gör</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Güncelleştirmeleri kontrol et</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Hareketler</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Atla</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Klip Yükleniyor...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Recording failed. Please try again.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Listen to the whole recording to make sure it\'s correct.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Press the icon below to stop listening.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Recording is too long. Max duration is 10 seconds.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Recording is too short. Please, try again.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Recording sent!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Failed to send recording!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Press the icon below to start the clip.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Press the icon below to stop the clip.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Press the icon below to play the clip again.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marked as correct!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marked as incorrect!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Failed to send the recording.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Gönderiliyor...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Kapatılıyor...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. There are no more available clips for this language.</string>
+    <string name="button_report" comment="Button">Şikayet Et</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
+    <string name="button_send_report" comment="Button">Rapor gönder</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Saldırgan dil</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Saldırgan konuşma</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Farklı dil</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Diğer</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Yorum</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection" comment="Button">Tekrar kontrol et</string>
+    <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">This is the sentence you must record.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">A message to guide you will appear here.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to start recording.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to stop recording.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to re-record if you made a mistake.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording again.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Tap on this button to send your recording.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">This is the sentence/clip you must validate.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to play the clip.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to stop playing the clip.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges" comment="Button">Kapat</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Tüm rozetler</string>
+    <string name="new_badge_earnt_message" comment="Message text">Oley! Yeni bir rozet kazandın.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <!-- Message dialog -->
+    <string name="btnOk" comment="Button">Tamam</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Hata</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Oturum açma başarısız oldu</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">Uyarı</string>
+    <string name="text_tip" comment="Title for Message text">İpucu</string>
+    <string name="text_changelog" comment="Title for Message text">Değişiklik Notları</string>
+    <string name="text_help" comment="Title for Message text">Yardım</string>
+    <string name="text_info" comment="Title for Message text">Bilgi</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Tekrar gösterme</string>
+    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="text_offline_mode" comment="Title">Offline mode</string>
+    <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title" comment="Title in Dashboard">Günlük hedef</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Hedef belirlenmedi</string>
+    <string name="set_daily_goal" comment="Button">Bir hedef belirleyin</string>
+    <string name="edit_daily_goal" comment="Button">Hedefi Düzenle</string>
+    <string name="save_daily_goal" comment="Button">Kaydet</string>
+    <string name="delete_daily_goal" comment="Button">Sil</string>
+    <string name="cancel_daily_goal" comment="Button">İptal</string>
+    <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Bugün başarıldı</string>
+    <string name="daily_goal_not_achieved_today">Bugün başarılmadı</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <!-- Others -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
+    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+</resources>

@@ -94,7 +94,8 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
         setupButtons()
 
-        binding.textRelease.text = "${BuildConfig.VERSION_NAME} (build#${BuildConfig.VERSION_CODE}::${MainActivity.SOURCE_STORE})"
+        binding.textRelease.text =
+            "${BuildConfig.VERSION_NAME} (build#${BuildConfig.VERSION_CODE}::${MainActivity.SOURCE_STORE})"
 
         binding.textDevelopedBy.setText(R.string.txt_developed_by)
 
@@ -105,6 +106,10 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         if (SOURCE_STORE == "GPS") {
             buttonReviewOnGooglePlay.isGone = false
             separator37.isGone = false
+
+            //TODO: remove, when implemented In-app purchare:
+            buttonBuyMeACoffee.isGone = true
+            separator28.isGone = true
         }
 
         //In-App review
@@ -125,15 +130,15 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
                         // matter the result, we continue our app flow.
                     }
                 } else {*/
-                    //some errors, so the app can't open the in-app review pop-up
-                    startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("market://details?id=org.commonvoice.saverio")
-                        )
-                    )
-                /*}
-            }*/
+            //some errors, so the app can't open the in-app review pop-up
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=org.commonvoice.saverio")
+                )
+            )
+            /*}
+        }*/
         }
 
         //In-App purchase
@@ -142,9 +147,9 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         if (SOURCE_STORE == "GPS") {
             inAppPurchase()
         } else {*/
-            buttonBuyMeACoffee.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
-            }
+        buttonBuyMeACoffee.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+        }
         /*}*/
     }
 

@@ -277,8 +277,17 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         languagesListArray[languagesListShortArray.indexOf(mainPrefManager.language)]
                     ) + detailsMessage
                 )
+
+                resetData()
             }
         }
     }
 
+    fun resetData() {
+        statsPrefManager.todayValidated = 0
+        statsPrefManager.todayRecorded = 0
+        statsPrefManager.allTimeValidated = 0
+        statsPrefManager.allTimeRecorded = 0
+        statsPrefManager.allTimeLevel = 0
+    }
 }
