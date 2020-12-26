@@ -404,7 +404,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
 
         if (!listenViewModel.startedOnce) {
-            if (listenViewModel.autoPlay() && !noAutoPlay) {
+            if (listenViewModel.autoPlay() && !noAutoPlay && !(!settingsPrefManager.isOfflineMode && !connectionManager.isInternetAvailable)) {
                 listenViewModel.startListening()
             }
         }
@@ -448,6 +448,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 R.string.txt_press_icon_below_listen_2
             )
             textSentenceListen.setText(R.string.txt_listening_clip)
+            resizeSentence()
             textSentenceListen.setTextColor(
                 ContextCompat.getColor(
                     this@ListenActivity,
@@ -482,6 +483,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun loadUIStateListened() = withBinding {
         buttonNoClip.isVisible = true
         textSentenceListen.text = listenViewModel.getSentenceText()
+        resizeSentence()
         textSentenceListen.setTextColor(
             ContextCompat.getColor(
                 this@ListenActivity,
