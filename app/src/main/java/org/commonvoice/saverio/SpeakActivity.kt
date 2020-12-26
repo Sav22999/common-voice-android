@@ -75,8 +75,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     showMessageDialog("", "", 10)
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled))
-                onBackPressed()
+                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled), type = 13)
             } else {
                 startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false

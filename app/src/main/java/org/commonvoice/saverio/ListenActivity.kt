@@ -62,8 +62,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     showMessageDialog("", "", 10)
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled))
-                onBackPressed()
+                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled), type = 14)
             } else {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false

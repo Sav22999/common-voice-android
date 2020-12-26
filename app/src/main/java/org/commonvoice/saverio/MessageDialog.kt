@@ -107,7 +107,7 @@ class MessageDialog : KoinComponent {
     fun show() {
         if (this.context != null) {
             when (this.message_type) {
-                0, 2, 5, 6, 7, 8, 9 -> {
+                0, 2, 5, 6, 7, 8, 9, 13, 14 -> {
                     try {
                         val dialogView =
                             LayoutInflater.from(this.context).inflate(R.layout.message_dialog, null)
@@ -142,6 +142,12 @@ class MessageDialog : KoinComponent {
                         dialogView.btnOkMessageDialog.setOnClickListener {
                             //dismiss dialog
                             alertDialog.dismiss()
+
+                            if (message_type == 13) {
+                                speak?.onBackPressed()
+                            } else if (message_type == 14) {
+                                listen?.onBackPressed()
+                            }
                         }
                         setTheme(this.context!!, dialogView)
                         setMessageType(this.context!!, dialogView)
@@ -348,7 +354,7 @@ class MessageDialog : KoinComponent {
     }
 
     private fun setMessageType(view: Context, dialogView: View) {
-        if (this.message_type == 0 || this.message_type == 1 || this.message_type == 2 || this.message_type == 3 || this.message_type == 4) {
+        if (this.message_type == 0 || this.message_type == 1 || this.message_type == 2 || this.message_type == 3 || this.message_type == 4 || this.message_type == 13 || this.message_type == 14) {
             dialogView.messageDialogSectionMessageType.isGone = true
         } else if (this.message_type == 5) {
             //info
@@ -401,7 +407,7 @@ class MessageDialog : KoinComponent {
 
     fun setTheme(view: Context, dialogView: View) {
         when (this.message_type) {
-            0, 2, 5, 6, 7, 8, 9 -> {
+            0, 2, 5, 6, 7, 8, 9, 13, 14 -> {
                 //standard message dialog
                 if (this.height > 500) {
                     dialogView.messageDialogSectionBackground.layoutParams.height = this.height
