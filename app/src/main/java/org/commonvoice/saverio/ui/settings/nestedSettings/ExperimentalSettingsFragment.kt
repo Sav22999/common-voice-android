@@ -21,5 +21,17 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
         buttonBackSettingsSubSectionExperimental.setOnClickListener {
             activity?.onBackPressed()
         }
+
+        setTheme()
+    }
+
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsExperimentalFeatures)
+
+            theme.setElements(requireContext(), settingsSectionExperimental)
+
+            theme.setElement(requireContext(), 3, settingsSectionExperimental)
+        }
     }
 }

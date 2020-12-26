@@ -66,6 +66,18 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/3nJwpuq")))
             }
         }
+
+        setTheme()
+    }
+
+    fun setTheme() {
+        withBinding {
+            theme.setElement(layoutSettingsOfflineMode)
+
+            theme.setElements(requireContext(), settingsSectionOfflineMode)
+
+            theme.setElement(requireContext(), 3, settingsSectionOfflineMode)
+        }
     }
 
 }
