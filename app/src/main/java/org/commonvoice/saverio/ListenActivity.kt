@@ -301,6 +301,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
+            resizeSentence()
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
             if (settingsPrefManager.showReportIcon) {
@@ -327,7 +328,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
-            textMessageAlertListen.text = "No more clips"
+            resizeSentence()
+            textMessageAlertListen.setText(R.string.txt_common_voice_clips_finished)
             buttonStartStopListen.isEnabled = false
             if (settingsPrefManager.showReportIcon) {
                 hideImage(imageReportIconListen)
@@ -376,38 +378,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 )
             )
         }
-        when (textSentenceListen.text.length) {
-            in 0..10 -> {
-                textSentenceListen.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_very_big)
-                )
-            }
-            in 11..20 -> {
-                textSentenceListen.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_big)
-                )
-            }
-            in 21..40 -> {
-                textSentenceListen.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_medium)
-                )
-            }
-            in 41..70 -> {
-                textSentenceListen.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_normal)
-                )
-            }
-            else -> {
-                textSentenceListen.setTextSize(
-                    TypedValue.COMPLEX_UNIT_PX,
-                    resources.getDimension(R.dimen.title_small)
-                )
-            }
-        }
+
+        resizeSentence()
+
         if (settingsPrefManager.showReportIcon) {
             showImage(imageReportIconListen)
         } else {
@@ -443,6 +416,19 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         imageReportIconListen.onClick {
             openReportDialog()
         }
+    }
+
+    private fun resizeSentence() {
+        binding.textSentenceListen.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            when (binding.textSentenceListen.text.length) {
+                in 0..10 -> resources.getDimension(R.dimen.title_very_big)
+                in 11..20 -> resources.getDimension(R.dimen.title_big)
+                in 21..40 -> resources.getDimension(R.dimen.title_medium)
+                in 41..70 -> resources.getDimension(R.dimen.title_normal)
+                else -> resources.getDimension(R.dimen.title_small)
+            }
+        )
     }
 
     private fun loadUIStateListening() = withBinding {
@@ -527,10 +513,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         textSentenceListen.text = "···"
-        textSentenceListen.setTextSize(
-            TypedValue.COMPLEX_UNIT_PX,
-            resources.getDimension(R.dimen.title_very_big)
-        )
+        resizeSentence()
         textSentenceListen.setTextColor(
             ContextCompat.getColor(
                 this@ListenActivity,

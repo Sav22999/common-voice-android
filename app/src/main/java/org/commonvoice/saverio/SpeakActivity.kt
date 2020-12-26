@@ -347,6 +347,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
         textSentenceSpeak.text = "···"
 
+        resizeSentence()
+
         buttonRecordOrListenAgain.isGone = true
         if (settingsPrefManager.showReportIcon) {
             hideImage(imageReportIconSpeak)
@@ -359,8 +361,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun loadUIStateNoMoreSentences() = withBinding {
-        textMessageAlertSpeak.text = "No more sentences"
+        textMessageAlertSpeak.setText(R.string.txt_common_voice_sentences_finished)
         textSentenceSpeak.text = "···"
+
+        resizeSentence()
 
         buttonRecordOrListenAgain.isGone = true
         if (settingsPrefManager.showReportIcon) {
@@ -393,10 +397,19 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
         textSentenceSpeak.text = sentence.sentenceText
 
-        textSentenceSpeak.setTextSize(
+        resizeSentence()
+
+        buttonStartStopSpeak.onClick {
+            checkPermission()
+            speakViewModel.startRecording()
+        }
+    }
+
+    private fun resizeSentence() {
+        binding.textSentenceSpeak.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
             resources.getDimension(
-                when (textSentenceSpeak.text.length) {
+                when (binding.textSentenceSpeak.text.length) {
                     in 0..10 -> R.dimen.title_very_big
                     in 11..20 -> R.dimen.title_big
                     in 21..40 -> R.dimen.title_medium
@@ -405,11 +418,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 }
             )
         )
-
-        buttonStartStopSpeak.onClick {
-            checkPermission()
-            speakViewModel.startRecording()
-        }
     }
 
     private fun loadUIStateRecording() = withBinding {
