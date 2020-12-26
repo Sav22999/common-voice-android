@@ -3,6 +3,7 @@ package org.commonvoice.saverio_lib.api
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.commonvoice.saverio_lib.api.auth.AuthenticationInterceptor
+import org.commonvoice.saverio_lib.api.network.TryCatchInterceptor
 import org.commonvoice.saverio_lib.api.services.*
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import retrofit2.Retrofit
@@ -21,11 +22,8 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
         .addConverterFactory(MoshiConverterFactory.create().withNullSerialization())
         .client(
             OkHttpClient.Builder()
-                .addInterceptor(
-                    AuthenticationInterceptor(
-                        mainPrefManager
-                    )
-                )
+                .addInterceptor(AuthenticationInterceptor(mainPrefManager))
+                .addInterceptor(TryCatchInterceptor())
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
