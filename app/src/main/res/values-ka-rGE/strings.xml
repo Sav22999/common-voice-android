@@ -4,132 +4,132 @@
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language">en</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
+    <string name="title_home">მთავარი</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_settings">პარამეტრები</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Sign up</string>
-    <string name="button_home_logout">Log out</string>
-    <string name="button_home_profile">Profile</string>
+    <string name="button_home_login">შესვლა / რეგისტრაცია</string>
+    <string name="button_home_logout">გასვლა</string>
+    <string name="button_home_profile">პროფილი</string>
     <string name="text_hi_username">Hi</string>
     <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
-    <string name="dashboardStatistics">Statistics</string>
+    <string name="dashboardStatistics">სტატისტიკა</string>
     <string name="dashboardVoicesOnline">Voices online</string>
-    <string name="dashboardTabYou">You</string>
-    <string name="dashboardTabEveryone">Everyone</string>
-    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Today</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
+    <string name="dashboardTabYou">თქვენ</string>
+    <string name="dashboardTabEveryone">ყველა</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">დღეს</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">სულ</string>
     <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
     <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
-    <string name="textHoursAbbreviation">h</string>
-    <string name="textHour">Hour</string>
+    <string name="textHoursAbbreviation">სთ</string>
+    <string name="textHour">საათი</string>
     <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
-    <!-- 4, ..., 100, etc. -->
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
+    <string name="txt_top_contributors_recorded">ჩაწერილი</string>
+    <string name="txt_top_contributors_validated">შემოწმებული</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">აპის სტატისტიკა</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">ყველა ენა</string>
     <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Start</string>
+    <string name="btn_tutorial1" comment="Button">დაწყება</string>
     <string name="btn_tutorial2" comment="Button">Permit</string>
-    <string name="btn_tutorial3" comment="Button">Next</string>
-    <string name="btn_tutorial4" comment="Button">Try again</string>
-    <string name="btn_tutorial5" comment="Button">Finish</string>
-    <string name="btn_skip" comment="Button">Skip</string>
-    <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
+    <string name="btn_tutorial3" comment="Button">შემდეგი</string>
+    <string name="btn_tutorial4" comment="Button">კიდევ სცადეთ</string>
+    <string name="btn_tutorial5" comment="Button">დასრულება</string>
+    <string name="btn_skip" comment="Button">გაცდენა</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">ნებართვა მიღებულია</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">შეცდომა: ნებართვა მიღებულია</string>
     <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">You can choose either light theme or dark theme. You can change this later in Settings.</string>
-    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Dark theme</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">მუქი თემა</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
     <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">გაწევრიანება</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading ...</string>
+    <string name="txt_loading_page" comment="Label">იტვირთება ...</string>
     <string name="txt_profile_username" comment="Label in Profile">Username</string>
-    <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Age</string>
-    <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
+    <string name="txt_profile_email" comment="Label in Profile">ელფოსტა</string>
+    <string name="txt_profile_age" comment="Label in Profile">ასაკი</string>
+    <string name="txt_profile_gender" comment="Label in Profile">სქესი</string>
     <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
+    <string name="txt_login_successful_alert" comment="Message text">შესვლა წარმატებულია!</string>
     <string name="txt_gender_male" comment="Label in Profile">Male</string>
     <string name="txt_gender_female" comment="Label in Profile">Female</string>
-    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Other</string>
-    <string name="btn_badges_loggedin" comment="Button">All badges</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{*{{level}}*}}</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">სხვა</string>
+    <string name="btn_badges_loggedin" comment="Button">ყველა ნიშანი</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">დონე {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">დადასტურების ბმული</string>
     <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">main contributors</string>
     <string name="txt_developed_by" comment="Label in Settings">developed by</string>
-    <string name="toast_language_changed" comment="Message text">Language changed correctly to {{*{{lang}}*}}</string>
-    <string name="settingsLanguage" comment="Title in Settings">Language</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">ენა</string>
     <string name="settingsListen" comment="Title in Settings">Listen</string>
     <string name="settingsSpeak" comment="Title in Settings">Speak</string>
-    <string name="settingsOther" comment="Title in Settings">Other</string>
+    <string name="settingsOther" comment="Title in Settings">სხვა</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Auto-play clip is now turned on.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Auto-play clip is now turned off.</string>
-    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Dark theme</string>
-    <string name="toast_dark_theme_on" comment="Message text">Dark theme is now turned on.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Dark theme is now turned off.</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">კლიპის ავტო-დაკვრა ჩატვირთვისას</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">მუქი თემა</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Contact the developer on Telegram</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimental features</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">ექსპერიმენტული ფუნქციები</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Experimental features turned off.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
     <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Saving logs to a file turned off.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Anonymous statistics</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Skip recording confirmation</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Skip recording confirmation turned off.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Translate the app on Crowdin</string>
-    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">See app statistics</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">აპის სტატისტიკის ნახვა</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">Recording indicator sound is now turned off.</string>
-    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Check for updates</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Check for updates turned on.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Check for updates turned off.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Abort confirmation dialogs in Settings</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Abort confirmation dialogs are now turned on.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Abort confirmation dialogs are now turned off.</string>
-    <string name="txt_gestures" comment="Switch-Button in Settings">Gestures</string>
-    <string name="toast_gestures_on" comment="Message text">Gestures are now turned on.</string>
-    <string name="toast_gestures_off" comment="Message text">Gestures are now turned off.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">განახლებების შემოწმება</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">ჟესტები</string>
     <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
-    <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
-    <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Themes</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">ანიმაციები</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">ფონტის ზომის შეცვლა</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">ჟესტების შეცვლა</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">წაიკითხეთ შემოწმების სახელმძღვანელო</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">გაცდენა</string>
+    <string name="btn_send_sentence" comment="Button in Speak">ჩანაწერის გაგზავნა</string>
+    <string name="txt_loading_clip" comment="Label in Listen">კლიპი იტვირთება...</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>
@@ -139,24 +139,24 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">Press the icon below to stop listening.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Recording is too long. Max duration is 10 seconds.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording...</string>
-    <string name="txt_recording_sent" comment="Label in Speak">Recording sent!</string>
-    <string name="txt_sending_recording_failed" comment="Message text">Failed to send recording!</string>
+    <string name="txt_sending_recording" comment="Label in Speak">ჩანაწერი იგზავნება...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">ჩანაწერი გაიგზავნა!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">ჩანაწერი ვერ გაიგზავნა!</string>
     <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Press the icon below to start the clip.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Press the icon below to stop the clip.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის მოსასმენად.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის გაჩერებისთვის.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Press the icon below to play the clip again.</string>
+    <string name="txt_clip_again" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის თავიდან მოსასმენად.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marked as correct!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marked as incorrect!</string>
     <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
-    <string name="txt_error_2_sending_failed" comment="Label in Listen">Failed to send the recording.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending...</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">ჩანაწერი ვერ გაიგზავნა.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">იგზავნება...</string>
     <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing...</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">იხურება...</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. There are no more available clips for this language.</string>
     <string name="button_report" comment="Button">Report</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
+    <string name="title_report_clip" comment="Title in Report a clip">კლიპის შეტყობინება:</string>
     <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
     <string name="button_send_report" comment="Button">Send report</string>
     <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
@@ -164,14 +164,15 @@
     <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
     <string name="checkbox_reason3_report" comment="Checkbox">Different language</string>
     <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report" comment="Checkbox">Other</string>
-    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">სხვა</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">კომენტარი</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Check again</string>
     <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
@@ -185,55 +186,59 @@
     <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to re-record if you made a mistake.</string>
     <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording again.</string>
     <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Tap on this button to send your recording.</string>
-    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">This is the sentence/clip you must validate.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">ეს წინადადება/კლიპი უნდა შეამოწმოთ.</string>
     <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to play the clip.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">დააჭირეთ ღილაკს კლიპის მოსასმენად.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">დააჭირეთ ღილაკს კლიპის გაჩერებისთვის.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">დააჭირეთ ღილაკს კლიპის თავიდან მოსასმენად.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
     <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">წაკითხვა</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges" comment="Button">Close</string>
-    <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
-    <string name="new_badge_earnt_message" comment="Message text">Hooray! You have just earned a new badge.</string>
+    <string name="btnCloseBadges" comment="Button">დახურვა</string>
+    <string name="labelAllBadges" comment="Title for All badge section">ყველა ნიშანი</string>
+    <string name="new_badge_earnt_message" comment="Message text">ვაშა! ახალი ნიშანი დაიმსახურეთ.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{*{{n_sentences}}*}} წინადადება ჩაწერეთ.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">Ok</string>
-    <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
+    <string name="btnOk" comment="Button">კი</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">შეცდომა</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
     <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">შესვლა წარუმატებელია</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
-    <string name="text_warning" comment="Title for Message text">Warning</string>
-    <string name="text_tip" comment="Title for Message text">Tip</string>
+    <string name="text_warning" comment="Title for Message text">ყურადღება</string>
+    <string name="text_tip" comment="Title for Message text">რჩევა</string>
     <string name="text_changelog" comment="Title for Message text">Changelog</string>
     <string name="text_help" comment="Title for Message text">Help</string>
-    <string name="text_info" comment="Title for Message text">Info</string>
+    <string name="text_info" comment="Title for Message text">ინფო.</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Do not show anymore</string>
     <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
     <string name="text_offline_mode" comment="Title">Offline mode</string>
     <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title" comment="Title in Dashboard">Daily goal</string>
-    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No goal set</string>
-    <string name="set_daily_goal" comment="Button">Set a goal</string>
-    <string name="edit_daily_goal" comment="Button">Edit goal</string>
-    <string name="save_daily_goal" comment="Button">Save</string>
-    <string name="delete_daily_goal" comment="Button">Delete</string>
-    <string name="cancel_daily_goal" comment="Button">Cancel</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">დღის მიზანი</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">მიზანი არ არის</string>
+    <string name="set_daily_goal" comment="Button">მიზნის დასახვა</string>
+    <string name="edit_daily_goal" comment="Button">მიზნის შეცვლა</string>
+    <string name="save_daily_goal" comment="Button">შენახვა</string>
+    <string name="delete_daily_goal" comment="Button">წაშლა</string>
+    <string name="cancel_daily_goal" comment="Button">გაუქმება</string>
     <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Achieved today</string>
     <string name="daily_goal_not_achieved_today">Not achieved today</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>

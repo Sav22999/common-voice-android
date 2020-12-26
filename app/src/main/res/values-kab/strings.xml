@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">Imttekiyen ifazen</string>
     <string name="txt_top_contributors_recorded">Ittwaskelsen</string>
     <string name="txt_top_contributors_validated">Ittwasentmen</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">Addaden n usnas</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Tutlayt tamirant</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Akk tutlayin</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Ldi almeḍris daɣen</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Asenfar n uɣbalu yeldin deg GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">imettekkiyen igejdanen</string>
     <string name="txt_developed_by" comment="Label in Settings">yesnefl-it</string>
-    <string name="toast_language_changed" comment="Message text">Tutlayt tbeddel akken iwata ɣer {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Tutlayt tettusbadu akken iwata ɣer {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Tutlayt</string>
     <string name="settingsListen" comment="Title in Settings">Timesliwt</string>
     <string name="settingsSpeak" comment="Title in Settings">Mmeslay</string>
     <string name="settingsOther" comment="Title in Settings">Nniḍen</string>
+    <string name="settingsGeneral" comment="Title in Settings">Amatu</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Iseɣwan yesεan azal</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Issin ugar</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Aceεlal</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Ubrik</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Awurman</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Mudd afus i umahil-iw. Esɣ-iyi-d lqahwa 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Taɣuri tawurmant n uklip tuli-d.</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Taɣuri tawurmant n uklip akka tura termed.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Taɣuri tawurmant n uklip akka tura tensa.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Asentel aberkan</string>
-    <string name="toast_dark_theme_on" comment="Message text">Askar aberkan irmed tura.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Asentel aberkan insa tura.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Nermes aneflay deg Telegram</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Timahilin tirmitanin</string>
     <string name="toast_experimental_features_on" comment="Message text">Timahilin tirmitanin remdent.\nTimahilin timaynutin zemrent ur rekkdent ara rnu mačči d tiɣelsanin.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Timahilin tirmitanin nsant.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Sekles iɣmisen deg ufaylu</string>
     <string name="toast_log_on_file_on" comment="Message text">Asekles n yiɣmisen ɣer ufaylu yermed.\nTzemreḍ ad teqqneḍ afaylu log.txt mi ara temleḍ ugur.\nƔeṛ ugar deg GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Asekles n yiɣmisen ɣer ufaylu yensa.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Addaden udrigen</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">Tiddadanin tudrigin remdent. Ur nleqqeḍ ara isefka-inek·inem udmawanen. \nNseqdac kan tiddadanin i wakken ad nẓer acḥal n yimdanen i yesseqdacen asnas yal ass.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Tiddadanin tudrigin nsant. Ttxil-k·m sezmel belli nesseqdac tiddadanin i wakken ad nẓer acḥal n yimdanen i yesseqdacen asnas. Ur nleqqeḍ ara isefka-inek·inem udmawanen. Ttxil-k·m muqel ad tesremdeḍ tiddadanin.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Tiddadanin timcettlin</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Sken azrir i d-yesbanayen timagit-inu deg usnas</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Tiddadanin n useqdac n usnas</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Suref iasentem n usekles</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Asentem n uzgal n usekles yermed. \nTura tzemreḍ ad tazneḍ iseklas war ma tesliḍ-asen deg tazwara.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Anef i usentem n usekles yensan.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Suqqel asnas deg Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Wali addaden n usnas</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Asekles n unamal n yimesli</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Imesli n unammal n usekles yermed akka tura.\nAd yili imesli mi ara tebduḍ akked mi ara tḥebseḍ asekles.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">Asekles n unamal n yimesli yensa tura.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Nadi amucceḍ</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Anadi ɣef yileqman yermed.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Anadi ɣef yileqman yensa.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Idiwenniyen n usentem n usefsex deg yiɣewwaṛen</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Idiwenniyen n usentem n usefsex remden tura.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Idiwenniyen n usentem n usefsex nsan tura.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Mouvements</string>
-    <string name="toast_gestures_on" comment="Message text">Isillifen remden akka tura.</string>
-    <string name="toast_gestures_off" comment="Message text">Isillifen nsan akka tura.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Ttxil, ma iɛǧeb-ak•am usnas-a, mmeskti-d ad t-tesneqdeḍ deg Google Play.</string>
     <string name="message_app_not_completely_translated" comment="Message text">Asnas ur ittwasuqqel ara (meṛṛa) ɣer tutlayt-a.\nTzemreḍ ad tettekkiḍ deg tsuqqilt n usnas deg Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Imrayen</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Sagen tezi n tsefsit</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Isillifen udmawanen</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Isental</string>
+    <string name="title_theme_settings" comment="Title in Settings">Asentel</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Agraw n Telegram n usnas</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Sken tibzimin ddaw tegnitin n wumuɣ</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Ɣeṛ tiwtilin n useqdec n Common Voice n Mozilla</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Ɣer iwellihen i usentem</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Asenqed deg Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Agrudem n useqdac</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Talqayt</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Sekles iseklas ɣef yibenk</string>
+    <string name="txt_reset_data" comment="Button in Settings">Wennez isefka n usnas</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Ulac timahilin tirmitanin i yellan akka tura</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Sken iḍrisen n tefyar mi ara ttwaslan s wudem ummid</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Sken tignit n uneqqis (usawen ɣer uyeffus) deg wadeg n tqeffalt (ukessar) deg {{*{{listen_name}}*}} akked {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Asali n tefyirt...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Zgel</string>
@@ -168,10 +168,11 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Awennit</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Dayen kfan akk yiklipen i tesɛiḍ beṛṛa n tuqqna. Qqen ɣer internet i wakken ad d-tsaliḍ iklipen-nniḍen i usentem.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Dayen kfant tefyar i tesɛiḍ beṛṛa n tuqqna. Qqen ɣer internet i wakken ad d-tsaliḍ iklipen-nniḍen i usentem.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Tzemreḍ ad teskelseḍ {{*{{n_sentences}}*}} ugar n tefyar send ad teḥwiǧeḍ tuqqna ɣer Internet.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Tzemreḍ ad tesnetmeḍ {{*{{n_clips}}*}} ugar n yiklipen send ad teḥwiǧeḍ ad teqqneḍ ɣer Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Timesliwt...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" tetturmed. Ddu ɣer yiɣewwaren i wakken ad tt-tsenseḍ.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Aḍris n tefyirt yettwaffar</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Senqed tikkelt nniḍen</string>
     <string name="txt_noconnection" comment="Message text">Ur teqqineḍ ara ɣer internet. Qqen ɣer Wi-Fi neɣ ɣer yisefka n uziraz, syen sit ɣef tqeffalt ddaw.</string>
@@ -202,7 +203,7 @@
     <string name="new_badge_earnt_message" comment="Message text">Ayuz! Aql-ak·akem trebḥeḍ tasakezt tamaynut.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Trebḥeḍ tasakezt-a acku tesnetmeḍ ma drus {{*{{n_clips}}*}} yiklipen.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Tewwiḍ tasakezt-a acku tesnetmeḍ ma drus {{*{{n_sentences}}*}} yiklipen.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">Trebḥeḍ tasakezt-a acku tesnetmeḍ neɣ teskelseḍ ma drus {{*{{n_total}}*}} yiklipen.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Trebḥeḍ tasakezt-a acku tesnetmeḍ neɣ teskelseḍ ma drus {{*{{n_total}}*}} yiklipen.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ih</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Tuccḍa</string>
@@ -222,6 +223,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Tura ur teqqineḍ ara yerna asnas ibeddel ɣer uskar aruqqin s wudem awurman.\nAnamek-is tzemreḍ ad teskelseḍ daɣen ad tesnetmeḍ, maca isutar ad ttwaznen umebɛed.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Tzemreḍ ad teẓreḍ deg uskar aruqqin i telliḍ s unadi ɣef tignit-a ɣef ugdil:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Tzemreḍ ad tsiteḍ ɣef tignit-a akken ad teẓreḍ iklipen d tefyar i yettusadren.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Askar n war tuqqna ur yermid ara, ihi ur tezmireḍ ara ad tesqedceḍ asnas mebla tuqqna ɣer Internet. \n I useqdec n tmahilt n uskar n war tuqqna, sermed-itt deg yiɣewwaren.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Iswi n yal ass</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Ulac iswi ittwasbadun</string>
@@ -234,6 +236,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Yettwag ass-a</string>
     <string name="daily_goal_not_achieved_today">Ur yettwag ara ass-a</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Igerrez! Tuwḍeḍ ɣ ɣer yiswi-inek•inem n wass.\nTesnetmeḍ aklip (iklipen) {{*{{n_clips}}*}} d tefyirt (tefyar) {{*{{n_sentences}}*}}.\nUr ttkukru, kemmel attekki deg Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Bḍu</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Bḍu deg</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Aql-i akken ssawḍeɣ iswi-inu n yal ass i @mozilla #CommonVoice s useqdec n #CVAndroid.\nRnu-d ɣer-neɣ, tettekkiḍ! Sebded CV Android seg Google Play neɣ F-Droid tura {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Iswi-a n wass mačči d tamahilt tunṣibt n Mozilla. D tamahilt n usnas-a kan.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Lqem amaynut n usnas yella tura (lqem {{*{{n_version}}*}}). Tzemreḍ ad t-tleqqmeḍ seg tḥanut i tebɣiḍ (F-Droid, Google Play Store) neɣ srid seg GitHub.</string>

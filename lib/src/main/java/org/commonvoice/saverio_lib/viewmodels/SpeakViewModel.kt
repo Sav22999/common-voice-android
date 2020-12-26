@@ -1,24 +1,28 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.*
 import androidx.work.WorkManager
-import kotlinx.android.parcel.Parcelize
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import kotlinx.parcelize.Parcelize
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.ReportsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
-import org.commonvoice.saverio_lib.models.Sentence
-import org.commonvoice.saverio_lib.repositories.RecordingsRepository
-import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.MediaRecorderRepository
+import org.commonvoice.saverio_lib.models.AppAction
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Report
+import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.repositories.AppActionsRepository
+import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
+import org.commonvoice.saverio_lib.repositories.SentencesRepository
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
@@ -29,7 +33,8 @@ class SpeakViewModel(
     private val recordingSoundIndicatorRepository: RecordingSoundIndicatorRepository,
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
-    private val speakPrefManager: SpeakPrefManager
+    private val speakPrefManager: SpeakPrefManager,
+    private val appActionsRepository: AppActionsRepository,
 ) : ViewModel() {
 
     private val _state: MutableLiveData<State> =
@@ -157,6 +162,8 @@ class SpeakViewModel(
                 RecordingsUploadWorker.attachToWorkManager(workManager)
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
             }
+
+            appActionsRepository.insertAction(AppAction.Type.SPEAK_SENT)
         }
     }
 
@@ -166,7 +173,7 @@ class SpeakViewModel(
             _currentSentence.postValue(sentence)
         } else {
             delay(500) //Just to avoid a loop
-            _state.postValue(State.STANDBY)
+            _state.postValue(if (speakPrefManager.noMoreSentencesAvailable) State.NO_MORE_SENTENCES else State.STANDBY)
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
@@ -193,6 +200,7 @@ class SpeakViewModel(
     fun reportSentence(reasons: List<String>) = viewModelScope.launch {
         currentSentence.value?.let {
             reportsRepository.insertReport(Report(it, reasons))
+            appActionsRepository.insertAction(AppAction.Type.SPEAK_REPORTED)
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipSentence()
         }
@@ -218,7 +226,8 @@ class SpeakViewModel(
             RECORDING_ERROR,
             RECORDING_TOO_SHORT,
             RECORDING_TOO_LONG,
-            SUPPRESSED
+            SUPPRESSED,
+            NO_MORE_SENTENCES,
         }
     }
 

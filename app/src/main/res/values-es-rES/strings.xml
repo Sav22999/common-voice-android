@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">Principales contribuyentes</string>
     <string name="txt_top_contributors_recorded">Grabado</string>
     <string name="txt_top_contributors_validated">Validado</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">Estadísticas de la app</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Idioma actual</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Todos los idiomas</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Volver a abrir el Tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Proyecto de código abierto en GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">colaboradores principales</string>
     <string name="txt_developed_by" comment="Label in Settings">desarrollado por</string>
-    <string name="toast_language_changed" comment="Message text">Idioma cambiado correctamente a {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Idioma establecido correctamente en {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Idioma</string>
     <string name="settingsListen" comment="Title in Settings">Escuchar</string>
     <string name="settingsSpeak" comment="Title in Settings">Hablar</string>
     <string name="settingsOther" comment="Title in Settings">Otro</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Enlaces útiles</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Aprende más</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Claro</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Oscuro</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automático</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Apoya mi trabajo. Invítame a un café 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-reproducir el clip cuando se carga</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Auto-reproducción del clip activada.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Auto-reproducción del clip desactivada.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tema oscuro</string>
-    <string name="toast_dark_theme_on" comment="Message text">Tema oscuro activado.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Tema oscuro desactivado.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Contacta con el desarrollador en Telegram</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Funciones experimentales</string>
     <string name="toast_experimental_features_on" comment="Message text">Características experimentales activadas.\nLas nuevas características podrían ser inestables e inseguras.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Funciones experimentales desactivadas.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Guardar registros en un archivo</string>
     <string name="toast_log_on_file_on" comment="Message text">Guardado de registros en un archivo activado.\nPuede adjuntar el archivo log.txt cuando informe un problema.\nLeer más en GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Guardado de registros en un archivo desactivado.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Estadísticas anónimas</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">Estadísticas anónimas activadas.\nNo recopilamos sus datos personales. Solo utilizamos estadísticas para ver cuántas personas utilizan la aplicación cada día.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Estadísticas anónimas desactivadas. Tenga en cuenta que sólo utilizamos estadísticas para ver cuántas personas utilizan la aplicación cada día. No recopilamos ningún dato personal. Por favor considere volver a activar las estadísticas.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Estadísticas genéricas</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Mostrar la cadena que me identifica dentro de la aplicación</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Estadísticas de uso de la aplicación</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Omitir confirmación de grabación</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Omitir la confirmación de grabación activada.\nAhora podrá enviar grabaciones sin tener que escucharlas primero.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Omitir la confirmación de grabación desactivada.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Traduce la aplicación en Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Ver estadísticas de la aplicación</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Indicador sonoro de grabación</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">El sonido del indicador de grabación está ahora activado.\nUn sonido se reproducirá cuando inicie y deje de grabar.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">El sonido del indicador de grabación está desactivado.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Comprobar actualizaciones</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Comprobación de actualizaciones activada.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Comprobación de actualizaciones desactivada.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Evitar diálogos de confirmación en Ajustes</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Evitar diálogos de confirmación activado.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Evitar diálogos de confirmación desactivado.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Gestos</string>
-    <string name="toast_gestures_on" comment="Message text">Gestos activados.</string>
-    <string name="toast_gestures_off" comment="Message text">Gestos desactivados.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Por favor, si te gusta esta aplicación, recuerda valorarla en Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">La aplicación no está traducida (completamente) en este idioma.\nPuedes contribuir a traducir la aplicación en Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animaciones</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Personalizar el tamaño de fuente</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Personalizar gestos</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Temas</string>
+    <string name="title_theme_settings" comment="Title in Settings">Tema</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Grupo de Telegram de la aplicación</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Mostrar etiquetas debajo de los iconos del menú</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Lee los Términos del Servicio de Mozilla Common Voice</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Leer las pautas para validaciones</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Opina en Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Interfaz de Usuario</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Avanzado</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Guardar grabaciones en el dispositivo</string>
+    <string name="txt_reset_data" comment="Button in Settings">Restaurar datos de la aplicación</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No hay características experimentales disponibles ahora</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostrar texto de oraciones cuando los clips son escuchados completamente</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargando frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -168,10 +168,11 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comentario</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Se ha quedado sin oraciones sin conexión. Conéctese a Internet para descargar más oraciones para grabar.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Te has quedado sin clips sin conexión. Conéctate a Internet para descargar más clips para validar.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Puede grabar {{*{{n_sentences}}*}} oraciones más antes de que necesite conectarse a Internet.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Puedes validar {{*{{n_clips}}*}} clips más antes de tener que conectar a Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Escuchando...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" está activado. Ve a Ajustes para deshabilitarlo.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">El texto de la oración está oculto</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Revisar de nuevo</string>
     <string name="txt_noconnection" comment="Message text">No estás conectado a internet. Conéctate a Wi-Fi o datos móviles, luego pulsa el botón de abajo.</string>
@@ -192,17 +193,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Pulsa este icono si quieres escuchar el clip de nuevo.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Si el clip coincide con la frase, pulse este icono para aceptarlo.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Si el clip no coincide con la frase, pulse este icono para rechazarlo.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Si no estás seguro de si aceptar o rechazar una grabación, puedes leer las directrices oficiales para la validación en Mozilla Discourse.\nTambién puedes encontrar este enlace más tarde en Configuración.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Leer ahora</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Lo sentimos, esta característica aún no existe.\nEstamos trabajando constantemente para mejorar la aplicación, así que vuelve más tarde para ver si se ha añadido.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Cerrar</string>
     <string name="labelAllBadges" comment="Title for All badge section">Todas las insignias</string>
     <string name="new_badge_earnt_message" comment="Message text">¡Genial! Acabas de ganar una nueva insignia.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Conseguiste esta insignia porque has validado al menos {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Conseguiste esta insignia porque has validado al menos {{*{{n_sentences}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Conseguiste esta insignia porque has validado o grabado al menos {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ok</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
@@ -222,6 +223,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Estás desconectado y la aplicación cambió automáticamente al modo sin conexión.\nEsto significa que puede continuar grabando y validando, pero las solicitudes se enviarán más tarde.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Puedes saber cuándo estás en modo sin conexión buscando este icono en la pantalla:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Puede tocar ese icono para ver los clips descargados y las frases.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">El modo Sin Conexión no está activado, por lo que no puedes usar la aplicación sin conexión a Internet.\nPara usar la función de modo Sin Conexión, actívala en Ajustes.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Objetivo diario</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Ningún objetivo fijado</string>
@@ -234,6 +236,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Alcanzado hoy</string>
     <string name="daily_goal_not_achieved_today">No alcanzado hoy</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">¡Bien hecho! Has alcanzado tu meta diaria.\nHas validado {{*{{n_clips}}*}} clip(s) y has grabado {{*{{n_sentences}}*}} frase(s).\nSiéntete libre de seguir contribuyendo a Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Compartir</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Compartir en</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Acabo de alcanzar mi meta diaria para #CommonVoice de @mozilla usando #CVAndroid.\n¡Únete y contribuye! Instala CV Android desde Google Play o F-Droid ahora {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">El objetivo diario no es una característica oficial de Mozilla. Es sólo una característica de esta aplicación.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Una nueva versión de la aplicación está disponible (lanzamiento {{*{{n_version}}*}}). Puedes actualizarla desde tu tienda favorita (F-Droid, Google Play Store) o directamente desde GitHub.</string>

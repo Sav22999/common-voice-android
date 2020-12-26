@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">Nejlepší přispěvatelé</string>
     <string name="txt_top_contributors_recorded">Nahráno</string>
     <string name="txt_top_contributors_validated">Ověřeno</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">Statistiky aplikace</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Aktuální jazyk</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Všechny jazyky</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Otevřít tutoriál znovu</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projekt open-source na GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">hlavní přispěvatelé</string>
     <string name="txt_developed_by" comment="Label in Settings">vyvinul</string>
-    <string name="toast_language_changed" comment="Message text">Jazyk změněn správně na {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Jazyk</string>
     <string name="settingsListen" comment="Title in Settings">Poslouchat</string>
     <string name="settingsSpeak" comment="Title in Settings">Mluvit</string>
     <string name="settingsOther" comment="Title in Settings">Ostatní</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Podpořte moji práci. Kupte mi kávu 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Automaticky přehrát klip po načtení</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Automatické přehrávání klipu je zapnuto.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Automatické přehrávání klipu je vypnuto.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tmavý motiv</string>
-    <string name="toast_dark_theme_on" comment="Message text">Tmavý motiv je zapnutý.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Tmavý motiv je vypnutý.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Kontaktujte vývojáře na Telegram</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimentální funkce</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimentální funkce jsou zapnuty.\nNové funkce mohou být nestabilní nebo nespolehlivé.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Experimentální funkce vypnuty.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Ukládat záznamy do souboru</string>
     <string name="toast_log_on_file_on" comment="Message text">Ukládání záznamů do souboru je zapnuto.\nPři nahlašování problému můžete připojit soubor log.txt.\nPřečtěte si více na platformě GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Ukládání záznamů do souboru je vypnuto.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Anonymní statistiky</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymní statistiky jsou zapnuty.\nNeshromažďujeme vaše osobní data. Statistiky používáme pouze, abychom zjistili, kolik lidí denně aplikaci používá.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymní statistiky jsou vypnuty. Berte prosím na vědomí, že statistiky používáme pouze za účelem toho, abychom zjistili, kolik lidí denně aplikaci používá. Neshromažďujeme žádná osobní data. Prosím zvažte opětovné zapnutí statistik.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Přeskakovat potvrzení nahrávání</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Přeskakování potvrzení nahrávání je zapnuto.\nBudete moct posílat nahrávky, aniž byste si je museli pustit.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Přeskakování potvrzení nahrávání je vypnuto.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Překládejte aplikaci na Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Zobrazit statistiky aplikace</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Zvuk nahrávání</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Zvuk nahrávání je zapnut.\nKdyž začnete a skončíte s nahráváním, přehraje se zvuk.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">Zvuk nahrávání je vypnut.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Sledovat aktualizace</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Sledování aktualizací je zapnuto.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Sledování aktualizací je vypnuto.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Přerušit potvrzovací dialogová okna v nastavení</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Přerušení potvrzovacích dialogových oken je zapnuto.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Přerušení potvrzovacích dialogových oken je vypnuto.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Gesta</string>
-    <string name="toast_gestures_on" comment="Message text">Gesta jsou zapnuta.</string>
-    <string name="toast_gestures_off" comment="Message text">Gesta jsou vypnuta.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Pokud se vám tato aplikace líbí, prosím nezapomeňte ji ohodnotit na Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">Tato aplikace není (zcela) přeložena do tohoto jazyka.\nMůžete ji pomoct přeložit na platformě Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animace</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Přizpůsobit velikost písma</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Přizpůsobit gesta</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Motivy</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram skupina aplikace</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Zobrazit popisky pod ikonami menu</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Přečtěte si podmínky služby Mozilla Common Voice</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Přečtěte si pokyny pro ověřování</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Ohodnotit na Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Načítá se věta...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Přeskočit</string>
@@ -168,10 +168,11 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Komentář</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Vyčerpali jste offline věty. Připojte se k Internetu a stáhněte si další věty pro nahrávání.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Vyčerpali jste offline klipy. Připojte se k Internetu a stáhněte si další klipy pro ověření.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Můžete nahrát ještě {{*{{n_sentences}}*}} vět/y předtím, než se budete muset připojit k internetu.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Před připojením k internetu můžete ověřit ještě {{*{{n_clips}}*}} klipů/y.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Zkontrolovat znovu</string>
     <string name="txt_noconnection" comment="Message text">Nejste připojeni k internetu. Připojte se k Wi-Fi nebo k mobilním datům a poté stiskněte tlačítko níže.</string>
@@ -202,7 +203,7 @@
     <string name="new_badge_earnt_message" comment="Message text">Hurá! Právě jste dostali nový odznak.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ok</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Chyba</string>
@@ -222,6 +223,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Nyní jste offline a aplikace se automaticky přepnula do offline režimu.\nTo znamená, že můžete pokračovat v nahrávání a ověřování, ale žádosti budou odeslány později.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">To, zda jste v offline režimu, zjistíte tak, že uvidíte tuto ikonu na obrazovce:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Kliknutím na tuto ikonu zobrazíte stažené klipy a věty.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Denní cíl</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Není nastaven žádný cíl</string>
@@ -234,6 +236,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Dosaženo dnes</string>
     <string name="daily_goal_not_achieved_today">Dnes nebylo dosaženo</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Dobrá práce! Dosáhli jste svého denního cíle.\nPočet ověřených klipů: {{*{{n_clips}}*}}, počet nahraných vět: {{*{{n_sentences}}*}}\nNeváhejte dále přispívat do Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Tento denní cíl není oficiální funkcí Mozilla. Je to jen funkce aplikace.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Je k dispozici nová verze aplikace (vydání {{*{{n_version}}*}}). Můžete si ji aktualizovat ve svém oblíbeném obchodě (F-Droid, Google Play Store) nebo přímo na GitHub.</string>

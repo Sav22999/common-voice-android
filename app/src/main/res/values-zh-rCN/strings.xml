@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">贡献榜</string>
     <string name="txt_top_contributors_recorded">录音数</string>
     <string name="txt_top_contributors_validated">验证数</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">应用统计</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">当前语言</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">所有语言</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">再次打开教程</string>
     <string name="txt_project_github_settings" comment="Button in Settings">GitHub 上的项目开源</string>
-    <string name="txt_contributors" comment="Label in Settings">主要贡献者</string>
     <string name="txt_developed_by" comment="Label in Settings">开发者</string>
-    <string name="toast_language_changed" comment="Message text">语言已正确修改为 {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">语言</string>
     <string name="settingsListen" comment="Title in Settings">监听</string>
     <string name="settingsSpeak" comment="Title in Settings">朗读</string>
     <string name="settingsOther" comment="Title in Settings">其他</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">支持我的工作。购买一杯咖啡 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">加载时自动播放素材</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">自动播放片段已开启。</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">自动播放片段已关闭。</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">暗色主题</string>
-    <string name="toast_dark_theme_on" comment="Message text">黑暗主题已开启。</string>
-    <string name="toast_dark_theme_off" comment="Message text">暗色主题已关闭。</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">在 Telegram 上联系开发者</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">实验性功能</string>
     <string name="toast_experimental_features_on" comment="Message text">实验功能已开启。\n新功能可能不稳定和不安全。</string>
-    <string name="toast_experimental_featured_off" comment="Message text">实验功能已关闭。</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">保存日志到文件</string>
     <string name="toast_log_on_file_on" comment="Message text">将日志保存到文件已开启。\n您可以在报告问题时附上log.txt文件。\n在 GitHub 上阅读更多信息。</string>
-    <string name="toast_log_on_file_off" comment="Message text">保存日志到文件已关闭。</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">匿名统计</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">匿名统计已开启。\n我们不收集您的个人数据。我们只使用统计来查看每天有多少人使用应用程序。</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">匿名统计已关闭。请注意我们仅使用统计来查看每天有多少人使用该应用程序。 我们不收集任何个人数据。请考虑重新开启统计。</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">跳过录制确认</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">跳过录音确认已开启。\n您现在可以发送录音，而无需先收听。</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">跳过录制确认关闭</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">在 Crowdin 上翻译应用程序</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">查看应用统计</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">录制指示器提示音</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">录制指示器声音现在已开启。\n当您开始并停止录制时，将播放声音。</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">录制指示器声音已关闭。</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">检查更新</string>
-    <string name="toast_check_for_updated_on" comment="Message text">检查更新已开启。</string>
-    <string name="toast_check_for_updated_off" comment="Message text">检查更新已关闭。</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">在设置中中止确认对话框</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">中止确认对话框已开启。</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">中止确认对话框已关闭。</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">手势</string>
-    <string name="toast_gestures_on" comment="Message text">手势已开启。</string>
-    <string name="toast_gestures_off" comment="Message text">手势已关闭。</string>
     <string name="message_review_app_on_play_store" comment="Message text">如果您喜欢这个应用，请记得在 Google Play 商店查看。</string>
     <string name="message_app_not_completely_translated" comment="Message text">应用程序没有翻译成这种语言。\n您可以在 Crowdin 上贡献翻译应用程序。</string>
     <string name="txt_animations" comment="Switch-Button in Settings">动画</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">自定义字体大小</string>
     <string name="txt_customise_gestures" comment="Button in Settings">自定义手势</string>
-    <string name="txt_themes_settings" comment="Button in Settings">主题</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram 群組應用程式</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">在菜单图标下方显示标签</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">查看 Mozilla Common Voice 服务条款</string>
     <string name="txt_read_guidelines" comment="Button in Settings">查看验证语音片段的指引</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">在 Google Play 上评价</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">加载句子...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>
@@ -168,10 +168,11 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">评论</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">您已经用完了离线句子。连接到互联网下载更多句子以便录制。</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">您的离线片段已用完。连接到互联网下载更多片段以进行验证。</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">您可以先录制{{*{{n_sentences}}*}} 句子才需要连接到互联网。</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">在您需要连接到互联网之前，您可以验证更多片段{{*{{n_clips}}*}} 。</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">再次检查</string>
     <string name="txt_noconnection" comment="Message text">您没有连接到互联网。连接到 Wi-Fi 或移动数据，然后按下面的按钮。</string>
@@ -202,7 +203,7 @@
     <string name="new_badge_earnt_message" comment="Message text">喜欢！你刚刚赢得了一个新徽章。</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">好的</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">错误</string>
@@ -222,6 +223,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">您现在处于离线状态，应用程序已自动切换到离线模式。\n这意味着您可以继续记录和验证，但请求将在以后发送。</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">您可以通过在屏幕上查找此图标来告诉何时处于离线模式：</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">您可以点击该图标来查看已下载的剪辑和句子。</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">每日目标</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">未设定目标</string>
@@ -234,6 +236,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">今天实现</string>
     <string name="daily_goal_not_achieved_today">今天没有实现</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">做得好！您实现了您的日常目标。\n您验证了 {{*{{n_clips}}*}} 个剪辑，并录制了{{*{{n_sentences}}*}} 句子。\n继续为共同声音做出贡献的自由。</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">这个每日目标不是官方的 Mozilla 功能。它只是此应用程序的一个功能。</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">有新版本的应用程序可用(版本 {*{{n_version}}*}})。 您可以从您最喜欢的商店(F-Droid, Google Play 商店)或直接从 GitHub 更新</string>

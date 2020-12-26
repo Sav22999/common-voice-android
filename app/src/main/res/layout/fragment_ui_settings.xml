@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollSettingsUI"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutSettingsUserInterface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionTheme" />
+
+        <include
+            android:id="@+id/toolbarSettingsSubSectionUI"
+            layout="@layout/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/buttonBackSettingsSubSectionUI"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:elevation="5dp"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionUI"
+            app:srcCompat="@drawable/ic_back_dark" />
+
+        <TextView
+            android:id="@+id/titleSettingsSubSectionUI"
+            android:layout_width="0dp"
+            android:layout_height="60sp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="0dp"
+            android:elevation="5dp"
+            android:gravity="left|center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/title_ui_settings"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/title_very_small"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/toolbarSettingsSubSectionUI"
+            app:layout_constraintStart_toStartOf="@+id/toolbarSettingsSubSectionUI"
+            app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionUI" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsSectionUIGeneric"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarSettingsSubSectionUI">
+
+            <Switch
+                android:id="@+id/switchAnimations"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:drawableStart="@drawable/ic_animations"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:showText="false"
+                android:stateListAnimator="@null"
+                android:switchPadding="4dp"
+                android:text="@string/txt_animations"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/separator2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchAnimations" />
+
+            <Switch
+                android:id="@+id/switchShowLabels"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_labels_below_icons"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:showText="false"
+                android:stateListAnimator="@null"
+                android:switchPadding="4dp"
+                android:text="@string/txt_show_labels_below_menu_icons"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
+            <View
+                android:id="@+id/separator43"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchShowLabels" />
+
+            <Switch
+                android:id="@+id/switchShowIconTopRightInsteadButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_nothing"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:showText="false"
+                android:stateListAnimator="@null"
+                android:switchPadding="4dp"
+                android:text="@string/txt_show_report_icon_instead_of_button"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator43" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsSectionTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius_with_border"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionUIGeneric">
+
+            <TextView
+                android:id="@+id/text_settingsTheme"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/title_theme_settings"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupTheme"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_settingsTheme">
+
+                <RadioButton
+                    android:id="@+id/buttonThemeLight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:buttonTint="@color/colorGray"
+                    android:drawableEnd="@drawable/ic_theme_light"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/colorGray"
+                    android:foreground="@drawable/ripple"
+                    android:gravity="center|clip_vertical|start"
+                    android:paddingStart="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/radioThemeLight"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="normal" />
+
+                <RadioButton
+                    android:id="@+id/buttonThemeDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:buttonTint="@color/colorGray"
+                    android:drawableEnd="@drawable/ic_theme_dark"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/colorGray"
+                    android:foreground="@drawable/ripple"
+                    android:gravity="center|clip_vertical|start"
+                    android:paddingStart="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/radioThemeDark"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="normal" />
+
+                <RadioButton
+                    android:id="@+id/buttonThemeAuto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:buttonTint="@color/colorGray"
+                    android:drawableEnd="@drawable/ic_theme_auto"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/colorGray"
+                    android:foreground="@drawable/ripple"
+                    android:gravity="center|clip_vertical|start"
+                    android:paddingStart="10dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/radioThemeAuto"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="normal" />
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

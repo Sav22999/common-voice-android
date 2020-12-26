@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">أبرز المساهمين</string>
     <string name="txt_top_contributors_recorded">التسجيلات</string>
     <string name="txt_top_contributors_validated">Validated</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">إحصائيات التطبيق</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">اللغة الحالية</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">كل اللغات</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">فتح التعليمات مجدداُ</string>
     <string name="txt_project_github_settings" comment="Button in Settings">المشروع مفتوح المصدر في GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">المساهمون الرئيسيون</string>
     <string name="txt_developed_by" comment="Label in Settings">تم تطويره من طرف</string>
-    <string name="toast_language_changed" comment="Message text">تم تغيير اللغة بشكل صحيح إلى {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">اللغة</string>
     <string name="settingsListen" comment="Title in Settings">الاستماع</string>
     <string name="settingsSpeak" comment="Title in Settings">التحدّث</string>
     <string name="settingsOther" comment="Title in Settings">أخرى</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">ادعم عملي، Buy me a coffee 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">التشغيل تلقائيا فور تحميله</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">تم الآن تفعيل تشغيل المقطع تلقائيا.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">تم الآن إلغاء تفعيل تشغيل المقطع تلقائيا.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">المظهر الأسود</string>
-    <string name="toast_dark_theme_on" comment="Message text">المظهر الأسود مفعل الآن.</string>
-    <string name="toast_dark_theme_off" comment="Message text">تم الآن إلغاء تفعيل المظهر الأسود.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">التواصل مع المطور على التيليجرام</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">الميزات التجريبية</string>
     <string name="toast_experimental_features_on" comment="Message text">تم تشغيل الميزات التجريبية.\nقد تكون الميزات الجديدة غير مستقرة وغير آمنة.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">تم إيقاف تشغيل الميزات التجريبية.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">حفظ السجلات في ملف</string>
     <string name="toast_log_on_file_on" comment="Message text">تم تشغيل حفظ السجلات في ملف.\n يمكنك إرفاق ملف log.txt عند الإبلاغ عن مشكلة.\n اقرأ و تعرف على المزيد في Github.</string>
-    <string name="toast_log_on_file_off" comment="Message text">تم إيقاف تشغيل حفظ السجلات في ملف.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">إحصائيات مجهولة</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">تم تفعيل الإحصائيات المجهولة.\n لا نجمع بياناتك الشخصية بل نستخدم الإحصائيات فقط من أجل معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">تم إلغاء تفعيل الإحصائيات المجهولة، يرجى الملاحظة أننا نستخدم الإحصائيات فقط لغرض معرفة عدد الأشخاص الذين يستخدمون التطبيق كل يوم، لا نجمع أي بيانات شخصية، يرجى إعادة النظر بشأن إعادة تفعيل الإحصائيات.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">تخطّي تأكيد التسجيل</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">تم الآن تشغيل تخطي تأكيد التسجيل.\nستتمكن الآن من إرسال التسجيلات دون الحاجة إلى الاستماع إليها أولا.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">تم إيقاف تشغيل تخطي تأكيد التسجيل.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">ترجمة التطبيق في منصة Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">نظرة حول إحصائيات التطبيق</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">تسجيل مؤشر الصوت</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">تم الآن تشغيل تسجيل مؤشر الصوت.\nA سيتم تشغيل الصوت عند بدء التسجيل و إيقافه.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">تم الآن إيقاف تشغيل تسجيل مؤشر الصوت.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">التحقق من التحديثات</string>
-    <string name="toast_check_for_updated_on" comment="Message text">التحقق من التحديثات مفعّل.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">التحقق من التحديثات غير مفعّل.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">إلغاء تأكيد الحوارات في الإعدادات</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">تم الآن تشغيل إلغاء تأكيد الحوارات.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">تم الآن إيقاف تشغيل تأكيد الحوارات.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">الإيماءات</string>
-    <string name="toast_gestures_on" comment="Message text">تم الآن تشغيل الإيماءات.</string>
-    <string name="toast_gestures_off" comment="Message text">تم الآن إيقاف تشغيل الإيماءات.</string>
     <string name="message_review_app_on_play_store" comment="Message text">رجاءاُ، إذا أعجبك التطبيق، تذكر أن تعمل له مراجعة في متجر Google Play.</string>
     <string name="message_app_not_completely_translated" comment="Message text">التطبيق غير مترجم إلى هذه اللغة (أو ترجمة غير مكتملة).\n يمكنك المساهمة في ترجمة التطبيق على منصة Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">الحركات</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">تخصيص حجم الخط</string>
     <string name="txt_customise_gestures" comment="Button in Settings">تخصيص الإيماءات</string>
-    <string name="txt_themes_settings" comment="Button in Settings">السمات</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">مجموعة تيليجرام الخاصة بالتطبيق</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">إظهار التسميات أسفل أيقونات القائمة</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">جاري تحميل الجملة...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">تخطي</string>
@@ -168,10 +168,11 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">تعليق</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">لقد نفدت الجمل بدون اتصال. اتصل بالإنترنت لتنزيل المزيد من الجمل للتسجيل.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">لقد نفد لديك أقراص غير متصلة. اتصل بالإنترنت لتنزيل المزيد من المقاطع للتحقق من صحتها.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">يمكنك تسجيل {{*{{n_sentences}}*}} المزيد من الجمل قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">يمكنك التحقق من صحة {{*{{n_clips}}*}} المزيد من المقاطع قبل أن تحتاج إلى الاتصال بالإنترنت.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">التحقق مجدداً</string>
     <string name="txt_noconnection" comment="Message text">أنت غير متصل بالأنترنيت، اتصل بشبكة الواي فاي أو بيانات الجوال، ثم اضغط على الرمز أسفله.</string>
@@ -202,7 +203,7 @@
     <string name="new_badge_earnt_message" comment="Message text">مرحى! لقد حصلت للتو على شارة جديدة.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">حسناً</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">خطأ</string>
@@ -222,6 +223,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">أنت الآن غير متصل بالإنترنت والتطبيق تم تشغيله إلى وضع عدم الاتصال تلقائياً.\nهذا يعني أنه يمكنك الاستمرار في التسجيل والتحقق من الصحة، ولكن سيتم إرسال الطلبات في وقت لاحق.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">يمكنك معرفة متى تكون في وضع غير متصل بالإنترنت من خلال البحث عن هذا الرمز على الشاشة:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">يمكنك النقر على هذا الرمز لرؤية المقاطع والجمل التي تم تحميلها.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">الهدف اليومي</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">لم يتم تحديد أي هدف</string>
@@ -234,6 +236,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">تم تحقيقها اليوم</string>
     <string name="daily_goal_not_achieved_today">لم يتم تحقيقها اليوم</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">أحسنت! لقد حققت هدفك اليومي.\nقمت بالتحقق من صحة{{*{{n_clips}}*}}مقطع (مقاطع)وسجلت{{*{{n_sentences}}*}  }جملة (جمل).\n لا تتردد في مواصلة المساهمة في Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">هذا الهدف اليومي ليس ميزة موزيلا الرسمية بل هي فقط ميزة لهذا التطبيق.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">إصدار جديد من التطبيق متوفر حاليا (الإصدار {{*{{n_version}}*}}). يمكنك تحديثه من متجرك المفضل (F-Droid, Google Play Store) أو مباشرة من GitHub.</string>

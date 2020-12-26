@@ -2,33 +2,30 @@ package org.commonvoice.saverio
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.databinding.ActivityRestartBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.koin.android.ext.android.inject
 import java.util.*
 import kotlin.concurrent.schedule
 
-class RestartActivity : VariableLanguageActivity(R.layout.activity_restart) {
-
-    private var PRIVATE_MODE = 0
-    private val UI_LANGUAGE_CHANGED = "UI_LANGUAGE_CHANGED"
+class RestartActivity : ViewBoundActivity<ActivityRestartBinding>(
+    ActivityRestartBinding::inflate
+) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val img: ImageView = this.findViewById(R.id.imgIconStart)
-        val animation: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.start)
+        val animation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.start)
         if (mainPrefManager.areAnimationsEnabled) {
-            img.startAnimation(animation)
+            binding.imgIconStart.startAnimation(animation)
         }
 
-        var restart: Boolean = getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).getBoolean(
-            UI_LANGUAGE_CHANGED,
-            true
-        )
-        if (restart) {
+        if (mainPrefManager.hasLanguageChanged) {
             Timer("Restart", false).schedule(1000) {
                 restart()
             }
@@ -43,17 +40,16 @@ class RestartActivity : VariableLanguageActivity(R.layout.activity_restart) {
         //
     }
 
-    fun restart() {
-        getSharedPreferences(UI_LANGUAGE_CHANGED, PRIVATE_MODE).edit()
-            .putBoolean(UI_LANGUAGE_CHANGED, false).apply()
+    private fun restart() {
+        mainPrefManager.hasLanguageChanged = false
 
-        val intent = Intent(this, MainActivity::class.java).also {
+        Intent(this, MainActivity::class.java).also {
             startActivity(it)
             finish()
         }
     }
 
-    fun start() {
+    private fun start() {
         finish()
     }
 }

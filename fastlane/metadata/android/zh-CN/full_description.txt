@@ -18,6 +18,8 @@
 支持暗色主题
 每日目标
 手势操作
+将录音保存到本设备
+其他特色功能
 在设置中可自定义应用体验
 
 加入 Telegram 群：https://t.me/common_voice_android（@common_voice_android）

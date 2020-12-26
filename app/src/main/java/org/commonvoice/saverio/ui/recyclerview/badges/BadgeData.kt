@@ -1,9 +1,6 @@
 package org.commonvoice.saverio.ui.recyclerview.badges
 
-import androidx.annotation.DrawableRes
-import org.commonvoice.saverio.R
-
-sealed class Badge(value: Int) {
+sealed class Badge(val badgeValue: Int) {
 
     data class Level(
 
@@ -44,41 +41,22 @@ sealed class Badge(value: Int) {
             "200K"
         )
 
-        private fun switchLevel(savedLevel: Int) = when (savedLevel) {
-            in 0..9 -> 1
-            in 10..49 -> 2
-            in 50..99 -> 3
-            in 100..499 -> 4
-            in 500..999 -> 5
-            in 1000..4999 -> 6
-            in 5000..9999 -> 7
-            in 10000..49999 -> 8
-            in 50000..99999 -> 9
-            in 100000..199999 -> 10
-            in 200000..399999 -> 11
-            in 400000..999999 -> 12
-            in 1000000..1999999 -> 13
-            in 2000000..3999999 -> 14
-            in 4000000..99999990000 -> 15
-            else -> 1
-        }
-
         private fun inverseSwitch(level: Int, isLevel: Boolean) = when (level) {
             1 -> 0
             2 -> if (isLevel) 10 else 5
-            3 -> if (isLevel) 100 else 50
-            4 -> if (isLevel) 200 else 100
-            5 -> if (isLevel) 1000 else 500
-            6 -> if (isLevel) 2000 else 1000
-            7 -> if (isLevel) 10000 else 5000
-            8 -> if (isLevel) 20000 else 10000
-            9 -> if (isLevel) 100000 else 50000
-            10 -> if (isLevel) 200000 else 100000
-            11 -> if (isLevel) 400000 else 200000
-            12 -> if (isLevel) 1000000 else 500000
-            13 -> if (isLevel) 2000000 else 1000000
-            14 -> if (isLevel) 4000000 else 2000000
-            15 -> if (isLevel) 10000000 else 5000000
+            3 -> 50
+            4 -> 100
+            5 -> 500
+            6 -> 1000
+            7 -> 5000
+            8 -> 10000
+            9 -> 50000
+            10 -> 100000
+            11 -> 200000
+            12 -> 500000
+            13 -> 1000000
+            14 -> 2000000
+            15 -> 4000000
             else -> 0
         }
 
@@ -105,17 +83,16 @@ sealed class Badge(value: Int) {
         }
 
         fun generateBadgeData(
-            savedLevel: Int,
-            recordingsNumber: Int,
-            validationsNumber: Int
+            savedLevel: Int, //56
+            recordingsNumber: Int, //27
+            validationsNumber: Int //29
         ): List<Badge> {
             val baseList = mutableListOf<Badge>()
 
-            val levelNum = switchLevel(savedLevel)
-            val recordingsIndex = getTextArrayIndex(recordingsNumber)
-            val validationsIndex = getTextArrayIndex(validationsNumber)
+            val recordingsIndex = getTextArrayIndex(recordingsNumber) //1
+            val validationsIndex = getTextArrayIndex(validationsNumber) //1
 
-            for (x in 1..levelNum) {
+            for (x in 1 .. savedLevel) {
                 baseList.add(
                     Level(inverseSwitch(x, true), x)
                 )

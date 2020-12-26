@@ -18,6 +18,8 @@ This is not the official app of Common Voice. It's developed by Saverio Morelli
 - Dark theme supported
 - Daily goal
 - Gestures
+- Save your recordings on your device
+- Many other features
 - The app experience is totally customisable in Settings
 
 Join the Telegram group: https://t.me/common_voice_android (@common_voice_android)

@@ -6,7 +6,7 @@
 
 [*If you have issues with the official Common Voice website, please report them on GitHub repository so that Mozilla can fix them.*](https://bit.ly/2Z73TZZ)
 
-This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli, using the Android Studio IDE.
+This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli and other contributors, using the Android Studio IDE.
 
 [![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
@@ -14,11 +14,15 @@ This is not the official app of the Common Voice project by Mozilla. This app is
 
 If you have any questions, please open an issue (you can add the label `question` there).
 
+### Join us on Telegram
+
 [<img src="images/icons/telegram.png" height="50px"></img>](https://bit.ly/3clgfkg) You can join the [Telegram group](https://bit.ly/3clgfkg) of the app [English], where you can ask for support or if you want to know news and updates about the app.
 
-[**You can see Anonymous Statistics**](https://bit.ly/35d2dza)
+[**You can see the anonymous Statistics**](https://bit.ly/35d2dza)
 
 You can contact me also on Telegram, with the username `@Sav22999` (I speak `Italian` and `English`); I’m always available to support you or to respond to your questions.
+
+### Support me and my work
 
 If you like this project, leave a *Star* to receive updates on your *GitHub dashboard*.
 
@@ -45,27 +49,35 @@ If you want screenshots of the other versions, go to the `screenshots` folder.
 
 ### Why an Android app of Common Voice?
 
-There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online; you can set the daily goal (it's not the same of Common Voice website); you can record sentences and validate clips, with a few taps. **You can validate and record when you are not connected to the Internet too!** So, the app is smart, customisable, light, and **powerful**.
+There is already the website, which is responsive and mobile-friendly, but actually it’s very slow because of so many animations and graphic effects, which distract and annoy you. So, this app want to improve the experience of this fantastic project. You can see statistics, voices online; you can set the daily goal (it's not the same of Common Voice website); you can record sentences and validate clips, with a few taps. **You can validate and record when you are not connected to the Internet as well!** So, the app is smart, customisable, light, and **powerful**.
 
 ### Gestures
 
-You can turn on/off "Gestures" in Settings. These are the supported gestures (now):
+You can read more about Gesture here: [https://www.saveriomorelli.com/commonvoice/gestures/](https://bit.ly/3phQ0lP)
 
-|                         **Swipe-up**                         |                        **Swipe-left**                        |                       **Swipe-right**                        |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|  <img src="images/icons/swipe-up.png" height="100px"></img>  | <img src="images/icons/swipe-left.png" height="100px"></img> | <img src="images/icons/swipe-right.png" height="100px"></img> |
-| In **Speak** and **Listen** you can swipe-up to *Report* a clip/sentence | In **Speak**, **Listen**, **Login**, **Profile**, **All badges** you can swipe-left to go back (so, it's the some action of "back button") | In **Speak** and **Listen** you can swipe-right to *Skip* the clip/sentence |
-| [**removed**] ~~In **Tutorial** you can swipe-up to see *Terms* (just the first view of tutorial)~~ | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-left to go back to the previous view ("to navigate") | In **Tutorial**, **First-run Listen** and **First-run Speak** you can swipe-right to go forward to the next view ("to navigate") |
+### Offline mode
+
+You can read more about Offline mode here: [https://www.saveriomorelli.com/commonvoice/offline-mode/](https://bit.ly/3nJwpuq)
 
 ### Translations
 
 The app is translated in many languages, see list on Crowdin:  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
+
+Thanks everyone translate it!
 
 ### License
 
 The license of *CV Android* is GPLv3.
 
 <img src="images/icons/gpl.png" width="100px"></img>
+
+### Privacy policy
+
+You can read the specific file: [PRIVACY.md](PRIVACY.md)
+
+### API Documentation
+
+You can read the specific file about API (just relative to my website): [API.md](API.md)
 
 
 

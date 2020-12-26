@@ -18,6 +18,8 @@ Questa non è l'app ufficiale di Common Voice. È sviluppata da Saverio Morelli
 - Tema scuro supportato
 - Obiettivo giornaliero
 - Gesti
+- Salva le tue registrazioni sul tuo dispositivo
+- Molte altre funzionalità
 - L'esperienza dell'app è completamente personalizzabile nelle Impostazioni
 
 Unisciti al gruppo Telegram: https://t.me/common_voice_android (@common_voice_android)
