@@ -12,6 +12,7 @@ import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio_lib.preferences.*
+import org.commonvoice.saverio_lib.repositories.StatsRepository
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -33,6 +34,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     private val firstRunPrefManager by inject<FirstRunPrefManager>()
     private val logPrefManager by inject<LogPrefManager>()
     private val loginViewModel by viewModel<LoginViewModel>()
+
+    private val statsRepository by inject<StatsRepository>()
 
     override fun onStart() {
         super.onStart()
@@ -133,13 +136,13 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
         setTheme()
     }
 
-    fun setupButtons() {
+    private fun setupButtons() {
         buttonShowStringIdentifyMe.setOnClickListener {
-            showMessageDialog("", mainPrefManager.statsUserId)
+            showMessageDialog("", statsRepository.getUserId())
         }
     }
 
-    fun setTheme() {
+    private fun setTheme() {
         withBinding {
             theme.setElement(layoutSettingsAdvanced)
 

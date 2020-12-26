@@ -96,7 +96,7 @@ class StatsRepository(
         return statsClient.getUserAppUsageStatistics(userId, startDate, endDate).body()
     }
 
-    private fun getUserId(): String {
+    fun getUserId(): String {
         val userId = mainPrefManager.statsUserId
 
         return if (userId != "") {
