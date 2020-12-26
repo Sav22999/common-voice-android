@@ -75,7 +75,7 @@ class StatsRepository(
             appVersionCode,
             appSource,
             appAction.type.num,
-            getUserId(),
+            if (mainPrefManager.areAppUsageStatsEnabled) getUserId() else "",
             if (appAction.offline) 1 else 0
         )
 

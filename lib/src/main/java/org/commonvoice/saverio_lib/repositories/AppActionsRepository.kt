@@ -1,7 +1,9 @@
 package org.commonvoice.saverio_lib.repositories
 
 import androidx.annotation.WorkerThread
+import androidx.work.WorkManager
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.commonvoice.saverio_lib.background.AppUsageUploadWorker
 import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.models.AppAction
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
@@ -10,12 +12,13 @@ class AppActionsRepository(
     database: AppDB,
     private val prefManager: MainPrefManager,
     private val connectionManager: ConnectionManager?,
+    private val workManager: WorkManager?,
 ) {
 
     private val actionsDao = database.appActions()
 
     suspend fun insertAction(actionType: AppAction.Type) {
-        if (prefManager.areAppUsageStatsEnabled && connectionManager != null) {
+        if (connectionManager != null && workManager != null) {
             insertAction(
                 AppAction(
                     0,
@@ -24,6 +27,8 @@ class AppActionsRepository(
                     !connectionManager.isInternetAvailable
                 )
             )
+
+            AppUsageUploadWorker.attachToWorkManager(workManager)
         }
     }
 
