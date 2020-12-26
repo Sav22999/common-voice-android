@@ -18,7 +18,7 @@ If you want additional information about the Policy privacy of Common Voice proj
 
 ### Generic statistics
 
-*You can disable Anonymous Statistics always, in Settings. If you disable statistics, you will not be in public statistics, but app sent anyway data to my database.*
+*You can disable Generic statistics always, in Settings. If you disable these statistics, you will not be in public statistics, but app sent anyway data to my database.*
 
 These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language**, **logged_status**, **version** and **status_statistics**.
 
@@ -64,6 +64,8 @@ This option is useful when you want to report a bug, so you can attach this file
 ### App usage statistics
 
 The app, from version 2.2, send to my website also the app usage. These information are absolutely anonymous and are useful to see how many users use, actually, the app and how many contributions are from the app.
+
+*You can disable App usage statistics in Settings. If you disable them, the app anyway will send query to my server, but the username is empty, in this way there is no way to know from who arrives statistics.* 
 
 This is what the app send to my server:
 
