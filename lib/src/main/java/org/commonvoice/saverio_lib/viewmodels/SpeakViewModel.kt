@@ -173,7 +173,7 @@ class SpeakViewModel(
             _currentSentence.postValue(sentence)
         } else {
             delay(500) //Just to avoid a loop
-            _state.postValue(State.STANDBY)
+            _state.postValue(if (speakPrefManager.noMoreSentencesAvailable) State.NO_MORE_SENTENCES else State.STANDBY)
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
@@ -226,7 +226,8 @@ class SpeakViewModel(
             RECORDING_ERROR,
             RECORDING_TOO_SHORT,
             RECORDING_TOO_LONG,
-            SUPPRESSED
+            SUPPRESSED,
+            NO_MORE_SENTENCES,
         }
     }
 

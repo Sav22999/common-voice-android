@@ -55,7 +55,8 @@ class ListenViewModel(
             _currentClip.postValue(clip)
         } else {
             delay(500)
-            _state.postValue(State.STANDBY)
+            _state.postValue(if (listenPrefManager.noMoreClipsAvailable) State.NO_MORE_CLIPS else State.STANDBY)
+            ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
         }
     }
 
@@ -148,7 +149,8 @@ class ListenViewModel(
             STANDBY,
             LISTENING,
             LISTENED,
-            ERROR
+            ERROR,
+            NO_MORE_CLIPS,
         }
     }
 

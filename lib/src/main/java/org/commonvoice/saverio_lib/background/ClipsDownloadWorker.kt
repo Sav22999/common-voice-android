@@ -5,9 +5,9 @@ import androidx.work.*
 import kotlinx.coroutines.coroutineScope
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.db.AppDB
-import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import java.util.concurrent.TimeUnit
 
@@ -43,6 +43,9 @@ class ClipsDownloadWorker(
                 }
                 else -> {
                     var result = Result.success()
+
+                    listenPrefManager.noMoreClipsAvailable = false
+
                     clipsRepository.loadNewClips(numberDifference, forEachClip = { clip ->
                         clipsRepository.insertClip(clip.also {
                             it.sentence.setLanguage(currentLanguage)
@@ -53,6 +56,8 @@ class ClipsDownloadWorker(
                         } else {
                             Result.retry()
                         }
+                    }, onEmpty = {
+                        listenPrefManager.noMoreClipsAvailable = true
                     })
                     result
                 }

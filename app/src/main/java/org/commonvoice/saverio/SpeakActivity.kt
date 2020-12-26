@@ -192,6 +192,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 loadUIStateLoading()
                 speakViewModel.loadNewSentence()
             }
+            SpeakViewModel.Companion.State.NO_MORE_SENTENCES -> {
+                loadUIStateNoMoreSentences()
+                speakViewModel.loadNewSentence()
+            }
             SpeakViewModel.Companion.State.RECORDING -> {
                 loadUIStateRecording()
                 isAudioBarVisible = true
@@ -341,6 +345,21 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun loadUIStateLoading() = withBinding {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
+        textSentenceSpeak.text = "···"
+
+        buttonRecordOrListenAgain.isGone = true
+        if (settingsPrefManager.showReportIcon) {
+            hideImage(imageReportIconSpeak)
+        } else {
+            buttonReportSpeak.isGone = true
+        }
+        buttonSendSpeak.isGone = true
+        buttonSkipSpeak.isEnabled = false
+        buttonStartStopSpeak.isEnabled = false
+    }
+
+    private fun loadUIStateNoMoreSentences() = withBinding {
+        textMessageAlertSpeak.text = "No more sentences"
         textSentenceSpeak.text = "···"
 
         buttonRecordOrListenAgain.isGone = true

@@ -114,6 +114,10 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     loadUIStateLoading()
                     listenViewModel.loadNewClip()
                 }
+                ListenViewModel.Companion.State.NO_MORE_CLIPS -> {
+                    loadUIStateNoMoreClips()
+                    listenViewModel.loadNewClip()
+                }
                 ListenViewModel.Companion.State.LISTENING -> {
                     loadUIStateListening()
                 }
@@ -123,8 +127,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 ListenViewModel.Companion.State.ERROR -> {
                     //TODO
                     loadUIStateListening()
-                }
-                else -> {
                 }
             }
         })
@@ -150,7 +152,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             animateProgressBar(
                 dailyGoal = it.getDailyGoal(),
                 currentRecordingsValidations = (it.validations + it.recordings)
-            );
+            )
         })
 
         checkOfflineMode(connectionManager.isInternetAvailable)
@@ -226,7 +228,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         var newValue = 0
 
         if (dailyGoal == 0 || currentRecordingsValidations >= dailyGoal) {
-            newValue = width;
+            newValue = width
         } else {
             //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
             newValue =
@@ -315,6 +317,32 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
     }
 
+    private fun loadUIStateNoMoreClips() = withBinding {
+        textSentenceListen.setTextColor(
+            ContextCompat.getColor(
+                this@ListenActivity,
+                R.color.colorWhite
+            )
+        )
+
+        if (!listenViewModel.stopped) {
+            textSentenceListen.text = "···"
+            textMessageAlertListen.text = "No more clips"
+            buttonStartStopListen.isEnabled = false
+            if (settingsPrefManager.showReportIcon) {
+                hideImage(imageReportIconListen)
+            } else {
+                buttonReportListen.isGone = true
+            }
+        }
+        //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+        if (!listenViewModel.opened) {
+            listenViewModel.opened = true
+            startAnimation(buttonStartStopListen, R.anim.zoom_in_speak_listen)
+            startAnimation(buttonSkipListen, R.anim.zoom_in_speak_listen)
+        }
+    }
+
     private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) = withBinding {
         textSentenceListen.setTextColor(
             ContextCompat.getColor(
@@ -324,12 +352,10 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         )
 
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
-            textMessageAlertListen.setText(
-                getString(R.string.txt_sentence_feature_enabled).replace(
-                    "{{*{{feature_name}}*}}",
-                    getString(R.string.txt_show_sentence_at_the_ending)
-                ) + "\n" + getString(R.string.txt_press_icon_below_listen_1)
-            )
+            textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
+                "{{*{{feature_name}}*}}",
+                getString(R.string.txt_show_sentence_at_the_ending)
+            ) + "\n" + getString(R.string.txt_press_icon_below_listen_1)
 
         } else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
@@ -431,13 +457,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         var showListeningSentence = true
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
-            textMessageAlertListen.setText(
-                getString(R.string.txt_sentence_feature_enabled).replace(
-                    "{{*{{feature_name}}*}}",
-                    getString(R.string.txt_show_sentence_at_the_ending)
-                ) + "\n" + getString(
-                    R.string.txt_press_icon_below_listen_2
-                )
+            textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
+                "{{*{{feature_name}}*}}",
+                getString(R.string.txt_show_sentence_at_the_ending)
+            ) + "\n" + getString(
+                R.string.txt_press_icon_below_listen_2
             )
             textSentenceListen.setText(R.string.txt_listening_clip)
             textSentenceListen.setTextColor(
