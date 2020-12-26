@@ -7,12 +7,14 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
+import androidx.navigation.fragment.findNavController
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentYouHaveToAcceptPrivacyPolicyBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
@@ -25,6 +27,7 @@ class PrivacyPolicyFragment : ViewBoundFragment<FragmentYouHaveToAcceptPrivacyPo
 
     private val mainPrefManager by inject<MainPrefManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
+    private val connectionManager by inject<ConnectionManager>()
 
     override fun inflate(
         layoutInflater: LayoutInflater,
@@ -46,6 +49,13 @@ class PrivacyPolicyFragment : ViewBoundFragment<FragmentYouHaveToAcceptPrivacyPo
         }
         binding.btnOpenPrivacyPolicy.onClick {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/")))
+        }
+
+        connectionManager.liveInternetAvailability.observe(viewLifecycleOwner) {
+            if (!it) {
+                findNavController().navigateUp()
+                findNavController().navigate(R.id.noConnectionFragment)
+            }
         }
     }
 

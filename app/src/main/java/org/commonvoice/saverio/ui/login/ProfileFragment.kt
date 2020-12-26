@@ -119,7 +119,7 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
                 }
             }
 
-            if (it == null) {
+            if (it == null && connectionManager.isInternetAvailable) {
                 findNavController().navigate(R.id.privacyPolicyFragment)
             }
         })
