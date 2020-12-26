@@ -20,7 +20,7 @@ class AppUsageUploadWorker(
     private val retrofitFactory = RetrofitFactory(prefManager)
 
     private val statsRepository = StatsRepository(prefManager, retrofitFactory)
-    private val appActionsRepository = AppActionsRepository(db, prefManager, null)
+    private val appActionsRepository = AppActionsRepository(db, prefManager, null, null)
 
     override suspend fun doWork(): Result = coroutineScope {
         return@coroutineScope try {

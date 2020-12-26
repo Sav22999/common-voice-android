@@ -69,7 +69,7 @@ class CommonVoice : Application() {
         single { CVStatsRepository(get(), get()) }
         single { GithubRepository(get()) }
         single { FileLogsRepository(get(), get(), get()) }
-        single { AppActionsRepository(get(), get(), get()) }
+        single { AppActionsRepository(get(), get(), get(), get()) }
     }
 
     private val mvvmViewmodels = module {
