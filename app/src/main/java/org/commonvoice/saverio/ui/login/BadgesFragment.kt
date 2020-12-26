@@ -13,6 +13,7 @@ import org.commonvoice.saverio.ui.recyclerview.badges.Badge
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeAdapter
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.koin.android.ext.android.inject
@@ -25,6 +26,7 @@ class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
         return AllBadgesBinding.inflate(layoutInflater, container, false)
     }
 
+    private val connectionManager by inject<ConnectionManager>()
     private val mainPrefManager by inject<MainPrefManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
 
@@ -36,6 +38,12 @@ class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
 
         binding.btnCloseBadges.setOnClickListener {
             findNavController().navigateUp()
+        }
+
+        connectionManager.liveInternetAvailability.observe(viewLifecycleOwner) {
+            if (!it) {
+                findNavController().navigate(R.id.noConnectionFragment)
+            }
         }
 
         loadBadges()

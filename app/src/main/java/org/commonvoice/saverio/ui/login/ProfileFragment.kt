@@ -1,6 +1,5 @@
 package org.commonvoice.saverio.ui.login
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
 import android.net.Uri
@@ -54,6 +53,12 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
         if (mainPrefManager.sessIdCookie == null) {
             findNavController().navigate(R.id.loginFragment)
             return
+        }
+
+        connectionManager.liveInternetAvailability.observe(viewLifecycleOwner) {
+            if (!it) {
+                findNavController().navigate(R.id.noConnectionFragment)
+            }
         }
 
         if (mainPrefManager.areGesturesEnabled) {
@@ -114,7 +119,7 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
                 }
             }
 
-            if (it == null) {
+            if (it == null && connectionManager.isInternetAvailable) {
                 findNavController().navigate(R.id.privacyPolicyFragment)
             }
         })

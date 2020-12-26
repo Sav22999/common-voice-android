@@ -11,6 +11,7 @@ import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.StatsRepository
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
@@ -45,6 +46,9 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
         }
 
         withBinding {
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsAdvanced.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+
             switchGenericStatistics.setOnCheckedChangeListener { _, isChecked ->
                 mainPrefManager.areGenericStats = isChecked
             }

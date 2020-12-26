@@ -4,14 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.work.ExistingWorkPolicy
 import kotlinx.android.synthetic.main.fragment_gestures_settings.*
 import org.commonvoice.saverio.databinding.FragmentGesturesSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
-import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
-import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
 
 class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBinding>() {
@@ -33,8 +30,17 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
         }
 
         withBinding {
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsGestures.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+
             switchSettingsSubSectionGestures.setOnCheckedChangeListener { _, isChecked ->
                 mainPrefManager.areGesturesEnabled = isChecked
+
+                if (isChecked) {
+                    nestedScrollSettingsGestures.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+                } else {
+                    nestedScrollSettingsGestures.setupOnSwipeRight(requireContext()) { }
+                }
             }
             switchSettingsSubSectionGestures.isChecked = mainPrefManager.areGesturesEnabled
 

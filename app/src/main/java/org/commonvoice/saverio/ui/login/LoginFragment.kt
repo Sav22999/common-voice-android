@@ -1,6 +1,5 @@
 package org.commonvoice.saverio.ui.login
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
@@ -17,13 +16,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.work.WorkManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.commonvoice.saverio.LoginActivity
-import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.BottomsheetLoginBinding
 import org.commonvoice.saverio.databinding.FragmentLoginBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
@@ -34,10 +33,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
     private val mainPrefManager by inject<MainPrefManager>()
+    private val workManager by inject<WorkManager>()
+    private val connectionManager by inject<ConnectionManager>()
 
     private val loginViewModel by viewModel<LoginViewModel>()
-
-    private val workManager by inject<WorkManager>()
 
     override fun inflate(
         layoutInflater: LayoutInflater,
@@ -72,6 +71,12 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                     activity?.onBackPressed()
                 }
             })
+        }
+
+        connectionManager.liveInternetAvailability.observe(viewLifecycleOwner) {
+            if (!it) {
+                findNavController().navigate(R.id.noConnectionFragment)
+            }
         }
 
         binding.btnAlreadyAVerificationLinkWebBrowser.onClick {

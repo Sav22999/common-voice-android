@@ -29,6 +29,12 @@ class NoConnectionFragment : ViewBoundFragment<FragmentNoconnectionBinding>() {
             checkConnection()
         }
 
+        connectionManager.liveInternetAvailability.observe(viewLifecycleOwner) {
+            if (it) {
+                checkConnection()
+            }
+        }
+
         setTheme()
     }
 

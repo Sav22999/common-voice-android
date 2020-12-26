@@ -62,8 +62,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     showMessageDialog("", "", 10)
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled))
-                onBackPressed()
+                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled), type = 14)
             } else {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
@@ -361,7 +360,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         } else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        if (!listenViewModel.showSentencesTextAtTheEnd()) {
+        if (!listenViewModel.showSentencesTextAtTheEnd() || listenViewModel.listenedOnce) {
             textSentenceListen.text = clip.sentence.sentenceText
             textSentenceListen.setTextColor(
                 ContextCompat.getColor(
@@ -405,7 +404,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
 
         if (!listenViewModel.startedOnce) {
-            if (listenViewModel.autoPlay() && !noAutoPlay) {
+            if (listenViewModel.autoPlay() && !noAutoPlay && !(!settingsPrefManager.isOfflineMode && !connectionManager.isInternetAvailable)) {
                 listenViewModel.startListening()
             }
         }
@@ -441,7 +440,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             )
         )
 
-        var showListeningSentence = true
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
                 "{{*{{feature_name}}*}}",
@@ -450,6 +448,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 R.string.txt_press_icon_below_listen_2
             )
             textSentenceListen.setText(R.string.txt_listening_clip)
+            resizeSentence()
             textSentenceListen.setTextColor(
                 ContextCompat.getColor(
                     this@ListenActivity,
@@ -484,6 +483,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun loadUIStateListened() = withBinding {
         buttonNoClip.isVisible = true
         textSentenceListen.text = listenViewModel.getSentenceText()
+        resizeSentence()
         textSentenceListen.setTextColor(
             ContextCompat.getColor(
                 this@ListenActivity,
