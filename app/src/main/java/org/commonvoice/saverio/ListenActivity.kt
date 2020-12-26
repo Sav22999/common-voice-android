@@ -361,7 +361,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         } else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        if (!listenViewModel.showSentencesTextAtTheEnd()) {
+        if (!listenViewModel.showSentencesTextAtTheEnd() || listenViewModel.listenedOnce) {
             textSentenceListen.text = clip.sentence.sentenceText
             textSentenceListen.setTextColor(
                 ContextCompat.getColor(
@@ -441,7 +441,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             )
         )
 
-        var showListeningSentence = true
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
                 "{{*{{feature_name}}*}}",
