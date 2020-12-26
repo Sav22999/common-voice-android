@@ -18,7 +18,7 @@ class AppActionsRepository(
     private val actionsDao = database.appActions()
 
     suspend fun insertAction(actionType: AppAction.Type) {
-        if (prefManager.areAppUsageStatsEnabled && connectionManager != null && workManager != null) {
+        if (connectionManager != null && workManager != null) {
             insertAction(
                 AppAction(
                     0,
