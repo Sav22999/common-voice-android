@@ -41,7 +41,7 @@ You can see public statistics on website: [https://saveriomorelli.com/app/common
 
 The file log is saved in an internal database, to a file and, also, it's sent to my website. In this way I can see fast issues and fix them. This is what I send to my website:
 
-You can, anyway, save the file log on your device, (enable it in `Settings` > `Advanced`). To find the file you need to go to `Internal storage` > `org.commonvoice.saverio` > `files` > `logs`. Here there will be all log files (".txt"), that you could be attached to issues or reports.
+You can, anyway, save the file log on your device, (enable it in `Settings` > `Advanced`). To find the file you need to go to `Internal storage` > `data` > `org.commonvoice.saverio` > `files` > `logs`. Here there will be all log files (".txt"), that you could be attached to issues or reports.
 
 | Key              | Value            | Explanation                                                  |
 | ---------------- | ---------------- | ------------------------------------------------------------ |
