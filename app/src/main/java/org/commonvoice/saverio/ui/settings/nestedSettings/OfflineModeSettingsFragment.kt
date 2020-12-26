@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.fragment_offline_settings.*
-import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
@@ -42,6 +42,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         }
 
         withBinding {
+            nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+
             switchSettingsSubSectionOfflineMode.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isOfflineMode = isChecked
                 var count = 50

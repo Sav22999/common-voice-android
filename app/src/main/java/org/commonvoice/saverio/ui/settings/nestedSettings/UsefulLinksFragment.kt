@@ -4,9 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_useful_links_settings.*
 import org.commonvoice.saverio.databinding.FragmentUsefulLinksSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 
 class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding>() {
 
@@ -20,36 +20,40 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionUsefulLinks.setOnClickListener {
-            activity?.onBackPressed()
-        }
+        withBinding {
+            nestedScrollSettingsUsefulLinks.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
-        buttonTranslateApp.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3bNBoUU")))
-        }
+            buttonBackSettingsSubSectionUsefulLinks.setOnClickListener {
+                activity?.onBackPressed()
+            }
 
-        buttonSeeAppStatistics.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/35d2dza")))
-        }
+            buttonTranslateApp.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3bNBoUU")))
+            }
 
-        buttonTelegramGroupCVAndroid.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3clgfkg")))
-        }
+            buttonSeeAppStatistics.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/35d2dza")))
+            }
 
-        buttonGuidelinesForValidations.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ")))
-        }
+            buttonTelegramGroupCVAndroid.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3clgfkg")))
+            }
 
-        buttonTermsOfService.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R")))
-        }
+            buttonGuidelinesForValidations.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ")))
+            }
 
-        buttonContactDeveloperOnTelegram.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/359wgbg")))
-        }
+            buttonTermsOfService.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/3b0dN3R")))
+            }
 
-        buttonProjectOnGitHub.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2PeOGRg")))
+            buttonContactDeveloperOnTelegram.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/359wgbg")))
+            }
+
+            buttonProjectOnGitHub.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2PeOGRg")))
+            }
         }
 
         setTheme()

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_experimental_settings.*
 import org.commonvoice.saverio.databinding.FragmentExperimentalSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 
 class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSettingsBinding>() {
 
@@ -21,6 +22,8 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
         buttonBackSettingsSubSectionExperimental.setOnClickListener {
             activity?.onBackPressed()
         }
+
+        binding.nestedScrollSettingsExperimentalFeatures.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
         setTheme()
     }

@@ -1,14 +1,11 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_advanced_settings.*
 import kotlinx.android.synthetic.main.fragment_listen_settings.*
-import org.commonvoice.saverio.MessageDialog
-import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentListenSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
@@ -33,6 +30,8 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
         }
 
         withBinding {
+            nestedScrollSettingsListen.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+
             switchAutoPlayClips.setOnCheckedChangeListener { _, isChecked ->
                 listenPrefManager.isAutoPlayClipEnabled = isChecked
             }

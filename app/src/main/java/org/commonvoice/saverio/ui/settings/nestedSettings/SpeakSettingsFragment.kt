@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_speak_settings.*
 import org.commonvoice.saverio.databinding.FragmentSpeakSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
-import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
@@ -30,6 +30,8 @@ class SpeakSettingsFragment : ViewBoundFragment<FragmentSpeakSettingsBinding>() 
         }
 
         withBinding {
+            nestedScrollSettingsSpeak.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+
             switchSoundIndicator.setOnCheckedChangeListener { _, isChecked ->
                 speakPrefManager.playRecordingSoundIndicator = isChecked
             }

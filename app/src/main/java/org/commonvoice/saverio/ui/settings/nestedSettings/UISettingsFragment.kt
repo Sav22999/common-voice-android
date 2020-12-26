@@ -12,6 +12,7 @@ import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
@@ -46,6 +47,8 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
 
         withBinding {
+            nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+
             buttonThemeLight.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     mainPrefManager.themeType = "light"
