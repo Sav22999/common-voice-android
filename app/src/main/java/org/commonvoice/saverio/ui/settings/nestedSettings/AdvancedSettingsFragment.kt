@@ -46,7 +46,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
         }
 
         withBinding {
-            nestedScrollSettingsAdvanced.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsAdvanced.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             switchGenericStatistics.setOnCheckedChangeListener { _, isChecked ->
                 mainPrefManager.areGenericStats = isChecked

@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.fragment_other_settings.*
 import org.commonvoice.saverio.databinding.FragmentOtherSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
 
@@ -18,6 +19,7 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
         return FragmentOtherSettingsBinding.inflate(layoutInflater, container, false)
     }
 
+    private val mainPrefManager by inject<MainPrefManager>()
     private val settingsPrefManager by inject<SettingsPrefManager>()
 
     override fun onStart() {
@@ -28,7 +30,8 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
         }
 
         withBinding {
-            nestedScrollSettingsOther.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsOther.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             switchCheckUpdates.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.automaticallyCheckForUpdates = isChecked

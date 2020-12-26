@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import org.commonvoice.saverio.databinding.FragmentUsefulLinksSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.koin.android.ext.android.inject
 
 class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding>() {
 
@@ -17,11 +19,14 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
         return FragmentUsefulLinksSettingsBinding.inflate(layoutInflater, container, false)
     }
 
+    private val mainPrefManager by inject<MainPrefManager>()
+
     override fun onStart() {
         super.onStart()
 
         withBinding {
-            nestedScrollSettingsUsefulLinks.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsUsefulLinks.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             buttonBackSettingsSubSectionUsefulLinks.setOnClickListener {
                 activity?.onBackPressed()

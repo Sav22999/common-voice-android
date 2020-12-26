@@ -47,7 +47,8 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
 
         withBinding {
-            nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             buttonThemeLight.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {

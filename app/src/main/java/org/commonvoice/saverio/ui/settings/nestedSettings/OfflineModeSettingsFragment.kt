@@ -13,6 +13,7 @@ import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
@@ -28,6 +29,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         return FragmentOfflineSettingsBinding.inflate(layoutInflater, container, false)
     }
 
+    private val mainPrefManager by inject<MainPrefManager>()
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
     private val listenPrefManager by inject<ListenPrefManager>()
@@ -42,7 +44,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         }
 
         withBinding {
-            nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             switchSettingsSubSectionOfflineMode.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isOfflineMode = isChecked

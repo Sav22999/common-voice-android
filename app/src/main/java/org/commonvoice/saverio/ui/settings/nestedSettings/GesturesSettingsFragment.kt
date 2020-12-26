@@ -30,7 +30,8 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
         }
 
         withBinding {
-            nestedScrollSettingsGestures.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled)
+                nestedScrollSettingsGestures.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             switchSettingsSubSectionGestures.setOnCheckedChangeListener { _, isChecked ->
                 mainPrefManager.areGesturesEnabled = isChecked
