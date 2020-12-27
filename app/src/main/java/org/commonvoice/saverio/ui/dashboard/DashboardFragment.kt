@@ -484,7 +484,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             }
         })
 
-        dashboardViewModel.contributors.observe(viewLifecycleOwner, Observer { pair ->
+        dashboardViewModel.contributors.observe(viewLifecycleOwner, { pair ->
             dashboardTopContributorsBeforeNth.isGone = true
             dashboardTopContributorsNth.isGone = true
             dashboardTopContributorsAfterNth.isGone = true
@@ -492,26 +492,20 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             resetTopContributor()
 
             if (pair.second) { //Speak
-                pair.first.topContributorsSpeak.take(3) //First three positions of the leaderboard
-                    .forEachIndexed { index, responseLeaderboardPosition -> //Populate the data for each of the three
-                        getContributorNameTextView(index).text =
-                            responseLeaderboardPosition.username
-                        getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
+
+                pair.first.topContributorsSpeak
+                    .take(3) //First three positions of the leaderboard
+                    .forEachIndexed { index, leaderboardLine -> //Populate the data for each of the three
+                        getContributorNameTextView(index).text = leaderboardLine.username
+                        getContributorNumberTextView(index).setText(leaderboardLine.total.toString())
                     }
-                pair.first.topContributorsSpeak.find { it.isYou }
+
+                pair.first.topContributorsSpeak
+                    .find { it.isYou }
                     ?.let { you -> //The user in the leaderboard
-                        if (pair.first.topContributorsSpeak.take(3)
-                                .contains(you)
-                        ) { //The user is in the top three
-                            getContributorNameTextView(pair.first.topContributorsSpeak.indexOf(you))
-                                .setText(R.string.dashboardTabYou)
-                            setYouTopContributor( //His data has already been populated by the method before, we just change the color to highlight that this is the user
-                                getContributorSection(
-                                    pair.first.topContributorsSpeak.indexOf(
-                                        you
-                                    )
-                                )
-                            )
+                        if (you.position <= 2) { //The user is in the top three
+                            getContributorNameTextView(you.position).setText(R.string.dashboardTabYou)
+                            setYouTopContributor(getContributorSection(you.position))
                         } else { //The user is not in the top three
                             dashboardTopContributorsNth.isVisible =
                                 connectionManager.isInternetAvailable
@@ -526,7 +520,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             }
 
                             pair.first.topContributorsSpeak //Setup other users near you
-                                .find { (it.position == you.position - 1) && it.position >= 3 } //BeforeNth
+                                .find { (it.position == (you.position - 1)) && it.position >= 3 } //BeforeNth
                                 ?.let { minus1 ->
                                     dashboardTopContributorsBeforeNth.isVisible = true
                                     labelDashboardTopContributorsPositionBeforeNth.text =
@@ -537,7 +531,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                                 }
 
                             pair.first.topContributorsSpeak //Setup other users near you
-                                .find { (it.position == you.position + 1) && it.position >= 4 } //AfterNth
+                                .find { (it.position == (you.position + 1)) && it.position >= 4 } //AfterNth
                                 ?.let { plus1 ->
                                     dashboardTopContributorsAfterNth.isVisible = true
                                     labelDashboardTopContributorsPositionAfterNth.text =
@@ -548,62 +542,63 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                                 }
                         }
                     }
+
             } else { //Listen
-                pair.first.topContributorsListen.take(4)
-                    .forEachIndexed { index, responseLeaderboardPosition ->
-                        getContributorNameTextView(index).text =
-                            responseLeaderboardPosition.username
-                        getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
-                    }
-                pair.first.topContributorsListen.find { it.isYou }?.let { you ->
-                    if (pair.first.topContributorsListen.take(4).contains(you)) {
-                        getContributorNameTextView(pair.first.topContributorsListen.indexOf(you))
-                            .setText(R.string.dashboardTabYou)
-                        setYouTopContributor(
-                            getContributorSection(
-                                pair.first.topContributorsListen.indexOf(
-                                    you
-                                )
-                            )
-                        )
-                    } else {
-                        dashboardTopContributorsNth.isVisible =
-                            connectionManager.isInternetAvailable
 
-                        labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
-                        textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
-                        textDashboardTopContributorsNumberNth.setText("${you.total}")
-                        setYouTopContributor(dashboardTopContributorsNth)
-                        if (you.position > 4) {
-                            dashboardTopContributorsPoints.isGone =
-                                !connectionManager.isInternetAvailable
+                pair.first.topContributorsListen
+                    .take(3) //First three positions of the leaderboard
+                    .forEachIndexed { index, leaderboardLine -> //Populate the data for each of the three
+                        getContributorNameTextView(index).text = leaderboardLine.username
+                        getContributorNumberTextView(index).setText(leaderboardLine.total.toString())
+                    }
+
+                pair.first.topContributorsListen
+                    .find { it.isYou }
+                    ?.let { you -> //The user in the leaderboard
+                        if (you.position <= 2) { //The user is in the top three
+                            getContributorNameTextView(you.position).setText(R.string.dashboardTabYou)
+                            setYouTopContributor(getContributorSection(you.position))
+                        } else { //The user is not in the top three
+                            dashboardTopContributorsNth.isVisible =
+                                connectionManager.isInternetAvailable
+
+                            labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
+                            textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
+                            textDashboardTopContributorsNumberNth.setText("${you.total}")
+                            setYouTopContributor(dashboardTopContributorsNth)
+                            if (you.position > 4) { //User is not in the top three, we need to show the dots
+                                dashboardTopContributorsPoints.isGone =
+                                    !connectionManager.isInternetAvailable
+                            }
+
+                            pair.first.topContributorsListen //Setup other users near you
+                                .find { (it.position == (you.position - 1)) && it.position >= 3 } //BeforeNth
+                                ?.let { minus1 ->
+                                    dashboardTopContributorsBeforeNth.isVisible = true
+                                    labelDashboardTopContributorsPositionBeforeNth.text =
+                                        "${minus1.position + 1}"
+                                    textDashboardTopContributorsUsernameBeforeNth.text =
+                                        minus1.username
+                                    textDashboardTopContributorsNumberBeforeNth.setText("${minus1.total}")
+                                }
+
+                            pair.first.topContributorsListen //Setup other users near you
+                                .find { (it.position == (you.position + 1)) && it.position >= 4 } //AfterNth
+                                ?.let { plus1 ->
+                                    dashboardTopContributorsAfterNth.isVisible = true
+                                    labelDashboardTopContributorsPositionAfterNth.text =
+                                        "${plus1.position + 1}"
+                                    textDashboardTopContributorsUsernameAfterNth.text =
+                                        plus1.username
+                                    textDashboardTopContributorsNumberAfterNth.setText("${plus1.total}")
+                                }
                         }
-
-                        pair.first.topContributorsListen
-                            .find { (it.position == you.position - 1) && it.position >= 3 } //BeforeNth
-                            ?.let { minus1 ->
-                                dashboardTopContributorsBeforeNth.isVisible = true
-                                labelDashboardTopContributorsPositionBeforeNth.text =
-                                    "${minus1.position + 1}"
-                                textDashboardTopContributorsUsernameBeforeNth.text = minus1.username
-                                textDashboardTopContributorsNumberBeforeNth.setText("${minus1.total}")
-                            }
-
-                        pair.first.topContributorsListen
-                            .find { (it.position == you.position + 1) && it.position >= 4 } //AfterNth
-                            ?.let { plus1 ->
-                                dashboardTopContributorsAfterNth.isVisible = true
-                                labelDashboardTopContributorsPositionAfterNth.text =
-                                    "${plus1.position + 1}"
-                                textDashboardTopContributorsUsernameAfterNth.text = plus1.username
-                                textDashboardTopContributorsNumberAfterNth.setText("${plus1.total}")
-                            }
                     }
-                }
             }
+
         })
 
-        dashboardViewModel.usage.observe(viewLifecycleOwner, Observer {
+        dashboardViewModel.usage.observe(viewLifecycleOwner, {
             textDashboardAppStatisticsCurrentLanguage.setText("${it.languageUsage}")
             textDashboardAppStatisticsAllLanguages.setText("${it.totalUsage}")
         })
