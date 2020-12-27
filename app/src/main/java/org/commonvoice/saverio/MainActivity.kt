@@ -70,6 +70,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         mainPrefManager.appVersionCode = BuildConfig.VERSION_CODE
         mainPrefManager.appSourceStore = SOURCE_STORE
 
+        mainPrefManager.isAlpha = BuildConfig.VERSION_NAME.contains("a")
+        mainPrefManager.isBeta = BuildConfig.VERSION_NAME.contains("b")
+
         if (firstRunPrefManager.main) {
             Intent(this, FirstLaunch::class.java).also {
                 startActivity(it)
@@ -94,7 +97,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         reviewOnPlayStore()
 
         if (mainPrefManager.showReportWebsiteBugs) {
-            showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
+            if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
+                showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
+            }
         }
     }
 
