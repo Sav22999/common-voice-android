@@ -6,7 +6,7 @@ import org.commonvoice.saverio_lib.models.Recording
 @Dao
 interface RecordingsDAO {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRecording(recording: Recording)
 
     @Update
