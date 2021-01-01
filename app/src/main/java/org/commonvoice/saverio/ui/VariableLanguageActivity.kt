@@ -105,17 +105,19 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     }
 
     private fun setCustomDefaultUncaughtExceptionHandler() {
-        if (logPrefManager.saveLogFile) {
-            val defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler()
+        val defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler()
+        val saveLogToFile = logPrefManager.saveLogFile
 
-            Thread.setDefaultUncaughtExceptionHandler { t, paramThrowable ->
-                CoroutineScope(Dispatchers.Default).launch {
-                    logPrefManager.stackTrace = paramThrowable.stackTraceToString()
-                    logPrefManager.isLogFileSent = false
+        Thread.setDefaultUncaughtExceptionHandler { t, paramThrowable ->
+            CoroutineScope(Dispatchers.Default).launch {
+                logPrefManager.stackTrace = paramThrowable.stackTraceToString()
+                logPrefManager.isLogFileSent = false
+
+                if (saveLogToFile) {
                     Timber.e(paramThrowable)
-
-                    defaultExceptionHandler?.uncaughtException(t, paramThrowable)
                 }
+
+                defaultExceptionHandler?.uncaughtException(t, paramThrowable)
             }
         }
     }
