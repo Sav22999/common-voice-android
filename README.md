@@ -8,11 +8,17 @@
 
 This is not the official app of the Common Voice project by Mozilla. This app is developed by Saverio Morelli and other contributors, using the Android Studio IDE.
 
+If you have any questions, please open an issue (you can add the label `question` there).
+
 [![Crowdin](https://badges.crowdin.net/common-voice-android/localized.svg)](https://crowdin.com/project/common-voice-android) [![GitHub release](https://img.shields.io/github/release/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/releases/) [![GitHub license](https://img.shields.io/github/license/Sav22999/common-voice-android.svg)](https://github.com/Sav22999/common-voice-android/blob/master/LICENSE) [![Github all releases](https://img.shields.io/github/downloads/Sav22999/common-voice-android/total.svg)](https://GitHub.com/Sav22999/common-voice-android/releases/) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
-[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/badges/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ)  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
+### Where download the app
 
-If you have any questions, please open an issue (you can add the label `question` there).
+[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/badges/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ) <img src="images/badges/huaweiAppGallery.png" width="200px"></img>  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
+
+You can download the app on Google Play, on F-Droid, on Huawei AppGallery and also on GitHub.
+
+The app name is always "CV Android" and it's developed by "Saverio Morelli". It's absolutely free and you DON'T HAVE TO PAY to use it. Anyway, you can buy me a coffee, using Ko-Fi or PayPal (see the section below).
 
 ### Join us on Telegram
 

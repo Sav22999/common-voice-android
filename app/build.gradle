@@ -30,6 +30,10 @@ android {
         "FD-GH" {
             dimension "source_store"
         }
+        "HAG" {
+            dimension "source_store"
+            //applicationIdSuffix '.huawei'
+        }
     }
     compileOptions {
         sourceCompatibility = 1.8
