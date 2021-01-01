@@ -57,7 +57,7 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
         activity?.setTitle(R.string.button_home_login)
 
-        showLoading()
+        //showLoading()
 
         val bottomSheetBinding = BottomsheetLoginBinding.inflate(layoutInflater)
 

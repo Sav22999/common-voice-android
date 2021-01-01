@@ -103,8 +103,10 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
     private fun setupButtons() = withBinding {
         if (SOURCE_STORE == "GPS") {
-            buttonReviewOnGooglePlay.isGone = false
-            separator37.isGone = false
+            if (!mainPrefManager.isAlpha && !mainPrefManager.isBeta) {
+                buttonReviewOnGooglePlay.isGone = false
+                separator37.isGone = false
+            }
 
             //TODO: remove, when implemented In-app purchare:
             buttonBuyMeACoffee.isGone = true

@@ -2,6 +2,7 @@ package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -159,6 +160,15 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         setupNestedScroll()
 
         setTheme()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        animateProgressBar(
+            dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
+            currentRecordingsValidations = (statsPrefManager.dailyGoal.value!!.validations + statsPrefManager.dailyGoal.value!!.recordings)
+        )
     }
 
     fun shareCVAndroidDailyGoal() {

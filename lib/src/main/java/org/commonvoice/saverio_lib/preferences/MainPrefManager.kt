@@ -84,6 +84,14 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.APP_SOURCE_STORE.name, null) ?: ""
         set(value) = preferences.edit().putString(Keys.APP_SOURCE_STORE.name, value).apply()
 
+    var isAlpha: Boolean
+        get() = preferences.getBoolean(Keys.IS_ALPHA.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.IS_ALPHA.name, value).apply()
+
+    var isBeta: Boolean
+        get() = preferences.getBoolean(Keys.IS_BETA.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.IS_BETA.name, value).apply()
+
 
     private enum class Keys {
         LANGUAGE,
@@ -103,9 +111,10 @@ class MainPrefManager(ctx: Context) {
         LANGUAGE_CHANGED2,
         THEME_TYPE,
         USERNAME,
-
         APP_VERSION_CODE,
         APP_SOURCE_STORE,
+        IS_ALPHA,
+        IS_BETA,
     }
 
 }

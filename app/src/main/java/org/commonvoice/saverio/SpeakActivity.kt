@@ -5,6 +5,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -172,6 +173,15 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         setupNestedScroll()
 
         setTheme(this)
+    }
+    
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        animateProgressBar(
+            dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
+            currentRecordingsValidations = (statsPrefManager.dailyGoal.value!!.validations + statsPrefManager.dailyGoal.value!!.recordings)
+        )
     }
 
     fun shareCVAndroidDailyGoal() {

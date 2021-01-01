@@ -22,6 +22,7 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.background.AppUsageUploadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,6 +39,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     private val homeViewModel: HomeViewModel by viewModel()
 
     private val firstRunPrefManager by inject<FirstRunPrefManager>()
+    private val statsPrefManager by inject<StatsPrefManager>()
     private val mainPrefManager: MainPrefManager by inject()
     private val workManager: WorkManager by inject()
 
@@ -101,13 +103,15 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         }
 
         homeViewModel.checkForNewVersion(BuildConfig.VERSION_NAME).observe(viewLifecycleOwner) {
-            showMessageDialog(
-                "",
-                getString(R.string.message_dialog_new_version_available).replace(
-                    "{{*{{n_version}}*}}",
-                    it
+            if(statsPrefManager.reviewOnPlayStoreCounter >=1) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.message_dialog_new_version_available).replace(
+                        "{{*{{n_version}}*}}",
+                        it
+                    )
                 )
-            )
+            }
         }
 
 
