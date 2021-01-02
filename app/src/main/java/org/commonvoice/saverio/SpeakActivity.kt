@@ -55,6 +55,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
 
     private var isAudioBarVisible: Boolean = false
+    private var animationsCount: Int = 0
+
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
 
@@ -583,8 +585,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun animateAudioBar() {
         if (mainPrefManager.areAnimationsEnabled) {
+            this.animationsCount++
             binding.speakSectionAudioBar.children.forEach {
-                animateAudioBar(it)
+                animateAudioBar(it, animationsCount)
             }
         }
     }
@@ -594,25 +597,31 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             if (binding.imageAudioBarCenter.isVisible && isAudioBarVisible) {
                 isAudioBarVisible = false
                 binding.speakSectionAudioBar.children.forEach {
-                    animateAudioBar(it)
+                    animateAudioBar(it, animationsCount)
                 }
             }
         }
     }
 
-    private fun animateAudioBar(view: View) {
-        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible && view.height > 0) {
-            animationAudioBar(view, view.height, (30..350).random())
+    private fun animateAudioBar(view: View, animationsCountTemp: Int) {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible) {
+            animationAudioBar(view, view.height, (30..350).random(), animationsCountTemp)
             view.isVisible = true
         } else if (this.isAudioBarVisible && view.height >= 30) {
-            animationAudioBar(view, view.height, 0)
+            animationAudioBar(view, view.height, 2, animationsCountTemp, forced = true)
             view.isVisible = true
         } else {
             view.isVisible = false
         }
     }
 
-    private fun animationAudioBar(view: View, min: Int, max: Int) {
+    private fun animationAudioBar(
+        view: View,
+        min: Int,
+        max: Int,
+        animationsCountTemp: Int,
+        forced: Boolean = false
+    ) {
         val animation: ValueAnimator =
             ValueAnimator.ofInt(min, max)
         animation.duration = 300
@@ -622,8 +631,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             view.requestLayout()
         }
         animation.doOnEnd {
-            if (this.isAudioBarVisible && view.isVisible) {
-                animateAudioBar(view)
+            if (this.animationsCount == animationsCountTemp && forced && max == 2) {
+                view.isVisible = false
+            }
+            if (this.isAudioBarVisible && view.isVisible && !forced && this.animationsCount == animationsCountTemp) {
+                animateAudioBar(view, animationsCountTemp)
             }
         }
         animation.start()

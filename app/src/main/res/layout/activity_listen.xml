@@ -110,8 +110,8 @@
 
             <View
                 android:id="@+id/viewListenAnimateButton2"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/circle"
                 android:backgroundTint="@color/colorListenAnimateButton2"
                 android:visibility="invisible"
@@ -123,8 +123,8 @@
 
             <View
                 android:id="@+id/viewListenAnimateButton1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:background="@drawable/circle"
                 android:backgroundTint="@color/colorListenAnimateButton1"
                 android:visibility="invisible"

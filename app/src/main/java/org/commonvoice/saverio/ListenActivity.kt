@@ -651,12 +651,18 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         max: Int,
         animationsCountTemp: Int
     ) {
-        if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING && this.isListenAnimateButtonVisible && view.height > 200) {
-            stopAnimation(view)
-            animationListenAnimateButton(view, min, max, animationsCountTemp)
+        if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING && this.isListenAnimateButtonVisible) {
+            animationListenAnimateButton(view, view.height, min, max, animationsCountTemp)
             view.isVisible = true
         } else if (!this.isListenAnimateButtonVisible && view.height >= 280) {
-            animationListenAnimateButton(view, view.height, 200, animationsCountTemp, forced = true)
+            animationListenAnimateButton(
+                view,
+                view.height,
+                view.height,
+                200,
+                animationsCountTemp,
+                forced = true
+            )
             view.isVisible = true
         } else {
             view.isVisible = false
@@ -665,14 +671,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private fun animationListenAnimateButton(
         view: View,
+        sizeNow: Int,
         min: Int,
         max: Int,
         animationsCountTemp: Int,
         forced: Boolean = false
     ) {
         val animation: ValueAnimator =
-            ValueAnimator.ofInt(min, max)
-        if (max == 200) animation.duration = 400
+            ValueAnimator.ofInt(sizeNow, max)
+        println("First time: " + sizeNow)
+        if (max == 50 || max == 200) animation.duration = 300
         else animation.duration = (800..1200).random().toLong()
         animation.addUpdateListener { anim ->
             val value = anim.animatedValue as Int
@@ -685,7 +693,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 view.isVisible = false
             }
             if (this.isListenAnimateButtonVisible && view.isVisible && !forced && this.animationsCount == animationsCountTemp) {
-                stopAnimation(view)
                 animateListenAnimateButton(view, max, min, animationsCountTemp)
             }
         }
