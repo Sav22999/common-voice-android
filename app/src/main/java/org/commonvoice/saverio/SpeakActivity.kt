@@ -111,6 +111,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         speakViewModel.stop(true)
 
+        hideAudioBar()
+
         super.onBackPressed()
     }
 
@@ -174,7 +176,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         setTheme(this)
     }
-    
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
@@ -599,13 +601,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun animateAudioBar(view: View) {
-        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible) {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible && view.height > 0) {
             animationAudioBar(view, view.height, (30..350).random())
             view.isVisible = true
-        } else if (!this.isAudioBarVisible) {
-            //animationAudioBar(view, view.height, 0)
-            //view.isVisible = true
-            view.isVisible = false
+        } else if (this.isAudioBarVisible && view.height >= 30) {
+            animationAudioBar(view, view.height, 0)
+            view.isVisible = true
         } else {
             view.isVisible = false
         }
@@ -621,7 +622,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             view.requestLayout()
         }
         animation.doOnEnd {
-            if (this.isAudioBarVisible) {
+            if (this.isAudioBarVisible && view.isVisible) {
                 animateAudioBar(view)
             }
         }
