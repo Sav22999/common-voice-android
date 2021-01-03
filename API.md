@@ -211,7 +211,7 @@ To insert data you need to do a POST request to https://www.saveriomorelli.com/a
 
 #### Request
 
-To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/get/.
+To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/get/user/.
 
 You can insert these parameters to the `GET` request:
 
