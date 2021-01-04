@@ -288,6 +288,8 @@
         <item>Euskara</item>
         <!-- fa -->
         <item>فارسی</item>
+        <!-- fi -->
+        <item>suomi</item>
         <!-- fr -->
         <item>Français</item>
         <!-- fy-NL -->
@@ -310,6 +312,10 @@
         <item>Taqbaylit</item>
         <!-- ky -->
         <item>Кыргызча</item>
+        <!-- lg -->
+        <item>Luganda</item>
+        <!-- lt -->
+        <item>Lietuvių</item>
         <!-- lv -->
         <item>Latviešu</item>
         <!-- mn -->
@@ -344,6 +350,8 @@
         <item>Svenska</item>
         <!-- ta -->
         <item>தமிழ்</item>
+        <!-- th -->
+        <item>Türkçe</item>
         <!-- tr -->
         <item>Türkçe</item>
         <!-- tt -->
@@ -381,6 +389,7 @@
         <item>et</item>
         <item>eu</item>
         <item>fa</item>
+        <item>fi</item>
         <item>fr</item>
         <item>fy-NL</item>
         <item>ga-IE</item>
@@ -392,6 +401,8 @@
         <item>ka</item>
         <item>kab</item>
         <item>ky</item>
+        <item>lg</item>
+        <item>lt</item>
         <item>lv</item>
         <item>mn</item>
         <item>mt</item>

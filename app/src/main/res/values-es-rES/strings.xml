@@ -173,6 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Escuchando...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" está activado. Ve a Ajustes para deshabilitarlo.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">El texto de la oración está oculto</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Revisar de nuevo</string>
     <string name="txt_noconnection" comment="Message text">No estás conectado a internet. Conéctate a Wi-Fi o datos móviles, luego pulsa el botón de abajo.</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Cerrar</string>
     <string name="labelAllBadges" comment="Title for All badge section">Todas las insignias</string>
-    <string name="new_badge_earnt_message" comment="Message text">¡Genial! Acabas de ganar una nueva insignia.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Conseguiste esta insignia porque has validado al menos {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Conseguiste esta insignia porque has validado al menos {{*{{n_sentences}}*}} clips.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Conseguiste esta insignia porque has validado o grabado al menos {{*{{n_total}}*}} clips.</string>

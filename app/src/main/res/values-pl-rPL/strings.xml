@@ -173,6 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Słuchanie...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Funkcja \"{{*{{feature_name}}*}}\" jest włączona. Przejdź do ustawień, aby ją wyłączyć.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Tekst zdania jest ukryty</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Sprawdź ponownie</string>
     <string name="txt_noconnection" comment="Message text">Nie jesteś połączony z Internetem. Połącz się z Wi-Fi lub włącz dane komórkowe, a następnie naciśnij przycisk poniżej.</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Zamknij</string>
     <string name="labelAllBadges" comment="Title for All badge section">Wszystkie odznaki</string>
-    <string name="new_badge_earnt_message" comment="Message text">Hura! Właśnie zdobyłeś nową odznakę.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hura! Właśnie zdobyto nową odznakę.\nPrzejdź do sekcji {{*{{profile}}*}} &gt; {{*{{all_badges}}*}}}, aby zobaczyć wszystkie odznaki.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Otrzymałeś/aś tę odznakę za sprawdzenie co najmniej {{*{{n_clips}}*}} klipów.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Otrzymałeś/aś tę odznakę za nagranie co najmniej {{*{{n_sentences}}*}} zdań.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Otrzymałeś/aś tę odznakę za sprawdzenie lub nagranie co najmniej {{*{{n_total}}*}} klipów.</string>
