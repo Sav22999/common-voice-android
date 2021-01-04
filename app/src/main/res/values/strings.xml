@@ -205,7 +205,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Close</string>
     <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
-    <string name="new_badge_earnt_message" comment="Message text">Hooray! You have just earned a new badge.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} > {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
