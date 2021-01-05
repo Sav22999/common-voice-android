@@ -5,7 +5,7 @@
 - Show the sentence of the clip just when you finish to listen to it
 - Reorganised Settings
 - Now you can show an icon instead of the Report button, in Speak and Listen
-- Android (API 30) are now natively supported
+- Android 11 (API 30) are now natively supported
 - Updated Georgian code and added FI (Finnish), LG (Luganda) and LT (Lithuanian)
 - Daily goal increased to 500 (before was 200)
 - Added the "app usage" (anonymously)
