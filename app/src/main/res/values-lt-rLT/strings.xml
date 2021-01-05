@@ -4,246 +4,246 @@
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language">en</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_home">Pagrindinis</string>
+    <string name="title_dashboard">Skydelis</string>
+    <string name="title_settings">Nustatymai</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Sign up</string>
-    <string name="button_home_logout">Log out</string>
-    <string name="button_home_profile">Profile</string>
-    <string name="text_hi_username">Hi</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="button_home_login">Prisijungti/sukurti paskyrą</string>
+    <string name="button_home_logout">Atsijungti</string>
+    <string name="button_home_profile">Profilis</string>
+    <string name="text_hi_username">Labas</string>
+    <string name="message_log_in_again">Sesija baigėsi, prijunk iš naujo</string>
     <!-- Dashboard -->
-    <string name="dashboardStatistics">Statistics</string>
-    <string name="dashboardVoicesOnline">Voices online</string>
-    <string name="dashboardTabYou">You</string>
-    <string name="dashboardTabEveryone">Everyone</string>
-    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Today</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
-    <string name="textHoursAbbreviation">h</string>
-    <string name="textHour">Hour</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="dashboardStatistics">Statistika</string>
+    <string name="dashboardVoicesOnline">Įrašai online</string>
+    <string name="dashboardTabYou">Tu</string>
+    <string name="dashboardTabEveryone">Visi</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Šiandien</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Viso</string>
+    <string name="toastNoLoginNoStatistics">Prisijunkite norėdami matyti statistiką</string>
+    <string name="toastNoLoginNoDailyGoal">Prisijunkite norėdami nustatyti dienos tikslus</string>
+    <string name="textHoursAbbreviation">val</string>
+    <string name="textHour">Valanda</string>
+    <string name="txt_top_contributors">Daugiausiai prisidėję</string>
+    <string name="txt_top_contributors_recorded">Įrašyti</string>
+    <string name="txt_top_contributors_validated">Patikrinti</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Programėlės statistika</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Dabartinė kalba</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Visos kalbos</string>
+    <string name="txt_not_available_offline" comment="Message text">Negalima nepriijungus</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Start</string>
-    <string name="btn_tutorial2" comment="Button">Permit</string>
-    <string name="btn_tutorial3" comment="Button">Next</string>
-    <string name="btn_tutorial4" comment="Button">Try again</string>
-    <string name="btn_tutorial5" comment="Button">Finish</string>
-    <string name="btn_skip" comment="Button">Skip</string>
-    <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">You can choose either light theme or dark theme. You can change this later in Settings.</string>
-    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Dark theme</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
-    <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
-    <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="btn_tutorial1" comment="Button">Pradėti</string>
+    <string name="btn_tutorial2" comment="Button">Leisti</string>
+    <string name="btn_tutorial3" comment="Button">Sekantis</string>
+    <string name="btn_tutorial4" comment="Button">Bandykite dar kartą</string>
+    <string name="btn_tutorial5" comment="Button">Baigti</string>
+    <string name="btn_skip" comment="Button">Praleisti</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Leidimas gautas</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Klaida: leidimas negautas</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android yra neoficiali \"Mozilla Common Voice\" programėlė. Jį sukūrė Saverio Morelli be jokios paramos ir partnerystės su \"Mozilla\".</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Tęsdami sutinkate su Mozilla Common Voice paslaugų teikimo sąlygomis.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Šiai programai reikia leidimo \"Mikrofonas\", kad būtų galima įrašyti jūsų balsą.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Apie klaidas galite pranešti GitHub arba Telegram. Kad padėtumėte kūrėjui greičiau suprasti problemą prie ataskaitos turėtumėte pridėti programos žurnalo failą. Programai reikia leidimo \"Saugykla\" norint išsaugoti žurnalo failą.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Galite prisidėti net neprisijungę. Programėlės rėžimas \"Neprisijungus\" bus įjungtas automatiškai, ir jūs galite tęsti įrašymą ir klausymą be interneto ryšio.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Galite pasirinkti tamsią arba šviesią temas. Vėliau temą galėsite pakeisti nustatymuose.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tamsi tema</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Kai kurie veiksmai turi atitinkamus gestus. Įrašinėjant balsą norėdami praleisti sakinį braukite kairėn.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Šiuos gestus galite keisti nustatymuose.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Norėdami gauti naujienas ar pagalbą - prisjunkite prie Telegram grupės.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Prisijungti prie grupės</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Pirmyn! Pasirinkite kalbą, kuria norėtumėte kalbėti ar klausytis. Programa taip pat bus rodoma ta kalba, jei yra vertimas.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading ...</string>
-    <string name="txt_profile_username" comment="Label in Profile">Username</string>
-    <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Age</string>
-    <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
-    <string name="txt_gender_male" comment="Label in Profile">Male</string>
-    <string name="txt_gender_female" comment="Label in Profile">Female</string>
-    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Other</string>
-    <string name="btn_badges_loggedin" comment="Button">All badges</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="txt_loading_page" comment="Label">Kraunasi...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Vartotojo vardas</string>
+    <string name="txt_profile_email" comment="Label in Profile">El. paštas</string>
+    <string name="txt_profile_age" comment="Label in Profile">Amžius</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Lytis</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Norėdami pakeisti savo profilio informaciją, eikite į \"Common Voice\" svetainę.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Prisijungimas sėkmingas!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Vyras</string>
+    <string name="txt_gender_female" comment="Label in Profile">Moteris</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Kita</string>
+    <string name="btn_badges_loggedin" comment="Button">Visi ženkliukai</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Lygis {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Sveikiname! Pasiekėte {{*{{n_level}}*}} lygį.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Aš jau turiu patvirtinimo nuorodą</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Jūsų patvirtinimo nuoroda</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Patvirtinimo nuoroda neteisinga</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
-    <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
-    <string name="txt_developed_by" comment="Label in Settings">developed by</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
-    <string name="settingsLanguage" comment="Title in Settings">Language</string>
-    <string name="settingsListen" comment="Title in Settings">Listen</string>
-    <string name="settingsSpeak" comment="Title in Settings">Speak</string>
-    <string name="settingsOther" comment="Title in Settings">Other</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Dar kartą atidaryti vedlį</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Projekto atvirasis šaltinis \"GitHub\"</string>
+    <string name="txt_developed_by" comment="Label in Settings">sukūrė</string>
+    <string name="toast_language_changed" comment="Message text">Kalba sėkmingai pakeista į {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Kalba</string>
+    <string name="settingsListen" comment="Title in Settings">Klausyti</string>
+    <string name="settingsSpeak" comment="Title in Settings">Kalbėti</string>
+    <string name="settingsOther" comment="Title in Settings">Kita</string>
+    <string name="settingsGeneral" comment="Title in Settings">Bendra</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Naudingos nuorodos</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Sužinokite daugiau</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Šviesi</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Tamsi</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
-    <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
-    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Dark theme</string>
-    <string name="contact_developer_on_telegram" comment="Button in Settings">Contact the developer on Telegram</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimental features</string>
-    <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
-    <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Palaikykite mano darbą. Nupirk man kavos 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Automatiškai paleisti klipą, kai jis įkeltas</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tamsi tema</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Susisiekite su kūrėju \"Telegram\"</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Eksperimentinės funkcijos</string>
+    <string name="toast_experimental_features_on" comment="Message text">Eksperimentinės funkcijos įjungtos.\nNauji funkcionalumai gali būti nestabilūs ir nesaugūs.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Išsaugokite žurnalus byloje</string>
+    <string name="toast_log_on_file_on" comment="Message text">Žurnalų įrašymas į bylą įjungtas.\nGalite prisegti log.txt bylą kai pranešite apie problemą.\nDaugiau informacijos \"GitHub\".</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Bendra Statistika</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Rodyti eilutę, kuri mane identifikuoja programėlėje</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
-    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Skip recording confirmation</string>
-    <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
-    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Translate the app on Crowdin</string>
-    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">See app statistics</string>
-    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
-    <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
-    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Check for updates</string>
-    <string name="txt_gestures" comment="Switch-Button in Settings">Gestures</string>
-    <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
-    <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
-    <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
-    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Naudojimo statistika</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Praleisti įrašo patvirtinimą</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Įrašo patvirtinimo praleidimas įjungtas.\nDabar galėsite išsiųsti įrašus jų neperklausę.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Išverskite programėlę \"Crowdin\" platformoje</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Peržiūrėti programėlės statistiką</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Įrašymo pranešimo garsas</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Įrašymo pranešimo garsas įjungtas.\nGarsas sugros kai pradėsite ir baigsite įrašinėjimą.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Tikrinti, ar yra atnaujinimų</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Gestai</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Jei patinka programėlė - nepamirkite palikti atsiliepimo \"Google Play Store\".</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Programėlė nėra (pilnai) išversta šiai kalbai.\nGalite prisidėti prie vertimo \"Crowdin\" platformoje.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animacija</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Nustatyti šrifto dydį</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Nustatyti gestus</string>
+    <string name="title_theme_settings" comment="Title in Settings">Tema</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Programėlės Telegram grupė</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Rodyti tekstą po meniu piktogramomis</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Perskaitykite \"Mozilla Common Voice\" paslaugų teikimo sąlygas</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Perskaitykite patvirtinimo gaires</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Rašyti atsiliepimą Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Vartotojo sąsaja</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Papildomi</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Išsaugokite įrašus telefone</string>
+    <string name="txt_reset_data" comment="Button in Settings">Iš naujo nustatyti programos duomenis</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nėra bandomųjų funkcionalumų</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Rodyti sakinių tekstą, kai įrašai visiškai perklausyti</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Rodyti ataskaitos piktogramą (viršuje, dešinėje), o ne mygtuką (apačioje) {{*{{listen_name}}*}} ir {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip...</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
-    <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>
-    <string name="txt_sentence_record_failed" comment="Label in Speak">Recording failed. Please try again.</string>
-    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
-    <string name="txt_listening_stopped" comment="Label in Speak">Listen to the whole recording to make sure it\'s correct.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Press the icon below to stop listening.</string>
-    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording...</string>
-    <string name="txt_recording_sent" comment="Label in Speak">Recording sent!</string>
-    <string name="txt_sending_recording_failed" comment="Message text">Failed to send recording!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Press the icon below to start the clip.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Press the icon below to stop the clip.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Press the icon below to play the clip again.</string>
-    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marked as correct!</string>
-    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marked as incorrect!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
-    <string name="txt_error_2_sending_failed" comment="Label in Listen">Failed to send the recording.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing...</string>
-    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. There are no more available clips for this language.</string>
-    <string name="button_report" comment="Button">Report</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
-    <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
-    <string name="button_send_report" comment="Button">Send report</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensive speech</string>
-    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report" comment="Checkbox">Different language</string>
-    <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report" comment="Checkbox">Other</string>
-    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
-    <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
-    <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Įkeliamas sakinys...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Praleisti</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Siųsti įrašą</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Krauname įrašą...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Norėdami pradėti įrašyti, paspauskite žemiau esančią piktogramą.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Norėdami sustabdyti įrašinėjimą, paspauskite žemiau esančią piktogramą.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Įrašyta. Klausytis įrašo.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Įrašyti nepavyko. Bandykite dar kartą.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Jei ištarėte teisingai, siųskite įrašą.\nJei suklydote, galite dar kartą įrašyti sakinį.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Išklausykite viso įrašo, kad įsitikintumėte, kad jis teisingas.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Norėdami sustabdyti perklausymą, paspauskite žemiau esančią piktogramą.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Įrašas per ilgas. Ilgiausias galimas įrašas yra 10 sekundžių.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Įrašas per trumpas. Bandykite dar kartą.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Siunčiame įrašą...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Įrašas išsiųstas!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Nepavyko išsiųsti įrašo!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Nepavyko išsiųsti įrašo! Galite bandyti dar kartą arba spauskite {{*{{skip_button}}*}} mygtuką.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Norėdami paleisti įrašą, paspauskite žemiau esančią piktogramą.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Norėdami sustabdyti įrašą, paspauskite žemiau esančią piktogramą.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Jei įrašas teisingas - spauskite nykštį aukštyn.\nJei įrašas neteisingas - spauskite nykštį žemyn.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Norėdami paleisti įrašą dar kartą, paspauskite žemiau esančią piktogramą.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Įrašas pažymėtas kaip teisingas!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Įrašas pažymėtas kaip neteisingas!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Klaida. Norėdami tęsti spauskite {{*{{skip_button}}*}} mygtuką.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Nepavyko išsiųsti įrašo.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Siunčiama...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Nepavyko išsiųsti rezultato! Galite bandyti dar kartą arba spauskite {{*{{skip_button}}*}} mygtuką.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Uždaroma...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Klaida. Pasirinktai kalbai daugiau nėra įrašų.</string>
+    <string name="button_report" comment="Button">Pranešti</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Pranešti apie įrašą:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Pranešti apie sakinį:</string>
+    <string name="button_send_report" comment="Button">Siųsti ataskaitą</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Įžeidžianti kalba</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Įžeidžianti kalba</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Gramatikos / rašybos klaida</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Kita kalba</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Sudėtinga ištarti</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Kita</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Komentuoti</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Baigėsi sakiniai neprisijungus. Prisijunkite prie interneto, kad atsisiųstumėte daugiau sakinių, kuriuos norite įrašyti.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Baigėsi įrašai neprisijungus. Prisijunkite prie interneto, kad atsisiųstumėte daugiau įrašų, kuriuos norite perklausyti.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Galite įrašyti dar {{*{{n_sentences}}*}} sakinius iki kol jums reikės prisijungti prie interneto.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Galite perklausyti dar {{*{{n_clips}}*}} įrašus iki kol jums reikės prisijungti prie interneto.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Klausoma...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Funkcionalumas \"{{*{{feature_name}}*}}\" įjungtas. Eikite į skiltį \"Nustatymai\" norėdami jį išjungti.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Sakinio tekstas paslėptas</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">\"Common Voice\" serveriuose daugiau sakinių nėra. Bandykite dar kartą vėliau arba susisiekite su \"Mozilla\".</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">\"Common Voice\" serveriuose daugiau įrašų nėra. Bandykite dar kartą vėliau arba susisiekite su \"Mozilla\".</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection" comment="Button">Check again</string>
-    <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <string name="btn_check_again_noconnection" comment="Button">Patikrinkite dar kartą</string>
+    <string name="txt_noconnection" comment="Message text">Nesate prisijungę prie interneto. Prisijunkite prie \"Wi-Fi\" arba mobiliųjų duomenų ir paspauskite žemiau esantį mygtuką.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">This is the sentence you must record.</string>
-    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">A message to guide you will appear here.</string>
-    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
-    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to start recording.</string>
-    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to stop recording.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording.</string>
-    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to re-record if you made a mistake.</string>
-    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording again.</string>
-    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Tap on this button to send your recording.</string>
-    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">This is the sentence/clip you must validate.</string>
-    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to play the clip.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
-    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
-    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Tai sakinys kurį turite įrašyti.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Čia pasirodys pranešimas, padėsiantis jums.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Jei jums nepatinka sakinys, galite paliesti čia, kad praleistumėte ir gautumėte kitą.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Paspauskite piktogramą, kad pradėti įrašymą.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Paspauskite piktogramą, kad sustabdyti įrašymą.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Norėdami išklausyti įrašą paspauskite piktogramą.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Jei suklydote ir norite pataisyti įrašą spauskite šią piktogramą.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Norėdami išklausyti įrašą dar kartą paspauskite piktogramą.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Norėdami išsiųsti įrašą paspauskite šį mygtuką.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Tai yra sakinys/įrašas kurį turite perklausyti.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Jei jums nepatinka įrašas, galite paspausti šį mygtuką, kad praleistumėte ir gautumėte kitą.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Palieskite piktorgramą, kad paleistumėte įrašą.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Palieskite piktorgramą, kad sustabdytumėte įrašą.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Bakstelėkite šią piktogramą, jei norite dar kartą klausytis įrašo.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Jei įrašas atitinka sakinį, palieskite šią piktogramą, kad jį patvirtintumėte.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Jei įrašas sakinio neatitinka, palieskite šią piktogramą, kad jį atmestumėte.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Jei nesate tikri, ar priimti ar atmesti įrašą, galite perskaityti oficialias \"Mozilla Discourse\" patvirtinimo gaires.\nŠią nuorodą taip pat rasite vėliau \"Nustatymai\".</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Skaityti</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <string name="txtNotAvailableNow" comment="Message text">Deja, šios funkcijos dar nėra.\nNuolat stengiamės tobulinti programą, todėl vėliau patikrinkite, ar ji pridėta.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges" comment="Button">Close</string>
-    <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="btnCloseBadges" comment="Button">Uždaryti</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Visi ženkliukai</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Valio! Gavote naują ženklelį.\nNorėdami peržiūrėti visus ženkliukus eikite į {{*{{profile}}*}} &gt; {{*{{all_badges}}*}}.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Gavote šį ženkliuką, nes patvirtinote mažiausiai {{*{{n_clips}}*}} įrašus.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Gavote šį ženkliuką, nes įrašėte mažiausiai {{*{{n_sentences}}*}} sakinius.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Gavote šį ženkliuką, nes patvirtinote ar įrašėte mažiausiai {{*{{n_total}}*}} įrašus.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ok</string>
-    <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
-    <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
-    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
-    <string name="text_warning" comment="Title for Message text">Warning</string>
-    <string name="text_tip" comment="Title for Message text">Tip</string>
-    <string name="text_changelog" comment="Title for Message text">Changelog</string>
-    <string name="text_help" comment="Title for Message text">Help</string>
-    <string name="text_info" comment="Title for Message text">Info</string>
-    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Do not show anymore</string>
-    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode" comment="Title">Offline mode</string>
-    <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
-    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Klaida</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Nepavyko.\nBandykite dar kartą arba susisiekite su programos kūrėju.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Nepavyko.\nBandykite dar kartą arba susisiekite su programos kūrėju.\nKlaidos kodas: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Prisijungti nepavyko</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Pirmiausia turite prisijungti \"Common Voice“ svetainėje ir sutikti su \"Common Voice“ privatumo politika.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Atidaryti Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">Įspėjimas</string>
+    <string name="text_tip" comment="Title for Message text">Patarimas</string>
+    <string name="text_changelog" comment="Title for Message text">Pakeitimų sąrašas</string>
+    <string name="text_help" comment="Title for Message text">Pagalba</string>
+    <string name="text_info" comment="Title for Message text">Informacija</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Daugiau neberodyti</string>
+    <string name="text_report_website_bug" comment="Message text">Jei turite problemų dėl oficialios \"Common Voice“ svetainės, praneškite apie jas \"Mozilla Discourse“ forumuose arba „GitHub“, kad \"Mozilla“ galėtų jas išspręsti.</string>
+    <string name="text_offline_mode" comment="Title">Darbas neprisijungus</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Dabar esate neprisijungę ir programa automatiškai persijungė į režimą veikiantį neprisijungus.\nTai reiškia, kad galite toliau įrašinėti ir patvirtinti, tačiau užklausos bus išsiųstos vėliau.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Suprasite, kad esate neprisijungę, pamatę šią piktogramą ekrane:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Galite paliesti tą piktogramą, kad pamatytumėte atsisiųstus klipus ir sakinius.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Režimas \"Neprisijungus\" neįgalintas, todėl negalite naudoti programos be interneto ryšio.\nJei norite naudoti rėžimą \"Neprisijungus\", įjunkite ją skiltyje \"Nustatymai\".</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title" comment="Title in Dashboard">Daily goal</string>
-    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No goal set</string>
-    <string name="set_daily_goal" comment="Button">Set a goal</string>
-    <string name="edit_daily_goal" comment="Button">Edit goal</string>
-    <string name="save_daily_goal" comment="Button">Save</string>
-    <string name="delete_daily_goal" comment="Button">Delete</string>
-    <string name="cancel_daily_goal" comment="Button">Cancel</string>
-    <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
-    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Achieved today</string>
-    <string name="daily_goal_not_achieved_today">Not achieved today</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
-    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">Dienos tikslas</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Tikslas nenustatytas</string>
+    <string name="set_daily_goal" comment="Button">Nustatyti tikslą</string>
+    <string name="edit_daily_goal" comment="Button">Redaguoti tikslą</string>
+    <string name="save_daily_goal" comment="Button">Išsaugoti</string>
+    <string name="delete_daily_goal" comment="Button">Ištrinti</string>
+    <string name="cancel_daily_goal" comment="Button">Atšaukti</string>
+    <string name="description_setting_daily_goal" comment="Message text">Pasirinkite, kiek sakinių norite įrašyti, ir klipų, kuriuos norite patvirtinti (jų suma) per dieną.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Šiandien pasiekta</string>
+    <string name="daily_goal_not_achieved_today">Šiandien nepasiekta</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Puiku! Jums pavyko pasiekti šios dienos tikslą!\nJūs perklausėte {{*{{n_clips}}*}} įrašus ir įrašėte {{*{{n_sentences}}*}} sakinius.\nGalite ir toliau prisidėti prie „Common Voice“.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Dalintis</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Dalintis per</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Ką tik pasiekiau savo kasdienį tikslą @mozilla #CommonVoice tikslą naudodamas #CVAndroid.\nPrisijunkite ir prisidėkite! Įdiekite „CV Android“ iš „Google Play“ arba „F-Droid“ {{*{{link}}*}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Šis kasdienis tikslas nėra oficialus \"Mozilla\" funkcionalumas. Tai yra tik šios programėlės dalis.</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Yra nauja programos versija (versija {{*{{n_version}}*}}). Galite ją atnaujinti savo mėgstamoje parduotuvėje (\"F-Droid\", \"Google Play Store\") arba tiesiogiai iš \"GitHub\".</string>
     <!-- Others -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
     <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
