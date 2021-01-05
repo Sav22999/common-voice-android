@@ -15,11 +15,11 @@ import java.util.*
 
 class StatsPrefManager(ctx: Context) {
 
+    private val preferences = ctx.getSharedPreferences("statsPreferences", Context.MODE_PRIVATE)
+
     init {
         updateDailyGoal()
     }
-
-    private val preferences = ctx.getSharedPreferences("statsPreferences", Context.MODE_PRIVATE)
 
     val dailyGoal: LiveData<DailyGoal> = DailyGoalLivePreference(
         preferences,
