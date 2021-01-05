@@ -108,6 +108,8 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
                 separator37.isGone = false
             }
 
+        }
+        if (SOURCE_STORE == "GPS" || SOURCE_STORE == "HAG") {
             //TODO: remove, when implemented In-app purchare:
             buttonBuyMeACoffee.isGone = true
             separator28.isGone = true
