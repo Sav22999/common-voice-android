@@ -1,13 +1,16 @@
 package org.commonvoice.saverio_lib.repositories
 
-import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.requestBodies.RetrofitStatsUpdate
+import org.commonvoice.saverio_lib.api.requestBodies.RetrofitUserAppUsageBody
+import org.commonvoice.saverio_lib.api.responseBodies.ResponseAppUsage
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseDailyUsage
+import org.commonvoice.saverio_lib.models.AppAction
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
+import timber.log.Timber
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,21 +41,62 @@ class StatsRepository(
                 isLogged(),
                 mainPrefManager.language,
                 versionCode,
-                mainPrefManager.areStatsAnonymous.toString(),
+                mainPrefManager.areGenericStats.toString(),
                 appSource
             )
 
             try {
                 statsClient.postStats(stats)
             } catch (e: Exception) {
-                Log.e("StatsRepository", "Error: $e. Probably Internet is not available.")
+                Timber.e(e)
             }
         }
     }
 
-    suspend fun getStats(): Map<String, ResponseDailyUsage> = statsClient.getStats().body() ?: mapOf()
+    suspend fun getStats(): Map<String, ResponseDailyUsage> =
+        statsClient.getStats().body() ?: mapOf()
 
-    private fun getUserId(): String {
+    suspend fun getLanguageSpecificStats(language: String): ResponseDailyUsage? {
+        return statsClient.getLanguageSpecificStats(language).body()?.get(language)
+    }
+
+    suspend fun getAppUsageStats(language: String?, year: String?): Map<String, ResponseAppUsage> {
+        return statsClient.getAppUsageStatistics(language, year).body() ?: mapOf()
+    }
+
+    suspend fun postAppUsageStatistics(
+        appVersionCode: Int,
+        appSource: String,
+        appAction: AppAction
+    ): Boolean = withContext(Dispatchers.IO) {
+        val body = RetrofitUserAppUsageBody(
+            isLogged(),
+            appAction.language,
+            appVersionCode,
+            appSource,
+            appAction.type.num,
+            if (mainPrefManager.areAppUsageStatsEnabled) getUserId() else "",
+            if (appAction.offline) 1 else 0
+        )
+
+        try {
+            statsClient.postAppUsageStatistics(body)
+            true
+        } catch (e: Exception) {
+            Timber.e(e)
+            false
+        }
+    }
+
+    suspend fun getUserAppUsageStatistics(
+        userId: String,
+        startDate: String? = null,
+        endDate: String? = null
+    ): ResponseAppUsage? {
+        return statsClient.getUserAppUsageStatistics(userId, startDate, endDate).body()
+    }
+
+    fun getUserId(): String {
         val userId = mainPrefManager.statsUserId
 
         return if (userId != "") {
@@ -73,5 +117,6 @@ class StatsRepository(
             1
         }
     }
+
 
 }

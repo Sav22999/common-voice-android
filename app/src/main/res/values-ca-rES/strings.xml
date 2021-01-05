@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">Contribuïdors principals</string>
     <string name="txt_top_contributors_recorded">Gravat</string>
     <string name="txt_top_contributors_validated">Validat</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">Estadístiques de l\'aplicació</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Idioma actual</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Tots els idiomes</string>
@@ -67,64 +66,65 @@
     <string name="btn_badges_loggedin" comment="Button">Totes les medalles</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivell {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">Felicitats! Acabes d\'assolir el nivell {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Tinc un enllaç de verificació</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Enllaç de verificació</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">L\'enllaç de verificació no és vàlid</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Obre el tutorial de nou</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projecte de codi obert a GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">Col·laboradors principals</string>
     <string name="txt_developed_by" comment="Label in Settings">desenvolupat per</string>
-    <string name="toast_language_changed" comment="Message text">Llengua modificada correctament a {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Idioma exitosament configurat al {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Llengua</string>
     <string name="settingsListen" comment="Title in Settings">Escolta</string>
     <string name="settingsSpeak" comment="Title in Settings">Parla</string>
     <string name="settingsOther" comment="Title in Settings">Altres</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Enllaços d\'interès</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Aprendre més</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Clar</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Fosc</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automàtic</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Doneu suport a la meva feina. Inviteu-me a un cafè 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Reproduir automàticament el tall de veu quan es carrega</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Reproducció automàtica del tall de veu activada.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Reproducció automàtica del tall de veu desactivada.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Mode fosc</string>
-    <string name="toast_dark_theme_on" comment="Message text">Mode fosc activat.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Mode fosc desactivat.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Contacteu amb el desenvolupador via Telegram</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Funcionalitats experimentals</string>
     <string name="toast_experimental_features_on" comment="Message text">Característiques experimentals activades.\nAquestes característiques podrien ser inestables i insegures.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Característiques experimentals apagades.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Desa registres en un fitxer</string>
     <string name="toast_log_on_file_on" comment="Message text">Guardat de registres a un archiu activat.\nPots adjuntar el archiu log.txt quan reportes el problema.\nLlegeix més a GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Guardat de registres a un archiu desactivat.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Estadístiques anònimes</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">Estadístiques anònimes activades.\nNo recopilem les teves dades personals. Només utilitzem les estadístiques per veure quantes persones utilitzen l\'aplicació cada dia.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Estadístiques anònimes desactivades. Tingues en compte que només utilitzem estadístiques per veure quantes persones utilitzen l\'aplicació diàriament. No recopilem cap dada personal. Si us plau considereu tornar a activar les estadístiques.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Estadístiques genèriques</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Mostra la cadena que m\'identifica dins de l\'aplicació</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Estadístiques d\'ús de l\'aplicació</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Ometre la validació d\'enregistrament</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Ometre la validació d\'enregistrament activada.\nAra podrà enviar enregistraments sense haver d\'escoltar-les prèviament.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Ometre la validació d\'enregistrament desactivada.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Tradueix l\'aplicació a Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Veure estadístiques de l\'aplicació</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Indicador sonor d\'enregistrament</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">So de l\'indicador de gravació activat.\nUn so es reproduirà quan començes i detingues la gravació.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">El so de l\'indicador de gravació desactivat.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Comprova actualitzacions</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Comprovació d\'actualitzacions activada.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Comprovació d\'actualitzacions desactivada.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Evitar diàlegs de confirmació en Configuració</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Evitar diàlegs de confirmació activats.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Evitar diàlegs de confirmació desactivats.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Gestos</string>
-    <string name="toast_gestures_on" comment="Message text">Gestos activats.</string>
-    <string name="toast_gestures_off" comment="Message text">Gestos desactivats.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Si us plau, si t\'agrada l\'aplicació, recorda valorar-la a Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">La aplicació no està (completament) traduïda a aquesta llengua.\nPots contribuïr a la tradució de l\'aplicació a Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animacions</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Personalizar la mida de la font</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Personalitza gestos</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Modes</string>
+    <string name="title_theme_settings" comment="Title in Settings">Tema</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Grup de Telegram de l\'aplicació</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Mostra etiquetes davall de les icones del menú</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Llegeix els Termes del Servei de Mozilla Common Voice</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Llegeix les guies de validacions</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Valora a Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Interfície d\'Usuari</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Avançat</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Guarda gravacions al dispositiu</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reinicialitza les dades</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Cap funció experimental està ara disponible</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostra el text de les oracions quan els clips son escoltats completament</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Mostra la icona d\'informe (part superior dreta) en comptes del botó (part inferior) en {{*{{listen_name}}*}} i {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregant frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -168,10 +168,13 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comenta</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">T\'has quedat sense frases sense connexió. Connecta\'t a Internet per descarregar més frases que gravar.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">T\'has quedat sense clips sense connexió. Connecta\'t a Internet per descarregar més clips que validar.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Pots gravar {{*{{n_sentences}}*}} més frases abans de necessitar connexió a Internet.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Pots gravar {{*{{n_clips}}*}} més clips abans de necessitar connexió a Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Escoltant...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" està activat. Ves a Configuració per desactivar-ho.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">El text de l\'oració està ocult</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Torna-ho a provar</string>
     <string name="txt_noconnection" comment="Message text">No tens connexió a Internet. Connecta\'t a una Wi-Fi o a les dades mòbils, i pressiona el botó davall.</string>
@@ -192,17 +195,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Toca aquesta icona si vols escoltar el clip una altra vegada.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Si el clip coincideix la frase, toca aquesta icona per acceptar-lo.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Si el clip no coinxideix amb la frase, toca aquesta icona per rebutjar-lo.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Si no esteu segur de si hauríeu d\'acceptar o rebutjar una gravació, podeu llegir la guia per a la validació a Mozilla Discourse.\nTrobareu també l\'enllaç a Configuració.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Llegeix ara</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Perdona, aquesta característica encara no existeix.\nEstem treballant constantment per millorar l\'aplicació, així que comprova més avant si ja s\'ha implementat.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Tanca</string>
     <string name="labelAllBadges" comment="Title for All badge section">Totes les medalles</string>
-    <string name="new_badge_earnt_message" comment="Message text">Molt bé! Acabes de conseguir una insígnia.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Visca! Heu guanyat una altra insígnia.\nAneu a {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} per a veure totes les vostres insígnies.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Heu obtingut aquesta insígnia perquè heu validat si més no {{*{{n_clips}}*}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Heu obtingut aquesta insígnia perquè heu gravat si més no {{*{{n_sentences}}*}} oracions.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Heu obtingut aquesta insígnia perquè heu validat o gravat si més no {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">D\'acord</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
@@ -222,6 +225,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Ara estàs sense connexió i la aplicació ha canviat al mode offline automàticament.\nAçò significa que pots continuar gravant i validant, però les sol·licituds seràn enviades quan recuperes la connexió.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Pots saber que estàs en el mode sense connexió si veus aquesta icona a la pantalla:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Pots tocar aquesta icona per vore els clips i frases descarregades.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">El mode Sense Connexió no està activat, per el que no pots fer ús de l\'aplicació mentre no tingues connexió a Internet.\nPer utilitzar la característica del mode Sense Connexió, activa-la dins de Configuració.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Objectiu diari</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No heu fixat cap objectiu</string>
@@ -233,7 +237,10 @@
     <string name="description_setting_daily_goal" comment="Message text">Elegeix quantes frases vols gravar i els clips que vols validar (la suma d\'aquests) per dia.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Aconseguit avui</string>
     <string name="daily_goal_not_achieved_today">No aconseguit avui</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Ben fet! Has aconseguit el teu objectiu diari.\nHas validat {{*{{n_clips}}*}} tall(s) de veu i n\'has gravat {{*{{n_sentences}}*}}.\nSentet lliure de seguir contribuint al projecte Common Voice.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Ben fet! Heu aconseguit el vostre objectiu diari.\nHeu validat {{*{{n_clips}}*}} tall(s) de veu i n\'heu gravat {{*{{n_sentences}}*}}.\nSentiu-vos lliure de continuar contribuint al projecte Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Compartir</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Compartir a</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Acabe de aconseguir el meu objectiu diari per #CommonVoice de @mozilla utilitzant #CVAndroid.\nAjunta\'t i contribueix! Instala CV Android des de Google Play o F-Droid ara {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">L\'objectiu diari no és una funcionalitat oficial de Mozilla. És una funcionalitat específica de l\'aplicació.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Una nova versió de la app està disponible (versió {{*{{n_version}}*}}), Pots actualitzar-la des de la teva tenda favorita (F-Droid, Google Play Store) o directament des de GitHub.</string>

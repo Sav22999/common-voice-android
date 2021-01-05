@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">মূল অবদানকারীগণ</string>
     <string name="txt_top_contributors_recorded">রেকর্ড করা হয়েছে</string>
     <string name="txt_top_contributors_validated">সত্যায়িত</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">অ্যাপের পরিসংখ্যান</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">বর্তমান ভাষা</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">সব ভাষা</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">আবার টিউটোরিয়াল খুলো</string>
     <string name="txt_project_github_settings" comment="Button in Settings">গিটহাবে(GitHub) প্রজেক্ট(প্রকল্প) ওপেন-সোর্স</string>
-    <string name="txt_contributors" comment="Label in Settings">মূল অবদানকারীগণ</string>
     <string name="txt_developed_by" comment="Label in Settings">ডেভেলপার</string>
-    <string name="toast_language_changed" comment="Message text">ভাষা সফলভাবে {{*{{lang}}*}} এ পরিবর্তন করা হয়েছে</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">ভাষা</string>
     <string name="settingsListen" comment="Title in Settings">শুনো</string>
     <string name="settingsSpeak" comment="Title in Settings">বলো</string>
     <string name="settingsOther" comment="Title in Settings">অন্যান্য</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">আমার কাজে সাহায্য করো. আমাকে এক কাপ কফি কিনে দাও 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">ক্লিপ লোড হওয়ার সাথে সাথে প্লে করো</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">ক্লিপ লোড হওয়ার সাথে সাথে প্লে করা এখন চালু।</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">ক্লিপ লোড হওয়ার সাথে সাথে প্লে করা এখন বন্ধ।</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">অন্ধকার ভাব(থিম)</string>
-    <string name="toast_dark_theme_on" comment="Message text">ডার্ক থিম এখন চালু আছে।</string>
-    <string name="toast_dark_theme_off" comment="Message text">ডার্ক থিম এখন বন্ধ আছে।</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">ডেভেলপারকে টেলিগ্রামে(Telegram) যোগাযোগ করো</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">পরীক্ষামূলক বৈশিষ্ট্য</string>
     <string name="toast_experimental_features_on" comment="Message text">পরীক্ষামূলক বৈশিষ্ট্য চালু হয়েছে।\nনতুন বৈশিষ্ট্য অস্থিতিশীল ও অনিরাপদ হতে পারে।</string>
-    <string name="toast_experimental_featured_off" comment="Message text">পরীক্ষামূলক বৈশিষ্ট্য বন্ধ আছে।</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">একটি ফাইলে লগ সেভ করো</string>
     <string name="toast_log_on_file_on" comment="Message text">একটি ফাইলে লগ সেভ করা চালু আছে।\nকোনো সমস্যা রিপোর্ট করার সময় log.txt ফাইলটি যুক্ত করতে পারো\n গিটহাবে(GitHub) আরো পড়।</string>
-    <string name="toast_log_on_file_off" comment="Message text">একটি ফাইলে লগ সেভ করা বন্ধ আছে।</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">বেনামি পরিসংখ্যান</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">বেনামি পরিসংখ্যান চালু আছে।\nআমরা তোমার ব্যক্তিগত তথ্য সংগ্রহ করি না। প্রতিদিন কত লোক অ্যাপটি ব্যবহার করে তা দেখতে আমরা কেবল পরিসংখ্যানটি ব্যবহার করি।</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">বেনামি পরিসংখ্যান বন্ধ করা আছে। দয়া করে মনে রাখবেন যে প্রতিদিন আমরা কত লোক অ্যাপটি ব্যবহার করে তা দেখার জন্য আমরা কেবল পরিসংখ্যানটি ব্যবহার করি। আমরা কোনও ব্যক্তিগত তথ্য সংগ্রহ করি না। দয়া করে পরিসংখ্যান চালু করা পুনর্বিবেচনা করুন।</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">রেকর্ডিং নিশ্চিতকরণ বাদ দাও</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">রেকর্ডিং নিশ্চিতকরণ চালু আছে।\nএখন তুমি রেকর্ডিং প্রথমে না শুনেই পাঠাতে পারবে।</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">রেকর্ডিং নিশ্চিতকরণ বন্ধ আছে।</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">অ্যাপটি crowdin এ অনুবাদ কর</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">অ্যাপের পরিসংখ্যান দেখো</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">রেকর্ডিং নির্দেশক শব্দ</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">রেকর্ডিং নির্দেশক শব্দ এখন চালু আছে।\nরেকর্ডিং শুরু ও শেষ হওয়ার সময় একটি শব্দ হবে।</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">রেকর্ডিং নির্দেশক শব্দ এখন বন্ধ আছে।</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">আপডেট আছে কিনা দেখো</string>
-    <string name="toast_check_for_updated_on" comment="Message text">আপডেট দেখা চালু আছে।</string>
-    <string name="toast_check_for_updated_off" comment="Message text">আপডেট দেখা বন্ধ আছে।</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">সেটিংস এর নিশ্চিতকরণ বাদ দাও</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">সেটিংস এর নিশ্চিতকরণ বাদ দেওয়া চালু আছে।</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">সেটিংস এর নিশ্চিতকরণ বাদ দেওয়া বন্ধ আছে।</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">সংকেত</string>
-    <string name="toast_gestures_on" comment="Message text">সংকেত চালু আছে।</string>
-    <string name="toast_gestures_off" comment="Message text">সংকেত বন্ধ আছে।</string>
     <string name="message_review_app_on_play_store" comment="Message text">যদি এই অ্যাপ ভালো লেগে থাকে, তবে দয়া করে, Google Play Store-এ একটা মূল্যায়ন দিতে মনে রেখো।</string>
     <string name="message_app_not_completely_translated" comment="Message text">এই অ্যাপটি (সম্পূর্ণভাবে) এই ভাষায় অনুবাদকৃত নয়।\nতুমি crowdin এ এই অ্যাপ অনুবাদে সাহায্য করতে পারো।</string>
     <string name="txt_animations" comment="Switch-Button in Settings">অ্যানিমেশন</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">অক্ষরের আকার পালটাও</string>
     <string name="txt_customise_gestures" comment="Button in Settings">সংকেত পালটাও</string>
-    <string name="txt_themes_settings" comment="Button in Settings">থিম</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">অ্যাপের টেলিগ্রাম(Telegram) গ্রুপ</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">মেনু চিহ্নগুলোর নিচে লেবেলগুলো দেখাও</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">বাক্য লোড হচ্ছে...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">উপেক্ষা কর</string>
@@ -168,10 +168,13 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">মন্তব্য</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">তোমার অফলাইন বাক্য শেষ হলে গেছে। আরো বাক্য ডাউনলোড করে রেকর্ড করার জন্য ইন্টারনেটের সাথে যুক্ত হও।</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">তোমার অফলাইন ক্লিপ শেষ হলে গেছে। আরো ক্লিপ ডাউনলোড করে সত্যায়িত করার জন্য ইন্টারনেটের সাথে যুক্ত হও।</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">তুমি আর {{*{{n_sentences}}*}}টি বাক্য রেকর্ড করতে পারবে, যার পরে তোমাকে ইন্টারনেটে যুক্ত হতে হবে।</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">তুমি আর {{*{{n_sentences}}*}}টি ক্লিপ সত্যায়িত করতে পারবে, যার পরে তোমাকে ইন্টারনেটে যুক্ত হতে হবে।</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">আবার পরীক্ষা করো</string>
     <string name="txt_noconnection" comment="Message text">তুমি  ইন্টারনেটে যুক্ত নও। ওয়াই-ফাই বা মোবাইল ডাটাতে সংযোগ করো, তারপরে নিচের বোতামটা টিপো।</string>
@@ -199,10 +202,10 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">বন্ধ করো</string>
     <string name="labelAllBadges" comment="Title for All badge section">সকল ব্যাজ</string>
-    <string name="new_badge_earnt_message" comment="Message text">অভিনন্দন! তুমি একটি নতুন ব্যাজ পেয়েছ।</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">আচ্ছা</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">ত্রুটি</string>
@@ -222,6 +225,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">তুমি এখন অফলাইন এবং অ্যাপটি স্বয়ংক্রিয়ভাবে অফলাইন মোডে এসেছে।\n যার অর্থ তুমি রেকর্ড এবং সত্যায়ন করা অবিরত রাখতে পারবেন তবে অনুরোধগুলি পরে প্রেরণ করা হবে।</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">তুমি কখন অফলাইনে মোডে আছো এই আইকন দেখে তা বলতে পারবে:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">তুমি ঐ আইকনটা টিপ দিতে পারো ডাউনলোড করা ক্লিপ ও বাক্য দেখার জন্য।</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">দৈনিক লক্ষ্য</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">লক্ষ্য নিশ্চিত করা নেই</string>
@@ -234,6 +238,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">আজকের অর্জন</string>
     <string name="daily_goal_not_achieved_today">আজকে অর্জনকৃত নয়</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">সাবাস! তুমি তোমার দৈনিক লক্ষ্যে পৌঁছেছো।\n তুমি {{*{{n_clips}}*}}টি ক্লিপ সত্যায়ন করেছো এবং {{*{{n_sentences}}*}}টি বাক্য রেকর্ড করেছো।\nCommon Voice এ নির্দ্বিধায় অবদান রাখতে থাকো।</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">এই দৈনিক লক্ষ্য মজিলার বৈশিষ্ট্য না। এটা শুধু অ্যাপটির বৈশিষ্ট্য।</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">অ্যাপটির একটি নতুন সংস্করণ আছে(সংস্করণ {{*{{n_version}}*}})। তুমি নিজের পছন্দের স্টোর (এফ-ড্রয়েড বা F-Droid , Google Play Store) অথবা গিটহাব(GitHub) থেকে ডাউনলোড করতে পারো।</string>

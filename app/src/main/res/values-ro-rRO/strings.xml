@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">Top contributors</string>
     <string name="txt_top_contributors_recorded">Recorded</string>
     <string name="txt_top_contributors_validated">Validated</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Deschide din nou tutorialul</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Proiectul open-source pe GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">colaboratori principali</string>
     <string name="txt_developed_by" comment="Label in Settings">dezvoltat de</string>
-    <string name="toast_language_changed" comment="Message text">Limbă schimbată corect în {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Limba</string>
     <string name="settingsListen" comment="Title in Settings">Ascultă</string>
     <string name="settingsSpeak" comment="Title in Settings">Vorbește</string>
     <string name="settingsOther" comment="Title in Settings">Altele</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Susțin munca mea. Cumpără-mi o cafea 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Redare automată clip când este încărcat</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Redare automată clipul este acum activat.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Redarea automată a clipului este acum dezactivată.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Temă întunecată</string>
-    <string name="toast_dark_theme_on" comment="Message text">Tema întunecată este acum activată.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Tema întunecată este acum dezactivată.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Contactați dezvoltatorul pe Telegram</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Caracteristici experimentale</string>
     <string name="toast_experimental_features_on" comment="Message text">Funcțiile experimentale au fost activate.\nNoile funcții ar putea fi instabile și nesigure.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Caracteristici experimentale dezactivate.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Salvează jurnalele într-un fișier</string>
     <string name="toast_log_on_file_on" comment="Message text">Salvarea jurnalelor într-un fișier activat.\nPuteți atașa fișierul log.txt când raportați o problemă.\nCitiți mai multe pe GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Salvarea jurnalelor într-un fișier a fost dezactivată.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Statistici anonime</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">Statistici anonime pornite.\nNu colectăm datele dvs. personale. Folosim doar statistici pentru a vedea câți oameni folosesc aplicația în fiecare zi.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Statisticile anonime au fost dezactivate. Rețineți că folosim statistici doar pentru a vedea câți oameni folosesc aplicația în fiecare zi. Nu colectăm date personale. Vă rugăm să luați în considerare reactivarea statisticilor.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Sari peste confirmarea înregistrării</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Săriți peste confirmarea înregistrării activată.\nAcum veți putea trimite înregistrări fără a fi nevoie să le ascultați mai întâi.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Săriți peste confirmarea înregistrării oprită.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Tradu aplicația pe Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Vezi statisticile aplicațiilor</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Sunet indicator de înregistrare</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Sunetul indicatorului de înregistrare este acum activat.\nUn sunet va reda atunci când începeți și opriți înregistrarea.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">Sunetul indicatorului de înregistrare este acum oprit.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Verifică pentru actualizări</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Verificarea actualizărilor a fost activată.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Verificarea actualizărilor a fost dezactivată.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Abandonează dialogurile de confirmare în Setări</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Dezarhivarea dialogurilor de confirmare este acum activată.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Abandonarea dialogurilor de confirmare este acum oprită.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Gesturi</string>
-    <string name="toast_gestures_on" comment="Message text">Gesturile sunt acum activate.</string>
-    <string name="toast_gestures_off" comment="Message text">Gesturile sunt acum dezactivate.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Vă rugăm, dacă vă place această aplicație, nu uitați să o revizuiți pe Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">Aplicația nu este (complet) tradusă în această limbă.\nPoți contribui la traducerea aplicației pe Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animații</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Personalizați dimensiunea fontului</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Personalizați gesturi</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Teme</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Grupul Telegram al aplicației</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Arată etichetele sub pictogramele meniului</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Se încarcă propoziția...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Omitere</string>
@@ -168,10 +168,13 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comentariu</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Ai rămas fără propoziții offline. Conectează-te la internet pentru a descărca mai multe propoziții în înregistrare.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Ai rămas fără clipuri offline. Conectează-te la internet pentru a descărca mai multe clipuri pentru validare.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Puteți înregistra mai multe propoziții {{*{{n_sentences}}*}} înainte de a vă conecta la internet.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Puteți valida mai multe clipuri {{*{{n_clips}}*}} înainte de a vă conecta la internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verifică din nou</string>
     <string name="txt_noconnection" comment="Message text">Nu ești conectat la internet. Conectează-te la datele Wi-Fi sau mobile, apoi apasă butonul de mai jos.</string>
@@ -199,10 +202,10 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Inchide</string>
     <string name="labelAllBadges" comment="Title for All badge section">Toate insignele</string>
-    <string name="new_badge_earnt_message" comment="Message text">Ura! Tocmai ai câștigat o insignă nouă.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ok</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Eroare</string>
@@ -222,6 +225,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Ești deconectat și aplicația a trecut automat la modul offline.\nAcest lucru înseamnă că puteți continua să înregistrați și să validați, dar cererile vor fi trimise mai târziu.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Poți să-ți dai seama când ești în modul offline căutând această pictogramă pe ecran:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Poți apăsa acea pictogramă pentru a vedea clipurile descărcate și propozițiile.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Obiectiv zilnic</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Niciun obiectiv stabilit</string>
@@ -234,6 +238,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Realizat astăzi</string>
     <string name="daily_goal_not_achieved_today">Nu s-a realizat astăzi</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Acest țel zilnic nu este o caracteristică oficială a Mozilla. Este doar o caracteristică a acestei aplicații.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">O nouă versiune a aplicației este disponibilă (release {{*{{n_version}}*}}). Îl puteți actualiza din magazinul dvs. preferat (F-Droid, Google Play Store) sau direct din GitHub.</string>

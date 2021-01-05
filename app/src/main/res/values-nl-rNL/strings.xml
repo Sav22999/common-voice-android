@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">Top contributors</string>
     <string name="txt_top_contributors_recorded">Recorded</string>
     <string name="txt_top_contributors_validated">Validated</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Open de handleiding opnieuw</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Project open-source op GitHub</string>
-    <string name="txt_contributors" comment="Label in Settings">hoofdbijdragers</string>
     <string name="txt_developed_by" comment="Label in Settings">ontwikkeld door</string>
-    <string name="toast_language_changed" comment="Message text">Taal correct gewijzigd naar {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Taal</string>
     <string name="settingsListen" comment="Title in Settings">Luister</string>
     <string name="settingsSpeak" comment="Title in Settings">Spreek</string>
     <string name="settingsOther" comment="Title in Settings">Anders</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Ondersteun mijn werk. Koop me een koffie 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip wanneer het geladen wordt</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Auto-play clip is nu ingeschakeld.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Auto-play clip is nu uitgeschakeld.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Donker thema</string>
-    <string name="toast_dark_theme_on" comment="Message text">Donker thema is nu ingeschakeld.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Donker thema is uitgeschakeld.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Neem contact op met de ontwikkelaar op Telegram</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimentele features</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimentele functies ingeschakeld.\nNieuwe functies kunnen instabiel en onveilig zijn.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Experimentele features zijn uitgeschakeld.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Sla de logs op in een bestand</string>
     <string name="toast_log_on_file_on" comment="Message text">Opslaan logs als een bestand is ingeschakeld.\nU kunt het log.txt bestand bijvoegen als u een probleem rapporteert.\nLees meer op GitHub.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Opslaan van logs in een bestand is uitgeschakeld.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Anonieme statistieken</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonieme statistieken ingeschakeld.\nWe verzamelen je persoonlijke gegevens niet. We gebruiken alleen statistieken om te zien hoeveel mensen de app dagelijks gebruiken.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonieme statistieken zijn uitgeschakeld. Houd er rekening mee dat we alleen statistieken gebruiken om te zien hoeveel mensen de app dagelijks gebruiken. We verzamelen geen persoonlijke gegevens. Overweeg om de statistieken weer in te schakelen.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Sla opnamebevestiging over</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Bevestiging van opnemen is ingeschakeld.\nJe kunt nu opnamen verzenden zonder ze eerst te moeten beluisteren.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Skip opname bevestiging uitgeschakeld.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Vertaal de app op Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Bekijk app statistieken</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Opname indicator geluid</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Het opnamegeluid is nu ingeschakeld.\nEr wordt een geluid afgespeeld wanneer u begint en de opname stopt.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">Opname indicator geluid is nu uitgeschakeld.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Op updates controleren</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Controleren op updates ingeschakeld.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Controleren op updates uitgeschakeld.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Bevestiging afbreken in Instellingen</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Bevestigingsdialogen afbreken zijn nu ingeschakeld.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Bevestiging afbreken dialogen zijn nu uitgeschakeld.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Vingerbewegingen</string>
-    <string name="toast_gestures_on" comment="Message text">Gebaren zijn nu ingeschakeld.</string>
-    <string name="toast_gestures_off" comment="Message text">Gebaren zijn nu uitgeschakeld.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Als u deze app leuk vindt, vergeet dan niet de app te bekijken in Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">De app is (volledig) vertaald in deze taal.\nU kunt bijdragen aan het vertalen van de app op Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animaties</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Pas de lettergrootte aan</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Gebaren aanpassen</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Thema’s</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram-groep van de app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Labels onder de menuiconen weergeven</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Verzenden laden...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Sla over</string>
@@ -168,10 +168,13 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Opmerking</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Je bent door de offline zinnen heen. Maak verbinding met het internet om meer zinnen te downloaden om op te nemen.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">U bent door de offline clips heen. Maak verbinding met internet om meer clips te downloaden om te valideren.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">U kunt {{*{{n_sentences}}*}} meer zinnen opnemen voordat u verbinding moet maken met het internet.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">U kunt {{*{{n_clips}}*}} extra clips valideren voordat u verbinding moet maken met het internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Controleer opnieuw</string>
     <string name="txt_noconnection" comment="Message text">U bent niet verbonden met het internet. Maak verbinding met Wi-Fi of mobiele data en druk vervolgens op de knop hieronder.</string>
@@ -199,10 +202,10 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Sluit</string>
     <string name="labelAllBadges" comment="Title for All badge section">Alle badges</string>
-    <string name="new_badge_earnt_message" comment="Message text">Hoera! Je hebt zojuist een nieuwe badge verdiend.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Oké</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Fout</string>
@@ -222,6 +225,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">U bent nu offline en de app is automatisch naar offline modus overgezet.\nDit betekent dat je door kunt gaan met het registreren en valideren, maar de aanvragen worden later verstuurd.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Je kunt zien wanneer je in offline modus bent door dit pictogram op het scherm te zoeken:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Je kunt op het pictogram tikken om gedownloade clips en zinnen te zien.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Dagelijks doel</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Geen doel ingesteld</string>
@@ -234,6 +238,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Vandaag behaald</string>
     <string name="daily_goal_not_achieved_today">Vandaag niet bereikt</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Goed gedaan! Je hebt je dagelijkse doel bereikt.\nJe hebt {{*{{n_clips}}*}} clip(s) gevalideerd en {{*{{n_sentences}}*}} verstuurd(en).\nVoel je vrij om bij te dragen aan Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Dit dagelijks doel is geen officiële Mozilla-functie. Het is alleen een functie van deze app.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Er is een nieuwe versie van de app beschikbaar (versie {{*{{n_version}}*}}). U kunt het bijwerken vanuit uw favoriete winkel (F-Droid, Google Play Store) of rechtstreeks vanuit GitHub.</string>

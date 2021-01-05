@@ -2,6 +2,7 @@ package org.commonvoice.saverio.ui.dashboard
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,13 +13,12 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_dashboard.*
-import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.MainActivity
+import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
-import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
@@ -44,9 +44,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     private val mainPrefManager: MainPrefManager by inject()
 
     private val tabTextColors by lazy {
-        val theme = DarkLightTheme()
-
-        if (theme.getTheme(requireContext())) {
+        if (theme.isDark) {
             Pair(
                 ContextCompat.getColor(requireContext(), R.color.colorBlack),
                 ContextCompat.getColor(requireContext(), R.color.colorWhite)
@@ -60,8 +58,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     }
 
     private val tabBackgroundColors by lazy {
-        val theme = DarkLightTheme()
-        if (theme.getTheme(requireContext())) {
+        if (theme.isDark) {
             Pair(
                 ContextCompat.getColorStateList(requireContext(), R.color.colorLightGray),
                 ContextCompat.getColorStateList(
@@ -112,11 +109,29 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             }
 
             buttonDashboardSetDailyGoal.onClick {
-                //TODO absolutely change this
                 if (mainPrefManager.sessIdCookie != null) {
-                    (activity as? MainActivity)?.openDailyGoalDialog()
+                    try {
+                        val metrics = DisplayMetrics()
+                        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+                        val width = metrics.widthPixels
+                        val height = metrics.heightPixels
+                        val message = MessageDialog(
+                            requireContext(),
+                            activity as MainActivity,
+                            1,
+                            value = statsPrefManager.dailyGoalObjective,
+                            width = width,
+                            height = height
+                        )
+                        message.show()
+                    } catch (exception: Exception) {
+                        println("!!-- Exception: MainActivity - OPEN DAILY GOAL DIALOG: " + exception.toString() + " --!!")
+                    }
                 } else {
-                    (activity as? MainActivity)?.noLoggedInNoDailyGoal()
+                    showMessageDialog(
+                        "",
+                        getString(R.string.toastNoLoginNoDailyGoal)
+                    )
                 }
             }
 
@@ -132,10 +147,45 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         }
     }
 
+    private fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = "",
+        type: Int = 0
+    ) {
+        val metrics = DisplayMetrics()
+        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        try {
+            var messageText = text
+            if (errorCode != "") {
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
+            }
+            var message: MessageDialog? = null
+            message = MessageDialog(
+                requireContext(),
+                type,
+                title,
+                messageText,
+                details = details,
+                height = height
+            )
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
+        }
+    }
+
     private fun networkConnectivityCheck() {
         connectionManager.liveInternetAvailability.observe(
             viewLifecycleOwner,
-            Observer { isInternetPresent ->
+            { isInternetPresent ->
                 withBinding {
                     dashboardSectionStatistics.children.filterIsInstance<ConstraintLayout>()
                         .forEach {
@@ -154,7 +204,9 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                             it.isVisible = isInternetPresent
                         }
 
-                    dashboardTopContributorsNTh.isVisible = false
+                    dashboardTopContributorsBeforeNth.isVisible = false
+                    dashboardTopContributorsNth.isVisible = false
+                    dashboardTopContributorsAfterNth.isVisible = false
                     dashboardTopContributorsPoints.isVisible = false
 
                     labelDashboardDailyGoalValue.isVisible = isInternetPresent
@@ -178,7 +230,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             binding.labelDashboardDailyGoalValue.text =
                 statsPrefManager.dailyGoalObjective.toString()
             binding.labelDashboardDailyGoalValue.typeface =
-                ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
+                ResourcesCompat.getFont(requireContext(), R.font.sourcecodepro)
         }
     }
 
@@ -220,9 +272,11 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
         binding.labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
         binding.labelDashboardVoicesBefore.text =
-            "${getString(R.string.textHour)} ${localTimeMinusOne.padStart(
-                2, '0'
-            )}:00"
+            "${getString(R.string.textHour)} ${
+                localTimeMinusOne.padStart(
+                    2, '0'
+                )
+            }:00"
 
         dashboardViewModel.onlineVoices.observe(viewLifecycleOwner, Observer { list ->
             binding.textDashboardVoicesNow.setText(list.now.toString())
@@ -233,8 +287,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     fun setTheme() = withBinding {
         val context = requireContext()
 
-        val theme = DarkLightTheme()
-        val isDark = theme.getTheme(context)
         theme.setElements(context, layoutDashboard)
 
         theme.setElements(context, dashboardSectionStatistics)
@@ -254,16 +306,17 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         theme.setElements(context, dashboardTopContributorsFirst)
         theme.setElements(context, dashboardTopContributorsSecond)
         theme.setElements(context, dashboardTopContributorsThird)
-        theme.setElements(context, dashboardTopContributorsNTh)
+        theme.setElements(context, dashboardTopContributorsBeforeNth)
+        theme.setElements(context, dashboardTopContributorsNth)
+        theme.setElements(context, dashboardTopContributorsAfterNth)
 
-        theme.setElement(isDark, context, 3, dashboardSectionStatistics)
-        theme.setElement(isDark, context, 3, dashboardSectionVoicesOnline)
-        theme.setElement(isDark, context, 3, dashboardSectionDailyGoal)
-        theme.setElement(isDark, context, 3, dashboardSectionAppStatistics)
-        theme.setElement(isDark, context, 3, dashboardSectionTopContributors)
+        theme.setElement(context, 3, dashboardSectionStatistics)
+        theme.setElement(context, 3, dashboardSectionVoicesOnline)
+        theme.setElement(context, 3, dashboardSectionDailyGoal)
+        theme.setElement(context, 3, dashboardSectionAppStatistics)
+        theme.setElement(context, 3, dashboardSectionTopContributors)
 
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardSectionToday,
@@ -271,7 +324,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardSectionEver,
@@ -280,7 +332,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         )
 
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardVoicesOnlineNow,
@@ -288,7 +339,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardVoicesOnlineBefore,
@@ -297,7 +347,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         )
 
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardAppStatisticsCurrentLanguage,
@@ -305,7 +354,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
         theme.setElement(
-            isDark,
             context,
             3,
             dashboardAppStatisticsAllLanguages,
@@ -313,44 +361,73 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             R.color.colorTabBackgroundInactiveDT
         )
 
-        theme.setTextView(isDark, context, textDashboardVoicesNow)
-        theme.setTextView(isDark, context, textDashboardVoicesBefore)
+        theme.setElement(context, buttonDashboardSetDailyGoal)
 
-        theme.setElement(isDark, context, buttonDashboardSetDailyGoal)
-
-        theme.setTextView(isDark, context, textDashboardVoicesNow, border = false)
-        theme.setTextView(isDark, context, textDashboardVoicesBefore, border = false)
+        theme.setTextView(context, textDashboardVoicesNow, border = false, intern = true)
+        theme.setTextView(context, textDashboardVoicesBefore, border = false, intern = true)
 
         theme.setTextView(
-            isDark,
             context,
             textDashboardAppStatisticsCurrentLanguage,
-            border = false
+            border = false,
+            intern = true
         )
-        theme.setTextView(isDark, context, textDashboardAppStatisticsAllLanguages, border = false)
+        theme.setTextView(
+            context,
+            textDashboardAppStatisticsAllLanguages,
+            border = false,
+            intern = true
+        )
 
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberFirst, border = false)
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberSecond, border = false)
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberThird, border = false)
-        theme.setElement(isDark, context, labelTopContributorsPoints)
-        theme.setTextView(isDark, context, textDashboardTopContributorsNumberNth, border = false)
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberFirst,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberSecond,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberThird,
+            border = false,
+            intern = true
+        )
+        theme.setElement(context, labelTopContributorsPoints)
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberBeforeNth,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberNth,
+            border = false,
+            intern = true
+        )
+        theme.setTextView(
+            context,
+            textDashboardTopContributorsNumberAfterNth,
+            border = false,
+            intern = true
+        )
 
         resetTopContributor()
     }
 
     private fun resetTopContributor() {
-        for (x in 0..3) {
+        for (x in 0..6) {
             setYouTopContributor(
                 getContributorSection(x),
                 background = R.color.colorDarkWhite,
                 backgroundDT = R.color.colorLightBlack
             )
         }
-        setYouTopContributor(
-            binding.dashboardTopContributorsNTh,
-            background = R.color.colorDarkWhite,
-            backgroundDT = R.color.colorLightBlack
-        )
         binding.dashboardTopContributorsPoints.isGone = true
     }
 
@@ -359,13 +436,8 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         background: Int = R.color.colorYouTopContributors,
         backgroundDT: Int = R.color.colorYouTopContributorsDT
     ) {
-        val context = requireContext()
-
-        val theme = DarkLightTheme()
-        val isDark = theme.getTheme(context)
         theme.setElement(
-            isDark,
-            context,
+            requireContext(),
             3,
             youTopContributors,
             background = background,
@@ -412,79 +484,121 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             }
         })
 
-        dashboardViewModel.contributors.observe(viewLifecycleOwner, Observer { pair ->
-            dashboardTopContributorsNTh.isVisible = false
+        dashboardViewModel.contributors.observe(viewLifecycleOwner, { pair ->
+            dashboardTopContributorsBeforeNth.isGone = true
+            dashboardTopContributorsNth.isGone = true
+            dashboardTopContributorsAfterNth.isGone = true
 
             resetTopContributor()
 
-            if (pair.second) {
-                pair.first.topContributorsSpeak.take(3)
-                    .forEachIndexed { index, responseLeaderboardPosition ->
-                        getContributorNameTextView(index).text =
-                            responseLeaderboardPosition.username
-                        getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
-                    }
-                pair.first.topContributorsSpeak.find { it.isYou }?.let { you ->
-                    if (pair.first.topContributorsSpeak.take(3).contains(you)) {
-                        getContributorNameTextView(pair.first.topContributorsSpeak.indexOf(you))
-                            .setText(R.string.dashboardTabYou)
-                        setYouTopContributor(
-                            getContributorSection(
-                                pair.first.topContributorsSpeak.indexOf(
-                                    you
-                                )
-                            )
-                        )
-                    } else {
-                        dashboardTopContributorsNTh.isVisible =
-                            connectionManager.isInternetAvailable
+            if (pair.second) { //Speak
 
-                        labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
-                        textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
-                        textDashboardTopContributorsNumberNth.setText("${you.total}")
-                        setYouTopContributor(dashboardTopContributorsNTh)
-                        if (you.total > 4) {
-                            dashboardTopContributorsPoints.isGone =
-                                !connectionManager.isInternetAvailable
+                pair.first.topContributorsSpeak
+                    .take(3) //First three positions of the leaderboard
+                    .forEachIndexed { index, leaderboardLine -> //Populate the data for each of the three
+                        getContributorNameTextView(index).text = leaderboardLine.username
+                        getContributorNumberTextView(index).setText(leaderboardLine.total.toString())
+                    }
+
+                pair.first.topContributorsSpeak
+                    .find { it.isYou }
+                    ?.let { you -> //The user in the leaderboard
+                        if (you.position <= 2) { //The user is in the top three
+                            getContributorNameTextView(you.position).setText(R.string.dashboardTabYou)
+                            setYouTopContributor(getContributorSection(you.position))
+                        } else { //The user is not in the top three
+                            dashboardTopContributorsNth.isVisible =
+                                connectionManager.isInternetAvailable
+
+                            labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
+                            textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
+                            textDashboardTopContributorsNumberNth.setText("${you.total}")
+                            setYouTopContributor(dashboardTopContributorsNth)
+                            if (you.position > 4) { //User is not in the top three, we need to show the dots
+                                dashboardTopContributorsPoints.isGone =
+                                    !connectionManager.isInternetAvailable
+                            }
+
+                            pair.first.topContributorsSpeak //Setup other users near you
+                                .find { (it.position == (you.position - 1)) && it.position >= 3 } //BeforeNth
+                                ?.let { minus1 ->
+                                    dashboardTopContributorsBeforeNth.isVisible = true
+                                    labelDashboardTopContributorsPositionBeforeNth.text =
+                                        "${minus1.position + 1}"
+                                    textDashboardTopContributorsUsernameBeforeNth.text =
+                                        minus1.username
+                                    textDashboardTopContributorsNumberBeforeNth.setText("${minus1.total}")
+                                }
+
+                            pair.first.topContributorsSpeak //Setup other users near you
+                                .find { (it.position == (you.position + 1)) && it.position >= 4 } //AfterNth
+                                ?.let { plus1 ->
+                                    dashboardTopContributorsAfterNth.isVisible = true
+                                    labelDashboardTopContributorsPositionAfterNth.text =
+                                        "${plus1.position + 1}"
+                                    textDashboardTopContributorsUsernameAfterNth.text =
+                                        plus1.username
+                                    textDashboardTopContributorsNumberAfterNth.setText("${plus1.total}")
+                                }
                         }
                     }
-                }
-            } else {
-                pair.first.topContributorsListen.take(3)
-                    .forEachIndexed { index, responseLeaderboardPosition ->
-                        getContributorNameTextView(index).text =
-                            responseLeaderboardPosition.username
-                        getContributorNumberTextView(index).setText(responseLeaderboardPosition.total.toString())
-                    }
-                pair.first.topContributorsListen.find { it.isYou }?.let { you ->
-                    if (pair.first.topContributorsListen.take(3).contains(you)) {
-                        getContributorNameTextView(pair.first.topContributorsListen.indexOf(you))
-                            .setText(R.string.dashboardTabYou)
-                        setYouTopContributor(
-                            getContributorSection(
-                                pair.first.topContributorsListen.indexOf(
-                                    you
-                                )
-                            )
-                        )
-                    } else {
-                        dashboardTopContributorsNTh.isVisible =
-                            connectionManager.isInternetAvailable
 
-                        labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
-                        textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
-                        textDashboardTopContributorsNumberNth.setText("${you.total}")
-                        setYouTopContributor(dashboardTopContributorsNTh)
-                        if (you.total > 4) {
-                            dashboardTopContributorsPoints.isGone =
-                                !connectionManager.isInternetAvailable
+            } else { //Listen
+
+                pair.first.topContributorsListen
+                    .take(3) //First three positions of the leaderboard
+                    .forEachIndexed { index, leaderboardLine -> //Populate the data for each of the three
+                        getContributorNameTextView(index).text = leaderboardLine.username
+                        getContributorNumberTextView(index).setText(leaderboardLine.total.toString())
+                    }
+
+                pair.first.topContributorsListen
+                    .find { it.isYou }
+                    ?.let { you -> //The user in the leaderboard
+                        if (you.position <= 2) { //The user is in the top three
+                            getContributorNameTextView(you.position).setText(R.string.dashboardTabYou)
+                            setYouTopContributor(getContributorSection(you.position))
+                        } else { //The user is not in the top three
+                            dashboardTopContributorsNth.isVisible =
+                                connectionManager.isInternetAvailable
+
+                            labelDashboardTopContributorsPositionNth.text = "${you.position + 1}"
+                            textDashboardTopContributorsUsernameNth.setText(R.string.dashboardTabYou)
+                            textDashboardTopContributorsNumberNth.setText("${you.total}")
+                            setYouTopContributor(dashboardTopContributorsNth)
+                            if (you.position > 4) { //User is not in the top three, we need to show the dots
+                                dashboardTopContributorsPoints.isGone =
+                                    !connectionManager.isInternetAvailable
+                            }
+
+                            pair.first.topContributorsListen //Setup other users near you
+                                .find { (it.position == (you.position - 1)) && it.position >= 3 } //BeforeNth
+                                ?.let { minus1 ->
+                                    dashboardTopContributorsBeforeNth.isVisible = true
+                                    labelDashboardTopContributorsPositionBeforeNth.text =
+                                        "${minus1.position + 1}"
+                                    textDashboardTopContributorsUsernameBeforeNth.text =
+                                        minus1.username
+                                    textDashboardTopContributorsNumberBeforeNth.setText("${minus1.total}")
+                                }
+
+                            pair.first.topContributorsListen //Setup other users near you
+                                .find { (it.position == (you.position + 1)) && it.position >= 4 } //AfterNth
+                                ?.let { plus1 ->
+                                    dashboardTopContributorsAfterNth.isVisible = true
+                                    labelDashboardTopContributorsPositionAfterNth.text =
+                                        "${plus1.position + 1}"
+                                    textDashboardTopContributorsUsernameAfterNth.text =
+                                        plus1.username
+                                    textDashboardTopContributorsNumberAfterNth.setText("${plus1.total}")
+                                }
                         }
                     }
-                }
             }
+
         })
 
-        dashboardViewModel.usage.observe(viewLifecycleOwner, Observer {
+        dashboardViewModel.usage.observe(viewLifecycleOwner, {
             textDashboardAppStatisticsCurrentLanguage.setText("${it.languageUsage}")
             textDashboardAppStatisticsAllLanguages.setText("${it.totalUsage}")
         })
@@ -493,19 +607,28 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     private fun getContributorNameTextView(index: Int) = when (index) {
         0 -> binding.textDashboardTopContributorsUsernameFirst
         1 -> binding.textDashboardTopContributorsUsernameSecond
-        else -> binding.textDashboardTopContributorsUsernameThird
+        2 -> binding.textDashboardTopContributorsUsernameThird
+        3 -> binding.textDashboardTopContributorsUsernameBeforeNth
+        4 -> binding.textDashboardTopContributorsUsernameNth
+        else -> binding.textDashboardTopContributorsUsernameAfterNth
     }
 
     private fun getContributorNumberTextView(index: Int) = when (index) {
         0 -> binding.textDashboardTopContributorsNumberFirst
         1 -> binding.textDashboardTopContributorsNumberSecond
-        else -> binding.textDashboardTopContributorsNumberThird
+        2 -> binding.textDashboardTopContributorsNumberThird
+        3 -> binding.textDashboardTopContributorsNumberBeforeNth
+        4 -> binding.textDashboardTopContributorsNumberNth
+        else -> binding.textDashboardTopContributorsNumberAfterNth
     }
 
     private fun getContributorSection(index: Int) = when (index) {
         0 -> binding.dashboardTopContributorsFirst
         1 -> binding.dashboardTopContributorsSecond
-        else -> binding.dashboardTopContributorsThird
+        2 -> binding.dashboardTopContributorsThird
+        3 -> binding.dashboardTopContributorsBeforeNth
+        4 -> binding.dashboardTopContributorsNth
+        else -> binding.dashboardTopContributorsAfterNth
     }
 
     private fun everyoneStats() {

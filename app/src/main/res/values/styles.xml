@@ -4,14 +4,14 @@
     <!-- To view "full screen", replace 'DarkActionBar'->'NoActionBar' both in AppTheme and AppTheme.FullScreen
          It doesn't work -> "App doesn't respond" -> TEMPORARILY SOLUTION: actionBarSize = 1dp  -->
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorPrimaryDark</item><!-- Action bar color -->
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorAccent">@color/colorPrimaryDark</item>
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-        <item name="android:actionBarSize">1dp</item>
+        <!--<item name="android:actionBarSize">1dp</item> -->
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>

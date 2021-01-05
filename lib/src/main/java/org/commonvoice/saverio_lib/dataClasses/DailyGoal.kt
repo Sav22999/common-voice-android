@@ -14,4 +14,7 @@ class DailyGoal(
         return false
     }
 
+    fun getDailyGoal(): Int {
+        return goal
+    }
 }

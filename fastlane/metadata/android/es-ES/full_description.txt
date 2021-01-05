@@ -18,6 +18,8 @@ Esta no es la aplicación oficial de Common Voice. Está desarrollada por Saveri
 - Tema oscuro soportado
 - Objetivo diario
 - Gestos
+- Guarda tus grabaciones en tu dispositivo
+- Muchas otras características
 - La experiencia de la aplicación es totalmente personalizable en Ajustes
 
 Únete al grupo de Telegram: https://t.me/common_voice_android (@common_voice_android)

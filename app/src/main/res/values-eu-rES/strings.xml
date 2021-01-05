@@ -27,7 +27,6 @@
     <string name="txt_top_contributors">Parte-hartzaile nagusiak</string>
     <string name="txt_top_contributors_recorded">Grabatuta</string>
     <string name="txt_top_contributors_validated">Baliozkotua</string>
-    <!-- 4, ..., 100, etc. -->
     <string name="txt_app_statistics" comment="Title in Dashboard">Aplikazioaren estatistikak</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Uneko hizkuntza</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Hizkuntza guztiak</string>
@@ -73,58 +72,59 @@
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Ireki berriro tutoriala</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Kode irekiko proiektua GitHuben</string>
-    <string name="txt_contributors" comment="Label in Settings">laguntzaile nagusiak</string>
     <string name="txt_developed_by" comment="Label in Settings">garapena</string>
-    <string name="toast_language_changed" comment="Message text">Hizkuntza ongi aldatu da {{*{{lang}}*}} -(e)ra</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Hizkuntza</string>
     <string name="settingsListen" comment="Title in Settings">Entzun</string>
     <string name="settingsSpeak" comment="Title in Settings">Hitz egin</string>
     <string name="settingsOther" comment="Title in Settings">Beste bat</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Babestu nire lana. Ordain iezadazu kafe bat 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Erreprodukzio automatikoko klipa kargatuta dagoenean</string>
-    <string name="toast_autoplay_clip_on" comment="Message text">Erreprodukzio automatikoko klipa aktibatu da.</string>
-    <string name="toast_autoplay_clip_off" comment="Message text">Erreprodukzio automatikoko klipa desaktibatu da.</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Gai iluna</string>
-    <string name="toast_dark_theme_on" comment="Message text">Gai iluna aktibatu da.</string>
-    <string name="toast_dark_theme_off" comment="Message text">Gai iluna desaktibatu da.</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Jarri harremanetan garatzailearekin Telegramen</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Funtzio esperimentalak</string>
     <string name="toast_experimental_features_on" comment="Message text">Ezaugarri esperimentalak aktibaturik.\nEzaugarri berriak ezegonkorrak eta ez-seguruak izan litezke.</string>
-    <string name="toast_experimental_featured_off" comment="Message text">Funtzio esperimentalak desaktibaturik.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Erregistroak fitxategi batean gorde</string>
     <string name="toast_log_on_file_on" comment="Message text">Gorde erregistroak aktibatutako artxibategi batean.\nLog.txt fitxategia erants dezakezu arazo baten berri ematen duzunean.\nGehiago irakurri GitHuben.</string>
-    <string name="toast_log_on_file_off" comment="Message text">Erregistroak desaktibatutako fitxategi batean gordetzen.</string>
-    <string name="txt_anonymous_statistics" comment="Switch-Button in Settings">Estatistika anonimoak</string>
-    <string name="toast_anonymous_statistics_on" comment="Message text">Aktibatutako estatistika anonimoak.\nEz ditugu zure datu pertsonalak biltzen. Estatistikak baino ez ditugu erabiltzen aplikazioa egunero zenbat pertsonak erabiltzen duten ikusteko.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Estatistika anonimo desaktibatuak. Kontuan izan estatistikak baino ez ditugula erabiltzen aplikazioa egunero zenbat pertsonak erabiltzen duten ikusteko. Ez dugu datu pertsonalik biltzen. Estatistikak berriz aktibatzea ausnartu.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Utzi alde batera grabazioaren baieztapena</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Ez baieztatu aktibatutako grabazioa.\nOrain grabazioak bidali ahal izango dituzu entzun beharrik gabe.</string>
-    <string name="toast_skip_recording_confirmation_off" comment="Message text">Desaktibatu utzi alde batera grabazioaren baieztapena.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Itzuli aplikazioa Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Ikusi aplikazioaren estatistikak</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Soinu-grabaketaren adierazlea</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Grabazio-adierazlearen soinua orain aktibatuta dago.\nSoinu bat erreproduzituko da grabazioa hasi eta gelditzen denean.</string>
-    <string name="toast_recording_indicator_sound_off" comment="Message text">Soinu-grabaketaren adierazlea desgaituta dago.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Bilatu eguneraketak</string>
-    <string name="toast_check_for_updated_on" comment="Message text">Bilatu eguneraketak aktibatuta dago.</string>
-    <string name="toast_check_for_updated_off" comment="Message text">Bilatu eguneraketak desaktibatuta dago.</string>
-    <string name="txt_abort_confirmation_dialogs_in_settings" comment="Switch-Button in Settings">Ezeztatu berresteko elkarrizketa-koadroak Ezarpenetan</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_on" comment="Message text">Ezeztapena berresteko elkarrizketa-taulak aktibatuta daude orain.</string>
-    <string name="toast_abort_confirmation_dialogs_in_settings_off" comment="Message text">Ezeztapena berresteko elkarrizketa-taulak desaktibatuta daude orain.</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Keinuak</string>
-    <string name="toast_gestures_on" comment="Message text">Keinuak gaituta daude orain.</string>
-    <string name="toast_gestures_off" comment="Message text">Keinuak desgaituta daude orain.</string>
     <string name="message_review_app_on_play_store" comment="Message text">Mesedez, aplikazio hau gustatzen bazaizu, gogoratu Google Play Storen berrikustea.</string>
     <string name="message_app_not_completely_translated" comment="Message text">Aplikazioa ez dago hizkuntza honetara itzulita (osatuta).\Aplikazioa Crowdin-en itzultzen lagun dezakezu.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animazioak</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Pertsonalizatu letra-tamaina</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Pertsonalizatu keinuak</string>
-    <string name="txt_themes_settings" comment="Button in Settings">Gaiak</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Aplikazioaren Telegram taldea</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Erakutsi etiketak menuaren ikonoen azpian</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Esaldia kargatzen...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltatu</string>
@@ -168,10 +168,13 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Iruzkinak</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Konexiorik gabeko esaldirik gabe geratu zara. Konektatu Internetera grabatzeko esaldi gehiago deskargatzeko.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Konexiorik gabeko klipik gabe geratu zara. Konektatu Internetera balidatzeko klip gehiago deskargatzeko.</string>
-    <!-- Don't translate {{*{{n_sentences}}*}} -->
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">{{*{{n_sentences}}*}} esaldi gehiago grabatu ditzakezu Internetera konektatu aurretik.</string>
-    <!-- Don't translate {{*{{n_clips}}*}} -->
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">{{*{{n_clips}}*}} klip gehiago balidatu ditzakezu Internetera konektatu aurretik.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Berriz begiratu</string>
     <string name="txt_noconnection" comment="Message text">Ez zaude Internetera konektatuta. Konektatu Wi-Fi edo datu mugikorrekin, ondoren sakatu botoia.</string>
@@ -199,10 +202,10 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Itxi</string>
     <string name="labelAllBadges" comment="Title for All badge section">Identifikazio-txartel guztiak</string>
-    <string name="new_badge_earnt_message" comment="Message text">Primeran! Beste intsignia bat irabazi duzu.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text | Don't translate {{*{{n_total}}*}}">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ados</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Akatsa</string>
@@ -222,6 +225,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Deskonektatuta zaude eta aplikazioa automatikoki aldatu da konexiorik gabeko modura.\nHorrek esan nahi du grabatzen eta baliozkotzen jarrai dezakezula, baina eskaerak geroago bidaliko dira.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Konexiorik gabeko moduan noiz zauden jakin dezakezu, pantailan ikono hau bilatuz:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Ikono hori ukitu dezakezu deskargatutako klipak eta esaldiak ikusteko.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Eguneko helburua</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Ezarritako helbururik gabe</string>
@@ -234,6 +238,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Gaur lortua</string>
     <string name="daily_goal_not_achieved_today">Gaur lortu gabea</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Ongi! zure eguneko helburua lortu duzu.|nBaieztatu dituzu {{*{{n_clips}}*}} klip(s) eta {{*{{n_sentences}}*}} esaldi grabatu(s).\nLibre sentitu zaitez Common Voice laguntzen jarraitzeko.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Eguneko helburu hau ez da ezaugarri ofiziala Mozillarentzat. Aplikazio honen ezaugarri bat besterik ez da.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Aplikazioaren bertsio berri bat eskuragarri dago (release {{*{{n_version}}*}}). Zure denda gogokoenetik (F-Droid, Google Play Store) edo zuzenean GitHubetik eguneratu dezakezu.</string>

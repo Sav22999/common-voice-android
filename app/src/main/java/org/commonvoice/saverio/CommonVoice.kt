@@ -3,10 +3,10 @@ package org.commonvoice.saverio
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import androidx.work.WorkManager
-import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.db.AppDB
+import org.commonvoice.saverio_lib.log.FileLogTree
 import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.mediaPlayer.RecordingSoundIndicatorRepository
 import org.commonvoice.saverio_lib.mediaRecorder.FileHolder
@@ -15,7 +15,6 @@ import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.*
 import org.commonvoice.saverio_lib.viewmodels.*
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
@@ -34,33 +33,22 @@ class CommonVoice : Application() {
         factory { WorkManager.getInstance(androidContext()) }
         single { FileHolder(androidContext()) }
         single(createdAtStart = true) { ConnectionManager(androidContext()) }
+        single { DarkLightTheme(get()) }
     }
 
     private val prefsModule = module {
+        single { MainPrefManager(androidContext()) }
+        single { FirstRunPrefManager(androidContext()) }
+        single { SpeakPrefManager(androidContext()) }
+        single { ListenPrefManager(androidContext()) }
+        single { StatsPrefManager(androidContext()) }
+        single { SettingsPrefManager(androidContext()) }
+        single { LogPrefManager(androidContext()) }
+    }
+
+    private val logModule = module {
         single {
-            MainPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            FirstRunPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            SpeakPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            ListenPrefManager(
-                androidContext()
-            )
-        }
-        single {
-            StatsPrefManager(
-                androidContext()
-            )
+            FileLogTree(androidContext())
         }
     }
 
@@ -77,8 +65,11 @@ class CommonVoice : Application() {
         single { ValidationsRepository(get(), get()) }
         single { ReportsRepository(get(), get()) }
         single { StatsRepository(get(), get()) }
-        single { RecordingSoundIndicatorRepository(get()) }
+        single(createdAtStart = true) { RecordingSoundIndicatorRepository(androidContext()) }
         single { CVStatsRepository(get(), get()) }
+        single { GithubRepository(get()) }
+        single { FileLogsRepository(get(), get(), get()) }
+        single { AppActionsRepository(get(), get(), get(), get()) }
     }
 
     private val mvvmViewmodels = module {
@@ -92,7 +83,8 @@ class CommonVoice : Application() {
                 get<RecordingSoundIndicatorRepository>(),
                 get<ReportsRepository>(),
                 get<WorkManager>(),
-                get<SpeakPrefManager>()
+                get<SpeakPrefManager>(),
+                get<AppActionsRepository>(),
             )
         }
         viewModel { (handle: SavedStateHandle) ->
@@ -104,7 +96,8 @@ class CommonVoice : Application() {
                 get<ReportsRepository>(),
                 get<WorkManager>(),
                 get<MainPrefManager>(),
-                get<ListenPrefManager>()
+                get<ListenPrefManager>(),
+                get<AppActionsRepository>(),
             )
         }
         viewModel { DashboardViewModel(
@@ -114,9 +107,9 @@ class CommonVoice : Application() {
             get<MainPrefManager>(),
             get<StatsPrefManager>()
         ) }
-        viewModel { LoginViewModel(get()) }
-        viewModel { MainActivityViewModel(get(), get()) }
-        viewModel { HomeViewModel(get()) }
+        viewModel { LoginViewModel(get(), get()) }
+        viewModel { MainActivityViewModel(get(), get(), get()) }
+        viewModel { HomeViewModel(get(), get(), get(), get(), get()) }
     }
 
     override fun onCreate() {
@@ -132,7 +125,8 @@ class CommonVoice : Application() {
                     utilsModule,
                     apiModules,
                     mvvmRepos,
-                    mvvmViewmodels
+                    mvvmViewmodels,
+                    logModule,
                 )
             )
         }

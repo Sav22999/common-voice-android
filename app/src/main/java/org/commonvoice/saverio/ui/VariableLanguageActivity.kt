@@ -3,15 +3,22 @@ package org.commonvoice.saverio.ui
 import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
+import android.os.Bundle
 import android.os.LocaleList
-import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
-import org.commonvoice.saverio.TranslationsLanguages
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.annotation.AnimRes
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.commonvoice.saverio.DarkLightTheme
+import org.commonvoice.saverio.utils.TranslationLanguages
+import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
+import timber.log.Timber
 import java.util.*
 
 /**
@@ -32,15 +39,22 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     constructor(@LayoutRes layout: Int) : super(layout)
 
     protected val mainPrefManager: MainPrefManager by inject()
+    protected val logPrefManager: LogPrefManager by inject()
+
+    protected val theme: DarkLightTheme by inject()
 
     override fun attachBaseContext(newBase: Context) {
         val tempLang = mainPrefManager.language
         var lang = tempLang.split("-")[0]
-        val langSupportedYesOrNot = TranslationsLanguages()
-        if (!langSupportedYesOrNot.isSupported(lang)) {
-            lang = langSupportedYesOrNot.getDefaultLanguage()
+        if (!TranslationLanguages.isSupported(lang)) {
+            lang = TranslationLanguages.defaultLanguage
         }
         super.attachBaseContext(newBase.wrap(Locale(lang)))
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setCustomDefaultUncaughtExceptionHandler()
     }
 
     private fun Context.wrap(desiredLocale: Locale): Context {
@@ -74,7 +88,7 @@ abstract class VariableLanguageActivity : AppCompatActivity {
     private fun Context.getUpdatedContextApi25(locale: Locale): Context {
         val localeList = LocaleList(locale)
         val configuration = resources.configuration
-        configuration.locales = localeList
+        configuration.setLocales(localeList)
         return createConfigurationContext(configuration)
     }
 
@@ -90,4 +104,21 @@ abstract class VariableLanguageActivity : AppCompatActivity {
         view.clearAnimation()
     }
 
+    private fun setCustomDefaultUncaughtExceptionHandler() {
+        val defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler()
+        val saveLogToFile = logPrefManager.saveLogFile
+
+        Thread.setDefaultUncaughtExceptionHandler { t, paramThrowable ->
+            CoroutineScope(Dispatchers.Default).launch {
+                logPrefManager.stackTrace = paramThrowable.stackTraceToString()
+                logPrefManager.isLogFileSent = false
+
+                if (saveLogToFile) {
+                    Timber.e(paramThrowable)
+                }
+
+                defaultExceptionHandler?.uncaughtException(t, paramThrowable)
+            }
+        }
+    }
 }

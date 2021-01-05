@@ -12,7 +12,8 @@ import org.commonvoice.saverio.utils.*
 class NoClipsSentencesAvailableDialog(
     private val ctx: Context,
     private val isSentencesDialog: Boolean,
-    private val count: Int
+    private val count: Int,
+    private val darkLightTheme: DarkLightTheme
 ) {
 
     fun show(onDismiss: (() -> Unit)? = null) {
@@ -57,26 +58,19 @@ class NoClipsSentencesAvailableDialog(
     }
 
     fun setTheme(dialog: AlertDialog) {
-        val theme = DarkLightTheme()
-        val isDark = theme.getTheme(ctx)
-
-        theme.setElement(
-            isDark,
-            dialog.getView<ConstraintLayout>(R.id.messageDialogSectionMiddle)
+        darkLightTheme.setElement(
+            dialog.getView(R.id.messageDialogSectionMiddle)
         )
-        theme.setElement(
-            isDark,
+        darkLightTheme.setElement(
             ctx,
             -1,
             dialog.getView(R.id.messageDialogSectionMiddle)
         )
-        theme.setElement(
-            isDark,
+        darkLightTheme.setElement(
             ctx,
             dialog.getView<Button>(R.id.btnOkMessageDialog)
         )
-        theme.setElement(
-            isDark,
+        darkLightTheme.setElement(
             ctx,
             dialog.getView<TextView>(R.id.labelTextMessageDialog)
         )

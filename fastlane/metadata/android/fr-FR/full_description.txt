@@ -18,6 +18,8 @@ Ceci n'est pas l'application officielle de Common Voice. Elle est développée p
 - Thème sombre supporté
 - Objectif quotidien
 - Gestes
+- Sauvegarder vos enregistrements votre appareil
+- Nombreuses autres fonctionnalités
 - L'expérience de l'application est entièrement personnalisable dans les Paramètres
 
 Rejoignez le groupe Telegram : https://t.me/common_voice_android (@common_voice_android)

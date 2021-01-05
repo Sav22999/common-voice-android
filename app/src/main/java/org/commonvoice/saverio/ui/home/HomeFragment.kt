@@ -1,134 +1,197 @@
 package org.commonvoice.saverio.ui.home
 
+import android.Manifest
 import android.content.Context
-import android.os.Bundle
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.annotation.AnimRes
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import org.commonvoice.saverio.BuildConfig
-import org.commonvoice.saverio.DarkLightTheme
-import org.commonvoice.saverio.MainActivity
-import org.commonvoice.saverio.R
+import androidx.lifecycle.lifecycleScope
+import androidx.work.WorkManager
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.commonvoice.saverio.*
+import org.commonvoice.saverio.databinding.FragmentHomeBinding
+import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.background.AppUsageUploadWorker
+import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
+
+    override fun inflate(
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentHomeBinding {
+        return FragmentHomeBinding.inflate(layoutInflater, container, false)
+    }
 
     private val homeViewModel: HomeViewModel by viewModel()
 
+    private val firstRunPrefManager by inject<FirstRunPrefManager>()
+    private val statsPrefManager by inject<StatsPrefManager>()
     private val mainPrefManager: MainPrefManager by inject()
+    private val workManager: WorkManager by inject()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        /*homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)*/
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+    override fun onStart() {
+        super.onStart()
 
-        val main = activity as MainActivity
-        main.dashboard_selected = false
+        //TODO fix this mess once MainActivity is fixed
 
-        val btnSpeak: Button = root.findViewById(R.id.buttonSpeak)
-        val btnListen: Button = root.findViewById(R.id.buttonListen)
-        val btnLogin: Button = root.findViewById(R.id.buttonHomeLogin)
-
-        btnSpeak.setOnClickListener {
-            main.openSpeakSection()
-        }
-
-        btnListen.setOnClickListener {
-            main.openListenSection()
-        }
-
-        main.checkUserLoggedIn()
-
-        if (main.logged) {
-            //login successful -> show username and profile button
-
-            val textLoggedIn: TextView = root.findViewById(R.id.textLoggedUsername)
+        if (mainPrefManager.sessIdCookie != null) {
+            val textLoggedIn = binding.textLoggedUsername
             textLoggedIn.isGone = false
             textLoggedIn.isVisible = true
-            textLoggedIn.text = main.getHiUsernameLoggedIn()
-            val btnLogOut: Button = root.findViewById(R.id.buttonHomeLogin)
-            btnLogOut.text = getString(R.string.button_home_profile)
-
-            btnLogin.setOnClickListener {
-                main.openProfileSection()
-                main.checkUserLoggedIn()
+            textLoggedIn.text = if (mainPrefManager.username == "") {
+                "${getString(R.string.text_hi_username)}!"
+            } else {
+                "${getString(R.string.text_hi_username)}, ${mainPrefManager.username}!"
             }
-        } else {
-            btnLogin.setOnClickListener {
-                main.openLoginSection()
-                main.checkUserLoggedIn()
+
+            binding.buttonHomeLogin.setText(R.string.button_home_profile)
+        }
+
+        binding.buttonHomeLogin.onClick {
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+        }
+
+        binding.buttonSpeak.onClick {
+            if (firstRunPrefManager.speak) {
+                Intent(requireContext(), FirstRunSpeak::class.java).also {
+                    startActivity(it)
+                }
+            } else {
+                if (ContextCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.RECORD_AUDIO
+                    )
+                    != PackageManager.PERMISSION_GRANTED
+                ) {
+                    ActivityCompat.requestPermissions(
+                        requireActivity(),
+                        arrayOf(Manifest.permission.RECORD_AUDIO),
+                        MainActivity.RECORD_REQUEST_CODE
+                    )
+                } else {
+                    Intent(requireContext(), SpeakActivity::class.java).also {
+                        startActivity(it)
+                    }
+                }
             }
         }
 
-        main.checkConnection()
+        binding.buttonListen.onClick {
+            if (firstRunPrefManager.listen) {
+                Intent(requireContext(), FirstRunListen::class.java).also {
+                    startActivity(it)
+                }
+            } else {
+                Intent(requireContext(), ListenActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+        }
 
-        setTheme(main, root)
+        homeViewModel.checkForNewVersion(BuildConfig.VERSION_NAME).observe(viewLifecycleOwner) {
+            if(statsPrefManager.reviewOnPlayStoreCounter >=1) {
+                showMessageDialog(
+                    "",
+                    getString(R.string.message_dialog_new_version_available).replace(
+                        "{{*{{n_version}}*}}",
+                        it
+                    )
+                )
+            }
+        }
 
-        startAnimation(btnSpeak, R.anim.zoom_out)
-        startAnimation(btnListen, R.anim.zoom_out)
 
-        main.checkNewVersionAvailable()
+        setTheme(requireContext())
 
-        main.reviewOnPlayStore()
-
-        return root
+        startAnimation(binding.buttonSpeak, R.anim.zoom_out)
+        startAnimation(binding.buttonListen, R.anim.zoom_out)
     }
 
     override fun onResume() {
         super.onResume()
 
-        homeViewModel.postStats(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, MainActivity.SOURCE_STORE)
+        homeViewModel.postStats(
+            BuildConfig.VERSION_NAME,
+            BuildConfig.VERSION_CODE,
+            MainActivity.SOURCE_STORE
+        )
+
+        lifecycleScope.launch {
+            delay(1500)
+            homeViewModel.postFileLog(
+                BuildConfig.VERSION_CODE,
+                MainActivity.SOURCE_STORE
+            )
+        }
+
+        AppUsageUploadWorker.attachToWorkManager(workManager)
     }
 
-    fun setTheme(view: Context, root: View) {
-        val theme = DarkLightTheme()
-        //theme.setElements(view, root.findViewById(R.id.layoutHome))
-
-        val isDark = theme.getTheme(view)
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionCVAndroid))
-        theme.setElement(isDark, view, 3, root.findViewById(R.id.homeSectionLoginSignup))
-        theme.setElement(
-            isDark,
-            view,
-            root.findViewById(R.id.textCommonVoiceAndroid) as TextView,
-            background = false
-        )
-        theme.setElement(
-            isDark,
-            view,
-            root.findViewById(R.id.textLoggedUsername) as TextView,
-            background = false
-        )
-        theme.setElement(isDark, view, root.findViewById(R.id.buttonHomeLogin) as Button)
-        theme.setElement(isDark, root.findViewById(R.id.layoutHome) as ConstraintLayout)
-    }
-
-    private fun startAnimation(view: View, @AnimRes res: Int) {
-        if (mainPrefManager.areAnimationsEnabled) {
-            AnimationUtils.loadAnimation(requireContext(), res).let {
-                view.startAnimation(it)
+    private fun showMessageDialog(
+        title: String,
+        text: String,
+        errorCode: String = "",
+        details: String = "",
+        type: Int = 0
+    ) {
+        val metrics = DisplayMetrics()
+        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+        //val width = metrics.widthPixels
+        val height = metrics.heightPixels
+        try {
+            var messageText = text
+            if (errorCode != "") {
+                if (messageText.contains("{{*{{error_code}}*}}")) {
+                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
+                } else {
+                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
+                }
             }
+            var message: MessageDialog? = null
+            message = MessageDialog(
+                requireContext(),
+                type,
+                title,
+                messageText,
+                details = details,
+                height = height
+            )
+            message.show()
+        } catch (exception: Exception) {
+            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
     }
 
-    private fun stopAnimation(view: View) {
-        view.clearAnimation()
+
+    fun setTheme(view: Context) = withBinding {
+        theme.setElement(view, 3, homeSectionCVAndroid)
+        theme.setElement(view, 3, homeSectionLoginSignup)
+        theme.setElement(
+            view,
+            textCommonVoiceAndroid,
+            background = false
+        )
+        theme.setElement(
+            view,
+            textLoggedUsername,
+            background = false
+        )
+        theme.setElement(view, buttonHomeLogin)
+        theme.setElement(layoutHome)
     }
 
 }
