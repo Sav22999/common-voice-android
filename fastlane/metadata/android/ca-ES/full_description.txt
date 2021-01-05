@@ -18,8 +18,8 @@ Aquesta no és l''aplicació oficial de Common Voice. És obra de Saverio Morell
 - Tema fosc suportat
 - Objectiu diari
 - Gestos
-- Save your recordings on your device
-- Many other features
+- Guarda gravacions al teu dispositiu
+- Moltes més característiques
 - L'experiència d'ús és completament configurable a Configuració
 
 Uniu-vos al grup de Telegram: https://t.me/common_voice_android (@common_voice_android)

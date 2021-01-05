@@ -18,8 +18,8 @@ Isto non es le app official de Common Voice. Isto es disveloppate per Saverio Mo
 - Thema obscur supportate
 - Objectivo quotidian
 - Gestos
-- Save your recordings on your device
-- Many other features
+- Salva tu registrationes su tu apparato
+- Multe altere functionalitates
 - Le experientia del app es totalmente personalisabile in Parametros
 
 Junge te al gruppo Telegram: https://t.me/common_voice_android (@common_voice_android)
