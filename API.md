@@ -47,14 +47,14 @@ To insert data you need to do a `POST request` to https://www.saveriomorelli.com
 
 You need to send a `JSON` request with these data:
 
-| Key        | Value                        | Required   | Explanation                                                  |
-| ---------- | ---------------------------- | ---------- | ------------------------------------------------------------ |
-| `logged`   | `0` or `1`                   | `required` | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
-| `username` | *String*                     | `required` | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |
-| `language` | *String*                     | `required` | It's the language code you are using the app (`en`, `it`, ...) |
-| `public`   | `true` or `false`            | `required` | It's a flag: `true` if the statistics are public, so are shown in the graph, `false` if you have turned off the statistics |
-| `version`  | *Integer*                    | `required` | It's the version code of the app (`90`, `91`, ...)           |
-| `source`   | `GPS` or `FD-GH` (or `n.d.`) | `optional` | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
+| Key        | Value                               | Required   | Explanation                                                  |
+| ---------- | ----------------------------------- | ---------- | ------------------------------------------------------------ |
+| `logged`   | `0` or `1`                          | `required` | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
+| `username` | *String*                            | `required` | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |
+| `language` | *String*                            | `required` | It's the language code you are using the app (`en`, `it`, ...) |
+| `public`   | `true` or `false`                   | `required` | It's a flag: `true` if the statistics are public, so are shown in the graph, `false` if you have turned off the statistics |
+| `version`  | *Integer*                           | `required` | It's the version code of the app (`90`, `91`, ...)           |
+| `source`   | `GPS`, `FD-GH` or `HAG` (or `n.d.`) | `optional` | It indicates the source from you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub, `HAG`: Huawei AppGallery, `n.d.`: not defined) |
 
 #### Response
 
@@ -118,17 +118,17 @@ The system returns a `JSON` file, which has a counter from `1` , and it contains
 
 To insert data you need to do a POST request to https://www.saveriomorelli.com/api/common-voice-android/v2/logs/.
 
-| Key              | Value            | Required   | Explanation                                                  |
-| ---------------- | ---------------- | ---------- | ------------------------------------------------------------ |
-| `logDate`        | *DateTime*       | `required` | It's the datetime when the issue is verified. This could be different from the datetime when the log arrives in the database.<br>The format of this data should be: `YYYY-MM-DD HH:MM:SS`. |
-| `logged`         | `0` or `1`       | `required` | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
-| `language`       | *String*         | `required` | It's the language code you are using the app (`en`, `it`, ...) |
-| `version`        | *Integer*        | `required` | It's the version code of the app (`90`, `91`, ...)           |
-| `source`         | `GPS` or `FD-GH` | `required` | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
-| `errorLevel`     | *String*         | `required` | It's string which indicates the error level, like `Info`, `Error`, `Warning`, etc. |
-| `tag`            | *Text*           | `optional` | It's a string which indicates the class name where the error happened |
-| `stackTrace`     | *Text*           | `required` | It's the description of the error                            |
-| `additionalLogs` | *Text*           | `optional` | It's more information (context) about the error. This field is not required. |
+| Key              | Value                               | Required   | Explanation                                                  |
+| ---------------- | ----------------------------------- | ---------- | ------------------------------------------------------------ |
+| `logDate`        | *DateTime*                          | `required` | It's the datetime when the issue is verified. This could be different from the datetime when the log arrives in the database.<br>The format of this data should be: `YYYY-MM-DD HH:MM:SS`. |
+| `logged`         | `0` or `1`                          | `required` | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
+| `language`       | *String*                            | `required` | It's the language code you are using the app (`en`, `it`, ...) |
+| `version`        | *Integer*                           | `required` | It's the version code of the app (`90`, `91`, ...)           |
+| `source`         | `GPS`, `FD-GH` or `HAG` (or `n.d.`) | `required` | It indicates the source from you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub, `HAG`: Huawei AppGallery, `n.d.`: not defined) |
+| `errorLevel`     | *String*                            | `required` | It's string which indicates the error level, like `Info`, `Error`, `Warning`, etc. |
+| `tag`            | *Text*                              | `optional` | It's a string which indicates the class name where the error happened |
+| `stackTrace`     | *Text*                              | `required` | It's the description of the error                            |
+| `additionalLogs` | *Text*                              | `optional` | It's more information (context) about the error. This field is not required. |
 
 
 
@@ -189,7 +189,7 @@ To insert data you need to do a POST request to https://www.saveriomorelli.com/a
 | `logged`   | `0` or `1`                      | `required` | If the user is logged in, so it's `1`, otherwise it's `0`    |
 | `language` | *String*                        | `required` | It's the language code, like `it`, `en`, etc.                |
 | `version`  | *Integer*                       | `required` | It's the version code of the app                             |
-| `source`   | `GPS` or `FD-GH`                | `required` | It's the app store/source from that you downloaded and installed the app |
+| `source`   | `GPS`, `FD-GH`, `HAG`           | `required` | It's the app store/source from that you downloaded and installed the app |
 | `type`     | `0` or `1` or `2` or `3` or `4` | `required` | It's an integer value `0 ` or `1` if you validated a clip (the first one "rejected", the latter one "accepted"), `2` if you reported a clip, `3` if you sent a recording and `4` if you reported a sentence.<br />So, the `0`, `1` and `2` are about "Listen", the `3` and `4` are about "Speak" |
 | `username` | *String*                        | `required` | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |
 | `offline`  | `0` or `1`                      | `required` | It indicates if you are using the app in `offline` (`1`) mode (without any connection) or `online` (`0`) |
@@ -211,7 +211,7 @@ To insert data you need to do a POST request to https://www.saveriomorelli.com/a
 
 #### Request
 
-To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/get/.
+To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/get/user/.
 
 You can insert these parameters to the `GET` request:
 

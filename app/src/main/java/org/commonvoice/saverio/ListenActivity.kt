@@ -9,6 +9,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -16,6 +17,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.databinding.ActivityListenBinding
@@ -25,6 +27,7 @@ import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
@@ -40,6 +43,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private val listenViewModel: ListenViewModel by stateViewModel()
     private val connectionManager: ConnectionManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+
+    private var isListenAnimateButtonVisible: Boolean = false
+    private var animationsCount: Int = 0
 
     private var numberSentThisSession: Int = 0
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
@@ -120,6 +126,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 }
                 ListenViewModel.Companion.State.LISTENING -> {
                     loadUIStateListening()
+                    isListenAnimateButtonVisible = true
+                    animateListenAnimateButtons()
                 }
                 ListenViewModel.Companion.State.LISTENED -> {
                     loadUIStateListened()
@@ -158,6 +166,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         checkOfflineMode(connectionManager.isInternetAvailable)
 
         setupNestedScroll()
+
+        setupBadgeDialog()
 
         setTheme()
     }
@@ -298,6 +308,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         listenViewModel.currentClip.observe(this, Observer { clip ->
             loadUIStateStandby(clip, noAutoPlay = true)
         })
+        hideListenAnimateButtons()
     }
 
     private fun loadUIStateLoading() = withBinding {
@@ -387,6 +398,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 )
             )
         }
+
+        hideListenAnimateButtons()
 
         resizeSentence()
 
@@ -494,6 +507,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonNoClip.isVisible = true
         textSentenceListen.text = listenViewModel.getSentenceText()
         resizeSentence()
+        hideListenAnimateButtons()
+
         textSentenceListen.setTextColor(
             ContextCompat.getColor(
                 this@ListenActivity,
@@ -542,13 +557,31 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         listenViewModel.stop()
 
+        hideListenAnimateButtons()
+
         super.onBackPressed()
     }
+
+    private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
+        lifecycleScope.launch {
+            statsPrefManager.badgeLiveData.collect {
+                if (it is BadgeDialogMediator.Listen || it is BadgeDialogMediator.Level) {
+                    showMessageDialog(
+                        title = "",
+                        text = getString(R.string.new_badge_earnt_message)
+                            .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
+                            .replace("{{*{{all_badges}}*}}", getString(R.string.btn_badges_loggedin))
+                    )
+                }
+            }
+        }
+    } else Unit
 
     private fun hideButtons() {
         stopButtons()
         if (listenViewModel.startedOnce) hideButton(binding.buttonNoClip)
         if (listenViewModel.listenedOnce) hideButton(binding.buttonYesClip)
+        hideListenAnimateButtons()
     }
 
     private fun showButton(button: Button) {
@@ -601,4 +634,86 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         stopAnimation(image)
     }
 
+
+    private fun animateListenAnimateButtons() {
+        if (mainPrefManager.areAnimationsEnabled) {
+            this.animationsCount++
+            animateListenAnimateButton(binding.viewListenAnimateButton1, 280, 340, this.animationsCount)
+            animateListenAnimateButton(binding.viewListenAnimateButton2, 350, 400, this.animationsCount)
+        }
+    }
+
+    private fun hideListenAnimateButtons() = withBinding {
+        if (mainPrefManager.areAnimationsEnabled) {
+            if (viewListenAnimateButton1.isVisible && viewListenAnimateButton2.isVisible && isListenAnimateButtonVisible) {
+                isListenAnimateButtonVisible = false
+                animateListenAnimateButton(
+                    viewListenAnimateButton1,
+                    viewListenAnimateButton1.height,
+                    200,
+                    animationsCount
+                )
+                animateListenAnimateButton(
+                    viewListenAnimateButton2,
+                    viewListenAnimateButton2.height,
+                    200,
+                    animationsCount
+                )
+            }
+        }
+    }
+
+    private fun animateListenAnimateButton(
+        view: View,
+        min: Int,
+        max: Int,
+        animationsCountTemp: Int
+    ) {
+        if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING && this.isListenAnimateButtonVisible) {
+            animationListenAnimateButton(view, view.height, min, max, animationsCountTemp)
+            view.isVisible = true
+        } else if (!this.isListenAnimateButtonVisible && view.height >= 280) {
+            animationListenAnimateButton(
+                view,
+                view.height,
+                view.height,
+                200,
+                animationsCountTemp,
+                forced = true
+            )
+            view.isVisible = true
+        } else {
+            view.isVisible = false
+        }
+    }
+
+    private fun animationListenAnimateButton(
+        view: View,
+        sizeNow: Int,
+        min: Int,
+        max: Int,
+        animationsCountTemp: Int,
+        forced: Boolean = false
+    ) {
+        val animation: ValueAnimator =
+            ValueAnimator.ofInt(sizeNow, max)
+        println("First time: " + sizeNow)
+        if (max == 50 || max == 200) animation.duration = 300
+        else animation.duration = (800..1200).random().toLong()
+        animation.addUpdateListener { anim ->
+            val value = anim.animatedValue as Int
+            view.layoutParams.height = value
+            view.layoutParams.width = value
+            view.requestLayout()
+        }
+        animation.doOnEnd {
+            if (!this.isListenAnimateButtonVisible && forced) {
+                view.isVisible = false
+            }
+            if (this.isListenAnimateButtonVisible && view.isVisible && !forced && this.animationsCount == animationsCountTemp) {
+                animateListenAnimateButton(view, max, min, animationsCountTemp)
+            }
+        }
+        animation.start()
+    }
 }

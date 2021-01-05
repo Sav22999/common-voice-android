@@ -173,6 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Escoltant...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" està activat. Ves a Configuració per desactivar-ho.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">El text de l\'oració està ocult</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Torna-ho a provar</string>
     <string name="txt_noconnection" comment="Message text">No tens connexió a Internet. Connecta\'t a una Wi-Fi o a les dades mòbils, i pressiona el botó davall.</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Tanca</string>
     <string name="labelAllBadges" comment="Title for All badge section">Totes les medalles</string>
-    <string name="new_badge_earnt_message" comment="Message text">Molt bé! Acabes de conseguir una insígnia.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Visca! Heu guanyat una altra insígnia.\nAneu a {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} per a veure totes les vostres insígnies.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Heu obtingut aquesta insígnia perquè heu validat si més no {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Heu obtingut aquesta insígnia perquè heu gravat si més no {{*{{n_sentences}}*}} oracions.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Heu obtingut aquesta insígnia perquè heu validat o gravat si més no {{*{{n_total}}*}} clips.</string>

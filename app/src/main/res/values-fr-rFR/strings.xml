@@ -73,7 +73,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Ouvrir le tutoriel à nouveau</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projet open-source sur GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">développé par</string>
-    <string name="toast_language_changed" comment="Message text">La langue a été changée avec succès en {{*{lang}*}}</string>
+    <string name="toast_language_changed" comment="Message text">La langue a été changée avec succès en {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Langue</string>
     <string name="settingsListen" comment="Title in Settings">Écouter</string>
     <string name="settingsSpeak" comment="Title in Settings">Parler</string>
@@ -124,7 +124,7 @@
     <string name="txt_reset_data" comment="Button in Settings">Réinitialiser les données</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Aucune fonctionnalité expérimentale disponible pour le moment</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Montrer la phrase seulement après l\'écoute</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Afficher l\'icône de rapport (en haut à droite) au lieu du bouton (en bas) dans {{*{{listen_name}}*}} et {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Chargement de la phrase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Passer</string>
@@ -173,6 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Écoute...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" est activé. Allez dans les paramètres pour désactiver cette fonctionnalité.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Le texte de la phrase est caché</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Le serveur Common Voice est à court de phrases. Essayez plus tard ou contactez Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Le serveur Common Voice est à court de clips. Essayez plus tard ou contactez Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Vérifier à nouveau</string>
     <string name="txt_noconnection" comment="Message text">Vous n\'êtes pas connecté à Internet. Connectez-vous au Wi-Fi ou aux données mobiles, puis appuyez sur le bouton ci-dessous.</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Fermer</string>
     <string name="labelAllBadges" comment="Title for All badge section">Tous les badges</string>
-    <string name="new_badge_earnt_message" comment="Message text">Hourra! Vous venez de gagner un nouveau badge.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Bravo ! Vous venez d\'obtenir un nouveau badge\nRendez-vous sur {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} pour voir tous vos badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Vous avez obtenu ce badge car vous avez validé au moins {{*{{n_clips}}*}} extraits.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Vous avez obtenu ce badge car vous avez enregistré au moins {{*{{n_sentences}}*}} extraits.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Vous avez obtenu ce badge car vous avez validé ou enregistré au moins {{*{{n_total}}*}} extraits.</string>

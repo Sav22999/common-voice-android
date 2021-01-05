@@ -18,8 +18,8 @@ Nid ap swyddogol Common Voice mo hwn. Fe'i datblygwyd gan Saverio Morelli.
 - Opsiwn thema dywyll
 - Gosod nod dyddiol
 - Defnyddio symudiadau
-- Save your recordings on your device
-- Many other features
+- Cadw dy recordiadau ar dy ddyfais
+- Nifer o nodweddion eraill
 - Gosodiadau sy'n caniatáu addasu profiad defnyddio'r ap
 
 Grŵp Telegram yr ap: https://t.me/common_voice_android (@common_voice_android)

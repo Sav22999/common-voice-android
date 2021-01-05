@@ -10,12 +10,14 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 import java.util.concurrent.TimeUnit
 
 class ValidationsUploadWorker(
     appContext: Context,
     workerParams: WorkerParameters
-): CoroutineWorker(appContext, workerParams) {
+): CoroutineWorker(appContext, workerParams), KoinComponent {
 
     private val db = AppDB.getNewInstance(appContext)
     private val prefManager =
@@ -25,7 +27,7 @@ class ValidationsUploadWorker(
     private val validationsRepository = ValidationsRepository(db, retrofitFactory)
 
     private val mainPrefManager = MainPrefManager(appContext)
-    private val statsPrefManager = StatsPrefManager(appContext)
+    private val statsPrefManager by inject<StatsPrefManager>()
 
     override suspend fun doWork(): Result = coroutineScope {
         try {
@@ -45,6 +47,8 @@ class ValidationsUploadWorker(
                     validationsRepository.deleteValidation(validation)
                     if (mainPrefManager.sessIdCookie != null) {
                         statsPrefManager.todayValidated++
+                        statsPrefManager.localValidated++
+                        statsPrefManager.localLevel++
                     }
                 } else {
                     validationsRepository.updateValidation(validation.increaseAttempt())

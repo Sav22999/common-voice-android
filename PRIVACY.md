@@ -22,14 +22,14 @@ If you want additional information about the Policy privacy of Common Voice proj
 
 These statistics are absolutely anonymous. I don't collect your personal data. The first time (per day) you run the app, they send: **unique_id**, **language**, **logged_status**, **version** and **status_statistics**.
 
-| Key         | Value             | Explanation                                                  |
-| ----------- | ----------------- | ------------------------------------------------------------ |
-| `unique_id` | *String*          | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |
-| `language`  | *String*          | It's the language code you are using the app (`en`, `it`, ...) |
-| `logged`    | `0` or `1`        | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
-| `version`   | *Integer*         | It's the version code of the app (`90`, `91`, ...)           |
-| `public`    | `true` or `false` | It's a flag: `true` if the statistics are public, so are shown in the graph, `false` if you have turned off the statistics |
-| `source`    | `GPS` or `FD-GH`  | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
+| Key         | Value                   | Explanation                                                  |
+| ----------- | ----------------------- | ------------------------------------------------------------ |
+| `unique_id` | *String*                | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |
+| `language`  | *String*                | It's the language code you are using the app (`en`, `it`, ...) |
+| `logged`    | `0` or `1`              | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
+| `version`   | *Integer*               | It's the version code of the app (`90`, `91`, ...)           |
+| `public`    | `true` or `false`       | It's a flag: `true` if the statistics are public, so are shown in the graph, `false` if you have turned off the statistics |
+| `source`    | `GPS`, `FD-GH` or `HAG` | It indicates the source from you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub, `HAG`: Huawei AppGallery, `n.d.`: not defined) |
 
 You can see public statistics on website: [https://saveriomorelli.com/app/common-voice-android/statistics](https://bit.ly/35d2dza).
 
@@ -43,17 +43,17 @@ The file log is saved in an internal database, to a file and, also, it's sent to
 
 You can, anyway, save the file log on your device, (enable it in `Settings` > `Advanced`). To find the file you need to go to `Internal storage` > `data` > `org.commonvoice.saverio` > `files` > `logs`. Here there will be all log files (".txt"), that you could be attached to issues or reports.
 
-| Key              | Value            | Explanation                                                  |
-| ---------------- | ---------------- | ------------------------------------------------------------ |
-| `logDate`        | *DateTime*       | It's the datetime when the issue is verified. This could be different from the datetime when the log arrives in the database.<br/>The format of this data should be: `YYYY-MM-DD HH:MM:SS`. |
-| `logged`         | `0` or `1`       | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
-| `language`       | *String*         | It's the language code you are using the app (`en`, `it`, ...) |
-| `version`        | *Integer*        | It's the version code of the app (`90`, `91`, ...)           |
-| `source`         | `GPS` or `FD-GH` | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
-| `errorLevel`     | *String*         | It's string which indicates the error level, like `Info`, `Error`, `Warning`, etc. |
-| `tag`            | *Text*           | `optional` \| It's a string which indicates the class name where the error happened |
-| `stackTrace`     | *Text*           | It's the description of the error                            |
-| `additionalLogs` | *Text*           | `optional` \| It's more information (context) about the error. This field is not required. |
+| Key              | Value                   | Explanation                                                  |
+| ---------------- | ----------------------- | ------------------------------------------------------------ |
+| `logDate`        | *DateTime*              | It's the datetime when the issue is verified. This could be different from the datetime when the log arrives in the database.<br/>The format of this data should be: `YYYY-MM-DD HH:MM:SS`. |
+| `logged`         | `0` or `1`              | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
+| `language`       | *String*                | It's the language code you are using the app (`en`, `it`, ...) |
+| `version`        | *Integer*               | It's the version code of the app (`90`, `91`, ...)           |
+| `source`         | `GPS`, `FD-GH` or `HAG` | It indicates the source from you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub, `HAG`: Huawei AppGallery, `n.d.`: not defined) |
+| `errorLevel`     | *String*                | It's string which indicates the error level, like `Info`, `Error`, `Warning`, etc. |
+| `tag`            | *Text*                  | `optional` \| It's a string which indicates the class name where the error happened |
+| `stackTrace`     | *Text*                  | It's the description of the error                            |
+| `additionalLogs` | *Text*                  | `optional` \| It's more information (context) about the error. This field is not required. |
 
 **This feature needs "Storage" permission.**
 
@@ -76,7 +76,7 @@ This is what the app send to my server:
 | `type`     | `0` or `1` or `2` or `3` or `4` | It's an integer value `0 ` or `1` if you validated a clip (the first one "rejected", the latter one "accepted"), `2` if you reported a clip, `3` if you sent a recording and `4` if you reported a sentence.<br />So, the `0`, `1` and `2` are about "Listen", the `3` and `4` are about "Speak" |
 | `language` | *String*                        | It's the language code you are using the app (`en`, `it`, ...) |
 | `version`  | *Integer*                       | It's the version code of the app (`90`, `91`, ...)           |
-| `source`   | `GPS` or `FD-GH`                | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
+| `source`   | `GPS`, `FD-GH` or `HAG`         | It indicates the source from you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub, `HAG`: Huawei AppGallery, `n.d.`: not defined) |
 | `logged`   | `0` or `1`                      | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
 | `offline`  | `0` or `1`                      | It's an integer value `0` if you were using the app online when you contributed to Common Voice with the app, `1` if you were using it offline<br />It's useful to know if users use the offline mode or not |
 | `username` | *String*                        | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |

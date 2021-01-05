@@ -1,8 +1,8 @@
 package org.commonvoice.saverio.ui.login
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -26,15 +26,18 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
     private val mainPrefManager by inject<MainPrefManager>()
     private val workManager by inject<WorkManager>()
     private val connectionManager by inject<ConnectionManager>()
+    private val statsPrefManager by inject<StatsPrefManager>()
 
     private val loginViewModel by viewModel<LoginViewModel>()
 
@@ -55,8 +58,6 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
         super.onStart()
 
         activity?.setTitle(R.string.button_home_login)
-
-        //showLoading()
 
         val bottomSheetBinding = BottomsheetLoginBinding.inflate(layoutInflater)
 
@@ -119,18 +120,22 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
             startAnimation(imgRobotWebBrowser, R.anim.login)
         }
     } catch (e: Exception) {
-
+        Timber.e(e)
     }
 
-    fun hideLoading(showButton: Boolean = false) = withBinding {
-        txtLoadingWebBrowser.isGone = true
-        imgBackgroundWebBrowser.isGone = true
-        imgRobotWebBrowser.isGone = true
-        stopAnimation(imgRobotWebBrowser)
-        if (showButton) {
-            btnAlreadyAVerificationLinkWebBrowser.isGone = false
-            startAnimation(btnAlreadyAVerificationLinkWebBrowser, R.anim.zoom_in)
+    fun hideLoading(showButton: Boolean = false) = try {
+        withBinding {
+            txtLoadingWebBrowser.isGone = true
+            imgBackgroundWebBrowser.isGone = true
+            imgRobotWebBrowser.isGone = true
+            stopAnimation(imgRobotWebBrowser)
+            if (showButton) {
+                btnAlreadyAVerificationLinkWebBrowser.isGone = false
+                startAnimation(btnAlreadyAVerificationLinkWebBrowser, R.anim.zoom_in)
+            }
         }
+    } catch (e: Exception) {
+        Timber.e(e)
     }
 
     private fun setupWebBrowser() = binding.webViewBrowser.apply {
@@ -157,8 +162,6 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                 ) {
                     showLoading()
 
-                    Log.wtf("Cookies", cookies)
-
                     val loginCookie = cookies.split("; ")
                         .find { it.contains("connect.sid=") }
                         ?.substring(12)
@@ -173,22 +176,23 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                         SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
                         ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
 
-                        if (mainPrefManager.isLoggedIn) {
-                            (activity as LoginActivity).closeAndReopenLogin()
-                        }
+                        statsPrefManager.dailyGoalObjective = 0
+                        statsPrefManager.todayValidated = 0
+                        statsPrefManager.todayRecorded = 0
+                        statsPrefManager.allTimeLevel = 0
+                        statsPrefManager.allTimeRecorded = 0
+                        statsPrefManager.allTimeValidated = 0
+                        statsPrefManager.localValidated = 0
+                        statsPrefManager.localRecorded = 0
+                        statsPrefManager.localLevel = 0
 
-                        if (arguments?.getString("loginUrl") != null) {
-                            //login done
-                            //findNavController().popBackStack(R.id.profileFragment, false)
-                            //TODO: improve this operation
-                            (activity as LoginActivity).closeAndReopenLogin()
-                            (activity as LoginActivity).resetDataLoginLogout()
-                        } else {
-                            findNavController().navigateUp()
+                        Intent(requireContext(), LoginActivity::class.java).also {
+                            startActivity(it)
                         }
+                        activity?.finish()
                     }
                 } else {
-                    Log.e("LoginFragment", "??-- I can't get cookie - Something was wrong --??")
+                    Timber.e("??-- I can't get cookie - Something was wrong --??")
                 }
             }
         }
@@ -196,7 +200,6 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
     private fun navigateTo(newUrl: String?) = binding.webViewBrowser.apply {
         if ((newUrl != url && newUrl != null) || url == null) {
-            Log.wtf("NewURL", newUrl ?: "https://commonvoice.mozilla.org/login")
             loadUrl(newUrl ?: "https://commonvoice.mozilla.org/login")
         }
     }

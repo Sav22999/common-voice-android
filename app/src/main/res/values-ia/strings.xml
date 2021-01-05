@@ -73,16 +73,16 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Reaperir le exercitation</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projecto open-source sur GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">disveloppate per</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Lingua definite con successo como {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Lingua</string>
     <string name="settingsListen" comment="Title in Settings">Ascoltar</string>
     <string name="settingsSpeak" comment="Title in Settings">Parlar</string>
     <string name="settingsOther" comment="Title in Settings">Altero</string>
     <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Ligamines utile</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Saper plus</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Clar</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Obscur</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Supporta mi labor. Offere me un caffe 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Autoreproduction del registration al cargamento</string>
@@ -92,13 +92,13 @@
     <string name="toast_experimental_features_on" comment="Message text">Functionalitate experimental activate.\nNove functionalitates pote esser instabile e insecur.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Salvar registros al file</string>
     <string name="toast_log_on_file_on" comment="Message text">Salvamento del registros al file activate.\nTu pote attachar le file log.txt quando tu signala un problema.\nLege plus sur GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Statistica generic</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Monstrar le catena que me identifica intra le application</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Statistica de uso del app</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Salto del confirmation de registration</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Salto del confirmation de registration activate.\nTu ora potera inviar registrationes sin deber primo ascoltar los.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Traducer le application sur Crowdin</string>
@@ -112,19 +112,19 @@
     <string name="txt_animations" comment="Switch-Button in Settings">Animationes</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Personalisar le dimension del characteres</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Personalisar le gestos</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">Thema</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Gruppo Telegram del app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Monstrar etiquettas sub le icones del menu</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Lege le terminos de servicio de Mozilla Common Voice</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Lege le lineas guida pro le validationes</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Pone tu valutation sur Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
+    <string name="title_ui_settings" comment="Option in Settings">Interfacie de usator</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Avantiate</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Salvar registrationes sur apparato</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reinitialisar le datos de application</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nulle functionalitates experimental es ora disponibile</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Monstrar le texto del phrases quando le registrationes es ascoltate completemente</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Monstrar icone reporto (top-right) in vice del button (bottom) in {{*{{listen_name}}*}} e {{*{{speak_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -170,9 +170,11 @@
     <string name="txt_clips_finished_offline_mode" comment="Message text">Tu ha exhaurite le registrationes disponibile sin connexion. Connecte te a internet pro discargar altere registrationes a validar.</string>
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Tu pote registrar {{*{{n_sentences}}*}} altere phrases ante que tu debe connecter te a internet.</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Tu pote validar {{*{{n_clips}}*}} altere registrationes ante que tu debe connecter te a internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Ascolta...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Le \"{{*{{feature_name}}*}}\" es activate. Va a Parametros pro disactivar lo.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Le texto del phrase es celate</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Il non ha ulle plus phrases in le servitor de Common Voice.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Il non ha ulle plus registrationes in le servitor de Common Voice.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Controlar ancora</string>
     <string name="txt_noconnection" comment="Message text">Tu non es connectite a internet. Connecte te a wifi o a datos mobile, pois pulsa le button infra.</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Clauder</string>
     <string name="labelAllBadges" comment="Title for All badge section">Tote le badges</string>
-    <string name="new_badge_earnt_message" comment="Message text">Vivat! Tu ha justo ganiate un nove insignia.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Tu recipeva iste insignia perque tu ha validate al minus {{*{{n_clips}}*}} registrationes.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Tu recipeva iste insignia perque tu registrate al minus {{*{{n_sentences}}*}} phrases.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Tu recipeva iste insignia perque tu ha validate o registrate al minus {{*{{n_total}}*}} registrationes.</string>
@@ -223,7 +225,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Tu es ora sin connexion e le app mutava automaticamente a Modo sin connexion.\nId es: tu pote continuar a registrar e validar, ma le requestas sera inviate plus tarde.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Tu pote dicer quando tu es in modo sin connexion per recercar iste icone sur le schermo:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Tu pote toccar ille icone pro vider registrationes e phrases discargate.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Le Modo sin connexion non es activate, assi tu non pote usar le application sin un connexion a internet.\nPro usar le functionalitate Modo sin connexion, activa lo in Parametros.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Objectivo quotidian</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nulle objectivo configurate</string>
@@ -236,9 +238,9 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Complite hodie</string>
     <string name="daily_goal_not_achieved_today">Non complite hodie</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Ben facite! Tu ha complite tu objectivo quotidian.\nTu ha validate {{*{{n_clips}}*}} registration(es) e registrate {{*{{n_sentences}}*}} phrase(s).\nSenti te libere de continuar contribuer a Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Compartir</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Compartir sur</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Io ha justo attingite mi objectivo quotidian pro @mozilla #CommonVoice per le app #CVAndroid.\nJunge te e contribue! Installa ora CV Android de Google Play o F-Droid {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Iste objectivo quotidian non es un functionalitate official de Mozilla. Illo es solo un functionalitate de iste le application.</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Un nove version del application es disponibile (version {{*{{n_version}}*}}). Tu pote actualisar lo per tu magazin favorite (F-Droid, Google Play Store) o directemente per GitHub.</string>

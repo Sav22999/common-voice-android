@@ -93,6 +93,9 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 statsPrefManager.allTimeValidated = 0
                 statsPrefManager.allTimeRecorded = 0
                 statsPrefManager.allTimeLevel = 0
+                statsPrefManager.localValidated = 0
+                statsPrefManager.localRecorded = 0
+                statsPrefManager.localLevel = 0
 
                 //Reset Listen
                 listenPrefManager.requiredClipsCount = 50

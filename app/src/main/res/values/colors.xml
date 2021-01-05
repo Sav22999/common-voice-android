@@ -61,6 +61,10 @@
     <color name="colorAudioBar11">#7DE1CF</color>
     <color name="colorAudioBar12">#7DE196</color>
 
+    <!-- ListenAnimateButton -->
+    <color name="colorListenAnimateButton1">#5ABBCC</color>
+    <color name="colorListenAnimateButton2">#7DE1CF</color>
+
     <!-- Dark theme (DT) -->
     <color name="colorBackgroundDT">@color/colorDarkDarkGray</color>
     <color name="colorBackgroundButtonDT">@color/colorLightGray</color>

@@ -1,30 +1,23 @@
 package org.commonvoice.saverio.ui.recyclerview.badges
 
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+
 sealed class Badge(val badgeValue: Int) {
 
     data class Level(
-
         val value: Int,
-
         val levelNumber: Int,
-
-        ) : Badge(value)
+    ) : Badge(value)
 
     data class SpeakAchievement(
-
         val value: Int,
-
         val achievementText: String,
-
-        ) : Badge(value)
+    ) : Badge(value)
 
     data class ListenAchievement(
-
         val value: Int,
-
         val achievementText: String,
-
-        ) : Badge(value)
+    ) : Badge(value)
 
     companion object {
 
@@ -60,28 +53,6 @@ sealed class Badge(val badgeValue: Int) {
             else -> 0
         }
 
-        private fun getTextArrayIndex(number: Int) = when (number) {
-            in 0..4 -> 0
-            in 5..49 -> 1
-            in 50..99 -> 2
-            in 100..499 -> 3
-            in 500..999 -> 4
-            in 1000..4999 -> 5
-            in 5000..9999 -> 6
-            in 10000..49999 -> 7
-            in 50000..99999 -> 8
-            in 100000..199999 -> 9
-            in 200000..399999 -> 10
-            /*
-            in 400000..799999 -> 11
-            in 800000..1999999 -> 12
-            in 2000000..3999999 -> 13
-            in 4000000..7999999 -> 14
-            in 8000000..999999990000 -> 15
-            */
-            else -> 0
-        }
-
         fun generateBadgeData(
             savedLevel: Int, //56
             recordingsNumber: Int, //27
@@ -89,8 +60,8 @@ sealed class Badge(val badgeValue: Int) {
         ): List<Badge> {
             val baseList = mutableListOf<Badge>()
 
-            val recordingsIndex = getTextArrayIndex(recordingsNumber) //1
-            val validationsIndex = getTextArrayIndex(validationsNumber) //1
+            val recordingsIndex = StatsPrefManager.getStatsTextArrayIndex(recordingsNumber)
+            val validationsIndex = StatsPrefManager.getStatsTextArrayIndex(validationsNumber)
 
             for (x in 1 .. savedLevel) {
                 baseList.add(

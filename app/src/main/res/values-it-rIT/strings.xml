@@ -173,6 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">In ascolto...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" è abilitata. Vai nelle Impostazioni per disabilitarla.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Il testo della frase è nascosto</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Non ci sono altre frasi nel server di Common Voice. Riprova più tardi o prova a contattare Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Non ci sono altre registrazioni nel server di Common Voice. Riprova più tardi o prova a contattare Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verifica nuovamente</string>
     <string name="txt_noconnection" comment="Message text">Non sei connesso a Internet. Connettiti al Wi-Fi o alla rete dati, poi premi il pulsante sottostante.</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Chiudi</string>
     <string name="labelAllBadges" comment="Title for All badge section">Tutti i distintivi</string>
-    <string name="new_badge_earnt_message" comment="Message text">Evviva! Hai appena guadagnato un nuovo distintivo.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Evviva! Hai appena ottenuto un nuovo distintivo.\nVai in {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} per vedere tutti i tuoi distintivi.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Hai ottenuto questo badge perché hai convalidato almeno {{*{{n_clips}}*}} registrazioni.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Hai ottenuto questo badge perché hai convalidato almeno {{*{{n_sentences}}*}} frasi.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Hai ottenuto questo badge perché hai convalidato o registrato almeno {{*{{n_total}}*}} registrazioni.</string>

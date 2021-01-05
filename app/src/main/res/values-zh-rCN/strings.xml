@@ -173,6 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">再次检查</string>
     <string name="txt_noconnection" comment="Message text">您没有连接到互联网。连接到 Wi-Fi 或移动数据，然后按下面的按钮。</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">关闭</string>
     <string name="labelAllBadges" comment="Title for All badge section">所有徽章</string>
-    <string name="new_badge_earnt_message" comment="Message text">喜欢！你刚刚赢得了一个新徽章。</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>

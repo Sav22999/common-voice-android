@@ -20,6 +20,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.databinding.ActivitySpeakBinding
@@ -29,6 +30,7 @@ import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
@@ -55,6 +57,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
 
     private var isAudioBarVisible: Boolean = false
+    private var animationsCount: Int = 0
+
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
 
@@ -110,6 +114,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         speakSectionAudioBar.isGone = true
 
         speakViewModel.stop(true)
+
+        hideAudioBar()
 
         super.onBackPressed()
     }
@@ -173,8 +179,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         setupNestedScroll()
 
         setTheme(this)
+
+        setupBadgeDialog()
     }
-    
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
@@ -496,6 +504,21 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
+    private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
+        lifecycleScope.launch {
+            statsPrefManager.badgeLiveData.collect {
+                if (it is BadgeDialogMediator.Speak || it is BadgeDialogMediator.Level) {
+                    showMessageDialog(
+                        title = "",
+                        text = getString(R.string.new_badge_earnt_message)
+                            .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
+                            .replace("{{*{{all_badges}}*}}", getString(R.string.btn_badges_loggedin))
+                    )
+                }
+            }
+        }
+    } else Unit
+
     private fun checkPermission() {
         var conditions = ContextCompat.checkSelfPermission(
             this,
@@ -581,8 +604,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun animateAudioBar() {
         if (mainPrefManager.areAnimationsEnabled) {
+            this.animationsCount++
             binding.speakSectionAudioBar.children.forEach {
-                animateAudioBar(it)
+                animateAudioBar(it, animationsCount)
             }
         }
     }
@@ -592,26 +616,31 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             if (binding.imageAudioBarCenter.isVisible && isAudioBarVisible) {
                 isAudioBarVisible = false
                 binding.speakSectionAudioBar.children.forEach {
-                    animateAudioBar(it)
+                    animateAudioBar(it, animationsCount)
                 }
             }
         }
     }
 
-    private fun animateAudioBar(view: View) {
+    private fun animateAudioBar(view: View, animationsCountTemp: Int) {
         if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible) {
-            animationAudioBar(view, view.height, (30..350).random())
+            animationAudioBar(view, view.height, (30..350).random(), animationsCountTemp)
             view.isVisible = true
-        } else if (!this.isAudioBarVisible) {
-            //animationAudioBar(view, view.height, 0)
-            //view.isVisible = true
-            view.isVisible = false
+        } else if (this.isAudioBarVisible && view.height >= 30) {
+            animationAudioBar(view, view.height, 2, animationsCountTemp, forced = true)
+            view.isVisible = true
         } else {
             view.isVisible = false
         }
     }
 
-    private fun animationAudioBar(view: View, min: Int, max: Int) {
+    private fun animationAudioBar(
+        view: View,
+        min: Int,
+        max: Int,
+        animationsCountTemp: Int,
+        forced: Boolean = false
+    ) {
         val animation: ValueAnimator =
             ValueAnimator.ofInt(min, max)
         animation.duration = 300
@@ -621,8 +650,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             view.requestLayout()
         }
         animation.doOnEnd {
-            if (this.isAudioBarVisible) {
-                animateAudioBar(view)
+            if (this.animationsCount == animationsCountTemp && forced && max == 2) {
+                view.isVisible = false
+            }
+            if (this.isAudioBarVisible && view.isVisible && !forced && this.animationsCount == animationsCountTemp) {
+                animateAudioBar(view, animationsCountTemp)
             }
         }
         animation.start()

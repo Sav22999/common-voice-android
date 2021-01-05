@@ -173,6 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Ouvindo...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">O \"{{*{{feature_name}}*}}\" está habilitado. Vá para Configurações para desativá-lo.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">O texto da frase está oculto</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verificar novamente</string>
     <string name="txt_noconnection" comment="Message text">Você não está conectado à internet. Conecte-se ao Wi-Fi ou aos dados móveis e pressione o botão abaixo.</string>
@@ -200,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Fechar</string>
     <string name="labelAllBadges" comment="Title for All badge section">Todos os emblemas</string>
-    <string name="new_badge_earnt_message" comment="Message text">Viva! Você acabou de ganhar um novo emblema.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Você conseguiu este emblema porque você validou pelo menos {{*{{n_clips}}*}} clipes.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Você conseguiu este emblema porque você gravou pelo menos {{*{{n_sentences}}*}} frases.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Você conseguiu este emblema porque você validou ou gravou pelo menos {{*{{n_total}}*}} clipes.</string>

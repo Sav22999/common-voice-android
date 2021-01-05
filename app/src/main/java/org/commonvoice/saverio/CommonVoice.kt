@@ -65,7 +65,7 @@ class CommonVoice : Application() {
         single { ValidationsRepository(get(), get()) }
         single { ReportsRepository(get(), get()) }
         single { StatsRepository(get(), get()) }
-        single { RecordingSoundIndicatorRepository(get()) }
+        single(createdAtStart = true) { RecordingSoundIndicatorRepository(androidContext()) }
         single { CVStatsRepository(get(), get()) }
         single { GithubRepository(get()) }
         single { FileLogsRepository(get(), get(), get()) }
