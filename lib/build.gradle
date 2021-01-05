@@ -85,6 +85,9 @@ dependencies {
     implementation Libs.workRuntimeKtx
     //https://developer.android.com/topic/libraries/architecture/workmanager/basics
 
+    //Koin
+    implementation Libs.koinViewModel
+
     //App Startup
     implementation Libs.startUp
 

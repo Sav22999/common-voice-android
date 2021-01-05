@@ -126,6 +126,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         statsPrefManager.allTimeRecorded = 0
         statsPrefManager.allTimeValidated = 0
 
+        statsPrefManager.localValidated = 0
+        statsPrefManager.localRecorded = 0
+        statsPrefManager.localLevel = 0
+
         statsPrefManager.dailyGoalObjective = 0
 
         mainActivityViewModel.clearDB()
@@ -288,5 +292,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         statsPrefManager.allTimeValidated = 0
         statsPrefManager.allTimeRecorded = 0
         statsPrefManager.allTimeLevel = 0
+        statsPrefManager.localValidated = 0
+        statsPrefManager.localRecorded = 0
+        statsPrefManager.localLevel = 0
     }
 }

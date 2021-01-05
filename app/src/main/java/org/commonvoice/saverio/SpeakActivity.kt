@@ -20,6 +20,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.databinding.ActivitySpeakBinding
@@ -29,6 +30,7 @@ import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
@@ -177,6 +179,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         setupNestedScroll()
 
         setTheme(this)
+
+        setupBadgeDialog()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -499,6 +503,21 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             speakViewModel.startListening()
         }
     }
+
+    private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
+        lifecycleScope.launch {
+            statsPrefManager.badgeLiveData.collect {
+                if (it is BadgeDialogMediator.Speak || it is BadgeDialogMediator.Level) {
+                    showMessageDialog(
+                        title = "",
+                        text = getString(R.string.new_badge_earnt_message)
+                            .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
+                            .replace("{{*{{all_badges}}*}}", getString(R.string.btn_badges_loggedin))
+                    )
+                }
+            }
+        }
+    } else Unit
 
     private fun checkPermission() {
         var conditions = ContextCompat.checkSelfPermission(

@@ -11,12 +11,14 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 import java.util.concurrent.TimeUnit
 
 class RecordingsUploadWorker(
     appContext: Context,
     workerParams: WorkerParameters
-) : CoroutineWorker(appContext, workerParams) {
+) : CoroutineWorker(appContext, workerParams), KoinComponent {
 
     private val db = AppDB.getNewInstance(appContext)
     private val prefManager =
@@ -26,7 +28,7 @@ class RecordingsUploadWorker(
     private val recordingsRepository = RecordingsRepository(db, retrofitFactory)
 
     private val mainPrefManager = MainPrefManager(appContext)
-    private val statsPrefManager = StatsPrefManager(appContext)
+    private val statsPrefManager by inject<StatsPrefManager>()
 
     override suspend fun doWork(): Result = coroutineScope {
         try {
@@ -46,6 +48,8 @@ class RecordingsUploadWorker(
                     recordingsRepository.deleteRecording(recording)
                     if (mainPrefManager.sessIdCookie != null) {
                         statsPrefManager.todayRecorded++
+                        statsPrefManager.localRecorded++
+                        statsPrefManager.localLevel++
                     }
                 } else {
                     recordingsRepository.updateRecording(recording.increaseAttempt())

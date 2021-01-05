@@ -16,8 +16,8 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.databinding.ActivityListenBinding
@@ -27,6 +27,7 @@ import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
+import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
@@ -165,6 +166,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         checkOfflineMode(connectionManager.isInternetAvailable)
 
         setupNestedScroll()
+
+        setupBadgeDialog()
 
         setTheme()
     }
@@ -559,6 +562,21 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         super.onBackPressed()
     }
 
+    private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
+        lifecycleScope.launch {
+            statsPrefManager.badgeLiveData.collect {
+                if (it is BadgeDialogMediator.Listen || it is BadgeDialogMediator.Level) {
+                    showMessageDialog(
+                        title = "",
+                        text = getString(R.string.new_badge_earnt_message)
+                            .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
+                            .replace("{{*{{all_badges}}*}}", getString(R.string.btn_badges_loggedin))
+                    )
+                }
+            }
+        }
+    } else Unit
+
     private fun hideButtons() {
         stopButtons()
         if (listenViewModel.startedOnce) hideButton(binding.buttonNoClip)
@@ -620,12 +638,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun animateListenAnimateButtons() {
         if (mainPrefManager.areAnimationsEnabled) {
             this.animationsCount++
-            animateListenAnimateButton(viewListenAnimateButton1, 280, 340, this.animationsCount)
-            animateListenAnimateButton(viewListenAnimateButton2, 350, 400, this.animationsCount)
+            animateListenAnimateButton(binding.viewListenAnimateButton1, 280, 340, this.animationsCount)
+            animateListenAnimateButton(binding.viewListenAnimateButton2, 350, 400, this.animationsCount)
         }
     }
 
-    private fun hideListenAnimateButtons() {
+    private fun hideListenAnimateButtons() = withBinding {
         if (mainPrefManager.areAnimationsEnabled) {
             if (viewListenAnimateButton1.isVisible && viewListenAnimateButton2.isVisible && isListenAnimateButtonVisible) {
                 isListenAnimateButtonVisible = false

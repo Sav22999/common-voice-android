@@ -95,6 +95,9 @@ class PrivacyPolicyFragment : ViewBoundFragment<FragmentYouHaveToAcceptPrivacyPo
         statsPrefManager.allTimeLevel = 0
         statsPrefManager.allTimeRecorded = 0
         statsPrefManager.allTimeValidated = 0
+        statsPrefManager.localValidated = 0
+        statsPrefManager.localRecorded = 0
+        statsPrefManager.localLevel = 0
 
         CookieManager.getInstance().flush()
         CookieManager.getInstance().removeAllCookies(null)

@@ -112,6 +112,10 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
                     statsPrefManager.allTimeRecorded = it.clips_count
                     statsPrefManager.allTimeLevel = it.votes_count + it.clips_count
 
+                    statsPrefManager.localLevel = 0
+                    statsPrefManager.localRecorded = 0
+                    statsPrefManager.localValidated = 0
+
                     lifecycleScope.launch {
                         ImageDownloader.loadImageIntoImageView(it.avatar_url, imageProfileImage)
                     }
@@ -195,6 +199,9 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
         statsPrefManager.allTimeLevel = 0
         statsPrefManager.allTimeRecorded = 0
         statsPrefManager.allTimeValidated = 0
+        statsPrefManager.localValidated = 0
+        statsPrefManager.localRecorded = 0
+        statsPrefManager.localLevel = 0
 
         CookieManager.getInstance().flush()
         CookieManager.getInstance().removeAllCookies(null)

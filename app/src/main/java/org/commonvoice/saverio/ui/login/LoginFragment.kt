@@ -182,6 +182,9 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
                         statsPrefManager.allTimeLevel = 0
                         statsPrefManager.allTimeRecorded = 0
                         statsPrefManager.allTimeValidated = 0
+                        statsPrefManager.localValidated = 0
+                        statsPrefManager.localRecorded = 0
+                        statsPrefManager.localLevel = 0
 
                         Intent(requireContext(), LoginActivity::class.java).also {
                             startActivity(it)
