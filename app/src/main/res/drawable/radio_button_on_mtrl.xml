@@ -12,7 +12,7 @@
 -->
 <vector
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:name="btn_radio_to_off_mtrl"
+    android:name="radio_button_on_mtrl"
     android:width="48dp"
     android:viewportWidth="48"
     android:height="32dp"
