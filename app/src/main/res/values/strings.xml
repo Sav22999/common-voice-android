@@ -351,7 +351,7 @@
         <!-- ta -->
         <item>தமிழ்</item>
         <!-- th -->
-        <item>Türkçe</item>
+        <item>ไทย</item>
         <!-- tr -->
         <item>Türkçe</item>
         <!-- tt -->
@@ -420,6 +420,7 @@
         <item>sl</item>
         <item>sv-SE</item>
         <item>ta</item>
+        <item>th</item>
         <item>tr</item>
         <item>tt</item>
         <item>uk</item>
