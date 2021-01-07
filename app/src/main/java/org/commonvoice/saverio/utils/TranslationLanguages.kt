@@ -1,6 +1,7 @@
 package org.commonvoice.saverio.utils
 
 object TranslationLanguages {
+    //TODO: Update manually this in every version
 
     //all languages supported in the app (AND also present on Crowdin!!!)
     private val translation_languages: List<String> = listOf(
