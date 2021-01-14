@@ -158,6 +158,8 @@ You can insert these parameters to the `GET` request:
 | `language` | *String* | `optional` | It's the language code of the language you want to see. You can specify also `all`, the system will return all languages.<br />If you don't specify anything, the system will return all languages |
 | `year`     | *String* | `optional` | It indicates the year (format `YYYY`). If you specify this, the contributions will be relative of all that year, otherwise the system will display to you just the contributions of today.<br />If you want the contributions of ever, you can specify `always`. |
 
+The `language` can also be `all`.
+
 #### Response
 
 You will get a which has as key the *language code* of the language selected (or all languages). This key contains other two big section: `listen` and `speak`, these contain other fields.
@@ -242,3 +244,36 @@ You will get a which has as key the *language code* of the language selected (or
 | ---------- | --------- | ------------------------------------------------------------ |
 | `sent`     | *Integer* | Indicates all sentences you recorded and you sent the recording to the Common Voice server |
 | `reported` | *Integer* | Indicates all sentences you reported ("Report")              |
+
+## App usage (detailed)
+
+### GET
+
+#### Request
+
+To get app statistics you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/app-usage/get/details/.
+
+You can insert these parameters to the `GET` request:
+
+| Key        | Value    | Required   | Explanation                                                  |
+| ---------- | -------- | ---------- | ------------------------------------------------------------ |
+| `language` | *String* | `optional` | It's the language code of the language you want to see. You can specify also `all`, the system will return all languages.<br />If you don't specify anything, the system will return all languages |
+| `year`     | *String* | `optional` | It indicates the year (format `YYYY`). If you specify this, the contributions will be relative of all that year, otherwise the system will display to you just the contributions of today.<br />If you want the contributions of ever, you can specify `always`. |
+
+The `language` can also be `all`.
+
+#### Response
+
+You will get a which has as key the *language code* of the language selected (or all languages). This key contains other two big section: `listen` and `speak`. These sections contain other subsections: (for *listen*:) `validated`, `accepted`, `rejected` and `reported` and (for *speak*:) `sent` and `reported`.
+
+The `validated` for Listen are the sum of `accepted`, `rejected` and `reported`. For more details about those subsections, please see *App usage* above.
+
+Every subsection has these fields:
+
+| Key         | Value     | Explanation                                                  |
+| ------------- | ----------- | -------------------------------------------------------- |
+| `all`       | *Integer* | Indicates all clips/sentences/recordings (so it's the sum of `online`+`offline` **or** `logged`+`no-logged`) |
+| `online`    | *Integer* | Indicates all clips/sentences/recordings made in the app **online** (so with an Internet connection) |
+| `offline`   | *Integer* | Indicates all clips/sentences/recordings made in the app **offline** (so without an Internet connection) |
+| `logged`    | *Integer* | Indicates all clips/sentences/recordings made in the app **logged in** (so log in to your account) |
+| `no-logged` | *Integer* | Indicates all clips/sentences/recordings made in the app **no-logged in** (so you don't log in to your account) |
