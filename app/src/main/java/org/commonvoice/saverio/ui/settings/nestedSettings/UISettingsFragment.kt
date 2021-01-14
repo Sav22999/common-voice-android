@@ -1,13 +1,9 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
-import android.graphics.drawable.InsetDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.RadioButton
-import androidx.core.widget.CompoundButtonCompat
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
@@ -32,48 +28,36 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionUI.setOnClickListener {
-            activity?.onBackPressed()
-        }
-
-        addPaddingRadio(buttonThemeLight)
-        addPaddingRadio(buttonThemeDark)
-        addPaddingRadio(buttonThemeAuto)
-
-        switchShowIconTopRightInsteadButton.text =
-            getString(R.string.txt_show_report_icon_instead_of_button).replace(
-                "{{*{{listen_name}}*}}",
-                getString(R.string.settingsListen)
-            ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
-
         withBinding {
+            buttonBackSettingsSubSectionUI.setOnClickListener {
+                activity?.onBackPressed()
+            }
+
+            switchShowIconTopRightInsteadButton.text =
+                getString(R.string.txt_show_report_icon_instead_of_button).replace(
+                    "{{*{{listen_name}}*}}",
+                    getString(R.string.settingsListen)
+                ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
+
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
-            buttonThemeLight.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    mainPrefManager.themeType = "light"
+            radioGroupTheme.check(
+                when(mainPrefManager.themeType) {
+                    "dark" -> R.id.buttonThemeDark
+                    "auto" -> R.id.buttonThemeAuto
+                    else -> R.id.buttonThemeLight
+                }
+            )
+
+            radioGroupTheme.setOnCheckedChangeListener { _, checkedId ->
+                mainPrefManager.themeType = when(checkedId) {
+                    R.id.buttonThemeDark -> "dark"
+                    R.id.buttonThemeAuto -> "auto"
+                    R.id.buttonThemeLight -> "light"
+                    else -> ""
                 }
                 setTheme()
-            }
-            buttonThemeDark.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    mainPrefManager.themeType = "dark"
-                }
-                setTheme()
-            }
-            buttonThemeAuto.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    mainPrefManager.themeType = "auto"
-                }
-                setTheme()
-            }
-            if (mainPrefManager.themeType == "light") {
-                buttonThemeLight.isChecked = true
-            } else if (mainPrefManager.themeType == "dark") {
-                buttonThemeDark.isChecked = true
-            } else {
-                buttonThemeAuto.isChecked = true
             }
 
             switchAnimations.setOnCheckedChangeListener { _, isChecked ->
@@ -100,12 +84,6 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
         }
 
         setTheme()
-    }
-
-    private fun addPaddingRadio(radioButton: RadioButton) {
-        val compoundButtonDrawable = CompoundButtonCompat.getButtonDrawable(radioButton)
-        val insetDrawable = InsetDrawable(compoundButtonDrawable, 40, 0, 0, 0)
-        radioButton.buttonDrawable = insetDrawable
     }
 
     fun setTheme() {
