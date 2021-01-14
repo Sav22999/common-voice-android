@@ -8,7 +8,7 @@ Toto není oficiální aplikace projektu Common Voice. Jejím vývojářem je Sa
 - Přihlaste se ke svému účtu Common Voice
 - Ověřujte klipy
 - Nahrávejte věty
-- Report sentences/clips in the relative sections
+- Nahlašujte věty/klipy
 - Podpora několika jazyků
 - Offline režim (můžete přispívat, i když nejste připojeni k internetu!)
 - Common Voice statistiky (vybraného jazyka)
@@ -18,8 +18,8 @@ Toto není oficiální aplikace projektu Common Voice. Jejím vývojářem je Sa
 - Tmavý motiv podporován
 - Denní cíl
 - Gesta
-- Save your recordings on your device
-- Many other features
+- Ukládejte své nahrávky na své zařízení
+- Mnoho dalších funkcí
 - Zážitek z aplikace si lze zcela přizpůsobit v nastavení
 
 Připojte se do Telegram skupiny: https://t.me/common_voice_android (@common_voice_android)

@@ -51,6 +51,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorGray"
                 android:padding="4dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintStart_toStartOf="parent"
