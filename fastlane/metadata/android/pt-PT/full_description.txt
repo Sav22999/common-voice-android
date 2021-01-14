@@ -5,7 +5,7 @@ Este não é o aplicativo oficial da Common Voice. Ele é desenvolvido por Saver
 <b>Recursos do aplicativo:</b>
 
 - A interface do usuário (UI) é inteligente, clara e moderna
-= Iniciar sessão na conta Common Voice
+- Iniciar sessão na conta Common Voice
 - Validar clipes
 - Gravar frases
 - Relata frases/clipes nas seções relacionadas
