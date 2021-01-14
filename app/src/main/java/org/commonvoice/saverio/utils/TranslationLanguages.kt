@@ -58,7 +58,6 @@ object TranslationLanguages {
         "br",
         "de",
         "el",
-        "en",
         "eo",
         "et",
         "eu",

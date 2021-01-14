@@ -47,22 +47,25 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
+            val oldStatus = settingsPrefManager.isOfflineMode
             switchSettingsSubSectionOfflineMode.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isOfflineMode = isChecked
-                var count = 50
-                if (!settingsPrefManager.isOfflineMode)
-                    count = 3
-                listenPrefManager.requiredClipsCount = count
-                speakPrefManager.requiredSentencesCount = count
-                mainViewModel.clearDB().invokeOnCompletion {
-                    SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                        workManager,
-                        ExistingWorkPolicy.REPLACE
-                    )
-                    ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                        workManager,
-                        ExistingWorkPolicy.REPLACE
-                    )
+                if (oldStatus != isChecked) {
+                    var count = 50
+                    if (!settingsPrefManager.isOfflineMode)
+                        count = 3
+                    listenPrefManager.requiredClipsCount = count
+                    speakPrefManager.requiredSentencesCount = count
+                    mainViewModel.clearDB().invokeOnCompletion {
+                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                            workManager,
+                            ExistingWorkPolicy.REPLACE
+                        )
+                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                            workManager,
+                            ExistingWorkPolicy.REPLACE
+                        )
+                    }
                 }
             }
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode

@@ -156,7 +156,7 @@
     <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Fechando...</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Erro. Não há mais clipes disponíveis para este idioma.</string>
     <string name="button_report" comment="Button">Denunciar</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Reportar clique:</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Reportar clipe:</string>
     <string name="title_report_sentence" comment="Title in Report a sentence">Relatório de frase:</string>
     <string name="button_send_report" comment="Button">Enviar relatório</string>
     <string name="checkbox_reason1_report_sentence" comment="Checkbox">Linguagem ofensiva</string>
@@ -173,8 +173,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Ouvindo...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">O \"{{*{{feature_name}}*}}\" está habilitado. Vá para Configurações para desativá-lo.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">O texto da frase está oculto</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Não há mais frases disponíveis no servidor Common Voice. Tente mais tarde ou entre em contato com a Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Não há mais clipes disponíveis no servidor Common Voice. Tente mais tarde ou entre em contato com a Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verificar novamente</string>
     <string name="txt_noconnection" comment="Message text">Você não está conectado à internet. Conecte-se ao Wi-Fi ou aos dados móveis e pressione o botão abaixo.</string>
@@ -202,7 +202,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Fechar</string>
     <string name="labelAllBadges" comment="Title for All badge section">Todos os emblemas</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Viva! Você acabou de ganhar um novo emblema.\nVá para {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} para ver todos os seus emblemas.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Você conseguiu este emblema porque você validou pelo menos {{*{{n_clips}}*}} clipes.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Você conseguiu este emblema porque você gravou pelo menos {{*{{n_sentences}}*}} frases.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Você conseguiu este emblema porque você validou ou gravou pelo menos {{*{{n_total}}*}} clipes.</string>
