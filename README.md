@@ -14,7 +14,7 @@ If you have any questions, please open an issue (you can add the label `question
 
 ### Where download the app
 
-[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/badges/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ) <img src="images/badges/huaweiAppGallery.png" width="200px"></img>  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
+[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/badges/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ) [<img src="images/badges/huaweiAppGallery.png" width="200px"></img>](https://bit.ly/35LwCWX)  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
 
 You can download the app on Google Play, on F-Droid, on Huawei AppGallery and also on GitHub.
 
