@@ -1,5 +1,8 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
@@ -145,7 +148,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
     private fun setupButtons() {
         buttonShowStringIdentifyMe.setOnClickListener {
-            showMessageDialog("", statsRepository.getUserId())
+            showMessageDialog("", statsRepository.getUserId(), enableCopyText = true, type = 15)
         }
     }
 
@@ -164,7 +167,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
         text: String,
         errorCode: String = "",
         details: String = "",
-        type: Int = 0
+        type: Int = 0,
+        enableCopyText: Boolean = false
     ) {
         val metrics = DisplayMetrics()
         activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
@@ -187,6 +191,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 details = details,
                 height = height
             )
+            if (enableCopyText) {
+                message.setClipboardManager(
+                    activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager,
+                    ClipData.newPlainText("", messageText)
+                )
+            }
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")

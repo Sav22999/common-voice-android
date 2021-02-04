@@ -42,6 +42,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@drawable/top_bottom_border_radius_with_border"
+                android:backgroundTint="@color/colorDarkDarkGray"
                 android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +56,7 @@
                     android:text="@string/text_offline_mode"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorGray"
                     android:textSize="@dimen/title_small"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +73,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/textMessageTypeOfflineMode"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_no_wifi" />
+                    app:srcCompat="@drawable/ic_offline_mode_20x20" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

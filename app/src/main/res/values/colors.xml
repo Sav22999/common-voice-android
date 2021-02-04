@@ -41,7 +41,7 @@
     <color name="colorNavigationBarBorder">#141414</color>
 
     <!-- Message dialogs -->
-    <color name="colorWarning">#FF5722</color>
+    <color name="colorWarning">#E53935</color>
     <color name="colorTip">@color/colorBlack</color>
     <color name="colorInfo">@color/colorBlack</color>
     <color name="colorHelp">#0077FF</color>

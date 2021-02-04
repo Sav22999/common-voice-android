@@ -1,5 +1,7 @@
 package org.commonvoice.saverio
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
@@ -30,7 +32,8 @@ class MessageDialog : KoinComponent {
             3->reportClip (listen), 4->reportSentence (Speak)
             5->info, 6->help, 7->warning, 8->news/changelog, 9->tip
             10->offlineModeMessage, 11->report bug on website
-            12->daily goal achieved*/
+            12->daily goal achieved, 15->show in-app username
+            13-> (from Speak) , 14-> (from Listen)*/
     private var message_text: String = ""
     private var message_title: String = ""
     private var message_details: String = ""
@@ -41,6 +44,8 @@ class MessageDialog : KoinComponent {
     private var main: MainActivity? = null
     private var listen: ListenActivity? = null
     private var speak: SpeakActivity? = null
+    lateinit var clipboardManager: ClipboardManager
+    lateinit var clipData: ClipData
 
     private val theme by inject<DarkLightTheme>() //TODO change this if we want to switch to Dagger-Hilt
     private val mainPrefManager by inject<MainPrefManager>()
@@ -104,10 +109,15 @@ class MessageDialog : KoinComponent {
         this.listen = null
     }
 
+    fun setClipboardManager(clipboardManager: ClipboardManager, clipData: ClipData) {
+        this.clipboardManager = clipboardManager
+        this.clipData = clipData
+    }
+
     fun show() {
         if (this.context != null) {
             when (this.message_type) {
-                0, 2, 5, 6, 7, 8, 9, 13, 14 -> {
+                0, 2, 5, 6, 7, 8, 9, 13, 14, 15 -> {
                     try {
                         val dialogView =
                             LayoutInflater.from(this.context).inflate(R.layout.message_dialog, null)
@@ -137,6 +147,13 @@ class MessageDialog : KoinComponent {
                                     dialogView.btnShowHideDetailsMessageDialog.text = "Hide details"
                                     dialogView.labelDetailsMessageDialog.isGone = false
                                 }
+                            }
+                        }
+                        if (message_type == 15) {
+                            //set "copy" message
+                            dialogView.imageCopyText.isGone = false
+                            dialogView.imageCopyText.setOnClickListener {
+                                clipboardManager.setPrimaryClip(clipData)
                             }
                         }
                         dialogView.btnOkMessageDialog.setOnClickListener {
@@ -396,6 +413,7 @@ class MessageDialog : KoinComponent {
 
     private fun setImageNoWifi(view: Context, dialogView: View, isDark: Boolean) {
         //set icon "no wifi" in offline-mode message
+        /*
         if (isDark) {
             (dialogView.findViewById(R.id.imageMessageOfflineMode) as ImageView).imageTintList =
                 ContextCompat.getColorStateList(view, R.color.colorWhite)
@@ -403,11 +421,12 @@ class MessageDialog : KoinComponent {
             (dialogView.findViewById(R.id.imageMessageOfflineMode) as ImageView).imageTintList =
                 ContextCompat.getColorStateList(view, R.color.colorBlack)
         }
+        */
     }
 
     fun setTheme(view: Context, dialogView: View) {
         when (this.message_type) {
-            0, 2, 5, 6, 7, 8, 9, 13, 14 -> {
+            0, 2, 5, 6, 7, 8, 9, 13, 14, 15 -> {
                 //standard message dialog
                 if (this.height > 500) {
                     dialogView.messageDialogSectionBackground.layoutParams.height = this.height
@@ -449,6 +468,14 @@ class MessageDialog : KoinComponent {
                     dialogView.findViewById(R.id.btnShowHideDetailsMessageDialog) as TextView,
                     invert = message_type == 2
                 )
+
+                if (this.message_type == 15) {
+                    theme.setElement(
+                        dialogView.findViewById(R.id.imageCopyText) as ImageView,
+                        R.drawable.ic_copy,
+                        R.drawable.ic_copy
+                    )
+                }
             }
             1 -> {
                 //daily goal

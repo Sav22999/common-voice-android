@@ -697,7 +697,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     ) {
         val animation: ValueAnimator =
             ValueAnimator.ofInt(sizeNow, max)
-        println("First time: " + sizeNow)
+
         if (max == 50 || max == 200) animation.duration = 300
         else animation.duration = (800..1200).random().toLong()
         animation.addUpdateListener { anim ->
