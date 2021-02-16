@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <!--SplashScreen-->
         <activity
@@ -42,6 +43,7 @@
         <!-- The actual app (MainActivity) -->
         <activity
             android:name=".MainActivity"
+            android:hardwareAccelerated="true"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,12 +53,14 @@
         <!-- SpeakActivity -->
         <activity
             android:name=".SpeakActivity"
+            android:hardwareAccelerated="true"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
         <!-- ListenActivity -->
         <activity
             android:name=".ListenActivity"
+            android:hardwareAccelerated="true"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />

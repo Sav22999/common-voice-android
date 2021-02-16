@@ -29,6 +29,7 @@ import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
 import org.commonvoice.saverio_lib.models.Sentence
@@ -181,6 +182,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         setTheme(this)
 
         setupBadgeDialog()
+
+        AdLoader.setupSpeakAdView(this, binding.adContainer)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

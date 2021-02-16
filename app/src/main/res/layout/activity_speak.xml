@@ -280,7 +280,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorTransparent"
             android:padding="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
+            app:layout_constraintBottom_toTopOf="@+id/adContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak">
@@ -327,6 +327,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/buttonStartStopSpeak"
                 tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@id/speakSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionBottom"

@@ -3,8 +3,6 @@
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <string name="app_name" translatable="false">CV Android</string>
     <string name="app_name_long" translatable="false">CV Android</string>
-    <string name="admob_app_id" translatable="false">ca-app-pub-4441008333572114~9393374757</string>
-    <string name="admob_banner_ad" translatable="false">ca-app-pub-4441008333572114/6536517793</string>
 
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language">en</string>

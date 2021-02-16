@@ -22,6 +22,7 @@ object Versions {
 
     // Google
     const val materialVersion = "1.3.0"
+    const val gpsAdsLiteVersion = "19.7.0"
 
     // Coroutines
     const val androidVersion = "1.4.2"

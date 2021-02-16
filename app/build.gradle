@@ -97,4 +97,7 @@ dependencies {
     implementation Libs.timber
 
     implementation project(":lib")
+
+    implementation(project(":fake-ads"))
+    GPSImplementation(project(":play-services-ads"))
 }

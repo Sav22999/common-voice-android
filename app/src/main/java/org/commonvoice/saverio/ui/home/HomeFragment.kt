@@ -19,6 +19,7 @@ import org.commonvoice.saverio.*
 import org.commonvoice.saverio.databinding.FragmentHomeBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.background.AppUsageUploadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
@@ -116,6 +117,8 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         //TODO
         //(activity as MainActivity).checkMessageBanner()
+
+        AdLoader.setupHomeAdView(requireActivity(), binding.adContainer)
 
         setTheme(requireContext())
 

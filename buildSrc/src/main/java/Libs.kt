@@ -55,6 +55,9 @@ object Libs {
 
     // Google
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
+    const val gpsAdsLite =
+        "com.google.android.gms:play-services-ads-lite:${Versions.gpsAdsLiteVersion}"
+
     // Junit
     const val junit4 = "junit:junit:${Versions.junitVersion}"
 
