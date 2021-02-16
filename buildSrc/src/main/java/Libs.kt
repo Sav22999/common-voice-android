@@ -29,14 +29,10 @@ object Libs {
     // Lifecycle
     const val viewModel =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycleVersion}"
-    const val extensions =
-        "androidx.lifecycle:lifecycle-extensions:${Versions.lifeCycleVersion}"
     const val liveData =
         "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycleVersion}"
     const val commonJava8 =
         "androidx.lifecycle:lifecycle-common-java8:${Versions.lifeCycleVersion}"
-    const val compiler =
-        "androidx.lifecycle:lifecycle-compiler:${Versions.lifeCycleVersion}"
     const val viewModelSavedState =
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifeCycleVersion}"
 
