@@ -295,7 +295,7 @@ You can insert these parameters to the `GET` request:
 
 #### Response
 
-If you specified the id, you will get just one result, so `1` which contains these parameters. Otherwise, you will get more results (`1`,`2`,...), in sorted by `message_id ASC`.
+If you specified the id, you will get just one result, so `1` which contains these parameters. Otherwise, you will get more results (`1`,`2`,...), in sorted by `message_id DESC`.
 
 | Key           | Value             | Explanation                                                  |
 | ------------- | ----------------- | ------------------------------------------------------------ |
