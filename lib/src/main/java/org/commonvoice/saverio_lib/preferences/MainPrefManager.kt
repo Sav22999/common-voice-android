@@ -76,6 +76,10 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.THEME_TYPE.name, "light") //{"light"|"dark"|"auto"}
         set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
 
+    var textSize: Int
+        get() = preferences.getInt(Keys.TEXT_SIZE.name, 1)
+        set(value) = preferences.edit().putInt(Keys.TEXT_SIZE.name, value).apply()
+
     var appVersionCode: Int
         get() = preferences.getInt(Keys.APP_VERSION_CODE.name, 0)
         set(value) = preferences.edit().putInt(Keys.APP_VERSION_CODE.name, value).apply()
@@ -93,7 +97,7 @@ class MainPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.IS_BETA.name, value).apply()
 
     var showAdBanner: Boolean
-        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, false)
+        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, true)
         set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
 
 
@@ -120,6 +124,7 @@ class MainPrefManager(ctx: Context) {
         IS_ALPHA,
         IS_BETA,
         SHOW_AD_BANNER,
+        TEXT_SIZE,
     }
 
 }

@@ -24,7 +24,7 @@ class ListenPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.NO_MORE_CLIPS_AVAILABLE.name, value).apply()
 
     var showAdBanner: Boolean
-        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, false)
+        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, true)
         set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
 
     private enum class Keys {

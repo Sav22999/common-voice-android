@@ -41,7 +41,7 @@ class SpeakPrefManager(ctx: Context) {
             .apply()
 
     var showAdBanner: Boolean
-        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, false)
+        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, true)
         set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
 
     private enum class Keys {

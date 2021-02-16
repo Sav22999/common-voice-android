@@ -2,8 +2,10 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.SeekBar
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.daily_goal.view.*
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
@@ -43,7 +45,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                 nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             radioGroupTheme.check(
-                when(mainPrefManager.themeType) {
+                when (mainPrefManager.themeType) {
                     "dark" -> R.id.buttonThemeDark
                     "auto" -> R.id.buttonThemeAuto
                     else -> R.id.buttonThemeLight
@@ -51,7 +53,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             )
 
             radioGroupTheme.setOnCheckedChangeListener { _, checkedId ->
-                mainPrefManager.themeType = when(checkedId) {
+                mainPrefManager.themeType = when (checkedId) {
                     R.id.buttonThemeDark -> "dark"
                     R.id.buttonThemeAuto -> "auto"
                     R.id.buttonThemeLight -> "light"
@@ -81,9 +83,38 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                 settingsPrefManager.showReportIcon = isChecked
             }
             switchShowIconTopRightInsteadButton.isChecked = settingsPrefManager.showReportIcon
+
+            setSeekBar(mainPrefManager.textSize)
+            seekTextSizeSettings.setOnSeekBarChangeListener(object :
+                SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seek: SeekBar,
+                    progress: Int, fromUser: Boolean
+                ) {
+                    //onProgress
+                    setSeekBar(seek.progress)
+                }
+
+                override fun onStartTrackingTouch(seek: SeekBar) {
+                    //onStart
+                }
+
+                override fun onStopTrackingTouch(seek: SeekBar) {
+                    //onStop
+                    setSeekBar(seek.progress)
+                }
+            })
         }
 
         setTheme()
+    }
+
+    private fun setSeekBar(value: Int) {
+        withBinding {
+            labelTextSizeSettings.text = ((10 * value) + 50).toString() + "%"
+
+            mainPrefManager.textSize = value
+        }
     }
 
     fun setTheme() {
@@ -92,13 +123,17 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
 
             theme.setElements(requireContext(), settingsSectionUIGeneric)
             theme.setElements(requireContext(), settingsSectionTheme)
+            theme.setElements(requireContext(), settingsSectionTextSize)
 
             theme.setElement(requireContext(), 3, settingsSectionUIGeneric)
             theme.setElement(requireContext(), 3, settingsSectionTheme)
+            theme.setElement(requireContext(), 3, settingsSectionTextSize)
 
             theme.setElement(requireContext(), buttonThemeLight)
             theme.setElement(requireContext(), buttonThemeDark)
             theme.setElement(requireContext(), buttonThemeAuto)
+
+            theme.setElement(requireContext(), seekTextSizeSettings)
         }
     }
 }
