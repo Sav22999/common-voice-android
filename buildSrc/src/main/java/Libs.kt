@@ -86,4 +86,8 @@ object Libs {
 
     // Debug
     const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
+
+    //Dialogs
+    const val advancedDialogs =
+        "com.github.MrIndeciso.advanced-dialogs:advanced-dialogs:${Versions.advancedDialogsVersion}"
 }
