@@ -92,9 +92,9 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.IS_BETA.name, false)
         set(value) = preferences.edit().putBoolean(Keys.IS_BETA.name, value).apply()
 
-    var areAdsEnabled: Boolean
-        get() = preferences.getBoolean(Keys.ARE_ADS_ENABLED.name, true)
-        set(value) = preferences.edit().putBoolean(Keys.ARE_ADS_ENABLED.name, value).apply()
+    var showAdBanner: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
 
 
     private enum class Keys {
@@ -119,7 +119,7 @@ class MainPrefManager(ctx: Context) {
         APP_SOURCE_STORE,
         IS_ALPHA,
         IS_BETA,
-        ARE_ADS_ENABLED,
+        SHOW_AD_BANNER,
     }
 
 }

@@ -30,6 +30,7 @@ import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
 import org.commonvoice.saverio_lib.models.Clip
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
@@ -44,6 +45,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private val listenViewModel: ListenViewModel by stateViewModel()
     private val connectionManager: ConnectionManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+    private val listenPrefManager: ListenPrefManager by inject()
 
     private var isListenAnimateButtonVisible: Boolean = false
     private var animationsCount: Int = 0
@@ -172,7 +174,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         setTheme()
 
-        AdLoader.setupListnAdView(this, binding.adContainer)
+        if (listenPrefManager.showAdBanner) {
+            AdLoader.setupListnAdView(this, binding.adContainer)
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

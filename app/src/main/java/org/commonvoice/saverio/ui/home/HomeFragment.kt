@@ -115,10 +115,9 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
             }
         }
 
-        //TODO
-        //(activity as MainActivity).checkMessageBanner()
-
-        AdLoader.setupHomeAdView(requireActivity(), binding.adContainer)
+        if (mainPrefManager.showAdBanner) {
+            AdLoader.setupHomeAdView(requireActivity(), binding.adContainer)
+        }
 
         setTheme(requireContext())
 

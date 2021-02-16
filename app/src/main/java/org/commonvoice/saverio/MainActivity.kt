@@ -8,8 +8,6 @@ import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.Window
-import android.view.WindowManager
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -138,7 +136,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun checkAdsBanner() {
         //TODO
-        if (mainPrefManager.areAdsEnabled && mainPrefManager.appSourceStore == "GPS") {
+        if (mainPrefManager.showAdBanner && mainPrefManager.appSourceStore == "GPS") {
 
         }
     }

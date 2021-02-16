@@ -67,6 +67,21 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             }
             switchSaveLogToFile.isChecked = logPrefManager.saveLogFile
 
+            switchHomeAds.setOnCheckedChangeListener { _, isChecked ->
+                mainPrefManager.showAdBanner = isChecked
+            }
+            switchHomeAds.isChecked = mainPrefManager.showAdBanner
+
+            switchListenAds.setOnCheckedChangeListener { _, isChecked ->
+                listenPrefManager.showAdBanner = isChecked
+            }
+            switchListenAds.isChecked = listenPrefManager.showAdBanner
+
+            switchSpeakAds.setOnCheckedChangeListener { _, isChecked ->
+                speakPrefManager.showAdBanner = isChecked
+            }
+            switchSpeakAds.isChecked = speakPrefManager.showAdBanner
+
             buttonOpenTutorialAgain.setOnClickListener {
                 Intent(requireContext(), FirstLaunch::class.java).also {
                     startActivity(it)

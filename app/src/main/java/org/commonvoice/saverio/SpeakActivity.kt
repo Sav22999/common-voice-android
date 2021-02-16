@@ -183,7 +183,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         setupBadgeDialog()
 
-        AdLoader.setupSpeakAdView(this, binding.adContainer)
+        if (speakPrefManager.showAdBanner) {
+            AdLoader.setupSpeakAdView(this, binding.adContainer)
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

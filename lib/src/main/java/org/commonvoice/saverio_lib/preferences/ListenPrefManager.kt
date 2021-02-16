@@ -23,10 +23,15 @@ class ListenPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.NO_MORE_CLIPS_AVAILABLE.name, false)
         set(value) = preferences.edit().putBoolean(Keys.NO_MORE_CLIPS_AVAILABLE.name, value).apply()
 
+    var showAdBanner: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
+
     private enum class Keys {
         REQUIRED_CLIPS_COUNT,
         AUTO_PLAY_CLIPS,
         SHOW_SENTENCE_AT_THE_END,
+        SHOW_AD_BANNER,
 
         NO_MORE_CLIPS_AVAILABLE,
     }
