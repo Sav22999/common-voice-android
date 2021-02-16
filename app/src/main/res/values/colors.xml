@@ -36,6 +36,8 @@
     <color name="colorYouTopContributors">#BBBBBB</color>
     <color name="colorYouTopContributorsDT">#555555</color>
 
+    <color name="colorMessageBanner">#0077FF</color>
+
     <!-- Navigation bar -->
     <color name="colorNavigationBarBackground">@color/colorBlack</color>
     <color name="colorNavigationBarBorder">#141414</color>

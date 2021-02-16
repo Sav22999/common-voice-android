@@ -13,9 +13,55 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/homeSectionCVAndroid"
+            android:id="@+id/homeMessageBoxBannerContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/bottom_border_radius"
+            android:backgroundTint="@color/colorMessageBanner"
+            android:elevation="1dp"
+            android:padding="0dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/text_homeMessageBoxBanner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="15dp"
+                android:autoLink="web"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_big"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/hideMessageBanner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Message text (autolink)" />
+
+            <ImageView
+                android:id="@+id/hideMessageBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeSectionCVAndroid"
+            android:layout_width="394dp"
+            android:layout_height="68dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -24,7 +70,7 @@
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/homeMessageBoxBannerContainer">
 
 
             <TextView
@@ -124,6 +170,7 @@
             android:layout_marginEnd="250dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/speak_cv"
+            android:elevation="5dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,6 +183,7 @@
             android:layout_marginStart="250dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/listen_cv"
+            android:elevation="5dp"
             android:textColor="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
