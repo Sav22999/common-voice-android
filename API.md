@@ -278,3 +278,36 @@ Every subsection has these fields:
 | `offline`   | *Integer* | Indicates all clips/sentences/recordings made in the app **offline** (so without an Internet connection) |
 | `logged`    | *Integer* | Indicates all clips/sentences/recordings made in the app **logged in** (so log in to your account) |
 | `no-logged` | *Integer* | Indicates all clips/sentences/recordings made in the app **no-logged in** (so you don't log in to your account) |
+
+## In-app messages
+
+### GET
+
+#### Request
+
+To get in-app messages you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/messages/get/.
+
+You can insert these parameters to the `GET` request:
+
+| Key  | Value     | Required   | Explanation                                                  |
+| ---- | --------- | ---------- | ------------------------------------------------------------ |
+| `id` | *Integer* | `optional` | You can specify a message_id, otherwise the system will return to you all messages |
+
+#### Response
+
+If you specified the id, you will get just one result, so `1` which contains these parameters. Otherwise, you will get more results (`1`,`2`,...), in sorted by `message_id ASC`.
+
+| Key           | Value             | Explanation                                                  |
+| ------------- | ----------------- | ------------------------------------------------------------ |
+| `id`          | *Integer*         | It's the message id                                          |
+| `type`        | *Integer*\|`NULL` | It indicated the message type. If it's different to , `NULL`, the app will open a popup instead of a banner. Popup supported are: `1` (standard), `5` (info), `6` (help), `7` (warning), `8` (news/changelog),`9` (tip).<br />`NULL` (default value) means it's a **banner**. |
+| `versionCode` | *Integer*\|`NULL` | It indicates the goal app version code.<br />`NULL` (default value) means the message is for all version codes. |
+| `language`    | *String\|`NULL`*  | It's the goal language for the message (language code supported in the app).<br />`NULL` (default value) means the message is for all languages. |
+| `source`      | *String*\|`NULL`  | It indicates the store where the app has been installed (Google Play, F-Droid, etc.).<br />`NULL` (default value) means the message is for all stores (`GPS`, `FD-GH`, `HAG`). |
+| `startDate`   | *Date*\|`NULL`    | It indicates the start date the message is valid.<br />`NULL` (default value) means there isn't a specified start date ("from"). |
+| `endDate`     | *Date*\|`NULL`    | It indicates the end date the message is valid.<br />`NULL` (default value) means there isn't a specified end date ("until"). |
+| `text`        | *Text*            | It's the actual text the banner show contains.               |
+| `button1`     | *Text*\|`NULL`    | It's the text of the first button.<br />`NULL` (default value) means buttons are not required for this message. |
+| `button1Link` | *Text*            | It's the link of the first button.<br />If `button1` is not `NULL`, the link is required. |
+| `button2`     | *Text\|`NULL`*    | It's the text of the second button.<br />`NULL` (default value) means the second button is not required for this message. |
+| `button2Link` | *Text*            | It's the link of the second  button.<br />If `button2` is not `NULL`, the link is required. |
