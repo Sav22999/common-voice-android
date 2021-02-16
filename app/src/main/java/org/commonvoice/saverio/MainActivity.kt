@@ -8,13 +8,18 @@ import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.Window
+import android.view.WindowManager
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isGone
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.WorkManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import kotlinx.android.synthetic.main.fragment_home.*
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.utils.TranslationLanguages
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -100,6 +105,41 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
                 showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
             }
+        }
+    }
+
+    fun checkMessageBanner() {
+        //TODO
+        /*
+        if () {
+            //if there is at least one message to show
+            this@MainActivity.window.statusBarColor =
+                ContextCompat.getColor(this@MainActivity, R.color.colorMessageBanner)
+            homeMessageBoxBannerContainer.isGone = false
+            text_homeMessageBoxBanner.text = textToUse
+            hideMessageBanner.setOnClickListener {
+                hideMessageBanner(id_message)
+            }
+        } else {
+            hideMessageBanner()
+        }
+        */
+    }
+
+
+    private fun hideMessageBanner(id: Int = 0) {
+        //TODO
+        this@MainActivity.window.statusBarColor =
+            ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark)
+        val messageBanner = homeMessageBoxBannerContainer
+        messageBanner.isGone = true
+        //add in the "messages viewed" list the id passed
+    }
+
+    fun checkAdsBanner() {
+        //TODO
+        if (mainPrefManager.areAdsEnabled && mainPrefManager.appSourceStore == "GPS") {
+
         }
     }
 

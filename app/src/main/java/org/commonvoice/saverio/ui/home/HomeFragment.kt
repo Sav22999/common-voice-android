@@ -103,7 +103,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         }
 
         homeViewModel.checkForNewVersion(BuildConfig.VERSION_NAME).observe(viewLifecycleOwner) {
-            if(statsPrefManager.reviewOnPlayStoreCounter >=1) {
+            if (statsPrefManager.reviewOnPlayStoreCounter >= 1) {
                 showMessageDialog(
                     "",
                     getString(R.string.message_dialog_new_version_available).replace(
@@ -114,6 +114,8 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
             }
         }
 
+        //TODO
+        //(activity as MainActivity).checkMessageBanner()
 
         setTheme(requireContext())
 
