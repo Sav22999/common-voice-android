@@ -76,9 +76,9 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.THEME_TYPE.name, "light") //{"light"|"dark"|"auto"}
         set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
 
-    var textSize: Int
-        get() = preferences.getInt(Keys.TEXT_SIZE.name, 1)
-        set(value) = preferences.edit().putInt(Keys.TEXT_SIZE.name, value).apply()
+    var textSize: Float
+        get() = preferences.getFloat(Keys.TEXT_SIZE.name, 1.toFloat())
+        set(value) = preferences.edit().putFloat(Keys.TEXT_SIZE.name, value).apply()
 
     var appVersionCode: Int
         get() = preferences.getInt(Keys.APP_VERSION_CODE.name, 0)

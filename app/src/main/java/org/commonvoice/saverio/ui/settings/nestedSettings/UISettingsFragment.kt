@@ -92,7 +92,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                     progress: Int, fromUser: Boolean
                 ) {
                     //onProgress
-                    setSeekBar(seek.progress)
+                    setSeekBar(seek.progress.toFloat())
                 }
 
                 override fun onStartTrackingTouch(seek: SeekBar) {
@@ -101,7 +101,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
 
                 override fun onStopTrackingTouch(seek: SeekBar) {
                     //onStop
-                    setSeekBar(seek.progress)
+                    setSeekBar(seek.progress.toFloat())
                 }
             })
         }
@@ -109,11 +109,11 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
         setTheme()
     }
 
-    private fun setSeekBar(value: Int) {
+    private fun setSeekBar(value: Float) {
         withBinding {
             labelTextSizeSettings.text = ((10 * value) + 50).toString() + "%"
 
-            mainPrefManager.textSize = value
+            mainPrefManager.textSize = (((10 * value) + 50) / 100).toFloat()
         }
     }
 
