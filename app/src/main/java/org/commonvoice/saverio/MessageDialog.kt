@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.net.Uri
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
@@ -409,6 +410,10 @@ class MessageDialog : KoinComponent {
             dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_tip)
             dialogView.textMessageType.text = view.getString(R.string.text_tip)
         }
+        dialogView.textMessageType.setTextSize(
+            TypedValue.COMPLEX_UNIT_SP,
+            30F * mainPrefManager.textSize
+        )
     }
 
     private fun setImageNoWifi(view: Context, dialogView: View, isDark: Boolean) {
@@ -451,7 +456,8 @@ class MessageDialog : KoinComponent {
                     dialogView.findViewById(R.id.labelDetailsMessageDialog) as TextView,
                     R.color.colorAlertMessage,
                     R.color.colorAlertMessageDT,
-                    invert = message_type == 2
+                    invert = message_type == 2,
+                    textSize = 15F
                 )
                 theme.setElement(
                     view,
@@ -498,7 +504,8 @@ class MessageDialog : KoinComponent {
                     view,
                     dialogView.findViewById(R.id.labelTextAlertDailyGoalFeature) as TextView,
                     R.color.colorAlertMessage,
-                    R.color.colorAlertMessageDT
+                    R.color.colorAlertMessageDT,
+                    textSize = 15F
                 )
                 theme.setElement(
                     view,
@@ -562,7 +569,8 @@ class MessageDialog : KoinComponent {
                 )
                 theme.setElement(
                     view,
-                    dialogView.findViewById(R.id.checkDoNotShowAnymoreOfflineMode) as CheckBox
+                    dialogView.findViewById(R.id.checkDoNotShowAnymoreOfflineMode) as CheckBox,
+                    textSize = 18F
                 )
 
                 setImageNoWifi(view, dialogView, theme.isDark)

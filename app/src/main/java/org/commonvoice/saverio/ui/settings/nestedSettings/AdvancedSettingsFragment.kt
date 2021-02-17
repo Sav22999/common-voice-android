@@ -190,6 +190,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
             theme.setElement(requireContext(), 3, settingsSectionAdvanced)
             theme.setElement(requireContext(), 3, settingsSectionAdvancedAds)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionAdvanced, textSize = 20F)
         }
     }
 

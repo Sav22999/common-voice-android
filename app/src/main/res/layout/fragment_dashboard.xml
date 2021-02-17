@@ -28,8 +28,7 @@
             android:paddingBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="gone">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textDashboardStatistics"
@@ -326,8 +325,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionStatistics"
-            tools:visibility="gone">
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionStatistics">
 
             <TextView
                 android:id="@+id/textDashboardVoicesOnline"
@@ -502,8 +500,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionVoicesOnline"
-            tools:visibility="gone">
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionVoicesOnline">
 
             <TextView
                 android:id="@+id/textDashboardDailyGoal"
@@ -594,8 +591,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionDailyGoal"
-            tools:visibility="gone">
+            app:layout_constraintTop_toBottomOf="@+id/dashboardSectionDailyGoal">
 
             <TextView
                 android:id="@+id/textDashboardAppStatistics"

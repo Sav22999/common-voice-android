@@ -61,7 +61,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/homeSectionCVAndroid"
             android:layout_width="394dp"
-            android:layout_height="68dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -81,7 +81,7 @@
                 android:text="@string/app_name_long"
                 android:textAllCaps="false"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/common_voice_android"
+                android:textSize="@dimen/cvandroid"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -45,7 +45,8 @@ class NoConnectionFragment : ViewBoundFragment<FragmentNoconnectionBinding>() {
             requireContext(),
             binding.txtNoInternetConnection,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT
+            R.color.colorAlertMessageDT,
+            textSize = 22F
         )
     }
 

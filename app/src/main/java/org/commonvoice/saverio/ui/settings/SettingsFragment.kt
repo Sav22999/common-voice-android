@@ -219,6 +219,10 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             theme.setElement(requireContext(), 3, settingsSectionGeneral)
             theme.setElement(requireContext(), 3, newSettingsSectionOther)
             theme.setElement(requireContext(), 1, settingsSectionBottom)
+
+            theme.setElement(requireContext(), textDevelopedBy, textSize = 15F, background = false)
+            theme.setElement(requireContext(), textDeveloper, textSize = 25F, background = false)
+            theme.setElement(requireContext(), textRelease, textSize = 12F, background = false)
         }
     }
 }

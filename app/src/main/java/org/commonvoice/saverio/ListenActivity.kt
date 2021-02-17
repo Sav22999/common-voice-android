@@ -289,7 +289,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             this@ListenActivity,
             textMessageAlertListen,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT
+            R.color.colorAlertMessageDT,
+            textSize = 15F
         )
         theme.setElement(this@ListenActivity, buttonReportListen, background = false)
         theme.setElement(this@ListenActivity, buttonSkipListen)

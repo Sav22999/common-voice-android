@@ -13,6 +13,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.*
@@ -187,15 +188,25 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         theme.setElement(
             view,
             textCommonVoiceAndroid,
-            background = false
+            background = false,
+            textSize = 30F
         )
         theme.setElement(
             view,
             textLoggedUsername,
-            background = false
+            background = false,
+            textSize = 22F
         )
         theme.setElement(view, buttonHomeLogin)
         theme.setElement(layoutHome)
+
+
+        theme.setElement(
+            view,
+            text_homeMessageBoxBanner,
+            background = false,
+            textSize = 22F
+        )
     }
 
 }

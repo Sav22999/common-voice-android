@@ -21,7 +21,8 @@ class NotAvailableNow : ViewBoundActivity<NotAvailableNowBinding>(
             this,
             binding.txtNotAvailableNow,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT
+            R.color.colorAlertMessageDT,
+            textSize = 22F
         )
     }
 

@@ -308,7 +308,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             view,
             textMessageAlertSpeak,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT
+            R.color.colorAlertMessageDT,
+            textSize = 15F
         )
         theme.setElement(view, buttonReportSpeak, background = false)
         theme.setElement(view, buttonSkipSpeak)

@@ -59,6 +59,8 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
             theme.setElements(requireContext(), settingsSectionGestures)
 
             theme.setElement(requireContext(), 3, settingsSectionGestures)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionGestures, textSize = 20F)
         }
     }
 }

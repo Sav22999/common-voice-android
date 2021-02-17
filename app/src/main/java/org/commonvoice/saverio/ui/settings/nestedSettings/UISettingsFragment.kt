@@ -141,6 +141,8 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             theme.setElement(requireContext(), buttonThemeAuto)
 
             theme.setElement(requireContext(), seekTextSizeSettings)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionUI, textSize = 20F)
         }
     }
 }

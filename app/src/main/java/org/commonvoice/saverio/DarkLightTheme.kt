@@ -134,7 +134,7 @@ class DarkLightTheme(
             }
             element.setTextColor(ContextCompat.getColor(context, R.color.colorBlack))
         }
-        element.setTextSize(textSize * transformTextSize)
+        element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
     }
 
     fun setElement(
@@ -156,7 +156,8 @@ class DarkLightTheme(
         color_light: Int,
         color_dark: Int,
         background: Boolean = false,
-        invert: Boolean = false
+        invert: Boolean = false,
+        textSize: Float = 18F
     ) {
         if (isDark xor invert) {
             if (background) {
@@ -173,6 +174,7 @@ class DarkLightTheme(
             }
             element.setTextColor(ContextCompat.getColor(view, color_light))
         }
+        element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
     }
 
     fun setTextView(
@@ -180,7 +182,8 @@ class DarkLightTheme(
         element: TextView,
         border: Boolean = true,
         darkTeme: Boolean = isDark,
-        intern: Boolean = false
+        intern: Boolean = false,
+        textSize: Float = 18F
     ) {
         if (darkTeme) {
             if (border) {
@@ -212,6 +215,7 @@ class DarkLightTheme(
             element.setTextColor(ContextCompat.getColor(view, R.color.colorBlack))
             element.setHintTextColor(ContextCompat.getColor(view, R.color.colorAccent))
         }
+        element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
     }
 
     fun setElement(
@@ -238,7 +242,7 @@ class DarkLightTheme(
         }
     }
 
-    fun setElement(context: Context, element: CheckBox) {
+    fun setElement(context: Context, element: CheckBox, textSize: Float = 18.0F) {
         if (isDark) {
             element.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))
             element.buttonTintList = ContextCompat.getColorStateList(context, R.color.colorWhite)
@@ -246,6 +250,7 @@ class DarkLightTheme(
             element.setTextColor(ContextCompat.getColor(context, R.color.colorBlack))
             element.buttonTintList = ContextCompat.getColorStateList(context, R.color.colorBlack)
         }
+        element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
     }
 
     fun setElement(context: Context, element: SwitchCompat, textSize: Float = 18.0F) {
@@ -303,6 +308,10 @@ class DarkLightTheme(
         element.foregroundTintList = colorStateList
         element.indeterminateTintList = colorStateList
         element.secondaryProgressTintList = colorStateList
+    }
+
+    fun setTitleBar(context: Context, element: TextView, textSize: Float = 20F) {
+        element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
     }
 
     companion object {

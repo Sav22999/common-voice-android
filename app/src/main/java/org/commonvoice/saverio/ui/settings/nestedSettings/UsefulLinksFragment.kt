@@ -71,6 +71,8 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
             theme.setElements(requireContext(), settingsSectionUsefulLinks)
 
             theme.setElement(requireContext(), 3, settingsSectionUsefulLinks)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionUsefulLinks, textSize = 20F)
         }
     }
 }
