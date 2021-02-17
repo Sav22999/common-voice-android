@@ -140,9 +140,8 @@
                 android:id="@+id/switchShowIconTopRightInsteadButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_nothing"
+                android:drawableStart="@drawable/ic_report_settings"
                 android:drawablePadding="10dp"
-                android:drawableTint="@color/colorGray"
                 android:foreground="@drawable/ripple"
                 android:gravity="center|clip_vertical|start"
                 android:padding="20dp"
@@ -350,7 +349,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
-            android:id="@+id/view3"
+            android:id="@+id/separator"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
