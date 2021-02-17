@@ -15,7 +15,6 @@
             android:id="@+id/adContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -120,7 +119,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/homeSectionCVAndroid"
-            android:layout_width="394dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
