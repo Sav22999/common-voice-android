@@ -274,6 +274,13 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             R.color.colorBackground,
             R.color.colorBackgroundDT
         )
+
+        theme.setElement(
+            this@FirstLaunch,
+            textCommonVoiceAndroidFirstLaunch,
+            background = false,
+            textSize = 30F
+        )
     }
 
     private fun checkPermission(permission: String): Boolean {
