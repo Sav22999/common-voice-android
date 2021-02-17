@@ -1,0 +1,2 @@
+Dostosuj interfejs
+Tryb offline, tryb ciemny

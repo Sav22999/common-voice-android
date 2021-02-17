@@ -1,0 +1,44 @@
+<p>
+Toto nie je oficiálna aplikácia projektu Common Voice. Jej vývojárom je Saverio Morelli
+</p>
+<p>
+<b>Funkcie aplikácie:</b>
+
+- Užívateľské rozhranie (UI) je chytré, prehľadné a moderné
+- Prihláste sa do svojho účtu Common Voice
+- Overujte klipy
+- Nahrávajte vety
+- Nahlasujte vety/klipy v relatívnych častiach
+- Podpora viacerých jazykov
+- Režim offline (môžete prispievať, i keď nie ste pripojený k internetu!)
+- Štatistiky Common Voice (vybraného jazyka)
+- Najlepší prispievatelia (vybraného jazyka)
+- Štatistiky aplikácie (anonymné)
+- Hlasy online (vybraného jazyka)
+- Podpora tmavého režimu
+- Denný cieľ
+- Gestá
+- Ukladajte svoje nahrávky na svoje zariadenie
+- Mnoho ďalších funkcií
+- Zážitok z aplikácie je možné úplne prispôsobiť v nastaveniach
+
+Pripojte sa do Telegram skupiny: https://t.me/common_voice_android (@common_voice_android)
+Kompletné štatistiky aplikácie nájdete tu: https://bit.ly/3clgfkg
+Prečítajte si viac o tejto aplikácii na GitHube: http://bit.ly/2PeOGRg
+</p>
+<p>
+<b>Čo je to projekt Common Voice?</b>
+
+Common Voice je iniciatíva spoločnosti Mozilla pomôcť naučiť stroje, hovoriť ako skutoční ľudia.
+Hlas je prirodzený, hlas je ľudský. To je dôvod, prečo s nadšením vytvárame použiteľnú hlasovú technológiu pre naše stroje. Avšak k tomu, aby sme vytvorili hlasové systémy, potrebujú vývojári extrémne veľké množstvo hlasových dát.
+Väčšina dát, ktoré používajú veľké spoločnosti, nie sú pre väčšinu ľudí dostupné. My si myslíme, že to potlačuje inováciu. Takže sme spustili Common Voice, projekt, ktorý pomôže spraviť rozpoznávanie hlasu otvorené a prístupné všetkým.
+Teraz môžete prispieť svojím hlasom a pomôcť nám vybudovať open-source databázu, ktorú môže použiť ktokoľvek pre vytváranie inovatívnych aplikácií pre zariadenia a web. Prečítajte vetu, aby ste pomohli strojom učiť sa, ako hovoria skutoční ľudia. Kontrolujte prácu ostatných prispievateľov a zlepšujte kvalitu. Je to tak jednoduché!
+Viac podrobností nájdete na oficiálnej stránke https://commonvoice.mozilla.org/
+</p>
+<p>
+<b>Prečo by ste mali používať aplikáciu na telefóne namiesto webovej stránky?</b>
+
+Aplikácia je vyvinutá priamo pre telefóny, takže je natívna. Má mnoho funkcií, ktoré webová stránka neposkytuje, ako tmavý režim, režim offline, prispôsobenie, gestá atď.
+Aplikácia je jednoduchšia než webová stránka, bez otravných animácií (animácie v aplikácii je možné tak isto vypnúť v nastaveniach).
+Okrem toho má webová stránka veľké množstvo chýb, hlavne verzia pre mobily, takže nemôžete robiť všetko správne.
+</p>
