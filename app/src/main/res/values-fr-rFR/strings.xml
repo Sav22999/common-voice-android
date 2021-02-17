@@ -125,6 +125,9 @@
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Aucune fonctionnalité expérimentale disponible pour le moment</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Montrer la phrase seulement après l\'écoute</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Afficher l\'icône de rapport (en haut à droite) au lieu du bouton (en bas) dans {{*{{listen_name}}*}} et {{*{{speak_name}}*}}</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ads banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Chargement de la phrase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Passer</string>

@@ -93,7 +93,7 @@
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Salvar logs em um arquivo</string>
     <string name="toast_log_on_file_on" comment="Message text">Salvando os registros em um arquivo ativado.\nVocê pode anexar o arquivo log.txt quando você reportar um problema.\nLeia mais no GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Estatísticas genéricas</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Mostrar a string que me identificam dentro do aplicativo</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Mostrar a string que me identifica dentro do aplicativo</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -125,6 +125,9 @@
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nenhuma funcionalidade experimental está agora disponível</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostrar textos de frases quando os clipes são completamente ouvidos</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Mostrar ícone do relatório (superior direito) ao invés do botão (parte inferior) em {{*{{listen_name}}*}} e {{*{{speak_name}}*}}</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Tamanho do texto</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Banner de anúncios</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Habilitar banner de anúncio em {{*{{section_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregando frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ignorar</string>
@@ -145,7 +148,7 @@
     <string name="txt_sending_recording_failed_and_skip" comment="Message text">Falha ao enviar a gravação! Você pode tentar novamente ou pressionar o botão {{*{{skip_button}}*}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Pressione o ícone abaixo para iniciar o clipe.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Pressione o ícone abaixo para parar o clipe.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Se o clipe estiver correto, pressione a miniatura.\nSe o clipe estiver errado, pressione a miniatura para baixo.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Se o clipe estiver correto, pressione o polegar para cima.\nSe o clipe estiver errado, pressione o polegar para baixo.</string>
     <string name="txt_clip_again" comment="Label in Listen">Pressione o ícone abaixo para reproduzir o clipe novamente.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clipe marcado como correto!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clipe marcado como incorreto!</string>

@@ -22,6 +22,7 @@ object TranslationLanguages {
         "fi",
         "fr",
         "fy",
+        "gl",
         "ia",
         "id",
         "it",
@@ -56,7 +57,6 @@ object TranslationLanguages {
         "ar",
         "as",
         "br",
-        "de",
         "el",
         "eo",
         "et",
@@ -80,7 +80,6 @@ object TranslationLanguages {
         "sl",
         "sv",
         "ta",
-        "tr",
         "uk",
         "zh-HK",
         "zh-TW"

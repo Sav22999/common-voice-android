@@ -125,6 +125,9 @@
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Brak dostępnych funkcji eksperymentalnych</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Pokazuj zdanie dopiero po wysłuchaniu klipu</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Pokazuj ikonę zgłaszania (w prawym górnym rogu) zamiast przycisku (na dole) w sekcjach {{*{{listen_name}}*}} i {{*{{speak_name}}*}}</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ads banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Ładowanie zdania...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Pomiń</string>
@@ -173,8 +176,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Słuchanie...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Funkcja \"{{*{{feature_name}}*}}\" jest włączona. Przejdź do ustawień, aby ją wyłączyć.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Tekst zdania jest ukryty</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nie ma więcej zdań na serwerze Common Voice. Spróbuj później lub skontaktuj się z Mozillą.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nie ma więcej klipów na serwerze Common Voice. Spróbuj później lub skontaktuj się z Mozillą.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Sprawdź ponownie</string>
     <string name="txt_noconnection" comment="Message text">Nie jesteś połączony z Internetem. Połącz się z Wi-Fi lub włącz dane komórkowe, a następnie naciśnij przycisk poniżej.</string>

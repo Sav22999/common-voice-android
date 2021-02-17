@@ -93,7 +93,7 @@
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Išsaugokite žurnalus byloje</string>
     <string name="toast_log_on_file_on" comment="Message text">Žurnalų įrašymas į bylą įjungtas.\nGalite prisegti log.txt bylą kai pranešite apie problemą.\nDaugiau informacijos \"GitHub\".</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Bendra Statistika</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Rodyti eilutę, kuri mane identifikuoja programėlėje</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -125,6 +125,9 @@
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nėra bandomųjų funkcionalumų</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Rodyti sakinių tekstą, kai įrašai visiškai perklausyti</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Rodyti ataskaitos piktogramą (viršuje, dešinėje), o ne mygtuką (apačioje) {{*{{listen_name}}*}} ir {{*{{speak_name}}*}}</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ads banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Įkeliamas sakinys...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Praleisti</string>

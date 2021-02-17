@@ -300,6 +300,8 @@
         <item>Frysk</item>
         <!-- ga-IE -->
         <item>Gaeilge</item>
+        <!-- gl -->
+        <item>Galego</item>
         <!-- hsb -->
         <item>Hornjoserbšćina</item>
         <!-- ia -->
@@ -397,6 +399,7 @@
         <item>fr</item>
         <item>fy-NL</item>
         <item>ga-IE</item>
+        <item>gl</item>
         <item>hsb</item>
         <item>ia</item>
         <item>id</item>
