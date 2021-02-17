@@ -77,7 +77,7 @@ class MainPrefManager(ctx: Context) {
         set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
 
     var textSize: Float
-        get() = preferences.getFloat(Keys.TEXT_SIZE.name, 1.toFloat())
+        get() = preferences.getFloat(Keys.TEXT_SIZE.name, 1.0F)
         set(value) = preferences.edit().putFloat(Keys.TEXT_SIZE.name, value).apply()
 
     var appVersionCode: Int

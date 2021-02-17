@@ -430,15 +430,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private fun resizeSentence() {
         binding.textSentenceSpeak.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
-            resources.getDimension(
-                when (binding.textSentenceSpeak.text.length) {
-                    in 0..10 -> R.dimen.title_very_big
-                    in 11..20 -> R.dimen.title_big
-                    in 21..40 -> R.dimen.title_medium
-                    in 41..70 -> R.dimen.title_normal
-                    else -> R.dimen.title_small
-                }
-            )
+            when (binding.textSentenceSpeak.text.length) {
+                in 0..10 -> resources.getDimension(R.dimen.title_very_big) * mainPrefManager.textSize
+                in 11..20 -> resources.getDimension(R.dimen.title_big) * mainPrefManager.textSize
+                in 21..40 -> resources.getDimension(R.dimen.title_medium) * mainPrefManager.textSize
+                in 41..70 -> resources.getDimension(R.dimen.title_normal) * mainPrefManager.textSize
+                else -> resources.getDimension(R.dimen.title_small) * mainPrefManager.textSize
+            }
         )
     }
 
@@ -517,7 +515,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                         title = "",
                         text = getString(R.string.new_badge_earnt_message)
                             .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
-                            .replace("{{*{{all_badges}}*}}", getString(R.string.btn_badges_loggedin))
+                            .replace(
+                                "{{*{{all_badges}}*}}",
+                                getString(R.string.btn_badges_loggedin)
+                            )
                     )
                 }
             }

@@ -84,7 +84,10 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             }
             switchShowIconTopRightInsteadButton.isChecked = settingsPrefManager.showReportIcon
 
-            setSeekBar(mainPrefManager.textSize)
+            println("Saved: " + mainPrefManager.textSize)
+            println("-->>||: " + ((10 * mainPrefManager.textSize) - 5).toInt())
+            seekTextSizeSettings.progress = ((10 * mainPrefManager.textSize) - 5).toInt()
+            setSeekBar(seekTextSizeSettings.progress.toFloat())
             seekTextSizeSettings.setOnSeekBarChangeListener(object :
                 SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
@@ -113,7 +116,11 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
         withBinding {
             labelTextSizeSettings.text = ((10 * value) + 50).toString() + "%"
 
-            mainPrefManager.textSize = (((10 * value) + 50) / 100).toFloat()
+            println("Before: " + mainPrefManager.textSize)
+            mainPrefManager.textSize = ((10 * value) + 50) / 100.0F
+            println("After: " + mainPrefManager.textSize)
+
+            setTheme()
         }
     }
 

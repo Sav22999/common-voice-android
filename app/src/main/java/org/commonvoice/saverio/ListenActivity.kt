@@ -451,11 +451,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         binding.textSentenceListen.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
             when (binding.textSentenceListen.text.length) {
-                in 0..10 -> resources.getDimension(R.dimen.title_very_big)
-                in 11..20 -> resources.getDimension(R.dimen.title_big)
-                in 21..40 -> resources.getDimension(R.dimen.title_medium)
-                in 41..70 -> resources.getDimension(R.dimen.title_normal)
-                else -> resources.getDimension(R.dimen.title_small)
+                in 0..10 -> resources.getDimension(R.dimen.title_very_big) * mainPrefManager.textSize
+                in 11..20 -> resources.getDimension(R.dimen.title_big) * mainPrefManager.textSize
+                in 21..40 -> resources.getDimension(R.dimen.title_medium) * mainPrefManager.textSize
+                in 41..70 -> resources.getDimension(R.dimen.title_normal) * mainPrefManager.textSize
+                else -> resources.getDimension(R.dimen.title_small) * mainPrefManager.textSize
             }
         )
     }
@@ -577,7 +577,10 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                         title = "",
                         text = getString(R.string.new_badge_earnt_message)
                             .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
-                            .replace("{{*{{all_badges}}*}}", getString(R.string.btn_badges_loggedin))
+                            .replace(
+                                "{{*{{all_badges}}*}}",
+                                getString(R.string.btn_badges_loggedin)
+                            )
                     )
                 }
             }
@@ -645,8 +648,18 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun animateListenAnimateButtons() {
         if (mainPrefManager.areAnimationsEnabled) {
             this.animationsCount++
-            animateListenAnimateButton(binding.viewListenAnimateButton1, 280, 340, this.animationsCount)
-            animateListenAnimateButton(binding.viewListenAnimateButton2, 350, 400, this.animationsCount)
+            animateListenAnimateButton(
+                binding.viewListenAnimateButton1,
+                280,
+                340,
+                this.animationsCount
+            )
+            animateListenAnimateButton(
+                binding.viewListenAnimateButton2,
+                350,
+                400,
+                this.animationsCount
+            )
         }
     }
 
