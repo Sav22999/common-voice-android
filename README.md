@@ -1,6 +1,6 @@
 
 
-#  <img src="images/icon.png" width="40px" alt=""></img> CV Android
+#  <img src="images/icon.png" width="40px" alt=""></img> CV Project
 
 [**Official web page of this project**](https://www.saveriomorelli.com/commonvoice/): you can find F.A.Q. and some useful links.
 
@@ -18,7 +18,7 @@ If you have any questions, please open an issue (you can add the label `question
 
 You can download the app on Google Play, on F-Droid, on Huawei AppGallery and also on GitHub.
 
-The app name is always "CV Android" and it's developed by "Saverio Morelli". It's absolutely free and you DON'T HAVE TO PAY to use it. Anyway, you can buy me a coffee, using Ko-Fi or PayPal (see the section below).
+The app name is always "CV Project" (or Donate your voice: CV Project) and it's developed by "Saverio Morelli". It's absolutely free and you DON'T HAVE TO PAY to use it. Anyway, you can buy me a coffee, using Ko-Fi or PayPal (see the section below).
 
 ### Join us on Telegram
 
@@ -73,7 +73,7 @@ Thanks everyone translate it!
 
 ### License
 
-The license of *CV Android* is GPLv3.
+The license of *CV Project* is GPLv3.
 
 <img src="images/icons/gpl.png" width="100px"></img>
 
