@@ -24,6 +24,7 @@ interface StatsService {
     @GET("v2/app-usage/get/")
     suspend fun getAppUsageStatistics(
         @Query("language") language: String?,
+        @Query("filter") filter: String?,
         @Query("year") year: String?
     ): Response<Map<String, ResponseAppUsage>>
 

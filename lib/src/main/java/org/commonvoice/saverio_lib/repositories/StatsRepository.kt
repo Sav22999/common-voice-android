@@ -60,8 +60,12 @@ class StatsRepository(
         return statsClient.getLanguageSpecificStats(language).body()?.get(language)
     }
 
-    suspend fun getAppUsageStats(language: String?, year: String?): Map<String, ResponseAppUsage> {
-        return statsClient.getAppUsageStatistics(language, year).body() ?: mapOf()
+    suspend fun getAppUsageStats(
+        language: String?,
+        filter: String?,
+        year: String?
+    ): Map<String, ResponseAppUsage> {
+        return statsClient.getAppUsageStatistics(language, filter, year).body() ?: mapOf()
     }
 
     suspend fun postAppUsageStatistics(

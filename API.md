@@ -311,3 +311,22 @@ If you specified the id, you will get just one result, so `1` which contains the
 | `button1Link` | *Text*            | It's the link of the first button.<br />If `button1` is not `NULL`, the link is required. |
 | `button2`     | *Text\|`NULL`*    | It's the text of the second button.<br />`NULL` (default value) means the second button is not required for this message. |
 | `button2Link` | *Text*            | It's the link of the second  button.<br />If `button2` is not `NULL`, the link is required. |
+
+## Languages
+
+### GET
+
+#### Request
+
+To get in-app messages you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/languages/.
+
+#### Response
+
+You will get all supported languages in the app. For each language (the code) you will get also these details:
+
+| Key          | Value     | Explanation                                                  |
+| ------------ | --------- | ------------------------------------------------------------ |
+| `native`     | *String*  | It's the native name of the language                         |
+| `english`    | *String*  | It's the name of the language in English                     |
+| `crowdin`    | *Integer* | Indicates the language exists or not on Crowdin (`0`: not exists/not supported, `1`: supported) |
+| `percentage` | *Integer* | It's the translation percentage of the app (on Crowdin). If the language is not present of Crowdin, the percentage is 0 |
