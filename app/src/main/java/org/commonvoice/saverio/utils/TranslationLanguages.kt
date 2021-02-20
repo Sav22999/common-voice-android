@@ -76,7 +76,6 @@ object TranslationLanguages {
         "pa",
         "ro",
         "ru",
-        "sk",
         "sl",
         "sv",
         "ta",
