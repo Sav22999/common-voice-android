@@ -300,7 +300,8 @@ If you specified the id, you will get just one result, so `1` which contains the
 | Key           | Value             | Explanation                                                  |
 | ------------- | ----------------- | ------------------------------------------------------------ |
 | `id`          | *Integer*         | It's the message id                                          |
-| `type`        | *Integer*\|`NULL` | It indicated the message type. If it's different to , `NULL`, the app will open a popup instead of a banner. Popup supported are: `1` (standard), `5` (info), `6` (help), `7` (warning), `8` (news/changelog),`9` (tip).<br />`NULL` (default value) means it's a **banner**. |
+| `type`        | *Integer*\|`NULL` | It indicates the message type. If it's different to , `NULL`, the app will open a popup instead of a banner. Popup supported are: `1` (standard), `5` (info), `6` (help), `7` (warning), `8` (news/changelog),`9` (tip).<br />`NULL` (default value) means it's a **banner**. |
+| `user`        | *String*\|`NULL`  | If this field is not `NULL`, so it means `versionCode`, `language` and `source` are ignored.<br />This field indicates the userid (`::CVAppSav`) of the user you want to send a message. |
 | `versionCode` | *Integer*\|`NULL` | It indicates the goal app version code.<br />`NULL` (default value) means the message is for all version codes. |
 | `language`    | *String\|`NULL`*  | It's the goal language for the message (language code supported in the app).<br />`NULL` (default value) means the message is for all languages. |
 | `source`      | *String*\|`NULL`  | It indicates the store where the app has been installed (Google Play, F-Droid, etc.).<br />`NULL` (default value) means the message is for all stores (`GPS`, `FD-GH`, `HAG`). |
