@@ -8,13 +8,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="216.263"
-   height="283.45514"
-   viewBox="0 0 216.263 283.45514"
-   version="1.1"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="robot_half_bust.svg"
    id="svg47"
-   sodipodi:docname="robot.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+   version="1.1"
+   viewBox="0 0 216.263 283.45514"
+   height="283.45514"
+   width="216.263">
   <metadata
      id="metadata51">
     <rdf:RDF>
@@ -28,157 +28,157 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:document-rotation="0"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1002"
-     id="namedview49"
-     showgrid="false"
-     inkscape:zoom="2.1757132"
-     inkscape:cx="78.266702"
-     inkscape:cy="140.80782"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:current-layer="svg47"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg47" />
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:cy="140.80782"
+     inkscape:cx="78.266702"
+     inkscape:zoom="2.1757132"
+     showgrid="false"
+     id="namedview49"
+     inkscape:window-height="1002"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     inkscape:document-rotation="0" />
   <defs
      id="defs9">
     <linearGradient
-       id="a"
-       x1="51.570229"
-       x2="54.089806"
-       y1="179.68575"
-       y2="22.447193"
+       gradientUnits="userSpaceOnUse"
        gradientTransform="scale(1.6291119,0.61383136)"
-       gradientUnits="userSpaceOnUse">
+       y2="22.447193"
+       y1="179.68575"
+       x2="54.089806"
+       x1="51.570229"
+       id="a">
       <stop
-         offset="0%"
+         id="stop2"
          stop-color="#FF656E"
-         id="stop2" />
+         offset="0%" />
       <stop
-         offset="100%"
+         id="stop4"
          stop-color="#C5C9FF"
-         id="stop4" />
+         offset="100%" />
     </linearGradient>
     <path
-       id="b"
-       d="m 196.491,110.551 c -7.532,19.645 -24.066,26.934 -34.482,29.638 -6.928,1.695 -21.867,6.655 -55.716,6.655 -33.849,0 -50.273,-5.302 -55.94,-6.655 -9.858,-2.288 -25.239,-8.56 -33.033,-26.634 -1.15,-2.668 -2.135,-5.593 -2.913,-8.8 C 13.155,99.59 12.441,93.694 12.441,86.96 V 54.912 c 0,-5.252 0.45,-10.001 1.264,-14.295 0.672,-3.542 1.591,-6.774 2.71,-9.724 C 28.087,0.11 61.452,0.091 61.452,0.091 h 89.998 c 0,0 28.882,0.016 42.304,24.81 4.063,7.505 6.709,17.28 6.709,30.011 0,9.375 -1.502,49.196 -3.972,55.64 z m -3.968,89.395 c 4.104,-47.023 -36.017,-44.079 -36.017,-44.079 l -51.455,-1.173 -46.652,1.173 c 0,0 -39.041,-3.977 -36.012,44.08 2.942,46.72 166.065,46.635 170.136,0 z" />
+       d="m 196.491,110.551 c -7.532,19.645 -24.066,26.934 -34.482,29.638 -6.928,1.695 -21.867,6.655 -55.716,6.655 -33.849,0 -50.273,-5.302 -55.94,-6.655 -9.858,-2.288 -25.239,-8.56 -33.033,-26.634 -1.15,-2.668 -2.135,-5.593 -2.913,-8.8 C 13.155,99.59 12.441,93.694 12.441,86.96 V 54.912 c 0,-5.252 0.45,-10.001 1.264,-14.295 0.672,-3.542 1.591,-6.774 2.71,-9.724 C 28.087,0.11 61.452,0.091 61.452,0.091 h 89.998 c 0,0 28.882,0.016 42.304,24.81 4.063,7.505 6.709,17.28 6.709,30.011 0,9.375 -1.502,49.196 -3.972,55.64 z m -3.968,89.395 c 4.104,-47.023 -36.017,-44.079 -36.017,-44.079 l -51.455,-1.173 -46.652,1.173 c 0,0 -39.041,-3.977 -36.012,44.08 2.942,46.72 166.065,46.635 170.136,0 z"
+       id="b" />
     <path
-       id="c"
-       d="M 0.132,0.452 H 58.32 c 0,0 0.096,18.448 -29.286,18.448 C 1.164,18.899 0.132,0.452 0.132,0.452 Z" />
+       d="M 0.132,0.452 H 58.32 c 0,0 0.096,18.448 -29.286,18.448 C 1.164,18.899 0.132,0.452 0.132,0.452 Z"
+       id="c" />
   </defs>
   <g
-     inkscape:export-ydpi="443.90396"
-     inkscape:export-xdpi="443.90396"
-     fill="none"
-     fill-rule="evenodd"
+     transform="translate(-1.566,-26)"
      id="g45"
-     transform="translate(-1.566,-26)">
+     fill-rule="evenodd"
+     fill="none"
+     inkscape:export-xdpi="443.90396"
+     inkscape:export-ydpi="443.90396">
     <path
-       style="fill:#ff9099;fill-opacity:1;stroke:#ff9099;stroke-opacity:1"
-       stroke="#000007"
-       stroke-width="3"
+       id="path11"
        d="m 150.544,37.977 0.35,-0.458 -0.404,-0.017 -0.322,0.011 z m 0,0 0.549,0.676 c -0.29,0.236 -0.813,0.236 -1.087,0.026 z m -1.342,-1.653 c 0.8,-0.65 1.814,-0.65 2.628,-0.026 l 0.564,0.431 1.248,37.771 h -6.528 l 1.563,-37.75 z m 1.3,-8.824 c 2.762,0 4.998,2.248 4.998,5.016 0,2.769 -2.237,5.016 -5,5.016 -2.762,0 -5,-2.246 -5,-5.015 0,-1.33 0.525,-2.604 1.462,-3.545 a 4.992,4.992 0 0 1 3.54,-1.472 z"
-       id="path11" />
-    <g
-       stroke="#000000"
        stroke-width="3"
+       stroke="#000007"
+       style="fill:#ff9099;fill-opacity:1;stroke:#ff9099;stroke-opacity:1" />
+    <g
+       id="g17"
        transform="translate(3,73)"
-       id="g17">
+       stroke-width="3"
+       stroke="#000000">
       <path
-         fill="url(#a)"
-         d="m 195.696,109.352 c 5.868,-0.104 17.633,4.682 17.633,-39.144 0,-43.827 -11.765,-39.041 -17.633,-39.145 m -178.22,78.289 c -5.867,-0.104 -17.41,0 -17.41,-39.144 0,-39.145 11.543,-39.041 17.41,-39.145"
+         style="fill:#ff9099;fill-opacity:1;stroke:#ff9099;stroke-opacity:1"
          id="path13"
-         style="fill:#ff9099;fill-opacity:1;stroke:#ff9099;stroke-opacity:1" />
+         d="m 195.696,109.352 c 5.868,-0.104 17.633,4.682 17.633,-39.144 0,-43.827 -11.765,-39.041 -17.633,-39.145 m -178.22,78.289 c -5.867,-0.104 -17.41,0 -17.41,-39.144 0,-39.145 11.543,-39.041 17.41,-39.145"
+         fill="url(#a)" />
       <use
-         style="fill:#fafafa;fill-opacity:1;stroke:#fafafa;stroke-opacity:1"
-         fill="#f3f2f1"
-         xlink:href="#b"
-         id="use15"
-         x="0"
-         y="0"
+         height="100%"
          width="100%"
-         height="100%" />
+         y="0"
+         x="0"
+         id="use15"
+         xlink:href="#b"
+         fill="#f3f2f1"
+         style="fill:#fafafa;fill-opacity:1;stroke:#fafafa;stroke-opacity:1" />
     </g>
     <path
-       style="fill:#eeeeee;fill-opacity:1;stroke:#dddddd;stroke-opacity:1"
-       fill="#ffffff"
-       stroke="#000000"
-       stroke-width="3"
+       id="path19"
        d="M 75.25,89 C 75.25,89 33,89.026 33,138.324 v 9.79 c 0,35.307 24.924,46.073 32.314,48.192 7.968,2.289 14.466,5.685 45.044,5.685 16.218,0 77.642,1.991 77.642,-53.876 v -9.79 C 188,89.024 145.748,89 145.748,89 H 75.251 Z"
-       id="path19" />
-    <use
-       style="fill:#222222;fill-opacity:1;stroke:#222222;stroke-opacity:1"
-       fill="#000007"
-       transform="translate(80,160)"
-       xlink:href="#c"
-       id="use21"
-       x="0"
-       y="0"
-       width="100%"
-       height="100%" />
-    <path
-       style="fill:#eeeeee;fill-opacity:1;stroke:none"
-       fill="#000000"
-       stroke="#000000"
        stroke-width="3"
+       stroke="#000000"
+       fill="#ffffff"
+       style="fill:#eeeeee;fill-opacity:1;stroke:#dddddd;stroke-opacity:1" />
+    <use
+       height="100%"
+       width="100%"
+       y="0"
+       x="0"
+       id="use21"
+       xlink:href="#c"
+       transform="translate(80,160)"
+       fill="#000007"
+       style="fill:#222222;fill-opacity:1;stroke:#222222;stroke-opacity:1" />
+    <path
+       id="path23"
        d="m 109,225 c 18.541,0 30,-0.25 30,7.487 0,8.36 -11.459,7.487 -30,7.487 -18.54,0 -30,-0.061 -30,-7.487 0,-7.376 11.46,-7.486 30,-7.486 z"
-       id="path23" />
+       stroke-width="3"
+       stroke="#000000"
+       fill="#000000"
+       style="fill:#eeeeee;fill-opacity:1;stroke:none" />
     <g
-       fill-rule="nonzero"
-       id="g33">
+       id="g33"
+       fill-rule="nonzero">
       <path
-         fill="#ffffff"
+         id="path25"
          d="m 74.971,138.84 a 9.507,9.507 0 1 0 0,-19.014 9.507,9.507 0 0 0 0,19.014 z m 0,3 c -6.907,0 -12.507,-5.6 -12.507,-12.507 0,-6.907 5.6,-12.507 12.507,-12.507 6.908,0 12.507,5.6 12.507,12.507 0,6.908 -5.6,12.507 -12.507,12.507 z"
-         id="path25" />
+         fill="#ffffff" />
       <g
-         transform="translate(60,113)"
-         id="g31">
+         id="g31"
+         transform="translate(60,113)">
         <circle
-           style="fill:#222222;fill-opacity:1;stroke:#222222;stroke-opacity:1"
-           cx="14"
-           cy="15"
-           r="14"
+           id="circle27"
            fill="#000000"
-           id="circle27" />
+           r="14"
+           cy="15"
+           cx="14"
+           style="fill:#222222;fill-opacity:1;stroke:#222222;stroke-opacity:1" />
         <circle
-           cx="21.808001"
-           cy="5.645"
-           r="4.8569999"
+           id="circle29"
            fill="#ffffff"
-           id="circle29" />
+           r="4.8569999"
+           cy="5.645"
+           cx="21.808001" />
       </g>
     </g>
     <g
-       fill-rule="nonzero"
-       id="g43">
+       id="g43"
+       fill-rule="nonzero">
       <path
-         fill="#ffffff"
+         id="path35"
          d="m 139.971,138.84 a 9.507,9.507 0 1 0 0,-19.014 9.507,9.507 0 0 0 0,19.014 z m 0,3 c -6.907,0 -12.507,-5.6 -12.507,-12.507 0,-6.907 5.6,-12.507 12.507,-12.507 6.908,0 12.507,5.6 12.507,12.507 0,6.908 -5.6,12.507 -12.507,12.507 z"
-         id="path35" />
+         fill="#ffffff" />
       <g
-         transform="translate(125,113)"
-         id="g41">
+         id="g41"
+         transform="translate(125,113)">
         <circle
-           style="fill:#222222;fill-opacity:1;stroke:#222222;stroke-opacity:1"
-           cx="14"
-           cy="15"
-           r="14"
+           id="circle37"
            fill="#000000"
-           id="circle37" />
+           r="14"
+           cy="15"
+           cx="14"
+           style="fill:#222222;fill-opacity:1;stroke:#222222;stroke-opacity:1" />
         <circle
-           cx="22"
-           cy="5"
-           r="5"
+           id="circle39"
            fill="#ffffff"
-           id="circle39" />
+           r="5"
+           cy="5"
+           cx="22" />
       </g>
     </g>
   </g>

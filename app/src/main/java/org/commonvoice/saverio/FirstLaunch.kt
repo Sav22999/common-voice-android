@@ -159,6 +159,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 textDescriptionFirstLaunch.setText(R.string.txt_introduction_app_first_launch)
                 imageFirstLaunch.imageTintList =
                     ContextCompat.getColorStateList(this@FirstLaunch, R.color.colorTransparent)
+                imageFirstLaunch.setImageResource(R.drawable.robot_half_bust)
                 firstLaunchSectionMiddleBottom.isGone = false
                 textTermsFirstLaunch.isGone = false
             } else if (status == 1) {
