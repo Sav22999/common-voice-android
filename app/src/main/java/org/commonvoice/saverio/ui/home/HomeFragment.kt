@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.work.Configuration
 import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.delay
@@ -146,6 +147,12 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         AppUsageUploadWorker.attachToWorkManager(workManager)
     }
 
+    override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        AdLoader.setupHomeAdView(requireActivity(), binding.adContainer)
+    }
+
     private fun showMessageDialog(
         title: String,
         text: String,
@@ -199,8 +206,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         )
         theme.setElement(view, buttonHomeLogin)
         theme.setElement(layoutHome)
-
-
+        
         theme.setElement(
             view,
             text_homeMessageBoxBanner,

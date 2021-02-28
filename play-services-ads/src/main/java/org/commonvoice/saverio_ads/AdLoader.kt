@@ -24,7 +24,7 @@ object AdLoader {
     fun setupSpeakAdView(activity: FragmentActivity, adContainer: FrameLayout) =
         setupGenericAdView(activity.getString(speakAdId), activity, adContainer)
 
-    fun setupListnAdView(activity: FragmentActivity, adContainer: FrameLayout) =
+    fun setupListenAdView(activity: FragmentActivity, adContainer: FrameLayout) =
         setupGenericAdView(activity.getString(listnAdId), activity, adContainer)
 
     private fun setupGenericAdView(

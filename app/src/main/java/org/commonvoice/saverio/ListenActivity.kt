@@ -175,7 +175,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         setTheme()
 
         if (listenPrefManager.showAdBanner) {
-            AdLoader.setupListnAdView(this, binding.adContainer)
+            AdLoader.setupListenAdView(this, binding.adContainer)
+        }
+    }
+
+    fun refreshAds() {
+        if (listenPrefManager.showAdBanner) {
+            AdLoader.setupListenAdView(this, binding.adContainer)
         }
     }
 
@@ -186,6 +192,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentRecordingsValidations = (statsPrefManager.dailyGoal.value!!.validations + statsPrefManager.dailyGoal.value!!.recordings)
         )
+
+refreshAds()
     }
 
     fun shareCVAndroidDailyGoal() {
@@ -505,6 +513,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             listenViewModel.validate(result = false)
             numberSentThisSession++
             hideButtons()
+            refreshAds()
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -536,6 +545,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             hideButtons()
             listenViewModel.validate(result = true)
             numberSentThisSession++
+            refreshAds()
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()

@@ -188,6 +188,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
+    fun refreshAds() {
+        if (speakPrefManager.showAdBanner) {
+            AdLoader.setupSpeakAdView(this, binding.adContainer)
+        }
+    }
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
@@ -195,6 +201,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentRecordingsValidations = (statsPrefManager.dailyGoal.value!!.validations + statsPrefManager.dailyGoal.value!!.recordings)
         )
+
+        refreshAds()
     }
 
     fun shareCVAndroidDailyGoal() {
@@ -360,6 +368,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSendSpeak.onClick {
             speakViewModel.sendRecording()
             numberSentThisSession++
+            refreshAds()
         }
 
         startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
