@@ -308,6 +308,7 @@ If you specified the id, you will get just one result, so `1` which contains the
 | `startDate`   | *Date*\|`NULL`    | It indicates the start date the message is valid.<br />`NULL` (default value) means there isn't a specified start date ("from"). |
 | `endDate`     | *Date*\|`NULL`    | It indicates the end date the message is valid.<br />`NULL` (default value) means there isn't a specified end date ("until"). |
 | `text`        | *Text*            | It's the actual text the banner show contains.               |
+| `ableToClose` | *Boolean*         | If `true` it means the message can be closed (with the button "X"), otherwise the "X" button is hidden. |
 | `button1`     | *Text*\|`NULL`    | It's the text of the first button.<br />`NULL` (default value) means buttons are not required for this message. |
 | `button1Link` | *Text*            | It's the link of the first button.<br />If `button1` is not `NULL`, the link is required. |
 | `button2`     | *Text\|`NULL`*    | It's the text of the second button.<br />`NULL` (default value) means the second button is not required for this message. |
