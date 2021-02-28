@@ -1,7 +1,7 @@
 object Versions {
 
     const val buildGradleVersion = "4.1.2"
-    const val kotlinVersion = "1.4.30"
+    const val kotlinVersion = "1.4.31"
 
     const val junitVersion = "4.13.2"
 

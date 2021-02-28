@@ -1,13 +1,12 @@
 package org.commonvoice.saverio_lib.db.daos
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import org.commonvoice.saverio_lib.models.Validation
 
 @Dao
 interface ValidationsDAO {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertValidation(validation: Validation)
 
     @Update
