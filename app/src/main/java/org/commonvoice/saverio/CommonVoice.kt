@@ -109,7 +109,7 @@ class CommonVoice : Application() {
         ) }
         viewModel { LoginViewModel(get(), get()) }
         viewModel { MainActivityViewModel(get(), get(), get()) }
-        viewModel { HomeViewModel(get(), get(), get(), get(), get()) }
+        viewModel { HomeViewModel(get(), get(), get(), get(), get(), get()) }
     }
 
     override fun onCreate() {

@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,13 +13,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import androidx.work.Configuration
 import androidx.work.WorkManager
+import com.github.mrindeciso.advanced_dialogs.extensions.showDialog
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.*
 import org.commonvoice.saverio.databinding.FragmentHomeBinding
+import org.commonvoice.saverio.ui.dialogs.MessageWarningDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader
@@ -123,6 +125,9 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         setTheme(requireContext())
 
+        setupBannerMessage()
+        showDialogMessages()
+
         startAnimation(binding.buttonSpeak, R.anim.zoom_out)
         startAnimation(binding.buttonListen, R.anim.zoom_out)
     }
@@ -150,7 +155,52 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
         super.onConfigurationChanged(newConfig)
 
-        AdLoader.setupHomeAdView(requireActivity(), binding.adContainer)
+        if (mainPrefManager.showAdBanner) {
+            AdLoader.setupHomeAdView(requireActivity(), binding.adContainer)
+        }
+    }
+
+    private fun setupBannerMessage() {
+        homeViewModel.getLastBannerMessage().observe(this) { msg ->
+            activity?.window?.statusBarColor =
+                ContextCompat.getColor(requireContext(), R.color.colorMessageBanner)
+            binding.homeMessageBoxBannerContainer.isVisible = true
+            binding.textHomeMessageBoxBanner.text = msg.text
+            binding.hideMessageBanner.isVisible = msg.canBeClosed ?: true
+            binding.hideMessageBanner.onClick {
+                homeViewModel.markMessageAsSeen(msg)
+                binding.homeMessageBoxBannerContainer.isVisible = false
+                activity?.window?.statusBarColor =
+                    ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark)
+                setupBannerMessage()
+            }
+
+            binding.button1HomeMessageBoxBanner.isVisible = msg.button1Text != null
+            binding.button2HomeMessageBoxBanner.isVisible = msg.button2Text != null
+
+            msg.button1Text?.let { binding.button1HomeMessageBoxBanner.text = it }
+            msg.button2Text?.let { binding.button2HomeMessageBoxBanner.text = it }
+            msg.button1Link?.let { link ->
+                binding.button1HomeMessageBoxBanner.onClick {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                }
+            }
+            msg.button2Link?.let { link ->
+                binding.button2HomeMessageBoxBanner.onClick {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                }
+            }
+        }
+    }
+
+    private fun showDialogMessages() {
+        //TODO fix this
+        homeViewModel.getOtherMessages().observe(this) {
+            it.forEach { message ->
+                showDialog(MessageWarningDialog(requireContext(), message))
+                homeViewModel.markMessageAsSeen(message)
+            }
+        }
     }
 
     private fun showMessageDialog(

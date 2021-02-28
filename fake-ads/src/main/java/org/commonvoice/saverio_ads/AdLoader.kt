@@ -9,6 +9,6 @@ object AdLoader {
 
     fun setupSpeakAdView(activity: FragmentActivity, adContainer: FrameLayout) {}
 
-    fun setupListnAdView(activity: FragmentActivity, adContainer: FrameLayout) {}
+    fun setupListenAdView(activity: FragmentActivity, adContainer: FrameLayout) {}
 
 }

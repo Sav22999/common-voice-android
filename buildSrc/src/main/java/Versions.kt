@@ -39,5 +39,5 @@ object Versions {
     const val timberVersion = "4.7.1"
 
     //Dialogs
-    const val advancedDialogsVersion = "master-SNAPSHOT"
+    const val advancedDialogsVersion = "-SNAPSHOT"
 }

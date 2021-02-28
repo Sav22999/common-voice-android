@@ -8,6 +8,7 @@ import org.commonvoice.saverio_lib.api.requestBodies.RetrofitUserAppUsageBody
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseAppUsage
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseDailyUsage
 import org.commonvoice.saverio_lib.models.AppAction
+import org.commonvoice.saverio_lib.models.Message
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import timber.log.Timber
@@ -114,6 +115,29 @@ class StatsRepository(
         }
     }
 
+    suspend fun getNewMessages(): List<Message> {
+        val response = statsClient.getNewMessages().body()
+        return response
+            ?.values
+            ?.toList()
+            ?.sortedByDescending { it.id }
+            ?.filter {
+                (it.userFilter == null || it.userFilter == mainPrefManager.statsUserId)
+                        && (it.sourceFilter == null || it.sourceFilter.equals(
+                    mainPrefManager.appSourceStore,
+                    true
+                ))
+                        && (it.languageFilter == null || it.languageFilter.equals(
+                    mainPrefManager.language,
+                    true
+                ))
+                        && (it.versionCodeFilter == null || it.versionCodeFilter.toIntOrNull() == mainPrefManager.appVersionCode)
+                        && (it.startDateFilter == null || dateMillis(it.startDateFilter) >= currentMillis)
+                        && (it.endDateFilter == null || dateMillis(it.endDateFilter) >= currentMillis)
+            }
+            ?: emptyList()
+    }
+
     private fun isLogged(): Int {
         return if (mainPrefManager.sessIdCookie == null) {
             0
@@ -122,5 +146,19 @@ class StatsRepository(
         }
     }
 
+    companion object {
+
+        private val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+
+        private fun dateMillis(date: String): Long = try {
+            dateFormat.parse(date)?.time
+        } catch (e: Exception) {
+            null
+        } ?: 0
+
+        private val currentMillis: Long
+            get() = System.currentTimeMillis()
+
+    }
 
 }

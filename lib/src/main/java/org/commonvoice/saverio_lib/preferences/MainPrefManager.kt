@@ -100,6 +100,12 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, true)
         set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
 
+    var shownMessagesId: List<Int>
+        get() = preferences.getString(Keys.SHOWN_MESSAGES_ID.name, "")?.split(',')
+            ?.map { it.toIntOrNull() ?: -1 } ?: emptyList()
+        set(value) = preferences.edit()
+            .putString(Keys.SHOWN_MESSAGES_ID.name, value.joinToString(",")).apply()
+
 
     private enum class Keys {
         LANGUAGE,
@@ -125,6 +131,7 @@ class MainPrefManager(ctx: Context) {
         IS_BETA,
         SHOW_AD_BANNER,
         TEXT_SIZE,
+        SHOWN_MESSAGES_ID,
     }
 
 }

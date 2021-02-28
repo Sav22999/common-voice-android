@@ -9,7 +9,7 @@ android {
         applicationId 'org.commonvoice.saverio.beta'
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode = 132
+        versionCode = 128
         versionName '2.2.4'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -98,6 +98,8 @@ dependencies {
 
     // Debug
     implementation Libs.timber
+
+    implementation Libs.advancedDialogs
 
     implementation project(":lib")
 

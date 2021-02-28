@@ -179,7 +179,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
     }
 
-    fun refreshAds() {
+    private fun refreshAds() {
         if (listenPrefManager.showAdBanner) {
             AdLoader.setupListenAdView(this, binding.adContainer)
         }
