@@ -56,10 +56,10 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarSpeak"
             app:srcCompat="@drawable/ic_no_wifi"
             tools:visibility="visible" />
 
@@ -67,11 +67,11 @@
             android:id="@+id/imageReportIconSpeak"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarSpeak"
             app:srcCompat="@drawable/ic_report"
             tools:visibility="visible" />
 
