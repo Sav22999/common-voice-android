@@ -106,6 +106,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
+    fun resetStatusBarColor() {
+        this@MainActivity.window.statusBarColor =
+            ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark)
+    }
+
     fun checkMessageBanner() {
         //TODO
         /*

@@ -146,6 +146,9 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                 dashboardViewModel.updateStats()
             }
         }
+
+        //TODO improve this method
+        (activity as MainActivity).resetStatusBarColor()
     }
 
     private fun showMessageDialog(

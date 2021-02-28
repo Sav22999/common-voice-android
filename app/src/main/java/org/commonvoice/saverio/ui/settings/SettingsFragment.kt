@@ -98,6 +98,9 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
         binding.textDevelopedBy.setText(R.string.txt_developed_by)
 
+        //TODO improve this method
+        (activity as MainActivity).resetStatusBarColor()
+
         setTheme()
     }
 

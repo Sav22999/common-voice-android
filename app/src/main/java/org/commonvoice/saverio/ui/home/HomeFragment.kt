@@ -53,6 +53,8 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         //TODO fix this mess once MainActivity is fixed
 
+        (activity as MainActivity).resetStatusBarColor()
+
         if (mainPrefManager.sessIdCookie != null) {
             val textLoggedIn = binding.textLoggedUsername
             textLoggedIn.isGone = false
@@ -256,13 +258,15 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         )
         theme.setElement(view, buttonHomeLogin)
         theme.setElement(layoutHome)
-        
+
         theme.setElement(
             view,
             text_homeMessageBoxBanner,
             background = false,
             textSize = 22F
         )
+
+        theme.setElement(view, text_homeMessageBoxBanner, R.color.colorWhite, R.color.colorWhite)
     }
 
 }

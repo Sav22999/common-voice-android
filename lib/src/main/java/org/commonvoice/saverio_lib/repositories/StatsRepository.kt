@@ -132,7 +132,7 @@ class StatsRepository(
                     true
                 ))
                         && (it.versionCodeFilter == null || it.versionCodeFilter.toIntOrNull() == mainPrefManager.appVersionCode)
-                        && (it.startDateFilter == null || dateMillis(it.startDateFilter) >= currentMillis)
+                        && (it.startDateFilter == null || dateMillis(it.startDateFilter) <= currentMillis)
                         && (it.endDateFilter == null || dateMillis(it.endDateFilter) >= currentMillis)
             }
             ?: emptyList()
