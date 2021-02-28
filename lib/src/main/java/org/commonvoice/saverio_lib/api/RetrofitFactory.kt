@@ -31,9 +31,12 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     private val unauthRetrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
-        .client(OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .build())
+        .client(
+            OkHttpClient.Builder()
+                .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .addInterceptor(TryCatchInterceptor())
+                .build()
+        )
         .baseUrl(statsURL)
         .build()
 

@@ -125,7 +125,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 }
                 ListenViewModel.Companion.State.NO_MORE_CLIPS -> {
                     loadUIStateNoMoreClips()
-                    listenViewModel.loadNewClip()
+                    //listenViewModel.loadNewClip()
                 }
                 ListenViewModel.Companion.State.LISTENING -> {
                     loadUIStateListening()
