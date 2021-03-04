@@ -330,5 +330,5 @@ You will get all supported languages in the app. For each language (the code) yo
 | ------------ | --------- | ------------------------------------------------------------ |
 | `native`     | *String*  | It's the native name of the language                         |
 | `english`    | *String*  | It's the name of the language in English                     |
-| `crowdin`    | *Integer* | Indicates the language exists or not on Crowdin (`0`: not exists/not supported, `1`: supported) |
+| `crowdin`    | *Boolean* | Indicates the language exists or not on Crowdin (`false`: not exists/not supported, `true`: supported) |
 | `percentage` | *Integer* | It's the translation percentage of the app (on Crowdin). If the language is not present of Crowdin, the percentage is 0 |

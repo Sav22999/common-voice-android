@@ -302,6 +302,8 @@
         <item>Gaeilge</item>
         <!-- gl -->
         <item>Galego</item>
+        <!-- hub -->
+        <item>Magyar</item>
         <!-- hsb -->
         <item>Hornjoserbšćina</item>
         <!-- ia -->
@@ -401,6 +403,7 @@
         <item>ga-IE</item>
         <item>gl</item>
         <item>hsb</item>
+        <item>hu</item>
         <item>ia</item>
         <item>id</item>
         <item>it</item>
