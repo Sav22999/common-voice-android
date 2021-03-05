@@ -155,6 +155,7 @@ class MessageDialog : KoinComponent {
                             dialogView.imageCopyText.isGone = false
                             dialogView.imageCopyText.setOnClickListener {
                                 clipboardManager.setPrimaryClip(clipData)
+                                Toast.makeText(this.context, R.string.copie_string, Toast.LENGTH_LONG).show()
                             }
                         }
                         dialogView.btnOkMessageDialog.setOnClickListener {
@@ -354,11 +355,11 @@ class MessageDialog : KoinComponent {
         if (value == 0) {
             textBox.text =
                 context!!.getString(R.string.daily_goal_is_not_set)
-            textBox.textSize = 22.toFloat()
+            textBox.textSize = 22F * mainPrefManager.textSize
             textBox.typeface = Typeface.DEFAULT
         } else {
             textBox.text = value.toString()
-            textBox.textSize = 30.toFloat()
+            textBox.textSize = 30F * mainPrefManager.textSize
             textBox.typeface = ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
         }
         this.dailyGoalValue = value
@@ -509,6 +510,20 @@ class MessageDialog : KoinComponent {
                 )
                 theme.setElement(
                     view,
+                    dialogView.findViewById(R.id.subtitleMotivationDailyGoal) as TextView,
+                    R.color.colorGray,
+                    R.color.colorLightGray,
+                    textSize = 15F
+                )
+                theme.setElement(
+                    view,
+                    dialogView.findViewById(R.id.textMotivationDailyGoal) as TextView,
+                    R.color.colorGray,
+                    R.color.colorLightGray,
+                    textSize = 15F
+                )
+                theme.setElement(
+                    view,
                     dialogView.findViewById(R.id.btnDailyGoalSave) as Button
                 )
                 theme.setElement(
@@ -530,6 +545,10 @@ class MessageDialog : KoinComponent {
                 theme.setElement(
                     view,
                     dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
+                )
+                setDailyGoalValue(
+                    dialogView.labelDailyGoalValue,
+                    (dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar).progress
                 )
             }
             10 -> {
