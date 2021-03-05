@@ -131,7 +131,7 @@
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
-                android:progress="10"
+                android:progress="0"
                 android:progressBackgroundTint="@color/colorAccent"
                 android:progressTint="@color/colorAccent"
                 android:thumbTint="@color/colorBlack"

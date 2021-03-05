@@ -155,7 +155,11 @@ class MessageDialog : KoinComponent {
                             dialogView.imageCopyText.isGone = false
                             dialogView.imageCopyText.setOnClickListener {
                                 clipboardManager.setPrimaryClip(clipData)
-                                Toast.makeText(this.context, R.string.copie_string, Toast.LENGTH_LONG).show()
+                                Toast.makeText(
+                                    this.context,
+                                    R.string.copie_string,
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                         }
                         dialogView.btnOkMessageDialog.setOnClickListener {
@@ -352,17 +356,18 @@ class MessageDialog : KoinComponent {
     }
 
     fun setDailyGoalValue(textBox: TextView, value: Int) {
-        if (value == 0) {
+        val valueToUse = value - (value % 5)
+        if (valueToUse == 0) {
             textBox.text =
                 context!!.getString(R.string.daily_goal_is_not_set)
             textBox.textSize = 22F * mainPrefManager.textSize
             textBox.typeface = Typeface.DEFAULT
         } else {
-            textBox.text = value.toString()
+            textBox.text = valueToUse.toString()
             textBox.textSize = 30F * mainPrefManager.textSize
             textBox.typeface = ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
         }
-        this.dailyGoalValue = value
+        this.dailyGoalValue = valueToUse
     }
 
     private fun checkDeleteButtonDeviceScreen(buttonDelete: Button) {
