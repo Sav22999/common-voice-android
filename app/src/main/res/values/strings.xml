@@ -132,6 +132,8 @@
     <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Ads banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -> it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
+    <string name="txt_common_voice_playbook_settings" comment="Button in Settings">Common Voice Playbook</string>
+    <string name="txt_sentence_collector_settings" comment="Button in Settings">Sentence Collector</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>

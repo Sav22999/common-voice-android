@@ -59,6 +59,14 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
             buttonProjectOnGitHub.setOnClickListener {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2PeOGRg")))
             }
+
+            buttonCommonVoicePlaybook.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2OnuNcX")))
+            }
+
+            buttonSentenceCollector.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://mzl.la/3birwVc")))
+            }
         }
 
         setTheme()
