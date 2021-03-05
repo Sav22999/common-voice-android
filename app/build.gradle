@@ -24,18 +24,22 @@ android {
     }
     flavorDimensions "source_store"
     productFlavors {
-        "GPS" {
+        GPS {
             dimension "source_store"
+            buildConfigField "String", "SOURCE_STORE", "\"GPS\""
         }
-        "FD-GH" {
+        FDGH {
             dimension "source_store"
+            buildConfigField "String", "SOURCE_STORE", "\"FD-GH\""
         }
-        "HAG" {
+        HAG {
             dimension "source_store"
-            //applicationIdSuffix '.huawei'
+            applicationIdSuffix ".huawei"
+            buildConfigField "String", "SOURCE_STORE", "\"HAG\""
         }
-        "AAS" {
+        AAS {
             dimension "source_store"
+            buildConfigField "String", "SOURCE_STORE", "\"AAS\""
         }
     }
     compileOptions {
@@ -103,6 +107,8 @@ dependencies {
 
     implementation project(":lib")
 
-    implementation(project(":fake-ads"))
+    FDGHImplementation(project(":fake-ads"))
+    HAGImplementation(project(":fake-ads"))
+    AASImplementation(project(":fake-ads"))
     GPSImplementation(project(":play-services-ads"))
 }

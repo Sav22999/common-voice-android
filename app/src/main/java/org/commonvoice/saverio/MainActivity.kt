@@ -45,7 +45,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val connectionManager: ConnectionManager by inject()
 
     companion object {
-        const val SOURCE_STORE = BuildConfig.FLAVOR
+        val SOURCE_STORE: String = BuildConfig.SOURCE_STORE
         const val RECORD_REQUEST_CODE = 8374
     }
 
