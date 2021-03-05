@@ -125,7 +125,7 @@
                 android:id="@+id/seekDailyGoalValue"
                 style="@style/Widget.AppCompat.SeekBar"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:max="500"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
@@ -135,9 +135,27 @@
                 android:progressBackgroundTint="@color/colorAccent"
                 android:progressTint="@color/colorAccent"
                 android:thumbTint="@color/colorBlack"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageSeekbarPlusDailygoal"
+                app:layout_constraintStart_toEndOf="@+id/imageSeekbarMinusDailygoal"
                 app:layout_constraintTop_toBottomOf="@+id/labelDailyGoalValue" />
+
+            <ImageView
+                android:id="@+id/imageSeekbarPlusDailygoal"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:scaleType="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelDailyGoalValue"
+                app:srcCompat="@drawable/ic_plus" />
+
+            <ImageView
+                android:id="@+id/imageSeekbarMinusDailygoal"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:scaleType="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelDailyGoalValue"
+                app:srcCompat="@drawable/ic_minus" />
 
             <Button
                 android:id="@+id/btnDailyGoalDelete"

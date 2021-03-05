@@ -192,7 +192,27 @@ class MessageDialog : KoinComponent {
 
                         var seekBar = dialogView.seekDailyGoalValue
                         seekBar.progress = this.dailyGoalValue
-                        setDailyGoalValue(dialogView.labelDailyGoalValue, seekBar.progress)
+                        setDailyGoalValue(
+                            dialogView.labelDailyGoalValue,
+                            seekBar,
+                            seekBar.progress,
+                            true
+                        )
+
+                        var imagePlus = dialogView.imageSeekbarPlusDailygoal
+                        var imageMinus = dialogView.imageSeekbarMinusDailygoal
+
+                        var forcedValue = false
+
+                        imageMinus.setOnClickListener {
+                            forcedValue = true
+                            seekBar.progress -= 1
+                        }
+
+                        imagePlus.setOnClickListener {
+                            forcedValue = true
+                            seekBar.progress += 1
+                        }
 
                         seekBar.setOnSeekBarChangeListener(object :
                             SeekBar.OnSeekBarChangeListener {
@@ -201,7 +221,13 @@ class MessageDialog : KoinComponent {
                                 progress: Int, fromUser: Boolean
                             ) {
                                 //onProgress
-                                setDailyGoalValue(dialogView.labelDailyGoalValue, seek.progress)
+                                setDailyGoalValue(
+                                    dialogView.labelDailyGoalValue,
+                                    seekBar,
+                                    seek.progress,
+                                    forcedValue
+                                )
+                                forcedValue = false
                             }
 
                             override fun onStartTrackingTouch(seek: SeekBar) {
@@ -210,7 +236,13 @@ class MessageDialog : KoinComponent {
 
                             override fun onStopTrackingTouch(seek: SeekBar) {
                                 //onStop
-                                setDailyGoalValue(dialogView.labelDailyGoalValue, seek.progress)
+                                setDailyGoalValue(
+                                    dialogView.labelDailyGoalValue,
+                                    seekBar,
+                                    seek.progress,
+                                    forcedValue
+                                )
+                                forcedValue = false
                             }
                         })
                         val builder =
@@ -355,8 +387,9 @@ class MessageDialog : KoinComponent {
         }
     }
 
-    fun setDailyGoalValue(textBox: TextView, value: Int) {
-        val valueToUse = value - (value % 5)
+    fun setDailyGoalValue(textBox: TextView, seekBar: SeekBar, value: Int, force: Boolean = false) {
+        var valueToUse = value - (value % 5)
+        if (force) valueToUse = value
         if (valueToUse == 0) {
             textBox.text =
                 context!!.getString(R.string.daily_goal_is_not_set)
@@ -368,6 +401,10 @@ class MessageDialog : KoinComponent {
             textBox.typeface = ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
         }
         this.dailyGoalValue = valueToUse
+
+        if (value % 5 > 0 || force) {
+            seekBar.progress = valueToUse
+        }
     }
 
     private fun checkDeleteButtonDeviceScreen(buttonDelete: Button) {
@@ -551,9 +588,13 @@ class MessageDialog : KoinComponent {
                     view,
                     dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
                 )
+
+                val seekBar = dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
                 setDailyGoalValue(
                     dialogView.labelDailyGoalValue,
-                    (dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar).progress
+                    seekBar,
+                    seekBar.progress,
+                    true
                 )
             }
             10 -> {
