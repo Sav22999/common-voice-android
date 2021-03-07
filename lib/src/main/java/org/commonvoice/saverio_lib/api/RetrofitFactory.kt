@@ -52,6 +52,8 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     fun makeStatsService(): StatsService = unauthRetrofit.create(StatsService::class.java)
 
+    fun makeLanguagesService(): LanguagesService = unauthRetrofit.create(LanguagesService::class.java)
+
     fun makeCVStatsService(): CVStatsService = genericRetrofit.create(CVStatsService::class.java)
 
     fun makeClipsService(): ClipsService = langRetrofit.create(ClipsService::class.java)
@@ -65,6 +67,12 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
     fun makeGithubService(): GithubService = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create())
         .baseUrl(githubURL)
+        .client(
+            OkHttpClient.Builder()
+                .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .addInterceptor(TryCatchInterceptor())
+                .build()
+        )
         .build()
         .create(GithubService::class.java)
 

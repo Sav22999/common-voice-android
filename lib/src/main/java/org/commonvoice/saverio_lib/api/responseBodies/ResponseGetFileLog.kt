@@ -12,6 +12,7 @@ data class ResponseGetFileLog(
     val logInfo: LogInfo
 )
 
+@JsonClass(generateAdapter = true)
 data class GeneralInfo(
     @Json(name = "id")
     val id: Int,
@@ -32,6 +33,7 @@ data class GeneralInfo(
     val isLogged: Int,
 )
 
+@JsonClass(generateAdapter = true)
 data class LogInfo(
     @Json(name = "errorLevel")
     val errorLevel: String,

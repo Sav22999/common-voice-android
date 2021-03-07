@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import androidx.work.WorkManager
+import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.db.AppDB
@@ -34,6 +35,7 @@ class CommonVoice : Application() {
         single { FileHolder(androidContext()) }
         single(createdAtStart = true) { ConnectionManager(androidContext()) }
         single { DarkLightTheme(get()) }
+        single { TranslationHandler(get()) }
     }
 
     private val prefsModule = module {
@@ -70,6 +72,7 @@ class CommonVoice : Application() {
         single { GithubRepository(get()) }
         single { FileLogsRepository(get(), get(), get()) }
         single { AppActionsRepository(get(), get(), get(), get()) }
+        single { LanguagesRepository(get(), get()) }
     }
 
     private val mvvmViewmodels = module {

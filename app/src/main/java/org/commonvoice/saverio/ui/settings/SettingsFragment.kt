@@ -16,6 +16,7 @@ import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
+import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
@@ -39,10 +40,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
     private val dashboardViewModel by sharedViewModel<DashboardViewModel>()
-
-    private val languagesListShort by lazy {
-        resources.getStringArray(R.array.languages_short)
-    }
+    private val translationHandler by inject<TranslationHandler>()
 
     private var SOURCE_STORE: String = ""
 
@@ -167,10 +165,10 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         binding.languageList.adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
-            resources.getStringArray(R.array.languages)
+            translationHandler.availableLanguageNames
         )
 
-        binding.languageList.setSelection(languagesListShort.indexOf(mainPrefManager.language))
+        binding.languageList.setSelection(translationHandler.availableLanguageCodes.indexOf(mainPrefManager.language))
 
         binding.languageList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -183,7 +181,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
                 position: Int,
                 id: Long
             ) {
-                val selectedLanguage = languagesListShort[position]
+                val selectedLanguage = translationHandler.availableLanguageCodes[position]
 
                 if (selectedLanguage != mainPrefManager.language) {
                     mainPrefManager.language = selectedLanguage
