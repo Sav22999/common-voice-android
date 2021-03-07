@@ -1,0 +1,3 @@
+- Fixed some bugs
+
+THE APP IS NOW DISCONTINUED, read more here: https://discourse.mozilla.org/t/common-voice-android-app-legal-question-about-the-logo-and-the-name-common-voice/62892/5

@@ -8,11 +8,11 @@
     <string name="title_dashboard">Stirpanelo</string>
     <string name="title_settings">Agordoj</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Sign up</string>
+    <string name="button_home_login">Ensaluti / Aliĝi</string>
     <string name="button_home_logout">Elsaluti</string>
     <string name="button_home_profile">Profilo</string>
     <string name="text_hi_username">Saluton</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="message_log_in_again">La seanco finiĝis, vi devas saluti denove</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistikoj</string>
     <string name="dashboardVoicesOnline">Enretaj voĉoj</string>

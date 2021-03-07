@@ -124,7 +124,7 @@
     <string name="txt_reset_data" comment="Button in Settings">App-Daten zurücksetzen</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Gerade sind keine experimentellen Funktionen verfügbar</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Text der Sätze anzeigen, nachdem Clips vollständig angehört wurden</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Den \"Melden\" Button rechts oben statt in der Mitte unten anzeigen</string>
     <string name="title_textsize_settings" comment="Title in Settings">Schriftgröße</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Werbebanner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Werbebanner in {{*{{section_name}}*}} aktivieren</string>
