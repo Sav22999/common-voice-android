@@ -171,20 +171,16 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 )
             }
 
-            var sumTemp = it.recordings + it.validations
-            if (sumTemp > it.getDailyGoal()) {
-                sumTemp = it.getDailyGoal()
-            }
             animateProgressBar(
                 progressBarSpeakSpeak,
-                sum = sumTemp,
+                sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
                 currentContributions = it.recordings,
                 color = R.color.colorSpeak
             )
             animateProgressBar(
                 progressBarSpeakListen,
-                sum = sumTemp,
+                sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
                 currentContributions = it.validations,
                 color = R.color.colorListen
@@ -214,21 +210,16 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         super.onConfigurationChanged(newConfig)
 
 
-        var sumTemp =
-            statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations
-        if (sumTemp > statsPrefManager.dailyGoal.value!!.goal) {
-            sumTemp = statsPrefManager.dailyGoal.value!!.goal
-        }
         animateProgressBar(
             progressBarSpeakSpeak,
-            sum = sumTemp,
+            sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentContributions = statsPrefManager.dailyGoal.value!!.recordings,
             color = R.color.colorSpeak
         )
         animateProgressBar(
             progressBarSpeakListen,
-            sum = sumTemp,
+            sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentContributions = statsPrefManager.dailyGoal.value!!.validations,
             color = R.color.colorListen
@@ -623,9 +614,18 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         //val height = metrics.heightPixels
         var newValue = 0
 
+        progressBar.isGone = false
         if (dailyGoal == 0 || sum == 0) {
             newValue = width / 2
-            setProgressBarColour(progressBar, forced = true, color)
+            setProgressBarColour(progressBar, forced = true)
+        } else if (sum >= dailyGoal) {
+            val tempContributions =
+                (currentContributions.toFloat() * dailyGoal.toFloat()) / sum.toFloat()
+            newValue =
+                ((tempContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
+            setProgressBarColour(progressBar, forced = false, color = color)
+        } else if (currentContributions == 0) {
+            progressBar.isGone = true
         } else {
             //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
             newValue =

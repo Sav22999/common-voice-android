@@ -16,6 +16,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -160,9 +161,20 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     ), type = 12
                 )
             }
+
             animateProgressBar(
+                progressBarListenSpeak,
+                sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
-                currentRecordingsValidations = (it.validations + it.recordings)
+                currentContributions = it.recordings,
+                color = R.color.colorSpeak
+            )
+            animateProgressBar(
+                progressBarListenListen,
+                sum = it.recordings + it.validations,
+                dailyGoal = it.getDailyGoal(),
+                currentContributions = it.validations,
+                color = R.color.colorListen
             )
         })
 
@@ -189,11 +201,21 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         super.onConfigurationChanged(newConfig)
 
         animateProgressBar(
+            progressBarListenSpeak,
+            sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
-            currentRecordingsValidations = (statsPrefManager.dailyGoal.value!!.validations + statsPrefManager.dailyGoal.value!!.recordings)
+            currentContributions = statsPrefManager.dailyGoal.value!!.recordings,
+            color = R.color.colorSpeak
+        )
+        animateProgressBar(
+            progressBarListenListen,
+            sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
+            dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
+            currentContributions = statsPrefManager.dailyGoal.value!!.validations,
+            color = R.color.colorListen
         )
 
-refreshAds()
+        refreshAds()
     }
 
     fun shareCVAndroidDailyGoal() {
@@ -253,32 +275,72 @@ refreshAds()
         })
     }
 
-    private fun animateProgressBar(dailyGoal: Int = 0, currentRecordingsValidations: Int = 0) {
-        val view: View = binding.progressBarListen
+    private fun animateProgressBar(
+        progressBar: View,
+        sum: Int = 0,
+        dailyGoal: Int = 0,
+        currentContributions: Int = 0,
+        color: Int = R.color.colorBlack
+    ) {
+        val view: View = progressBar
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
         val width = metrics.widthPixels
         //val height = metrics.heightPixels
         var newValue = 0
 
-        if (dailyGoal == 0 || currentRecordingsValidations >= dailyGoal) {
-            newValue = width
+        progressBar.isGone = false
+        if (dailyGoal == 0 || sum == 0) {
+            newValue = width / 2
+            setProgressBarColour(progressBar, forced = true)
+        } else if (sum >= dailyGoal) {
+            val tempContributions =
+                (currentContributions.toFloat() * dailyGoal.toFloat()) / sum.toFloat()
+            newValue =
+                ((tempContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
+            setProgressBarColour(progressBar, forced = false, color = color)
+        } else if (currentContributions == 0) {
+            progressBar.isGone = true
         } else {
             //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
             newValue =
-                ((currentRecordingsValidations.toFloat() / dailyGoal.toFloat()) * width).toInt()
+                ((currentContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
+            setProgressBarColour(progressBar, forced = false, color = color)
         }
 
         if (mainPrefManager.areAnimationsEnabled) {
-            animationProgressBar(view.width, newValue)
+            animationProgressBar(progressBar, view.width, newValue)
         } else {
             view.layoutParams.width = newValue
             view.requestLayout()
         }
     }
 
-    private fun animationProgressBar(min: Int, max: Int) {
-        val view: View = binding.progressBarListen
+    private fun setProgressBarColour(
+        progressBar: View,
+        forced: Boolean = false,
+        color: Int = R.color.colorBlack
+    ) {
+        if (!settingsPrefManager.isProgressBarColouredEnabled || forced) {
+            theme.setElement(
+                this,
+                progressBar,
+                R.color.colorPrimaryDark,
+                R.color.colorLightGray
+            )
+        } else {
+            //coloured
+            theme.setElement(
+                this,
+                progressBar,
+                color,
+                color
+            )
+        }
+    }
+
+    private fun animationProgressBar(progressBar: View, min: Int, max: Int) {
+        val view: View = progressBar
         val animation: ValueAnimator =
             ValueAnimator.ofInt(min, max)
         animation.duration = 1000
@@ -303,12 +365,8 @@ refreshAds()
         theme.setElement(this@ListenActivity, buttonReportListen, background = false)
         theme.setElement(this@ListenActivity, buttonSkipListen)
 
-        theme.setElement(
-            this@ListenActivity,
-            progressBarListen,
-            R.color.colorPrimaryDark,
-            R.color.colorLightGray
-        )
+        setProgressBarColour(progressBarListenSpeak, false)
+        setProgressBarColour(progressBarListenListen, false)
     }
 
     private fun openReportDialog() {

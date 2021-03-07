@@ -134,7 +134,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -> it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
     <string name="txt_common_voice_playbook_settings" comment="Button in Settings" translatable="false">Common Voice Playbook</string>
     <string name="txt_sentence_collector_settings" comment="Button in Settings" translatable="false">Sentence Collector</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Dailygoal progress bar coloured</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
