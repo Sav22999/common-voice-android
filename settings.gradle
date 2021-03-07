@@ -1,3 +1,5 @@
+include ':fake-ads'
+include ':play-services-ads'
 include ':lib'
 include ':app'
 rootProject.name='Common Voice Android'

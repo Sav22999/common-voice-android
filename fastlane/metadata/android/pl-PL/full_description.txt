@@ -18,8 +18,8 @@ To nie jest oficjalna aplikacja Common Voice. Jest stworzona przez Saverio Morel
 - Ciemny motyw
 - Cel dzienny
 - Gesty
-- Save your recordings on your device
-- Many other features
+- Zapis Twoich nagrań na Twoim urządzeniu
+- Wiele innych funkcji
 - Aplikacja jest w pełni dostosowywalna w Ustawieniach
 
 Dołącz do grupy Telegram: https://t.me/common_voice_android (@common_voice_android)

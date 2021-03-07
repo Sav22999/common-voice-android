@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="common_voice_android">30sp</dimen>
+    <dimen name="cvandroid">30sp</dimen>
 
     <dimen name="title_very_big">55sp</dimen>
     <dimen name="title_big">50sp</dimen>

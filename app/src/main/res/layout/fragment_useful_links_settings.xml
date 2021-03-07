@@ -217,7 +217,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@color/colorWhite"
-                android:drawableStart="@drawable/ic_nothing"
+                android:drawableStart="@drawable/ic_external_link"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorGray"
                 android:foreground="@drawable/ripple"
@@ -252,7 +252,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@color/colorWhite"
-                android:drawableStart="@drawable/ic_nothing"
+                android:drawableStart="@drawable/ic_external_link"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorGray"
                 android:foreground="@drawable/ripple"
@@ -303,6 +303,77 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separator44" />
+
+            <View
+                android:id="@+id/separator45"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSeeAppStatistics" />
+
+            <Button
+                android:id="@+id/buttonCommonVoicePlaybook"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/ic_external_link"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:stateListAnimator="@null"
+                android:text="@string/txt_common_voice_playbook_settings"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator45" />
+
+            <View
+                android:id="@+id/separator46"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonCommonVoicePlaybook" />
+
+            <Button
+                android:id="@+id/buttonSentenceCollector"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/ic_external_link"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:stateListAnimator="@null"
+                android:text="@string/txt_sentence_collector_settings"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator46" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

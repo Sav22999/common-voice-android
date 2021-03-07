@@ -8,20 +8,20 @@ import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.Window
-import android.view.WindowManager
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.WorkManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.launch
 import org.commonvoice.saverio.ui.VariableLanguageActivity
-import org.commonvoice.saverio.utils.TranslationLanguages
+import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
@@ -45,17 +45,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val statsPrefManager: StatsPrefManager by inject()
 
     private val connectionManager: ConnectionManager by inject()
+    private val translationHandler: TranslationHandler by inject()
 
     companion object {
-        const val SOURCE_STORE = BuildConfig.FLAVOR
+        val SOURCE_STORE: String = BuildConfig.SOURCE_STORE
         const val RECORD_REQUEST_CODE = 8374
-    }
-
-    private val languagesListShortArray by lazy {
-        resources.getStringArray(R.array.languages_short)
-    }
-    private val languagesListArray by lazy {
-        resources.getStringArray(R.array.languages)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +71,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         mainPrefManager.isAlpha = BuildConfig.VERSION_NAME.contains("a")
         mainPrefManager.isBeta = BuildConfig.VERSION_NAME.contains("b")
+
+        lifecycleScope.launch {
+            translationHandler.updateLanguages()
+        }
 
         if (firstRunPrefManager.main) {
             Intent(this, FirstLaunch::class.java).also {
@@ -106,6 +104,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
             }
         }
+    }
+
+    fun resetStatusBarColor() {
+        this@MainActivity.window.statusBarColor =
+            ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark)
     }
 
     fun checkMessageBanner() {
@@ -138,7 +141,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     fun checkAdsBanner() {
         //TODO
-        if (mainPrefManager.areAdsEnabled && mainPrefManager.appSourceStore == "GPS") {
+        if (mainPrefManager.showAdBanner && mainPrefManager.appSourceStore == "GPS") {
 
         }
     }
@@ -279,8 +282,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             //Android 6.0
             val tempLang = getSharedPreferences("LANGUAGE", 0).getString("LANGUAGE", "en")
             var lang = tempLang!!.split("-")[0]
-            if (!TranslationLanguages.isSupported(lang)) {
-                lang = TranslationLanguages.defaultLanguage
+            if (!translationHandler.isLanguageSupported(lang)) {
+                lang = TranslationHandler.DEFAULT_LANGUAGE
             }
             val locale: Locale = Locale(lang)
             Locale.setDefault(locale)
@@ -309,7 +312,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 mainPrefManager.hasLanguageChanged2 = false
 
                 var detailsMessage = ""
-                if (TranslationLanguages.isUncompleted(mainPrefManager.language)) {
+                if (!translationHandler.isLanguageComplete(mainPrefManager.language)) {
                     detailsMessage =
                         "\n" + getString(R.string.message_app_not_completely_translated)
                 }
@@ -317,7 +320,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     "",
                     getString(R.string.toast_language_changed).replace(
                         "{{*{{lang}}*}}",
-                        languagesListArray[languagesListShortArray.indexOf(mainPrefManager.language)]
+                        translationHandler.getLanguageName(mainPrefManager.language)
                     ) + detailsMessage
                 )
 

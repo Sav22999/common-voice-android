@@ -8,6 +8,7 @@ import org.commonvoice.saverio_lib.api.requestBodies.RetrofitUserAppUsageBody
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseAppUsage
 import org.commonvoice.saverio_lib.api.responseBodies.ResponseDailyUsage
 import org.commonvoice.saverio_lib.models.AppAction
+import org.commonvoice.saverio_lib.models.Message
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import timber.log.Timber
@@ -60,8 +61,12 @@ class StatsRepository(
         return statsClient.getLanguageSpecificStats(language).body()?.get(language)
     }
 
-    suspend fun getAppUsageStats(language: String?, year: String?): Map<String, ResponseAppUsage> {
-        return statsClient.getAppUsageStatistics(language, year).body() ?: mapOf()
+    suspend fun getAppUsageStats(
+        language: String?,
+        filter: String?,
+        year: String?
+    ): Map<String, ResponseAppUsage> {
+        return statsClient.getAppUsageStatistics(language, filter, year).body() ?: mapOf()
     }
 
     suspend fun postAppUsageStatistics(
@@ -110,6 +115,24 @@ class StatsRepository(
         }
     }
 
+    suspend fun getNewMessages(): List<Message> {
+        val response = statsClient.getNewMessages().body()
+        return response
+            ?.values
+            ?.toList()
+            ?.sortedByDescending { it.id }
+            ?.filter {
+                (it.startDateFilter == null || dateMillis(it.startDateFilter) <= currentMillis)
+                && (it.endDateFilter == null || (dateMillis(it.endDateFilter) + DAY_MILLIS) >= currentMillis)
+                && (it.userFilter == mainPrefManager.statsUserId || (it.userFilter == null
+                    && (it.sourceFilter == null || it.sourceFilter.equals(mainPrefManager.appSourceStore, true))
+                    && (it.languageFilter == null || it.languageFilter.equals(mainPrefManager.language, true))
+                    && (it.versionCodeFilter == null || it.versionCodeFilter.toIntOrNull() == mainPrefManager.appVersionCode))
+                )
+            }
+            ?: emptyList()
+    }
+
     private fun isLogged(): Int {
         return if (mainPrefManager.sessIdCookie == null) {
             0
@@ -118,5 +141,21 @@ class StatsRepository(
         }
     }
 
+    companion object {
+
+        private val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+
+        private fun dateMillis(date: String): Long = try {
+            dateFormat.parse(date)?.time
+        } catch (e: Exception) {
+            null
+        } ?: 0
+
+        private const val DAY_MILLIS = 24 * 60 * 60 * 1000
+
+        private val currentMillis: Long
+            get() = System.currentTimeMillis()
+
+    }
 
 }

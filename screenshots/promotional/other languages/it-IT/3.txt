@@ -1,0 +1,2 @@
+Personalizza l'interfaccia utente
+Modalità offline, tema scuro

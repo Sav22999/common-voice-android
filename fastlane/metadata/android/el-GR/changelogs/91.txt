@@ -1,0 +1,11 @@
+- Implemented "Speak" section
+- Added "Daily goal" in Dashboard
+- Added Dutch and Turkish translation
+- Fixed some bugs
+- Updated languages (included English!)
+- Added anonymous statistics for the app, you can turn off in Settings
+- Optimised code
+- Added "Check new version" (automatically)
+- Added Anonymous statistics
+- Message dialogs follow app theme
+- Promoted version to Stable channel

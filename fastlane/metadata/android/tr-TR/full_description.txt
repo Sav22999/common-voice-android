@@ -1,0 +1,44 @@
+<p>
+Bu Common Voice'un resmi uygulaması değil. Saverio Morelli tarafından geliştirilmiştir
+</p>
+<p>
+<b>Uygulama özellikleri:</b>
+
+- Kullanıcı arayüzü (UI) akıllı, net ve moderndir
+- Common Voice hesabınıza giriş yapın
+- Kayıt doğrulama
+- Cümleleri kaydedin
+- İlgili bölümlerdeki cümleleri/kayıtları bildirebilirsiniz
+- Çoklu dil desteklenir
+- Çevrimdışı mod (İnternete bağlı olmadığınızda da katkıda bulunmaya devam edin!)
+- Common Voice istatistikleri (seçilen dilin)
+- En çok katkıda bulunanlar (seçilen dilden)
+- Uygulama istatistikleri (anonim)
+- Çevrimiçi sesler (seçilen dilin)
+- Koyu tema desteklenir
+- Günlük hedefler
+- Hareketler
+- Kayıtlarınızı cihazınıza kaydedebilirsiniz
+- Diğer birçok özellik
+- Uygulama deneyimi, Ayarlar'da tamamen özelleştirilebilir
+
+Telegram grubuna katılın: https://t.me/common_voice_android (@common_voice_android)
+Uygulama istatistiklerinin tamamını burada görebilirsiniz: https://bit.ly/3clgfkg
+GitHub'da bu uygulama hakkında daha fazla bilgi edinin: http://bit.ly/2PeOGRg
+</p>
+<p>
+<b>Common Voice projesi nedir?</b>
+
+Common Voice, Mozilla'nın makinelere gerçek insanların nasıl konuştuğunu öğretmeye yardımcı olma girişimidir.
+Ses doğaldır, ses insandır. Bu nedenle makinelerimiz için kullanılabilir ses teknolojisi yaratma konusunda heyecanlıyız. Ancak ses sistemleri oluşturmak için geliştiricilerin son derece büyük miktarda ses verisine ihtiyacı vardır.
+Büyük şirketler tarafından kullanılan verilerin çoğu, insanların kullanımı için uygun değildir. Bunun yeniliği engellediğini düşünüyoruz. Bu nedenle, ses tanımayı herkese açık ve erişilebilir hale getirmeye yardımcı olacak bir proje olan Common Voice'u başlattık.
+Artık herkesin cihazlar ve web için yenilikçi uygulamalar yapmak üzere kullanabileceği açık kaynaklı bir ses veritabanı oluşturmamıza yardımcı olması için sesinizi bağışlayabilirsiniz. Makinelerin gerçek insanların nasıl konuştuğunu öğrenmesine yardımcı olmak için bir cümle okuyun. Kaliteyi arttırmak için diğer katkıda bulunanların çalışmalarını kontrol edin. Bu kadar basit!
+Resmi web sitesinde https://commonvoice.mozilla.org/ daha fazla ayrıntı bulabilirsiniz
+</p>
+<p>
+<b>Neden mobil web sitesi yerine uygulamayı kullanmalısınız?</b>
+
+Uygulama tam olarak akıllı telefonlar için geliştirildiğinden yereldir. Karanlık tema, çevrimdışı mod, özelleştirme, hareketler vb. Gibi web sitesinin size sağlamadığı birçok özelliğe sahiptir.
+Uygulama, sinir bozucu animasyonlar olmadan web sitesinden daha hafiftir (ve uygulamadaki animasyonlar Ayarlar'dan da durdurulabilir).
+Ek olarak, web sitesinde özellikle mobil sürüm için birçok hata var, bu nedenle her şeyi doğru şekilde yapamazsınız.
+</p>

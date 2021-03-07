@@ -198,7 +198,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_profileimagerobot"
+            tools:srcCompat="@drawable/robot_half_bust"
             tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

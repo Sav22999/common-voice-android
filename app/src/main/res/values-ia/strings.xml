@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Saltar</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permisso obtenite</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permisso denegate</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android es un app non official pro Mozilla Common Voice. Illo es disveloppate per Saverio Morelli sin ulle assistentia o societate con Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project es un app non official pro Mozilla Common Voice. Illo es disveloppate per Saverio Morelli sin ulle assistentia o societate con Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Si tu procede, tu concorda con le Terminos de Servicio de Mozilla Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Iste le application besonia de permisso \"Microphono\" pro registrar tu voce.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Tu pote reportar bugs sur GitHub o Telegram. Pro adjutar le disveloppator a comprender le problema rapidemente, tu deberea attaccar a tu reporto le file de registro del app. Le app besoniante del permisso \"Immagazinage\" pro salvar le file de registro.</string>
@@ -93,7 +93,7 @@
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Salvar registros al file</string>
     <string name="toast_log_on_file_on" comment="Message text">Salvamento del registros al file activate.\nTu pote attachar le file log.txt quando tu signala un problema.\nLege plus sur GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Statistica generic</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Monstrar le catena que me identifica intra le application</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Monstrar le catena que me identifica in le application</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -124,7 +124,12 @@
     <string name="txt_reset_data" comment="Button in Settings">Reinitialisar le datos de application</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nulle functionalitates experimental es ora disponibile</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Monstrar le texto del phrases quando le registrationes es ascoltate completemente</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Monstrar icone reporto (top-right) in vice del button (bottom) in {{*{{listen_name}}*}} e {{*{{speak_name}}*}}</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Monstrar le icone del reporto (in alto a dextera) in vice del button (in basso)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Dimension del texto</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Banner de avisos publicitari</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activar banner avisos in {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra colorate de progresso del objectivo quotidian</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} e {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -202,7 +207,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Clauder</string>
     <string name="labelAllBadges" comment="Title for All badge section">Tote le badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Bravo! Tu ha justo ganiate un nove insignia.\nVa a {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} pro vider tote tu insignias.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Tu recipeva iste insignia perque tu ha validate al minus {{*{{n_clips}}*}} registrationes.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Tu recipeva iste insignia perque tu registrate al minus {{*{{n_sentences}}*}} phrases.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Tu recipeva iste insignia perque tu ha validate o registrate al minus {{*{{n_total}}*}} registrationes.</string>
@@ -240,11 +245,11 @@
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Ben facite! Tu ha complite tu objectivo quotidian.\nTu ha validate {{*{{n_clips}}*}} registration(es) e registrate {{*{{n_sentences}}*}} phrase(s).\nSenti te libere de continuar contribuer a Common Voice.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Compartir</string>
     <string name="share_daily_goal_title" comment="Title of panel">Compartir sur</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Io ha justo attingite mi objectivo quotidian pro @mozilla #CommonVoice per le app #CVAndroid.\nJunge te e contribue! Installa ora CV Android de Google Play o F-Droid {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Io ha justo complite mi objectivo quotidian pro @mozilla #CommonVoice per le #CVProject.\nJunge te e collabora! Installa CV Project per Google Play, F-Droid o Huawei AppGallery now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Iste objectivo quotidian non es un functionalitate official de Mozilla. Illo es solo un functionalitate de iste le application.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Sape tu que ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 horas es attingibile in poco plus de 6 menses si 1000 personas registra 45 phrases pro die.</string>
+    <string name="copie_string" comment="Toast message">Copiate</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Un nove version del application es disponibile (version {{*{{n_version}}*}}). Tu pote actualisar lo per tu magazin favorite (F-Droid, Google Play Store) o directemente per GitHub.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Un nove version del application es disponibile (version {{*{{n_version}}*}}). Tu pote actualisar lo ex tu favorite magazinage (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) o directemente de GitHub.</string>
 </resources>

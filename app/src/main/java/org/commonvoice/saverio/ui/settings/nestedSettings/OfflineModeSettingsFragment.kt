@@ -85,6 +85,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             theme.setElements(requireContext(), settingsSectionOfflineMode)
 
             theme.setElement(requireContext(), 3, settingsSectionOfflineMode)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionOfflineMode, textSize = 20F)
         }
     }
 

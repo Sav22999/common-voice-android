@@ -300,14 +300,35 @@ If you specified the id, you will get just one result, so `1` which contains the
 | Key           | Value             | Explanation                                                  |
 | ------------- | ----------------- | ------------------------------------------------------------ |
 | `id`          | *Integer*         | It's the message id                                          |
-| `type`        | *Integer*\|`NULL` | It indicated the message type. If it's different to , `NULL`, the app will open a popup instead of a banner. Popup supported are: `1` (standard), `5` (info), `6` (help), `7` (warning), `8` (news/changelog),`9` (tip).<br />`NULL` (default value) means it's a **banner**. |
+| `type`        | *Integer*\|`NULL` | It indicates the message type. If it's different to , `NULL`, the app will open a popup instead of a banner. Popup supported are: `1` (standard), `5` (info), `6` (help), `7` (warning), `8` (news/changelog),`9` (tip).<br />`NULL` (default value) means it's a **banner**. |
+| `user`        | *String*\|`NULL`  | If this field is not `NULL`, so it means `versionCode`, `language` and `source` are ignored.<br />This field indicates the userid (`::CVAppSav`) of the user you want to send a message. |
 | `versionCode` | *Integer*\|`NULL` | It indicates the goal app version code.<br />`NULL` (default value) means the message is for all version codes. |
 | `language`    | *String\|`NULL`*  | It's the goal language for the message (language code supported in the app).<br />`NULL` (default value) means the message is for all languages. |
 | `source`      | *String*\|`NULL`  | It indicates the store where the app has been installed (Google Play, F-Droid, etc.).<br />`NULL` (default value) means the message is for all stores (`GPS`, `FD-GH`, `HAG`). |
 | `startDate`   | *Date*\|`NULL`    | It indicates the start date the message is valid.<br />`NULL` (default value) means there isn't a specified start date ("from"). |
 | `endDate`     | *Date*\|`NULL`    | It indicates the end date the message is valid.<br />`NULL` (default value) means there isn't a specified end date ("until"). |
 | `text`        | *Text*            | It's the actual text the banner show contains.               |
+| `ableToClose` | *Boolean*         | If `true` it means the message can be closed (with the button "X"), otherwise the "X" button is hidden. |
 | `button1`     | *Text*\|`NULL`    | It's the text of the first button.<br />`NULL` (default value) means buttons are not required for this message. |
 | `button1Link` | *Text*            | It's the link of the first button.<br />If `button1` is not `NULL`, the link is required. |
 | `button2`     | *Text\|`NULL`*    | It's the text of the second button.<br />`NULL` (default value) means the second button is not required for this message. |
 | `button2Link` | *Text*            | It's the link of the second  button.<br />If `button2` is not `NULL`, the link is required. |
+
+## Languages
+
+### GET
+
+#### Request
+
+To get in-app messages you need to do a `GET request` to https://www.saveriomorelli.com/api/common-voice-android/v2/languages/.
+
+#### Response
+
+You will get all supported languages in the app. For each language (the code) you will get also these details:
+
+| Key          | Value     | Explanation                                                  |
+| ------------ | --------- | ------------------------------------------------------------ |
+| `native`     | *String*  | It's the native name of the language                         |
+| `english`    | *String*  | It's the name of the language in English                     |
+| `crowdin`    | *Boolean* | Indicates the language exists or not on Crowdin (`false`: not exists/not supported, `true`: supported) |
+| `percentage` | *Integer* | It's the translation percentage of the app (on Crowdin). If the language is not present of Crowdin, the percentage is 0 |

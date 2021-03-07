@@ -1,0 +1,2 @@
+Personnalisez l'interface
+Mode hors-ligne et mode sombre

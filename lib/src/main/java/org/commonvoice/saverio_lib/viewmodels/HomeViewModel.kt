@@ -5,14 +5,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
-import org.commonvoice.saverio_lib.repositories.GithubRepository
+import org.commonvoice.saverio_lib.models.Message
 import org.commonvoice.saverio_lib.preferences.LogPrefManager
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.repositories.FileLogsRepository
+import org.commonvoice.saverio_lib.repositories.GithubRepository
 import org.commonvoice.saverio_lib.repositories.StatsRepository
-import timber.log.Timber
 
 class HomeViewModel(
+    private val prefManager: MainPrefManager,
     private val statsRepository: StatsRepository,
     private val githubRepository: GithubRepository,
     private val settingsPrefManager: SettingsPrefManager,
@@ -45,15 +47,38 @@ class HomeViewModel(
     fun postFileLog(
         versionCode: Int,
         appSource: String
-    ) {
-        viewModelScope.launch {
-            if (!logPrefManager.isLogFileSent) {
-                fileLogsRepository.postFileLog(
-                    versionCode.toString(),
-                    appSource,
-                    logPrefManager.stackTrace
-                )
-            }
+    ) = viewModelScope.launch {
+        if (!logPrefManager.isLogFileSent) {
+            fileLogsRepository.postFileLog(
+                versionCode.toString(),
+                appSource,
+                logPrefManager.stackTrace
+            )
         }
     }
+
+    fun getLastBannerMessage(): LiveData<Message> = liveData {
+        statsRepository.getNewMessages()
+            .filter { it.type == null }
+            .filterNot { it.id in prefManager.shownMessagesId }
+            .firstOrNull()
+            ?.let {
+                emit(it)
+            }
+    }
+
+    fun getOtherMessages(): LiveData<List<Message>> = liveData {
+        statsRepository.getNewMessages()
+            .filter { it.type != null }
+            .filterNot { it.id in prefManager.shownMessagesId }
+            .let {
+                emit(it)
+            }
+    }
+
+    fun markMessageAsSeen(message: Message) {
+        prefManager.shownMessagesId = prefManager.shownMessagesId.toMutableList()
+            .also { it.add(message.id) }
+    }
+
 }

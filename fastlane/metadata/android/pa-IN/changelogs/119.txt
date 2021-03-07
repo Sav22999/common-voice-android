@@ -1,0 +1,10 @@
+★ Changelogs ★
+- Updated/New badges
+- General improvements
+- Fixed many bugs
+- Login with verification code
+- Clips validation guidelines button also in the first-run tutorial
+- Improved the Profile section
+- Added Splash-screen
+
+You can see more details here: https://www.saveriomorelli.com/commonvoice/release/2-1/

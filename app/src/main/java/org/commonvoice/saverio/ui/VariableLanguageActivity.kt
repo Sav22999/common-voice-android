@@ -14,7 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.DarkLightTheme
-import org.commonvoice.saverio.utils.TranslationLanguages
+import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
@@ -43,13 +43,16 @@ abstract class VariableLanguageActivity : AppCompatActivity {
 
     protected val theme: DarkLightTheme by inject()
 
+    private val translationHandler by inject<TranslationHandler>()
+
     override fun attachBaseContext(newBase: Context) {
         val tempLang = mainPrefManager.language
-        var lang = tempLang.split("-")[0]
-        if (!TranslationLanguages.isSupported(lang)) {
-            lang = TranslationLanguages.defaultLanguage
+        val lang = tempLang.split("-")[0]
+        if (translationHandler.isLanguageSupported(lang)) {
+            super.attachBaseContext(newBase.wrap(Locale(lang)))
+        } else {
+            super.attachBaseContext(newBase.wrap(Locale(TranslationHandler.DEFAULT_LANGUAGE)))
         }
-        super.attachBaseContext(newBase.wrap(Locale(lang)))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

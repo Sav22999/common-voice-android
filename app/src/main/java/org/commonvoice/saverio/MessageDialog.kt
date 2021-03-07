@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.net.Uri
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
@@ -154,6 +155,11 @@ class MessageDialog : KoinComponent {
                             dialogView.imageCopyText.isGone = false
                             dialogView.imageCopyText.setOnClickListener {
                                 clipboardManager.setPrimaryClip(clipData)
+                                Toast.makeText(
+                                    this.context,
+                                    R.string.copie_string,
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                         }
                         dialogView.btnOkMessageDialog.setOnClickListener {
@@ -186,7 +192,27 @@ class MessageDialog : KoinComponent {
 
                         var seekBar = dialogView.seekDailyGoalValue
                         seekBar.progress = this.dailyGoalValue
-                        setDailyGoalValue(dialogView.labelDailyGoalValue, seekBar.progress)
+                        setDailyGoalValue(
+                            dialogView.labelDailyGoalValue,
+                            seekBar,
+                            seekBar.progress,
+                            true
+                        )
+
+                        var imagePlus = dialogView.imageSeekbarPlusDailygoal
+                        var imageMinus = dialogView.imageSeekbarMinusDailygoal
+
+                        var forcedValue = false
+
+                        imageMinus.setOnClickListener {
+                            forcedValue = true
+                            seekBar.progress -= 1
+                        }
+
+                        imagePlus.setOnClickListener {
+                            forcedValue = true
+                            seekBar.progress += 1
+                        }
 
                         seekBar.setOnSeekBarChangeListener(object :
                             SeekBar.OnSeekBarChangeListener {
@@ -195,7 +221,13 @@ class MessageDialog : KoinComponent {
                                 progress: Int, fromUser: Boolean
                             ) {
                                 //onProgress
-                                setDailyGoalValue(dialogView.labelDailyGoalValue, seek.progress)
+                                setDailyGoalValue(
+                                    dialogView.labelDailyGoalValue,
+                                    seekBar,
+                                    seek.progress,
+                                    forcedValue
+                                )
+                                forcedValue = false
                             }
 
                             override fun onStartTrackingTouch(seek: SeekBar) {
@@ -204,7 +236,13 @@ class MessageDialog : KoinComponent {
 
                             override fun onStopTrackingTouch(seek: SeekBar) {
                                 //onStop
-                                setDailyGoalValue(dialogView.labelDailyGoalValue, seek.progress)
+                                setDailyGoalValue(
+                                    dialogView.labelDailyGoalValue,
+                                    seekBar,
+                                    seek.progress,
+                                    forcedValue
+                                )
+                                forcedValue = false
                             }
                         })
                         val builder =
@@ -349,18 +387,24 @@ class MessageDialog : KoinComponent {
         }
     }
 
-    fun setDailyGoalValue(textBox: TextView, value: Int) {
-        if (value == 0) {
+    fun setDailyGoalValue(textBox: TextView, seekBar: SeekBar, value: Int, force: Boolean = false) {
+        var valueToUse = value - (value % 5)
+        if (force) valueToUse = value
+        if (valueToUse == 0) {
             textBox.text =
                 context!!.getString(R.string.daily_goal_is_not_set)
-            textBox.textSize = 22.toFloat()
+            textBox.textSize = 22F * mainPrefManager.textSize
             textBox.typeface = Typeface.DEFAULT
         } else {
-            textBox.text = value.toString()
-            textBox.textSize = 30.toFloat()
+            textBox.text = valueToUse.toString()
+            textBox.textSize = 30F * mainPrefManager.textSize
             textBox.typeface = ResourcesCompat.getFont(context!!, R.font.sourcecodepro)
         }
-        this.dailyGoalValue = value
+        this.dailyGoalValue = valueToUse
+
+        if (value % 5 > 0 || force) {
+            seekBar.progress = valueToUse
+        }
     }
 
     private fun checkDeleteButtonDeviceScreen(buttonDelete: Button) {
@@ -409,6 +453,10 @@ class MessageDialog : KoinComponent {
             dialogView.imageMessageType.setBackgroundResource(R.drawable.ic_tip)
             dialogView.textMessageType.text = view.getString(R.string.text_tip)
         }
+        dialogView.textMessageType.setTextSize(
+            TypedValue.COMPLEX_UNIT_SP,
+            30F * mainPrefManager.textSize
+        )
     }
 
     private fun setImageNoWifi(view: Context, dialogView: View, isDark: Boolean) {
@@ -451,7 +499,8 @@ class MessageDialog : KoinComponent {
                     dialogView.findViewById(R.id.labelDetailsMessageDialog) as TextView,
                     R.color.colorAlertMessage,
                     R.color.colorAlertMessageDT,
-                    invert = message_type == 2
+                    invert = message_type == 2,
+                    textSize = 15F
                 )
                 theme.setElement(
                     view,
@@ -498,7 +547,22 @@ class MessageDialog : KoinComponent {
                     view,
                     dialogView.findViewById(R.id.labelTextAlertDailyGoalFeature) as TextView,
                     R.color.colorAlertMessage,
-                    R.color.colorAlertMessageDT
+                    R.color.colorAlertMessageDT,
+                    textSize = 15F
+                )
+                theme.setElement(
+                    view,
+                    dialogView.findViewById(R.id.subtitleMotivationDailyGoal) as TextView,
+                    R.color.colorGray,
+                    R.color.colorLightGray,
+                    textSize = 15F
+                )
+                theme.setElement(
+                    view,
+                    dialogView.findViewById(R.id.textMotivationDailyGoal) as TextView,
+                    R.color.colorGray,
+                    R.color.colorLightGray,
+                    textSize = 15F
                 )
                 theme.setElement(
                     view,
@@ -523,6 +587,14 @@ class MessageDialog : KoinComponent {
                 theme.setElement(
                     view,
                     dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
+                )
+
+                val seekBar = dialogView.findViewById(R.id.seekDailyGoalValue) as SeekBar
+                setDailyGoalValue(
+                    dialogView.labelDailyGoalValue,
+                    seekBar,
+                    seekBar.progress,
+                    true
                 )
             }
             10 -> {
@@ -562,7 +634,8 @@ class MessageDialog : KoinComponent {
                 )
                 theme.setElement(
                     view,
-                    dialogView.findViewById(R.id.checkDoNotShowAnymoreOfflineMode) as CheckBox
+                    dialogView.findViewById(R.id.checkDoNotShowAnymoreOfflineMode) as CheckBox,
+                    textSize = 18F
                 )
 
                 setImageNoWifi(view, dialogView, theme.isDark)

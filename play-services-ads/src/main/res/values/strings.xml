@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="admob_app_id" translatable="false">ca-app-pub-4441008333572114~9393374757</string>
+
+    <string name="admob_banner_ad_test" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="admob_banner_ad_home" translatable="false">ca-app-pub-4441008333572114/6536517793</string>
+    <string name="admob_banner_ad_speak" translatable="false">ca-app-pub-4441008333572114/1921473605</string>
+    <string name="admob_banner_ad_listen" translatable="false">ca-app-pub-4441008333572114/3035244727</string>
+
+</resources>

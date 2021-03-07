@@ -40,6 +40,8 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
             theme.setElements(requireContext(), settingsSectionExperimental)
 
             theme.setElement(requireContext(), 3, settingsSectionExperimental)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionExperimental, textSize = 20F)
         }
     }
 }

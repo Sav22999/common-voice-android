@@ -1,0 +1,2 @@
+- Bugfix in Listen: Mozilla changed API Reponse
+- Updated Arabic language

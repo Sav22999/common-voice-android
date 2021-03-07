@@ -1,0 +1,6 @@
+- Added level in Profile
+- Improved UI/UX
+- Reorganised Settings
+- Added auto-play clip in Listen
+- Added "You" statistics for "Today"
+- Fixed some bugs

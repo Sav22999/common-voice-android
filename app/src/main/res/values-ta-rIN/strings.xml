@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">தவிர்</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
@@ -93,7 +93,7 @@
     <string name="txt_log_on_file" comment="Switch-Button in Settings">பதிவுகளை ஒரு கோப்பில் சேமிக்கவும்</string>
     <string name="toast_log_on_file_on" comment="Message text">ஒரு கோப்பில் பதிவுகளைச் சேமிக்கிறது.\nநீங்கள் சிக்கலைப் புகாரளிக்கும்போது log.txt கோப்பை இணைக்கலாம்.\nGitHub இல் மேலும் வாசிக்க.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -124,7 +124,12 @@
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">தவிர்</string>
@@ -240,11 +245,11 @@
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">நல்லது! உங்கள் தினசரி இலக்கை நீங்கள் அடைந்துவிட்டீர்கள்.\nநீங்கள் {{*{{n_clips}}*}} உச்சரிப்புகளை சரிபார்த்துள்ளீர்கள் மற்றும் {{*{{n_sentences}}*}} வாக்கியங்களுக்கு உச்சரிப்புகளை பங்களித்துள்ளீர்கள்.\nதCommon Voice-ல் தொடர்ந்து பங்களிக்கவும்.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
     <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">இந்த தினசரி இலக்கு அதிகாரப்பூர்வ Mozilla அம்சம் அல்ல. இது இந்த செயலியின் ஒரு அம்சம் மட்டுமே.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
+    <string name="copie_string" comment="Toast message">Copied</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">செயலியின் புதிய பதிப்பு(வெளியீடு : {{*{{n_version}}*}}) கிடைக்கிறது. நீங்கள் Google Play Store/F-Droid அல்லது நேரடியாக Github-ல் இருந்து புதுப்பிக்கலாம்.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
 </resources>

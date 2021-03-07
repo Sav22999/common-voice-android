@@ -9,9 +9,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import kotlinx.android.synthetic.main.fragment_advanced_settings.*
+import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -66,6 +68,33 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 logPrefManager.saveLogFile = isChecked
             }
             switchSaveLogToFile.isChecked = logPrefManager.saveLogFile
+
+            switchHomeAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
+                "{{*{{section_name}}*}}",
+                getString(R.string.title_home)
+            )
+            switchHomeAds.setOnCheckedChangeListener { _, isChecked ->
+                mainPrefManager.showAdBanner = isChecked
+            }
+            switchHomeAds.isChecked = mainPrefManager.showAdBanner
+
+            switchListenAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
+                "{{*{{section_name}}*}}",
+                getString(R.string.settingsListen)
+            )
+            switchListenAds.setOnCheckedChangeListener { _, isChecked ->
+                listenPrefManager.showAdBanner = isChecked
+            }
+            switchListenAds.isChecked = listenPrefManager.showAdBanner
+
+            switchSpeakAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
+                "{{*{{section_name}}*}}",
+                getString(R.string.settingsSpeak)
+            )
+            switchSpeakAds.setOnCheckedChangeListener { _, isChecked ->
+                speakPrefManager.showAdBanner = isChecked
+            }
+            switchSpeakAds.isChecked = speakPrefManager.showAdBanner
 
             buttonOpenTutorialAgain.setOnClickListener {
                 Intent(requireContext(), FirstLaunch::class.java).also {
@@ -157,8 +186,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             theme.setElement(layoutSettingsAdvanced)
 
             theme.setElements(requireContext(), settingsSectionAdvanced)
+            theme.setElements(requireContext(), settingsSectionAdvancedAds)
 
             theme.setElement(requireContext(), 3, settingsSectionAdvanced)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedAds)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionAdvanced, textSize = 20F)
         }
     }
 

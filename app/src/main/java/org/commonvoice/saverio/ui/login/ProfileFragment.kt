@@ -163,7 +163,8 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
             requireContext(),
             labelToModifyInformation,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT
+            R.color.colorAlertMessageDT,
+            textSize = 15F
         )
         theme.setTextView(
             requireContext(),

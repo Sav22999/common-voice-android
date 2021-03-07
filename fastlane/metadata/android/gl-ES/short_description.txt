@@ -1,0 +1,1 @@
+Esta app permítelle colaborar co proxecto de Mozilla Common Voice desde o móbil.

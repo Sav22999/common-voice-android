@@ -1,0 +1,2 @@
+Personalizar a interface de usuario
+Modo desconectado, tema escuro

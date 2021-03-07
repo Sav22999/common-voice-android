@@ -1,0 +1,5 @@
+- Added Spanish and Czech translations
+- Added "Back" button in the Login
+- Fixed some bugs
+- Updated all translations
+- Improved the UI

@@ -11,6 +11,7 @@
         <item name="android:colorAccent">@color/colorPrimaryDark</item>
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimaryDark</item>
+        <item name="colorSurface">@color/design_default_color_surface</item>
         <!--<item name="android:actionBarSize">1dp</item> -->
         <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>

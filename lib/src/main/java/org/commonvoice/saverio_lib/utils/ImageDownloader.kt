@@ -54,7 +54,7 @@ object ImageDownloader {
             if (bitmap != null) {
                 imageView.setImageBitmap(bitmap)
             } else {
-                imageView.setImageResource(R.drawable.ic_profileimagerobot)
+                imageView.setImageResource(R.drawable.robot_half_bust)
             }
 
             imageView.isGone = false
