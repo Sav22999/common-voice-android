@@ -19,9 +19,9 @@
     <string name="dashboardTabYou">Vi</string>
     <string name="dashboardTabEveryone">Ĉiuj</string>
     <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Hodiaŭ</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Ekde ĉiam</string>
+    <string name="toastNoLoginNoStatistics">Vi devas saluti por vidi vian statistikaron</string>
+    <string name="toastNoLoginNoDailyGoal">Vi devas saluti por agordi la ĉiutagan celon</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Horo</string>
     <string name="txt_top_contributors">Plej bonaj kontribuistoj</string>
@@ -30,17 +30,17 @@
     <string name="txt_app_statistics" comment="Title in Dashboard">Aplikaĵa statistikoj</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Aktuala lingvo</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Ĉiuj lingvoj</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="txt_not_available_offline" comment="Message text">Ne disponebla senrete</string>
     <!-- First launch -->
     <string name="btn_tutorial1" comment="Button">Komenci</string>
     <string name="btn_tutorial2" comment="Button">Permesi</string>
-    <string name="btn_tutorial3" comment="Button">Next</string>
+    <string name="btn_tutorial3" comment="Button">Sekva</string>
     <string name="btn_tutorial4" comment="Button">Reprovi</string>
     <string name="btn_tutorial5" comment="Button">Fini</string>
     <string name="btn_skip" comment="Button">Preterlasi</string>
-    <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Permeso akceptita</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Miso: permeso rifuzita</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project estas neoficiala aplikprogramo por Mozilla Common Voice. Ĝi estas kreita de Saverio Morelli sen ia subteno aŭ kunlaboro je Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
