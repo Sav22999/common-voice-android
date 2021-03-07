@@ -12,7 +12,9 @@ import org.commonvoice.saverio_lib.models.Message
 class MessageWarningDialog(
     private val context: Context,
     private val message: Message,
-) : CustomDialogInterface<MessageWarningDialogBinding>() {
+) : CustomDialogInterface<MessageWarningDialogBinding>(
+    makeBackgroundTransparent = true
+) {
 
     override fun render(inflater: LayoutInflater): MessageWarningDialogBinding {
         return MessageWarningDialogBinding.inflate(inflater).also { binding ->
@@ -20,9 +22,11 @@ class MessageWarningDialog(
             message.button1Text?.let { text ->
                 binding.btnOkMessageDialog.text = text
             }
-            message.button1Link?.let { link ->
+            message.button1Link.let { link ->
                 binding.btnOkMessageDialog.onClick {
-                    context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                    if (link != null) {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                    }
                     dismiss()
                 }
             }

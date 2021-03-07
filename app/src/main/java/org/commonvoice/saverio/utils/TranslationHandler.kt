@@ -25,7 +25,7 @@ class TranslationHandler(
     }
 
     fun isLanguageSupported(languageCode: String): Boolean {
-        return availableLanguages.count { it.languageCode == languageCode } > 0
+        return availableLanguages.count { it.languageCode == languageCode} > 0
     }
 
     fun isLanguageComplete(languageCode: String): Boolean {
