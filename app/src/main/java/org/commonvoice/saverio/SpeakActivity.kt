@@ -623,18 +623,15 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         //val height = metrics.heightPixels
         var newValue = 0
 
-        if (dailyGoal == 0 || sum == 0 || sum >= dailyGoal) {
+        if (dailyGoal == 0 || sum == 0) {
             newValue = width / 2
-            setProgressBarColour(progressBar, forced = true, color = color)
+            setProgressBarColour(progressBar, forced = true, color)
         } else {
             //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
-            val tempContributions =
-                (currentContributions.toFloat() * dailyGoal.toFloat()) / sum.toFloat()
             newValue =
-                ((tempContributions / dailyGoal.toFloat()) * width).toInt()
+                ((currentContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
+            setProgressBarColour(progressBar, forced = false, color = color)
         }
-
-        println("Dailygoal: " + dailyGoal + "   " + "Sum: " + sum)
 
         if (mainPrefManager.areAnimationsEnabled) {
             animationProgressBar(progressBar, view.width, newValue)
