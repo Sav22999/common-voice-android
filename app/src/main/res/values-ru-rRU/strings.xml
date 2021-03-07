@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Пропустить</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Получено разрешение</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Ошибка: разрешение отказано</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project - неофициальное приложение для Mozilla Common Voice. Оно разработано Saverio Morelli без какой-либо поддержки или партнерства с Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Продолжая, вы соглашаетесь с условиями использования Mozilla Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Для записи голоса приложению требуется разрешение \"Микрофон\".</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Вы можете сообщать об ошибках на GitHub или Telegram. Чтобы помочь разработчику быстро понять проблему, вы должны прикрепить лог файл приложения к отчету. Приложению требуется разрешение \"Хранилище\", чтобы сохранить лог файл.</string>
@@ -66,7 +66,7 @@
     <string name="btn_badges_loggedin" comment="Button">Все бейджи</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Уровень {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">Поздравляем! Вы только что достигли уровня {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">У меня уже есть проверочная ссылка</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
     <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
@@ -78,12 +78,12 @@
     <string name="settingsListen" comment="Title in Settings">Слушать</string>
     <string name="settingsSpeak" comment="Title in Settings">Говорить</string>
     <string name="settingsOther" comment="Title in Settings">Другой</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="settingsGeneral" comment="Title in Settings">Общее</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Полезные ссылки</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Дополнительная информация</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Светлая</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Темная</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Авто</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Поддержите мою работу. Купите мне кофе 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Проигрывать запись автоматически при загрузке</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Темная тема</string>
@@ -92,13 +92,13 @@
     <string name="toast_experimental_features_on" comment="Message text">Экспериментальные функции включены.\nНовые возможности могут быть нестабильными и небезопасными.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Сохранить журналы в файл</string>
     <string name="toast_log_on_file_on" comment="Message text">Сохранение журналов в файл включено.\nВы можете прикрепить файл log.txt, когда сообщаете о проблеме.\nПодробнее читайте на GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Общая статистика</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Статистика использования приложения</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Пропустить подтверждение записи</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Пропустить подтверждение записи.\nТеперь вы сможете отправлять записи без необходимости прослушивать их.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Перевести приложение на Crowdin</string>
@@ -112,22 +112,24 @@
     <string name="txt_animations" comment="Switch-Button in Settings">Анимация</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Изменить размер шрифта</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Настройка жестов</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">Тема</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram группа приложения</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Показывать метки под значками меню</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Оцените нас на Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Интерфейс пользователя</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Дополнительно</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Сохранить записи на устройстве</string>
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ads banner</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Показывать текст предложений, когда клипы прослушиваются полностью</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Размер текста</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Загрузка предложения...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропустить</string>
@@ -176,8 +178,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">На Common Voice Server появилось больше новых предложений. Повторите попытку позже или обратитесь в Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">На сервере Common Voice больше нет клипов. Попробуйте позже или попробуйте связаться с Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Проверить снова</string>
     <string name="txt_noconnection" comment="Message text">Вы не подключены к Интернету. Подключитесь к Wi-Fi или мобильной сети, затем нажмите кнопку ниже.</string>
@@ -199,7 +201,7 @@
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Если клип соответствует предложению, нажмите на этот значок, чтобы принять его.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Если клип не соответствует предложению, нажмите на этот значок, чтобы отклонить его.</string>
     <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Прочитать сейчас</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">К сожалению, эта функция пока не существует.\nМы постоянно работаем над улучшением приложения, поэтому проверьте позже, чтобы убедиться, что она была добавлена.</string>
     <!-- Badges -->
@@ -241,13 +243,13 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Достигнуто сегодня</string>
     <string name="daily_goal_not_achieved_today">Сегодня не достигнуто</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Отлично! Вы достигли своей ежедневной цели.\nВы утвердили {{*{{n_clips}}*}} клип(ы) и записали {{*{{n_sentences}}*}} предложения(и).\nНе стесняйтесь продолжать вносить свой вклад в общий голос.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Поделиться</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Поделиться в</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Эта ежедневная цель не является официальной функцией Mozilla. Это только функция этого приложения.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Ты знал, что ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 часов можно достичь всего за 6 месяцев, если 1000 человек записывают 45 клипов в день.</string>
+    <string name="copie_string" comment="Toast message">Скопировано</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Доступна новая версия приложения (релиз {{*{{n_version}}*}}). Вы можете обновить его из своего любимого магазина (F-Droid, Google Play) или прямо с GitHub.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
 </resources>

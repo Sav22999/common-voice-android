@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Preskočiť</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Povolenie úspešné</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Chyba: Povolenie neúspešné</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android je neoficiálna aplikácia pre Mozilla Common Voice. Je vyvíjana developerom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project je neoficiálna aplikácia pre Mozilla Common Voice. Je vyvíjaná vývojárom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Pokračovaním súhlasíte so Všeobecnými podmienkami používania Mozilla Common Voice aplikácie.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Táto aplikácia potrebuje prístup k povoleniu \"Mikrofón\" aby mohla nahrávať Váš hlas.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Chyby môžete nahlasovať na GitHub alebo Telegram. Pre ľahšie a rýchlejšie vyriešenie chyby, zvážte pridanie záznamového súboru appky do Vášho hlásenia. Aplikácia potrebuje prístup ku právu \"Úložisko\" pre uloženie záznamového súboru.</string>
@@ -124,10 +124,12 @@
     <string name="txt_reset_data" comment="Button in Settings">Obnoviť dáta aplikácie</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Momentálne nie sú k dispozícií žiadne experimentálne funkcie</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Zobrazovať text vety, keď ste dokončili posluch</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Zobraziť ikonu nahlasovania (vpravo hore) namiesto tlačítka (dole) v {{*{{listen_name}}*}} a {{*{{speak_name}}*}}</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Zobraz ikonu nahlásenia (hore-vpravo) namiesto tlačidla (dole)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Veľkosť textu</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Bannerové reklamy</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Reklamný banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Zapnúť bannerové reklamy v {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Farebný ukazovateľ denného cieľa</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} a {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Načítava sa veta...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Preskočiť</string>
@@ -243,11 +245,11 @@
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Skvelá práca! Dosiahol si denný cieľ.\nDnes overené nahrávky - {{*{{n_clips}}*}}, dnes nahraté nahrávky - {{*{{n_sentences}}*}}.\nPokračuj aj naďalej v prínosoch do Common Voice.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Zdielať</string>
     <string name="share_daily_goal_title" comment="Title of panel">Zdielať na</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Práve som dosiahol svoj denný cieľ na @mozilla #CommonVoice v aplikácii #CVAndroid.\nPripojte sa a prispievajte! Nainštalujte si CV Android na Google Play alebo F-Droid práve teraz {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Práve som dosiahol svoj denný cieľ na @mozilla #CommonVoice v aplikácii #CVProject.\nPripojte sa a prispievajte! Nainštalujte si CV Project na Google Play, F-Droid alebo Huawei AppGallery práve teraz {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Denný cieľ nie je oficiálna Mozilla funkcia. Je to iba funkcia tejto aplikácie.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Vedeli ste že ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">Je možné dosiahnuť 10,000 hodín iba za 6 mesiacov, ak 1,000 ľudí nahrá 45 nahrávok denne.</string>
+    <string name="copie_string" comment="Toast message">Skopírované</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Nová verzia aplikácie je dostupná (verzia {{*{{n_version}}*}}). Môžeš si ju stiahnuť cez svoj obľúbený obchod (F-Droid, Google Play Store) alebo priamo z GitHub.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Nová verzia aplikácie je dostupná (verzia {{*{{n_version}}*}}). Môžeš si ju stiahnuť cez svoj obľúbený obchod (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) alebo priamo z GitHub.</string>
 </resources>

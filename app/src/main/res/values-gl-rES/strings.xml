@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Saltar</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permiso obtido</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Erro: permiso denegado</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android non é unha app oficial de Mozilla Common Voice. Desenvólvea Saverio Morelli sen ningún apoio nin asociación con Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project é unha app non oficial para Mozilla Common Voice. Desenvólvea Saverio Morelli sen ningún apoio nin asociación con Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Ao continuar, acepta os Termos de servizo de Mozilla Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Esta app necesita permiso para acceder ao «Micrófono» co que gravar a súa voz.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Pode informar de fallos en GitHub ou Telegram. Para axudar o desenvolvedor a que comprenda a incidencia, debería achegar o ficheiro de rexistro da app no seu informe. A app necesita, pois, permiso de acceso ao «Almacenamento» para gardar o ficheiro de rexistro.</string>
@@ -124,10 +124,12 @@
     <string name="txt_reset_data" comment="Button in Settings">Restabelecer os datos da app</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Ningunha funcionalidade experimental está dispoñíbel neste intre</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Amosar o texto das frases cando despois de escoitar o fragmento</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Amosar a icona de informe (arriba-dereita) en vez de botón (abaixo) en {{*{{listen_name}}*}} e {{*{{speak_name}}*}}</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Tamaño do texto</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Faixa de anuncios</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activar a faixa de anuncios en {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargando a frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Omitir</string>
@@ -243,11 +245,11 @@
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Ben feito! Acadou o obxectivo diario.\nValidou {{*{{n_clips}}*}} gravación(s) e gravou {{*{{n_sentences}}*}} frase(s).\nNon dubide en seguir contribuíndo a Common Voice.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Compartir</string>
     <string name="share_daily_goal_title" comment="Title of panel">Compartir en</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Acadei o meu obxectivo diario de @mozilla #CommonVoice utilizando #CVAndroid.\nParticipe e colabore! Instale CV Android de Google Play ou F-Droid agora {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Acadei o meu obxectivo diario de @mozilla #CommonVoice utilizando #CVProject.\nParticipe e colabore! Instale CV Project desde Google Play, F-Droid ou Huawei AppGallery agora {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">O obxectivo diario non é unha funcionalidade oficial de Mozilla. Só é unha funcionalidade desta app.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Sabía que ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 horas son acadábeis en só 6 meses se 1.000 persoas fan 45 gravacións diarias.</string>
+    <string name="copie_string" comment="Toast message">Copiado</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Unha nova versión da app está dispoñíbel (edición {{*{{n_version}}*}}). Pode actualizala na súa tenda favorita (F-Droid, Google Play Store) ou directamente desde GitHub.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Xa está dispoñíbel unha nova versión da aplicación (edición {{*{{n_version}}*}}). Pode actualizala na súa tenda favorita (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) ou directamente desde GitHub.</string>
 </resources>

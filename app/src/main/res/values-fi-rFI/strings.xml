@@ -2,252 +2,254 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">en</string>
+    <string name="language">fi</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_home">Koti</string>
+    <string name="title_dashboard">Hallintasivu</string>
+    <string name="title_settings">Asetukset</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Sign up</string>
-    <string name="button_home_logout">Log out</string>
-    <string name="button_home_profile">Profile</string>
-    <string name="text_hi_username">Hi</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="button_home_login">Kirjaudu sisään / Rekisteröidy</string>
+    <string name="button_home_logout">Kirjaudu ulos</string>
+    <string name="button_home_profile">Profiili</string>
+    <string name="text_hi_username">Hei</string>
+    <string name="message_log_in_again">Istunnon tunniste on vanhentunut, sinun pitää kirjautua sisään uudelleen</string>
     <!-- Dashboard -->
-    <string name="dashboardStatistics">Statistics</string>
-    <string name="dashboardVoicesOnline">Voices online</string>
-    <string name="dashboardTabYou">You</string>
-    <string name="dashboardTabEveryone">Everyone</string>
-    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Today</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
-    <string name="textHoursAbbreviation">h</string>
-    <string name="textHour">Hour</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="dashboardStatistics">Tilastot</string>
+    <string name="dashboardVoicesOnline">Ääniä verkossa</string>
+    <string name="dashboardTabYou">Sinä</string>
+    <string name="dashboardTabEveryone">Kaikki</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Tänään</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Koskaan</string>
+    <string name="toastNoLoginNoStatistics">Sinun täytyy kirjautua sisään nähdäksesi tilastosi</string>
+    <string name="toastNoLoginNoDailyGoal">Sinun täytyy kirjautua sisään asettaaksesi päivittäisen tavoitteen</string>
+    <string name="textHoursAbbreviation">t</string>
+    <string name="textHour">Tunti</string>
+    <string name="txt_top_contributors">Eniten osallistuneet</string>
+    <string name="txt_top_contributors_recorded">Nauhoitettu</string>
+    <string name="txt_top_contributors_validated">Vahvistettu</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Sovelluksen tilastot</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Nykyinen kieli</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Kaikki kielet</string>
+    <string name="txt_not_available_offline" comment="Message text">Ei käytettävissä offline-tilassa</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Start</string>
-    <string name="btn_tutorial2" comment="Button">Permit</string>
-    <string name="btn_tutorial3" comment="Button">Next</string>
-    <string name="btn_tutorial4" comment="Button">Try again</string>
-    <string name="btn_tutorial5" comment="Button">Finish</string>
-    <string name="btn_skip" comment="Button">Skip</string>
-    <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">You can choose either light theme or dark theme. You can change this later in Settings.</string>
-    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Dark theme</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
-    <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
-    <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="btn_tutorial1" comment="Button">Aloita</string>
+    <string name="btn_tutorial2" comment="Button">Anna lupa</string>
+    <string name="btn_tutorial3" comment="Button">Seuraava</string>
+    <string name="btn_tutorial4" comment="Button">Yritä uudestaan</string>
+    <string name="btn_tutorial5" comment="Button">Valmis</string>
+    <string name="btn_skip" comment="Button">Ohita</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Käyttöoikeus saatu</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Virhe: käyttöoikeus estetty</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project on epävirallinen sovellus Mozillan Common Voicelle. Sen on kehittänyt Saverio Morelli ilman tukea tai kumppanuutta Mozillan kanssa.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Jatkamalla hyväksyt Mozillan Common Voicen käyttöehdot.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Tämä sovellus tarvitsee käyttöoikeuden mikrofoniin äänittääksesi ääntäsi.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Voit ilmoittaa virheistä GitHubissa tai Telegramissa. Auttaaksesi kehittäjää ymmärtämään ongelman nopeasti, sinun pitää liittää sovelluksen lokitiedosto raporttiisi. Sovellus tarvitsee \"Tallennustila\"-oikeuden tallentaakseen lokitiedoston.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Voit jopa osallistua kun olet offline-tilassa. Sovelluksen \"Offline-tila\" otetaan käyttöön automaattisesti, ja voit jatkaa nauhoitusta ja kuunnella ilman Internet-yhteyttä.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Voit valita joko vaalean tai tumman teeman. Voit vaihtaa tämän myöhemmin asetuksissa.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tumma teema</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Joillain toiminnoilla on vastaavia eleitä. Esimerkiksi voit ohittaa lauseen Puhu-osiossa pyyhkäisemällä vasemmalle.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Voit muokata näitä eleitä asetuksissa.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Voit liittyä Telegram-ryhmään saadaksesi uutisia ja tukea.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Liity ryhmään</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Mennään! Valitse mitä kieltä haluat puhua tai kuunnella. Sovellus näkyy myös sillä kielellä jos käännös on saatavilla.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading ...</string>
-    <string name="txt_profile_username" comment="Label in Profile">Username</string>
-    <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Age</string>
-    <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
-    <string name="txt_gender_male" comment="Label in Profile">Male</string>
-    <string name="txt_gender_female" comment="Label in Profile">Female</string>
-    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Other</string>
-    <string name="btn_badges_loggedin" comment="Button">All badges</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="txt_loading_page" comment="Label">Ladataan ...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Käyttäjänimi</string>
+    <string name="txt_profile_email" comment="Label in Profile">Sähköposti</string>
+    <string name="txt_profile_age" comment="Label in Profile">Ikä</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Sukupuoli</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Muokataksesi profiilitietojasi mene Common Voicen sivustolle.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Sisäänkirjautuminen onnistui!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Mies</string>
+    <string name="txt_gender_female" comment="Label in Profile">Nainen</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Muu</string>
+    <string name="btn_badges_loggedin" comment="Button">Kaikki merkit</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Taso {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Onnea! Olet juuri saavuttanut tason {{*{{n_level}}*}}.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Minulla on jo vahvistuslinkki</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Vahvistuslinkki</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Vahvistuslinkki ei ole kelvollinen</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
-    <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
-    <string name="txt_developed_by" comment="Label in Settings">developed by</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
-    <string name="settingsLanguage" comment="Title in Settings">Language</string>
-    <string name="settingsListen" comment="Title in Settings">Listen</string>
-    <string name="settingsSpeak" comment="Title in Settings">Speak</string>
-    <string name="settingsOther" comment="Title in Settings">Other</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
-    <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
-    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Dark theme</string>
-    <string name="contact_developer_on_telegram" comment="Button in Settings">Contact the developer on Telegram</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimental features</string>
-    <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
-    <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Avaa ohje uudestaan</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Avoimen lähdekoodin projekti GitHubissa</string>
+    <string name="txt_developed_by" comment="Label in Settings">kehittänyt</string>
+    <string name="toast_language_changed" comment="Message text">Kieli asetettu onnistuneesti kieleksi {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Kieli</string>
+    <string name="settingsListen" comment="Title in Settings">Kuuntelu</string>
+    <string name="settingsSpeak" comment="Title in Settings">Puhe</string>
+    <string name="settingsOther" comment="Title in Settings">Muu</string>
+    <string name="settingsGeneral" comment="Title in Settings">Yleiset</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Hyödyllisiä linkkejä</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Lisätietoja</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Vaalea</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Tumma</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automaattinen</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Tue työtäni. Osta minulle kahvia 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Toista klippi automaattisesti kun se on ladattu</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tumma teema</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Ota yhteyttä kehittäjään Telegramissa</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Kokeelliset ominaisuudet</string>
+    <string name="toast_experimental_features_on" comment="Message text">Kokeelliset ominaisuudet otettu käyttöön.\nUudet ominaisuudet voivat olla epävakaita ja epäturvallisia.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Tallenna lokit tiedostoon</string>
+    <string name="toast_log_on_file_on" comment="Message text">Lokien tallentaminen tiedostoon on käytössä.\nVoit liittää log.txt-tiedoston kun ilmoitat virheestä.\nLue lisää GitHubista.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Yleiset tilastot</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
-    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Skip recording confirmation</string>
-    <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
-    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Translate the app on Crowdin</string>
-    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">See app statistics</string>
-    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
-    <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
-    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Check for updates</string>
-    <string name="txt_gestures" comment="Switch-Button in Settings">Gestures</string>
-    <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
-    <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
-    <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
-    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Sovelluksen käyttötilastot</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Ohita nauhoituksen vahvistus</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Nauhoituksen vahvistuksen ohitus on kytketty päälle.\nVoit nyt lähettää nauhoituksia ilman että sinun tarvitsee kuunnella niitä ensin.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Käännä sovellusta Crowdinissa</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Katso sovelluksen tilastot</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Nauhoittamisen ilmaisinääni</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Nauhoittamisen ilmaisinääni on nyt kytketty päälle.\nÄäni toistuu kun aloitat ja lopetat nauhoittamisen.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Tarkista päivitykset</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Eleet</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Jos pidät tästä sovelluksesta, muista arvostella se Google Play Kaupassa.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Tätä sovellusta ei ole (kokonaan) käännetty tälle kielelle.\nVoit osallistua sovelluksen kääntämiseen Crowdinissa.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animaatiot</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Mukauta kirjasimen kokoa</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Mukauta eleitä</string>
+    <string name="title_theme_settings" comment="Title in Settings">Teema</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Sovelluksen Telegram-ryhmä</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ads banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Lue Mozillan Common Voicen käyttöehdot</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Lue vahvistamista koskevat ohjeet</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Arvostele Google Playssa</string>
+    <string name="title_ui_settings" comment="Option in Settings">Käyttöliittymä</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Lisäasetukset</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Tallenna nauhoitteet laitteelle</string>
+    <string name="txt_reset_data" comment="Button in Settings">Tyhjennä sovelluksen tiedot</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Kokeellisia ominaisuuksia ei ole nyt saatavilla</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Näytä lauseiden teksti kun klipit ovat kuunneltu kokonaan</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Tekstin koko</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Ota käyttöön mainosbanneri osiossa {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip...</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
-    <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>
-    <string name="txt_sentence_record_failed" comment="Label in Speak">Recording failed. Please try again.</string>
-    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
-    <string name="txt_listening_stopped" comment="Label in Speak">Listen to the whole recording to make sure it\'s correct.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Press the icon below to stop listening.</string>
-    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording...</string>
-    <string name="txt_recording_sent" comment="Label in Speak">Recording sent!</string>
-    <string name="txt_sending_recording_failed" comment="Message text">Failed to send recording!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Press the icon below to start the clip.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Press the icon below to stop the clip.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Press the icon below to play the clip again.</string>
-    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marked as correct!</string>
-    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marked as incorrect!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
-    <string name="txt_error_2_sending_failed" comment="Label in Listen">Failed to send the recording.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing...</string>
-    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. There are no more available clips for this language.</string>
-    <string name="button_report" comment="Button">Report</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
-    <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
-    <string name="button_send_report" comment="Button">Send report</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensive speech</string>
-    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report" comment="Checkbox">Different language</string>
-    <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report" comment="Checkbox">Other</string>
-    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
-    <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
-    <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Ladataan lausetta...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ohita</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Lähetä nauhoitus</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Ladataan klippiä...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Paina alla olevaa kuvaketta aloittaaksesi nauhoituksen.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Paina alla olevaa kuvaketta lopettaaksesi nauhoituksen.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Virke nauhoitettu. Kuuntele nauhoitus.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Nauhoittaminen epäonnistui. Yritä uudelleen.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Jos puhuit oikein, lähetä nauhoitus.\nJos puhuit väärin, voit nauhoittaa virkkeen uudelleen.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Kuuntele koko nauhoitus varmistaaksesi että se on oikea.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Paina alla olevaa kuvaketta lopettaaksesi kuuntemisen.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Nauhoitus on liian pitkä. Maksimikesto on 10 sekuntia.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Nauhoitus on liian lyhyt. Yritä uudelleen.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Lähetetään nauhoitusta...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Nauhoitus lähetetty!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Nauhoitteen lähettäminen epäonnistui!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Nauhoitteen lähettäminen epäonnistui! Voit yrittää uudelleen, tai painaa {{*{{skip_button}}*}}-painiketta.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Paina alla olevaa kuvaketta aloittaksesi klipin.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Paina alla olevaa kuvaketta pysäyttääksesi klipin.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Jos klippi on oikea, paina peukaloa ylös.\nJos klippi on väärä, paina peukaloa alas.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Paina alla olevaa kuvaketta toistaaksesi klipin uudelleen.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Klippi merkitty oikeaksi!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Klippi merkitty virheelliseksi!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Virhe. Paina {{skip_button}}-painiketta jatkaaksesi.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Nauhoitteen lähettäminen epäonnistui.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Lähetetään...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Tuloksen lähettäminen epäonnistui! Voit yrittää uudelleen, tai painaa {{*{{skip_button}}*}}-painiketta.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Suljetaan...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Virhe. Tälle kielelle ei ole enää saatavilla olevia klippejä.</string>
+    <string name="button_report" comment="Button">Ilmoita</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Raportoi klippi:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Ilmoita lause:</string>
+    <string name="button_send_report" comment="Button">Lähetä ilmoitus</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Loukkaavaa kieltä</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Loukkaavaa puhetta</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Kieliopillinen / kirjoitusvirhe</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Eri kieli</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Vaikea ääntää</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Muu</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Kommentti</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Sinulla ei ole enää offline-virkkeitä. Yhdistä Internetiin ja lataa lisää virkkeitä nauhoittaaksesi.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Sinulla ei ole enää offline-klippejä. Yhdistä Internetiin ja lataa lisää klippejä vahvistaaksesi.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Voit nauhoittaa {{*{{n_sentences}}*}} lausetta lisää ennen kuin sinun tarvitsee yhdistää Internetiin.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Voit vahvistaa {{*{{n_clips}}*}} klippiä lisää ennen kuin sinun tarvitsee yhdistää Internetiin.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Kuunnellaan...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" on käytössä. Mene asetuksiin poistaaksesi sen käytöstä.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Virkkeen teksti on piilotettu</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voicen palvelimella ei ole enää virkkeitä. Yritä myöhemmin tai yritä ottaa yhteyttä Mozillaan.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voicen palvelimella ei ole enää klippejä. Yritä myöhemmin tai yritä ottaa yhteyttä Mozillaan.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection" comment="Button">Check again</string>
-    <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <string name="btn_check_again_noconnection" comment="Button">Tarkista uudelleen</string>
+    <string name="txt_noconnection" comment="Message text">Et ole yhteydessä internetiin. Yhdistä Wi-Fiin tai mobiilidataan, sitten paina alla olevaa painiketta.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">This is the sentence you must record.</string>
-    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">A message to guide you will appear here.</string>
-    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
-    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to start recording.</string>
-    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to stop recording.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording.</string>
-    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to re-record if you made a mistake.</string>
-    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording again.</string>
-    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Tap on this button to send your recording.</string>
-    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">This is the sentence/clip you must validate.</string>
-    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to play the clip.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
-    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
-    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Tämä on virke, joka sinun pitää nauhoittaa.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Sinua opastavat viestit näkyvät täällä.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Jos et pidä virkkeestä, voit painaa täältä ohittaaksesi ja saadaksesi uuden.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Paina tätä kuvaketta aloittaaksesi nauhoitamisen.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Paina tätä kuvaketta lopettaaksesi nauhoitamisen.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Paina tätä kuvaketta toistaaksesi nauhoituksesi.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Paina tätä kuvaketta uudellennauhoittaksesi jos teit virheen.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Paina tätä kuvaketta toistaaksesi nauhoituksesi uudelleen.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Paina tätä painiketta lähettääksesi nauhoituksesi.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Tämä on virke/klippi, joka sinun pitää vahvistaa.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Jos et pidä klipistä, voit painaa tätä painiketta ohittaaksesi ja saadaksesi uuden.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Paina tätä kuvaketta toistaaksesi klipin.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Paina tätä kuvaketta pysäyttäksesi klipin toiston.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Paina tätä kuvaketta, jos haluat kuunnella klipin uudestaan.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Jos klippi vastaa virkettä, paina tätä kuvaketta hyväksyäksesi sen.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Jos klippi ei vastaa virkettä, paina tätä kuvaketta hylätäksesi sen.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Jos et ole varma pitäisikö nauhoitus hyväksyä vai hylätä, voit lukea viralliset ohjeet vahvistukseen Mozilla Discoursesta.\nVoit myös myöhemmin löytää tämän linkin asetuksista.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Lue nyt</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <string name="txtNotAvailableNow" comment="Message text">Valitettavasti tätä ominaisuutta ei ole vielä.\nTyöskentelemme jatkuvasti parantaaksemme sovellusta, joten tarkista myöhemmin, onko se lisätty.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges" comment="Button">Close</string>
-    <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="btnCloseBadges" comment="Button">Sulje</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Kaikki merkit</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurraa! Ansaitsit juuri äsken uuden merkin.\n Mene kohtaan {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} nähdäksesi kaikki merkkisi.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Sait tämän merkin koska vahvistit vähintään {{*{{n_clips}}*}} klippiä.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Sait tämän merkin koska nauhoitit vähintään {{*{{n_sentences}}*}} virkettä.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Sait tämän merkin koska vahvistit tai nauhoitit vähintään {{*{{n_total}}*}} klippiä.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ok</string>
-    <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
-    <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
-    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
-    <string name="text_warning" comment="Title for Message text">Warning</string>
-    <string name="text_tip" comment="Title for Message text">Tip</string>
-    <string name="text_changelog" comment="Title for Message text">Changelog</string>
-    <string name="text_help" comment="Title for Message text">Help</string>
-    <string name="text_info" comment="Title for Message text">Info</string>
-    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Do not show anymore</string>
-    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode" comment="Title">Offline mode</string>
-    <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
-    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Virhe</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Se ei toiminut.\nYritä uudelleen, tai ota yhteyttä kehittäjään.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Se ei toiminut. Yritä uudelleen tai ota yhteyttä kehittäjään.\nVirhekoodi: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Kirjautuminen epäonnistui</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Sinun on ensin kirjauduttava sisään Common Voicen verkkosivustolle ja hyväksyttävä Common Voicen tietosuojakäytäntö.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Avaa Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">Varoitus</string>
+    <string name="text_tip" comment="Title for Message text">Vihje</string>
+    <string name="text_changelog" comment="Title for Message text">Muutosloki</string>
+    <string name="text_help" comment="Title for Message text">Ohje</string>
+    <string name="text_info" comment="Title for Message text">Tietoa</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Älä näytä enää</string>
+    <string name="text_report_website_bug" comment="Message text">Jos sinulla on ongelmia virallisella Common Voicen verkkosivustolla, ilmoita niistä Mozilla Discourse-forumeille tai GitHub-pakettivarastoon jotta Mozilla voi korjata ne.</string>
+    <string name="text_offline_mode" comment="Title">Offline-tila</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Olet nyt offline-tilassa ja sovellus vaihdettiin offline-tilaan automaattisesti.\nTämä tarkoittaa että voit jatkaa nauhoittamista ja vahvistamista, mutta pyynnöt lähetetään myöhemmin.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Voit kertoa milloin olet offline-tilassa etsimällä tätä kuvaketta näytöltä:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Voit painaa tätä kuvaketta nähdäksesi ladatut klipit ja virkkeet.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Offline-tila ei ole käytössä, joten et voi käyttää sovellusta ilman Internet-yhteyttä.\nKäyttääksesi Offline-tila-ominaisuutta, ota se käyttöön asetuksissa.</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title" comment="Title in Dashboard">Daily goal</string>
-    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No goal set</string>
-    <string name="set_daily_goal" comment="Button">Set a goal</string>
-    <string name="edit_daily_goal" comment="Button">Edit goal</string>
-    <string name="save_daily_goal" comment="Button">Save</string>
-    <string name="delete_daily_goal" comment="Button">Delete</string>
-    <string name="cancel_daily_goal" comment="Button">Cancel</string>
-    <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
-    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Achieved today</string>
-    <string name="daily_goal_not_achieved_today">Not achieved today</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
-    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">Päivittäinen tavoite</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Tavoitetta ei asetettu</string>
+    <string name="set_daily_goal" comment="Button">Aseta tavoite</string>
+    <string name="edit_daily_goal" comment="Button">Muokkaa tavoitetta</string>
+    <string name="save_daily_goal" comment="Button">Tallenna</string>
+    <string name="delete_daily_goal" comment="Button">Poista</string>
+    <string name="cancel_daily_goal" comment="Button">Peru</string>
+    <string name="description_setting_daily_goal" comment="Message text">Valitse kuinka monta virkettä haluat tallentaa ja klippiä haluat vahvistaa (summa niistä) päivässä.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Saavutettu tänään</string>
+    <string name="daily_goal_not_achieved_today">Ei saavutettu tänään</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Hyvin tehty! Saavutit päivittäisen tavoitteesi.\nVahvistit {{*{{n_clips}}*}} klipin/klippiä ja nauhoitit {{*{{n_sentences}}*}} virkkeen/virkettä.\nVoit jatkaa vapaasti osallistumista Common Voiceen.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Jaa</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Jaa</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Saavutin juuri päivittäisen tavoitteen @mozilla:n #CommonVoice:en käyttämällä #CVProject:ia.\nLiity mukaan ja osallistu! Asenna CV Android Google Playstä, F-Droidista tai Huawei AppGallerystä nyt {{*{{link}}*}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Tämä päivittäinen tavoite ei ole virallinen Mozillan ominaisuus. Se on vain tämän sovelluksen ominaisuus.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
+    <string name="copie_string" comment="Toast message">Copied</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play Store) or directly from GitHub.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Uusi versio sovelluksesta on saatavilla (julkaisu {{*{{n_version}}*}}). Voit päivittää sen suosikkikaupastasi (F-Droid, Google Play Store, Huawei AppGallery, Amazon AppStore) tai suoraan GitHubista.</string>
 </resources>

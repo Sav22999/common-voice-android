@@ -131,6 +131,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             theme.setElement(layoutSettingsUserInterface)
 
             theme.setElements(requireContext(), settingsSectionUIGeneric)
+            theme.setElements(requireContext(), settingsSectionSpeakAndListen)
             theme.setElements(requireContext(), settingsSectionTheme)
             theme.setElements(requireContext(), settingsSectionTextSize)
 
