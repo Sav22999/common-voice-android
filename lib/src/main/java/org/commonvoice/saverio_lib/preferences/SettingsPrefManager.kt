@@ -29,12 +29,17 @@ class SettingsPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.APP_LANGUAGES.name, ResponseLanguage.DEFAULT_VALUE) ?: ""
         set(value) = preferences.edit().putString(Keys.APP_LANGUAGES.name, value).apply()
 
+    var isProgressBarColouredEnabled: Boolean
+        get() = preferences.getBoolean(Keys.DAILYGOAL_PROGRESSBAR_COLOURED.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.DAILYGOAL_PROGRESSBAR_COLOURED.name, value).apply()
+
     private enum class Keys {
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
         OFFLINE_MODE,
         SHOW_REPORT_ICON,
         APP_LANGUAGES,
+        DAILYGOAL_PROGRESSBAR_COLOURED,
     }
 
 }

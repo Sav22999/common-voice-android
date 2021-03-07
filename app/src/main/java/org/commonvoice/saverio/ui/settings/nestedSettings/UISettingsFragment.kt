@@ -6,6 +6,7 @@ import android.widget.SeekBar
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.daily_goal.view.*
+import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
@@ -35,11 +36,10 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                 activity?.onBackPressed()
             }
 
-            switchShowIconTopRightInsteadButton.text =
-                getString(R.string.txt_show_report_icon_instead_of_button).replace(
-                    "{{*{{listen_name}}*}}",
-                    getString(R.string.settingsListen)
-                ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
+            text_settingsUISpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
+                "{{*{{listen_name}}*}}",
+                getString(R.string.settingsListen)
+            ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
 
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
@@ -84,8 +84,12 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             }
             switchShowIconTopRightInsteadButton.isChecked = settingsPrefManager.showReportIcon
 
-            println("Saved: " + mainPrefManager.textSize)
-            println("-->>||: " + ((10 * mainPrefManager.textSize) - 5).toInt())
+            switchDailygoalProgressbarColoured.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.isProgressBarColouredEnabled = isChecked
+            }
+            switchDailygoalProgressbarColoured.isChecked =
+                settingsPrefManager.isProgressBarColouredEnabled
+
             seekTextSizeSettings.progress = ((10 * mainPrefManager.textSize) - 5).toInt()
             setSeekBar(seekTextSizeSettings.progress.toFloat())
             seekTextSizeSettings.setOnSeekBarChangeListener(object :
@@ -116,9 +120,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
         withBinding {
             labelTextSizeSettings.text = ((10 * value) + 50).toString() + "%"
 
-            println("Before: " + mainPrefManager.textSize)
             mainPrefManager.textSize = ((10 * value) + 50) / 100.0F
-            println("After: " + mainPrefManager.textSize)
 
             setTheme()
         }
@@ -133,6 +135,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             theme.setElements(requireContext(), settingsSectionTextSize)
 
             theme.setElement(requireContext(), 3, settingsSectionUIGeneric)
+            theme.setElement(requireContext(), 3, settingsSectionSpeakAndListen)
             theme.setElement(requireContext(), 3, settingsSectionTheme)
             theme.setElement(requireContext(), 3, settingsSectionTextSize)
 
