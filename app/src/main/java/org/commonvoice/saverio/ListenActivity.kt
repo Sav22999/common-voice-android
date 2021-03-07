@@ -289,7 +289,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         //val height = metrics.heightPixels
         var newValue = 0
 
-        progressBar.isGone = false
         if (dailyGoal == 0 || sum == 0) {
             newValue = width / 2
             setProgressBarColour(progressBar, forced = true)
@@ -299,20 +298,26 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             newValue =
                 ((tempContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
             setProgressBarColour(progressBar, forced = false, color = color)
+            progressBar.isGone = false
         } else if (currentContributions == 0) {
             progressBar.isGone = true
+            progressBar.layoutParams.width = 1
+            progressBar.requestLayout()
         } else {
             //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
             newValue =
                 ((currentContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
             setProgressBarColour(progressBar, forced = false, color = color)
+            progressBar.isGone = false
         }
 
         if (mainPrefManager.areAnimationsEnabled) {
             animationProgressBar(progressBar, view.width, newValue)
         } else {
-            view.layoutParams.width = newValue
-            view.requestLayout()
+            if (!view.isGone) {
+                view.layoutParams.width = newValue
+                view.requestLayout()
+            }
         }
     }
 
