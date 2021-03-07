@@ -122,18 +122,13 @@ class StatsRepository(
             ?.toList()
             ?.sortedByDescending { it.id }
             ?.filter {
-                (it.userFilter == null || it.userFilter == mainPrefManager.statsUserId)
-                        && (it.sourceFilter == null || it.sourceFilter.equals(
-                    mainPrefManager.appSourceStore,
-                    true
-                ))
-                        && (it.languageFilter == null || it.languageFilter.equals(
-                    mainPrefManager.language,
-                    true
-                ))
-                        && (it.versionCodeFilter == null || it.versionCodeFilter.toIntOrNull() == mainPrefManager.appVersionCode)
-                        && (it.startDateFilter == null || dateMillis(it.startDateFilter) <= currentMillis)
-                        && (it.endDateFilter == null || dateMillis(it.endDateFilter) >= currentMillis)
+                (it.startDateFilter == null || dateMillis(it.startDateFilter) <= currentMillis)
+                && (it.endDateFilter == null || (dateMillis(it.endDateFilter) + DAY_MILLIS) >= currentMillis)
+                && (it.userFilter == mainPrefManager.statsUserId || (it.userFilter == null
+                    && (it.sourceFilter == null || it.sourceFilter.equals(mainPrefManager.appSourceStore, true))
+                    && (it.languageFilter == null || it.languageFilter.equals(mainPrefManager.language, true))
+                    && (it.versionCodeFilter == null || it.versionCodeFilter.toIntOrNull() == mainPrefManager.appVersionCode))
+                )
             }
             ?: emptyList()
     }
@@ -155,6 +150,8 @@ class StatsRepository(
         } catch (e: Exception) {
             null
         } ?: 0
+
+        private const val DAY_MILLIS = 24 * 60 * 60 * 1000
 
         private val currentMillis: Long
             get() = System.currentTimeMillis()
