@@ -130,7 +130,7 @@
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ads banner</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -> it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
     <string name="txt_common_voice_playbook_settings" comment="Button in Settings" translatable="false">Common Voice Playbook</string>
     <string name="txt_sentence_collector_settings" comment="Button in Settings" translatable="false">Sentence Collector</string>
