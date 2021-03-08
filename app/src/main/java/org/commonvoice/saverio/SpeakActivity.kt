@@ -387,7 +387,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSendSpeak.onClick {
             speakViewModel.sendRecording()
             numberSentThisSession++
-            refreshAds()
+            if (numberSentThisSession % 10 == 0) {
+                //refreshAds()
+            }
         }
 
         startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
