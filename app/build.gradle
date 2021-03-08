@@ -34,7 +34,7 @@ android {
         }
         HAG {
             dimension "source_store"
-            applicationIdSuffix ".huawei"
+            //applicationIdSuffix ".huawei"
             buildConfigField "String", "SOURCE_STORE", "\"HAG\""
         }
         AAS {
