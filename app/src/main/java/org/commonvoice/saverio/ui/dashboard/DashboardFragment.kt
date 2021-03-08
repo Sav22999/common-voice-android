@@ -3,6 +3,7 @@ package org.commonvoice.saverio.ui.dashboard
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -145,6 +146,9 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                 dashboardViewModel.updateStats()
             }
         }
+
+        //TODO improve this method
+        (activity as MainActivity).resetStatusBarColor()
     }
 
     private fun showMessageDialog(
@@ -247,6 +251,14 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             binding.buttonEveryoneStatisticsDashboard.backgroundTintList = selected
             binding.buttonYouStatisticsDashboard.backgroundTintList = other
         }
+        binding.buttonEveryoneStatisticsDashboard.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(R.dimen.text_button) * mainPrefManager.textSize
+        )
+        binding.buttonYouStatisticsDashboard.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(R.dimen.text_button) * mainPrefManager.textSize
+        )
     }
 
     private fun loadUserStats() {
@@ -262,6 +274,14 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             binding.buttonYouStatisticsDashboard.backgroundTintList = selected
             binding.buttonEveryoneStatisticsDashboard.backgroundTintList = other
         }
+        binding.buttonEveryoneStatisticsDashboard.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(R.dimen.text_button) * mainPrefManager.textSize
+        )
+        binding.buttonYouStatisticsDashboard.setTextSize(
+            TypedValue.COMPLEX_UNIT_PX,
+            resources.getDimension(R.dimen.text_button) * mainPrefManager.textSize
+        )
     }
 
     private fun voicesOnlineSection() {
@@ -482,6 +502,14 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                     buttonRecordingsTopContributorsDashboard.backgroundTintList = other
                 }
             }
+            buttonRecordingsTopContributorsDashboard.setTextSize(
+                TypedValue.COMPLEX_UNIT_PX,
+                resources.getDimension(R.dimen.text_button) * mainPrefManager.textSize
+            )
+            buttonValidationsTopContributorsDashboard.setTextSize(
+                TypedValue.COMPLEX_UNIT_PX,
+                resources.getDimension(R.dimen.text_button) * mainPrefManager.textSize
+            )
         })
 
         dashboardViewModel.contributors.observe(viewLifecycleOwner, { pair ->

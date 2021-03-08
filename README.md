@@ -1,6 +1,6 @@
 
 
-#  <img src="images/icon.png" width="40px" alt=""></img> CV Android
+#  <img src="images/icon.png" width="40px" alt=""></img> CV Project
 
 [**Official web page of this project**](https://www.saveriomorelli.com/commonvoice/): you can find F.A.Q. and some useful links.
 
@@ -14,11 +14,11 @@ If you have any questions, please open an issue (you can add the label `question
 
 ### Where download the app
 
-[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/badges/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ) [<img src="images/badges/huaweiAppGallery.png" width="200px"></img>](https://bit.ly/35LwCWX)  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
+[<img src="images/badges/googlePlayBadge.png" width="200px"></img>](https://bit.ly/2Y9iqnK) [<img src="images/badges/fDroidBadge.png" width="200px"></img>](https://bit.ly/3cO8iEQ) [<img src="images/badges/huaweiAppGalleryBadge.png" width="200px"></img>](https://bit.ly/35LwCWX) [<img src="images/badges/amazonAppStoreBadge.png" width="170px"></img>](https://www.amazon.it/dp/B083QN4JPS/) [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
 
-You can download the app on Google Play, on F-Droid, on Huawei AppGallery and also on GitHub.
+You can download the app on Google Play, on F-Droid, on Huawei AppGallery, on Amazon Appstore and also on GitHub.
 
-The app name is always "CV Android" and it's developed by "Saverio Morelli". It's absolutely free and you DON'T HAVE TO PAY to use it. Anyway, you can buy me a coffee, using Ko-Fi or PayPal (see the section below).
+The app name is always "CV Project" (or Donate your voice: CV Project) and it's developed by "Saverio Morelli". It's absolutely free and you DON'T HAVE TO PAY to use it. Anyway, you can buy me a coffee, using Ko-Fi or PayPal (see the section below).
 
 ### Join us on Telegram
 
@@ -73,7 +73,7 @@ Thanks everyone translate it!
 
 ### License
 
-The license of *CV Android* is GPLv3.
+The license of *CV Project* is GPLv3.
 
 <img src="images/icons/gpl.png" width="100px"></img>
 

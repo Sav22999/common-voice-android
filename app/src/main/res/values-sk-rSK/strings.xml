@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Preskočiť</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Povolenie úspešné</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Chyba: Povolenie neúspešné</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android je neoficiálna aplikácia pre Mozilla Common Voice. Je vyvíjana developerom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project je neoficiálna aplikácia pre Mozilla Common Voice. Je vyvíjaná vývojárom Saverio Morelli bez akejkoľvek podpory a spolupráce so spoločnosťou Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Pokračovaním súhlasíte so Všeobecnými podmienkami používania Mozilla Common Voice aplikácie.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Táto aplikácia potrebuje prístup k povoleniu \"Mikrofón\" aby mohla nahrávať Váš hlas.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Chyby môžete nahlasovať na GitHub alebo Telegram. Pre ľahšie a rýchlejšie vyriešenie chyby, zvážte pridanie záznamového súboru appky do Vášho hlásenia. Aplikácia potrebuje prístup ku právu \"Úložisko\" pre uloženie záznamového súboru.</string>
@@ -66,24 +66,24 @@
     <string name="btn_badges_loggedin" comment="Button">Všetky odznaky</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Úroveň {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">Gratulujem! Práve si dosiahol level {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Už mám overovací odkaz</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Overovací odkaz</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Overovací odkaz nie je platný</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Znova otvoriť manuál</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projekt open-source na GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">vyvinul</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Jazyk bol úspešne nastavený na {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Jazyk</string>
     <string name="settingsListen" comment="Title in Settings">Počúvanie</string>
     <string name="settingsSpeak" comment="Title in Settings">Nahrávanie</string>
     <string name="settingsOther" comment="Title in Settings">Iné</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="settingsGeneral" comment="Title in Settings">Všeobecné</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Užitočné odkazy</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Zistiť viac</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Svetlé</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Tmavý</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automaticky</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Podpor moju prácu. Kúp mi kávu 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Automaticky prehrať klip keď sa načíta</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tmavá téma</string>
@@ -92,13 +92,13 @@
     <string name="toast_experimental_features_on" comment="Message text">Experimentálne funkcie sú zapnuté.\nNové funkcie môžu byť nestabilné a nebezpečné.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Uložiť záznam do súboru</string>
     <string name="toast_log_on_file_on" comment="Message text">Ukladanie záznamov do súboru je zapnuté.\nTeraz môžeš priložit log.txt súbor keď budeš odosielať problém.\nPrečítaj si viac na GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Všeobecné štatistiky</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Zobraziť, ako ma identifikuje aplikácia</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Štatistiky používania aplikácie</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Preskočiť potvrdenie nahrávky</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Preskočenie potvrdenia nahrávky je zapnuté.\nTeraz budeš mať možnosť odosielať nahrávky bez toho aby si si ich predtým vypočul.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Preložiť v Crowdin-e</string>
@@ -112,19 +112,24 @@
     <string name="txt_animations" comment="Switch-Button in Settings">Animácie</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Prispôsoviť veľkosť fontu</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Prispôsobiť gestá</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">Motív</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram skupina pre aplikáciu</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Ukazovať popisy pod menu ikonami</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Prečítať Všeobecné podmienky používania Mozilla Common Voice</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Prečítať odporúčania pre overovanie</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Ohodnotiť v Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
+    <string name="title_ui_settings" comment="Option in Settings">Rozhranie</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Rozšírené</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Ukladať nahrávky do zariadenia</string>
+    <string name="txt_reset_data" comment="Button in Settings">Obnoviť dáta aplikácie</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Momentálne nie sú k dispozícií žiadne experimentálne funkcie</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Zobrazovať text vety, keď ste dokončili posluch</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Zobraz ikonu nahlásenia (hore-vpravo) namiesto tlačidla (dole)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Veľkosť textu</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Reklamný banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Zapnúť bannerové reklamy v {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Farebný ukazovateľ denného cieľa</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} a {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Načítava sa veta...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Preskočiť</string>
@@ -170,11 +175,11 @@
     <string name="txt_clips_finished_offline_mode" comment="Message text">Všetky offline nahrávky si už overil. Pre stiahnutie ďalších nahrávok je potrebné aby si sa pripojil na internet.</string>
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Môžeš ešte nahrať {{*{{n_sentences}}*}} viet, predtým ako bude potrebné pripojiť sa na internet.</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Môžeš ešte overiť {{*{{n_clips}}*}} nahrávok, predtým ako bude potrebné pripojiť sa na internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Počúvanie...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Je zapnutá funkcia ‚‚{{*{{feature_name}}*}}‘‘. Pre jej vypnutie choďte do nastavení.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Text vety je skrytý</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Na Common Voice serveri už nie sú žiadne ďalšie vety. Skúste to neskôr alebo kontaktujte spoločnosť Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Na Common Voice serveri už nie sú žiadne ďalšie klipy. Skúste to neskôr alebo kontaktujte spoločnosť Mozilla.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Skontrolovať znova</string>
     <string name="txt_noconnection" comment="Message text">Nie si pripojený na internet. Pripoj sa pomocou Wi-Fi alebo mobilného internetu, potom znova stlač tlačidlo dole.</string>
@@ -195,17 +200,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Stlačením tejto ikony znova prehráš nahrávku.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Ak nahrávka sedí so zobrazenou vetou, stlačením tejto ikony ju potvrdíš.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Ak nahrávka nesedí so zobrazenou vetou, stlačením tejto ikony ju zamietneš.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Ak si nie ste istý, či schváliť, alebo odmietnuť nahrávku, môžete si prečítať oficiálne pokyny pre overovanie na Mozilla Discourse.\nTento odkaz tak isto nájdete neskôr v nastaveniach.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Prečítať</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Ospravedlňujeme sa, táto funkcia zatiaľ neexistuje.\nStále pracujeme na vylepšeniach aplikácie, skús sa zastaviť neskôr, či funkcia bola pridaná.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Zatvoriť</string>
     <string name="labelAllBadges" comment="Title for All badge section">Všetky odznaky</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurá! Práve ste získali nový odznak.\nPrejdite na {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} a prezrite si všetky svoje odznaky.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Získali ste tento odznak, pretože ste overili aspoň {{*{{n_clips}}*}} klipov.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Získali ste tento odznak, pretože ste nahrali aspoň {{*{{n_sentences}}*}} klipov.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Získali ste tento odznak, pretože ste overili nebo nahrali aspoň {{*{{n_total}}*}} klipov.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">OK</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Chyba</string>
@@ -225,7 +230,7 @@
     <string name="text_offline_mode_enabled" comment="Message text">Teraz si offline a appka sa automaticky prepla do offline módu.\nTo znamená, že môžeš pokračovať v nahrávaní a overovaní, ale ich odoslanie prebehne neskôr.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Offline mód spoznáš podľa tejto ikony zobrazenej na obrazovke:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Ťuknutím na ikonu uvidíš stiahnuté vety a nahrávky.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Režim offline nie je zapnutý, takže túto aplikáciu nemôžete používať bez připojenia k internetu.\nPokiaľ chcete používať režim offline, zapnite ho v nastaveniach.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Denný cieľ</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nie je nastavný žiadny cieľ</string>
@@ -238,13 +243,13 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Dosiahnutý dnes</string>
     <string name="daily_goal_not_achieved_today">Dnes nebol dosiahnutý</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Skvelá práca! Dosiahol si denný cieľ.\nDnes overené nahrávky - {{*{{n_clips}}*}}, dnes nahraté nahrávky - {{*{{n_sentences}}*}}.\nPokračuj aj naďalej v prínosoch do Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Zdielať</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Zdielať na</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Práve som dosiahol svoj denný cieľ na @mozilla #CommonVoice v aplikácii #CVProject.\nPripojte sa a prispievajte! Nainštalujte si CV Project na Google Play, F-Droid alebo Huawei AppGallery práve teraz {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Denný cieľ nie je oficiálna Mozilla funkcia. Je to iba funkcia tejto aplikácie.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Vedeli ste že ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">Je možné dosiahnuť 10,000 hodín iba za 6 mesiacov, ak 1,000 ľudí nahrá 45 nahrávok denne.</string>
+    <string name="copie_string" comment="Toast message">Skopírované</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Nová verzia aplikácie je dostupná (verzia {{*{{n_version}}*}}). Môžeš si ju stiahnuť cez svoj obľúbený obchod (F-Droid, Google Play Store) alebo priamo z GitHub.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Nová verzia aplikácie je dostupná (verzia {{*{{n_version}}*}}). Môžeš si ju stiahnuť cez svoj obľúbený obchod (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) alebo priamo z GitHub.</string>
 </resources>

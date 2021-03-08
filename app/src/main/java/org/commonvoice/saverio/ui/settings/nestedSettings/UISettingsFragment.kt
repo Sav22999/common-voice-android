@@ -2,8 +2,11 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.SeekBar
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.daily_goal.view.*
+import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
@@ -33,17 +36,16 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                 activity?.onBackPressed()
             }
 
-            switchShowIconTopRightInsteadButton.text =
-                getString(R.string.txt_show_report_icon_instead_of_button).replace(
-                    "{{*{{listen_name}}*}}",
-                    getString(R.string.settingsListen)
-                ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
+            text_settingsUISpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
+                "{{*{{listen_name}}*}}",
+                getString(R.string.settingsListen)
+            ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
 
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
             radioGroupTheme.check(
-                when(mainPrefManager.themeType) {
+                when (mainPrefManager.themeType) {
                     "dark" -> R.id.buttonThemeDark
                     "auto" -> R.id.buttonThemeAuto
                     else -> R.id.buttonThemeLight
@@ -51,7 +53,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             )
 
             radioGroupTheme.setOnCheckedChangeListener { _, checkedId ->
-                mainPrefManager.themeType = when(checkedId) {
+                mainPrefManager.themeType = when (checkedId) {
                     R.id.buttonThemeDark -> "dark"
                     R.id.buttonThemeAuto -> "auto"
                     R.id.buttonThemeLight -> "light"
@@ -81,9 +83,47 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                 settingsPrefManager.showReportIcon = isChecked
             }
             switchShowIconTopRightInsteadButton.isChecked = settingsPrefManager.showReportIcon
+
+            switchDailygoalProgressbarColoured.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.isProgressBarColouredEnabled = isChecked
+            }
+            switchDailygoalProgressbarColoured.isChecked =
+                settingsPrefManager.isProgressBarColouredEnabled
+
+            seekTextSizeSettings.progress = ((10 * mainPrefManager.textSize) - 5).toInt()
+            setSeekBar(seekTextSizeSettings.progress.toFloat())
+            seekTextSizeSettings.setOnSeekBarChangeListener(object :
+                SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seek: SeekBar,
+                    progress: Int, fromUser: Boolean
+                ) {
+                    //onProgress
+                    setSeekBar(seek.progress.toFloat())
+                }
+
+                override fun onStartTrackingTouch(seek: SeekBar) {
+                    //onStart
+                }
+
+                override fun onStopTrackingTouch(seek: SeekBar) {
+                    //onStop
+                    setSeekBar(seek.progress.toFloat())
+                }
+            })
         }
 
         setTheme()
+    }
+
+    private fun setSeekBar(value: Float) {
+        withBinding {
+            labelTextSizeSettings.text = ((10 * value) + 50).toString() + "%"
+
+            mainPrefManager.textSize = ((10 * value) + 50) / 100.0F
+
+            setTheme()
+        }
     }
 
     fun setTheme() {
@@ -91,14 +131,22 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             theme.setElement(layoutSettingsUserInterface)
 
             theme.setElements(requireContext(), settingsSectionUIGeneric)
+            theme.setElements(requireContext(), settingsSectionSpeakAndListen)
             theme.setElements(requireContext(), settingsSectionTheme)
+            theme.setElements(requireContext(), settingsSectionTextSize)
 
             theme.setElement(requireContext(), 3, settingsSectionUIGeneric)
+            theme.setElement(requireContext(), 3, settingsSectionSpeakAndListen)
             theme.setElement(requireContext(), 3, settingsSectionTheme)
+            theme.setElement(requireContext(), 3, settingsSectionTextSize)
 
             theme.setElement(requireContext(), buttonThemeLight)
             theme.setElement(requireContext(), buttonThemeDark)
             theme.setElement(requireContext(), buttonThemeAuto)
+
+            theme.setElement(requireContext(), seekTextSizeSettings)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionUI, textSize = 20F)
         }
     }
 }

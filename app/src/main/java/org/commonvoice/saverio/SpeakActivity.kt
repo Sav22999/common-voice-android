@@ -19,6 +19,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
+import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -29,6 +30,7 @@ import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
 import org.commonvoice.saverio_lib.models.Sentence
@@ -168,9 +170,20 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     ), type = 12
                 )
             }
+
             animateProgressBar(
+                progressBarSpeakSpeak,
+                sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
-                currentRecordingsValidations = (it.validations + it.recordings)
+                currentContributions = it.recordings,
+                color = R.color.colorSpeak
+            )
+            animateProgressBar(
+                progressBarSpeakListen,
+                sum = it.recordings + it.validations,
+                dailyGoal = it.getDailyGoal(),
+                currentContributions = it.validations,
+                color = R.color.colorListen
             )
         })
 
@@ -181,15 +194,38 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         setTheme(this)
 
         setupBadgeDialog()
+
+        if (speakPrefManager.showAdBanner) {
+            AdLoader.setupSpeakAdView(this, binding.adContainer)
+        }
+    }
+
+    fun refreshAds() {
+        if (speakPrefManager.showAdBanner) {
+            AdLoader.setupSpeakAdView(this, binding.adContainer)
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
+
         animateProgressBar(
+            progressBarSpeakSpeak,
+            sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
-            currentRecordingsValidations = (statsPrefManager.dailyGoal.value!!.validations + statsPrefManager.dailyGoal.value!!.recordings)
+            currentContributions = statsPrefManager.dailyGoal.value!!.recordings,
+            color = R.color.colorSpeak
         )
+        animateProgressBar(
+            progressBarSpeakListen,
+            sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
+            dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
+            currentContributions = statsPrefManager.dailyGoal.value!!.validations,
+            color = R.color.colorListen
+        )
+
+        refreshAds()
     }
 
     fun shareCVAndroidDailyGoal() {
@@ -303,17 +339,14 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             view,
             textMessageAlertSpeak,
             R.color.colorAlertMessage,
-            R.color.colorAlertMessageDT
+            R.color.colorAlertMessageDT,
+            textSize = 15F
         )
         theme.setElement(view, buttonReportSpeak, background = false)
         theme.setElement(view, buttonSkipSpeak)
 
-        theme.setElement(
-            view,
-            progressBarSpeak,
-            R.color.colorPrimaryDark,
-            R.color.colorLightGray
-        )
+        setProgressBarColour(progressBarSpeakSpeak, false)
+        setProgressBarColour(progressBarSpeakListen, false)
     }
 
     private fun openReportDialog() {
@@ -354,6 +387,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSendSpeak.onClick {
             speakViewModel.sendRecording()
             numberSentThisSession++
+            refreshAds()
         }
 
         startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
@@ -425,15 +459,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private fun resizeSentence() {
         binding.textSentenceSpeak.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
-            resources.getDimension(
-                when (binding.textSentenceSpeak.text.length) {
-                    in 0..10 -> R.dimen.title_very_big
-                    in 11..20 -> R.dimen.title_big
-                    in 21..40 -> R.dimen.title_medium
-                    in 41..70 -> R.dimen.title_normal
-                    else -> R.dimen.title_small
-                }
-            )
+            when (binding.textSentenceSpeak.text.length) {
+                in 0..10 -> resources.getDimension(R.dimen.title_very_big) * mainPrefManager.textSize
+                in 11..20 -> resources.getDimension(R.dimen.title_big) * mainPrefManager.textSize
+                in 21..40 -> resources.getDimension(R.dimen.title_medium) * mainPrefManager.textSize
+                in 41..70 -> resources.getDimension(R.dimen.title_normal) * mainPrefManager.textSize
+                else -> resources.getDimension(R.dimen.title_small) * mainPrefManager.textSize
+            }
         )
     }
 
@@ -512,7 +544,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                         title = "",
                         text = getString(R.string.new_badge_earnt_message)
                             .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
-                            .replace("{{*{{all_badges}}*}}", getString(R.string.btn_badges_loggedin))
+                            .replace(
+                                "{{*{{all_badges}}*}}",
+                                getString(R.string.btn_badges_loggedin)
+                            )
                     )
                 }
             }
@@ -565,32 +600,77 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
-    private fun animateProgressBar(dailyGoal: Int = 0, currentRecordingsValidations: Int = 0) {
-        val view: View = binding.progressBarSpeak
+    private fun animateProgressBar(
+        progressBar: View,
+        sum: Int = 0,
+        dailyGoal: Int = 0,
+        currentContributions: Int = 0,
+        color: Int = R.color.colorBlack
+    ) {
+        val view: View = progressBar
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
         val width = metrics.widthPixels
         //val height = metrics.heightPixels
         var newValue = 0
 
-        if (dailyGoal == 0 || currentRecordingsValidations >= dailyGoal) {
-            newValue = width
+        if (dailyGoal == 0 || sum == 0) {
+            newValue = width / 2
+            setProgressBarColour(progressBar, forced = true)
+        } else if (sum >= dailyGoal) {
+            val tempContributions =
+                (currentContributions.toFloat() * dailyGoal.toFloat()) / sum.toFloat()
+            newValue =
+                ((tempContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
+            setProgressBarColour(progressBar, forced = false, color = color)
+            progressBar.isGone = false
+        } else if (currentContributions == 0) {
+            progressBar.isGone = true
+            progressBar.layoutParams.width = 1
+            progressBar.requestLayout()
         } else {
             //currentRecordingsValidations : dailyGoal = X : 1 ==> currentRecordingsValidations / dailyGoal
             newValue =
-                ((currentRecordingsValidations.toFloat() / dailyGoal.toFloat()) * width).toInt()
+                ((currentContributions.toFloat() / dailyGoal.toFloat()) * width).toInt()
+            setProgressBarColour(progressBar, forced = false, color = color)
+            progressBar.isGone = false
         }
 
-        if (mainPrefManager.areAnimationsEnabled) {
-            animationProgressBar(view.width, newValue)
-        } else {
-            view.layoutParams.width = newValue
-            view.requestLayout()
+        if (!view.isGone) {
+            if (mainPrefManager.areAnimationsEnabled) {
+                animationProgressBar(progressBar, view.width, newValue)
+            } else {
+                view.layoutParams.width = newValue
+                view.requestLayout()
+            }
         }
     }
 
-    private fun animationProgressBar(min: Int, max: Int) {
-        val view: View = binding.progressBarSpeak
+    private fun setProgressBarColour(
+        progressBar: View,
+        forced: Boolean = false,
+        color: Int = R.color.colorBlack
+    ) {
+        if (!settingsPrefManager.isProgressBarColouredEnabled || forced) {
+            theme.setElement(
+                this,
+                progressBar,
+                R.color.colorPrimaryDark,
+                R.color.colorLightGray
+            )
+        } else {
+            //coloured
+            theme.setElement(
+                this,
+                progressBar,
+                color,
+                color
+            )
+        }
+    }
+
+    private fun animationProgressBar(progressBar: View, min: Int, max: Int) {
+        val view: View = progressBar
         val animation: ValueAnimator =
             ValueAnimator.ofInt(min, max)
         animation.duration = 1000

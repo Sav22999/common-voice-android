@@ -9,8 +9,8 @@ android {
         applicationId 'org.commonvoice.saverio'
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode = 131
-        versionName '2.2.3'
+        versionCode = 133
+        versionName '2.3'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -24,15 +24,22 @@ android {
     }
     flavorDimensions "source_store"
     productFlavors {
-        "GPS" {
+        GPS {
             dimension "source_store"
+            buildConfigField "String", "SOURCE_STORE", "\"GPS\""
         }
-        "FD-GH" {
+        FDGH {
             dimension "source_store"
+            buildConfigField "String", "SOURCE_STORE", "\"FD-GH\""
         }
-        "HAG" {
+        HAG {
             dimension "source_store"
-            //applicationIdSuffix '.huawei'
+            applicationIdSuffix ".huawei"
+            buildConfigField "String", "SOURCE_STORE", "\"HAG\""
+        }
+        AAS {
+            dimension "source_store"
+            buildConfigField "String", "SOURCE_STORE", "\"AAS\""
         }
     }
     compileOptions {
@@ -66,7 +73,10 @@ dependencies {
     implementation Libs.constraintlayout
     implementation Libs.navFragmentKtx
     implementation Libs.navUiKtx
-    implementation Libs.extensions
+    implementation Libs.viewModel
+    implementation Libs.viewModelSavedState
+    implementation Libs.liveData
+    implementation Libs.commonJava8
     implementation Libs.legacySupport
     testImplementation Libs.junit4
     androidTestImplementation Libs.junitExt
@@ -93,5 +103,12 @@ dependencies {
     // Debug
     implementation Libs.timber
 
+    implementation Libs.advancedDialogs
+
     implementation project(":lib")
+
+    FDGHImplementation(project(":fake-ads"))
+    HAGImplementation(project(":fake-ads"))
+    AASImplementation(project(":fake-ads"))
+    GPSImplementation(project(":play-services-ads"))
 }

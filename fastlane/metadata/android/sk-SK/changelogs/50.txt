@@ -1,0 +1,6 @@
+- Added Badges for logged-in users in Profile
+- Added profile image in Profile
+- Improved localisation
+- Updated translations
+- Fixed minor bugs
+- Microphone and Storage permissions now are asked just in Speak section

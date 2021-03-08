@@ -49,6 +49,8 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
             theme.setElements(requireContext(), settingsSubSectionOther)
 
             theme.setElement(requireContext(), 3, settingsSubSectionOther)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionOther, textSize = 20F)
         }
     }
 }

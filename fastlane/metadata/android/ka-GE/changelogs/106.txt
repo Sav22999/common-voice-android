@@ -1,0 +1,2 @@
+- Bugfix in Listen: Mozilla changed API Reponse (actually now Mozilla restored the old API response: the app supports both systems)
+- Updated Arabic language

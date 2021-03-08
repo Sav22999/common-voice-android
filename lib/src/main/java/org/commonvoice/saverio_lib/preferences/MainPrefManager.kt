@@ -76,6 +76,10 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.THEME_TYPE.name, "light") //{"light"|"dark"|"auto"}
         set(value) = preferences.edit().putString(Keys.THEME_TYPE.name, value).apply()
 
+    var textSize: Float
+        get() = preferences.getFloat(Keys.TEXT_SIZE.name, 1.0F)
+        set(value) = preferences.edit().putFloat(Keys.TEXT_SIZE.name, value).apply()
+
     var appVersionCode: Int
         get() = preferences.getInt(Keys.APP_VERSION_CODE.name, 0)
         set(value) = preferences.edit().putInt(Keys.APP_VERSION_CODE.name, value).apply()
@@ -91,6 +95,16 @@ class MainPrefManager(ctx: Context) {
     var isBeta: Boolean
         get() = preferences.getBoolean(Keys.IS_BETA.name, false)
         set(value) = preferences.edit().putBoolean(Keys.IS_BETA.name, value).apply()
+
+    var showAdBanner: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
+
+    var shownMessagesId: List<Int>
+        get() = preferences.getString(Keys.SHOWN_MESSAGES_ID.name, "")?.split(',')
+            ?.map { it.toIntOrNull() ?: -1 } ?: emptyList()
+        set(value) = preferences.edit()
+            .putString(Keys.SHOWN_MESSAGES_ID.name, value.joinToString(",")).apply()
 
 
     private enum class Keys {
@@ -115,6 +129,9 @@ class MainPrefManager(ctx: Context) {
         APP_SOURCE_STORE,
         IS_ALPHA,
         IS_BETA,
+        SHOW_AD_BANNER,
+        TEXT_SIZE,
+        SHOWN_MESSAGES_ID,
     }
 
 }

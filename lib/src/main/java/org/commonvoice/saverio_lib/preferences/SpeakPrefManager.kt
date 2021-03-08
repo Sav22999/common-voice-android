@@ -40,6 +40,10 @@ class SpeakPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.NO_MORE_SENTENCES_AVAILABLE.name, value)
             .apply()
 
+    var showAdBanner: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
+
     private enum class Keys {
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
@@ -47,6 +51,7 @@ class SpeakPrefManager(ctx: Context) {
         SKIP_RECORDING_CONFIRMATION,
         SAVE_RECORDINGS_ON_DEVICE,
         DEVICE_RECORDINGS_LOCATION,
+        SHOW_AD_BANNER,
 
         NO_MORE_SENTENCES_AVAILABLE,
     }

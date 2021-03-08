@@ -16,9 +16,9 @@ import androidx.core.view.isVisible
 import org.commonvoice.saverio.databinding.FirstLaunchBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
+import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
-import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.koin.android.ext.android.inject
 
 
@@ -27,17 +27,10 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
 ) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
+    private val translationHandler by inject<TranslationHandler>()
 
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
-
-    private val languagesListShort by lazy {
-        resources.getStringArray(R.array.languages_short)
-    }
-
-    private val languagesList by lazy {
-        resources.getStringArray(R.array.languages)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,26 +68,6 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 checkStatus(next = false) //back
             }
         })
-
-        // set languages imported
-        binding.languageListFirstLaunch.adapter =
-            ArrayAdapter(this, android.R.layout.simple_list_item_1, languagesList)
-        binding.languageListFirstLaunch.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    //setLanguage("")
-                }
-
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    mainPrefManager.language = languagesListShort[position]
-                }
-            }
-        binding.languageListFirstLaunch.setSelection(languagesListShort.indexOf(getString(R.string.language)))
 
         setTheme()
     }
@@ -159,6 +132,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 textDescriptionFirstLaunch.setText(R.string.txt_introduction_app_first_launch)
                 imageFirstLaunch.imageTintList =
                     ContextCompat.getColorStateList(this@FirstLaunch, R.color.colorTransparent)
+                imageFirstLaunch.setImageResource(R.drawable.robot_half_bust)
                 firstLaunchSectionMiddleBottom.isGone = false
                 textTermsFirstLaunch.isGone = false
             } else if (status == 1) {
@@ -235,6 +209,24 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 imageFirstLaunch.setImageResource(R.drawable.ic_language)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
                 textDescriptionFirstLaunch.setText(R.string.txt_choose_language_first_launch)
+                // set languages imported
+                binding.languageListFirstLaunch.adapter = ArrayAdapter(this@FirstLaunch, android.R.layout.simple_list_item_1, translationHandler.availableLanguageNames)
+                binding.languageListFirstLaunch.onItemSelectedListener =
+                    object : AdapterView.OnItemSelectedListener {
+                        override fun onNothingSelected(parent: AdapterView<*>?) {
+                            //setLanguage("")
+                        }
+
+                        override fun onItemSelected(
+                            parent: AdapterView<*>?,
+                            view: View?,
+                            position: Int,
+                            id: Long
+                        ) {
+                            mainPrefManager.language = translationHandler.availableLanguageCodes[position]
+                        }
+                    }
+                binding.languageListFirstLaunch.setSelection(translationHandler.availableLanguageCodes.indexOf(getString(R.string.language)))
                 languageListFirstLaunch.isGone = false
                 buttonNextFirstLaunch.setText(R.string.btn_tutorial5)
             }
@@ -273,6 +265,13 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             seekBarFirstLaunch,
             R.color.colorBackground,
             R.color.colorBackgroundDT
+        )
+
+        theme.setElement(
+            this@FirstLaunch,
+            textCommonVoiceAndroidFirstLaunch,
+            background = false,
+            textSize = 30F
         )
     }
 

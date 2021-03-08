@@ -1,0 +1,2 @@
+- Improvemed app experience: section Listen now is faster (load 2 clips the first time, so while you validate a clip, in background it downloads another)
+- Added dark theme

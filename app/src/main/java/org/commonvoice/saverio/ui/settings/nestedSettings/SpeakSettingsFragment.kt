@@ -61,6 +61,8 @@ class SpeakSettingsFragment : ViewBoundFragment<FragmentSpeakSettingsBinding>() 
             theme.setElements(requireContext(), settingsSectionSpeak)
 
             theme.setElement(requireContext(), 3, settingsSectionSpeak)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionSpeak, textSize = 20F)
         }
     }
 }

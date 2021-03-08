@@ -1,14 +1,19 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import kotlinx.android.synthetic.main.fragment_advanced_settings.*
+import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -63,6 +68,33 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 logPrefManager.saveLogFile = isChecked
             }
             switchSaveLogToFile.isChecked = logPrefManager.saveLogFile
+
+            switchHomeAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
+                "{{*{{section_name}}*}}",
+                getString(R.string.title_home)
+            )
+            switchHomeAds.setOnCheckedChangeListener { _, isChecked ->
+                mainPrefManager.showAdBanner = isChecked
+            }
+            switchHomeAds.isChecked = mainPrefManager.showAdBanner
+
+            switchListenAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
+                "{{*{{section_name}}*}}",
+                getString(R.string.settingsListen)
+            )
+            switchListenAds.setOnCheckedChangeListener { _, isChecked ->
+                listenPrefManager.showAdBanner = isChecked
+            }
+            switchListenAds.isChecked = listenPrefManager.showAdBanner
+
+            switchSpeakAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
+                "{{*{{section_name}}*}}",
+                getString(R.string.settingsSpeak)
+            )
+            switchSpeakAds.setOnCheckedChangeListener { _, isChecked ->
+                speakPrefManager.showAdBanner = isChecked
+            }
+            switchSpeakAds.isChecked = speakPrefManager.showAdBanner
 
             buttonOpenTutorialAgain.setOnClickListener {
                 Intent(requireContext(), FirstLaunch::class.java).also {
@@ -145,7 +177,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
     private fun setupButtons() {
         buttonShowStringIdentifyMe.setOnClickListener {
-            showMessageDialog("", statsRepository.getUserId())
+            showMessageDialog("", statsRepository.getUserId(), enableCopyText = true, type = 15)
         }
     }
 
@@ -154,8 +186,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             theme.setElement(layoutSettingsAdvanced)
 
             theme.setElements(requireContext(), settingsSectionAdvanced)
+            theme.setElements(requireContext(), settingsSectionAdvancedAds)
 
             theme.setElement(requireContext(), 3, settingsSectionAdvanced)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedAds)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionAdvanced, textSize = 20F)
         }
     }
 
@@ -164,7 +200,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
         text: String,
         errorCode: String = "",
         details: String = "",
-        type: Int = 0
+        type: Int = 0,
+        enableCopyText: Boolean = false
     ) {
         val metrics = DisplayMetrics()
         activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
@@ -187,6 +224,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 details = details,
                 height = height
             )
+            if (enableCopyText) {
+                message.setClipboardManager(
+                    activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager,
+                    ClipData.newPlainText("", messageText)
+                )
+            }
             message.show()
         } catch (exception: Exception) {
             println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")

@@ -1,0 +1,3 @@
+- Added translation in German
+- Improvements to the UI
+- Fixed some bugs

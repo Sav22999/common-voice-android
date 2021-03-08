@@ -3,6 +3,7 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_listen_settings.*
+import kotlinx.android.synthetic.main.fragment_offline_settings.*
 import org.commonvoice.saverio.databinding.FragmentListenSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -57,6 +58,8 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
             theme.setElements(requireContext(), settingsSectionListen)
 
             theme.setElement(requireContext(), 3, settingsSectionListen)
+
+            theme.setTitleBar(requireContext(), titleSettingsSubSectionListen, textSize = 20F)
         }
     }
 

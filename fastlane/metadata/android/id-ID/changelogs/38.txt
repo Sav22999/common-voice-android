@@ -1,0 +1,4 @@
+- WebBrowser ForTests added
+- Fixed login by email, now you can open the verification link in-app
+- Added all languages available on website (CV)
+- Added partial Basque translations

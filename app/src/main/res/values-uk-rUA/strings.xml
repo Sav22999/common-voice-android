@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Пропустити</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Дозвіл отримано</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Помилка: немає дозволу</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android - це неофіційний застосунок для Mozilla Common Voice. Він розроблений Saverio Morelli без будь-якої підтримки або партнерства з Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Продовжуючи, ви погоджуєтеся з умовами використання Mozilla\'s Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Програмі необхідний дозвіл на мікрофон для запису вашого голосу.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Ви можете повідомити про помилки на GitHub або Telegram. Щоб допомогти розробнику швидко зрозуміти проблему, ви повинні додати лог-файл програми до вашого звіту. Застосункові потрібен дозвіл на збереження лог-файлу у сховищі.</string>
@@ -66,24 +66,24 @@
     <string name="btn_badges_loggedin" comment="Button">Всі значки</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Рівень {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">Вітання! Ви щойно досягли рівня {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">У мене вже є посилання для підтвердження</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Посилання для підтвердження</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Посилання для підтвердження не дійсне</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Відкрити помічник знову</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Проєкт із відкритим вихідним кодом на GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">розроблено</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Мову успішно налаштована як {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Мова</string>
     <string name="settingsListen" comment="Title in Settings">Слухати</string>
     <string name="settingsSpeak" comment="Title in Settings">Вимовити</string>
     <string name="settingsOther" comment="Title in Settings">Інше</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="settingsGeneral" comment="Title in Settings">Загальні налаштування</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Корисні посилання</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Докладніше</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Світла</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Темна</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Автоматично</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Підтримайте мою роботу. Купіть мені кави 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Автовідтворення кліпу при завантаженні</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Темна тема</string>
@@ -92,13 +92,13 @@
     <string name="toast_experimental_features_on" comment="Message text">Експериментальні функції ввімкнено.\nНові функції можуть бути нестабільні та небезпечні.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Зберегти логи у файл</string>
     <string name="toast_log_on_file_on" comment="Message text">Збереження журналів у файл увімкнено.\nВи можете прикріпити файл log.txt до звіту про проблему.\nЧитайте більше на GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identify me inside the app</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Загальна статистика</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Статистика використання додатку</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Пропустити підтвердження запису</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Пропуск підтвердження запису ввімкнено.\nТепер ви зможете відправляти записи без необхідності їх прослуховувати.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Перекладіть застосунок на Crowdin</string>
@@ -124,7 +124,12 @@
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings | Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">Show report icon (top-right) instead of button (bottom) in {{*{{listen_name}}*}} and {{*{{speak_name}}*}}</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Завантаження речення...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропустити</string>
@@ -240,11 +245,11 @@
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Гарна робота! Ви досягли своєї щоденної мети.\nВи підтвердили {{*{{n_clips}}*}} затемнення та записали {{*{{n_sentences}}*}} речених.\nМожете продовжувати вносити свій вклад до загального голосу.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
     <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVAndroid.\nJoin in and contribute! Install CV Android from Google Play or F-Droid now {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ця щоденна мета - не офіційна функція Mozilla. Це лише функція застосунку.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
+    <string name="copie_string" comment="Toast message">Copied</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Доступна нова версія додатку (реліз {{*{{n_version}}*}). Ви можете оновити це через свій улюблений магазин (F-Droid, Google Play Store) або безпосередньо з GitHub.</string>
-    <!-- Others -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Languages (list) sort "A-Z" - "languages" and "languages_short" sort MUST coincide (e.g. Italian and it, English and en, ect.) -->
-    <!-- DO NOT TRANSLATE OR CHANGE THIS - Abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
 </resources>
