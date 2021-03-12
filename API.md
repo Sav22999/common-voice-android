@@ -153,11 +153,13 @@ To get app statistics you need to do a `GET request` to https://www.saveriomorel
 
 You can insert these parameters to the `GET` request:
 
-| Key        | Value     | Required   | Explanation                                                  |
-| ---------- | --------- | ---------- | ------------------------------------------------------------ |
-| `language` | *String*  | `optional` | It's the language code of the language you want to see. You can specify also `all`, the system will return all languages.<br />If you don't specify anything, the system will return all languages |
-| `filter`   | *String*  | `optional` | It filters the result of contributions, you can set to `today` (contributions of today), `yesterday` (contributions of yesterday), `always` (contributions of always) or `year` (contributions of year and you have to specify the `year` parameter too). |
-| `year`     | *Integer* | `optional` | Specify it just if you specified `filter`=`year`.<br />You need to specify the year you want to see. If you don't specify anything, it's set automatically to `filter`=`today`. |
+| Key          | Value                      | Required   | Explanation                                                  |
+| ------------ | -------------------------- | ---------- | ------------------------------------------------------------ |
+| `language`   | *String*                   | `optional` | It's the language code of the language you want to see. You can specify also `all`, the system will return all languages.<br />If you don't specify anything, the system will return all languages |
+| `filter`     | *String*                   | `optional` | It filters the result of contributions, you can set to `today` (contributions of today), `yesterday` (contributions of yesterday), `always` (contributions of always), `year` (contributions of year and you have to specify the `year` parameter too) or `date` (then you will be able to specify exactly the `start_date` and the `end_date`). |
+| `year`       | *Integer*                  | `optional` | Specify it just if you specified `filter`=`year`.<br />You need to specify the year you want to see. If you don't specify anything, it's set automatically to `filter`=`today`. |
+| `start_date` | *Date*<br />(`YYYY-MM-DD`) | `optional` | Specify it just if you specified `filter`=`date`.<br />You need to specify the start date ("from") you want to see. If you don't specify anything, it's set automatically to the current date ("today"). |
+| `end_date`   | *Date*<br />(`YYYY-MM-DD`) | `optional` | Specify it just if you specified `filter`=`date` and if you set before the `start_date`.<br />You need to specify the end date ("to") you want to see. If you don't specify anything, it's set automatically to the current date ("today"). |
 
 The `language` can also be `all`.
 
@@ -256,10 +258,13 @@ To get app statistics you need to do a `GET request` to https://www.saveriomorel
 
 You can insert these parameters to the `GET` request:
 
-| Key        | Value    | Required   | Explanation                                                  |
-| ---------- | -------- | ---------- | ------------------------------------------------------------ |
-| `language` | *String* | `optional` | It's the language code of the language you want to see. You can specify also `all`, the system will return all languages.<br />If you don't specify anything, the system will return all languages |
-| `year`     | *String* | `optional` | It indicates the year (format `YYYY`). If you specify this, the contributions will be relative of all that year, otherwise the system will display to you just the contributions of today.<br />If you want the contributions of ever, you can specify `always`. |
+| Key          | Value                      | Required   | Explanation                                                  |
+| ------------ | -------------------------- | ---------- | ------------------------------------------------------------ |
+| `language`   | *String*                   | `optional` | It's the language code of the language you want to see. You can specify also `all`, the system will return all languages.<br />If you don't specify anything, the system will return all languages |
+| `filter`     | *String*                   | `optional` | It filters the result of contributions, you can set to `today` (contributions of today), `yesterday` (contributions of yesterday), `always` (contributions of always), `year` (contributions of year and you have to specify the `year` parameter too) or `date` (then you will be able to specify exactly the `start_date` and the `end_date`). |
+| `year`       | *Integer*                  | `optional` | Specify it just if you specified `filter`=`year`.<br />You need to specify the year you want to see. If you don't specify anything, it's set automatically to `filter`=`today`. |
+| `start_date` | *Date*<br />(`YYYY-MM-DD`) | `optional` | Specify it just if you specified `filter`=`date`.<br />You need to specify the start date ("from") you want to see. If you don't specify anything, it's set automatically to the current date ("today"). |
+| `end_date`   | *Date*<br />(`YYYY-MM-DD`) | `optional` | Specify it just if you specified `filter`=`date` and if you set before the `start_date`.<br />You need to specify the end date ("to") you want to see. If you don't specify anything, it's set automatically to the current date ("today"). |
 
 The `language` can also be `all`.
 
