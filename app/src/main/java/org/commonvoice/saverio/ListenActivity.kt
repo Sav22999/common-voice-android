@@ -576,7 +576,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             listenViewModel.validate(result = false)
             numberSentThisSession++
             hideButtons()
-            refreshAds()
+            if (numberSentThisSession % 10 == 0) {
+                refreshAds()
+            }
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -608,7 +610,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             hideButtons()
             listenViewModel.validate(result = true)
             numberSentThisSession++
-            refreshAds()
+            if (numberSentThisSession % 10 == 0) {
+                //refreshAds()
+            }
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()

@@ -47,48 +47,48 @@
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Akkor is hozzájárulhat, amikor offline. Az offline mód automatikusan be lesz kapcsolva, és folytathatja a felvételt és hallgatást internetkapcsolat nélkül.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">Világos és sötét téma közül lehet választani. Később ezt módosíthatja a Beállításokban.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Sötét téma</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
-    <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
-    <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Egyes műveletekhez gesztusok tartoznak. Például balra húzással kihagyhatja a mondatot Beszéljen módban.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Testreszabhatja ezeket a gesztusok a Beállításokban.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Csatlakozhat a Telegram csoporthoz, hogy híreket és támogatást kapjon.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Csatlakozás a csoporthoz</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Gyerünk! Válassza ki, hogy melyik nyelven szeretne beszélni vagy figyelni. Az alkalmazás azon a nyelven is fog megjelenni, ha a fordítás elérhető.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading ...</string>
-    <string name="txt_profile_username" comment="Label in Profile">Username</string>
-    <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Age</string>
-    <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
-    <string name="txt_gender_male" comment="Label in Profile">Male</string>
-    <string name="txt_gender_female" comment="Label in Profile">Female</string>
-    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Other</string>
-    <string name="btn_badges_loggedin" comment="Button">All badges</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="txt_loading_page" comment="Label">Betöltés…</string>
+    <string name="txt_profile_username" comment="Label in Profile">Felhasználónév</string>
+    <string name="txt_profile_email" comment="Label in Profile">E-mail</string>
+    <string name="txt_profile_age" comment="Label in Profile">Életkor</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Nem</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">A profilinformációk módosításához menjen a Common Voice weboldalra.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Bejelentkezés sikeres!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Férfi</string>
+    <string name="txt_gender_female" comment="Label in Profile">Nő</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Egyéb</string>
+    <string name="btn_badges_loggedin" comment="Button">Összes jelvény</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">{{*{{level}}*}}. szint</string>
+    <string name="level_up_message" comment="Message text">Gratulálunk! Elérte a(z) {{*{{n_level}}*}}. szintet.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Már rendelkezem ellenőrző hivatkozással</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Ellenőrző hivatkozással</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Az ellenőrző hivatkozás nem érvényes</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
-    <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
-    <string name="txt_developed_by" comment="Label in Settings">developed by</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
-    <string name="settingsLanguage" comment="Title in Settings">Language</string>
-    <string name="settingsListen" comment="Title in Settings">Listen</string>
-    <string name="settingsSpeak" comment="Title in Settings">Speak</string>
-    <string name="settingsOther" comment="Title in Settings">Other</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
-    <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
-    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Dark theme</string>
-    <string name="contact_developer_on_telegram" comment="Button in Settings">Contact the developer on Telegram</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimental features</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Oktatás újbóli megnyitása</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Nyílt forráskódú projekt a GitHubon</string>
+    <string name="txt_developed_by" comment="Label in Settings">fejlesztette:</string>
+    <string name="toast_language_changed" comment="Message text">Nyelv sikeresen beállítva erre: {{*{{lang}}*}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Nyelv</string>
+    <string name="settingsListen" comment="Title in Settings">Figyeljen</string>
+    <string name="settingsSpeak" comment="Title in Settings">Beszéljen</string>
+    <string name="settingsOther" comment="Title in Settings">Egyéb</string>
+    <string name="settingsGeneral" comment="Title in Settings">Általános</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Hasznos hivatkozások</string>
+    <string name="settingsLearnMore" comment="Button in Settings">További információk</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Világos</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Sötét</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automatikus</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Támogassa a munkámat. Vegyen nekem egy kávét 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Klip automatikus lejátszása, ha betöltődött</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Sötét téma</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Kapcsolatfelvétel a szerzővel Telegramon</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Kísérleti funkciók</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
     <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
@@ -218,38 +218,38 @@
     <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
-    <string name="text_warning" comment="Title for Message text">Warning</string>
-    <string name="text_tip" comment="Title for Message text">Tip</string>
-    <string name="text_changelog" comment="Title for Message text">Changelog</string>
-    <string name="text_help" comment="Title for Message text">Help</string>
-    <string name="text_info" comment="Title for Message text">Info</string>
-    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Do not show anymore</string>
-    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode" comment="Title">Offline mode</string>
-    <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
-    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Common Voice megnyitása</string>
+    <string name="text_warning" comment="Title for Message text">Figyelmeztetés</string>
+    <string name="text_tip" comment="Title for Message text">Tipp</string>
+    <string name="text_changelog" comment="Title for Message text">Változásnapló</string>
+    <string name="text_help" comment="Title for Message text">Súgó</string>
+    <string name="text_info" comment="Title for Message text">Információ</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Többé ne jelenítse meg</string>
+    <string name="text_report_website_bug" comment="Message text">Ha problémai vannak a hivatalos Common Voice weboldallal, akkor jelentse őket a Mozilla Discourse fórumán vagy a GitHub tárolóban, hogy a Mozilla kijavíthassa.</string>
+    <string name="text_offline_mode" comment="Title">Kapcsolat nélküli mód</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Nincs internetkapcsolat, így az alkalmazás automatikusan kapcsolat nélküli módba vált.\nEz azt jelenti, hogy továbbra is rögzíthet és ellenőrizhet, de a kérések csak később lesznek elküldve..</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Úgy tudhatja meg, hogy az alkalmazás kapcsolat nélküli módban van, hogy ezt az ikont keresi a képernyőn:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Rákoppinthat arra az ikonra, és láthatja a letöltött klipeket és mondatokat.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">A kapcsolat nélküli mód nem engedélyezett, így internetkapcsolat nélkül nem használhatja az alkalmazást.\nA kapcsolat nélküli mód használatához kapcsolja be a Beállításokban.</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title" comment="Title in Dashboard">Daily goal</string>
-    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No goal set</string>
-    <string name="set_daily_goal" comment="Button">Set a goal</string>
-    <string name="edit_daily_goal" comment="Button">Edit goal</string>
-    <string name="save_daily_goal" comment="Button">Save</string>
-    <string name="delete_daily_goal" comment="Button">Delete</string>
-    <string name="cancel_daily_goal" comment="Button">Cancel</string>
-    <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
-    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Achieved today</string>
-    <string name="daily_goal_not_achieved_today">Not achieved today</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
-    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copie_string" comment="Toast message">Copied</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">Napi cél</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nincs cél megadva</string>
+    <string name="set_daily_goal" comment="Button">Adjon meg egy célt</string>
+    <string name="edit_daily_goal" comment="Button">Cél szerkesztése</string>
+    <string name="save_daily_goal" comment="Button">Mentés</string>
+    <string name="delete_daily_goal" comment="Button">Törlés</string>
+    <string name="cancel_daily_goal" comment="Button">Mégse</string>
+    <string name="description_setting_daily_goal" comment="Message text">Válassza ki, hogy hány mondatot szeretne rögzíteni, és hány klipet szeretne ellenőrizni (a kettőt együtt) naponta.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Ma elért</string>
+    <string name="daily_goal_not_achieved_today">Ma nem elért</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Szép munka! Elérte a napi célját.\nEllenőrzött {{*{{n_clips}}*}} klipet, és rögzített {{*{{n_sentences}}*}} mondatot.\nTovábbra is nyugodtan működjön közre a Common Voice-ban.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Megosztás</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Megosztás itt:</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Épp most értem el a napi célom a @mozilla #CommonVoice projektjében, a #CVProject használatával.\nCsatlakozzon és vegye ki a részét! Telepítse most a CV Project alkalmazást a Google Play-ből, az F-Droidból vagy a Huawei AppGallery-ből {{*{{link}}*}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ez a napi cél nem egy hivatalos mozillás funkció. Ez csak az alkalmazás funkciója.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Tudta, hogy…?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 óra valamivel több mint 6 hónap alatt elérhető, ha 1 000 ember napi 45 klipet vesz fel.</string>
+    <string name="copie_string" comment="Toast message">Másolva</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Az alkalmazás új verziója érhető el (verzió: {{*{{n_version}}*}}). Frissítheti a kedvenc alkalmazásboltjából (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) vagy közvetlenül a GitHubról.</string>
 </resources>

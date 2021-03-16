@@ -1,0 +1,2 @@
+Interface aanpassen
+Offlinemodus, donker thema

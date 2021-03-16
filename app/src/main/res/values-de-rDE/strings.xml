@@ -73,7 +73,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Tutorial erneut öffnen</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Open-Source-Projekt auf GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">Entwickelt von</string>
-    <string name="toast_language_changed" comment="Message text">Sprache erfolgreich auf {{*{{lang}} *}} gesetzt</string>
+    <string name="toast_language_changed" comment="Message text">Sprache erfolgreich auf {{*{{lang}}*}} gesetzt</string>
     <string name="settingsLanguage" comment="Title in Settings">Sprache</string>
     <string name="settingsListen" comment="Title in Settings">Anhören</string>
     <string name="settingsSpeak" comment="Title in Settings">Sprechen</string>

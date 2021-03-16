@@ -2,61 +2,61 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">en</string>
+    <string name="language">fy-NL</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_home">Startside</string>
+    <string name="title_dashboard">Dashboerd</string>
+    <string name="title_settings">Ynstellingen</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Sign up</string>
-    <string name="button_home_logout">Log out</string>
-    <string name="button_home_profile">Profile</string>
-    <string name="text_hi_username">Hi</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="button_home_login">Oanmelde / Registrearje</string>
+    <string name="button_home_logout">Ofmelde</string>
+    <string name="button_home_profile">Profyl</string>
+    <string name="text_hi_username">Hallo</string>
+    <string name="message_log_in_again">De sesje-id is ferrûn, jo moatte opnij oanmelde</string>
     <!-- Dashboard -->
-    <string name="dashboardStatistics">Statistics</string>
-    <string name="dashboardVoicesOnline">Voices online</string>
-    <string name="dashboardTabYou">You</string>
-    <string name="dashboardTabEveryone">Everyone</string>
-    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Today</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
-    <string name="textHoursAbbreviation">h</string>
-    <string name="textHour">Hour</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="dashboardStatistics">Statistiken</string>
+    <string name="dashboardVoicesOnline">Stimmen online</string>
+    <string name="dashboardTabYou">Jo</string>
+    <string name="dashboardTabEveryone">Elkenien</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Hjoed</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Ea</string>
+    <string name="toastNoLoginNoStatistics">Jo moatte oanmelde om jo statistiken besjen te kinnen</string>
+    <string name="toastNoLoginNoDailyGoal">Jo moatte oanmelde om it deistige doel yn te stellen</string>
+    <string name="textHoursAbbreviation">o</string>
+    <string name="textHour">Oer</string>
+    <string name="txt_top_contributors">Topmeiwurkers</string>
+    <string name="txt_top_contributors_recorded">Opnommen</string>
+    <string name="txt_top_contributors_validated">Falidearre</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">App-statistiken</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Aktuele taal</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Alle talen</string>
+    <string name="txt_not_available_offline" comment="Message text">Net beskikber yn offline modus</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Start</string>
-    <string name="btn_tutorial2" comment="Button">Permit</string>
-    <string name="btn_tutorial3" comment="Button">Next</string>
-    <string name="btn_tutorial4" comment="Button">Try again</string>
-    <string name="btn_tutorial5" comment="Button">Finish</string>
-    <string name="btn_skip" comment="Button">Skip</string>
-    <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">You can choose either light theme or dark theme. You can change this later in Settings.</string>
-    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Dark theme</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
-    <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
-    <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="btn_tutorial1" comment="Button">Begjinne</string>
+    <string name="btn_tutorial2" comment="Button">Tastean</string>
+    <string name="btn_tutorial3" comment="Button">Folgjende</string>
+    <string name="btn_tutorial4" comment="Button">Opnij probearje</string>
+    <string name="btn_tutorial5" comment="Button">Foltôgje</string>
+    <string name="btn_skip" comment="Button">Oerslaan</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Tastimming krigen</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Flater: tastimming wegere</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is in ûnoffisjele app foar Mozilla Common Voice. It wurdt ûntwikkele troch Saverio Morelli sûnder stipe of gearwurking mei Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Troch fierder te gean, geane jo akkoard mei de tsjinstbetingsten fan Mozilla’s Common Voice.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Dizze app hat tastimming fan de ‘Mikrofoan’ nedich om jo stim op te nimmen.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Jo kinne bugs melde op GitHub of Telegram. Om de ûntwikkeler te helpen it probleem gau te begripen, moatte jo it lochbestân fan de app oan jo rapport keppelje. De app hat de tastimming ‘Opslag’ nedich om it lochbestân te bewarjen.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Jo kinne sels bydrage as jo offline binne. De ‘Offline modus’ fan de app wurdt automatysk ynskeakele en jo kinne trochgean mei opnimmen en lústerje sûnder in ynternetferbining.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Jo kinne kieze út it lichte of donkere tema. Jo kinne dit letter wizigje yn Ynstellingen.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Donker tema</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Guon aksjes hawwe oerienkomstige gebearen. Jo kinne bygelyks in sin oerslaan yn Sprekke troch nei links te feien.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Jo kinne dizze gebearen oanpasse yn Ynstellingen.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Jo kinne dielnimme oan de Telegram-groep om nijs en stipe te krijen.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Dielnimme oan groep</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Litte wy starte! Kies de taal wêryn jo sprekke of lústerje wolle. De app wurdt ek yn dy taal toand as der in oersetting beskikber is.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading ...</string>
-    <string name="txt_profile_username" comment="Label in Profile">Username</string>
-    <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Age</string>
+    <string name="txt_loading_page" comment="Label">Lade...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Brûkersnamme</string>
+    <string name="txt_profile_email" comment="Label in Profile">E-mailadres</string>
+    <string name="txt_profile_age" comment="Label in Profile">Leeftiid</string>
     <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
     <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
     <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
@@ -112,29 +112,29 @@
     <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
-    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="title_theme_settings" comment="Title in Settings">Tema</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram-groep fan de app</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Labels ûnder de menu-ikoanen toane</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">De tsjinstbetingsten fan Mozilla Common Voice lêze</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">De rjochtlinen foar falidaasjes lêze</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Op Google Play beoardiele</string>
+    <string name="title_ui_settings" comment="Option in Settings">Brûkersinterface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Avansearre</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Opnamen op apparaat bewarje</string>
+    <string name="txt_reset_data" comment="Button in Settings">App-gegevens opnij inisjalisearje</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Der binne op dit stuit gjin eksperimintele funksjes beskikber</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Tekst fan sinnen toane as fragminten folslein belústere binne</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Rapportpiktogram (rjochtsboppe) toane yn stee fan in knop (ûnderoan)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Tekstgrutte</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Advertinsjebanner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Advertinsjebanner yn {{*{{section_name}}*}} ynskeakelje</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Kleurde foartgongsbalke deidoel</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} en {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip...</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Sin lade...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Oerslaan</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Opname ferstjoere</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Clip lade...</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>

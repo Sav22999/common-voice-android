@@ -50,7 +50,7 @@
     <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
     <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Aliĝi grupon</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
     <string name="txt_loading_page" comment="Label">Ŝarĝado...</string>
@@ -59,28 +59,28 @@
     <string name="txt_profile_age" comment="Label in Profile">Aĝo</string>
     <string name="txt_profile_gender" comment="Label in Profile">Genro</string>
     <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
+    <string name="txt_login_successful_alert" comment="Message text">Ensalutis sukcese!</string>
     <string name="txt_gender_male" comment="Label in Profile">Iĉa</string>
     <string name="txt_gender_female" comment="Label in Profile">Ina</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Aliaj</string>
     <string name="btn_badges_loggedin" comment="Button">Ĉiuj ordenoj</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivelo {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Gratulon! Vi atingis nivelon {{*{{n_level}}*}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
     <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Malfermi lernilon denove</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
-    <string name="txt_developed_by" comment="Label in Settings">developed by</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="txt_developed_by" comment="Label in Settings">kreata de</string>
+    <string name="toast_language_changed" comment="Message text">Lingvo sukcese ŝanĝigis al {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Lingvo</string>
     <string name="settingsListen" comment="Title in Settings">Aŭskulti</string>
     <string name="settingsSpeak" comment="Title in Settings">Paroli</string>
     <string name="settingsOther" comment="Title in Settings">Aliaj</string>
     <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Utilaj ligiloj</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Lerni pli</string>
     <string name="radioThemeLight" comment="Radio-Button in Settings">Hela</string>
     <string name="radioThemeDark" comment="Radio-Button in Settings">Malhela</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">Aŭtomate</string>

@@ -124,9 +124,9 @@
     <string name="txt_reset_data" comment="Button in Settings">Réinitialiser les données</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Aucune fonctionnalité expérimentale disponible pour le moment</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Montrer la phrase seulement après l\'écoute</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Afficher l\'icône de rapport (en haut à droite) au lieu du bouton (en bas)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Taille du texte</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Bannières pubs</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activer la bannière de pub dans {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} et {{*{{listen_name}}*}}</string>

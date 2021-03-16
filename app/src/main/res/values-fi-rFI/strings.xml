@@ -5,17 +5,17 @@
     <string name="language">fi</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Koti</string>
-    <string name="title_dashboard">Hallintasivu</string>
+    <string name="title_dashboard">Kojelauta</string>
     <string name="title_settings">Asetukset</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Kirjaudu sisään / Rekisteröidy</string>
+    <string name="button_home_login">Kirjaudu / Rekisteröidy</string>
     <string name="button_home_logout">Kirjaudu ulos</string>
     <string name="button_home_profile">Profiili</string>
     <string name="text_hi_username">Hei</string>
     <string name="message_log_in_again">Istunnon tunniste on vanhentunut, sinun pitää kirjautua sisään uudelleen</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Tilastot</string>
-    <string name="dashboardVoicesOnline">Ääniä verkossa</string>
+    <string name="dashboardVoicesOnline">Ääniä aktiivisena</string>
     <string name="dashboardTabYou">Sinä</string>
     <string name="dashboardTabEveryone">Kaikki</string>
     <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Tänään</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoDailyGoal">Sinun täytyy kirjautua sisään asettaaksesi päivittäisen tavoitteen</string>
     <string name="textHoursAbbreviation">t</string>
     <string name="textHour">Tunti</string>
-    <string name="txt_top_contributors">Eniten osallistuneet</string>
+    <string name="txt_top_contributors">Parhaat osallistujat</string>
     <string name="txt_top_contributors_recorded">Nauhoitettu</string>
     <string name="txt_top_contributors_validated">Vahvistettu</string>
     <string name="txt_app_statistics" comment="Title in Dashboard">Sovelluksen tilastot</string>
@@ -47,14 +47,14 @@
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Voit jopa osallistua kun olet offline-tilassa. Sovelluksen \"Offline-tila\" otetaan käyttöön automaattisesti, ja voit jatkaa nauhoitusta ja kuunnella ilman Internet-yhteyttä.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">Voit valita joko vaalean tai tumman teeman. Voit vaihtaa tämän myöhemmin asetuksissa.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tumma teema</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Joillain toiminnoilla on vastaavia eleitä. Esimerkiksi voit ohittaa lauseen Puhu-osiossa pyyhkäisemällä vasemmalle.</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Joillain toiminnoilla on vastaavia eleitä. Esimerkiksi voit ohittaa virkkeen Puhu-osiossa pyyhkäisemällä vasemmalle.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Voit muokata näitä eleitä asetuksissa.</string>
     <string name="txt_telegram_group_first_launch" comment="Text | First-run">Voit liittyä Telegram-ryhmään saadaksesi uutisia ja tukea.</string>
     <string name="btn_join_telegram_first_launch" comment="Button">Liity ryhmään</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Mennään! Valitse mitä kieltä haluat puhua tai kuunnella. Sovellus näkyy myös sillä kielellä jos käännös on saatavilla.</string>
     <!-- Login -->
     <string name="txt_loading_page" comment="Label">Ladataan ...</string>
-    <string name="txt_profile_username" comment="Label in Profile">Käyttäjänimi</string>
+    <string name="txt_profile_username" comment="Label in Profile">Käyttäjätunnus</string>
     <string name="txt_profile_email" comment="Label in Profile">Sähköposti</string>
     <string name="txt_profile_age" comment="Label in Profile">Ikä</string>
     <string name="txt_profile_gender" comment="Label in Profile">Sukupuoli</string>
@@ -80,7 +80,7 @@
     <string name="settingsOther" comment="Title in Settings">Muu</string>
     <string name="settingsGeneral" comment="Title in Settings">Yleiset</string>
     <string name="settingsUsefulLinks" comment="Title in Settings">Hyödyllisiä linkkejä</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Lisätietoja</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Lue lisää</string>
     <string name="radioThemeLight" comment="Radio-Button in Settings">Vaalea</string>
     <string name="radioThemeDark" comment="Radio-Button in Settings">Tumma</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">Automaattinen</string>
@@ -93,7 +93,7 @@
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Tallenna lokit tiedostoon</string>
     <string name="toast_log_on_file_on" comment="Message text">Lokien tallentaminen tiedostoon on käytössä.\nVoit liittää log.txt-tiedoston kun ilmoitat virheestä.\nLue lisää GitHubista.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Yleiset tilastot</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Näytä merkkijono, minkä avulla minut tunnistetaan sovelluksessa</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -114,7 +114,7 @@
     <string name="txt_customise_gestures" comment="Button in Settings">Mukauta eleitä</string>
     <string name="title_theme_settings" comment="Title in Settings">Teema</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Sovelluksen Telegram-ryhmä</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Näytä kuvakkeiden nimet valikossa</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Lue Mozillan Common Voicen käyttöehdot</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Lue vahvistamista koskevat ohjeet</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Arvostele Google Playssa</string>
@@ -123,15 +123,15 @@
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Tallenna nauhoitteet laitteelle</string>
     <string name="txt_reset_data" comment="Button in Settings">Tyhjennä sovelluksen tiedot</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Kokeellisia ominaisuuksia ei ole nyt saatavilla</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Näytä lauseiden teksti kun klipit ovat kuunneltu kokonaan</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Näytä virkkeiden teksti kun klipit ovat kuunneltu kokonaan</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Näytä Raportoi-kuvake (oikea yläkulma) alapainikkeen sijaan</string>
     <string name="title_textsize_settings" comment="Title in Settings">Tekstin koko</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Mainospalkki</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Ota käyttöön mainosbanneri osiossa {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Värillinen palkki päivittäistavoitteen seurantaan</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} ja {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Ladataan lausetta...</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Ladataan virkettä...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ohita</string>
     <string name="btn_send_sentence" comment="Button in Speak">Lähetä nauhoitus</string>
     <string name="txt_loading_clip" comment="Label in Listen">Ladataan klippiä...</string>
@@ -160,9 +160,9 @@
     <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Tuloksen lähettäminen epäonnistui! Voit yrittää uudelleen, tai painaa {{*{{skip_button}}*}}-painiketta.</string>
     <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Suljetaan...</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Virhe. Tälle kielelle ei ole enää saatavilla olevia klippejä.</string>
-    <string name="button_report" comment="Button">Ilmoita</string>
+    <string name="button_report" comment="Button">Raportoi</string>
     <string name="title_report_clip" comment="Title in Report a clip">Raportoi klippi:</string>
-    <string name="title_report_sentence" comment="Title in Report a sentence">Ilmoita lause:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Raportoi virke:</string>
     <string name="button_send_report" comment="Button">Lähetä ilmoitus</string>
     <string name="checkbox_reason1_report_sentence" comment="Checkbox">Loukkaavaa kieltä</string>
     <string name="checkbox_reason1_report_clip" comment="Checkbox">Loukkaavaa puhetta</string>
@@ -173,7 +173,7 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Kommentti</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Sinulla ei ole enää offline-virkkeitä. Yhdistä Internetiin ja lataa lisää virkkeitä nauhoittaaksesi.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Sinulla ei ole enää offline-klippejä. Yhdistä Internetiin ja lataa lisää klippejä vahvistaaksesi.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Voit nauhoittaa {{*{{n_sentences}}*}} lausetta lisää ennen kuin sinun tarvitsee yhdistää Internetiin.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Voit nauhoittaa {{*{{n_sentences}}*}} virkettä lisää ennen kuin sinun tarvitsee yhdistää Internetiin.</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Voit vahvistaa {{*{{n_clips}}*}} klippiä lisää ennen kuin sinun tarvitsee yhdistää Internetiin.</string>
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Kuunnellaan...</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" on käytössä. Mene asetuksiin poistaaksesi sen käytöstä.</string>
@@ -247,9 +247,9 @@
     <string name="share_daily_goal_title" comment="Title of panel">Jaa</string>
     <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Saavutin juuri päivittäisen tavoitteen @mozilla:n #CommonVoice:en käyttämällä #CVProject:ia.\nLiity mukaan ja osallistu! Asenna CV Android Google Playstä, F-Droidista tai Huawei AppGallerystä nyt {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Tämä päivittäinen tavoite ei ole virallinen Mozillan ominaisuus. Se on vain tämän sovelluksen ominaisuus.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copie_string" comment="Toast message">Copied</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Tiesitkö, että ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 tuntia voidaan saavuttaa hiukan yli 6 kuukaudessa jos 1,000 ihmistä äänittää 45 näytettä päivässä.</string>
+    <string name="copie_string" comment="Toast message">Kopioitu</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Uusi versio sovelluksesta on saatavilla (julkaisu {{*{{n_version}}*}}). Voit päivittää sen suosikkikaupastasi (F-Droid, Google Play Store, Huawei AppGallery, Amazon AppStore) tai suoraan GitHubista.</string>
 </resources>
