@@ -4,252 +4,252 @@
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language">nl</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
+    <string name="title_home">Startpagina</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_settings">Instellingen</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Meld aan</string>
-    <string name="button_home_logout">Log uit</string>
+    <string name="button_home_login">Aanmelden / registreren</string>
+    <string name="button_home_logout">Afmelden</string>
     <string name="button_home_profile">Profiel</string>
     <string name="text_hi_username">Hallo</string>
-    <string name="message_log_in_again">De sessie-id is verlopen, je moet opnieuw inloggen</string>
+    <string name="message_log_in_again">De sessie-id is verlopen, u moet opnieuw aanmelden</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistieken</string>
     <string name="dashboardVoicesOnline">Stemmen online</string>
-    <string name="dashboardTabYou">Jij</string>
+    <string name="dashboardTabYou">U</string>
     <string name="dashboardTabEveryone">Iedereen</string>
     <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Vandaag</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ooit</string>
-    <string name="toastNoLoginNoStatistics">Je moet inloggen om je statistieken te kunnen bekijken</string>
-    <string name="toastNoLoginNoDailyGoal">Je moet inloggen om het dagelijkse doel in te stellen</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Altijd</string>
+    <string name="toastNoLoginNoStatistics">U moet aanmelden om uw statistieken te kunnen bekijken</string>
+    <string name="toastNoLoginNoDailyGoal">U moet aanmelden om het dagelijkse doel in te stellen</string>
     <string name="textHoursAbbreviation">u</string>
     <string name="textHour">Uur</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="txt_top_contributors">Topmedewerkers</string>
+    <string name="txt_top_contributors_recorded">Opgenomen</string>
+    <string name="txt_top_contributors_validated">Gevalideerd</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">App-statistieken</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Huidige taal</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Alle talen</string>
+    <string name="txt_not_available_offline" comment="Message text">Niet beschikbaar in offlinemodus</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Begin</string>
-    <string name="btn_tutorial2" comment="Button">Sta toe</string>
+    <string name="btn_tutorial1" comment="Button">Starten</string>
+    <string name="btn_tutorial2" comment="Button">Toestaan</string>
     <string name="btn_tutorial3" comment="Button">Volgende</string>
-    <string name="btn_tutorial4" comment="Button">Probeer opnieuw</string>
-    <string name="btn_tutorial5" comment="Button">Eindig</string>
-    <string name="btn_skip" comment="Button">Sla over</string>
+    <string name="btn_tutorial4" comment="Button">Opnieuw proberen</string>
+    <string name="btn_tutorial5" comment="Button">Voltooien</string>
+    <string name="btn_skip" comment="Button">Overslaan</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Toestemming verkregen</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Fout: toestemming geweigerd</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Deze app heeft toestemming van de \"Microfoon\" nodig om je stem op te nemen.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Je kunt bugs melden op GitHub of Telegram. Om de ontwikkelaar te helpen het probleem snel te begrijpen, moet u het logbestand van de app aan uw rapport koppelen. De app heeft de toestemming \"Opslag\" nodig om het logbestand op te slaan.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Je kunt zelfs bijdragen als je offline bent. De \"Offline modus\" van de app wordt automatisch ingeschakeld en je kunt doorgaan met opnemen en luisteren zonder een internetverbinding.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">U kunt kiezen of het lichte thema of het donkere thema. U kunt dit later wijzigen in Instellingen.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is een onofficiële app voor Mozilla Common Voice. Het wordt ontwikkeld door Saverio Morelli zonder enige ondersteuning of samenwerking met Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Door verder te gaan, gaat u akkoord met de servicevoorwaarden van Mozilla’s Common Voice.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Deze app heeft toestemming van de ‘Microfoon’ nodig om uw stem op te nemen.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">U kunt bugs melden op GitHub of Telegram. Om de ontwikkelaar te helpen het probleem snel te begrijpen, moet u het logbestand van de app aan uw rapport koppelen. De app heeft de toestemming ‘Opslag’ nodig om het logbestand op te slaan.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">U kunt zelfs bijdragen als u offline bent. De ‘Offlinemodus’ van de app wordt automatisch ingeschakeld en u kunt doorgaan met opnemen en luisteren zonder een internetverbinding.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">U kunt kiezen uit het lichte of donkere thema. U kunt dit later wijzigen in Instellingen.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Donker thema</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Sommige acties hebben overeenkomstige gebaren. Je kunt bijvoorbeeld een zin overslaan in spraak door links te vechten.</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Sommige acties hebben overeenkomstige gebaren. U kunt bijvoorbeeld een zin overslaan in Spreken door naar links te vegen.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">U kunt deze gebaren aanpassen in Instellingen.</string>
-    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Je kunt deelnemen aan de Telegram-groep om nieuws en ondersteuning te krijgen.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">U kunt deelnemen aan de Telegram-groep om nieuws en ondersteuning te krijgen.</string>
     <string name="btn_join_telegram_first_launch" comment="Button">Deelnemen aan groep</string>
-    <string name="txt_choose_language_first_launch" comment="Text | First-run">Laten we gaan! Kies de taal waarin je wilt spreken of luisteren. De app wordt ook in die taal getoond als er een vertaling beschikbaar is.</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Laten we gaan! Kies de taal waarin u wilt spreken of luisteren. De app wordt ook in die taal getoond als er een vertaling beschikbaar is.</string>
     <!-- Login -->
     <string name="txt_loading_page" comment="Label">Aan het laden...</string>
     <string name="txt_profile_username" comment="Label in Profile">Gebruikersnaam</string>
-    <string name="txt_profile_email" comment="Label in Profile">E-mail</string>
+    <string name="txt_profile_email" comment="Label in Profile">E-mailadres</string>
     <string name="txt_profile_age" comment="Label in Profile">Leeftijd</string>
     <string name="txt_profile_gender" comment="Label in Profile">Geslacht</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Ga naar de Common Voice website om je profielinformatie aan te passen.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Succesvol ingelogd!</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Ga naar de Common Voice-website om uw profielinformatie aan te passen.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Aanmelding succesvol!</string>
     <string name="txt_gender_male" comment="Label in Profile">Man</string>
     <string name="txt_gender_female" comment="Label in Profile">Vrouw</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Anders</string>
     <string name="btn_badges_loggedin" comment="Button">Alle badges</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Niveau {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Gefeliciteerd! U heeft zojuist {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="level_up_message" comment="Message text">Gefeliciteerd! U heeft zojuist {{*{{n_level}}*}} bereikt.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Ik heb al een verificatiekoppeling</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Verificatiekoppeling</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">De verificatiekoppeling is ongeldig</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Open de handleiding opnieuw</string>
-    <string name="txt_project_github_settings" comment="Button in Settings">Project open-source op GitHub</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Handleiding opnieuw openen</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Opensourceproject op GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">ontwikkeld door</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Taal met succes ingesteld op {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Taal</string>
-    <string name="settingsListen" comment="Title in Settings">Luister</string>
-    <string name="settingsSpeak" comment="Title in Settings">Spreek</string>
-    <string name="settingsOther" comment="Title in Settings">Anders</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
-    <string name="txt_donate_paypal_settings" comment="Button in Settings">Ondersteun mijn werk. Koop me een koffie 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip wanneer het geladen wordt</string>
+    <string name="settingsListen" comment="Title in Settings">Luisteren</string>
+    <string name="settingsSpeak" comment="Title in Settings">Spreken</string>
+    <string name="settingsOther" comment="Title in Settings">Overig</string>
+    <string name="settingsGeneral" comment="Title in Settings">Algemeen</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Nuttige koppelingen</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Meer info</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Licht</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Donker</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automatisch</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Ondersteun mijn werk. Koop een kop koffie voor me 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Fragment automatisch afspelen wanneer dit het geladen is</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Donker thema</string>
-    <string name="contact_developer_on_telegram" comment="Button in Settings">Neem contact op met de ontwikkelaar op Telegram</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimentele features</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Contact opnemen met de ontwikkelaar op Telegram</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimentele functies</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimentele functies ingeschakeld.\nNieuwe functies kunnen instabiel en onveilig zijn.</string>
-    <string name="txt_log_on_file" comment="Switch-Button in Settings">Sla de logs op in een bestand</string>
-    <string name="toast_log_on_file_on" comment="Message text">Opslaan logs als een bestand is ingeschakeld.\nU kunt het log.txt bestand bijvoegen als u een probleem rapporteert.\nLees meer op GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Logs opslaan in een bestand</string>
+    <string name="toast_log_on_file_on" comment="Message text">Opslaan logs als een bestand is ingeschakeld.\nU kunt het log.txt-bestand bijvoegen als u een probleem meldt.\nMeer info op GitHub.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Algemene statistieken</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">De tekenreeks die mij identificeert in de app tonen</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
-    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Sla opnamebevestiging over</string>
-    <string name="toast_skip_recording_confirmation_on" comment="Message text">Bevestiging van opnemen is ingeschakeld.\nJe kunt nu opnamen verzenden zonder ze eerst te moeten beluisteren.</string>
-    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Vertaal de app op Crowdin</string>
-    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Bekijk app statistieken</string>
-    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Opname indicator geluid</string>
-    <string name="toast_recording_indicator_sound_on" comment="Message text">Het opnamegeluid is nu ingeschakeld.\nEr wordt een geluid afgespeeld wanneer u begint en de opname stopt.</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Appgebruiksstatistieken</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Opnamebevestiging overslaan</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Opnamebevestiging overslaan is ingeschakeld.\nU kunt nu opnamen verzenden zonder ze eerst te moeten beluisteren.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">De app vertalen op Crowdin</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">App-statistieken bekijken</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Geluid opname-indicator</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Geluid opname-indicator is nu ingeschakeld.\nEr wordt een geluid afgespeeld wanneer u de opname start en stopt.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Op updates controleren</string>
-    <string name="txt_gestures" comment="Switch-Button in Settings">Vingerbewegingen</string>
-    <string name="message_review_app_on_play_store" comment="Message text">Als u deze app leuk vindt, vergeet dan niet de app te bekijken in Google Play Store.</string>
-    <string name="message_app_not_completely_translated" comment="Message text">De app is (volledig) vertaald in deze taal.\nU kunt bijdragen aan het vertalen van de app op Crowdin.</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Gebaren</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Als u deze app leuk vindt, vergeet dan niet de app te beoordelen in Google Play Store.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">De app is niet (volledig) vertaald in deze taal.\nU kunt bijdragen aan het vertalen van de app op Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animaties</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Pas de lettergrootte aan</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Lettergrootte aanpassen</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Gebaren aanpassen</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">Thema</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram-groep van de app</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Labels onder de menuiconen weergeven</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Labels onder de menupictogrammen weergeven</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">De servicevoorwaarden van Mozilla Common Voice lezen</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">De richtlijnen voor validaties lezen</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Op Google Play beoordelen</string>
+    <string name="title_ui_settings" comment="Option in Settings">Gebruikersinterface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Geavanceerd</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Opnames op apparaat opslaan</string>
+    <string name="txt_reset_data" comment="Button in Settings">Appgegevens herinitialiseren</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Er zijn momenteel geen experimentele functies beschikbaar</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Tekst van zinnen tonen als fragmenten volledig zijn beluisterd</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Rapportpictogram (rechtsboven) tonen in plaats van een knop (onderaan)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Tekstgrootte</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Advertentiebanner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Advertentiebanner in {{*{{section_name}}*}} inschakelen</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Gekleurde voortgangsbalk dagdoel</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} en {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Verzenden laden...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Sla over</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Verzend opname</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Een clip wordt geladen...</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Druk op het pictogram hieronder om de opname te starten.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Druk op het pictogram hieronder om de opname te stoppen.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Zin laden...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Opname verzenden</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Fragment laden...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Druk op het onderstaande pictogram om de opname te starten.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Druk op het onderstaande pictogram om de opname te stoppen.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Zin opgenomen. Luister naar de opname.</string>
     <string name="txt_sentence_record_failed" comment="Label in Speak">Opname mislukt. Probeer het opnieuw.</string>
-    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Als je correct sprak, stuur dan de opname.\nAls je niet goed bent, kun je de zin opnieuw opnemen.</string>
-    <string name="txt_listening_stopped" comment="Label in Speak">Luister naar de hele opname om zeker te zijn dat het juist is.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Druk op het pictogram hieronder om te stoppen met luisteren.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Als u correct sprak, verstuur dan de opname.\nAls u niet goed sprak, kunt u de zin opnieuw opnemen.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Luister naar de hele opname om zeker te zijn dat deze juist is.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Druk op het onderstaande pictogram om te stoppen met luisteren.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Opname is te lang. De maximale duur is 10 seconden.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Opname is te kort. Probeer het opnieuw.</string>
     <string name="txt_sending_recording" comment="Label in Speak">De opname wordt verzonden...</string>
     <string name="txt_recording_sent" comment="Label in Speak">Opname is verzonden!</string>
     <string name="txt_sending_recording_failed" comment="Message text">Verzenden van opname is mislukt!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Fout bij het verzenden van de opname! U kunt het opnieuw proberen, of op de {{*{{skip_button}}*}} knop drukken.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Druk op het icoon hieronder om de clip te starten.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Druk op het icoon hieronder om de clip te stoppen.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Als de clip juist is, strijk dan de duimen omhoog.\nAls de clip verkeerd is, strijk dan de duimen omlaag.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Druk op het icoon hieronder om de clip weer af te spelen.</string>
-    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip is gemarkeerd als juist!</string>
-    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip is gemarkeerd als onjuist!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Fout. Druk op de {{*{{skip_button}}*}} knop om door te gaan.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Fout bij het verzenden van de opname! U kunt het opnieuw proberen, of op de knop {{*{{skip_button}}*}} drukken.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Druk op het onderstaande pictogram om het fragment te starten.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Druk op het onderstaande pictogram om het fragment te stoppen.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Als het fragment juist is, tik dan op duim omhoog.\nAls het fragment verkeerd is, tik dan op duim omlaag.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Druk op het onderstaande pictogram om het fragment opnieuw af te spelen.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Fragment als juist gemarkeerd!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Fragment als onjuist gemarkeerd!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Fout. Druk op de knop {{*{{skip_button}}*}} om door te gaan.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">Verzenden van de opname is mislukt.</string>
     <string name="txt_sending_validation" comment="Label in Listen">Verzenden...</string>
     <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Resultaat is niet verstuurd. U kunt het opnieuw proberen, of op de knop {{*{{skip_button}}*}} drukken.</string>
     <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Sluiten...</string>
-    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Fout. Er zijn geen clips meer beschikbaar voor deze taal.</string>
-    <string name="button_report" comment="Button">Meld</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Rapporteer de clip:</string>
-    <string name="title_report_sentence" comment="Title in Report a sentence">Rapport de zin:</string>
-    <string name="button_send_report" comment="Button">Verstuur rapport</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensieve taal</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensieve spraak</string>
-    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Fout. Er zijn geen fragmenten meer beschikbaar voor deze taal.</string>
+    <string name="button_report" comment="Button">Rapporteren</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Fragment rapporteren:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Zin rapporteren:</string>
+    <string name="button_send_report" comment="Button">Rapport versturen</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Beledigend taalgebruik</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Beledigend taalgebruik</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Grammaticale / spellingsfout</string>
     <string name="checkbox_reason3_report" comment="Checkbox">Andere taal</string>
     <string name="checkbox_reason4_report" comment="Checkbox">Moeilijk om uit te spreken</string>
     <string name="checkbox_reason5_report" comment="Checkbox">Anders</string>
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Opmerking</string>
-    <string name="txt_sentences_finished_offline_mode" comment="Message text">Je bent door de offline zinnen heen. Maak verbinding met het internet om meer zinnen te downloaden om op te nemen.</string>
-    <string name="txt_clips_finished_offline_mode" comment="Message text">U bent door de offline clips heen. Maak verbinding met internet om meer clips te downloaden om te valideren.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">U kunt {{*{{n_sentences}}*}} meer zinnen opnemen voordat u verbinding moet maken met het internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">U kunt {{*{{n_clips}}*}} extra clips valideren voordat u verbinding moet maken met het internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">U bent door de offline zinnen heen. Maak verbinding met het internet om meer zinnen te downloaden om op te nemen.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">U bent door de offline fragmenten heen. Maak verbinding met internet om meer te valideren fragmenten te downloaden.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">U kunt nog {{*{{n_sentences}}*}} zinnen opnemen voordat u verbinding moet maken met het internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">U kunt nog {{*{{n_clips}}*}} fragmenten valideren voordat u verbinding moet maken met het internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Spreek nu...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">‘{{*{{feature_name}}*}}’ is ingeschakeld. Ga naar Instellingen om deze uit te schakelen.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">De tekst is verborgen</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Er zijn geen zinnen meer op de Common Voice-server. Probeer het later of neem contact op met Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Er zijn geen fragmenten meer op de Common Voice-server. Probeer het later of neem contact op met Mozilla.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection" comment="Button">Controleer opnieuw</string>
-    <string name="txt_noconnection" comment="Message text">U bent niet verbonden met het internet. Maak verbinding met Wi-Fi of mobiele data en druk vervolgens op de knop hieronder.</string>
+    <string name="btn_check_again_noconnection" comment="Button">Opnieuw controleren</string>
+    <string name="txt_noconnection" comment="Message text">U bent niet verbonden met het internet. Maak verbinding met wifi of mobiele data en druk vervolgens op de knop hieronder.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Dit is de zin die u moet registreren.</string>
-    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Hier verschijnt een bericht om je te begeleiden.</string>
-    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Als je de zin niet leuk vindt, kun je hier klikken om een andere over te slaan.</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Dit is de zin die u moet opnemen.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Hier verschijnt een bericht om u te helpen.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Als u de zin niet leuk vindt, kunt u hier klikken om over te slaan voor een andere.</string>
     <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om de opname te starten.</string>
     <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om de opname te stoppen.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om uw opname weer af te spelen.</string>
-    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om opnieuw op te nemen als je een fout hebt gemaakt.</string>
-    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om je opname opnieuw af te spelen.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om uw opname af te spelen.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om opnieuw op te nemen als u een fout hebt gemaakt.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tik op dit pictogram om uw opname opnieuw af te spelen.</string>
     <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Druk op deze knop om uw opname te verzenden.</string>
-    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Dit is de zin/clip die je moet valideren.</string>
-    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Als je de clip niet leuk vindt, kun je op deze knop drukken om er een over te slaan en er een te krijgen.</string>
-    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram om de clip af te spelen.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram om de clip niet meer af te spelen.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram als je weer naar de clip wilt luisteren.</string>
-    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Als de clip de zin met elkaar overeenkomt, tik je op dit pictogram om deze te accepteren.</string>
-    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Als de clip niet met de zin overeenkomt, tik dan op dit pictogram om het te verwerpen.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Dit is de zin/het fragment die/dat u moet valideren.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Als u het fragment niet leuk vindt, kunt u op deze knop drukken om er een over te slaan en een ander te krijgen.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram om het fragment af te spelen.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram om het fragment te stoppen.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram als u het fragment opnieuw wilt beluisteren.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Als het fragment en de zin met elkaar overeenkomen, tikt u op dit pictogram om het te accepteren.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Als het fragment niet met de zin overeenkomt, tik dan op dit pictogram om het te verwerpen.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Als u niet zeker weet of u een opname accepteert of verwerpt, kunt u de officiële richtlijnen voor validatie op Mozilla Discourse lezen.\nU kunt deze koppeling later ook vinden in Instellingen.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Nu lezen</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, deze functie bestaat nog niet.\nWe werken constant aan het verbeteren van de app, dus kijk later nog eens om te zien of deze is toegevoegd.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges" comment="Button">Sluit</string>
+    <string name="btnCloseBadges" comment="Button">Sluiten</string>
     <string name="labelAllBadges" comment="Title for All badge section">Alle badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hoera! U hebt zojuist een nieuwe badge verdiend.\nGa naar {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} om al uw badges te zien.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">U heeft deze badge, omdat u ten minste {{*{{n_clips}}*}} fragmenten hebt gevalideerd.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">U heeft deze badge ontvangen omdat u ten minste {{*{{n_sentences}}*}} zinnen hebt opgenomen.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">U heeft deze badge, omdat u ten minste {{*{{n_total}}*}} fragmenten hebt gevalideerd of opgenomen.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">Oké</string>
+    <string name="btnOk" comment="Button">OK</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Fout</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">Dat werkte niet.\nProbeer het opnieuw, of neem contact op met de ontwikkelaar.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Dat is niet gelukt. Probeer het opnieuw, of neem contact op met de ontwikkelaar.\nFoutcode: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Inloggen mislukt</string>
-    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">U moet eerst inloggen op de Common Voice website en het Common Voice privacybeleid accepteren.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Dat werkte niet. Probeer het opnieuw, of neem contact op met de ontwikkelaar.\nFoutcode: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Aanmelden mislukt</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">U moet eerst aanmelden op de Common Voice-website en het Common Voice-privacybeleid accepteren.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Common Voice openen</string>
     <string name="text_warning" comment="Title for Message text">Waarschuwing</string>
     <string name="text_tip" comment="Title for Message text">Tip</string>
     <string name="text_changelog" comment="Title for Message text">Wijzigingslogboek</string>
     <string name="text_help" comment="Title for Message text">Hulp</string>
     <string name="text_info" comment="Title for Message text">Informatie</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Niet meer weergeven</string>
-    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_offline_mode" comment="Title">Offline mode</string>
-    <string name="text_offline_mode_enabled" comment="Message text">U bent nu offline en de app is automatisch naar offline modus overgezet.\nDit betekent dat je door kunt gaan met het registreren en valideren, maar de aanvragen worden later verstuurd.</string>
-    <string name="text_offline_mode_enabled_2" comment="Message text">Je kunt zien wanneer je in offline modus bent door dit pictogram op het scherm te zoeken:</string>
-    <string name="text_offline_mode_enabled_3" comment="Message text">Je kunt op het pictogram tikken om gedownloade clips en zinnen te zien.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="text_report_website_bug" comment="Message text">Als u problemen hebt met de officiële Common Voice-website, meld ze dan op Mozilla Discourse-forums of de GitHub-repository, zodat Mozilla ze kan oplossen.</string>
+    <string name="text_offline_mode" comment="Title">Offlinemodus</string>
+    <string name="text_offline_mode_enabled" comment="Message text">U bent nu offline en de app is automatisch naar offlinemodus overgezet.\nDit betekent dat u door kunt gaan met het opnemen en valideren, maar de aanvragen worden later verstuurd.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">U kunt zien wanneer U in offline modus bent door naar dit pictogram op het scherm te zoeken:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">U kunt op het pictogram tikken om gedownloade fragmenten en zinnen te zien.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Offlinemodus is niet ingeschakeld, dus kunt u de app niet gebruiken zonder internetverbinding.\nAls u de functie Offlinemodus wilt gebruiken, schakel deze dan in via Instellingen.</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Dagelijks doel</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Geen doel ingesteld</string>
-    <string name="set_daily_goal" comment="Button">Stel een doel in</string>
-    <string name="edit_daily_goal" comment="Button">Bewerk doel</string>
-    <string name="save_daily_goal" comment="Button">Sla op</string>
-    <string name="delete_daily_goal" comment="Button">Verwijder</string>
-    <string name="cancel_daily_goal" comment="Button">Annuleer</string>
-    <string name="description_setting_daily_goal" comment="Message text">Kies hoeveel zinnen je per dag wil opnemen plus hoeveel clips die je per dag wil valideren.</string>
+    <string name="set_daily_goal" comment="Button">Doel instellen</string>
+    <string name="edit_daily_goal" comment="Button">Doel bewerken</string>
+    <string name="save_daily_goal" comment="Button">Opslaan</string>
+    <string name="delete_daily_goal" comment="Button">Verwijderen</string>
+    <string name="cancel_daily_goal" comment="Button">Annuleren</string>
+    <string name="description_setting_daily_goal" comment="Message text">Kies hoeveel zinnen u per dag wilt opnemen en hoeveel fragmenten die u per dag wilt valideren.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Vandaag behaald</string>
     <string name="daily_goal_not_achieved_today">Vandaag niet bereikt</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Goed gedaan! Je hebt je dagelijkse doel bereikt.\nJe hebt {{*{{n_clips}}*}} clip(s) gevalideerd en {{*{{n_sentences}}*}} verstuurd(en).\nVoel je vrij om bij te dragen aan Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
-    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Dit dagelijks doel is geen officiële Mozilla-functie. Het is alleen een functie van deze app.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copie_string" comment="Toast message">Copied</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Goed gedaan! U hebt uw dagelijkse doel bereikt.\nU hebt {{*{{n_clips}}*}} fragment(en) gevalideerd en {{*{{n_sentences}}*}} opgenomen.\nVoel u vrij om verder bij te dragen aan Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Delen</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Delen op</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Ik heb net mijn dagelijkse doel voor @mozilla #CommonVoice bereikt met behulp van #CVProject.\nNeem deel en draag bij! Installeer nu CV Project van Google Play, F-Droid of Huawei AppGallery {{*{{link}}*}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Dit dagelijkse doel is geen officiële Mozilla-functie. Het is alleen een functie van deze app.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Wist u dat ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 uur is haalbaar in iets meer dan 6 maanden, als 1.000 mensen 45 fragmenten per dag opnemen.</string>
+    <string name="copie_string" comment="Toast message">Gekopieerd</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Er is een nieuwe versie van de app beschikbaar (versie {{*{{n_version}}*}}). U kunt deze bijwerken vanuit uw favoriete store (F-Droid, Google Play Store, Huawei AppGallery, Amazon AppStore) of rechtstreeks vanuit GitHub.</string>
 </resources>

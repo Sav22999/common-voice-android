@@ -37,7 +37,7 @@
     <string name="btn_tutorial3" comment="Button">შემდეგი</string>
     <string name="btn_tutorial4" comment="Button">კიდევ სცადეთ</string>
     <string name="btn_tutorial5" comment="Button">დასრულება</string>
-    <string name="btn_skip" comment="Button">გაცდენა</string>
+    <string name="btn_skip" comment="Button">გამოტოვება</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">ნებართვა მიღებულია</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">შეცდომა: ნებართვა მიღებულია</string>
     <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project არის Mozilla Common Voice-ის არაოფიციალური აპი. Saverio Morelli-ს მიერ არის შექმნილი Mozilla-ს მხარდაჭერის, ან მასთან პარტნიორობის გარეშე.</string>
@@ -73,7 +73,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">ინსტრუქციის ხელახლა გახსნა</string>
     <string name="txt_project_github_settings" comment="Button in Settings">პროექტი ღია წვდომაშია GitHub-ზე</string>
     <string name="txt_developed_by" comment="Label in Settings">შემქმნელი</string>
-    <string name="toast_language_changed" comment="Message text">არჩეული ენა: {*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">აპლიკაციის ენაა {*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">ენა</string>
     <string name="settingsListen" comment="Title in Settings">მოსმენა</string>
     <string name="settingsSpeak" comment="Title in Settings">ლაპარაკი</string>
@@ -113,7 +113,7 @@
     <string name="txt_customise_the_font_size" comment="Button in Settings">ფონტის ზომის შეცვლა</string>
     <string name="txt_customise_gestures" comment="Button in Settings">ჟესტების შეცვლა</string>
     <string name="title_theme_settings" comment="Title in Settings">თემა</string>
-    <string name="txt_telegram_group_settings" comment="Button in Settings">აპის ჯგუფი ტელეგრამზე</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">აპის ჯგუფი Telegram-ზე</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">მენიუს ხატულების ქვემოთ სათაურების ჩვენება</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">წაიკითხეთ Mozilla-ს Common Voice-ის მომსახურების პირობები</string>
     <string name="txt_read_guidelines" comment="Button in Settings">წაიკითხეთ შემოწმების სახელმძღვანელო</string>
@@ -150,7 +150,7 @@
     <string name="txt_sending_recording_failed_and_skip" comment="Message text">ჩანაწერი ვერ გაიგზავნა! თავიდან სცადეთ ან დააჭირეთ {{*{{skip_button}}*}} ღილაკს.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის მოსასმენად.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის გაჩერებისთვის.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">ჩანაწერი, თუ ზუსტია — ცერი ზევით.\nთუ შეცდომითაა — ცერი ქვევით.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">თუ სწორია ჩანაწერი — ცერი ზევით.\nთუ შეცდომითაა — ცერი ქვევით.</string>
     <string name="txt_clip_again" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის თავიდან მოსასმენად.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">ჩანაწერი ზუსტია!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">ჩანაწერი არაა ზუსტი!</string>

@@ -123,13 +123,13 @@
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Gardar as gravacións no dispositivo</string>
     <string name="txt_reset_data" comment="Button in Settings">Restabelecer os datos da app</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Ningunha funcionalidade experimental está dispoñíbel neste intre</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Amosar o texto das frases cando despois de escoitar o fragmento</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Amosar o texto das frases despois de escoitar os fragmentos</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Mostrar icona de informe (arriba á dereita) no canto dun botón (abaixo)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Tamaño do texto</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Faixa de anuncios</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activar a faixa de anuncios en {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra de progreso a cor co obxectivo diario</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} e {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargando a frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Omitir</string>
@@ -149,7 +149,7 @@
     <string name="txt_sending_recording_failed" comment="Message text">Produciuse un fallo enviando a gravación.</string>
     <string name="txt_sending_recording_failed_and_skip" comment="Message text">Produciuse un fallo ao enviar a gravación! Pode tentalo outra vez ou premer o botón {{*{{skip_button}}*}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Prema na icona inferior para iniciar a gravación.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Prema na icona inferior para iniciar a gravación.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Prema na icona inferior para deter o fragmento.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Se a gravación é correcta, prema no polgar cara arriba.\nSe é incorrecta, prema no polgar cara abaixo.</string>
     <string name="txt_clip_again" comment="Label in Listen">Prema na icona inferior para reproducir a gravación de novo.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Gravación marcada como correcta</string>
@@ -165,7 +165,7 @@
     <string name="title_report_sentence" comment="Title in Report a sentence">Informar desta frase:</string>
     <string name="button_send_report" comment="Button">Enviar informe</string>
     <string name="checkbox_reason1_report_sentence" comment="Checkbox">Linguaxe ofensiva</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Discurso ofensivo</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Expresión ofensiva</string>
     <string name="checkbox_reason2_report" comment="Checkbox">Erro gramatical / ortográfico</string>
     <string name="checkbox_reason3_report" comment="Checkbox">Idioma diferente</string>
     <string name="checkbox_reason4_report" comment="Checkbox">Difícil de pronunciar</string>
@@ -207,10 +207,10 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Pechar</string>
     <string name="labelAllBadges" comment="Title for All badge section">Todas as insignias</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurra! Ganou unha nova insignia.\nVaia a {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} para ver todas as que ten.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurra! Gañou unha nova insignia.\nVaia a {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} para ver todas as que ten.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Recibiu esta insignia porque validou cando menos {{*{{n_clips}}*}} gravacións.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Ganou esta insignia porque gravou cando menos {{*{{n_sentences}}*}} frases.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">Recibiu esta insignia porque validou ou gravou cando menos {{*{{n_total}}*}} gravacións.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Recibiu esta insignia porque validou ou gravou cando menos {{*{{n_total}}*}} fragmentos.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Aceptar</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Erro</string>
