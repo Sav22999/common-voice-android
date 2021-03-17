@@ -20,7 +20,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.*
 import org.commonvoice.saverio.databinding.FragmentHomeBinding
-import org.commonvoice.saverio.ui.dialogs.MessageWarningDialog
+import org.commonvoice.saverio.ui.dialogs.messageDialogs.MessageWarningDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader

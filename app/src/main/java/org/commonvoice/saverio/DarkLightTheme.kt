@@ -64,6 +64,30 @@ class DarkLightTheme(
         }
     }
 
+    fun setElementDialogCL(
+        context: Context,
+        element: ConstraintLayout,
+        invert: Boolean = false
+    ) {
+        if (isDark xor invert) {
+            element.background.setTint(ContextCompat.getColor(context, colorBackgroundDT))
+        } else {
+            element.background.setTint(ContextCompat.getColor(context, colorBackground))
+        }
+    }
+
+    fun setElementDialogIV(
+        context: Context,
+        element: ImageView,
+        invert: Boolean = false
+    ) {
+        if (isDark xor invert) {
+            element.drawable.setTint(ContextCompat.getColor(context, colorBackground))
+        } else {
+            element.drawable.setTint(ContextCompat.getColor(context, colorBackgroundDT))
+        }
+    }
+
     fun setElement(
         view: Context,
         top_or_bottom: Int,

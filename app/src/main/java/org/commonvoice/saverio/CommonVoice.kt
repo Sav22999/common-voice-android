@@ -3,6 +3,8 @@ package org.commonvoice.saverio
 import android.app.Application
 import androidx.lifecycle.SavedStateHandle
 import androidx.work.WorkManager
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.theming.ThemingEngine
 import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -115,6 +117,11 @@ class CommonVoice : Application() {
         viewModel { HomeViewModel(get(), get(), get(), get(), get(), get()) }
     }
 
+    private val uiModule = module {
+        single { ThemingEngine(get()) }
+        single { DialogInflater(get()) }
+    }
+
     override fun onCreate() {
         super.onCreate()
 
@@ -130,6 +137,7 @@ class CommonVoice : Application() {
                     mvvmRepos,
                     mvvmViewmodels,
                     logModule,
+                    uiModule,
                 )
             )
         }

@@ -11,7 +11,7 @@ abstract class ViewBoundActivity<T: ViewBinding>(
 
     private var _binding: T? = null
 
-    protected val binding: T get() = _binding!!
+    val binding: T get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

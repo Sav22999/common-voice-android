@@ -8,6 +8,7 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
+import androidx.core.content.getSystemService
 import kotlinx.android.synthetic.main.fragment_advanced_settings.*
 import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.FirstLaunch
@@ -15,6 +16,8 @@ import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.*
@@ -40,7 +43,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     private val firstRunPrefManager by inject<FirstRunPrefManager>()
     private val logPrefManager by inject<LogPrefManager>()
     private val loginViewModel by viewModel<LoginViewModel>()
-
+    private val dialogInflater by inject<DialogInflater>()
     private val statsRepository by inject<StatsRepository>()
 
     override fun onStart() {
@@ -177,7 +180,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
     private fun setupButtons() {
         buttonShowStringIdentifyMe.setOnClickListener {
-            showMessageDialog("", statsRepository.getUserId(), enableCopyText = true, type = 15)
+            dialogInflater.show(requireContext(),
+                IdentifyMeDialog(statsRepository.getUserId(), onCopyClick = {
+                    requireContext()
+                        .getSystemService<ClipboardManager>()
+                        ?.setPrimaryClip(ClipData.newPlainText("", statsRepository.getUserId()))
+                }))
         }
     }
 
@@ -195,44 +203,4 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
         }
     }
 
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = "",
-        type: Int = 0,
-        enableCopyText: Boolean = false
-    ) {
-        val metrics = DisplayMetrics()
-        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            val message = MessageDialog(
-                requireContext(),
-                type,
-                title,
-                messageText,
-                details = details,
-                height = height
-            )
-            if (enableCopyText) {
-                message.setClipboardManager(
-                    activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager,
-                    ClipData.newPlainText("", messageText)
-                )
-            }
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
-        }
-    }
 }
