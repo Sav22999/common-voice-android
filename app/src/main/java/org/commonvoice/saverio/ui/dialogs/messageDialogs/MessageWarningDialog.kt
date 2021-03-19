@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import com.github.mrindeciso.advanced_dialogs.customDialog.CustomDialogInterface
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.DialogWarningMessageBinding
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.models.Message
