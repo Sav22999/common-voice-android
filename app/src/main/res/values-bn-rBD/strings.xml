@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">উপেক্ষা কর</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">অনুমতি পাওয়া গেছে</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">ত্রুটি: অনুমতি পাওয়া যায়নি</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project-অ্যাপটা মজিলা Common Voice-এর অফিসিয়াল অ্যাপ না৷ এইটা Saverio Morelli দ্বারা বানানো, মজিলার সাহায্য বা (আর্থিক) সহায়তা ছাড়াই৷</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">আগানোর মাধ্যমে, তুমি Common Voice এর সেবার শর্ত অনুমোদন করবে।</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Common Voice Android অ্যাপের \"মাইক্রোফোন\" অনুমতি লাগবে সঠিকভাবে কাজ করার জন্য।</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">তুমি গিটহাব(GitHub) বা টেলিগ্রামে(Telegram) বাগগুলি প্রতিবেদন করতে পারবে। ডেভেলপারকে সমস্যাটি দ্রুত বুঝতে সহায়তা করার জন্য অ্যাপ্লিকেশনটির লগ ফাইলটি তোমার প্রতিবেদনের সাথে সংযুক্ত করা উচিত। অ্যাপ্লিকেশনটির লগ ফাইলটি সংরক্ষণের জন্য \"স্টোরেজ\" অনুমতি প্রয়োজন।</string>
@@ -66,24 +66,24 @@
     <string name="btn_badges_loggedin" comment="Button">সকল ব্যাজ</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">পদস্তর {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">অভিনন্দন! তুমি {{*{{n_level}}*}} স্তর(লেভেল) অর্জন করেছে।</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">আমি ইতোমধ্যে যাচাইকরণ সংযোগ নিয়েছি</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">যাচাইকরণ সংযোগ</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">যাচাইকরণ সংযোগটি বৈধ নয়</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">আবার টিউটোরিয়াল খুলো</string>
     <string name="txt_project_github_settings" comment="Button in Settings">গিটহাবে(GitHub) প্রজেক্ট(প্রকল্প) ওপেন-সোর্স</string>
     <string name="txt_developed_by" comment="Label in Settings">ডেভেলপার</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">ভাষা সফলভাবে {{*{{lang}}*}} হয়েছে</string>
     <string name="settingsLanguage" comment="Title in Settings">ভাষা</string>
     <string name="settingsListen" comment="Title in Settings">শুনো</string>
     <string name="settingsSpeak" comment="Title in Settings">বলো</string>
     <string name="settingsOther" comment="Title in Settings">অন্যান্য</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="settingsGeneral" comment="Title in Settings">সাধারন</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">প্রয়োজনীয় সংযোগ</string>
+    <string name="settingsLearnMore" comment="Button in Settings">আরো জানো</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">আলো</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">অন্ধকার</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">স্বয়ংক্রিয়</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">আমার কাজে সাহায্য করো. আমাকে এক কাপ কফি কিনে দাও 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">ক্লিপ লোড হওয়ার সাথে সাথে প্লে করো</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">অন্ধকার ভাব(থিম)</string>
@@ -92,13 +92,13 @@
     <string name="toast_experimental_features_on" comment="Message text">পরীক্ষামূলক বৈশিষ্ট্য চালু হয়েছে।\nনতুন বৈশিষ্ট্য অস্থিতিশীল ও অনিরাপদ হতে পারে।</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">একটি ফাইলে লগ সেভ করো</string>
     <string name="toast_log_on_file_on" comment="Message text">একটি ফাইলে লগ সেভ করা চালু আছে।\nকোনো সমস্যা রিপোর্ট করার সময় log.txt ফাইলটি যুক্ত করতে পারো\n গিটহাবে(GitHub) আরো পড়।</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">সাধারন পরিসংখ্যান</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">ওই স্ট্রিংটা দেখাও যা আমাকে অ্যাপের মধ্যে চিহ্নিত করে</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">অ্যাপ ব্যবহারের পরিসংখ্যান</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">রেকর্ডিং নিশ্চিতকরণ বাদ দাও</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">রেকর্ডিং নিশ্চিতকরণ চালু আছে।\nএখন তুমি রেকর্ডিং প্রথমে না শুনেই পাঠাতে পারবে।</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">অ্যাপটি crowdin এ অনুবাদ কর</string>
@@ -112,17 +112,17 @@
     <string name="txt_animations" comment="Switch-Button in Settings">অ্যানিমেশন</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">অক্ষরের আকার পালটাও</string>
     <string name="txt_customise_gestures" comment="Button in Settings">সংকেত পালটাও</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">থিম</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">অ্যাপের টেলিগ্রাম(Telegram) গ্রুপ</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">মেনু চিহ্নগুলোর নিচে লেবেলগুলো দেখাও</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">মজিলা Common Voice এর পরিসেবার শর্তাবলী পড়ো</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">যাচাইকরনের দিকনির্দেশনা পড়ো</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">গুগল প্লেতে বিবেচনা দাও</string>
+    <string name="title_ui_settings" comment="Option in Settings">ব্যবহারকারীর দৃশ্যমান অংশ</string>
+    <string name="title_advanced_settings" comment="Option in Settings">উন্নত</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">কথার যন্ত্রেই সংরক্ষণ করো</string>
+    <string name="txt_reset_data" comment="Button in Settings">অ্যাপের তথ্য পরিষ্কার করো</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">পরীক্ষামূলক বৈশিষ্ট্য এখনের জন্য নেই</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
@@ -201,13 +201,13 @@
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">যদি ক্লিপটি বাক্যের সাথে মেলে, তা নিশ্চিত করতে এই আইকনটি টিপো।</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">যদি ক্লিপটি বাক্যটির সাথে মেলে না, এটি বাদ দিতে এই আইকনে টিপো।</string>
     <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">এখনই পড়ো</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">মাফ করো, এই বৈশিষ্ট্যটা এখনো নেই।\nআমরা প্রতিনিয়ত অ্যাপটি উন্নততর করতে কাজ করছি, তাই পরে এসে দেখো এটা যুক্ত করা হতে কিনা।</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">বন্ধ করো</string>
     <string name="labelAllBadges" comment="Title for All badge section">সকল ব্যাজ</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">বাহ! তুমি একটা নতুন তকমা পেয়েছো। \n{{*{{profile}}*}} &gt; {{*{{all_badges}}*}} এ গিয়ে তোমার সবগুলো য়কমা দেখো।</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>

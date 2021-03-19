@@ -61,6 +61,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var isAudioBarVisible: Boolean = false
     private var animationsCount: Int = 0
 
+    private val refreshAdsAfterSpeak = 5
+
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
 
@@ -387,8 +389,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSendSpeak.onClick {
             speakViewModel.sendRecording()
             numberSentThisSession++
-            if (numberSentThisSession % 10 == 0) {
-                //refreshAds()
+            if (numberSentThisSession % refreshAdsAfterSpeak == 0) {
+                refreshAds()
             }
         }
 

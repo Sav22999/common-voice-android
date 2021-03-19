@@ -24,13 +24,15 @@
     <string name="toastNoLoginNoDailyGoal">Du måste logga in för att ställa in det dagliga målet</string>
     <string name="textHoursAbbreviation">h</string>
     <string name="textHour">Timme</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="txt_top_contributors">De som bidragit mest
+
+De främsta deltagarna</string>
+    <string name="txt_top_contributors_recorded">Inspelad</string>
+    <string name="txt_top_contributors_validated">Validerad</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">App statistik</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Aktuellt språk</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Alla språk</string>
+    <string name="txt_not_available_offline" comment="Message text">Inte tillgängligt i offlineläge</string>
     <!-- First launch -->
     <string name="btn_tutorial1" comment="Button">Start</string>
     <string name="btn_tutorial2" comment="Button">Godkänn</string>
@@ -40,7 +42,7 @@
     <string name="btn_skip" comment="Button">Hoppa över</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Behörighet erhållen</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Fel: tillstånd nekas</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project är en inofficiell app för Mozilla Common Voice. Den är utvecklad av Saverio Morelli utan stöd eller partneskap med Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Denna app behöver behörigheten \"Mikrofon\" för att spela in din röst.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Du kan rapportera fel på GitHub eller Telegram. För att hjälpa utvecklaren att förstå problemet snabbt bör du bifoga appens loggfil till din rapport. Appen behöver behörigheten \"Lagring\" för att spara loggfilen.</string>

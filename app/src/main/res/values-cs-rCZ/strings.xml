@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Přeskočit</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Oprávnění získáno</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Chyba: oprávnění odepřeno</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">Toto není oficiální aplikace Common Voice, kterou vyvinul Saverio Morelli bez podpory nebo partnerství s Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Pokračováním souhlasíte s podmínkami služby Mozilla\'s Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Tato aplikace potřebuje k nahrávání vašeho hlasu oprávnění \"Mikrofon\".</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Můžete nahlašovat chyby na GitHubu nebo Telegramu. Aby vývojář rychle pochopil problém, měli byste k vaší zprávě připojit soubor záznamu aplikace. Pro ukládání souborů záznamů musíte aplikaci povolit oprávnění \"Úložiště\".</string>
@@ -124,10 +124,10 @@
     <string name="txt_reset_data" comment="Button in Settings">Obnovit data aplikace</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nyní nejsou k dispozici žádné experimentální funkce</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Zobrazovat text věty, když jste dokončili poslech</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Zobrazit ikonu hlášení (nahoře vpravo) místo tlačítka (dole)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Velikost textu</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Panel reklamy</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Povolit reklamní banner v {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->

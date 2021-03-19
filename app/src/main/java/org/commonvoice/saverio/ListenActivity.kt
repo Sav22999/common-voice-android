@@ -51,6 +51,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private var isListenAnimateButtonVisible: Boolean = false
     private var animationsCount: Int = 0
 
+    private val refreshAdsAfterListen = 20
+
     private var numberSentThisSession: Int = 0
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
     private val settingsPrefManager by inject<SettingsPrefManager>()
@@ -576,7 +578,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             listenViewModel.validate(result = false)
             numberSentThisSession++
             hideButtons()
-            if (numberSentThisSession % 10 == 0) {
+            if (numberSentThisSession % refreshAdsAfterListen == 0) {
                 refreshAds()
             }
         }
@@ -610,8 +612,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             hideButtons()
             listenViewModel.validate(result = true)
             numberSentThisSession++
-            if (numberSentThisSession % 10 == 0) {
-                //refreshAds()
+            if (numberSentThisSession % refreshAdsAfterListen == 0) {
+                refreshAds()
             }
         }
         buttonStartStopListen.onClick {
