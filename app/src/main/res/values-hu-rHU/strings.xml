@@ -59,7 +59,7 @@
     <string name="txt_profile_age" comment="Label in Profile">Életkor</string>
     <string name="txt_profile_gender" comment="Label in Profile">Nem</string>
     <string name="txt_profile_edit_data_alert" comment="Text in Profile">A profilinformációk módosításához menjen a Common Voice weboldalra.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Bejelentkezés sikeres!</string>
+    <string name="txt_login_successful_alert" comment="Message text">Bejelentkezés sikeres.</string>
     <string name="txt_gender_male" comment="Label in Profile">Férfi</string>
     <string name="txt_gender_female" comment="Label in Profile">Nő</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Egyéb</string>
@@ -89,136 +89,136 @@
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Sötét téma</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Kapcsolatfelvétel a szerzővel Telegramon</string>
     <string name="txt_experimental_features" comment="Switch-Button in Settings">Kísérleti funkciók</string>
-    <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
-    <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="toast_experimental_features_on" comment="Message text">A kísérleti funkciók be vannak kapcsolva.\nAz új funkciók instabilak és nem biztonságok lehetnek.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Naplók fájlba mentése</string>
+    <string name="toast_log_on_file_on" comment="Message text">A naplók fájlba mentése be van kapcsolva.\nProblémák jelentésekor mellékelheti a log.txt fájlt.\nTovábbi információk GitHubon.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Általános statisztikák</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Megjeleníti a karakterláncot, amely azonosítja az alkalmazásban</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
-    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Skip recording confirmation</string>
-    <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
-    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Translate the app on Crowdin</string>
-    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">See app statistics</string>
-    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
-    <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
-    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Check for updates</string>
-    <string name="txt_gestures" comment="Switch-Button in Settings">Gestures</string>
-    <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
-    <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
-    <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
-    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Alkalmazáshasználati statisztikák</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Felvétel előtti megerősítés átugrása</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">A felvétel előtt megerősítés átugrása be van kapcsolva.\nAnélkül küldheti be a felvételeket, hogy előbb meghallgatná őket.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Fordítsa le az alkalmazást a Crowdinen</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Alkalmazásstatisztikák megtekintése</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Felvételt jelző hang</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">A felvételt jelző hang be van kapcsolva.\nEgy hangjelzést fog hallani, amikor elindítja és leállítja a felvételt.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Frissítések keresése</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Gesztusok</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Ha tetszik Önnek az alkalmazás, akkor ne felejtse el értékelni a Google Play Áruházban.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Az alkalmazás nincs (teljesen) lefordítva ezen a nyelven.\nKözreműködhet az alkalmazás fordításában a Crowdinen.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animációk</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Betűméret testreszabása</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Gesztusok testreszabása</string>
+    <string name="title_theme_settings" comment="Title in Settings">Téma</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Az alkalmazás Telegram csoportja</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Címkék megjelenítése a menüikonok alatt</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">A Mozilla Common Voice szolgáltatási feltételeinek elolvasása</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Az ellenőrzési irányelvek elolvasása</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Értékeljen a Google Playen</string>
+    <string name="title_ui_settings" comment="Option in Settings">Felhasználói felület</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Speciális</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Felvételek mentése erre az eszközre</string>
+    <string name="txt_reset_data" comment="Button in Settings">Alkalmazásadatok visszaállítása</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Jelenleg nem érhetők el kísérleti funkciók</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mondat szövegének megjelentése a klip végighallgatása után</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Jelentés ikon megjelenítése (jobb felül) a gomb helyett (alul)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Szöveg mérete</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Hirdetéssáv</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Hirdetéssáv engedélyezése a {{*{{section_name}}*}} oldalon</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Napi célkitűzés nyomon követése színes sávval</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} és {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip...</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
-    <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>
-    <string name="txt_sentence_record_failed" comment="Label in Speak">Recording failed. Please try again.</string>
-    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
-    <string name="txt_listening_stopped" comment="Label in Speak">Listen to the whole recording to make sure it\'s correct.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Press the icon below to stop listening.</string>
-    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording...</string>
-    <string name="txt_recording_sent" comment="Label in Speak">Recording sent!</string>
-    <string name="txt_sending_recording_failed" comment="Message text">Failed to send recording!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Press the icon below to start the clip.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Press the icon below to stop the clip.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Press the icon below to play the clip again.</string>
-    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marked as correct!</string>
-    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marked as incorrect!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
-    <string name="txt_error_2_sending_failed" comment="Label in Listen">Failed to send the recording.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing...</string>
-    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. There are no more available clips for this language.</string>
-    <string name="button_report" comment="Button">Report</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
-    <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
-    <string name="button_send_report" comment="Button">Send report</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensive speech</string>
-    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report" comment="Checkbox">Different language</string>
-    <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report" comment="Checkbox">Other</string>
-    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
-    <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
-    <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Mondat betöltése…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Átugrás</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Felvétel beküldése</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Klip betöltése…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Koppintson az alábbi ikonra a felvétel elindításához.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Koppintson az alábbi ikonra a felvétel befejezéséhez.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Mondat rögzítve. Hallgassa meg a felvételt.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Felvétel sikertelen. Próbálja újra.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Ha helyesen beszélt, küldje be a felvételt.\nAmennyiben helytelennek ítéli, újrarögzítheti a mondatot.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Hallgassa végig a felvételt, hogy biztosan helyes-e.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Koppintson az alábbi ikonra a hallgatás befejezéséhez.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">A felvétel túl hosszú. Az időkorlát 10 másodperc.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">A felvétel túl rövid. Próbálja újra.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Felvétel beküldése…</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Felvétel beküldve.</string>
+    <string name="txt_sending_recording_failed" comment="Message text">A felvétel beküldése sikertelen.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">A felvétel beküldése sikertelen. Megpróbálhatja újra, vagy nyomja meg a {{*{{skip_button}}*}} gombot.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Koppintson az alábbi ikonra a klip elindításához.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Koppintson az alábbi ikonra a klip leállításához.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Ha a klip helyes, koppintson a felfelé mutató ujjra.\nHa a klip hibás, koppintson a lefelé mutató ujjra.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Koppintson az alábbi ikonra a klip újbóli lejátszásához.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Klip helyesként jelölve.</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Klip helytelenként jelölve.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Hiba. A folytatáshoz kattintson a {{*{{skip_button}}*}} gombra.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">A felvétel beküldése sikertelen.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Küldés…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Az eredmény beküldése sikertelen. Megpróbálhatja újra, vagy nyomja meg a {{*{{skip_button}}*}} gombot.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Bezárás…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Hiba. Nem érhető el több klip ezen a nyelven.</string>
+    <string name="button_report" comment="Button">Jelentés</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Klip jelentése:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Mondat jelentése:</string>
+    <string name="button_send_report" comment="Button">Jelentés küldése</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Sértő nyelvezet</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Sértő beszéd</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Nyelvtani vagy helyesírási hiba</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Eltérő nyelv</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Nehezen ejthető ki</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Egyéb</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Megjegyzés</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Elfogytak az offline mondatok. Kapcsolódjon az Internethez, hogy több felvevendő mondatot töltsön le.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Elfogytak az offline klipek. Kapcsolódjon az Internethez, hogy több ellenőrzendő klipet töltsön le.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Még {{*{{n_sentences}}*}} további mondatot vehet fel, mielőtt kapcsolódnia kell az Internethez.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Még {{*{{n_clips}}*}} további klipet ellenőrizhet, mielőtt kapcsolódnia kell az Internethez.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Hallgatás…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">A(z) „{{*{{feature_name}}*}}” engedélyezett. A kikapcsolásához ugorjon a Beállításokhoz.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">A mondat szövege rejtett</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nincs több mondat a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nincs több klip a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection" comment="Button">Check again</string>
-    <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <string name="btn_check_again_noconnection" comment="Button">Ellenőrzés újra</string>
+    <string name="txt_noconnection" comment="Message text">Nem kapcsolódik az internethez. Kapcsolódjon Wi-Fivel vagy mobil-adatkapcsolattal, majd koppintson a lenti gombra.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">This is the sentence you must record.</string>
-    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">A message to guide you will appear here.</string>
-    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
-    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to start recording.</string>
-    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to stop recording.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording.</string>
-    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to re-record if you made a mistake.</string>
-    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording again.</string>
-    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Tap on this button to send your recording.</string>
-    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">This is the sentence/clip you must validate.</string>
-    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to play the clip.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
-    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
-    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Ez az a mondat, amit fel kell vennie.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Egy Önt segítő üzenet fog itt megjelenni.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Ha nem tetszik Önnek a mondat, akkor idekoppinthat, hogy átugorja és újat kérjen.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy elkezdje a felvételt.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy leállítsa a felvételt.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy visszajátssza a felvételt.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy újra felvegye, ha úgy gondolja, hogy hibát vétette.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy újra visszajátssza a felvételt.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre a gombra, hogy elküldje a felvételt.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Ez az ellenőrizendő mondat vagy klip.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Ha nem tetszik Önnek a klip, akkor erre a gombra koppinthat, hogy átugorja és újat kérjen.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Koppintson erre az ikonra a klip lejátszásához.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Koppintson erre az ikonra a klip lejátszásának leállításához.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Koppintson erre az ikonra, ha újra meg akarja hallgatni a klipet.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Ha a klip megfelel a mondatnak, akkor koppintson erre az ikonra az elfogadásához.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Ha a klip nem felel meg a mondatnak, akkor koppintson erre az ikonra az elutasításához.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Ha nem tudja, hogy elfogadjon vagy elutasítson egy felvételt, akkor elolvashatja a hivatalos ellenőrzési irányelveket a Mozilla Discourse példányán.\nEzt a hivatkozást a Beállításokban is megtalálhatja.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Elolvasás most</string>
     <!-- NotAvailableNow -->
-    <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <string name="txtNotAvailableNow" comment="Message text">Sajnáljuk, ez a funkció még nem létezik.\nFolyamatosan az alkalmazás fejlesztésén dolgozunk, így nézzen vissza később, hogy hozzáadásra került-e.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges" comment="Button">Close</string>
-    <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="btnCloseBadges" comment="Button">Bezárás</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Összes jelvény</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurrá! Kiérdemelte az első jelvényét.\nUgorjon a {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} menüponthoz, hogy lássa az összes jelvényét.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Azért kapta ezt a jelvényt, mert legalább {{*{{n_clips}}*}} klipet ellenőrzött.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Azért kapta ezt a jelvényt, mert legalább {{*{{n_sentences}}*}} mondatot vett fel.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Azért kapta ezt a jelvényt, mert legalább {{*{{n_total}}*}} klipet ellenőrzött vagy vett fel.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">Ok</string>
-    <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
-    <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
-    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Common Voice megnyitása</string>
+    <string name="btnOk" comment="Button">Rendben</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Hiba</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Ez nem működött.\nPróbálja újra később, vagy lépjen kapcsolatba a fejlesztővel.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Ez nem működött. Próbálja újra, vagy lépjen kapcsolatba a fejlesztővel.\nHibakód: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">A bejelentkezés sikertelen</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Először be kell jelentkeznie a Common Voice weboldalon, és el kell fogadnia a Common Voice adatvédelmi irányelveit.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">A Common Voice megnyitása</string>
     <string name="text_warning" comment="Title for Message text">Figyelmeztetés</string>
     <string name="text_tip" comment="Title for Message text">Tipp</string>
     <string name="text_changelog" comment="Title for Message text">Változásnapló</string>
