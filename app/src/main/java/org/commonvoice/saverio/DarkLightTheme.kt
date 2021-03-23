@@ -61,7 +61,6 @@ class DarkLightTheme(
     }
 
     fun setElementDialogCL(
-        context: Context,
         element: ConstraintLayout,
         invert: Boolean = false
     ) {

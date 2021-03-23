@@ -18,6 +18,10 @@ import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -43,6 +47,8 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
     private val statsPrefManager: StatsPrefManager by inject()
     private val mainPrefManager: MainPrefManager by inject()
+
+    private val dialogInflater by inject<DialogInflater>()
 
     private val tabTextColors by lazy {
         if (theme.isDark) {
@@ -111,28 +117,25 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
             buttonDashboardSetDailyGoal.onClick {
                 if (mainPrefManager.sessIdCookie != null) {
-                    try {
-                        val metrics = DisplayMetrics()
-                        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
-                        val width = metrics.widthPixels
-                        val height = metrics.heightPixels
-                        val message = MessageDialog(
-                            requireContext(),
-                            activity as MainActivity,
-                            1,
-                            value = statsPrefManager.dailyGoalObjective,
-                            width = width,
-                            height = height
+                    dialogInflater.show(requireContext(),
+                        DailyGoalDialog(
+                            mainPrefManager,
+                            statsPrefManager,
+                            refreshDashboard = {
+                                if (statsPrefManager.dailyGoalObjective == 0) {
+                                    binding.labelDashboardDailyGoalValue.setText(R.string.daily_goal_is_not_set)
+                                    binding.labelDashboardDailyGoalValue.typeface = Typeface.DEFAULT
+                                    binding.buttonDashboardSetDailyGoal.setText(R.string.set_daily_goal)
+                                } else {
+                                    binding.labelDashboardDailyGoalValue.text = statsPrefManager.dailyGoalObjective.toString()
+                                    binding.labelDashboardDailyGoalValue.typeface = ResourcesCompat.getFont(requireContext(), R.font.sourcecodepro)
+                                    binding.buttonDashboardSetDailyGoal.setText(R.string.edit_daily_goal)
+                                }
+                            }
                         )
-                        message.show()
-                    } catch (exception: Exception) {
-                        println("!!-- Exception: MainActivity - OPEN DAILY GOAL DIALOG: " + exception.toString() + " --!!")
-                    }
-                } else {
-                    showMessageDialog(
-                        "",
-                        getString(R.string.toastNoLoginNoDailyGoal)
                     )
+                } else {
+                    dialogInflater.show(requireContext(), StandardDialog(messageRes = R.string.toastNoLoginNoDailyGoal))
                 }
             }
 
@@ -149,41 +152,6 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
         //TODO improve this method
         (activity as MainActivity).resetStatusBarColor()
-    }
-
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = "",
-        type: Int = 0
-    ) {
-        val metrics = DisplayMetrics()
-        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            var message: MessageDialog? = null
-            message = MessageDialog(
-                requireContext(),
-                type,
-                title,
-                messageText,
-                details = details,
-                height = height
-            )
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
-        }
     }
 
     private fun networkConnectivityCheck() {

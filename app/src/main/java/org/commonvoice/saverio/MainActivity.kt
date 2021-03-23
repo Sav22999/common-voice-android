@@ -193,24 +193,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
-    fun refreshDailyGoalDataInDashboard() {
-        //refresh data of Daily goal in Dashboard
-        val goalText = this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-        if (statsPrefManager.dailyGoalObjective == 0) {
-            goalText.text = getString(R.string.daily_goal_is_not_set)
-            goalText.typeface = Typeface.DEFAULT
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
-                getString(R.string.set_daily_goal)
-            //println("Daily goal is not set")
-        } else {
-            goalText.text = statsPrefManager.dailyGoalObjective.toString()
-            goalText.typeface = ResourcesCompat.getFont(this, R.font.sourcecodepro)
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
-                getString(R.string.edit_daily_goal)
-            //println("Daily goal is set")
-        }
-    }
-
     private fun showMessageDialog(
         title: String,
         text: String,

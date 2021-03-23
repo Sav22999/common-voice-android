@@ -2,6 +2,7 @@ package org.commonvoice.saverio.ui.dialogs.commonTypes
 
 import android.view.LayoutInflater
 import androidx.annotation.StringRes
+import androidx.core.view.isGone
 import com.github.mrindeciso.advanced_dialogs.customDialog.CustomDialogInterface
 import org.commonvoice.saverio.databinding.DialogStandardBinding
 import org.commonvoice.saverio.utils.onClick
@@ -22,6 +23,11 @@ class StandardDialog(
             titleRes?.let { res -> it.labelTitleMessageDialog.setText(res) }
             message?.let { str -> it.labelTextMessageDialog.text = str }
             messageRes?.let { res -> it.labelTextMessageDialog.setText(res) }
+
+            if (title == null && titleRes == null) {
+                it.labelTitleMessageDialog.isGone = true
+            }
+
             it.btnOkMessageDialog.onClick { dismiss() }
         }
     }

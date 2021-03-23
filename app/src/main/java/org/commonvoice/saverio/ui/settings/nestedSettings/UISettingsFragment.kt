@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.daily_goal.view.*
 import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R

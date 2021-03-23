@@ -9,7 +9,8 @@ class ThemingEngine(
 ) {
 
     val themeHandlers: List<SubsetThemeHandler> = listOf(
-        GenericDialogThemeHandler
+        GenericDialogThemeHandler,
+        DialyGoalDialogThemeHandler
     )
 
     inline fun <reified T: ViewBinding> applyTheme(view: T) {
