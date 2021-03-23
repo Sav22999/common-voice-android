@@ -3,7 +3,6 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Bundle
@@ -31,6 +30,7 @@ import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.WarningDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.SpeakListenStandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
@@ -89,7 +89,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                dialogInflater.show(this, StandardDialog(messageRes = R.string.offline_mode_is_not_enabled))
+                dialogInflater.show(this, SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
+                    onBackPressed()
+                })
             } else {
                 startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false
@@ -522,7 +524,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                                 "{{*{{all_badges}}*}}",
                                 getString(R.string.btn_badges_loggedin)
                             )
-                    ))
+                    )
+                    )
                 }
             }
         }

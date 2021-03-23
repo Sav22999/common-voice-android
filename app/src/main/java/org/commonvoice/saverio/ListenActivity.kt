@@ -22,8 +22,13 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.databinding.ActivityListenBinding
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.SpeakListenStandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
@@ -47,6 +52,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private val connectionManager: ConnectionManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
     private val listenPrefManager: ListenPrefManager by inject()
+    private val dialogInflater by inject<DialogInflater>()
 
     private var isListenAnimateButtonVisible: Boolean = false
     private var animationsCount: Int = 0
@@ -72,10 +78,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_in)
                 listenViewModel.offlineModeIconVisible = true
                 if (mainPrefManager.showOfflineModeMessage) {
-                    showMessageDialog("", "", 10)
+                    dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled), type = 14)
+                dialogInflater.show(this, SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
+                    onBackPressed()
+                })
             } else {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
@@ -152,16 +160,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         statsPrefManager.dailyGoal.observe(this, Observer {
             if ((numberSentThisSession > 0) && it.checkDailyGoal()) {
                 stopAndRefresh()
-                showMessageDialog(
-                    "",
-                    getString(R.string.daily_goal_achieved_message).replace(
-                        "{{*{{n_clips}}*}}",
-                        "${it.validations}"
-                    ).replace(
-                        "{{*{{n_sentences}}*}}",
-                        "${it.recordings}"
-                    ), type = 12
-                )
+                dialogInflater.show(this, DailyGoalAchievedDialog(this, it))
             }
 
             animateProgressBar(
@@ -229,16 +228,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         )
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
         startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
-    }
-
-    private fun showMessageDialog(title: String, text: String, type: Int = 0) {
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        val msg = MessageDialog(this, type, title, text, details = "", height = height)
-        msg.setListenActivity(this)
-        msg.show()
     }
 
     private fun setupNestedScroll() {
@@ -653,14 +642,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
                 if (it is BadgeDialogMediator.Listen || it is BadgeDialogMediator.Level) {
-                    showMessageDialog(
-                        title = "",
-                        text = getString(R.string.new_badge_earnt_message)
+                    dialogInflater.show(this@ListenActivity, StandardDialog(
+                        message = getString(R.string.new_badge_earnt_message)
                             .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
                             .replace(
                                 "{{*{{all_badges}}*}}",
                                 getString(R.string.btn_badges_loggedin)
                             )
+                    )
                     )
                 }
             }

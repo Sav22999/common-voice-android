@@ -35,8 +35,6 @@ class MessageDialog : KoinComponent {
     private var context: Context? = null
     private var height: Int = 0
     private var main: MainActivity? = null
-    private var listen: ListenActivity? = null
-    private var speak: SpeakActivity? = null
     lateinit var clipboardManager: ClipboardManager
     lateinit var clipData: ClipData
 
@@ -61,11 +59,6 @@ class MessageDialog : KoinComponent {
 
     fun setMainActivity(main: MainActivity) {
         this.main = main
-    }
-
-    fun setListenActivity(listen: ListenActivity) {
-        this.listen = listen
-        this.speak = null
     }
 
     fun show() {
@@ -118,12 +111,6 @@ class MessageDialog : KoinComponent {
                         dialogView.btnOkMessageDialog.setOnClickListener {
                             //dismiss dialog
                             alertDialog.dismiss()
-
-                            if (message_type == 13) {
-                                speak?.onBackPressed()
-                            } else if (message_type == 14) {
-                                listen?.onBackPressed()
-                            }
                         }
                         setTheme(this.context!!, dialogView)
                         setMessageType(this.context!!, dialogView)

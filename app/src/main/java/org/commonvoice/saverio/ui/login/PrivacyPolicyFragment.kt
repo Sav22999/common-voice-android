@@ -3,13 +3,11 @@ package org.commonvoice.saverio.ui.login
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import androidx.navigation.fragment.findNavController
 import org.commonvoice.saverio.MainActivity
-import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentYouHaveToAcceptPrivacyPolicyBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
@@ -46,7 +44,8 @@ class PrivacyPolicyFragment : ViewBoundFragment<FragmentYouHaveToAcceptPrivacyPo
         dialogInflater.show(requireContext(), StandardDialog(
             titleRes = R.string.youHaveToAcceptPrivacyPolicyTitle,
             messageRes = R.string.youHaveToAcceptPrivacyPolicy
-        ))
+        )
+        )
 
         binding.btnCloseLoginPrivacyPolicy.setOnClickListener {
             logoutAndExit()

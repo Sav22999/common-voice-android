@@ -2,7 +2,6 @@ package org.commonvoice.saverio.ui.dashboard
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -15,11 +14,9 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import org.commonvoice.saverio.MainActivity
-import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
-import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
