@@ -2,6 +2,7 @@ package org.commonvoice.saverio.ui.theming
 
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -12,15 +13,18 @@ import org.commonvoice.saverio.databinding.*
 
 val GenericDialogThemeHandler = SubsetThemeHandler(
     listOf(
-        DialogWarningMessageBinding::class,
         DialogIdentifymeBinding::class,
         DialogStandardBinding::class,
         DialogInfoBinding::class,
+        DialogWarningBinding::class,
+        DialogOfflineModeBinding::class,
+        DialogDailyGoalAchievedBinding::class,
     ),
     operation = { viewBinding, darkLightTheme ->
         (viewBinding.root as ViewGroup).children.forEach {
             val viewContext = it.context
             when(it) {
+                is CheckBox -> darkLightTheme.setElement(viewContext, it)
                 is Button -> darkLightTheme.setElement(viewContext, it)
                 is TextView -> darkLightTheme.setElement(viewContext, it)
                 is ImageView -> darkLightTheme.setElementDialogIV(it)

@@ -5,7 +5,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
-import android.graphics.Typeface
 import android.net.Uri
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -14,15 +13,11 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isGone
 import kotlinx.android.synthetic.main.message_dialog.view.*
-import kotlinx.android.synthetic.main.message_dialog_daily_goal_achived.view.*
-import kotlinx.android.synthetic.main.offline_mode_message.view.*
 import kotlinx.android.synthetic.main.report_bugs_message.view.*
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
@@ -38,8 +33,6 @@ class MessageDialog : KoinComponent {
     private var message_title: String = ""
     private var message_details: String = ""
     private var context: Context? = null
-    private var dailyGoalValue: Int = 0
-    private var width: Int = 0
     private var height: Int = 0
     private var main: MainActivity? = null
     private var listen: ListenActivity? = null
@@ -66,22 +59,6 @@ class MessageDialog : KoinComponent {
         this.height = height
     }
 
-    constructor(
-        context: Context,
-        main: MainActivity,
-        type: Int,
-        value: Int = 0,
-        width: Int = 0,
-        height: Int = 0
-    ) {
-        this.context = context
-        this.dailyGoalValue = value
-        this.message_type = type
-        this.width = width
-        this.height = height
-        this.main = main
-    }
-
     fun setMainActivity(main: MainActivity) {
         this.main = main
     }
@@ -89,11 +66,6 @@ class MessageDialog : KoinComponent {
     fun setListenActivity(listen: ListenActivity) {
         this.listen = listen
         this.speak = null
-    }
-
-    fun setSpeakActivity(speak: SpeakActivity) {
-        this.speak = speak
-        this.listen = null
     }
 
     fun show() {
@@ -159,34 +131,6 @@ class MessageDialog : KoinComponent {
                         println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
                     }
                 }
-                10 -> {
-                    try {
-                        val dialogView =
-                            LayoutInflater.from(this.context)
-                                .inflate(R.layout.offline_mode_message, null)
-
-                        val builder =
-                            AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
-                                .setView(dialogView)
-                                .setTitle("")
-                        //show dialog
-                        val alertDialog = builder.show()
-
-                        dialogView.btnOkMessageDialogOfflineMode.setOnClickListener {
-                            //dismiss dialog
-                            if (speak != null) {
-                                speak?.setShowOfflineModeMessage(!dialogView.checkDoNotShowAnymoreOfflineMode.isChecked)
-                            } else if (listen != null) {
-                                mainPrefManager.showOfflineModeMessage =
-                                    !dialogView.checkDoNotShowAnymoreOfflineMode.isChecked
-                            }
-                            alertDialog.dismiss()
-                        }
-                        setTheme(this.context!!, dialogView)
-                    } catch (exception: Exception) {
-                        println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
-                    }
-                }
                 11 -> {
                     try {
                         val dialogView =
@@ -228,43 +172,6 @@ class MessageDialog : KoinComponent {
                             }
                         }
                         setTheme(this.context!!, dialogView)
-                    } catch (exception: Exception) {
-                        println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
-                    }
-                }
-                12 -> {
-                    try {
-                        val dialogView =
-                            LayoutInflater.from(this.context)
-                                .inflate(R.layout.message_dialog_daily_goal_achived, null)
-
-                        val builder =
-                            AlertDialog.Builder(this.context!!, R.style.MessageDialogTheme)
-                                .setView(dialogView)
-                                .setTitle("")
-                        //show dialog
-                        val alertDialog = builder.show()
-                        var message_to_show = this.message_text
-                        if (this.message_title != "") {
-                            message_to_show = this.message_title + "\n" + message_to_show
-                        }
-                        dialogView.labelTextMessageDialogDailyAchieved.text = message_to_show
-                        dialogView.btnOkMessageDialogDailyAchieved.setOnClickListener {
-                            //dismiss dialog
-                            alertDialog.dismiss()
-                        }
-
-                        dialogView.btnShareMessageDialogDailyAchieved.setOnClickListener {
-                            //share and dismiss dialog
-                            alertDialog.dismiss()
-                            if (speak != null) {
-                                speak?.shareCVAndroidDailyGoal()
-                            } else if (listen != null) {
-                                listen?.shareCVAndroidDailyGoal()
-                            }
-                        }
-                        setTheme(this.context!!, dialogView)
-                        setMessageType(this.context!!, dialogView)
                     } catch (exception: Exception) {
                         println("!!-- Exception: MessageDialogActivity MD01 - Details: " + exception.toString() + " --!!")
                     }
@@ -372,47 +279,6 @@ class MessageDialog : KoinComponent {
                     )
                 }
             }
-            10 -> {
-                //offline mode message
-                if (this.height > 500) {
-                    dialogView.messageDialogSectionBackgroundOfflineMode.layoutParams.height =
-                        this.height
-                    dialogView.messageDialogSectionBackgroundOfflineMode.requestLayout()
-                } else {
-                    dialogView.messageDialogSectionBackgroundOfflineMode.backgroundTintList =
-                        ContextCompat.getColorStateList(view, R.color.colorTransparent)
-                }
-
-                theme.setElement(
-                    dialogView.findViewById(R.id.messageDialogSectionMiddleOfflineMode) as ConstraintLayout
-                )
-                theme.setElement(
-                    view,
-                    -1,
-                    dialogView.findViewById(R.id.messageDialogSectionMiddleOfflineMode) as ConstraintLayout
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.btnOkMessageDialogOfflineMode) as Button
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.textDescriptionOfflineMode) as TextView
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.textDescriptionOfflineMode2) as TextView
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.textDescriptionOfflineMode3) as TextView
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.checkDoNotShowAnymoreOfflineMode) as CheckBox,
-                    textSize = 18F
-                )
-            }
             11 -> {
                 //report website bug message
                 if (this.height > 500) {
@@ -451,43 +317,6 @@ class MessageDialog : KoinComponent {
                 theme.setElement(
                     view,
                     dialogView.findViewById(R.id.checkDoNotShowAnymoreReportBug) as CheckBox
-                )
-            }
-            12 -> {
-                //standard message dialog
-                if (this.height > 500) {
-                    dialogView.messageDialogSectionBackgroundDailyAchieved.layoutParams.height =
-                        this.height
-                    dialogView.messageDialogSectionBackgroundDailyAchieved.requestLayout()
-                } else {
-                    dialogView.messageDialogSectionBackgroundDailyAchieved.backgroundTintList =
-                        ContextCompat.getColorStateList(view, R.color.colorTransparent)
-                }
-
-                theme.setElement(
-                    dialogView.findViewById(R.id.messageDialogSectionMiddleDailyAchieved) as ConstraintLayout,
-                    invert = message_type == 2
-                )
-                theme.setElement(
-                    view,
-                    -1,
-                    dialogView.findViewById(R.id.messageDialogSectionMiddleDailyAchieved) as ConstraintLayout,
-                    invert = message_type == 2
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.btnOkMessageDialogDailyAchieved) as Button,
-                    invert = message_type == 2
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.btnShareMessageDialogDailyAchieved) as Button,
-                    invert = message_type == 2
-                )
-                theme.setElement(
-                    view,
-                    dialogView.findViewById(R.id.labelTextMessageDialogDailyAchieved) as TextView,
-                    invert = message_type == 2
                 )
             }
         }

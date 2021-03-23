@@ -47,8 +47,8 @@
             android:background="@color/colorTransparent"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_info"
-            android:tint="@color/colorWhite"
             android:visibility="visible"
+            app:tint="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textMessageType"
             app:layout_constraintTop_toTopOf="parent" />
