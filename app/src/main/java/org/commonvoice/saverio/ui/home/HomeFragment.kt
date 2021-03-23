@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
@@ -15,7 +14,6 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
 import com.github.mrindeciso.advanced_dialogs.extensions.showDialog
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.*
@@ -225,12 +223,12 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         theme.setElement(
             view,
-            text_homeMessageBoxBanner,
+            textHomeMessageBoxBanner,
             background = false,
             textSize = 22F
         )
 
-        theme.setElement(view, text_homeMessageBoxBanner, R.color.colorWhite, R.color.colorWhite)
+        theme.setElement(view, textHomeMessageBoxBanner, R.color.colorWhite, R.color.colorWhite)
     }
 
 }

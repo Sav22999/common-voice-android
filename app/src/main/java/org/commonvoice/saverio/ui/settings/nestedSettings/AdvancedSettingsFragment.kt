@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import androidx.core.content.getSystemService
-import kotlinx.android.synthetic.main.fragment_advanced_settings.*
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -45,11 +44,11 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionAdvanced.setOnClickListener {
-            activity?.onBackPressed()
-        }
-
         withBinding {
+            buttonBackSettingsSubSectionAdvanced.setOnClickListener {
+                activity?.onBackPressed()
+            }
+
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsAdvanced.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
@@ -175,13 +174,15 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     }
 
     private fun setupButtons() {
-        buttonShowStringIdentifyMe.setOnClickListener {
-            dialogInflater.show(requireContext(),
+        binding.buttonShowStringIdentifyMe.setOnClickListener {
+            dialogInflater.show(
+                requireContext(),
                 IdentifyMeDialog(statsRepository.getUserId(), onCopyClick = {
                     requireContext()
                         .getSystemService<ClipboardManager>()
                         ?.setPrimaryClip(ClipData.newPlainText("", statsRepository.getUserId()))
-                }))
+                })
+            )
         }
     }
 

@@ -2,14 +2,11 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_listen_settings.*
-import kotlinx.android.synthetic.main.fragment_offline_settings.*
 import org.commonvoice.saverio.databinding.FragmentListenSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
 
 class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>() {
@@ -22,17 +19,16 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
     }
 
     private val mainPrefManager by inject<MainPrefManager>()
-    private val settingsPrefManager by inject<SettingsPrefManager>()
     private val listenPrefManager by inject<ListenPrefManager>()
 
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionListen.setOnClickListener {
-            activity?.onBackPressed()
-        }
-
         withBinding {
+            buttonBackSettingsSubSectionListen.setOnClickListener {
+                activity?.onBackPressed()
+            }
+
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsListen.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 

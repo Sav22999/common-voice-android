@@ -16,7 +16,6 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import kotlinx.android.synthetic.main.activity_listen.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -164,14 +163,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             }
 
             animateProgressBar(
-                progressBarListenSpeak,
+                binding.progressBarListenSpeak,
                 sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
                 currentContributions = it.recordings,
                 color = R.color.colorSpeak
             )
             animateProgressBar(
-                progressBarListenListen,
+                binding.progressBarListenListen,
                 sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
                 currentContributions = it.validations,
@@ -202,14 +201,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         super.onConfigurationChanged(newConfig)
 
         animateProgressBar(
-            progressBarListenSpeak,
+            binding.progressBarListenSpeak,
             sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentContributions = statsPrefManager.dailyGoal.value!!.recordings,
             color = R.color.colorSpeak
         )
         animateProgressBar(
-            progressBarListenListen,
+            binding.progressBarListenListen,
             sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentContributions = statsPrefManager.dailyGoal.value!!.validations,

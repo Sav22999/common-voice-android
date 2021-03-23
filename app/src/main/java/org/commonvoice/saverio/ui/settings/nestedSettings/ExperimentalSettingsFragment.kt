@@ -2,7 +2,6 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_experimental_settings.*
 import org.commonvoice.saverio.databinding.FragmentExperimentalSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -23,7 +22,7 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionExperimental.setOnClickListener {
+        binding.buttonBackSettingsSubSectionExperimental.setOnClickListener {
             activity?.onBackPressed()
         }
 
