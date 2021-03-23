@@ -19,6 +19,7 @@ val GenericDialogThemeHandler = SubsetThemeHandler(
         DialogWarningBinding::class,
         DialogOfflineModeBinding::class,
         DialogDailyGoalAchievedBinding::class,
+        DialogReportBugsBinding::class,
     ),
     operation = { viewBinding, darkLightTheme ->
         (viewBinding.root as ViewGroup).children.forEach {

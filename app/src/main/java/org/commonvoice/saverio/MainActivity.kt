@@ -21,6 +21,9 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.ReportBugsDialog
 import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
@@ -46,6 +49,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val connectionManager: ConnectionManager by inject()
     private val translationHandler: TranslationHandler by inject()
+
+    private val dialogInflater by inject<DialogInflater>()
 
     companion object {
         val SOURCE_STORE: String = BuildConfig.SOURCE_STORE
@@ -101,7 +106,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         if (mainPrefManager.showReportWebsiteBugs) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
-                showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
+                dialogInflater.show(this, ReportBugsDialog(this, mainPrefManager))
             }
         }
     }
@@ -109,41 +114,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     fun resetStatusBarColor() {
         this@MainActivity.window.statusBarColor =
             ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark)
-    }
-
-    fun checkMessageBanner() {
-        //TODO
-        /*
-        if () {
-            //if there is at least one message to show
-            this@MainActivity.window.statusBarColor =
-                ContextCompat.getColor(this@MainActivity, R.color.colorMessageBanner)
-            homeMessageBoxBannerContainer.isGone = false
-            text_homeMessageBoxBanner.text = textToUse
-            hideMessageBanner.setOnClickListener {
-                hideMessageBanner(id_message)
-            }
-        } else {
-            hideMessageBanner()
-        }
-        */
-    }
-
-
-    private fun hideMessageBanner(id: Int = 0) {
-        //TODO
-        this@MainActivity.window.statusBarColor =
-            ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark)
-        val messageBanner = homeMessageBoxBannerContainer
-        messageBanner.isGone = true
-        //add in the "messages viewed" list the id passed
-    }
-
-    fun checkAdsBanner() {
-        //TODO
-        if (mainPrefManager.showAdBanner && mainPrefManager.appSourceStore == "GPS") {
-
-        }
     }
 
     private fun checkIfSessionIsExpired() {
@@ -157,10 +127,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     private fun logoutUser() {
-        showMessageDialog(
-            "",
-            getString(R.string.message_log_in_again)
-        )
+        dialogInflater.show(this, StandardDialog(messageRes = R.string.message_log_in_again))
+
         mainPrefManager.sessIdCookie = null
         mainPrefManager.isLoggedIn = false
         mainPrefManager.username = ""
@@ -184,48 +152,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             val counter = statsPrefManager.reviewOnPlayStoreCounter
             val times = 100 //after this times it will show the message
             if (((counter % times) == 0 || (counter % times) == times)) {
-                showMessageDialog(
-                    "",
-                    getString(R.string.message_review_app_on_play_store)
-                )
+                dialogInflater.show(this, StandardDialog(messageRes = R.string.message_review_app_on_play_store))
             }
             statsPrefManager.reviewOnPlayStoreCounter++
-        }
-    }
-
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = "",
-        type: Int = 0
-    ) {
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            var message: MessageDialog? = null
-            message = MessageDialog(
-                this,
-                type,
-                title,
-                messageText,
-                details = details,
-                height = height
-            )
-            if (type == 11) message.setMainActivity(this)
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
         }
     }
 
@@ -298,14 +227,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     detailsMessage =
                         "\n" + getString(R.string.message_app_not_completely_translated)
                 }
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_language_changed).replace(
-                        "{{*{{lang}}*}}",
-                        translationHandler.getLanguageName(mainPrefManager.language)
-                    ) + detailsMessage
-                )
-
+                dialogInflater.show(this, StandardDialog(message = getString(R.string.toast_language_changed).replace(
+                    "{{*{{lang}}*}}",
+                    translationHandler.getLanguageName(mainPrefManager.language)
+                ) + detailsMessage))
                 resetData()
             }
         }

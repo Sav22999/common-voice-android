@@ -2,18 +2,14 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import androidx.core.content.getSystemService
 import kotlinx.android.synthetic.main.fragment_advanced_settings.*
-import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
-import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
