@@ -141,7 +141,14 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     private fun logoutUser() {
-        dialogInflater.show(this, StandardDialog(messageRes = R.string.message_log_in_again))
+        dialogInflater.show(this,
+            StandardDialog(
+                messageRes = R.string.message_log_in_again,
+                button2TextRes = R.string.text_log_in_again,
+                onButton2Click = {
+                    startActivity(Intent(this, LoginActivity::class.java))
+                }
+            ))
 
         mainPrefManager.sessIdCookie = null
         mainPrefManager.isLoggedIn = false
