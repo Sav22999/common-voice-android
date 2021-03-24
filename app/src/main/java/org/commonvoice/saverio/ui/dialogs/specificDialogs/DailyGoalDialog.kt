@@ -10,6 +10,7 @@ import org.commonvoice.saverio.databinding.DialogDailyGoalBinding
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import timber.log.Timber
 
 class DailyGoalDialog(
     private val mainPrefManager: MainPrefManager,
@@ -55,7 +56,11 @@ class DailyGoalDialog(
 
             seekDailyGoalValue.apply {
                 setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    override fun onProgressChanged(
+                        seekBar: SeekBar?,
+                        progress: Int,
+                        fromUser: Boolean
+                    ) {
                         dailyGoalValue = progress
                         renderDailyGoal(this@binding)
                         forcedValue = false
@@ -72,6 +77,12 @@ class DailyGoalDialog(
                 forcedValue = true
                 progress = dailyGoalValue
             }
+
+            if (seekDailyGoalValue.progress == 0) {
+                labelDailyGoalValue.setText(R.string.daily_goal_is_not_set)
+                labelDailyGoalValue.textSize = mainPrefManager.textSize * 22f
+                labelDailyGoalValue.typeface = Typeface.DEFAULT
+            }
         }
     }
 
@@ -81,6 +92,8 @@ class DailyGoalDialog(
         } else {
             dailyGoalValue - dailyGoalValue % 5
         }
+
+        Timber.i(valueToUse.toString())
 
         if (valueToUse == 0) {
             labelDailyGoalValue.setText(R.string.daily_goal_is_not_set)
@@ -93,10 +106,6 @@ class DailyGoalDialog(
                 R.font.sourcecodepro
             )
             labelDailyGoalValue.textSize = mainPrefManager.textSize * 30f
-        }
-
-        if (dailyGoalValue % 5  != 0 || force) {
-            seekDailyGoalValue.progress = valueToUse
         }
 
         dailyGoalValue = valueToUse
