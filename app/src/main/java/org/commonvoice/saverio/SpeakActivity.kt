@@ -66,7 +66,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var isAudioBarVisible: Boolean = false
     private var animationsCount: Int = 0
 
-    private val refreshAdsAfterSpeak = 5
+    private val refreshAdsAfterSpeak = 10
 
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
