@@ -233,7 +233,11 @@
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Do not show anymore</string>
     <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
     <string name="github_name" translatable="false">GitHub</string>
+    <string name="paypal_name" translatable="false">PayPal</string>
+    <string name="liberapay_name" translatable="false">LiberaPay</string>
     <string name="mozilla_discourse_name" translatable="false">Mozilla Discourse</string>
+    <string name="text_review_now" translatable="true">Review Now</string>
+    <string name="text_buy_me_a_coffee" translatable="true">Support my work. Buy me a coffee</string>
     <string name="text_offline_mode" comment="Title">Offline mode</string>
     <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>

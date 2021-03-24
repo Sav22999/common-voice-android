@@ -10,7 +10,6 @@ import org.commonvoice.saverio.databinding.DialogDailyGoalBinding
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
-import timber.log.Timber
 
 class DailyGoalDialog(
     private val mainPrefManager: MainPrefManager,
@@ -92,8 +91,6 @@ class DailyGoalDialog(
         } else {
             dailyGoalValue - dailyGoalValue % 5
         }
-
-        Timber.i(valueToUse.toString())
 
         if (valueToUse == 0) {
             labelDailyGoalValue.setText(R.string.daily_goal_is_not_set)

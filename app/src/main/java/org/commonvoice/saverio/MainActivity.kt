@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -120,6 +121,25 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
+    private fun showBuyMeACoffeeDialog() {
+        dialogInflater.show(this, StandardDialog(
+            messageRes = R.string.text_buy_me_a_coffee,
+            buttonTextRes = R.string.liberapay_name,
+            button2TextRes = R.string.paypal_name,
+            onButtonClick = {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://www.liberapay.com/Sav22999")
+                    )
+                )
+            }, onButton2Click = {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+            }, overrideItalicStyle = true
+        )
+        )
+    }
+
     private fun logoutUser() {
         dialogInflater.show(this, StandardDialog(messageRes = R.string.message_log_in_again))
 
@@ -142,11 +162,24 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private fun reviewOnPlayStore() {
         //just if it's the GPS version
-        if (SOURCE_STORE == "GPS") {
+        if (SOURCE_STORE == "GPS" && !BuildConfig.DEBUG) {
             val counter = statsPrefManager.reviewOnPlayStoreCounter
             val times = 100 //after this times it will show the message
             if (((counter % times) == 0 || (counter % times) == times)) {
-                dialogInflater.show(this, StandardDialog(messageRes = R.string.message_review_app_on_play_store))
+                dialogInflater.show(
+                    this, StandardDialog(
+                        messageRes = R.string.message_review_app_on_play_store,
+                        buttonTextRes = R.string.text_review_now,
+                        onButtonClick = {
+                            startActivity(
+                                Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("market://details?id=org.commonvoice.saverio")
+                                )
+                            )
+                        }, overrideItalicStyle = true
+                    )
+                )
             }
             statsPrefManager.reviewOnPlayStoreCounter++
         }
