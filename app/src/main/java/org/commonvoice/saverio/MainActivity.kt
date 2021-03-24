@@ -233,9 +233,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private fun resetData() {
         statsPrefManager.todayValidated = 0
         statsPrefManager.todayRecorded = 0
-        statsPrefManager.allTimeValidated = 0
-        statsPrefManager.allTimeRecorded = 0
-        statsPrefManager.allTimeLevel = 0
         statsPrefManager.localValidated = 0
         statsPrefManager.localRecorded = 0
         statsPrefManager.localLevel = 0
