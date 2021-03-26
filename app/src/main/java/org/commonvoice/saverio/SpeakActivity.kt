@@ -66,7 +66,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var isAudioBarVisible: Boolean = false
     private var animationsCount: Int = 0
 
-    private val refreshAdsAfterSpeak = 5
+    private var refreshAdsAfterSpeak = 10
 
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
@@ -198,6 +198,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     fun refreshAds() {
         if (speakPrefManager.showAdBanner) {
+            if (numberSentThisSession == 20) {
+                refreshAdsAfterSpeak = 5
+            } else if (numberSentThisSession == 40) {
+                refreshAdsAfterSpeak = 2
+            }
             AdLoader.setupSpeakAdView(this, binding.adContainer)
         }
     }

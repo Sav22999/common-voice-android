@@ -56,7 +56,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private var isListenAnimateButtonVisible: Boolean = false
     private var animationsCount: Int = 0
 
-    private val refreshAdsAfterListen = 20
+    private var refreshAdsAfterListen = 20
 
     private var numberSentThisSession: Int = 0
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
@@ -80,9 +80,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                dialogInflater.show(this, SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
-                    onBackPressed()
-                })
+                dialogInflater.show(
+                    this,
+                    SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
+                        onBackPressed()
+                    })
             } else {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
@@ -193,6 +195,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private fun refreshAds() {
         if (listenPrefManager.showAdBanner) {
+            if (numberSentThisSession == 20) {
+                refreshAdsAfterListen = 10
+            } else if (numberSentThisSession == 50) {
+                refreshAdsAfterListen = 5
+            }
             AdLoader.setupListenAdView(this, binding.adContainer)
         }
     }
@@ -641,14 +648,18 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
                 if (it is BadgeDialogMediator.Listen || it is BadgeDialogMediator.Level) {
-                    dialogInflater.show(this@ListenActivity, StandardDialog(
-                        message = getString(R.string.new_badge_earnt_message)
-                            .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
-                            .replace(
-                                "{{*{{all_badges}}*}}",
-                                getString(R.string.btn_badges_loggedin)
-                            )
-                    )
+                    dialogInflater.show(
+                        this@ListenActivity, StandardDialog(
+                            message = getString(R.string.new_badge_earnt_message)
+                                .replace(
+                                    "{{*{{profile}}*}}",
+                                    getString(R.string.button_home_profile)
+                                )
+                                .replace(
+                                    "{{*{{all_badges}}*}}",
+                                    getString(R.string.btn_badges_loggedin)
+                                )
+                        )
                     )
                 }
             }
