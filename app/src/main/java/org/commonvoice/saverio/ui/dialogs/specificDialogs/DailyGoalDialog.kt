@@ -55,7 +55,11 @@ class DailyGoalDialog(
 
             seekDailyGoalValue.apply {
                 setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    override fun onProgressChanged(
+                        seekBar: SeekBar?,
+                        progress: Int,
+                        fromUser: Boolean
+                    ) {
                         dailyGoalValue = progress
                         renderDailyGoal(this@binding)
                         forcedValue = false
@@ -71,6 +75,12 @@ class DailyGoalDialog(
                 })
                 forcedValue = true
                 progress = dailyGoalValue
+            }
+
+            if (seekDailyGoalValue.progress == 0) {
+                labelDailyGoalValue.setText(R.string.daily_goal_is_not_set)
+                labelDailyGoalValue.textSize = mainPrefManager.textSize * 22f
+                labelDailyGoalValue.typeface = Typeface.DEFAULT
             }
         }
     }
@@ -93,10 +103,6 @@ class DailyGoalDialog(
                 R.font.sourcecodepro
             )
             labelDailyGoalValue.textSize = mainPrefManager.textSize * 30f
-        }
-
-        if (dailyGoalValue % 5  != 0 || force) {
-            seekDailyGoalValue.progress = valueToUse
         }
 
         dailyGoalValue = valueToUse

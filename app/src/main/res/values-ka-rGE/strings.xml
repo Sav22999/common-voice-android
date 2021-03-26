@@ -11,7 +11,7 @@
     <string name="button_home_login">შესვლა / რეგისტრაცია</string>
     <string name="button_home_logout">გასვლა</string>
     <string name="button_home_profile">პროფილი</string>
-    <string name="text_hi_username">სალამი</string>
+    <string name="text_hi_username">გამარჯობა</string>
     <string name="message_log_in_again">სესიის ID ამოიწურა, ახლიდან უნდა შეხვიდეთ</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">სტატისტიკა</string>
@@ -73,7 +73,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">ინსტრუქციის ხელახლა გახსნა</string>
     <string name="txt_project_github_settings" comment="Button in Settings">პროექტი ღია წვდომაშია GitHub-ზე</string>
     <string name="txt_developed_by" comment="Label in Settings">შემქმნელი</string>
-    <string name="toast_language_changed" comment="Message text">აპლიკაციის ენაა {*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">არჩეული ენა: {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">ენა</string>
     <string name="settingsListen" comment="Title in Settings">მოსმენა</string>
     <string name="settingsSpeak" comment="Title in Settings">ლაპარაკი</string>
@@ -132,7 +132,7 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} და {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">გაცდენა</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
     <string name="btn_send_sentence" comment="Button in Speak">ჩანაწერის გაგზავნა</string>
     <string name="txt_loading_clip" comment="Label in Listen">კლიპი იტვირთება...</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">დააჭირეთ ქვედა ღილაკს ჩაწერის დაწყებისთვის.</string>

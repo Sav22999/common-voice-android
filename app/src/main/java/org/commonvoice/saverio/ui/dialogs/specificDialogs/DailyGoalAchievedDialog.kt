@@ -12,17 +12,20 @@ import org.commonvoice.saverio_lib.dataClasses.DailyGoal
 class DailyGoalAchievedDialog(
     private val context: Activity,
     private val dailyGoal: DailyGoal,
-) : CustomDialogInterface<DialogDailyGoalAchievedBinding>() {
+) : CustomDialogInterface<DialogDailyGoalAchievedBinding>(
+    makeBackgroundTransparent = true
+) {
 
     override fun render(inflater: LayoutInflater): DialogDailyGoalAchievedBinding {
         return DialogDailyGoalAchievedBinding.inflate(inflater).also {
-            it.labelTextMessageDialogDailyAchieved.text = context.getString(R.string.daily_goal_achieved_message).replace(
-                "{{*{{n_clips}}*}}",
-                "${dailyGoal.validations}"
-            ).replace(
-                "{{*{{n_sentences}}*}}",
-                "${dailyGoal.recordings}"
-            )
+            it.labelTextMessageDialogDailyAchieved.text =
+                context.getString(R.string.daily_goal_achieved_message).replace(
+                    "{{*{{n_clips}}*}}",
+                    "${dailyGoal.validations}"
+                ).replace(
+                    "{{*{{n_sentences}}*}}",
+                    "${dailyGoal.recordings}"
+                )
 
             it.btnOkMessageDialogDailyAchieved.onClick {
                 dismiss()

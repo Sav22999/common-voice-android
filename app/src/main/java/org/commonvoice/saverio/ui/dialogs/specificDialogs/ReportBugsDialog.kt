@@ -12,7 +12,9 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 class ReportBugsDialog(
     private val context: Activity,
     private val mainPrefManager: MainPrefManager,
-) : CustomDialogInterface<DialogReportBugsBinding>() {
+) : CustomDialogInterface<DialogReportBugsBinding>(
+    makeBackgroundTransparent = true
+) {
 
     override fun render(inflater: LayoutInflater): DialogReportBugsBinding {
         return DialogReportBugsBinding.inflate(inflater).also {
