@@ -200,7 +200,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         if (speakPrefManager.showAdBanner) {
             if (numberSentThisSession == 20) {
                 refreshAdsAfterSpeak = 5
-            } else if (numberSentThisSession == 40) {
+            } else if (numberSentThisSession >= 40) {
                 refreshAdsAfterSpeak = 2
             }
             AdLoader.setupSpeakAdView(this, binding.adContainer)

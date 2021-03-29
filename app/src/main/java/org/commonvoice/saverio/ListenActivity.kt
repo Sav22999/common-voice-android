@@ -196,7 +196,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         if (listenPrefManager.showAdBanner) {
             if (numberSentThisSession == 20) {
                 refreshAdsAfterListen = 10
-            } else if (numberSentThisSession == 50) {
+            } else if (numberSentThisSession >= 50) {
                 refreshAdsAfterListen = 5
             }
             AdLoader.setupListenAdView(this, binding.adContainer)
