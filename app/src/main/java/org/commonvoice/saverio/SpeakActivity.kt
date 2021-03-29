@@ -196,7 +196,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
-    fun refreshAds() {
+    private fun refreshAds() {
         if (speakPrefManager.showAdBanner) {
             AdLoader.setupSpeakAdView(this, binding.adContainer)
         }
@@ -222,6 +222,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         )
 
         refreshAds()
+    }
+
+    override fun onPause() {
+        AdLoader.cleanupLayout(binding.adContainer)
+
+        super.onPause()
     }
 
     private fun checkState(status: SpeakViewModel.Companion.State?) {

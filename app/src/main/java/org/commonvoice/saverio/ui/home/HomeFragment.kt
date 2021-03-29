@@ -132,6 +132,12 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         startAnimation(binding.buttonListen, R.anim.zoom_out)
     }
 
+    override fun onPause() {
+        AdLoader.cleanupLayout(binding.adContainer)
+
+        super.onPause()
+    }
+
     override fun onResume() {
         super.onResume()
 

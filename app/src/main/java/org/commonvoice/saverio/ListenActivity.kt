@@ -1,7 +1,6 @@
 package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -218,17 +217,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         refreshAds()
     }
 
-    fun shareCVAndroidDailyGoal() {
-        val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.type = "type/palin"
-        val textToShare = getString(R.string.share_daily_goal_text_on_social).replace(
-            "{{*{{link}}*}}",
-            "https://bit.ly/2XhnO7h"
-        )
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
-    }
-
     private fun setupNestedScroll() {
         binding.nestedScrollListen.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { nestedScrollView, _, scrollY, _, oldScrollY ->
             if (scrollY > oldScrollY) {
@@ -347,7 +335,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         animation.start()
     }
 
-    fun setTheme() = withBinding {
+    private fun setTheme() = withBinding {
         theme.setElement(layoutListen)
         theme.setElement(this@ListenActivity, 1, listenSectionBottom)
         theme.setElement(
@@ -635,6 +623,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         hideListenAnimateButtons()
 
         super.onBackPressed()
+    }
+
+    override fun onPause() {
+        AdLoader.cleanupLayout(binding.adContainer)
+
+        super.onPause()
     }
 
     private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
