@@ -25,6 +25,8 @@ import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
@@ -41,6 +43,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+
+    protected val speakPrefManager: SpeakPrefManager by inject()
+    protected val listenPrefManager: ListenPrefManager by inject()
 
     private val connectionManager: ConnectionManager by inject()
     private val translationHandler: TranslationHandler by inject()
@@ -98,6 +103,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         checkIfSessionIsExpired()
         reviewOnPlayStore()
+        showBuyMeACoffeeDialog()
+        checkAdsDisabledGPSVersion()
 
         if (mainPrefManager.showReportWebsiteBugs) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
@@ -122,22 +129,32 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     }
 
     private fun showBuyMeACoffeeDialog() {
-        dialogInflater.show(this, StandardDialog(
-            messageRes = R.string.text_buy_me_a_coffee,
-            buttonTextRes = R.string.liberapay_name,
-            button2TextRes = R.string.paypal_name,
-            onButtonClick = {
-                startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("https://www.liberapay.com/Sav22999")
+        val counter = statsPrefManager.buyMeACoffeeCounter
+        val times = 200 //after this times it will show the message
+        if (((counter % times) == 0 || (counter % times) == times)) {
+            dialogInflater.show(this, StandardDialog(
+                messageRes = R.string.text_buy_me_a_coffee,
+                buttonTextRes = R.string.liberapay_name,
+                button2TextRes = R.string.paypal_name,
+                onButtonClick = {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("https://www.liberapay.com/Sav22999")
+                        )
                     )
-                )
-            }, onButton2Click = {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
-            }, overrideItalicStyle = true
-        )
-        )
+                }, onButton2Click = {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("https://bit.ly/3aJnnq7")
+                        )
+                    )
+                }, overrideItalicStyle = true
+            )
+            )
+        }
+        statsPrefManager.buyMeACoffeeCounter++
     }
 
     private fun logoutUser() {
@@ -189,6 +206,25 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 )
             }
             statsPrefManager.reviewOnPlayStoreCounter++
+        }
+    }
+
+    private fun checkAdsDisabledGPSVersion() {
+        //just if it's the GPS version
+        if (SOURCE_STORE == "GPS" && (!mainPrefManager.showAdBanner || !speakPrefManager.showAdBanner || !listenPrefManager.showAdBanner)) {
+            val counter = statsPrefManager.checkAdsDisabledGPS
+            val times = 50 //after this times it will show the message
+            if (((counter % times) == 0 || (counter % times) == times)) {
+                dialogInflater.show(
+                    this, StandardDialog(
+                        messageRes = R.string.text_ads_are_disable_would_you_like_able,
+                        buttonTextRes = R.string.text_open_settings_now,
+                        onButtonClick = { //should open Settings>Advanced
+                        }, overrideItalicStyle = true
+                    )
+                )
+            }
+            statsPrefManager.checkAdsDisabledGPS++
         }
     }
 
@@ -261,10 +297,14 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     detailsMessage =
                         "\n" + getString(R.string.message_app_not_completely_translated)
                 }
-                dialogInflater.show(this, StandardDialog(message = getString(R.string.toast_language_changed).replace(
-                    "{{*{{lang}}*}}",
-                    translationHandler.getLanguageName(mainPrefManager.language)
-                ) + detailsMessage))
+                dialogInflater.show(
+                    this, StandardDialog(
+                        message = getString(R.string.toast_language_changed).replace(
+                            "{{*{{lang}}*}}",
+                            translationHandler.getLanguageName(mainPrefManager.language)
+                        ) + detailsMessage
+                    )
+                )
                 resetData()
             }
         }
