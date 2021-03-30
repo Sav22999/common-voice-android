@@ -236,7 +236,7 @@
     <string name="paypal_name" translatable="false">PayPal</string>
     <string name="liberapay_name" translatable="false">LiberaPay</string>
     <string name="mozilla_discourse_name" translatable="false">Mozilla Discourse</string>
-    <string name="text_review_now" translatable="true" comment="Button">Review Now</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
     <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
     <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Offline mode</string>
