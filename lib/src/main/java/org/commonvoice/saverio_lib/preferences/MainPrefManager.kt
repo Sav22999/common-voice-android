@@ -106,6 +106,18 @@ class MainPrefManager(ctx: Context) {
         set(value) = preferences.edit()
             .putString(Keys.SHOWN_MESSAGES_ID.name, value.joinToString(",")).apply()
 
+    var showDonationDialog: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_DONATION_DIALOG.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_DONATION_DIALOG.name, value).apply()
+
+    var showReviewAppDialog: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_REVIEW_DIALOG.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_REVIEW_DIALOG.name, value).apply()
+
+    var showEnableAdsDialog: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_ENABLE_ADS_DIALOG.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_ENABLE_ADS_DIALOG.name, value).apply()
+
 
     private enum class Keys {
         LANGUAGE,
@@ -132,6 +144,10 @@ class MainPrefManager(ctx: Context) {
         SHOW_AD_BANNER,
         TEXT_SIZE,
         SHOWN_MESSAGES_ID,
+
+        SHOW_DONATION_DIALOG,
+        SHOW_REVIEW_DIALOG,
+        SHOW_ENABLE_ADS_DIALOG,
     }
 
 }

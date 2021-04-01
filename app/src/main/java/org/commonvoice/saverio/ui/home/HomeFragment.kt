@@ -13,7 +13,6 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
-import com.github.mrindeciso.advanced_dialogs.extensions.showDialog
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.*
@@ -200,10 +199,9 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     }
 
     private fun showDialogMessages() {
-        //TODO fix this
         homeViewModel.getOtherMessages().observe(this) {
             it.forEach { message ->
-                showDialog(MessageWarningDialog(requireContext(), message))
+                dialogInflater.show(requireContext(), MessageWarningDialog(requireContext(), message))
                 homeViewModel.markMessageAsSeen(message)
             }
         }

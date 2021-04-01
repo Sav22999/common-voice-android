@@ -17,6 +17,7 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.ui.VariableLanguageActivity
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.CheckboxedStandardDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.ReportBugsDialog
 import org.commonvoice.saverio.utils.TranslationHandler
@@ -32,6 +33,7 @@ import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 import java.util.*
 
 
@@ -44,8 +46,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
 
-    protected val speakPrefManager: SpeakPrefManager by inject()
-    protected val listenPrefManager: ListenPrefManager by inject()
+    private val speakPrefManager: SpeakPrefManager by inject()
+    private val listenPrefManager: ListenPrefManager by inject()
 
     private val connectionManager: ConnectionManager by inject()
     private val translationHandler: TranslationHandler by inject()
@@ -131,8 +133,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private fun showBuyMeACoffeeDialog() {
         val counter = statsPrefManager.buyMeACoffeeCounter
         val times = 200 //after this times it will show the message
-        if (((counter % times) == 0 || (counter % times) == times)) {
-            dialogInflater.show(this, StandardDialog(
+        if ((((counter % times) == 0 || (counter % times) == times)) && mainPrefManager.showDonationDialog) {
+            dialogInflater.show(this, CheckboxedStandardDialog(
                 messageRes = R.string.text_buy_me_a_coffee,
                 buttonTextRes = R.string.liberapay_name,
                 button2TextRes = R.string.paypal_name,
@@ -150,7 +152,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                             Uri.parse("https://bit.ly/3aJnnq7")
                         )
                     )
-                }, overrideItalicStyle = true
+                }, overrideItalicStyle = true,
+                initialCheckboxState = !mainPrefManager.showDonationDialog,
+                onCheckBoxStateChange = { state ->
+                    mainPrefManager.showDonationDialog = !state
+                }
             )
             )
         }
@@ -189,9 +195,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if (SOURCE_STORE == "GPS" && !BuildConfig.DEBUG) {
             val counter = statsPrefManager.reviewOnPlayStoreCounter
             val times = 100 //after this times it will show the message
-            if (((counter % times) == 0 || (counter % times) == times)) {
+            if ((((counter % times) == 0 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog) {
                 dialogInflater.show(
-                    this, StandardDialog(
+                    this, CheckboxedStandardDialog(
                         messageRes = R.string.message_review_app_on_play_store,
                         buttonTextRes = R.string.text_review_now,
                         onButtonClick = {
@@ -201,7 +207,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                                     Uri.parse("market://details?id=org.commonvoice.saverio")
                                 )
                             )
-                        }, overrideItalicStyle = true
+                        }, overrideItalicStyle = true,
+                        initialCheckboxState = !mainPrefManager.showReviewAppDialog,
+                        onCheckBoxStateChange = { state ->
+                            mainPrefManager.showReviewAppDialog = !state
+                        }
                     )
                 )
             }
@@ -211,16 +221,25 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private fun checkAdsDisabledGPSVersion() {
         //just if it's the GPS version
-        if (SOURCE_STORE == "GPS" && (!mainPrefManager.showAdBanner || !speakPrefManager.showAdBanner || !listenPrefManager.showAdBanner)) {
+        if (SOURCE_STORE == "GPS" && (!mainPrefManager.showAdBanner || !speakPrefManager.showAdBanner || !listenPrefManager.showAdBanner) && mainPrefManager.showEnableAdsDialog) {
             val counter = statsPrefManager.checkAdsDisabledGPS
             val times = 50 //after this times it will show the message
             if (((counter % times) == 0 || (counter % times) == times)) {
                 dialogInflater.show(
-                    this, StandardDialog(
+                    this, CheckboxedStandardDialog(
                         messageRes = R.string.text_ads_are_disable_would_you_like_able,
                         buttonTextRes = R.string.text_open_settings_now,
-                        onButtonClick = { //should open Settings>Advanced
-                        }, overrideItalicStyle = true
+                        onButtonClick = { //TODO move this to HomeFragment
+                            try {
+                                findNavController(R.id.nav_host_fragment).navigate(R.id.advancedSettingsFragment)
+                            } catch (e: Exception) {
+                                Timber.e(e)
+                            }
+                        }, overrideItalicStyle = true,
+                        initialCheckboxState = !mainPrefManager.showEnableAdsDialog,
+                        onCheckBoxStateChange = { state ->
+                            mainPrefManager.showEnableAdsDialog = !state
+                        }
                     )
                 )
             }

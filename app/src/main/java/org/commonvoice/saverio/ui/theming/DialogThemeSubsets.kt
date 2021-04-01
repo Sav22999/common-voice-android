@@ -15,6 +15,7 @@ val GenericDialogThemeHandler = SubsetThemeHandler(
     listOf(
         DialogIdentifymeBinding::class,
         DialogStandardBinding::class,
+        DialogStandardCheckboxedBinding::class,
         DialogInfoBinding::class,
         DialogWarningBinding::class,
         DialogOfflineModeBinding::class,
