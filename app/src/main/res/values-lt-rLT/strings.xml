@@ -40,11 +40,11 @@
     <string name="btn_skip" comment="Button">Praleisti</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Leidimas gautas</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Klaida: leidimas negautas</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project yra neoficiali \"Mozilla Common Voice\" programėlė. Jį sukūrė Saverio Morelli be jokios paramos ar partnerystės su \"Mozilla\".</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Tęsdami sutinkate su Mozilla Common Voice paslaugų teikimo sąlygomis.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Šiai programai reikia leidimo \"Mikrofonas\", kad būtų galima įrašyti jūsų balsą.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Apie klaidas galite pranešti GitHub arba Telegram. Kad padėtumėte kūrėjui greičiau suprasti problemą prie ataskaitos turėtumėte pridėti programos žurnalo failą. Programai reikia leidimo \"Saugykla\" norint išsaugoti žurnalo failą.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Galite prisidėti net neprisijungę. Programėlės rėžimas \"Neprisijungus\" bus įjungtas automatiškai, ir jūs galite tęsti įrašymą ir klausymą be interneto ryšio.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Galite prisidėti net neprisijungę. Programėlės režimas \"Neprisijungus\" bus įjungtas automatiškai, ir jūs galite tęsti įrašymą ir klausymą be interneto ryšio.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">Galite pasirinkti tamsią arba šviesią temas. Vėliau temą galėsite pakeisti nustatymuose.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tamsi tema</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Kai kurie veiksmai turi atitinkamus gestus. Įrašinėjant balsą norėdami praleisti sakinį braukite kairėn.</string>
@@ -125,7 +125,7 @@
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nėra bandomųjų funkcionalumų</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Rodyti sakinių tekstą, kai įrašai visiškai perklausyti</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Teksto dydis</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Informacija</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Daugiau neberodyti</string>
     <string name="text_report_website_bug" comment="Message text">Jei turite problemų dėl oficialios \"Common Voice“ svetainės, praneškite apie jas \"Mozilla Discourse“ forumuose arba „GitHub“, kad \"Mozilla“ galėtų jas išspręsti.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Darbas neprisijungus</string>
     <string name="text_offline_mode_enabled" comment="Message text">Dabar esate neprisijungę ir programa automatiškai persijungė į režimą veikiantį neprisijungus.\nTai reiškia, kad galite toliau įrašinėti ir patvirtinti, tačiau užklausos bus išsiųstos vėliau.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Suprasite, kad esate neprisijungę, pamatę šią piktogramą ekrane:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Galite paliesti tą piktogramą, kad pamatytumėte atsisiųstus klipus ir sakinius.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Režimas \"Neprisijungus\" neįgalintas, todėl negalite naudoti programos be interneto ryšio.\nJei norite naudoti rėžimą \"Neprisijungus\", įjunkite ją skiltyje \"Nustatymai\".</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Dienos tikslas</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Tikslas nenustatytas</string>
@@ -247,9 +252,9 @@
     <string name="share_daily_goal_title" comment="Title of panel">Dalintis per</string>
     <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Šis kasdienis tikslas nėra oficialus \"Mozilla\" funkcionalumas. Tai yra tik šios programėlės dalis.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Ar žinojote, kad ...?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copie_string" comment="Toast message">Copied</string>
+    <string name="copie_string" comment="Toast message">Nukopijuota</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
 </resources>

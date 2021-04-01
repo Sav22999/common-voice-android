@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.AllBadgesBinding
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.recyclerview.badges.Badge
 import org.commonvoice.saverio.ui.recyclerview.badges.BadgeAdapter
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
@@ -29,6 +30,7 @@ class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
     private val connectionManager by inject<ConnectionManager>()
     private val mainPrefManager by inject<MainPrefManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
+    private val dialogInflater by inject<DialogInflater>()
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onStart() {
@@ -99,7 +101,9 @@ class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
                 }
 
                 if (badge.badgeValue > 0) {
-                    showMessageDialog("", message, type = 5)
+                    dialogInflater.show(requireContext(), InfoDialog(
+                        message = message
+                    ))
                 }
             }
         }
@@ -114,41 +118,6 @@ class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
         val widthDp = displayMetrics.widthPixels / displayMetrics.density
 
         return (widthDp / 120.0f).roundToInt()
-    }
-
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = "",
-        type: Int = 0
-    ) {
-        val metrics = DisplayMetrics()
-        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            var message: MessageDialog? = null
-            message = MessageDialog(
-                requireContext(),
-                type,
-                title,
-                messageText,
-                details = details,
-                height = height
-            )
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
-        }
     }
 
     private fun setTheme() {

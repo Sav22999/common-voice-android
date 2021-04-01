@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Bilgi</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Tekrar gösterme</string>
     <string name="text_report_website_bug" comment="Message text">Resmi Common Voice web sitesiyle ilgili sorularınız varsa, lütfen Mozilla\'nın bunları düzeltebilmesi için Mozilla Discourse forumlarına veya GitHub reposuna bildirin.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Çevrimdışı kip</string>
     <string name="text_offline_mode_enabled" comment="Message text">Artık çevrimdışısınız ve uygulama otomatik olarak çevrimdışı moda geçti.\nBu, kaydetmeye ve doğrulamaya devam edebileceğiniz anlamına gelir, ancak istekler daha sonra gönderilecektir.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Ekranda şu simgeye bakarak çevrimdışı modda olduğunuzu anlayabilirsiniz:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">İndirilen kayıtları ve cümleleri görmek için bu simgeye dokunabilirsiniz.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Çevrimdışı mod etkinleştirilmedi, bu nedenle uygulamayı İnternet bağlantısı olmadan kullanamazsınız.\nÇevrimdışı mod özelliğini kullanmak için Ayarlar\'dan açın.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Günlük hedef</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Hedef belirlenmedi</string>

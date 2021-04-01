@@ -15,8 +15,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.DarkLightTheme
 import org.commonvoice.saverio.utils.TranslationHandler
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.LogPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
 import timber.log.Timber
 import java.util.*

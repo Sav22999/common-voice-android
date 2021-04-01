@@ -1,1 +1,1 @@
-This app permits you to contribute to Common Voice from your smartphone.
+Az alkalmazással az okostelefonjáról is közreműködhet a Common Voice-ban.

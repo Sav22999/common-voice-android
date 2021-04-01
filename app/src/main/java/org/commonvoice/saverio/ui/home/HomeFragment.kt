@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
@@ -14,13 +13,13 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
-import com.github.mrindeciso.advanced_dialogs.extensions.showDialog
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.*
 import org.commonvoice.saverio.databinding.FragmentHomeBinding
-import org.commonvoice.saverio.ui.dialogs.MessageWarningDialog
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.messageDialogs.MessageWarningDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader
@@ -47,6 +46,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     private val statsPrefManager by inject<StatsPrefManager>()
     private val mainPrefManager: MainPrefManager by inject()
     private val workManager: WorkManager by inject()
+    private val dialogInflater by inject<DialogInflater>()
 
     override fun onStart() {
         super.onStart()
@@ -111,13 +111,10 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         homeViewModel.checkForNewVersion(BuildConfig.VERSION_NAME).observe(viewLifecycleOwner) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 1) {
-                showMessageDialog(
-                    "",
-                    getString(R.string.message_dialog_new_version_available).replace(
-                        "{{*{{n_version}}*}}",
-                        it
-                    )
-                )
+                dialogInflater.show(requireContext(), StandardDialog(message = getString(R.string.message_dialog_new_version_available).replace(
+                    "{{*{{n_version}}*}}",
+                    it
+                )))
             }
         }
 
@@ -132,6 +129,12 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         startAnimation(binding.buttonSpeak, R.anim.zoom_out)
         startAnimation(binding.buttonListen, R.anim.zoom_out)
+    }
+
+    override fun onPause() {
+        AdLoader.cleanupLayout(binding.adContainer)
+
+        super.onPause()
     }
 
     override fun onResume() {
@@ -196,50 +199,13 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     }
 
     private fun showDialogMessages() {
-        //TODO fix this
         homeViewModel.getOtherMessages().observe(this) {
             it.forEach { message ->
-                showDialog(MessageWarningDialog(requireContext(), message))
+                dialogInflater.show(requireContext(), MessageWarningDialog(requireContext(), message))
                 homeViewModel.markMessageAsSeen(message)
             }
         }
     }
-
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = "",
-        type: Int = 0
-    ) {
-        val metrics = DisplayMetrics()
-        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            var message: MessageDialog? = null
-            message = MessageDialog(
-                requireContext(),
-                type,
-                title,
-                messageText,
-                details = details,
-                height = height
-            )
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
-        }
-    }
-
 
     fun setTheme(view: Context) = withBinding {
         theme.setElement(view, 3, homeSectionCVAndroid)
@@ -261,12 +227,12 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         theme.setElement(
             view,
-            text_homeMessageBoxBanner,
+            textHomeMessageBoxBanner,
             background = false,
             textSize = 22F
         )
 
-        theme.setElement(view, text_homeMessageBoxBanner, R.color.colorWhite, R.color.colorWhite)
+        theme.setElement(view, textHomeMessageBoxBanner, R.color.colorWhite, R.color.colorWhite)
     }
 
 }

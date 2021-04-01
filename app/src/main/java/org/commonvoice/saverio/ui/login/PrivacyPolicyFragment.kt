@@ -3,15 +3,15 @@ package org.commonvoice.saverio.ui.login
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import androidx.navigation.fragment.findNavController
 import org.commonvoice.saverio.MainActivity
-import org.commonvoice.saverio.MessageDialog
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentYouHaveToAcceptPrivacyPolicyBinding
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
@@ -28,20 +28,23 @@ class PrivacyPolicyFragment : ViewBoundFragment<FragmentYouHaveToAcceptPrivacyPo
     private val mainPrefManager by inject<MainPrefManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
     private val connectionManager by inject<ConnectionManager>()
+    private val dialogInflater by inject<DialogInflater>()
 
     override fun inflate(
         layoutInflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentYouHaveToAcceptPrivacyPolicyBinding {
-        return FragmentYouHaveToAcceptPrivacyPolicyBinding.inflate(layoutInflater, container, false)
+        return FragmentYouHaveToAcceptPrivacyPolicyBinding
+            .inflate(layoutInflater, container, false)
     }
 
     override fun onStart() {
         super.onStart()
 
-        showMessageDialog(
-            getString(R.string.youHaveToAcceptPrivacyPolicyTitle),
-            getString(R.string.youHaveToAcceptPrivacyPolicy)
+        dialogInflater.show(requireContext(), StandardDialog(
+            titleRes = R.string.youHaveToAcceptPrivacyPolicyTitle,
+            messageRes = R.string.youHaveToAcceptPrivacyPolicy
+        )
         )
 
         binding.btnCloseLoginPrivacyPolicy.setOnClickListener {
@@ -56,32 +59,6 @@ class PrivacyPolicyFragment : ViewBoundFragment<FragmentYouHaveToAcceptPrivacyPo
                 findNavController().navigateUp()
                 findNavController().navigate(R.id.noConnectionFragment)
             }
-        }
-    }
-
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = ""
-    ) {
-        val metrics = DisplayMetrics()
-        requireActivity().windowManager.defaultDisplay.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
-            }
-            val message = MessageDialog(requireContext(), 0, title, messageText, details = details, height = height)
-            message.show()
-        } catch (exception: Exception) {
-
         }
     }
 

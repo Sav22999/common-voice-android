@@ -3,7 +3,6 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Bundle
@@ -19,14 +18,19 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
-import kotlinx.android.synthetic.main.activity_speak.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.commonvoice.saverio.databinding.ActivitySpeakBinding
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.commonTypes.WarningDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.SpeakListenStandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
@@ -54,12 +58,15 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private val connectionManager: ConnectionManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+    private val dialogInflater by inject<DialogInflater>()
 
     private var numberSentThisSession: Int = 0
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
 
     private var isAudioBarVisible: Boolean = false
     private var animationsCount: Int = 0
+
+    private var refreshAdsAfterSpeak = 10
 
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
@@ -79,10 +86,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_in_speak_listen)
                 speakViewModel.offlineModeIconVisible = true
                 if (mainPrefManager.showOfflineModeMessage) {
-                    showMessageDialog("", "", 10)
+                    dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                showMessageDialog("", getString(R.string.offline_mode_is_not_enabled), type = 13)
+                dialogInflater.show(this, SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
+                    onBackPressed()
+                })
             } else {
                 startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false
@@ -90,10 +99,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             speakViewModel.showingHidingOfflineIcon = false
             binding.imageOfflineModeSpeak.isGone = available
         }
-    }
-
-    fun setShowOfflineModeMessage(value: Boolean = true) {
-        mainPrefManager.showOfflineModeMessage = value
     }
 
     override fun onBackPressed() = withBinding {
@@ -159,27 +164,18 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         statsPrefManager.dailyGoal.observe(this, {
             if ((numberSentThisSession > 0) && it.checkDailyGoal()) {
                 stopAndRefresh()
-                showMessageDialog(
-                    "",
-                    getString(R.string.daily_goal_achieved_message).replace(
-                        "{{*{{n_clips}}*}}",
-                        "${it.validations}"
-                    ).replace(
-                        "{{*{{n_sentences}}*}}",
-                        "${it.recordings}"
-                    ), type = 12
-                )
+                dialogInflater.show(this, DailyGoalAchievedDialog(this, it))
             }
 
             animateProgressBar(
-                progressBarSpeakSpeak,
+                binding.progressBarSpeakSpeak,
                 sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
                 currentContributions = it.recordings,
                 color = R.color.colorSpeak
             )
             animateProgressBar(
-                progressBarSpeakListen,
+                binding.progressBarSpeakListen,
                 sum = it.recordings + it.validations,
                 dailyGoal = it.getDailyGoal(),
                 currentContributions = it.validations,
@@ -200,8 +196,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
-    fun refreshAds() {
+    private fun refreshAds() {
         if (speakPrefManager.showAdBanner) {
+            if (numberSentThisSession == 20) {
+                refreshAdsAfterSpeak = 5
+            } else if (numberSentThisSession >= 40) {
+                refreshAdsAfterSpeak = 2
+            }
             AdLoader.setupSpeakAdView(this, binding.adContainer)
         }
     }
@@ -211,14 +212,14 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
 
         animateProgressBar(
-            progressBarSpeakSpeak,
+            binding.progressBarSpeakSpeak,
             sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentContributions = statsPrefManager.dailyGoal.value!!.recordings,
             color = R.color.colorSpeak
         )
         animateProgressBar(
-            progressBarSpeakListen,
+            binding.progressBarSpeakListen,
             sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
             dailyGoal = statsPrefManager.dailyGoal.value!!.goal,
             currentContributions = statsPrefManager.dailyGoal.value!!.validations,
@@ -228,15 +229,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         refreshAds()
     }
 
-    fun shareCVAndroidDailyGoal() {
-        val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.type = "type/palin"
-        val textToShare = getString(R.string.share_daily_goal_text_on_social).replace(
-            "{{*{{link}}*}}",
-            "https://bit.ly/2XhnO7h"
-        )
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
-        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
+    override fun onPause() {
+        AdLoader.cleanupLayout(binding.adContainer)
+
+        super.onPause()
     }
 
     private fun checkState(status: SpeakViewModel.Companion.State?) {
@@ -265,34 +261,24 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             }
             SpeakViewModel.Companion.State.RECORDING_ERROR -> {
                 this.stopAndRefresh()
-                showMessageDialog("", getString(R.string.messageDialogGenericError), type = 7)
+                dialogInflater.show(this, WarningDialog(messageRes = R.string.messageDialogGenericError))
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_SHORT -> {
-                showMessageDialog("", getString(R.string.txt_recording_too_short), type = 7)
+                dialogInflater.show(this, WarningDialog(messageRes = R.string.txt_recording_too_short))
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_LONG -> {
-                showMessageDialog("", getString(R.string.txt_recording_too_long), type = 7)
+                dialogInflater.show(this, WarningDialog(messageRes = R.string.txt_recording_too_long))
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
             }
         }
-    }
-
-    private fun showMessageDialog(title: String, text: String, type: Int = 0) {
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        val msg = MessageDialog(this, type, title, text, details = "", height = height)
-        msg.setSpeakActivity(this)
-        msg.show()
     }
 
     private fun setupNestedScroll() {
@@ -387,8 +373,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSendSpeak.onClick {
             speakViewModel.sendRecording()
             numberSentThisSession++
-            if (numberSentThisSession % 10 == 0) {
-                //refreshAds()
+            if (numberSentThisSession % refreshAdsAfterSpeak == 0) {
+                refreshAds()
             }
         }
 
@@ -542,14 +528,14 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
                 if (it is BadgeDialogMediator.Speak || it is BadgeDialogMediator.Level) {
-                    showMessageDialog(
-                        title = "",
-                        text = getString(R.string.new_badge_earnt_message)
+                    dialogInflater.show(this@SpeakActivity, StandardDialog(
+                        message = getString(R.string.new_badge_earnt_message)
                             .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
                             .replace(
                                 "{{*{{all_badges}}*}}",
                                 getString(R.string.btn_badges_loggedin)
                             )
+                    )
                     )
                 }
             }

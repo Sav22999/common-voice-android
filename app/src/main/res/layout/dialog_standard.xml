@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/txt_rounded_with_border"
+    android:paddingBottom="20dp">
+
+
+    <TextView
+        android:id="@+id/labelTitleMessageDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_normal"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Text of message" />
+
+    <TextView
+        android:id="@+id/labelTextMessageDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_normal"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelTitleMessageDialog"
+        app:layout_goneMarginTop="20dp"
+        tools:text="Text of message" />
+
+    <Button
+        android:id="@+id/btnOkMessageDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_rounded"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        android:text="@string/btnOk"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelTextMessageDialog" />
+
+    <Button
+        android:id="@+id/btnOk2MessageDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_rounded"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/btnOk"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnOkMessageDialog"
+        app:layout_constraintTop_toBottomOf="@+id/labelTextMessageDialog" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

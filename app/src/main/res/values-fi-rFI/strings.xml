@@ -120,7 +120,7 @@
     <string name="txt_review_on_google_play" comment="Button in Settings">Arvostele Google Playssa</string>
     <string name="title_ui_settings" comment="Option in Settings">Käyttöliittymä</string>
     <string name="title_advanced_settings" comment="Option in Settings">Lisäasetukset</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Tallenna nauhoitteet laitteelle</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Tallenna nauhoitukset laitteelle</string>
     <string name="txt_reset_data" comment="Button in Settings">Tyhjennä sovelluksen tiedot</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Kokeellisia ominaisuuksia ei ole nyt saatavilla</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Näytä virkkeiden teksti kun klipit ovat kuunneltu kokonaan</string>
@@ -217,7 +217,7 @@
     <string name="messageDialogGenericError" comment="Message text | Generic error">Se ei toiminut.\nYritä uudelleen, tai ota yhteyttä kehittäjään.</string>
     <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Se ei toiminut. Yritä uudelleen tai ota yhteyttä kehittäjään.\nVirhekoodi: EX-{{*{{error_code}}*}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Kirjautuminen epäonnistui</string>
-    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Sinun on ensin kirjauduttava sisään Common Voicen verkkosivustolle ja hyväksyttävä Common Voicen tietosuojakäytäntö.</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Sinun on ensin kirjauduttava sisään Common Voicen verkkosivustolle ja hyväksyttävä Common Voicen yksityisyyskäytäntö.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Avaa Common Voice</string>
     <string name="text_warning" comment="Title for Message text">Varoitus</string>
     <string name="text_tip" comment="Title for Message text">Vihje</string>
@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Tietoa</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Älä näytä enää</string>
     <string name="text_report_website_bug" comment="Message text">Jos sinulla on ongelmia virallisella Common Voicen verkkosivustolla, ilmoita niistä Mozilla Discourse-forumeille tai GitHub-pakettivarastoon jotta Mozilla voi korjata ne.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Offline-tila</string>
     <string name="text_offline_mode_enabled" comment="Message text">Olet nyt offline-tilassa ja sovellus vaihdettiin offline-tilaan automaattisesti.\nTämä tarkoittaa että voit jatkaa nauhoittamista ja vahvistamista, mutta pyynnöt lähetetään myöhemmin.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Voit kertoa milloin olet offline-tilassa etsimällä tätä kuvaketta näytöltä:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Voit painaa tätä kuvaketta nähdäksesi ladatut klipit ja virkkeet.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Offline-tila ei ole käytössä, joten et voi käyttää sovellusta ilman Internet-yhteyttä.\nKäyttääksesi Offline-tila-ominaisuutta, ota se käyttöön asetuksissa.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Päivittäinen tavoite</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Tavoitetta ei asetettu</string>

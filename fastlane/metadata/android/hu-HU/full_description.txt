@@ -1,44 +1,44 @@
 <p>
-This is not the official app of Common Voice. It's developed by Saverio Morelli
+Ez nem a Common Voice hivatalos alkalmazása. Saverio Morelli fejleszti.
 </p>
 <p>
-<b>App features:</b>
+<b>Az alkalmazás funkciói:</b>
 
-- The user interface (UI) is smart, clear and modern
-- Log in to your Common Voice account
-- Validate clips
-- Record sentences
-- Report sentences/clips in the relative sections
-- Multi-languages supported
-- Offline mode (continue to contribute also when you aren't connected to the Internet!)
-- Common Voice statistics (of the selected language)
-- Top contributors (of the selected language)
-- App statistics (anonymous)
-- Voices online (of the selected language)
-- Dark theme supported
-- Daily goal
-- Gestures
-- Save your recordings on your device
-- Many other features
-- The app experience is totally customisable in Settings
+- A felhasználó felület okos, letisztult és modern
+- Bejelentkezés a Common Voice fiókjába
+- Klipek ellenőrzése
+- Mondatok felvétele
+- Mondatok/klipek jelentése a megfelelő helyeken
+- Többnyelvűség támogatása
+- Offline mód (közreműködés akkor is, ha épp nincs internetkapcsolata)
+- Common Voice statisztikák (a kiválasztott nyelvhez)
+- Legtöbbet közreműködők (a kiválasztott nyelvhez)
+- Alkalmazásstatisztikák (anonim)
+- Hangok online (a kiválasztott nyelvhez)
+- Sötét téma támogatása
+- Napi cél
+- Gesztusok
+– Saját felvételek mentése az eszközére
+- Sok más funkció
+- Az alkalmazás élménye teljesen testreszabható a Beállításokban
 
-Join the Telegram group: https://t.me/common_voice_android (@common_voice_android)
-You can see complete app statistics here: https://bit.ly/3clgfkg
-Read more about this app on GitHub: http://bit.ly/2PeOGRg
+Csatlakozzon a Telegram csoporthoz: https://t.me/common_voice_android (@common_voice_android)
+Itt láthatja a teljes alkalmazásstatisztikát: https://bit.ly/3clgfkg
+További információk az alkalmazásról a GitHubon: https://bit.ly/2PeOGRg
 </p>
 <p>
-<b>What is Common Voice project?</b>
+<b>Mi a Common Voice projekt?</b>
 
-Common Voice is Mozilla's initiative to help teach machines how real people speak.
-Voice is natural, voice is human. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
-Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
-Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-You can find more details on the official website https://commonvoice.mozilla.org/
+A Common Voice a Mozilla kezdeményezése, hogy segítsünk megtanítani a gépeket, hogyan beszélnek az emberek.
+A beszéd természetes, a beszéd emberi. Ezért lelkesedünk egy gépeink számára használható beszédtechnológia létrehozásáért. De a hangalapú rendszerek elkészítéséhez a fejlesztőknek hatalmas mennyiségű beszédmintára van szükségük.
+A nagyvállalatok által használt hangminták a legtöbb ember számára nem érhetőek el. Szerintünk ez elfojtja az innovációt. Ezért létrehoztuk a Common Voice projektet, hogy segítsük a hangfelismerési technológiát mindenki számára hozzáférhetővé tenni.
+Most adhatja a hangját, hogy segítsen nekünk egy nyílt forrású hang adatbázist építeni, amit bárki szabadon használhat arra, hogy innovatív alkalmazásokat készítsen eszközökre és a webre. Olvasson fel egy mondatot, hogy segítse a gépeket megtanulni, hogyan beszélnek az emberek. Ellenőrizze mások hozzájárulásait, javítva a minőséget. Ilyen egyszerű!
+Több információt találhat a hivatalos weboldalon: https://commonvoice.mozilla.org/
 </p>
 <p>
-<b>Why should you use the app instead of the website on mobile?</b>
+<b>Miért használja az alkalmazást a mobilos weboldal helyett?</b>
 
-The app is developed exactly for smartphones so it's native. It has many features that website don't provide you, such as dark theme, offline mode, customisation, gestures, etc.
-The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
-In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.
+Az alkalmazás kifejezetten okostelefonokra készül, így natív. Számos funkciója van, amelyet a weboldal nem biztosít, mint a sötét téma, offline mód, testreszabás, gesztusok stb.
+Az alkalmazás könnyűsúlyúbb mint a weboldal, nincsenek idegesítő animációk (és az alkalmazás animáció kikapcsolhatók a Beállításokban).
+Továbbá a weboldalon számos hiba van, különösen a mobil változatban, így nem tud mindent helyesen elvégezni.
 </p>

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 
 android {
     compileSdkVersion 30
@@ -9,8 +9,8 @@ android {
         applicationId 'org.commonvoice.saverio'
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode = 135
-        versionName '2.3.1'
+        versionCode = 137
+        versionName '2.3.3'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

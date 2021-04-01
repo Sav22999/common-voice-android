@@ -1,6 +1,9 @@
 package org.commonvoice.saverio
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.util.TypedValue
 import android.view.View
 import android.widget.*
@@ -9,7 +12,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import java.util.*
 
 class DarkLightTheme(
@@ -17,27 +19,21 @@ class DarkLightTheme(
 ) {
     var themeType: String?
         get() = mainPrefManager.themeType
-        set(value) {
-            mainPrefManager.themeType = value
-        }
+        set(value) { mainPrefManager.themeType = value }
 
-    private var transformTextSize: Float
+    private val transformTextSize: Float
         get() = mainPrefManager.textSize
-        set(value) {}
 
-    var isDark: Boolean
+    val isDark: Boolean
         get() {
-            var themeValueDark: Boolean = false
-            if (themeType == "light") themeValueDark = false
-            else if (themeType == "dark") themeValueDark = true
-            else {
-                var currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-                if (currentHour >= 8 && currentHour < 18) themeValueDark = false
-                else themeValueDark = true
+            return when (themeType) {
+                "light" -> false
+                "dark" -> true
+                else -> {
+                    val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+                    currentHour !in 8..17
+                }
             }
-            return themeValueDark
-        }
-        set(value) {
         }
 
     fun setElements(context: Context, layout: ConstraintLayout) {
@@ -61,6 +57,44 @@ class DarkLightTheme(
             element.setBackgroundResource(colorBackgroundDT)
         } else {
             element.setBackgroundResource(colorBackground)
+        }
+    }
+
+    fun setElementDialogCL(
+        element: ConstraintLayout,
+        invert: Boolean = false
+    ) {
+        if (isDark xor invert) {
+            element.setBackgroundResource(R.drawable.dialog_bg_dt)
+        } else {
+            element.setBackgroundResource(R.drawable.dialog_bg)
+        }
+    }
+
+    fun setElementDialogIV(
+        element: ImageView,
+        invert: Boolean = false
+    ) {
+        if (isDark xor invert) {
+            element.imageTintList = ColorStateList.valueOf(Color.WHITE)
+        } else {
+            element.imageTintList = ColorStateList.valueOf(Color.BLACK)
+        }
+    }
+
+    fun setElementDialogTV(
+        element: TextView,
+        invert: Boolean = false,
+        transformText: Boolean = true,
+        textSize: Float = 18.0F,
+    ) {
+        if (isDark xor invert) {
+            element.setTextColor(Color.WHITE)
+        } else {
+            element.setTextColor(Color.BLACK)
+        }
+        if (transformText) {
+            element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
         }
     }
 
@@ -117,7 +151,8 @@ class DarkLightTheme(
         element: TextView,
         background: Boolean = false,
         invert: Boolean = false,
-        textSize: Float = 18.0F
+        transformText: Boolean = true,
+        textSize: Float = 18.0F,
     ) {
         if (isDark xor invert) {
             if (background) {
@@ -134,7 +169,9 @@ class DarkLightTheme(
             }
             element.setTextColor(ContextCompat.getColor(context, R.color.colorBlack))
         }
-        element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
+        if (transformText) {
+            element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
+        }
     }
 
     fun setElement(

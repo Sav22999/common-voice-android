@@ -34,7 +34,7 @@
             tools:visibility="visible">
 
             <TextView
-                android:id="@+id/text_homeMessageBoxBanner"
+                android:id="@+id/textHomeMessageBoxBanner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -67,7 +67,7 @@
                 android:layout_height="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_homeMessageBoxBanner" />
+                app:layout_constraintTop_toBottomOf="@+id/textHomeMessageBoxBanner" />
 
             <Button
                 android:id="@+id/button1_homeMessageBoxBanner"

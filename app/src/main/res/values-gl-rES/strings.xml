@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Info</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Non mostrar de novo</string>
     <string name="text_report_website_bug" comment="Message text">Se ten dificultades co sitio oficial de Common Voice, informe diso nos foros Discourse de Mozilla ou no repositorio de GitHub, para que Mozilla poida arranxalo.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Revisar agora</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Gústalle a aplicación? Pode apoiar o meu traballo. Mérqueme un café en PayPal ou LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Iniciar sesión de novo</string>
     <string name="text_offline_mode" comment="Title">Modo en desconexión</string>
     <string name="text_offline_mode_enabled" comment="Message text">Agora está no modo en desconexión e a app cambia a este modo automaticamente.\nIsto significa que pode continuar a gravar e validar pero as consultas enviaranse máis tarde.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Pode dicir cando está no modo en desconexión buscando esta icona na pantalla:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Pode tocar na icona para ver as gravación e frases descargadas.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">O modo en desconexión non está activado, pode utilizar a app sen ter unha conexión á Internet.\nPara utilizar a funcionalidade do modo en desconexión, actívea en Configuración.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Sabe que pode apoiar o meu traballo libremente? Se lle gusta a aplicación, considere activar os anuncios na Configuración.</string>
+    <string name="text_open_settings_now">Abrir Configuración agora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Obxectivo diario</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Non se fixou ningún obxectivo</string>

@@ -3,10 +3,8 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.SeekBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.daily_goal.view.*
-import kotlinx.android.synthetic.main.fragment_ui_settings.*
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
@@ -36,7 +34,7 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
                 activity?.onBackPressed()
             }
 
-            text_settingsUISpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
+            textSettingsUISpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
                 "{{*{{listen_name}}*}}",
                 getString(R.string.settingsListen)
             ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
@@ -69,12 +67,11 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
 
             switchShowLabels.setOnCheckedChangeListener { _, isChecked ->
                 mainPrefManager.areLabelsBelowMenuIcons = isChecked
-                if (isChecked) {
-                    (activity as MainActivity).nav_view.labelVisibilityMode =
-                        LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+                (activity as MainActivity).findViewById<BottomNavigationView>(R.id.nav_view)
+                    .labelVisibilityMode = if (isChecked) {
+                    LabelVisibilityMode.LABEL_VISIBILITY_LABELED
                 } else {
-                    (activity as MainActivity).nav_view.labelVisibilityMode =
-                        LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
+                    LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
                 }
             }
             switchShowLabels.isChecked = mainPrefManager.areLabelsBelowMenuIcons

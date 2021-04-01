@@ -4,34 +4,36 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.graphics.Typeface
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.isGone
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.WorkManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio.ui.VariableLanguageActivity
+import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.CheckboxedStandardDialog
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.ReportBugsDialog
 import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 import java.util.*
 
 
@@ -44,8 +46,13 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
 
+    private val speakPrefManager: SpeakPrefManager by inject()
+    private val listenPrefManager: ListenPrefManager by inject()
+
     private val connectionManager: ConnectionManager by inject()
     private val translationHandler: TranslationHandler by inject()
+
+    private val dialogInflater by inject<DialogInflater>()
 
     companion object {
         val SOURCE_STORE: String = BuildConfig.SOURCE_STORE
@@ -98,10 +105,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
         checkIfSessionIsExpired()
         reviewOnPlayStore()
+        showBuyMeACoffeeDialog()
+        checkAdsDisabledGPSVersion()
 
         if (mainPrefManager.showReportWebsiteBugs) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
-                showMessageDialog("", getString(R.string.text_report_website_bug), type = 11)
+                dialogInflater.show(this, ReportBugsDialog(this, mainPrefManager))
             }
         }
     }
@@ -109,41 +118,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     fun resetStatusBarColor() {
         this@MainActivity.window.statusBarColor =
             ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark)
-    }
-
-    fun checkMessageBanner() {
-        //TODO
-        /*
-        if () {
-            //if there is at least one message to show
-            this@MainActivity.window.statusBarColor =
-                ContextCompat.getColor(this@MainActivity, R.color.colorMessageBanner)
-            homeMessageBoxBannerContainer.isGone = false
-            text_homeMessageBoxBanner.text = textToUse
-            hideMessageBanner.setOnClickListener {
-                hideMessageBanner(id_message)
-            }
-        } else {
-            hideMessageBanner()
-        }
-        */
-    }
-
-
-    private fun hideMessageBanner(id: Int = 0) {
-        //TODO
-        this@MainActivity.window.statusBarColor =
-            ContextCompat.getColor(this@MainActivity, R.color.colorPrimaryDark)
-        val messageBanner = homeMessageBoxBannerContainer
-        messageBanner.isGone = true
-        //add in the "messages viewed" list the id passed
-    }
-
-    fun checkAdsBanner() {
-        //TODO
-        if (mainPrefManager.showAdBanner && mainPrefManager.appSourceStore == "GPS") {
-
-        }
     }
 
     private fun checkIfSessionIsExpired() {
@@ -156,11 +130,49 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
+    private fun showBuyMeACoffeeDialog() {
+        val counter = statsPrefManager.buyMeACoffeeCounter
+        val times = 200 //after this times it will show the message
+        if ((((counter % times) == 0 || (counter % times) == times)) && mainPrefManager.showDonationDialog) {
+            dialogInflater.show(this, CheckboxedStandardDialog(
+                messageRes = R.string.text_buy_me_a_coffee,
+                buttonTextRes = R.string.liberapay_name,
+                button2TextRes = R.string.paypal_name,
+                onButtonClick = {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("https://www.liberapay.com/Sav22999")
+                        )
+                    )
+                }, onButton2Click = {
+                    startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("https://bit.ly/3aJnnq7")
+                        )
+                    )
+                }, overrideItalicStyle = true,
+                initialCheckboxState = !mainPrefManager.showDonationDialog,
+                onCheckBoxStateChange = { state ->
+                    mainPrefManager.showDonationDialog = !state
+                }
+            )
+            )
+        }
+        statsPrefManager.buyMeACoffeeCounter++
+    }
+
     private fun logoutUser() {
-        showMessageDialog(
-            "",
-            getString(R.string.message_log_in_again)
-        )
+        dialogInflater.show(this,
+            StandardDialog(
+                messageRes = R.string.message_log_in_again,
+                button2TextRes = R.string.text_log_in_again,
+                onButton2Click = {
+                    startActivity(Intent(this, LoginActivity::class.java))
+                }
+            ))
+
         mainPrefManager.sessIdCookie = null
         mainPrefManager.isLoggedIn = false
         mainPrefManager.username = ""
@@ -180,70 +192,58 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private fun reviewOnPlayStore() {
         //just if it's the GPS version
-        if (SOURCE_STORE == "GPS") {
+        if (SOURCE_STORE == "GPS" && !BuildConfig.DEBUG) {
             val counter = statsPrefManager.reviewOnPlayStoreCounter
             val times = 100 //after this times it will show the message
-            if (((counter % times) == 0 || (counter % times) == times)) {
-                showMessageDialog(
-                    "",
-                    getString(R.string.message_review_app_on_play_store)
+            if ((((counter % times) == 0 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog) {
+                dialogInflater.show(
+                    this, CheckboxedStandardDialog(
+                        messageRes = R.string.message_review_app_on_play_store,
+                        buttonTextRes = R.string.text_review_now,
+                        onButtonClick = {
+                            startActivity(
+                                Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse("market://details?id=org.commonvoice.saverio")
+                                )
+                            )
+                        }, overrideItalicStyle = true,
+                        initialCheckboxState = !mainPrefManager.showReviewAppDialog,
+                        onCheckBoxStateChange = { state ->
+                            mainPrefManager.showReviewAppDialog = !state
+                        }
+                    )
                 )
             }
             statsPrefManager.reviewOnPlayStoreCounter++
         }
     }
 
-    fun refreshDailyGoalDataInDashboard() {
-        //refresh data of Daily goal in Dashboard
-        val goalText = this.findViewById<TextView>(R.id.labelDashboardDailyGoalValue)
-        if (statsPrefManager.dailyGoalObjective == 0) {
-            goalText.text = getString(R.string.daily_goal_is_not_set)
-            goalText.typeface = Typeface.DEFAULT
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
-                getString(R.string.set_daily_goal)
-            //println("Daily goal is not set")
-        } else {
-            goalText.text = statsPrefManager.dailyGoalObjective.toString()
-            goalText.typeface = ResourcesCompat.getFont(this, R.font.sourcecodepro)
-            this.findViewById<TextView>(R.id.buttonDashboardSetDailyGoal).text =
-                getString(R.string.edit_daily_goal)
-            //println("Daily goal is set")
-        }
-    }
-
-    private fun showMessageDialog(
-        title: String,
-        text: String,
-        errorCode: String = "",
-        details: String = "",
-        type: Int = 0
-    ) {
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
-        //val width = metrics.widthPixels
-        val height = metrics.heightPixels
-        try {
-            var messageText = text
-            if (errorCode != "") {
-                if (messageText.contains("{{*{{error_code}}*}}")) {
-                    messageText = messageText.replace("{{*{{error_code}}*}}", errorCode)
-                } else {
-                    messageText = messageText + "\n\n[Message Code: EX-" + errorCode + "]"
-                }
+    private fun checkAdsDisabledGPSVersion() {
+        //just if it's the GPS version
+        if (SOURCE_STORE == "GPS" && (!mainPrefManager.showAdBanner || !speakPrefManager.showAdBanner || !listenPrefManager.showAdBanner) && mainPrefManager.showEnableAdsDialog) {
+            val counter = statsPrefManager.checkAdsDisabledGPS
+            val times = 50 //after this times it will show the message
+            if (((counter % times) == 0 || (counter % times) == times)) {
+                dialogInflater.show(
+                    this, CheckboxedStandardDialog(
+                        messageRes = R.string.text_ads_are_disable_would_you_like_able,
+                        buttonTextRes = R.string.text_open_settings_now,
+                        onButtonClick = { //TODO move this to HomeFragment
+                            try {
+                                findNavController(R.id.nav_host_fragment).navigate(R.id.advancedSettingsFragment)
+                            } catch (e: Exception) {
+                                Timber.e(e)
+                            }
+                        }, overrideItalicStyle = true,
+                        initialCheckboxState = !mainPrefManager.showEnableAdsDialog,
+                        onCheckBoxStateChange = { state ->
+                            mainPrefManager.showEnableAdsDialog = !state
+                        }
+                    )
+                )
             }
-            var message: MessageDialog? = null
-            message = MessageDialog(
-                this,
-                type,
-                title,
-                messageText,
-                details = details,
-                height = height
-            )
-            if (type == 11) message.setMainActivity(this)
-            message.show()
-        } catch (exception: Exception) {
-            println("!!-- Exception: MainActivity - MESSAGE DIALOG: " + exception.toString() + " --!!")
+            statsPrefManager.checkAdsDisabledGPS++
         }
     }
 
@@ -316,14 +316,14 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     detailsMessage =
                         "\n" + getString(R.string.message_app_not_completely_translated)
                 }
-                showMessageDialog(
-                    "",
-                    getString(R.string.toast_language_changed).replace(
-                        "{{*{{lang}}*}}",
-                        translationHandler.getLanguageName(mainPrefManager.language)
-                    ) + detailsMessage
+                dialogInflater.show(
+                    this, StandardDialog(
+                        message = getString(R.string.toast_language_changed).replace(
+                            "{{*{{lang}}*}}",
+                            translationHandler.getLanguageName(mainPrefManager.language)
+                        ) + detailsMessage
+                    )
                 )
-
                 resetData()
             }
         }
@@ -332,9 +332,6 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private fun resetData() {
         statsPrefManager.todayValidated = 0
         statsPrefManager.todayRecorded = 0
-        statsPrefManager.allTimeValidated = 0
-        statsPrefManager.allTimeRecorded = 0
-        statsPrefManager.allTimeLevel = 0
         statsPrefManager.localValidated = 0
         statsPrefManager.localRecorded = 0
         statsPrefManager.localLevel = 0

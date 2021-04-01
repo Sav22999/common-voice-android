@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_gestures_settings.*
 import org.commonvoice.saverio.databinding.FragmentGesturesSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -25,11 +24,11 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionGestures.setOnClickListener {
-            activity?.onBackPressed()
-        }
-
         withBinding {
+            buttonBackSettingsSubSectionGestures.setOnClickListener {
+                activity?.onBackPressed()
+            }
+
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsGestures.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 

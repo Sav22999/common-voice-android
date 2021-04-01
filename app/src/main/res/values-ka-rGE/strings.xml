@@ -11,7 +11,7 @@
     <string name="button_home_login">შესვლა / რეგისტრაცია</string>
     <string name="button_home_logout">გასვლა</string>
     <string name="button_home_profile">პროფილი</string>
-    <string name="text_hi_username">სალამი</string>
+    <string name="text_hi_username">გამარჯობა</string>
     <string name="message_log_in_again">სესიის ID ამოიწურა, ახლიდან უნდა შეხვიდეთ</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">სტატისტიკა</string>
@@ -73,7 +73,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">ინსტრუქციის ხელახლა გახსნა</string>
     <string name="txt_project_github_settings" comment="Button in Settings">პროექტი ღია წვდომაშია GitHub-ზე</string>
     <string name="txt_developed_by" comment="Label in Settings">შემქმნელი</string>
-    <string name="toast_language_changed" comment="Message text">აპლიკაციის ენაა {*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">არჩეული ენა: {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">ენა</string>
     <string name="settingsListen" comment="Title in Settings">მოსმენა</string>
     <string name="settingsSpeak" comment="Title in Settings">ლაპარაკი</string>
@@ -132,7 +132,7 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} და {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">გაცდენა</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
     <string name="btn_send_sentence" comment="Button in Speak">ჩანაწერის გაგზავნა</string>
     <string name="txt_loading_clip" comment="Label in Listen">კლიპი იტვირთება...</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">დააჭირეთ ქვედა ღილაკს ჩაწერის დაწყებისთვის.</string>
@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">ინფო.</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">აღარ მაჩვენო</string>
     <string name="text_report_website_bug" comment="Message text">თუ ხარვეზი Common Voice-ის ოფიციალურ საიტს აქვს, გთხოვთ მიწეროთ Mozilla-ს Discourse-ის ფორუმზე, ან GitHub-ზე, რომ Mozilla-ს გუნდმა ჩაასწოროს.</string>
+    <string name="text_review_now" translatable="true" comment="Button">შეფასება</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">მოგწონთ აპლიკაცია? შეგიძლიათ დამეხმაროთ მუშაობის გაგრძელებაში. მიყიდეთ ლობიანი PayPal-ზე, ან LiberaPay-ზე.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">თავიდან შედით</string>
     <string name="text_offline_mode" comment="Title">ოფლაინ რეჟიმი</string>
     <string name="text_offline_mode_enabled" comment="Message text">ინტერნეტთან კავშირი არ გაქვთ და აპი ავტომატურად გადაერთო ოფლაინ რეჟიმზე.\nჩაწერა და შემოწმება შეგიძლიათ გააგრძელოთ, მაგრამ სინქრონიზაცია მოგვიანებით მოხდება.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">ოფლაინ რეჟიმში ხართ, როცა ეკრანზე ამ სიმბოლოს დაინახავთ:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">დააჭირეთ მას და ნახავთ გადმოწერილ ჩანაწერებს და წინადადებებს.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">ოფლაინ რეჟიმი არაა ჩართული, ამიტომ ინტერნეტის გარეშე აპს ვერ გამოიყენებთ.\nოფლაინ რეჟიმი შეგიძლიათ პარამეტრებში ჩართოთ.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">იცოდით, რომ შეგიძლიათ უფასოდ დამიჭიროთ მხარი? თუ მოგწონთ აპლიკაცია, გთხოვთ, პარამეტრებში ჩართეთ რეკლამის ბანერი.</string>
+    <string name="text_open_settings_now">პარამეტრების გახსნა</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">დღის მიზანი</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">მიზანი არ არის</string>

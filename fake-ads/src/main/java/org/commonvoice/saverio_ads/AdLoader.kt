@@ -11,4 +11,6 @@ object AdLoader {
 
     fun setupListenAdView(activity: FragmentActivity, adContainer: FrameLayout) {}
 
+    fun cleanupLayout(adContainer: FrameLayout) {}
+
 }
