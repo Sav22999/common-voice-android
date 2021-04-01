@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Informació</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">No mostrar més</string>
     <string name="text_report_website_bug" comment="Message text">Si tens problemes amb la web oficial de Common Voice, per favor reporta-ho als fòrums de Mozilla Discourse o al repositori de GitHub per que Mozilla ho arregle.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Mode sense connexió</string>
     <string name="text_offline_mode_enabled" comment="Message text">Ara estàs sense connexió i la aplicació ha canviat al mode offline automàticament.\nAçò significa que pots continuar gravant i validant, però les sol·licituds seràn enviades quan recuperes la connexió.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Pots saber que estàs en el mode sense connexió si veus aquesta icona a la pantalla:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Pots tocar aquesta icona per vore els clips i frases descarregades.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">El mode Sense Connexió no està activat, per el que no pots fer ús de l\'aplicació mentre no tingues connexió a Internet.\nPer utilitzar la característica del mode Sense Connexió, activa-la dins de Configuració.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Objectiu diari</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No heu fixat cap objectiu</string>

@@ -2,7 +2,6 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_speak_settings.*
 import org.commonvoice.saverio.databinding.FragmentSpeakSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -27,11 +26,11 @@ class SpeakSettingsFragment : ViewBoundFragment<FragmentSpeakSettingsBinding>() 
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionSpeak.setOnClickListener {
-            activity?.onBackPressed()
-        }
-
         withBinding {
+            buttonBackSettingsSubSectionSpeak.setOnClickListener {
+                activity?.onBackPressed()
+            }
+
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsSpeak.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 

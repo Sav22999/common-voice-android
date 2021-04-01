@@ -3,6 +3,7 @@ package org.commonvoice.saverio_ads
 import android.os.Build
 import android.util.DisplayMetrics
 import android.widget.FrameLayout
+import androidx.core.view.forEach
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
@@ -36,6 +37,7 @@ object AdLoader {
 
         adView.adUnitId = id
 
+        cleanupLayout(adContainer)
         adContainer.addView(adView)
 
         val adRequest = AdRequest.Builder().build()
@@ -63,6 +65,15 @@ object AdLoader {
         val adWidth = (widthPixels / density).toInt()
 
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth)
+    }
+
+    fun cleanupLayout(adContainer: FrameLayout) {
+        adContainer.forEach { view ->
+            if (view is AdView) {
+                view.destroy()
+            }
+        }
+        adContainer.removeAllViews()
     }
 
 }

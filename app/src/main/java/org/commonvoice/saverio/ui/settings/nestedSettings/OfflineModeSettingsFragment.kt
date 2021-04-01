@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
-import kotlinx.android.synthetic.main.fragment_offline_settings.*
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -39,11 +38,11 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     override fun onStart() {
         super.onStart()
 
-        buttonBackSettingsSubSectionOfflineMode.setOnClickListener {
-            activity?.onBackPressed()
-        }
-
         withBinding {
+            buttonBackSettingsSubSectionOfflineMode.setOnClickListener {
+                activity?.onBackPressed()
+            }
+
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 

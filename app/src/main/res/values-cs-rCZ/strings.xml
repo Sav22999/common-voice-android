@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Informace</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Již nezobrazovat</string>
     <string name="text_report_website_bug" comment="Message text">Pokud máte problémy s oficiální stránkou Common Voice, nahlaste je prosím na fórech Mozilla Discourse nebo na GitHub, aby je mohla společnost Mozilla opravit.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Offline režim</string>
     <string name="text_offline_mode_enabled" comment="Message text">Nyní jste offline a aplikace se automaticky přepnula do offline režimu.\nTo znamená, že můžete pokračovat v nahrávání a ověřování, ale žádosti budou odeslány později.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">To, zda jste v offline režimu, zjistíte tak, že uvidíte tuto ikonu na obrazovce:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Kliknutím na tuto ikonu zobrazíte stažené klipy a věty.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Režim offline není zapnutý, takže tuto aplikaci nemůžete používat bez připojení k intenetu.\nPokud chcete používat režim offline, zapněte ho v nastavení.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Denní cíl</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Není nastaven žádný cíl</string>

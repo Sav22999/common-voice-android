@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Gwybodaeth</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Peidio â dangos eto</string>
     <string name="text_report_website_bug" comment="Message text">Os oes gennyt broblemau gyda gwefan swyddogol Common Voice, rho wybod amdanynt ar GitHub neu fforymau Mozilla Discourse fel y gall Mozilla eu trwsio.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Modd all-lein</string>
     <string name="text_offline_mode_enabled" comment="Message text">Nid wyt ar-lein ac mae\'r ap wedi newid yn awtomatig i\'r modd all-lein.\nMae\'n bosib parhau i recordio a dilysu a chaiff y wybodaeth ei hanfon yn hwyrach pan fydd cysylltiad.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Ymddangosir yr eicon hwn i ddangos pan fyddi yn y modd all-lein:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Gellir tapio\'r eicon hwn i weld y clipiau a brawddegau wedi\'u llwytho i lawr.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Dyw modd All-lein heb ei alluogi, felly ni allwch ddefnyddio\'r ap heb gysylltiad â\'r rhyngrwyd.\nI\'w ddefnyddio all-lein, trowch modd All-lein ymlaen yn y Gosodiadau.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Nod dyddiol</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Heb osod nod</string>

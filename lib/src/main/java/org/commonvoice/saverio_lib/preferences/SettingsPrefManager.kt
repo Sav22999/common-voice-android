@@ -12,7 +12,7 @@ class SettingsPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.OFFLINE_MODE.name, value).apply()
 
     var automaticallyCheckForUpdates: Boolean
-        get() = preferences.getBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, true)
+        get() = preferences.getBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, false)
         set(value) = preferences.edit().putBoolean(Keys.AUTOMATICALLY_CHECK_FOR_UPDATES.name, value)
             .apply()
 
@@ -30,8 +30,9 @@ class SettingsPrefManager(ctx: Context) {
         set(value) = preferences.edit().putString(Keys.APP_LANGUAGES.name, value).apply()
 
     var isProgressBarColouredEnabled: Boolean
-        get() = preferences.getBoolean(Keys.DAILYGOAL_PROGRESSBAR_COLOURED.name, false)
-        set(value) = preferences.edit().putBoolean(Keys.DAILYGOAL_PROGRESSBAR_COLOURED.name, value).apply()
+        get() = preferences.getBoolean(Keys.DAILYGOAL_PROGRESSBAR_COLOURED.name, true)
+        set(value) = preferences.edit().putBoolean(Keys.DAILYGOAL_PROGRESSBAR_COLOURED.name, value)
+            .apply()
 
     private enum class Keys {
         AUTOMATICALLY_CHECK_FOR_UPDATES,

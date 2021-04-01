@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Talɣut</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Ur d-skan ara tikkelt nniḍen</string>
     <string name="text_report_website_bug" comment="Message text">Ma tesɛiḍ uguren deg usmel web unṣib n Common Voice, ttxil mel-iten deg yinmagarenn usqerdec n Mozilla neɣ asarsay n GitHub akken ad ten-tseggem Mozilla.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Askar war tuqqna</string>
     <string name="text_offline_mode_enabled" comment="Message text">Tura ur teqqineḍ ara yerna asnas ibeddel ɣer uskar aruqqin s wudem awurman.\nAnamek-is tzemreḍ ad teskelseḍ daɣen ad tesnetmeḍ, maca isutar ad ttwaznen umebɛed.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Tzemreḍ ad teẓreḍ deg uskar aruqqin i telliḍ s unadi ɣef tignit-a ɣef ugdil:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Tzemreḍ ad tsiteḍ ɣef tignit-a akken ad teẓreḍ iklipen d tefyar i yettusadren.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Askar n war tuqqna ur yermid ara, ihi ur tezmireḍ ara ad tesqedceḍ asnas mebla tuqqna ɣer Internet. \n I useqdec n tmahilt n uskar n war tuqqna, sermed-itt deg yiɣewwaren.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Iswi n yal ass</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Ulac iswi ittwasbadun</string>

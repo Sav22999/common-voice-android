@@ -11,7 +11,7 @@ class ListenPrefManager(ctx: Context) {
         set(value) = preferences.edit().putInt(Keys.REQUIRED_CLIPS_COUNT.name, value).apply()
 
     var isAutoPlayClipEnabled: Boolean
-        get() = preferences.getBoolean(Keys.AUTO_PLAY_CLIPS.name, false)
+        get() = preferences.getBoolean(Keys.AUTO_PLAY_CLIPS.name, true)
         set(value) = preferences.edit().putBoolean(Keys.AUTO_PLAY_CLIPS.name, value).apply()
 
     var isShowTheSentenceAtTheEnd: Boolean

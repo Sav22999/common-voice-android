@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Informações</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Não mostrar mais</string>
     <string name="text_report_website_bug" comment="Message text">Se você tiver problemas com o site oficial do Common Voice, informe-os nos fóruns do Mozilla Discourse ou no repositório GitHub para que a Mozilla possa corrigi-los.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Revisar agora</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Você gosta do aplicativo? Você pode apoiar meu trabalho. Compre um café no PayPal ou LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Faça o login novamente</string>
     <string name="text_offline_mode" comment="Title">Modo offline</string>
     <string name="text_offline_mode_enabled" comment="Message text">Você está agora offline e o aplicativo mudou automaticamente para modo offline.\nIsso significa que você pode continuar registrando e validando, mas as solicitações serão enviadas mais tarde.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Você pode saber quando está no modo offline procurando por este ícone na tela:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Você pode tocar nesse ícone para ver os clipes e frases baixados.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">O modo offline não está ativado, então você não pode usar o aplicativo sem uma conexão com a Internet.\nPara usar o modo offline, ative-o nas Configurações.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Você sabe que pode apoiar meu trabalho gratuitamente? Por favor, se você gosta do aplicativo, considere ativar os banners de anúncios nas Configurações.</string>
+    <string name="text_open_settings_now">Abrir configurações agora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Meta diária</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nenhuma meta definida</string>

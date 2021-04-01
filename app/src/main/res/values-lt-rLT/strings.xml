@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Informacija</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Daugiau neberodyti</string>
     <string name="text_report_website_bug" comment="Message text">Jei turite problemų dėl oficialios \"Common Voice“ svetainės, praneškite apie jas \"Mozilla Discourse“ forumuose arba „GitHub“, kad \"Mozilla“ galėtų jas išspręsti.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Darbas neprisijungus</string>
     <string name="text_offline_mode_enabled" comment="Message text">Dabar esate neprisijungę ir programa automatiškai persijungė į režimą veikiantį neprisijungus.\nTai reiškia, kad galite toliau įrašinėti ir patvirtinti, tačiau užklausos bus išsiųstos vėliau.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Suprasite, kad esate neprisijungę, pamatę šią piktogramą ekrane:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Galite paliesti tą piktogramą, kad pamatytumėte atsisiųstus klipus ir sakinius.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Režimas \"Neprisijungus\" neįgalintas, todėl negalite naudoti programos be interneto ryšio.\nJei norite naudoti rėžimą \"Neprisijungus\", įjunkite ją skiltyje \"Nustatymai\".</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Dienos tikslas</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Tikslas nenustatytas</string>
