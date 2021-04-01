@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Informationes</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Non monstrar plus</string>
     <string name="text_report_website_bug" comment="Message text">Si tu ha problemas con le sito web official de Common Voice, signala los sur le foros Mozilla Discourse o sur le repositorio GitHub proque Mozilla pote los remediar.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Revide ora</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Te place le app? Tu pote supportar mi labor. Compra me un caffe per PayPal o LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Reconnexion</string>
     <string name="text_offline_mode" comment="Title">Modo foras de linea</string>
     <string name="text_offline_mode_enabled" comment="Message text">Tu es ora sin connexion e le app mutava automaticamente a Modo sin connexion.\nId es: tu pote continuar a registrar e validar, ma le requestas sera inviate plus tarde.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Tu pote dicer quando tu es in modo sin connexion per recercar iste icone sur le schermo:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Tu pote toccar ille icone pro vider registrationes e phrases discargate.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Le Modo sin connexion non es activate, assi tu non pote usar le application sin un connexion a internet.\nPro usar le functionalitate Modo sin connexion, activa lo in Parametros.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Hallo, vole tu supportar gratis mi labor? Si te place le app, considera activar le banners in le parametros.</string>
+    <string name="text_open_settings_now">Aperir le parametros ora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Objectivo quotidian</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nulle objectivo configurate</string>

@@ -78,12 +78,12 @@
     <string name="settingsListen" comment="Title in Settings">شنیدن</string>
     <string name="settingsSpeak" comment="Title in Settings">گفتن</string>
     <string name="settingsOther" comment="Title in Settings">ديگر</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsGeneral" comment="Title in Settings">فراگیر</string>
     <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
     <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">روشن</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">تیره</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">خودکار</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">حمایت از کارم. برایم قهوه بخرید 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">پخش خودکار قطعه هنگام بار شدن</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">زمینهٔ تاریک</string>
@@ -119,7 +119,7 @@
     <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">بازبینی روی گوگل پلی</string>
     <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="title_advanced_settings" comment="Option in Settings">پیشرفته</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">اطلاعات</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">دیگر نشان داده نشود</string>
     <string name="text_report_website_bug" comment="Message text">اگر با پایگاه رسمی آواهای مشترک مشکل دارید، در انجمن‌های دیسکورس یا مخزن گیت‌هاب موزیلا گزارش کنید تا بتوانند رفعش کنند.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">حالت برون‌خط</string>
     <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">هدف روزانه</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">هدفی تنظیم نشده</string>
@@ -247,7 +252,7 @@
     <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
     <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">هدف روزانه یک ویژگی رسمی موزیلا نیست. فقط ویژگی‌ای از این کاره است.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">آیا می‌دانید که ... ؟</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
     <string name="copie_string" comment="Toast message">Copied</string>
     <!-- Message dialog (unspecified category) -->

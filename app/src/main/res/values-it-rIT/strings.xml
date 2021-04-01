@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Informazioni</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Non mostrare più</string>
     <string name="text_report_website_bug" comment="Message text">Se hai problemi con il sito ufficiale di Common Voice, ti invito a segnalarli sul forum di Mozilla Discourse o sul repository GitHub in modo che Mozilla possa correggerli.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Recensisci ora</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Ti piace l\'app? Puoi supportare il mio lavoro. Comprami un caffè su PayPal o LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Accedi di nuovo</string>
     <string name="text_offline_mode" comment="Title">Modalità offline</string>
     <string name="text_offline_mode_enabled" comment="Message text">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno verranno inviate successivamente.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Puoi capire facilmente quando sei in modalità offline in quanto è presente questa icona sullo schermo:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Premi su questa icona per vedere il numero di registrazioni e di frasi scaricate.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">La modalità Offline non è attiva, quindi non è possibile utilizzare l\'app senza una connessione Internet.\nPer utilizzare la modalità Offline, è necessario attivarla nelle Impostazioni.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Sai che puoi supportare il mio lavoro gratuitamente? Se ti piace l\'app, considera di attivare i banner pubblicitari nelle Impostazioni.</string>
+    <string name="text_open_settings_now">Apri le Impostazioni</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Obiettivo giornaliero</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nessun obiettivo impostato</string>

@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">Info</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Nicht mehr anzeigen</string>
     <string name="text_report_website_bug" comment="Message text">Wenn du Probleme mit der offiziellen Common Voice-Website hast, melde diese bitte in den Mozilla-Discourse-Foren oder im GitHub-Repository, damit Mozilla sie beheben kann.</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">Offline-Modus</string>
     <string name="text_offline_mode_enabled" comment="Message text">Du bist jetzt offline und die App wechselte automatisch in den Offline-Modus.\nDas bedeutet, dass du weiterhin aufnehmen und validieren kannst, aber die Anfragen werden später gesendet.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Du kannst herausfinden, wann du dich im Offline-Modus befindest, indem du nach diesem Symbol auf dem Bildschirm suchst:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Tippe auf dieses Symbol, um die heruntergeladenen Aufnahmen und Sätze anzusehen.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Der Offline-Modus ist nicht aktiviert, daher kannst du die App nicht ohne Internetverbindung nutzen.\nUm den Offline-Modus zu verwenden, aktiviere ihn in den Einstellungen.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Tagesziel</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Kein Ziel gesetzt</string>

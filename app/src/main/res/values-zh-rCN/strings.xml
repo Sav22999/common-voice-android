@@ -226,11 +226,16 @@
     <string name="text_info" comment="Title for Message text">信息</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">不再显示</string>
     <string name="text_report_website_bug" comment="Message text">如果您在 Common Voice 官方网站遇到了问题, 请在 Mozilla Discourse 论坛或 GitHub 上报告它们，以便Mozilla 能够修复它们。</string>
+    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
+    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
     <string name="text_offline_mode" comment="Title">离线模式</string>
     <string name="text_offline_mode_enabled" comment="Message text">您现在处于离线状态，应用程序已自动切换到离线模式。\n这意味着您可以继续记录和验证，但请求将在以后发送。</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">您可以通过在屏幕上查找此图标来告诉何时处于离线模式：</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">您可以点击该图标来查看已下载的剪辑和句子。</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">每日目标</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">未设定目标</string>
