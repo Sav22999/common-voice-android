@@ -34,7 +34,7 @@ If you like this project, leave a *Star* to receive updates on your *GitHub dash
 
 To support me, you can do a donation :smile: with PayPal, LiberaPay or Ko-Fi:
 
-<a href="https://liberapay.com/Sav22999/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a> [<img src="images/badges/donatePayPal.png" width="200px"></img>](https://bit.ly/3aJnnq7) [<img src="https://cdn.ko-fi.com/cdn/kofi1.png?v=2" width="200px"></img>](https://ko-fi.com/R5R31UQ8G)
+<a href="https://liberapay.com/Sav22999/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a> [<img src="images/badges/donatePayPal.png" width="200px"></img>](https://paypal.me/pools/c/8yl6auiU6e/3aJnnq7) [<img src="https://cdn.ko-fi.com/cdn/kofi1.png?v=2" width="200px"></img>](https://ko-fi.com/R5R31UQ8G)
 
 ### How contribute
 
