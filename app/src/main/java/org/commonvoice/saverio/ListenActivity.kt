@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.animation.ValueAnimator
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
@@ -40,6 +41,7 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import java.util.*
 
 
 class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
@@ -476,6 +478,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
+
+            if (!listenViewModel.startedOnce || !buttonNoClip.isVisible) {
+                Handler().postDelayed({
+                    if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
+                        buttonNoClip
+                    )
+                }, 900)
+            }
         }
 
         if (listenViewModel.stopped) {
@@ -549,8 +559,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
 
         if (!listenViewModel.startedOnce) {
-            showButton(buttonNoClip)
+            Handler().postDelayed({
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
+                    buttonNoClip
+                )
+            }, 900)
         }
+
         if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
         listenViewModel.startedOnce = true
         buttonSkipListen.isEnabled = true
@@ -601,6 +616,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
+
+            if (!listenViewModel.startedOnce || !buttonNoClip.isVisible) {
+                Handler().postDelayed({
+                    if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
+                        buttonNoClip
+                    )
+                }, 900)
+            }
         }
     }
 
