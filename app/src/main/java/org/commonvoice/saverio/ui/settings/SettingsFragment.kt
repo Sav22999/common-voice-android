@@ -21,6 +21,8 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
@@ -37,6 +39,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
     }
 
     private val mainPrefManager: MainPrefManager by inject()
+    private val statsPrefManager: StatsPrefManager by inject()
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
     private val dashboardViewModel by sharedViewModel<DashboardViewModel>()
@@ -114,6 +117,10 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             //TODO: remove, when implemented In-app purchare:
             buttonBuyMeACoffee.isGone = true
             separator28.isGone = true
+            if (statsPrefManager.buyMeACoffeeCounter >= 20) {
+                buttonBuyMeACoffee.isGone = false
+                separator28.isGone = false
+            }
         }
 
         //In-App review
@@ -168,7 +175,11 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             translationHandler.availableLanguageNames
         )
 
-        binding.languageList.setSelection(translationHandler.availableLanguageCodes.indexOf(mainPrefManager.language))
+        binding.languageList.setSelection(
+            translationHandler.availableLanguageCodes.indexOf(
+                mainPrefManager.language
+            )
+        )
 
         binding.languageList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
