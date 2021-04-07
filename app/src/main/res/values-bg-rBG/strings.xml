@@ -180,6 +180,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Текста на изречението е скрит</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Няма повече изречения на Common Voice сървъра. Опитайте по-късно или опитайте да се свържете с Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Няма повече клипове на Common Voice сървъра. Опитайте по-късно или опитайте да се свържете с Mozilla.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Провери отново</string>
     <string name="txt_noconnection" comment="Message text">Не сте свързан към интернет. Свържете се с Wi-Fi или мобилни данни, после натиснете бутона по-долу.</string>
@@ -226,16 +236,24 @@
     <string name="text_info" comment="Title for Message text">Информация</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Без повторен показ</string>
     <string name="text_report_website_bug" comment="Message text">Ако имате проблеми с официалният сайт на Common Voice, моля доклавайте ги във форумите на Mozilla Discourse или в GitHub хранилището, за да може Mozilla да ги оправи.</string>
-    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
-    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
+    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Log in again</string>
     <string name="text_offline_mode" comment="Title">Офлайн режим</string>
     <string name="text_offline_mode_enabled" comment="Message text">Вие офлайн сега и приложението премина в офлайн режим автоматично.\nТова означава, че можете да продължите да записвате и проверявате, но заявките ще бъдат изпратени по-късно.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Можете да разберете кога сте в офлайн режим, гледайки за тази икона на екрана:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Можете да докоснете тази икона, за да видите свалените клипове и изречения.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Офлайн режимът не е включен, затова не можете да използвате приложението без интернет връзка.\nЗа да използвате функцията офлайн режим, включете я от Настройки.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
     <string name="text_open_settings_now">Open Settings now</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
+    <string name="button_cancel" comment="Button">Cancel</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
+    <string name="button_log_in_now" comment="Button">Log in now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Дневна цел</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Не е зададена цел</string>

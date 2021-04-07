@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.animation.ValueAnimator
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Bundle
@@ -67,6 +68,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var animationsCount: Int = 0
 
     private var refreshAdsAfterSpeak = 10
+    private var recorded = false
 
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
@@ -89,9 +91,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                dialogInflater.show(this, SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
-                    onBackPressed()
-                })
+                dialogInflater.show(
+                    this,
+                    SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
+                        onBackPressed()
+                    })
             } else {
                 startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false
@@ -102,6 +106,28 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     override fun onBackPressed() = withBinding {
+        if (!recorded) {
+            onBackPressedCustom()
+
+            super.onBackPressed()
+        } else {
+            dialogInflater.show(this@SpeakActivity,
+                StandardDialog(
+                    messageRes = R.string.text_are_you_sure_go_back_and_lose_the_recording,
+                    buttonTextRes = R.string.button_yes_sure,
+                    onButtonClick = {
+                        this@SpeakActivity.recorded = false
+
+                        this@SpeakActivity.onBackPressedCustom()
+                        super.onBackPressed()
+                    },
+                    button2TextRes = R.string.button_cancel,
+                    onButton2Click = {}
+                ))
+        }
+    }
+
+    private fun onBackPressedCustom() = withBinding {
         textMessageAlertSpeak.setText(R.string.txt_closing)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
         textSentenceSpeak.text = "···"
@@ -123,8 +149,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         speakViewModel.stop(true)
 
         hideAudioBar()
-
-        super.onBackPressed()
     }
 
     private fun setupUI() {
@@ -243,7 +267,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             }
             SpeakViewModel.Companion.State.NO_MORE_SENTENCES -> {
                 loadUIStateNoMoreSentences()
-                speakViewModel.loadNewSentence()
+                //speakViewModel.loadNewSentence()
             }
             SpeakViewModel.Companion.State.RECORDING -> {
                 loadUIStateRecording()
@@ -261,19 +285,28 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             }
             SpeakViewModel.Companion.State.RECORDING_ERROR -> {
                 this.stopAndRefresh()
-                dialogInflater.show(this, WarningDialog(messageRes = R.string.messageDialogGenericError))
+                dialogInflater.show(
+                    this,
+                    WarningDialog(messageRes = R.string.messageDialogGenericError)
+                )
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_SHORT -> {
-                dialogInflater.show(this, WarningDialog(messageRes = R.string.txt_recording_too_short))
+                dialogInflater.show(
+                    this,
+                    WarningDialog(messageRes = R.string.txt_recording_too_short)
+                )
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_LONG -> {
-                dialogInflater.show(this, WarningDialog(messageRes = R.string.txt_recording_too_long))
+                dialogInflater.show(
+                    this,
+                    WarningDialog(messageRes = R.string.txt_recording_too_long)
+                )
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
@@ -302,7 +335,21 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         binding.nestedScrollSpeak.setOnTouchListener(object :
             OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
-                speakViewModel.skipSentence()
+                if (!recorded) {
+                    speakViewModel.skipSentence()
+                } else {
+                    dialogInflater.show(this@SpeakActivity,
+                        StandardDialog(
+                            messageRes = R.string.text_are_you_sure_skip_and_lose_the_recording,
+                            buttonTextRes = R.string.button_yes_sure,
+                            onButtonClick = {
+                                this@SpeakActivity.recorded = false
+                                speakViewModel.skipSentence()
+                            },
+                            button2TextRes = R.string.button_cancel,
+                            onButton2Click = {}
+                        ))
+                }
             }
 
             override fun onSwipeRight() {
@@ -326,6 +373,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             textMessageAlertSpeak,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT,
+            textSize = 15F
+        )
+        theme.setElement(
+            view,
+            textMotivationSentencesSpeak,
+            R.color.colorAdviceLightTheme,
+            R.color.colorAdviceDarkTheme,
             textSize = 15F
         )
         theme.setElement(view, buttonReportSpeak, background = false)
@@ -355,7 +409,21 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun setupInitialUIState() = withBinding {
         buttonSkipSpeak.onClick {
-            speakViewModel.skipSentence()
+            if (!recorded) {
+                speakViewModel.skipSentence()
+            } else {
+                dialogInflater.show(this@SpeakActivity,
+                    StandardDialog(
+                        messageRes = R.string.text_are_you_sure_skip_and_lose_the_recording,
+                        buttonTextRes = R.string.button_yes_sure,
+                        onButtonClick = {
+                            this@SpeakActivity.recorded = false
+                            speakViewModel.skipSentence()
+                        },
+                        button2TextRes = R.string.button_cancel,
+                        onButton2Click = {}
+                    ))
+            }
         }
 
         buttonReportSpeak.onClick {
@@ -376,6 +444,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             if (numberSentThisSession % refreshAdsAfterSpeak == 0) {
                 refreshAds()
             }
+            recorded = false
         }
 
         startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
@@ -397,6 +466,40 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
+
+        val motivationSentences = arrayOf(
+            getString(R.string.text_continue_to_send_1),
+            getString(R.string.text_continue_to_send_2),
+            getString(R.string.text_continue_to_send_3),
+            getString(R.string.text_continue_to_send_4)
+        )
+        if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120) {
+            if (statsPrefManager.dailyGoalObjective <= 0 || (statsPrefManager.dailyGoalObjective > 0 && statsPrefManager.dailyGoalObjective > (numberSentThisSession + 10))) {
+                textMotivationSentencesSpeak.isGone = false
+                textMotivationSentencesSpeak.text =
+                    motivationSentences[(motivationSentences.indices).random()].replace(
+                        "{{*{{number}}*}}",
+                        numberSentThisSession.toString()
+                    )
+            }
+        } else {
+            textMotivationSentencesSpeak.isGone = true
+        }
+
+        if (statsPrefManager.dailyGoalObjective > 5 && ((numberSentThisSession + 5) == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 5) {
+            //if the dailygoal is not set and the dailygoal is almost achieved
+            textMotivationSentencesSpeak.isGone = false
+            textMotivationSentencesSpeak.text =
+                getString(R.string.text_almost_achieved_dailygoal_speak).replace(
+                    "{{*{{number}}*}}",
+                    5.toString()
+                ).replace(
+                    "{{*{{dailygoal}}*}}",
+                    statsPrefManager.dailyGoalObjective.toString()
+                )
+        }
+
+        recorded = false
     }
 
     private fun loadUIStateNoMoreSentences() = withBinding {
@@ -472,6 +575,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun loadUIStateRecorded() = withBinding {
+        recorded = true
         buttonRecordOrListenAgain.isGone = false
         startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
@@ -528,14 +632,19 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
                 if (it is BadgeDialogMediator.Speak || it is BadgeDialogMediator.Level) {
-                    dialogInflater.show(this@SpeakActivity, StandardDialog(
-                        message = getString(R.string.new_badge_earnt_message)
-                            .replace("{{*{{profile}}*}}", getString(R.string.button_home_profile))
-                            .replace(
-                                "{{*{{all_badges}}*}}",
-                                getString(R.string.btn_badges_loggedin)
-                            )
-                    )
+                    dialogInflater.show(
+                        this@SpeakActivity,
+                        StandardDialog(
+                            message = getString(R.string.new_badge_earnt_message)
+                                .replace(
+                                    "{{*{{profile}}*}}",
+                                    getString(R.string.button_home_profile)
+                                )
+                                .replace(
+                                    "{{*{{all_badges}}*}}",
+                                    getString(R.string.btn_badges_loggedin)
+                                )
+                        )
                     )
                 }
             }

@@ -39,6 +39,9 @@
     <color name="colorMessageBanner">#0077FF</color>
     <color name="colorButtonMessageBanner">#039BE5</color>
 
+    <color name="colorAdviceLightTheme">#0077FF</color>
+    <color name="colorAdviceDarkTheme">#03CBE5</color>
+
     <!-- Navigation bar -->
     <color name="colorNavigationBarBackground">@color/colorBlack</color>
     <color name="colorNavigationBarBorder">#141414</color>

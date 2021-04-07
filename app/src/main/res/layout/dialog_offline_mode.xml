@@ -44,11 +44,11 @@
             android:layout_marginEnd="10dp"
             android:background="@color/colorTransparent"
             android:scaleType="fitCenter"
-            app:tint="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textMessageTypeOfflineMode"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_offline_mode_20x20" />
+            app:srcCompat="@drawable/ic_offline_mode_20x20"
+            app:tint="@color/colorWhite" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

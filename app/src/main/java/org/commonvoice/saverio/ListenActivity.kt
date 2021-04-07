@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.animation.ValueAnimator
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
@@ -40,6 +41,7 @@ import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
+import java.util.*
 
 
 class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
@@ -352,6 +354,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             R.color.colorAlertMessageDT,
             textSize = 15F
         )
+        theme.setElement(
+            this@ListenActivity,
+            textMotivationalSentencesListen,
+            R.color.colorAdviceLightTheme,
+            R.color.colorAdviceDarkTheme,
+            textSize = 15F
+        )
         theme.setElement(this@ListenActivity, buttonReportListen, background = false)
         theme.setElement(this@ListenActivity, buttonSkipListen)
 
@@ -392,6 +401,38 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideImage(imageReportIconListen)
             } else {
                 buttonReportListen.isGone = true
+            }
+
+            val motivationSentences = arrayOf(
+                getString(R.string.text_continue_to_validate_1),
+                getString(R.string.text_continue_to_validate_2),
+                getString(R.string.text_continue_to_validate_3),
+                getString(R.string.text_continue_to_validate_4)
+            )
+            if (numberSentThisSession == 0 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120) {
+                if (statsPrefManager.dailyGoalObjective <= 0 || (statsPrefManager.dailyGoalObjective > 0 && statsPrefManager.dailyGoalObjective > (numberSentThisSession + 10))) {
+                    textMotivationalSentencesListen.isGone = false
+                    textMotivationalSentencesListen.text =
+                        motivationSentences[(motivationSentences.indices).random()].replace(
+                            "{{*{{number}}*}}",
+                            numberSentThisSession.toString()
+                        )
+                }
+            } else {
+                textMotivationalSentencesListen.isGone = true
+            }
+
+            if (statsPrefManager.dailyGoalObjective > 5 && ((numberSentThisSession + 5) == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 5) {
+                //if the dailygoal is not set and the dailygoal is almost achieved
+                textMotivationalSentencesListen.isGone = false
+                textMotivationalSentencesListen.text =
+                    getString(R.string.text_almost_achieved_dailygoal_listen).replace(
+                        "{{*{{number}}*}}",
+                        5.toString()
+                    ).replace(
+                        "{{*{{dailygoal}}*}}",
+                        statsPrefManager.dailyGoalObjective.toString()
+                    )
             }
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
@@ -476,6 +517,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
+
+            if (!listenViewModel.startedOnce || !buttonNoClip.isVisible) {
+                Handler().postDelayed({
+                    if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
+                        buttonNoClip
+                    )
+                }, 900)
+            }
         }
 
         if (listenViewModel.stopped) {
@@ -549,8 +598,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
 
         if (!listenViewModel.startedOnce) {
-            showButton(buttonNoClip)
+            Handler().postDelayed({
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
+                    buttonNoClip
+                )
+            }, 900)
         }
+
         if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
         listenViewModel.startedOnce = true
         buttonSkipListen.isEnabled = true
@@ -601,6 +655,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
+
+            if (!listenViewModel.startedOnce || !buttonNoClip.isVisible) {
+                Handler().postDelayed({
+                    if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
+                        buttonNoClip
+                    )
+                }, 900)
+            }
         }
     }
 

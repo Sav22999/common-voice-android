@@ -180,6 +180,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">A mondat szövege rejtett</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nincs több mondat a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nincs több klip a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Ellenőrzés újra</string>
     <string name="txt_noconnection" comment="Message text">Nem kapcsolódik az internethez. Kapcsolódjon Wi-Fivel vagy mobil-adatkapcsolattal, majd koppintson a lenti gombra.</string>
@@ -226,16 +236,24 @@
     <string name="text_info" comment="Title for Message text">Információ</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Többé ne jelenítse meg</string>
     <string name="text_report_website_bug" comment="Message text">Ha problémai vannak a hivatalos Common Voice weboldallal, akkor jelentse őket a Mozilla Discourse fórumán vagy a GitHub tárolóban, hogy a Mozilla kijavíthassa.</string>
-    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
-    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
+    <string name="text_review_now" comment="Button" translatable="true">Ellenőrzés most</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Kedveli az alkalmazást? Támogathatja a munkámat. Vegyen nekem a kávét a PayPalon vagy LiberaPayen.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Jelentkezzen be újra</string>
     <string name="text_offline_mode" comment="Title">Kapcsolat nélküli mód</string>
     <string name="text_offline_mode_enabled" comment="Message text">Nincs internetkapcsolat, így az alkalmazás automatikusan kapcsolat nélküli módba vált.\nEz azt jelenti, hogy továbbra is rögzíthet és ellenőrizhet, de a kérések csak később lesznek elküldve..</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Úgy tudhatja meg, hogy az alkalmazás kapcsolat nélküli módban van, hogy ezt az ikont keresi a képernyőn:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Rákoppinthat arra az ikonra, és láthatja a letöltött klipeket és mondatokat.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">A kapcsolat nélküli mód nem engedélyezett, így internetkapcsolat nélkül nem használhatja az alkalmazást.\nA kapcsolat nélküli mód használatához kapcsolja be a Beállításokban.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Tudja, hogy ingyen is támogathatja a munkámat? Ha kedveli az alkalmazást, fontolja meg a reklámcsíkok bekapcsolását a Beállításokban.</string>
+    <string name="text_open_settings_now">Beállítások megnyitása most</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Biztos, hogy visszalép és elveti a felvételt?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Biztos, hogy kihagyja és elveti a felvételt?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Biztos, hogy visszaállítja az összes alkalmazásadatot?</string>
+    <string name="button_yes_sure" comment="Button">Igen, biztos</string>
+    <string name="button_cancel" comment="Button">Mégse</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
+    <string name="button_log_in_now" comment="Button">Log in now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Napi cél</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nincs cél megadva</string>

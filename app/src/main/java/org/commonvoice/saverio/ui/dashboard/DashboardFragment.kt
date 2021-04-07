@@ -1,5 +1,6 @@
 package org.commonvoice.saverio.ui.dashboard
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.TypedValue
@@ -13,6 +14,7 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import org.commonvoice.saverio.LoginActivity
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentDashboardBinding
@@ -124,15 +126,27 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
                                     binding.labelDashboardDailyGoalValue.typeface = Typeface.DEFAULT
                                     binding.buttonDashboardSetDailyGoal.setText(R.string.set_daily_goal)
                                 } else {
-                                    binding.labelDashboardDailyGoalValue.text = statsPrefManager.dailyGoalObjective.toString()
-                                    binding.labelDashboardDailyGoalValue.typeface = ResourcesCompat.getFont(requireContext(), R.font.sourcecodepro)
+                                    binding.labelDashboardDailyGoalValue.text =
+                                        statsPrefManager.dailyGoalObjective.toString()
+                                    binding.labelDashboardDailyGoalValue.typeface =
+                                        ResourcesCompat.getFont(
+                                            requireContext(),
+                                            R.font.sourcecodepro
+                                        )
                                     binding.buttonDashboardSetDailyGoal.setText(R.string.edit_daily_goal)
                                 }
                             }
                         )
                     )
                 } else {
-                    dialogInflater.show(requireContext(), StandardDialog(messageRes = R.string.toastNoLoginNoDailyGoal))
+                    dialogInflater.show(requireContext(),
+                        StandardDialog(
+                            messageRes = R.string.toastNoLoginNoDailyGoal,
+                            button2TextRes = R.string.button_log_in_now,
+                            onButton2Click = {
+                                startActivity(Intent(requireContext(), LoginActivity::class.java))
+                            }
+                        ))
                 }
             }
 
@@ -192,7 +206,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
     }
 
     private fun loadDailyGoal() {
-        if (statsPrefManager.dailyGoalObjective <= 0) {
+        if (statsPrefManager.dailyGoalObjective <= 0 || !mainPrefManager.isLoggedIn) {
             binding.labelDashboardDailyGoalValue.setText(R.string.daily_goal_is_not_set)
             binding.labelDashboardDailyGoalValue.typeface = Typeface.DEFAULT
         } else {

@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -34,6 +35,8 @@ import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 
@@ -103,6 +106,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             )
         }
 
+        checkToday()
+
         checkIfSessionIsExpired()
         reviewOnPlayStore()
         showBuyMeACoffeeDialog()
@@ -130,6 +135,35 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
+    private fun checkToday() {
+        var daysInARow = statsPrefManager.daysInARow
+        var lastDateOpenedTheApp = statsPrefManager.lastDateOpenedTheApp
+
+
+        val today = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            LocalDate.now().toString()
+        } else {
+            SimpleDateFormat("yyyy-MM-dd").format(Date()).toString()
+        }
+        val yesterday = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            LocalDate.now().minusDays(1).toString()
+        } else {
+            SimpleDateFormat("yyyy-MM-dd").format(yesterday()).toString()
+        }
+        if (lastDateOpenedTheApp == null || lastDateOpenedTheApp == yesterday) {
+            statsPrefManager.lastDateOpenedTheApp = today
+            if (lastDateOpenedTheApp == null) statsPrefManager.daysInARow = 1
+            else statsPrefManager.daysInARow = daysInARow + 1
+        }
+    }
+
+    private fun yesterday(): Date {
+        val cal = Calendar.getInstance()
+        cal.add(Calendar.DATE, -1)
+        return cal.time
+    }
+
     private fun showBuyMeACoffeeDialog() {
         val counter = statsPrefManager.buyMeACoffeeCounter
         val times = 200 //after this times it will show the message
@@ -149,7 +183,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     startActivity(
                         Intent(
                             Intent.ACTION_VIEW,
-                            Uri.parse("https://bit.ly/3aJnnq7")
+                            Uri.parse("https://www.paypal.com/pools/c/8yl6auiU6e")
                         )
                     )
                 }, overrideItalicStyle = true,

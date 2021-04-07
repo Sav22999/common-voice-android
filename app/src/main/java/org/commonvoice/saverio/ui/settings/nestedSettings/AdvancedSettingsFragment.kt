@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import androidx.core.content.getSystemService
+import androidx.core.view.isGone
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
+import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -94,6 +96,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             }
             switchSpeakAds.isChecked = speakPrefManager.showAdBanner
 
+            if (mainPrefManager.appSourceStore == "GPS") {
+                settingsSectionAdvancedAds.isGone = false
+            } else {
+                settingsSectionAdvancedAds.isGone = true
+            }
+
             buttonOpenTutorialAgain.setOnClickListener {
                 Intent(requireContext(), FirstLaunch::class.java).also {
                     startActivity(it)
@@ -102,69 +110,85 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             }
 
             buttonResetData.setOnClickListener {
-                //TODO: reset data (reset all settings to default value and logout)
+                dialogInflater.show(requireContext(),
+                    StandardDialog(
+                        messageRes = R.string.text_are_you_sure_reset_app_data,
+                        buttonTextRes = R.string.button_yes_sure,
+                        onButtonClick = {
+                            //Reset FirstRun
+                            firstRunPrefManager.main = true
+                            firstRunPrefManager.listen = true
+                            firstRunPrefManager.speak = true
 
-                //Reset FirstRun
-                firstRunPrefManager.main = true
-                firstRunPrefManager.listen = true
-                firstRunPrefManager.speak = true
+                            //Reset Settings
+                            settingsPrefManager.isOfflineMode = true
+                            settingsPrefManager.showReportIcon = false
+                            settingsPrefManager.automaticallyCheckForUpdates = false
+                            settingsPrefManager.latestVersion = ""
+                            settingsPrefManager.isProgressBarColouredEnabled = true
 
-                //Reset Settings
-                settingsPrefManager.isOfflineMode = true
-                settingsPrefManager.showReportIcon = false
-                settingsPrefManager.automaticallyCheckForUpdates = true
-                settingsPrefManager.latestVersion = ""
+                            //Reset Stats
+                            statsPrefManager.dailyGoalObjective = 0
+                            statsPrefManager.reviewOnPlayStoreCounter = 0
+                            statsPrefManager.buyMeACoffeeCounter = 0
+                            statsPrefManager.checkAdsDisabledGPS = 0
+                            statsPrefManager.todayValidated = 0
+                            statsPrefManager.todayRecorded = 0
+                            statsPrefManager.allTimeValidated = 0
+                            statsPrefManager.allTimeRecorded = 0
+                            statsPrefManager.allTimeLevel = 0
+                            statsPrefManager.localValidated = 0
+                            statsPrefManager.localRecorded = 0
+                            statsPrefManager.localLevel = 0
+                            statsPrefManager.daysInARow = 0
+                            statsPrefManager.lastDateOpenedTheApp = null
 
-                //Reset Stats
-                statsPrefManager.dailyGoalObjective = 0
-                statsPrefManager.reviewOnPlayStoreCounter = 0
-                statsPrefManager.todayValidated = 0
-                statsPrefManager.todayRecorded = 0
-                statsPrefManager.allTimeValidated = 0
-                statsPrefManager.allTimeRecorded = 0
-                statsPrefManager.allTimeLevel = 0
-                statsPrefManager.localValidated = 0
-                statsPrefManager.localRecorded = 0
-                statsPrefManager.localLevel = 0
+                            //Reset Listen
+                            listenPrefManager.requiredClipsCount = 50
+                            listenPrefManager.isAutoPlayClipEnabled = true
+                            listenPrefManager.isShowTheSentenceAtTheEnd = false
+                            listenPrefManager.showAdBanner = true
 
-                //Reset Listen
-                listenPrefManager.requiredClipsCount = 50
-                listenPrefManager.isAutoPlayClipEnabled = false
-                listenPrefManager.isShowTheSentenceAtTheEnd = false
+                            //Reset Speak
+                            speakPrefManager.requiredSentencesCount = 50
+                            speakPrefManager.playRecordingSoundIndicator = false
+                            speakPrefManager.skipRecordingConfirmation = false
+                            speakPrefManager.saveRecordingsOnDevice = false
+                            speakPrefManager.showAdBanner = true
 
-                //Reset Speak
-                speakPrefManager.requiredSentencesCount = 50
-                speakPrefManager.playRecordingSoundIndicator = false
-                speakPrefManager.skipRecordingConfirmation = false
-                speakPrefManager.saveRecordingsOnDevice = false
+                            //Reset Main
+                            mainPrefManager.language = "en"
+                            mainPrefManager.tokenUserId = ""
+                            mainPrefManager.tokenAuth = ""
+                            mainPrefManager.showOfflineModeMessage = true
+                            mainPrefManager.showReportWebsiteBugs = true
+                            mainPrefManager.areGesturesEnabled = true
+                            mainPrefManager.statsUserId = ""
+                            mainPrefManager.areGenericStats = true
+                            mainPrefManager.areAppUsageStatsEnabled = true
+                            mainPrefManager.areAnimationsEnabled = true
+                            mainPrefManager.areLabelsBelowMenuIcons = false
+                            mainPrefManager.hasLanguageChanged = true
+                            mainPrefManager.hasLanguageChanged2 = true
+                            mainPrefManager.themeType = "light"
+                            mainPrefManager.sessIdCookie = null
+                            mainPrefManager.isLoggedIn = false
+                            mainPrefManager.username = ""
+                            mainPrefManager.textSize = 1.0F
+                            mainPrefManager.showAdBanner = true
 
-                //Reset Main
-                mainPrefManager.language = "en"
-                mainPrefManager.tokenUserId = ""
-                mainPrefManager.tokenAuth = ""
-                mainPrefManager.showOfflineModeMessage = true
-                mainPrefManager.showReportWebsiteBugs = true
-                mainPrefManager.areGesturesEnabled = true
-                mainPrefManager.statsUserId = ""
-                mainPrefManager.areGenericStats = true
-                mainPrefManager.areAppUsageStatsEnabled = true
-                mainPrefManager.areAnimationsEnabled = true
-                mainPrefManager.areLabelsBelowMenuIcons = false
-                mainPrefManager.hasLanguageChanged = true
-                mainPrefManager.hasLanguageChanged2 = true
-                mainPrefManager.themeType = "light"
-                mainPrefManager.sessIdCookie = null
-                mainPrefManager.isLoggedIn = false
-                mainPrefManager.username = ""
+                            //Reset Log
+                            logPrefManager.saveLogFile = false
 
-                //Reset Log
-                logPrefManager.saveLogFile = false
+                            CookieManager.getInstance().flush()
+                            CookieManager.getInstance().removeAllCookies(null)
+                            loginViewModel.clearDB()
 
-                CookieManager.getInstance().flush()
-                CookieManager.getInstance().removeAllCookies(null)
-                loginViewModel.clearDB()
-
-                startActivity(Intent(requireContext(), MainActivity::class.java))
+                            startActivity(Intent(requireContext(), MainActivity::class.java))
+                        },
+                        button2TextRes = R.string.button_cancel,
+                        onButton2Click = {}
+                    ))
             }
         }
 

@@ -40,7 +40,7 @@
     <string name="btn_skip" comment="Button">Saltar</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permís obtingut</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permís denegat</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Android és una aplicació no oficial de Mozilla Common Voice. Ha estat desenvolupada per Saverio Morelli sense cap suport o col·laboració amb Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Al continuar, acceptes els terms del servei de Common Voice de Mozilla.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Aquesta aplicació necessita el permís \"Micròfon\" per a gravar la teva veu.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Pots reportar bugs a GitHub o Telegram. Per ajudar al desenvolupador a entendre el problema ràpid, deuries adjuntar el archiu de registre de la aplicació al report. La aplicació necessita el permís de \"Magatzematge\" per guardar el archiu del registre.</string>
@@ -124,12 +124,12 @@
     <string name="txt_reset_data" comment="Button in Settings">Reinicialitza les dades</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Cap funció experimental està ara disponible</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostra el text de les oracions quan els clips son escoltats completament</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Mostra icona d\'informe (dalt a la dreta) en comptes de botó (zona inferior)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Mida del text</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activa el banner d\'anuncis a {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} i {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregant frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -180,6 +180,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">El text de l\'oració està ocult</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">No hi ha més frases al servidor de Common Voice. Intenteu-ho després o mireu de contactar amb Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">No hi ha més talls de veu (clips) al servidor de Common Voice. Intenteu-ho després o mireu de contactar amb Mozilla.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Torna-ho a provar</string>
     <string name="txt_noconnection" comment="Message text">No tens connexió a Internet. Connecta\'t a una Wi-Fi o a les dades mòbils, i pressiona el botó davall.</string>
@@ -226,16 +236,24 @@
     <string name="text_info" comment="Title for Message text">Informació</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">No mostrar més</string>
     <string name="text_report_website_bug" comment="Message text">Si tens problemes amb la web oficial de Common Voice, per favor reporta-ho als fòrums de Mozilla Discourse o al repositori de GitHub per que Mozilla ho arregle.</string>
-    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
-    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
+    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Us agrada l\'aplicació? Podeu donar suport a la meva feina. Pagueu-me un cafè amb PayPal o LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Torna a iniciar sessió</string>
     <string name="text_offline_mode" comment="Title">Mode sense connexió</string>
     <string name="text_offline_mode_enabled" comment="Message text">Ara estàs sense connexió i la aplicació ha canviat al mode offline automàticament.\nAçò significa que pots continuar gravant i validant, però les sol·licituds seràn enviades quan recuperes la connexió.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Pots saber que estàs en el mode sense connexió si veus aquesta icona a la pantalla:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Pots tocar aquesta icona per vore els clips i frases descarregades.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">El mode Sense Connexió no està activat, per el que no pots fer ús de l\'aplicació mentre no tingues connexió a Internet.\nPer utilitzar la característica del mode Sense Connexió, activa-la dins de Configuració.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Sabíeu que podeu donar suport de franc a la feina que faig? Si us plau, si us agrada l\'aplicació, penseu a activar els anuncis a Configuració.</string>
+    <string name="text_open_settings_now">Obre la configuració ara</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
+    <string name="button_cancel" comment="Button">Cancel</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
+    <string name="button_log_in_now" comment="Button">Log in now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Objectiu diari</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No heu fixat cap objectiu</string>
