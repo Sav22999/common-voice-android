@@ -6,7 +6,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'org.commonvoice.saverio.beta'
+        applicationId 'org.commonvoice.saverio'
         minSdkVersion 23
         targetSdkVersion 30
         versionCode = 138

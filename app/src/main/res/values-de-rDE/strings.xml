@@ -180,6 +180,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Der Text des Satzes ist ausgeblendet</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Es gibt keine weiteren Sätze auf dem Common Voice-Server. Versuche es später oder kontaktiere Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Es gibt keine weiteren Clips auf dem Common Voice-Server. Versuche es später oder kontaktiere Mozilla.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Du hast schon {{*{{number}}*}} Clips in Folge validiert, mach so toll weiter!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Validiere mehr Clips, Du hast {{*{{number}}*}} Clips hintereinander validiert.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Hervorragende Arbeit! Du hast schon {{*{{number}}*}} Clips hintereinander validiert.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, du hast übermenschliche Kräfte! Du hast {{*{{number}}*}} Clips in Folge valdiert!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Du hast {{*{{number}}*}} Aufnahmen hintereinander beigetragen.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Gute Arbeit! Du hast {{*{{number}}*}} Aufnahmen hintereinander aufgezeichnet.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Herzlichen Glückwunsch! Du hast den Meilenstein von {{*{{number}}*}} aufgezeichneten Sätze erreicht. Mach weiter!</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, du hast übermenschliche Kräfte! Du hast {{*{{number}}*}} Sätze in Folge aufgenommen!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Dir fehlen noch {{*{{number}}*}} Clips, um dein tägliches Ziel von {{*{{dailygoal}} *}} zu erreichen!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Dir fehlen noch {{*{{number}}*}} Sätze, um dein tägliches Ziel von {{*{{dailygoal}} *}} zu erreichen!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Erneut überprüfen</string>
     <string name="txt_noconnection" comment="Message text">Du bist nicht mit dem Internet verbunden. Stelle eine Verbindung zu einem drahtlosen Netzwerk oder mobilen Daten her und tippe dann auf die Schaltfläche unten.</string>
@@ -226,16 +236,24 @@
     <string name="text_info" comment="Title for Message text">Info</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Nicht mehr anzeigen</string>
     <string name="text_report_website_bug" comment="Message text">Wenn du Probleme mit der offiziellen Common Voice-Website hast, melde diese bitte in den Mozilla-Discourse-Foren oder im GitHub-Repository, damit Mozilla sie beheben kann.</string>
-    <string name="text_review_now" translatable="true" comment="Button">Review now</string>
-    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" translatable="true" comment="Button">Log in again</string>
+    <string name="text_review_now" comment="Button" translatable="true">Jetzt prüfen</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Magst du die App? Du kannst meine Arbeit unterstützen. Kaufe mir einen Kaffee via PayPal oder LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Erneut anmelden</string>
     <string name="text_offline_mode" comment="Title">Offline-Modus</string>
     <string name="text_offline_mode_enabled" comment="Message text">Du bist jetzt offline und die App wechselte automatisch in den Offline-Modus.\nDas bedeutet, dass du weiterhin aufnehmen und validieren kannst, aber die Anfragen werden später gesendet.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Du kannst herausfinden, wann du dich im Offline-Modus befindest, indem du nach diesem Symbol auf dem Bildschirm suchst:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Tippe auf dieses Symbol, um die heruntergeladenen Aufnahmen und Sätze anzusehen.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Der Offline-Modus ist nicht aktiviert, daher kannst du die App nicht ohne Internetverbindung nutzen.\nUm den Offline-Modus zu verwenden, aktiviere ihn in den Einstellungen.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Weißt du, dass du meine Arbeit kostenlos unterstützen kannst? Wenn dir die App gefällt, schalte doch bitte in den Einstellungen die Werbebanner ein.</string>
+    <string name="text_open_settings_now">Einstellungen öffnen</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Willst du überspringen und die die Aufnahme löschen?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Willst du überspringen und die die Aufnahme löschen?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Bist du sicher, dass du die App-Daten löschen willst?</string>
+    <string name="button_yes_sure" comment="Button">Ja, ich bin sicher</string>
+    <string name="button_cancel" comment="Button">Abbrechen</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Gut gemacht! Du hast die App {{*{{number}}*}} Tage hintereinander geöffnet.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Ich habe {{*{{number}}*}} Tage in Folge mit CV Project App geholfen! Lad dir die App auch herunter, um via Smartphone zum Common Voice Projekt beizutragen.</string>
+    <string name="button_log_in_now" comment="Button">Jetzt einloggen</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Tagesziel</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Kein Ziel gesetzt</string>

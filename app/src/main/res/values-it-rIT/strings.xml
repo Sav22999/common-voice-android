@@ -26,7 +26,7 @@
     <string name="textHour">Ora</string>
     <string name="txt_top_contributors">Collaboratori principali</string>
     <string name="txt_top_contributors_recorded">Registrazioni</string>
-    <string name="txt_top_contributors_validated">Validazioni</string>
+    <string name="txt_top_contributors_validated">Convalide</string>
     <string name="txt_app_statistics" comment="Title in Dashboard">Statistiche dell\'app</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Lingua attuale</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Tutte le lingue</string>
@@ -180,6 +180,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Il testo della frase è nascosto</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Non ci sono altre frasi nel server di Common Voice. Riprova più tardi o prova a contattare Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Non ci sono altre registrazioni nel server di Common Voice. Riprova più tardi o prova a contattare Mozilla.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Hai già convalidato {{*{{number}}*}} registrazioni di fila, continua questo fantastico lavoro!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continua a convalidare le registrazioni, ne hai già convalidate {{*{{number}}*}} di fila.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Eccellente lavoro! Hai già convalidato {{*{{number}}*}} registrazioni di fila.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, hai i superpoteri! Hai convalidato {{*{{number}}*}} registrazioni di fila!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Hai inviato {{*{{number}}*}} registrazioni di fila.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Ottimo lavoro! Hai inviato {{*{{number}}*}} registrazioni di fila.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulazioni! Hai appena raggiunto la bellezza di {{*{{number}}*}} frasi registrate. Continua così!</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, hai i superpoteri! Hai registrato {{*{{number}}*}} frasi di fila!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Ti mancano solo {{*{{number}}*}} registrazioni per raggiungere l\'obiettivo giornaliero di {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Ti mancano solo {{*{{number}}*}} frasi per raggiungere l\'obiettivo giornaliero di {{*{{dailygoal}}*}}!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verifica nuovamente</string>
     <string name="txt_noconnection" comment="Message text">Non sei connesso a Internet. Connettiti al Wi-Fi o alla rete dati, poi premi il pulsante sottostante.</string>
@@ -226,16 +236,24 @@
     <string name="text_info" comment="Title for Message text">Informazioni</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Non mostrare più</string>
     <string name="text_report_website_bug" comment="Message text">Se hai problemi con il sito ufficiale di Common Voice, ti invito a segnalarli sul forum di Mozilla Discourse o sul repository GitHub in modo che Mozilla possa correggerli.</string>
-    <string name="text_review_now" translatable="true" comment="Button">Recensisci ora</string>
-    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Ti piace l\'app? Puoi supportare il mio lavoro. Comprami un caffè su PayPal o LiberaPay.</string>
-    <string name="text_log_in_again" translatable="true" comment="Button">Accedi di nuovo</string>
+    <string name="text_review_now" comment="Button" translatable="true">Recensisci ora</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Ti piace l\'app? Puoi supportare il mio lavoro. Comprami un caffè su PayPal o LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Accedi di nuovo</string>
     <string name="text_offline_mode" comment="Title">Modalità offline</string>
-    <string name="text_offline_mode_enabled" comment="Message text">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno verranno inviate successivamente.</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Non sei connesso a Internet e l\'app è passata automaticamente alla modalità offline.\nQuesto significa che puoi continuare a registrare e convalidare, ma le richieste saranno inviate successivamente.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Puoi capire facilmente quando sei in modalità offline in quanto è presente questa icona sullo schermo:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Premi su questa icona per vedere il numero di registrazioni e di frasi scaricate.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">La modalità Offline non è attiva, quindi non è possibile utilizzare l\'app senza una connessione Internet.\nPer utilizzare la modalità Offline, è necessario attivarla nelle Impostazioni.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Sai che puoi supportare il mio lavoro gratuitamente? Se ti piace l\'app, considera di attivare i banner pubblicitari nelle Impostazioni.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Sai che puoi supportare il mio lavoro gratuitamente? Se ti piace l\'app, considera di attivare i banner pubblicitari nelle Impostazioni.</string>
     <string name="text_open_settings_now">Apri le Impostazioni</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Sei sicuro di voler andare indietro e perdere la registrazione?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Sei sicuro di voler saltare e perdere la registrazione?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Sei sicuro di voler eliminare tutti i dati dell\'app?</string>
+    <string name="button_yes_sure" comment="Button">Sì, sono sicuro</string>
+    <string name="button_cancel" comment="Button">Annulla</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Ben fatto! Hai aperto l\'app per {{*{{number}}*}} giorni consecutivi.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Ho aperto per {{*{{number}}*}} giorni consecutivi l\'app CV Project! Scaricala anche tu per contribuire al progetto Common Voice tramite il tuo smartphone.</string>
+    <string name="button_log_in_now" comment="Button">Accedi ora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Obiettivo giornaliero</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nessun obiettivo impostato</string>

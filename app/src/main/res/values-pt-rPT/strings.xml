@@ -128,7 +128,7 @@
     <string name="title_textsize_settings" comment="Title in Settings">Tamanho do texto</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Banner de anúncios</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Habilitar banner de anúncio em {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra de progresso colorida do objetivo diário</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra de progresso colorida da meta diária</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} e {{*{{listen_name}}*}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregando frase...</string>
@@ -180,6 +180,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">O texto da frase está oculto</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Não há mais frases disponíveis no servidor Common Voice. Tente mais tarde ou entre em contato com a Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Não há mais clipes disponíveis no servidor Common Voice. Tente mais tarde ou entre em contato com a Mozilla.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Você já validou {{*{{number}}*}} clipes seguidos, continue este trabalho incrível!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue para validar os clipes, você validou {{*{{number}}*}} clipes seguidos.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excelente trabalho! Você já validou {{*{{number}}*}} clipes seguidos.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Uau, você tem poderes super-humanos! Você validou {{*{{number}}*}} clipes seguidos!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Você enviou {{*{{number}}*}} gravações seguidas.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Bom trabalho! Você enviou {{*{{number}}*}} gravações seguidas.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Parabéns! Você alcançou o marco de {{*{{number}}*}} frases gravadas. Continue.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Uau, você tem poderes super-humanos! Você gravou {{*{{number}}*}} frases seguidas!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Faltam apenas {{*{{number}}*}} clipes para você atingir sua meta diária de {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Faltam apenas {{*{{number}}*}} frases para você atingir sua meta diária de {{*{{dailygoal}}*}}!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verificar novamente</string>
     <string name="txt_noconnection" comment="Message text">Você não está conectado à internet. Conecte-se ao Wi-Fi ou aos dados móveis e pressione o botão abaixo.</string>
@@ -226,16 +236,24 @@
     <string name="text_info" comment="Title for Message text">Informações</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Não mostrar mais</string>
     <string name="text_report_website_bug" comment="Message text">Se você tiver problemas com o site oficial do Common Voice, informe-os nos fóruns do Mozilla Discourse ou no repositório GitHub para que a Mozilla possa corrigi-los.</string>
-    <string name="text_review_now" translatable="true" comment="Button">Revisar agora</string>
-    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Você gosta do aplicativo? Você pode apoiar meu trabalho. Compre um café no PayPal ou LiberaPay.</string>
-    <string name="text_log_in_again" translatable="true" comment="Button">Faça o login novamente</string>
+    <string name="text_review_now" comment="Button" translatable="true">Revisar agora</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Você gosta do aplicativo? Você pode apoiar meu trabalho. Compre um café no PayPal ou LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Faça o login novamente</string>
     <string name="text_offline_mode" comment="Title">Modo offline</string>
     <string name="text_offline_mode_enabled" comment="Message text">Você está agora offline e o aplicativo mudou automaticamente para modo offline.\nIsso significa que você pode continuar registrando e validando, mas as solicitações serão enviadas mais tarde.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Você pode saber quando está no modo offline procurando por este ícone na tela:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Você pode tocar nesse ícone para ver os clipes e frases baixados.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">O modo offline não está ativado, então você não pode usar o aplicativo sem uma conexão com a Internet.\nPara usar o modo offline, ative-o nas Configurações.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Você sabe que pode apoiar meu trabalho gratuitamente? Por favor, se você gosta do aplicativo, considere ativar os banners de anúncios nas Configurações.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Você sabe que pode apoiar meu trabalho gratuitamente? Por favor, se você gosta do aplicativo, considere ativar os banners de anúncios nas Configurações.</string>
     <string name="text_open_settings_now">Abrir configurações agora</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Tem certeza de que deseja voltar e perder a gravação?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Tem certeza de que deseja pular e perder a gravação?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Tem certeza de que deseja redefinir todos os dados do aplicativo?</string>
+    <string name="button_yes_sure" comment="Button">Sim, tenho certeza</string>
+    <string name="button_cancel" comment="Button">Cancelar</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Muito bem! Você abriu o aplicativo por {{*{{number}}*}} dias seguidos.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Eu abri {{*{{number}}*}} dias do aplicativo do CV Project seguido! Baixe também você para contribuir para o projeto de voz comum através do seu smartphone.</string>
+    <string name="button_log_in_now" comment="Button">Fazer login agora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Meta diária</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nenhuma meta definida</string>

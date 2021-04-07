@@ -180,6 +180,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">O texto da frase está agochado</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Non hai máis frases no servidor de Common Voice. Ténteo máis adiante ou contacte con Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Non hai máis gravacións no servidor Common Voice. Ténteo máis tarde ou contacte con Mozilla.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Enviaches {{*{{number}}*}} gravación en fila.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Bo traballo! Enviaches {{*{{number}}*}} gravacións en fila.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Comprobar outra vez</string>
     <string name="txt_noconnection" comment="Message text">Non está conectado á Internet. Conectar co Wi-Fi ou con datos móbiles, logo premer o botón de abaixo.</string>
@@ -226,16 +236,24 @@
     <string name="text_info" comment="Title for Message text">Info</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Non mostrar de novo</string>
     <string name="text_report_website_bug" comment="Message text">Se ten dificultades co sitio oficial de Common Voice, informe diso nos foros Discourse de Mozilla ou no repositorio de GitHub, para que Mozilla poida arranxalo.</string>
-    <string name="text_review_now" translatable="true" comment="Button">Revisar agora</string>
-    <string name="text_buy_me_a_coffee" translatable="true" comment="Message text">Gústalle a aplicación? Pode apoiar o meu traballo. Mérqueme un café en PayPal ou LiberaPay.</string>
-    <string name="text_log_in_again" translatable="true" comment="Button">Iniciar sesión de novo</string>
+    <string name="text_review_now" comment="Button" translatable="true">Revisar agora</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Gústalle a aplicación? Pode apoiar o meu traballo. Mérqueme un café en PayPal ou LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Iniciar sesión de novo</string>
     <string name="text_offline_mode" comment="Title">Modo en desconexión</string>
     <string name="text_offline_mode_enabled" comment="Message text">Agora está no modo en desconexión e a app cambia a este modo automaticamente.\nIsto significa que pode continuar a gravar e validar pero as consultas enviaranse máis tarde.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Pode dicir cando está no modo en desconexión buscando esta icona na pantalla:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Pode tocar na icona para ver as gravación e frases descargadas.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">O modo en desconexión non está activado, pode utilizar a app sen ter unha conexión á Internet.\nPara utilizar a funcionalidade do modo en desconexión, actívea en Configuración.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="text_ads_are_disable_would_you_like_able&#10;Message text (freely is &quot;price 0€&quot;, free)">Sabe que pode apoiar o meu traballo libremente? Se lle gusta a aplicación, considere activar os anuncios na Configuración.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Sabe que pode apoiar o meu traballo libremente? Se lle gusta a aplicación, considere activar os anuncios na Configuración.</string>
     <string name="text_open_settings_now">Abrir Configuración agora</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
+    <string name="button_cancel" comment="Button">Cancel</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
+    <string name="button_log_in_now" comment="Button">Acceder agora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Obxectivo diario</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Non se fixou ningún obxectivo</string>
