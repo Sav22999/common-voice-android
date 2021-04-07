@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import androidx.core.content.getSystemService
+import androidx.core.view.isGone
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -95,6 +96,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             }
             switchSpeakAds.isChecked = speakPrefManager.showAdBanner
 
+            if (mainPrefManager.appSourceStore == "GPS") {
+                settingsSectionAdvancedAds.isGone = false
+            } else {
+                settingsSectionAdvancedAds.isGone = true
+            }
+
             buttonOpenTutorialAgain.setOnClickListener {
                 Intent(requireContext(), FirstLaunch::class.java).also {
                     startActivity(it)
@@ -116,12 +123,15 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             //Reset Settings
                             settingsPrefManager.isOfflineMode = true
                             settingsPrefManager.showReportIcon = false
-                            settingsPrefManager.automaticallyCheckForUpdates = true
+                            settingsPrefManager.automaticallyCheckForUpdates = false
                             settingsPrefManager.latestVersion = ""
+                            settingsPrefManager.isProgressBarColouredEnabled = true
 
                             //Reset Stats
                             statsPrefManager.dailyGoalObjective = 0
                             statsPrefManager.reviewOnPlayStoreCounter = 0
+                            statsPrefManager.buyMeACoffeeCounter = 0
+                            statsPrefManager.checkAdsDisabledGPS = 0
                             statsPrefManager.todayValidated = 0
                             statsPrefManager.todayRecorded = 0
                             statsPrefManager.allTimeValidated = 0
@@ -130,17 +140,21 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             statsPrefManager.localValidated = 0
                             statsPrefManager.localRecorded = 0
                             statsPrefManager.localLevel = 0
+                            statsPrefManager.daysInARow = 0
+                            statsPrefManager.lastDateOpenedTheApp = null
 
                             //Reset Listen
                             listenPrefManager.requiredClipsCount = 50
-                            listenPrefManager.isAutoPlayClipEnabled = false
+                            listenPrefManager.isAutoPlayClipEnabled = true
                             listenPrefManager.isShowTheSentenceAtTheEnd = false
+                            listenPrefManager.showAdBanner = true
 
                             //Reset Speak
                             speakPrefManager.requiredSentencesCount = 50
                             speakPrefManager.playRecordingSoundIndicator = false
                             speakPrefManager.skipRecordingConfirmation = false
                             speakPrefManager.saveRecordingsOnDevice = false
+                            speakPrefManager.showAdBanner = true
 
                             //Reset Main
                             mainPrefManager.language = "en"
@@ -160,6 +174,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             mainPrefManager.sessIdCookie = null
                             mainPrefManager.isLoggedIn = false
                             mainPrefManager.username = ""
+                            mainPrefManager.textSize = 1.0F
+                            mainPrefManager.showAdBanner = true
 
                             //Reset Log
                             logPrefManager.saveLogFile = false

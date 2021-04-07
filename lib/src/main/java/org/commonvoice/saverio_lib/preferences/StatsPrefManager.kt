@@ -55,6 +55,14 @@ class StatsPrefManager(ctx: Context) {
         get() = preferences.getInt(Keys.CHECK_ADS_DISABLED_GPS.name, 0)
         set(value) = preferences.edit().putInt(Keys.CHECK_ADS_DISABLED_GPS.name, value).apply()
 
+    var daysInARow: Int
+        get() = preferences.getInt(Keys.DAYS_IN_A_ROW.name, 0)
+        set(value) = preferences.edit().putInt(Keys.DAILY_GOAL_OBJECTIVE.name, value).apply()
+
+    var lastDateOpenedTheApp: String?
+        get() = preferences.getString(Keys.LAST_DATE_OPENED_THE_APP.name, null)
+        set(value) = preferences.edit().putString(Keys.LAST_DATE_OPENED_THE_APP.name, value).apply()
+
     private var todayContributingDate: Calendar
         get() = Calendar.getInstance().also {
             val currentMillis = Calendar.getInstance().timeInMillis
@@ -142,6 +150,8 @@ class StatsPrefManager(ctx: Context) {
         REVIEW_ON_PLAYSTORE_COUNTER,
         BUY_ME_COFFEE_COUNTER,
         CHECK_ADS_DISABLED_GPS,
+        DAYS_IN_A_ROW,
+        LAST_DATE_OPENED_THE_APP,
 
         TODAY_CONTRIBUTING_DATE,
         TODAY_VALIDATED,

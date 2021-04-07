@@ -279,9 +279,11 @@
             android:padding="20dp"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvanced">
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvanced"
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/title_adsBannerSettings"

@@ -354,6 +354,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             R.color.colorAlertMessageDT,
             textSize = 15F
         )
+        theme.setElement(
+            this@ListenActivity,
+            textMotivationalSentencesListen,
+            R.color.colorAdviceLightTheme,
+            R.color.colorAdviceDarkTheme,
+            textSize = 15F
+        )
         theme.setElement(this@ListenActivity, buttonReportListen, background = false)
         theme.setElement(this@ListenActivity, buttonSkipListen)
 
@@ -394,6 +401,38 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideImage(imageReportIconListen)
             } else {
                 buttonReportListen.isGone = true
+            }
+
+            val motivationSentences = arrayOf(
+                getString(R.string.text_continue_to_validate_1),
+                getString(R.string.text_continue_to_validate_2),
+                getString(R.string.text_continue_to_validate_3),
+                getString(R.string.text_continue_to_validate_4)
+            )
+            if (numberSentThisSession == 0 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120) {
+                if (statsPrefManager.dailyGoalObjective <= 0 || (statsPrefManager.dailyGoalObjective > 0 && statsPrefManager.dailyGoalObjective > (numberSentThisSession + 10))) {
+                    textMotivationalSentencesListen.isGone = false
+                    textMotivationalSentencesListen.text =
+                        motivationSentences[(motivationSentences.indices).random()].replace(
+                            "{{*{{number}}*}}",
+                            numberSentThisSession.toString()
+                        )
+                }
+            } else {
+                textMotivationalSentencesListen.isGone = true
+            }
+
+            if (statsPrefManager.dailyGoalObjective > 5 && ((numberSentThisSession + 5) == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 5) {
+                //if the dailygoal is not set and the dailygoal is almost achieved
+                textMotivationalSentencesListen.isGone = false
+                textMotivationalSentencesListen.text =
+                    getString(R.string.text_almost_achieved_dailygoal_listen).replace(
+                        "{{*{{number}}*}}",
+                        5.toString()
+                    ).replace(
+                        "{{*{{dailygoal}}*}}",
+                        statsPrefManager.dailyGoalObjective.toString()
+                    )
             }
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)

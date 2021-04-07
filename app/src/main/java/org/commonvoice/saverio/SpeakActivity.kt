@@ -335,7 +335,21 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         binding.nestedScrollSpeak.setOnTouchListener(object :
             OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
-                speakViewModel.skipSentence()
+                if (!recorded) {
+                    speakViewModel.skipSentence()
+                } else {
+                    dialogInflater.show(this@SpeakActivity,
+                        StandardDialog(
+                            messageRes = R.string.text_are_you_sure_skip_and_lose_the_recording,
+                            buttonTextRes = R.string.button_yes_sure,
+                            onButtonClick = {
+                                this@SpeakActivity.recorded = false
+                                speakViewModel.skipSentence()
+                            },
+                            button2TextRes = R.string.button_cancel,
+                            onButton2Click = {}
+                        ))
+                }
             }
 
             override fun onSwipeRight() {
@@ -359,6 +373,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             textMessageAlertSpeak,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT,
+            textSize = 15F
+        )
+        theme.setElement(
+            view,
+            textMotivationSentencesSpeak,
+            R.color.colorAdviceLightTheme,
+            R.color.colorAdviceDarkTheme,
             textSize = 15F
         )
         theme.setElement(view, buttonReportSpeak, background = false)
@@ -445,6 +466,40 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
+
+        val motivationSentences = arrayOf(
+            getString(R.string.text_continue_to_send_1),
+            getString(R.string.text_continue_to_send_2),
+            getString(R.string.text_continue_to_send_3),
+            getString(R.string.text_continue_to_send_4)
+        )
+        if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120) {
+            if (statsPrefManager.dailyGoalObjective <= 0 || (statsPrefManager.dailyGoalObjective > 0 && statsPrefManager.dailyGoalObjective > (numberSentThisSession + 10))) {
+                textMotivationSentencesSpeak.isGone = false
+                textMotivationSentencesSpeak.text =
+                    motivationSentences[(motivationSentences.indices).random()].replace(
+                        "{{*{{number}}*}}",
+                        numberSentThisSession.toString()
+                    )
+            }
+        } else {
+            textMotivationSentencesSpeak.isGone = true
+        }
+
+        if (statsPrefManager.dailyGoalObjective > 5 && ((numberSentThisSession + 5) == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 5) {
+            //if the dailygoal is not set and the dailygoal is almost achieved
+            textMotivationSentencesSpeak.isGone = false
+            textMotivationSentencesSpeak.text =
+                getString(R.string.text_almost_achieved_dailygoal_speak).replace(
+                    "{{*{{number}}*}}",
+                    5.toString()
+                ).replace(
+                    "{{*{{dailygoal}}*}}",
+                    statsPrefManager.dailyGoalObjective.toString()
+                )
+        }
+
+        recorded = false
     }
 
     private fun loadUIStateNoMoreSentences() = withBinding {

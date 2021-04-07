@@ -98,7 +98,25 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textMotivationSentencesSpeak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center|top|center_vertical"
+            android:textColor="@color/colorAdviceLightTheme"
+            android:textSize="@dimen/text_small"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
 
         <View
             android:id="@+id/viewSpacingSpeak"
@@ -110,7 +128,7 @@
             app:layout_constraintBottom_toTopOf="@+id/speakSectionMiddle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/textMotivationSentencesSpeak" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionAudioBar"

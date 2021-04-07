@@ -98,7 +98,24 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textMotivationalSentencesListen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center|top|center_vertical"
+            android:textColor="@color/colorAdviceLightTheme"
+            android:textSize="@dimen/text_small"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
 
         <View
             android:id="@+id/viewSpacingListen"
@@ -110,7 +127,7 @@
             app:layout_constraintBottom_toTopOf="@+id/listenSectionMiddle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertListen" />
+            app:layout_constraintTop_toBottomOf="@+id/textMotivationalSentencesListen" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/listenSectionMiddle"
