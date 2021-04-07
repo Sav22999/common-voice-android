@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 133,
-      "versionName": "2.3",
+      "versionCode": 138,
+      "versionName": "2.3.4",
       "outputFile": "app-AAS-release.apk"
     }
   ]
