@@ -159,7 +159,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             inAppPurchase()
         } else {*/
         buttonBuyMeACoffee.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3aJnnq7")))
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/pools/c/8yl6auiU6e")))
         }
         /*}*/
     }
