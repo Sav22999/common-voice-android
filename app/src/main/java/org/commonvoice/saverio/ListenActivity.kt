@@ -409,7 +409,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 getString(R.string.text_continue_to_validate_3),
                 getString(R.string.text_continue_to_validate_4)
             )
-            if (numberSentThisSession == 0 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120) {
+            if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
                 if (statsPrefManager.dailyGoalObjective <= 0 || (statsPrefManager.dailyGoalObjective > 0 && statsPrefManager.dailyGoalObjective > (numberSentThisSession + 10))) {
                     textMotivationalSentencesListen.isGone = false
                     textMotivationalSentencesListen.text =
