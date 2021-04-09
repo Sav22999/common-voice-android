@@ -179,6 +179,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 currentContributions = it.validations,
                 color = R.color.colorListen
             )
+
+            if (it.recordings == 0 && it.validations > 0 && it.getDailyGoal() > 0) {
+                binding.progressBarListenSpeak.isGone = true
+            }
+            if (it.validations == 0 && it.recordings > 0 && it.getDailyGoal() > 0) {
+                binding.progressBarListenSpeak.isGone = true
+            }
         })
 
         checkOfflineMode(connectionManager.isInternetAvailable)
@@ -222,6 +229,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             currentContributions = statsPrefManager.dailyGoal.value!!.validations,
             color = R.color.colorListen
         )
+
+        if (statsPrefManager.dailyGoal.value!!.recordings == 0 && statsPrefManager.dailyGoal.value!!.validations > 0 && statsPrefManager.dailyGoal.value!!.goal > 0) {
+            binding.progressBarListenSpeak.isGone = true
+        }
+        if (statsPrefManager.dailyGoal.value!!.validations == 0 && statsPrefManager.dailyGoal.value!!.recordings > 0 && statsPrefManager.dailyGoal.value!!.goal > 0) {
+            binding.progressBarListenSpeak.isGone = true
+        }
 
         refreshAds()
     }
@@ -410,19 +424,25 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 getString(R.string.text_continue_to_validate_4)
             )
             if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
-                if (statsPrefManager.dailyGoalObjective <= 0 || (statsPrefManager.dailyGoalObjective > 0 && statsPrefManager.dailyGoalObjective > (numberSentThisSession + 10))) {
-                    textMotivationalSentencesListen.isGone = false
-                    textMotivationalSentencesListen.text =
-                        motivationSentences[(motivationSentences.indices).random()].replace(
-                            "{{*{{number}}*}}",
-                            numberSentThisSession.toString()
-                        )
-                }
+                textMotivationalSentencesListen.isGone = false
+                textMotivationalSentencesListen.text =
+                    motivationSentences[(motivationSentences.indices).random()].replace(
+                        "{{*{{number}}*}}",
+                        numberSentThisSession.toString()
+                    )
             } else {
                 textMotivationalSentencesListen.isGone = true
             }
 
-            if (statsPrefManager.dailyGoalObjective > 5 && ((numberSentThisSession + 5) == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 5) {
+            var sum = 0
+            val dailyGoal = statsPrefManager.dailyGoalObjective
+            try {
+                sum =
+                    (statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations) + 6
+            } catch (e: Exception) {
+                //println("Exception Listen Sum")
+            }
+            if (dailyGoal > 5 && (sum == dailyGoal) && numberSentThisSession > 0) {
                 //if the dailygoal is not set and the dailygoal is almost achieved
                 textMotivationalSentencesListen.isGone = false
                 textMotivationalSentencesListen.text =
@@ -431,7 +451,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                         5.toString()
                     ).replace(
                         "{{*{{dailygoal}}*}}",
-                        statsPrefManager.dailyGoalObjective.toString()
+                        dailyGoal.toString()
                     )
             }
         }
@@ -478,6 +498,18 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             )
         )
 
+        if (listenViewModel.stopped) {
+            //stopped recording
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
+        } else {
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+
+            hideButtons()
+
+            listenViewModel.listenedOnce = false
+            listenViewModel.startedOnce = false
+        }
+
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
                 "{{*{{feature_name}}*}}",
@@ -486,20 +518,20 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         } else textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
-        if (!listenViewModel.showSentencesTextAtTheEnd() || listenViewModel.listenedOnce) {
-            textSentenceListen.text = clip.sentence.sentenceText
-            textSentenceListen.setTextColor(
-                ContextCompat.getColor(
-                    this@ListenActivity,
-                    R.color.colorWhite
-                )
-            )
-        } else {
+        if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textSentenceListen.setText(R.string.txt_sentence_text_hidden)
             textSentenceListen.setTextColor(
                 ContextCompat.getColor(
                     this@ListenActivity,
                     R.color.colorLightRed
+                )
+            )
+        } else {
+            textSentenceListen.text = clip.sentence.sentenceText
+            textSentenceListen.setTextColor(
+                ContextCompat.getColor(
+                    this@ListenActivity,
+                    R.color.colorWhite
                 )
             )
         }
@@ -525,18 +557,6 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     )
                 }, 900)
             }
-        }
-
-        if (listenViewModel.stopped) {
-            //stopped recording
-            buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
-        } else {
-            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
-
-            hideButtons()
-
-            listenViewModel.listenedOnce = false
-            listenViewModel.startedOnce = false
         }
 
         if (!listenViewModel.startedOnce) {
