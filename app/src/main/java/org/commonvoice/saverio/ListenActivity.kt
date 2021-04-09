@@ -440,7 +440,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 sum =
                     (statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations) + 6
             } catch (e: Exception) {
-                //println("Exception Speak Sum")
+                //println("Exception Listen Sum")
             }
             if (dailyGoal > 5 && (sum == dailyGoal) && numberSentThisSession > 0) {
                 //if the dailygoal is not set and the dailygoal is almost achieved
