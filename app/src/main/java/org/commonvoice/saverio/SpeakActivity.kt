@@ -205,6 +205,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 currentContributions = it.validations,
                 color = R.color.colorListen
             )
+
+            if (it.recordings == 0 && it.validations > 0 && it.getDailyGoal() > 0) {
+                binding.progressBarSpeakSpeak.isGone = true
+            }
+            if (it.validations == 0 && it.recordings > 0 && it.getDailyGoal() > 0) {
+                binding.progressBarSpeakListen.isGone = true
+            }
         })
 
         checkPermission()
@@ -249,6 +256,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             currentContributions = statsPrefManager.dailyGoal.value!!.validations,
             color = R.color.colorListen
         )
+
+        if (statsPrefManager.dailyGoal.value!!.recordings == 0 && statsPrefManager.dailyGoal.value!!.validations > 0 && statsPrefManager.dailyGoal.value!!.goal > 0) {
+            binding.progressBarSpeakSpeak.isGone = true
+        }
+        if (statsPrefManager.dailyGoal.value!!.validations == 0 && statsPrefManager.dailyGoal.value!!.recordings > 0 && statsPrefManager.dailyGoal.value!!.goal > 0) {
+            binding.progressBarSpeakListen.isGone = true
+        }
 
         refreshAds()
     }
@@ -474,20 +488,25 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             getString(R.string.text_continue_to_send_4)
         )
         if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
-            if (statsPrefManager.dailyGoalObjective <= 0 || (statsPrefManager.dailyGoalObjective > 0 && statsPrefManager.dailyGoalObjective > (numberSentThisSession + 10))) {
-                textMotivationSentencesSpeak.isGone = false
-                textMotivationSentencesSpeak.text =
-                    motivationSentences[(motivationSentences.indices).random()].replace(
-                        "{{*{{number}}*}}",
-                        numberSentThisSession.toString()
-                    )
-            }
+            textMotivationSentencesSpeak.isGone = false
+            textMotivationSentencesSpeak.text =
+                motivationSentences[(motivationSentences.indices).random()].replace(
+                    "{{*{{number}}*}}",
+                    numberSentThisSession.toString()
+                )
         } else {
             textMotivationSentencesSpeak.isGone = true
         }
 
-        if (statsPrefManager.dailyGoalObjective > 5 && ((numberSentThisSession + 5) == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 5) {
-            //if the dailygoal is not set and the dailygoal is almost achieved
+        var sum = 0
+        try {
+            sum =
+                statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations + 6
+        } catch (e: Exception) {
+            //println("Exception Speak Sum")
+        }
+        if (statsPrefManager.dailyGoalObjective > 5 && (sum == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 0) {
+            //if the dailygoal is set and it is almost achieved
             textMotivationSentencesSpeak.isGone = false
             textMotivationSentencesSpeak.text =
                 getString(R.string.text_almost_achieved_dailygoal_speak).replace(

@@ -229,7 +229,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if (SOURCE_STORE == "GPS" && !BuildConfig.DEBUG) {
             val counter = statsPrefManager.reviewOnPlayStoreCounter
             val times = 100 //after this times it will show the message
-            if ((((counter % times) == 0 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog) {
+            if ((((counter % times) == 0 || (counter % times) == 1 || (counter % times) == 2 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog) {
                 dialogInflater.show(
                     this, CheckboxedStandardDialog(
                         messageRes = R.string.message_review_app_on_play_store,
@@ -345,19 +345,36 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             if (restart2) {
                 mainPrefManager.hasLanguageChanged2 = false
 
-                var detailsMessage = ""
                 if (!translationHandler.isLanguageComplete(mainPrefManager.language)) {
-                    detailsMessage =
+                    val detailsMessage =
                         "\n" + getString(R.string.message_app_not_completely_translated)
-                }
-                dialogInflater.show(
-                    this, StandardDialog(
-                        message = getString(R.string.toast_language_changed).replace(
-                            "{{*{{lang}}*}}",
-                            translationHandler.getLanguageName(mainPrefManager.language)
-                        ) + detailsMessage
+                    dialogInflater.show(
+                        this, StandardDialog(
+                            message = getString(R.string.toast_language_changed).replace(
+                                "{{*{{lang}}*}}",
+                                translationHandler.getLanguageName(mainPrefManager.language)
+                            ) + detailsMessage,
+                            button2TextRes = R.string.button_translate_on_crowdin,
+                            onButton2Click = {
+                                startActivity(
+                                    Intent(
+                                        Intent.ACTION_VIEW,
+                                        Uri.parse("https://bit.ly/3bNBoUU")
+                                    )
+                                )
+                            }
+                        )
                     )
-                )
+                } else {
+                    dialogInflater.show(
+                        this, StandardDialog(
+                            message = getString(R.string.toast_language_changed).replace(
+                                "{{*{{lang}}*}}",
+                                translationHandler.getLanguageName(mainPrefManager.language)
+                            )
+                        )
+                    )
+                }
                 resetData()
             }
         }
