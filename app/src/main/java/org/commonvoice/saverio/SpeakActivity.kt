@@ -499,13 +499,14 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
 
         var sum = 0
+        val dailyGoal = statsPrefManager.dailyGoalObjective
         try {
             sum =
-                statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations + 6
+                (statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations) + 6
         } catch (e: Exception) {
             //println("Exception Speak Sum")
         }
-        if (statsPrefManager.dailyGoalObjective > 5 && (sum == statsPrefManager.dailyGoalObjective) && numberSentThisSession > 0) {
+        if (dailyGoal > 5 && (sum == dailyGoal) && numberSentThisSession > 0) {
             //if the dailygoal is set and it is almost achieved
             textMotivationSentencesSpeak.isGone = false
             textMotivationSentencesSpeak.text =
@@ -514,7 +515,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     5.toString()
                 ).replace(
                     "{{*{{dailygoal}}*}}",
-                    statsPrefManager.dailyGoalObjective.toString()
+                    dailyGoal.toString()
                 )
         }
 
