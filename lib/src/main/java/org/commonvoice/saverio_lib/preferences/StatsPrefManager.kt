@@ -57,7 +57,7 @@ class StatsPrefManager(ctx: Context) {
 
     var daysInARow: Int
         get() = preferences.getInt(Keys.DAYS_IN_A_ROW.name, 0)
-        set(value) = preferences.edit().putInt(Keys.DAILY_GOAL_OBJECTIVE.name, value).apply()
+        set(value) = preferences.edit().putInt(Keys.DAYS_IN_A_ROW.name, value).apply()
 
     var lastDateOpenedTheApp: String?
         get() = preferences.getString(Keys.LAST_DATE_OPENED_THE_APP.name, null)

@@ -254,7 +254,7 @@
     <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Muito bem! Você abriu o aplicativo por {{*{{number}}*}} dias seguidos.</string>
     <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Eu abri {{*{{number}}*}} dias do aplicativo do CV Project seguido! Baixe também você para contribuir para o projeto de voz comum através do seu smartphone.</string>
     <string name="button_log_in_now" comment="Button">Fazer login agora</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="button_translate_on_crowdin" comment="Button">Traduzir agora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Meta diária</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nenhuma meta definida</string>

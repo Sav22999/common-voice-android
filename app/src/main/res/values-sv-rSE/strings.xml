@@ -43,7 +43,7 @@ De främsta deltagarna</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Behörighet erhållen</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Fel: tillstånd nekas</string>
     <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project är en inofficiell app för Mozilla Common Voice. Den är utvecklad av Saverio Morelli utan stöd eller partneskap med Mozilla.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Genom att fortsätta godkänner du användarvillkoren för Mozillas Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Denna app behöver behörigheten \"Mikrofon\" för att spela in din röst.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Du kan rapportera fel på GitHub eller Telegram. För att hjälpa utvecklaren att förstå problemet snabbt bör du bifoga appens loggfil till din rapport. Appen behöver behörigheten \"Lagring\" för att spara loggfilen.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Du kan även bidra medan du är offline. Appens \"Offline-läge\" kommer att aktiveras automatiskt, och du kan fortsätta spela in och lyssna utan internetanslutning.</string>
@@ -68,24 +68,24 @@ De främsta deltagarna</string>
     <string name="btn_badges_loggedin" comment="Button">Alla märken</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivå {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">Grattis! Du har precis uppnått {{*{{n_level}}*}} nivån.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Jag har redan en verifieringslänk</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
     <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Öppna handledningen igen</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projekt öppen kod på GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">utvecklad av</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Språket har ändrats till {{*{{lang}}*}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Språk</string>
     <string name="settingsListen" comment="Title in Settings">Lyssna</string>
     <string name="settingsSpeak" comment="Title in Settings">Tala</string>
     <string name="settingsOther" comment="Title in Settings">Övrigt</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="settingsGeneral" comment="Title in Settings">Allmänt</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Användbara länkar</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Läs mer</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Ljust</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Mörkt</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automatiskt</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Stöd mitt arbete. Köp mig en kaffe 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-spela upp klipp när den är laddad</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Mörkt tema</string>
@@ -94,13 +94,13 @@ De främsta deltagarna</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimentella funktioner har aktiverats.\nNya funktioner kan vara instabila och osäkra.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Spara loggar till en fil</string>
     <string name="toast_log_on_file_on" comment="Message text">Spara loggar till en fil påslagen.\nDu kan bifoga filen log.txt när du rapporterar ett problem.\nLäs mer på GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Allmän statistik</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Visa strängen som identifierar mig inuti appen</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Användningsstatistik</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Hoppa över inspelningsbekräftelse</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Hoppa över bekräftelsen på inspelningen aktiverad.\nDu kommer nu att kunna skicka inspelningar utan att behöva lyssna på dem först.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Översätt appen på Crowdin</string>
@@ -114,21 +114,21 @@ De främsta deltagarna</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animationer</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Anpassa teckenstorleken</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Anpassa gester</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">Tema</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram grupp av appen</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Visa etiketter under menyikonerna</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Läs användarvillkoren för Mozilla Common Voice</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Läs riktlinjerna för valideringar</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Betygsätt oss på Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Användargränssnitt</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Avancerat</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Spara inspelningar på enheten</string>
+    <string name="txt_reset_data" comment="Button in Settings">Återställ appdata</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Inga experimentella funktioner finns tillgängliga</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Visa meningstexten när klippet har lyssnats klart</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Visa en rapporteringsikon (övre högra hörnet) istället för en knapp (botten)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Textstorlek</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Annonsrad</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>

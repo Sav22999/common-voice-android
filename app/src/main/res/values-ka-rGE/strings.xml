@@ -254,7 +254,7 @@
     <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">ყოჩაღ! აპლიკაცია ზედიზედ {{*{{number}}*}} დღე გამოიყენეთ.</string>
     <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">CV Project აპლიკაცია ზედიზედ {{*{{number}}*}} დღე გამოვიყენე! თქვენც გადმოწერეთ, რომ შეიტანოთ თქვენი წვლილი Common Voice-ის პროექტში.</string>
     <string name="button_log_in_now" comment="Button">შესვლა</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="button_translate_on_crowdin" comment="Button">თარგმნეთ</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">დღის მიზანი</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">მიზანი არ არის</string>
