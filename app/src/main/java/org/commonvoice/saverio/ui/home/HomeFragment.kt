@@ -26,6 +26,7 @@ import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.background.AppUsageUploadWorker
 import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
 import org.koin.android.ext.android.inject
@@ -45,6 +46,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     private val firstRunPrefManager by inject<FirstRunPrefManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
     private val mainPrefManager: MainPrefManager by inject()
+    private val settingsPrefManager: SettingsPrefManager by inject()
     private val workManager: WorkManager by inject()
     private val dialogInflater by inject<DialogInflater>()
 
@@ -109,12 +111,18 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
             }
         }
 
-        homeViewModel.checkForNewVersion(BuildConfig.VERSION_NAME).observe(viewLifecycleOwner) {
-            if (statsPrefManager.reviewOnPlayStoreCounter >= 1) {
-                dialogInflater.show(requireContext(), StandardDialog(message = getString(R.string.message_dialog_new_version_available).replace(
-                    "{{*{{n_version}}*}}",
-                    it
-                )))
+        if (settingsPrefManager.automaticallyCheckForUpdates) {
+            homeViewModel.checkForNewVersion(BuildConfig.VERSION_NAME).observe(viewLifecycleOwner) {
+                if (statsPrefManager.reviewOnPlayStoreCounter >= 1) {
+                    dialogInflater.show(
+                        requireContext(), StandardDialog(
+                            message = getString(R.string.message_dialog_new_version_available).replace(
+                                "{{*{{n_version}}*}}",
+                                it
+                            )
+                        )
+                    )
+                }
             }
         }
 
@@ -201,7 +209,10 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     private fun showDialogMessages() {
         homeViewModel.getOtherMessages().observe(this) {
             it.forEach { message ->
-                dialogInflater.show(requireContext(), MessageWarningDialog(requireContext(), message))
+                dialogInflater.show(
+                    requireContext(),
+                    MessageWarningDialog(requireContext(), message)
+                )
                 homeViewModel.markMessageAsSeen(message)
             }
         }
