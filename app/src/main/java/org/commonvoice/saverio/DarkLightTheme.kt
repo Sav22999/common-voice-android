@@ -19,7 +19,9 @@ class DarkLightTheme(
 ) {
     var themeType: String?
         get() = mainPrefManager.themeType
-        set(value) { mainPrefManager.themeType = value }
+        set(value) {
+            mainPrefManager.themeType = value
+        }
 
     private val transformTextSize: Float
         get() = mainPrefManager.textSize
@@ -209,6 +211,25 @@ class DarkLightTheme(
             } else {
                 element.setBackgroundResource(R.color.colorTransparent)
             }
+            element.setTextColor(ContextCompat.getColor(view, color_light))
+        }
+        element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
+    }
+
+    fun setElement(
+        view: Context,
+        element: TextView,
+        color_light: Int,
+        color_dark: Int,
+        background_light: Int,
+        background_dark: Int,
+        textSize: Float = 18F
+    ) {
+        if (isDark) {
+            element.backgroundTintList = ContextCompat.getColorStateList(view, background_dark)
+            element.setTextColor(ContextCompat.getColor(view, color_dark))
+        } else {
+            element.backgroundTintList = ContextCompat.getColorStateList(view, background_light)
             element.setTextColor(ContextCompat.getColor(view, color_light))
         }
         element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)

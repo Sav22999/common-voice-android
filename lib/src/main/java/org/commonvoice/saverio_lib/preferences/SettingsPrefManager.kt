@@ -34,6 +34,12 @@ class SettingsPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.DAILYGOAL_PROGRESSBAR_COLOURED.name, value)
             .apply()
 
+    var isLightThemeSentenceBoxSpeakListen: Boolean
+        get() = preferences.getBoolean(Keys.LIGHT_THEME_SENTENCE_BOX_SPEAK_LISTEN.name, false)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.LIGHT_THEME_SENTENCE_BOX_SPEAK_LISTEN.name, value)
+            .apply()
+
     private enum class Keys {
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
@@ -41,6 +47,7 @@ class SettingsPrefManager(ctx: Context) {
         SHOW_REPORT_ICON,
         APP_LANGUAGES,
         DAILYGOAL_PROGRESSBAR_COLOURED,
+        LIGHT_THEME_SENTENCE_BOX_SPEAK_LISTEN,
     }
 
 }

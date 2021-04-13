@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
@@ -194,7 +195,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         setupBadgeDialog()
 
-        setTheme()
+        setTheme(this)
 
         if (listenPrefManager.showAdBanner) {
             AdLoader.setupListenAdView(this, binding.adContainer)
@@ -358,28 +359,44 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         animation.start()
     }
 
-    private fun setTheme() = withBinding {
+    private fun setTheme(view: Context) = withBinding {
         theme.setElement(layoutListen)
-        theme.setElement(this@ListenActivity, 1, listenSectionBottom)
+        theme.setElement(view, 1, listenSectionBottom)
         theme.setElement(
-            this@ListenActivity,
+            view,
             textMessageAlertListen,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT,
             textSize = 15F
         )
         theme.setElement(
-            this@ListenActivity,
+            view,
             textMotivationalSentencesListen,
             R.color.colorAdviceLightTheme,
             R.color.colorAdviceDarkTheme,
             textSize = 15F
         )
-        theme.setElement(this@ListenActivity, buttonReportListen, background = false)
-        theme.setElement(this@ListenActivity, buttonSkipListen)
+        theme.setElement(view, buttonReportListen, background = false)
+        theme.setElement(view, buttonSkipListen)
 
         setProgressBarColour(progressBarListenSpeak, false)
         setProgressBarColour(progressBarListenListen, false)
+
+        setTextSentenceListen(view)
+    }
+
+    private fun setTextSentenceListen(view: Context) = withBinding {
+        if (settingsPrefManager.isLightThemeSentenceBoxSpeakListen) {
+            theme.setElement(
+                view,
+                textSentenceListen,
+                color_dark = R.color.colorWhite,
+                color_light = R.color.colorBlack,
+                background_dark = R.color.colorBlack,
+                background_light = R.color.colorWhite
+            )
+        }
+        resizeSentence()
     }
 
     private fun openReportDialog() {
@@ -399,12 +416,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateLoading() = withBinding {
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
@@ -464,12 +476,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateNoMoreClips() = withBinding {
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
@@ -491,12 +498,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) = withBinding {
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (listenViewModel.stopped) {
             //stopped recording
@@ -528,12 +530,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             )
         } else {
             textSentenceListen.text = clip.sentence.sentenceText
-            textSentenceListen.setTextColor(
-                ContextCompat.getColor(
-                    this@ListenActivity,
-                    R.color.colorWhite
-                )
-            )
+            setTextSentenceListen(this@ListenActivity)
         }
 
         hideListenAnimateButtons()
@@ -589,12 +586,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun loadUIStateListening() = withBinding {
         stopButtons()
 
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
@@ -650,12 +642,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         resizeSentence()
         hideListenAnimateButtons()
 
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
         if (!listenViewModel.listenedOnce) {
             showButton(buttonYesClip)
         }
@@ -691,12 +678,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         textSentenceListen.text = "···"
         resizeSentence()
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
         if (settingsPrefManager.showReportIcon) {
             hideImage(imageReportIconListen)
         } else {

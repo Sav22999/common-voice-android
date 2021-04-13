@@ -401,6 +401,17 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         setProgressBarColour(progressBarSpeakSpeak, false)
         setProgressBarColour(progressBarSpeakListen, false)
+
+        if (settingsPrefManager.isLightThemeSentenceBoxSpeakListen) {
+            theme.setElement(
+                view,
+                textSentenceSpeak,
+                color_dark = R.color.colorWhite,
+                color_light = R.color.colorBlack,
+                background_dark = R.color.colorBlack,
+                background_light = R.color.colorWhite
+            )
+        }
     }
 
     private fun openReportDialog() {

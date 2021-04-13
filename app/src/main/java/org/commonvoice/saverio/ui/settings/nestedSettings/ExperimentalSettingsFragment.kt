@@ -6,6 +6,7 @@ import org.commonvoice.saverio.databinding.FragmentExperimentalSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
 
 class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSettingsBinding>() {
@@ -18,12 +19,21 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
     }
 
     private val mainPrefManager by inject<MainPrefManager>()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     override fun onStart() {
         super.onStart()
 
         binding.buttonBackSettingsSubSectionExperimental.setOnClickListener {
             activity?.onBackPressed()
+        }
+
+        withBinding {
+            switchThemeLightAlsoForSentenceBox.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.isLightThemeSentenceBoxSpeakListen = isChecked
+            }
+            switchThemeLightAlsoForSentenceBox.isChecked =
+                settingsPrefManager.isLightThemeSentenceBoxSpeakListen
         }
 
         if (mainPrefManager.areGesturesEnabled)
