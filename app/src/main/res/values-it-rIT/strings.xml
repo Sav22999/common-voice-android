@@ -130,6 +130,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Attiva banner pubblicitari in {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra di avanzamento dell\'obiettivo giornaliero colorata</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} e {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema chiaro anche per la frase da leggere / da convalidare in Parla e Ascolta (quando il tema chiaro è attivo).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Caricamento di una frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Salta</string>
@@ -273,7 +274,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Questo obiettivo giornaliero non è una funzionalità ufficiale di Mozilla. È una funzione di questa app.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Lo sapevi che ... ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 ore è realizzabile in poco più di 6 mesi se 1.000 persone registrano 45 frasi al giorno.</string>
-    <string name="copie_string" comment="Toast message">Copiato/a</string>
+    <string name="copied_string" comment="Toast message">Copiato</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">È disponibile una nuova versione dell\'app (release {{*{{n_version}}*}}). Puoi aggiornarla dal tuo store preferito (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) oppure direttamente da GitHub.</string>
 </resources>

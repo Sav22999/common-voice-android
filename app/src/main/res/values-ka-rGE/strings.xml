@@ -130,6 +130,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">რეკლამის ბანერის ჩართვა. {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">დღის მიზნის ფერადი ზოლი</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} და {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ნათელი თემა წინადადებების წაკითხვისთვის; ჩანაწერების შემოწმებისთვის (როცა ნათელი თემა ჩართულია).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
@@ -222,7 +223,7 @@
     <string name="message_got_badge_because_sentences" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{*{{n_sentences}}*}} წინადადება ჩაწერეთ.</string>
     <string name="message_got_badge_because_levels" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{*{{n_total}}*}} კლიპი შეამოწმეთ, ან ჩაწერეთ.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">კი</string>
+    <string name="btnOk" comment="Button">კარგი</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">შეცდომა</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">ქმედება არ შესრულდა.\nგთხოვთ თავიდან სცადოთ, ან დაუკავშირდით პროგრამისტს.</string>
     <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">ქმედება არ შესრულდა. გთხოვთ თავიდან სცადოთ, ან დაუკავშირდით პროგრამისტს.\nError code: EX-{{*{{error_code}}*}}</string>
@@ -239,7 +240,7 @@
     <string name="text_review_now" comment="Button" translatable="true">შეფასება</string>
     <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">მოგწონთ აპლიკაცია? შეგიძლიათ დამეხმაროთ მუშაობის გაგრძელებაში. მიყიდეთ ლობიანი PayPal-ზე, ან LiberaPay-ზე.</string>
     <string name="text_log_in_again" comment="Button" translatable="true">თავიდან შედით</string>
-    <string name="text_offline_mode" comment="Title">ოფლაინ რეჟიმი</string>
+    <string name="text_offline_mode" comment="Title">უქსელო</string>
     <string name="text_offline_mode_enabled" comment="Message text">ინტერნეტთან კავშირი არ გაქვთ და აპი ავტომატურად გადაერთო ოფლაინ რეჟიმზე.\nჩაწერა და შემოწმება შეგიძლიათ გააგრძელოთ, მაგრამ სინქრონიზაცია მოგვიანებით მოხდება.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">ოფლაინ რეჟიმში ხართ, როცა ეკრანზე ამ სიმბოლოს დაინახავთ:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">დააჭირეთ მას და ნახავთ გადმოწერილ ჩანაწერებს და წინადადებებს.</string>
@@ -273,7 +274,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">ეს დღის მიზანი, არ არის Mozilla-ს ოფიციალური ფუნქცია. აპის ფუნქცია არის.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">იცოდით რომ ... ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 საათი მიიღწევა სულ რაღაც 6 თვეში, თუ 1,000 ადამიანი დღეში 45 ჩანაწერს გააკეთებს.</string>
-    <string name="copie_string" comment="Toast message">ასლი</string>
+    <string name="copied_string" comment="Toast message">ასლი</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">აპის ახალი ვერსია არის ხელმისაწვდომი (ვერსია {{*{{n_version}}*}}). განაახლეთ სასურველი მაღაზიიდან (F-Droid, Google Play Store, Huawei AppGallery, Amazon AppStore), ან პირდაპირ GitHub-იდან.</string>
 </resources>

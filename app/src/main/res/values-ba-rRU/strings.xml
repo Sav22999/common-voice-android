@@ -2,278 +2,279 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">en</string>
+    <string name="language">ba</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_home">Төп бит</string>
+    <string name="title_dashboard">Идара панеле</string>
+    <string name="title_settings">Көйләнмәләр</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Sign up</string>
-    <string name="button_home_logout">Log out</string>
-    <string name="button_home_profile">Profile</string>
-    <string name="text_hi_username">Hi</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="button_home_login">Инеү / Теркәлеү</string>
+    <string name="button_home_logout">Сығыу</string>
+    <string name="button_home_profile">Сәхифә</string>
+    <string name="text_hi_username">Сәләм</string>
+    <string name="message_log_in_again">Сессияғыҙ иҫкергән, киренән инеп кәрәк</string>
     <!-- Dashboard -->
-    <string name="dashboardStatistics">Statistics</string>
-    <string name="dashboardVoicesOnline">Voices online</string>
-    <string name="dashboardTabYou">You</string>
-    <string name="dashboardTabEveryone">Everyone</string>
-    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Today</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
-    <string name="textHoursAbbreviation">h</string>
-    <string name="textHour">Hour</string>
-    <string name="txt_top_contributors">Top contributors</string>
-    <string name="txt_top_contributors_recorded">Recorded</string>
-    <string name="txt_top_contributors_validated">Validated</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="dashboardStatistics">Статистика</string>
+    <string name="dashboardVoicesOnline">Онлайн тауыштар</string>
+    <string name="dashboardTabYou">Һеҙ</string>
+    <string name="dashboardTabEveryone">Бөтәһе</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Бөгөн</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Бөтәһе</string>
+    <string name="toastNoLoginNoStatistics">Статистиканы ҡарар өсөн сайтҡа инеп кәрәк</string>
+    <string name="toastNoLoginNoDailyGoal">Көндәлек маҡсат ҡуйыр өсөн сайтҡа инеп кәрәк</string>
+    <string name="textHoursAbbreviation">сәғ</string>
+    <string name="textHour">Сәғәт</string>
+    <string name="txt_top_contributors">Төп ярҙамсылар</string>
+    <string name="txt_top_contributors_recorded">Яҙылғаны</string>
+    <string name="txt_top_contributors_validated">Тикшерелгәне</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Программаның статистикаһы</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Әлеге тел</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Бөтә телдәр</string>
+    <string name="txt_not_available_offline" comment="Message text">Оффлайн булғанда килеп сыҡмай</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Start</string>
-    <string name="btn_tutorial2" comment="Button">Permit</string>
-    <string name="btn_tutorial3" comment="Button">Next</string>
-    <string name="btn_tutorial4" comment="Button">Try again</string>
-    <string name="btn_tutorial5" comment="Button">Finish</string>
-    <string name="btn_skip" comment="Button">Skip</string>
-    <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">You can choose either light theme or dark theme. You can change this later in Settings.</string>
-    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Dark theme</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
-    <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
-    <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
+    <string name="btn_tutorial1" comment="Button">Башла</string>
+    <string name="btn_tutorial2" comment="Button">Рөхсәт итергә</string>
+    <string name="btn_tutorial3" comment="Button">Тағы</string>
+    <string name="btn_tutorial4" comment="Button">Тағы эшләп ҡара</string>
+    <string name="btn_tutorial5" comment="Button">Бөттө</string>
+    <string name="btn_skip" comment="Button">Үткәр</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Рөхсәт алынды</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Хата: рөхсәт юҡ</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">Был Mozilla Common Voiceтың официал булмаған программаһы. Быны Saverio Morelli эшләне.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Дауам итһәгеҙ мозиланың бөтәһе ҡағиҙәләре менән килешәһегеҙ була.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Микрофонға рөхсәт кәрәк.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Хаталарҙы GitHub йә Telegram ға ебәреп була. Хатаны ебәрер өсөн беҙгә файл хаҡлар кәрәк, шуға һеҙҙең файлдарға ла рөхсәт кәрәк.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Иннтернет булмаған саҡта ла һеҙ эшләй алаһығыҙ. Оффлайн равтоматик рәүештә тоҡанған.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Теманың яҡтыһын йә ҡараһын һайлай алағыҙ.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Ҡара тема</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Ҡайһы осраҡта һеҙ жест ҡуллана аллаһығыҙ. Мәҫәлән үткәреп еббәр тигәнде һулаҡайға шыуҙырып эшләп була.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Был жестарҙы кәйләнмә битендә үҙгәртеп була.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Телеграмға яҙылып яңылыҡтар күрә алаң.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Группаға ҡушыл</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Киттек! Телде һайлапп ал. Программаныү да телле шул телдә буласаҡ.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading ...</string>
-    <string name="txt_profile_username" comment="Label in Profile">Username</string>
+    <string name="txt_loading_page" comment="Label">Йөкләйем...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Исемең</string>
     <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Age</string>
-    <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
-    <string name="txt_gender_male" comment="Label in Profile">Male</string>
-    <string name="txt_gender_female" comment="Label in Profile">Female</string>
-    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Other</string>
-    <string name="btn_badges_loggedin" comment="Button">All badges</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="txt_profile_age" comment="Label in Profile">Нисә йәш</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Енесең</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Профилеңде сайтта үҙгәртә алаң.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Логиның дөрөҫ!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Ир-егет</string>
+    <string name="txt_gender_female" comment="Label in Profile">Ҡатын-ҡыҙ</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Башҡа</string>
+    <string name="btn_badges_loggedin" comment="Button">Бөтә значоктар</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Уровень {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Афарин! Яңы уровенға күстең {{*{{n_level}}*}}.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Минең верификация үтергә һылтанмам бар</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Верификация һылтанмаһы</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Верификация һылтанмаһы дөрөҫ түгел</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
-    <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
-    <string name="txt_developed_by" comment="Label in Settings">developed by</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{*{{lang}}*}}</string>
-    <string name="settingsLanguage" comment="Title in Settings">Language</string>
-    <string name="settingsListen" comment="Title in Settings">Listen</string>
-    <string name="settingsSpeak" comment="Title in Settings">Speak</string>
-    <string name="settingsOther" comment="Title in Settings">Other</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
-    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
-    <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
-    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Dark theme</string>
-    <string name="contact_developer_on_telegram" comment="Button in Settings">Contact the developer on Telegram</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimental features</string>
-    <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
-    <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
-    <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Яңынан өйрәнеү битен асырға</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Асыҡ проект GitHub-та</string>
+    <string name="txt_developed_by" comment="Label in Settings">эшләүсеһе</string>
+    <string name="toast_language_changed" comment="Message text">Тел {{*{{lang}}*}} күсте</string>
+    <string name="settingsLanguage" comment="Title in Settings">Тел</string>
+    <string name="settingsListen" comment="Title in Settings">Тикшереү</string>
+    <string name="settingsSpeak" comment="Title in Settings">Яҙҙырыу</string>
+    <string name="settingsOther" comment="Title in Settings">Башҡа</string>
+    <string name="settingsGeneral" comment="Title in Settings">Дөйөм</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Ярҙам итә торған һылтанмалар</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Күберәк</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Яҡты</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Ҡара</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Авто</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Миңә ярҙам ит. Кофе һатып ал</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Клиптар автоматик рәүештә тейәлгәс уйнай</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Ҡара тема</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Телеграмға контакт</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Эксперименталь момкинселектәр</string>
+    <string name="toast_experimental_features_on" comment="Message text">Эксперименталь мөмкинлектәр ҡуйылған. \nУларҙа хата булыуы бар.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Логты файлға һаҡларға</string>
+    <string name="toast_log_on_file_on" comment="Message text">Логты файлға һаҡларға рөхсәт ителгән.\nҺеҙ уны беркетә алаһығыҙ\nКүберәк GitHubта уҡы.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Дөйөм статистика</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Мине программала иденцифицироватть иткән тексты күрһәтергә</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
-    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Skip recording confirmation</string>
-    <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
-    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Translate the app on Crowdin</string>
-    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">See app statistics</string>
-    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
-    <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
-    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Check for updates</string>
-    <string name="txt_gestures" comment="Switch-Button in Settings">Gestures</string>
-    <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
-    <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
-    <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
-    <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
-    <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Show labels below the menu icons</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Программаны ҡулланыу статистикаһы</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Яҙған тауышты тикшереп тормаҫҡа</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Тикшереү һүнде.\nХәҙер яҙған тауышты ебәрер алдынан уны тыңлап торорға кәрәкмәй.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Crowdin-да тәржемә итергә программаны</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Программаның статистикаһын ҡарарға</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Яҙыу индикаторының тауышы</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Яҙыу индикаторының тауышы бар.\nБыл тауышш башлаған һәм туҡтатҡан саҡта сығасаҡ.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Яңыртырға кәрәкме, шуны тикшерергә</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Ҡул хәрәкәттәре</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Әгәр программа оҡшаһа Google Play Store-ҙа баһа бир.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Был телгә программа(тулыһынса) тәржемә ителмәгән.\nҺин Crowdin сайтында быны эшләп ярҙам итә алаң.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Анимациялар</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Хәрефтәрҙең ҙурлығын үҙгәртеү</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Ҡул хәрәкәттәрен үҙгәртеү</string>
+    <string name="title_theme_settings" comment="Title in Settings">Тема</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Программаның телеграм группаһы</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Һүрәттәр алдынан текст аңлатммаһын күрһәтергә</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice Terms of Service ты уҡырға</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Нисек тикшереү тураһында аңлатмаларҙы уҡырға</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Google Play ҡарарға</string>
     <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Өҫтәлмә</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Яҙмаларҙы телефонға һаҡларға</string>
+    <string name="txt_reset_data" comment="Button in Settings">Программаның данныйҙарын юйырға</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Эксперименталь мөмкинселектәр юҡ</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Тауыштарҙы тыңлағанда тексты күрһәтергә</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Report тигән кнопканы(өҫтә уң яҡта) күрһәтергә(әле аҫта тора)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Текстың ҙурлығы</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Реклама баннерҙары</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">{{*{{section_name}}*}} реклама күрһәтергә</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Көндәлек планды төҫ индикаторында күрһәтергә</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} һәм {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence...</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip...</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
-    <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>
-    <string name="txt_sentence_record_failed" comment="Label in Speak">Recording failed. Please try again.</string>
-    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
-    <string name="txt_listening_stopped" comment="Label in Speak">Listen to the whole recording to make sure it\'s correct.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Press the icon below to stop listening.</string>
-    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording...</string>
-    <string name="txt_recording_sent" comment="Label in Speak">Recording sent!</string>
-    <string name="txt_sending_recording_failed" comment="Message text">Failed to send recording!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Press the icon below to start the clip.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Press the icon below to stop the clip.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Press the icon below to play the clip again.</string>
-    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marked as correct!</string>
-    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marked as incorrect!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{*{{skip_button}}*}} button to continue.</string>
-    <string name="txt_error_2_sending_failed" comment="Label in Listen">Failed to send the recording.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{*{{skip_button}}*}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing...</string>
-    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. There are no more available clips for this language.</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Һөйләмдәр йөкләнә...</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Үткәр</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Яҙыуҙар тейәлә</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Тауыштар йөкләнә...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Башлар өсөн кнокаға баҫ.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Туҡтатыр өсөн кнопкаға баҫ.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Һөйләм яҙылды. Тейәр өсөн тыңла.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Яҙып булманы. Тағы ҡабатлағыҙ.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Әгәр дөрөҫ әйтһәгеҙ, тауышты ебәрегеҙ.\nӘгәр. дөрөҫ булмаһа, яңынан уҡып яҙҙырығыҙ.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Үҙегеҙҙең яҙманы дөрөҫ яҙылғанмы икәнне тикшереп ҡарағыҙ.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Тыңлауҙы туҡтаттыр өсөн кнопкаға баҫ.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Тауыш ныҡ оҙон. Максимум 10 сеекунд булырға тейеш.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Тауыш ҡыҫҡа. Тағы яҙҙырып ҡара.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Яҙма ебәрелә...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Яҙма ебәрелде!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Ебәргәндә хата булды!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Ебәргәндә хата булды! Һеҙ тағы ҡабатлап ҡарай алаһығыҙ, йә {{*{{skip_button}}*}} кнопкаһына баҫып үткәреп ебәрегеҙ.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Тыңлар өсөн кнопкаға баҫ.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Яҙып бөткәс кнопкаға баҫ.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Әгәр дөрөҫ уҡылһа, бармаҡ өҫкә баҫ.\nДөрөҫ булмаһа бармаҡ аҫҡа баҫ.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Тағы тыңлар өсөн кнопкаға баҫ.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Тауыш дөрөҫ тип танылды!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Тауыш хаталы тип танылды!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Хата. {{*{{skip_button}}*}} ға баҫып үткәреп ебәр.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Ебәргәндә хата булды.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Ебәрәм...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Ебәрә алманым, ниндәйҙер хата. Тағы ебәреп ҡара, йә {{*{{skip_button}}*}} баҫып үткәреп ебәр.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Ябам...</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Хата. Был телдә башҡа яҙылған тауыштар бөттө.</string>
     <string name="button_report" comment="Button">Report</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
-    <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
-    <string name="button_send_report" comment="Button">Send report</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensive speech</string>
-    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report" comment="Checkbox">Different language</string>
-    <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
-    <string name="checkbox_reason5_report" comment="Checkbox">Other</string>
-    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
-    <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
-    <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">You can record {{*{{n_sentences}}*}} more sentences before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">You can validate {{*{{n_clips}}*}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Тауышҡа ялған яҙырға:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Һәйләмгә ялған яҙырға:</string>
+    <string name="button_send_report" comment="Button">Ялғанды ебәрергә</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Кәмһетеү тауыш</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Кәмһетеү</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Грамматтик/башҡа хата</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Төрлө телдәр</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Аңлашылмаған тауыш</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Башҡа</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Комментарий</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Оффлайн һөйләмдәр бөттө. Интернетҡа тоташып яңы һөйләмдәр тейә.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Оффлайн яҙмалар бөттө. Интернетҡа тоташып яңы яҙмалар тейә.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Интернетһыҙ һеҙ тағы {{*{{n_sentences}}*}} һөйләм яҙа алаһығыҙ.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Интернетһыҙ һеҙ {{*{{n_clips}}*}} тауыш тикшерә алаһығыҙ.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Тыңларға...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" тоҡанған. Көйәлмәләргә инеп һүндер.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Был текст йәшертелгән</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice-та һөйләмдәр бөттө. Аҙағыраҡ инеп ҡара.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice-та яҙмалар бөттө. Аҙағыраҡ инеп ҡара.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Һеҙ {{*{{number}}*}} яҙма тикшерҙегеҙ, был эшеңде дауам ит!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Тикшереүҙе дауам ит, әле {{*{{number}}*}} тикшерҙең.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Шәп эш! Һеҙ {{*{{number}}*}} яҙма тикшерҙегеҙ.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Уау, һеҙ супермен! Һеҙ {{*{{number}}*}} яҙма тикшерҙегеҙ!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Һеҙ {{*{{number}}*}} яҙма ебәрҙегеҙ.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Һәйбәт эш! Һеҙ {{*{{number}}*}} тауыш ебәрҙегеҙ.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Һәйбәт эш! Һеҙ {{*{{number}}*}} тауыш ебәрҙегеҙ.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Һәйбәт эш! Һеҙ {{*{{number}}*}} тауыш ебәрҙегеҙ!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Һеҙ көндәлек маҡсатығыҙ {{*{{dailygoal}}*}} ирешер өсөн {{*{{number}}*}} генә яҙма төшөрөп ебәрҙегеҙ!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Һеҙ көндәлек маҡсатығыҙ {{*{{dailygoal}}*}} ирешер өсөн {{*{{number}}*}} генә һөйләм төшөрөп ебәрҙегеҙ!</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection" comment="Button">Check again</string>
-    <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <string name="btn_check_again_noconnection" comment="Button">Тағы тикшерергә</string>
+    <string name="txt_noconnection" comment="Message text">Әле интернетҡа тоташмаған. Wi-Fi йә мобиль интернетҡа тоташҡас кнопкаға баҫ.</string>
     <!-- First-run Speak & Listen -->
-    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">This is the sentence you must record.</string>
-    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">A message to guide you will appear here.</string>
-    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
-    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to start recording.</string>
-    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to stop recording.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording.</string>
-    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to re-record if you made a mistake.</string>
-    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording again.</string>
-    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Tap on this button to send your recording.</string>
-    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">This is the sentence/clip you must validate.</string>
-    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
-    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to play the clip.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
-    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
-    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Яҙыла торған һөйләм ошонда була.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Ярҙам итә торған һөйләм ошонда була.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Әгәр һөйләм оҡшамаһа, ошонда баҫып үткәреп ебәреп була.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Ошонда баҫып яҙа башларға була.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Ошонда баҫып туҡтатып була.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Ошонда баҫып яҙғанды тыңлап була.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Ошонда баҫып кире яҙҙырып була.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Ошонда баҫып тағы тыңлап була.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Ошонда баҫып тауышты ебәр.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Был һөйләмде һеҙ тикшерергә тейешһегеҙ.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Әгәр был яҙма оҡшамаһа, ошонда баҫып үткәреп ебәреп була.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Ошонда баҫып тыңларға була.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Ошонда баҫып туҡтатырға була.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Ошонда баҫып тағы тыңлап була.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Дөрөҫ булһа ошонда баҫ.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Дөрөҫ булмаһа ошонда баҫ.</string>
     <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Яңынан уҡы</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges" comment="Button">Close</string>
-    <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
+    <string name="btnCloseBadges" comment="Button">Яп</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Бөтә значоктар</string>
     <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">Ok</string>
-    <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
-    <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{*{{error_code}}*}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
-    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
-    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
-    <string name="text_warning" comment="Title for Message text">Warning</string>
+    <string name="btnOk" comment="Button">Ок</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Хата</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Был эшләмәй.\nЯңынан эшлләп ҡара йәки беҙгә яҙ.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Был эшләмәй. Яңынан эшләп ҡара йәки беҙгә яҙ.\nХатаның коды: EX-{{*{{error_code}}*}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Инә алманың</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Тәүҙә Common Voice тың сайтына инеп рөхсәт алыр кәрәк.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Common Voiceң-ты ас</string>
+    <string name="text_warning" comment="Title for Message text">Хата</string>
     <string name="text_tip" comment="Title for Message text">Tip</string>
     <string name="text_changelog" comment="Title for Message text">Changelog</string>
     <string name="text_help" comment="Title for Message text">Help</string>
     <string name="text_info" comment="Title for Message text">Info</string>
-    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Do not show anymore</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Башҡа күрһәтмәҫкә</string>
     <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
+    <string name="text_review_now" comment="Button" translatable="true">Яңынан ҡарарға</string>
     <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" comment="Button" translatable="true">Log in again</string>
-    <string name="text_offline_mode" comment="Title">Offline mode</string>
-    <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
-    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Киренән инергә</string>
+    <string name="text_offline_mode" comment="Title">Оффлайн режим</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Әле һеҙ оффлайн режимда.\nБыннда һеҙ яҙҙырып тикшерә алаһығыҙ, тик улар аҙаҡ ҡына сайтҡа ебәрелә.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Ошо значок буйынса һеҙ оффлайнмы әллә онлайн режимдамы икәнегеҙҙе белә алаһығыҙ:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Ошонда баҫып һөйләмдәр һәм тауыштар тейәп була.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Оффлайн режимм ҡуйылмаған, шуға интернетһыҙ эшләп булмай.\nКөйләнмәнән оффлайн режимды ҡуй.</string>
     <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
-    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
-    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
-    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
-    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
-    <string name="button_cancel" comment="Button">Cancel</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
+    <string name="text_open_settings_now">Көйләнмәләрҙе киренән асырға</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Яҙыуҙы юғалтып артҡа китергә әҙерһегеҙме?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Быны үткәреп яҙманы юғалтырға әҙерһегеҙме?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Бөтә мәғлүмәтте юғалтырға әҙерһегеҙме?</string>
+    <string name="button_yes_sure" comment="Button">Әлбиттә</string>
+    <string name="button_cancel" comment="Button">Килешмәҫкә</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Афарин! Һеҙ программаны {{*{{number}}*}} көн астығыҙ.</string>
     <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="button_log_in_now" comment="Button">Хәҙер инергә</string>
+    <string name="button_translate_on_crowdin" comment="Button">Тәржемә итергә</string>
     <!-- Daily goal -->
-    <string name="daily_goal_title" comment="Title in Dashboard">Daily goal</string>
-    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No goal set</string>
-    <string name="set_daily_goal" comment="Button">Set a goal</string>
-    <string name="edit_daily_goal" comment="Button">Edit goal</string>
-    <string name="save_daily_goal" comment="Button">Save</string>
-    <string name="delete_daily_goal" comment="Button">Delete</string>
-    <string name="cancel_daily_goal" comment="Button">Cancel</string>
-    <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
-    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Achieved today</string>
-    <string name="daily_goal_not_achieved_today">Not achieved today</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Well done! You achieved your daily goal.\nYou validated {{*{{n_clips}}*}} clip(s) and recorded {{*{{n_sentences}}*}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="daily_goal_title" comment="Title in Dashboard">Көндәлек маҡсат</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Маҡсат ҡуйылмаған</string>
+    <string name="set_daily_goal" comment="Button">Маҡсат ҡуйырға</string>
+    <string name="edit_daily_goal" comment="Button">Маҡсатты үҙгәртергә</string>
+    <string name="save_daily_goal" comment="Button">Һаҡларға</string>
+    <string name="delete_daily_goal" comment="Button">Юйырға</string>
+    <string name="cancel_daily_goal" comment="Button">Ҡалдырырға</string>
+    <string name="description_setting_daily_goal" comment="Message text">Көнөнә нисә һөйләм тикшерергә һәм яҙҙырырға һайла(икеһе бергә).</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Бөгөн маҡсатҡа ирештең</string>
+    <string name="daily_goal_not_achieved_today">Бөгөн маҡсатҡа ирешмәнең</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Афарин! Көнлөк маҡсатты үтәнең.\nҺин {{*{{n_clips}} клип(һөйләм) тикшерҙең һәм {{*{{n_sentences}}*}} һөйләм(тауыш) яҙҙырҙың.\nДауам ит.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Таратырға</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Таратырға</string>
     <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
-    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copie_string" comment="Toast message">Copied</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Был көндәлек маҡсат Мозиланыҡы түгел. Был программаныҡы ғына.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Беләңме... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">1000 кеше көнөнә 45 тауышын яҙһа, 10\'000 сәғәтте 6 айҙа йыйып була.</string>
+    <string name="copied_string" comment="Toast message">Күсерелде</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
 </resources>

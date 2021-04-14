@@ -130,6 +130,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Hirdetéssáv engedélyezése a {{*{{section_name}}*}} oldalon</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Napi célkitűzés nyomon követése színes sávval</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} és {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Világos téma a mondatok felolvasásánál és ellenőrzésénél is (ha a világos téma be van kapcsolva).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Mondat betöltése…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Átugrás</string>
@@ -180,16 +181,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">A mondat szövege rejtett</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nincs több mondat a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nincs több klip a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Már {{*{{number}}*}} klipet ellenőrzött egymás után, folytassa a nagyszerű munkát!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Folytassa a klipek ellenőrzését, már {{*{{number}}*}} klipet ellenőrzött egymás után.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Kiváló munka! Már {{*{{number}}*}} klipet ellenőrzött egymás után.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Hűha, emberfeletti képessége van! {{*{{number}}*}} klipet ellenőrzött egymás után!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">{{*{{number}}*}} felvételt küldött be egymás után.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Szép munka! {{*{{number}}*}} felvételt küldött be egymás után.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Gratulálunk! Elérte a {{*{{number}}*}} felvételes mérföldkövet. Csak így tovább.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Hűha, emberfeletti képessége van! {{*{{number}}*}} mondatot rögzített egymás után!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Már csak {{*{{number}}*}} klip szükséges a {{*{{dailygoal}}*}} klipes napi célja eléréséhez!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Már csak {{*{{number}}*}} mondat szükséges a {{*{{dailygoal}}*}} mondatos napi célja eléréséhez!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Ellenőrzés újra</string>
     <string name="txt_noconnection" comment="Message text">Nem kapcsolódik az internethez. Kapcsolódjon Wi-Fivel vagy mobil-adatkapcsolattal, majd koppintson a lenti gombra.</string>
@@ -251,10 +252,10 @@
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Biztos, hogy visszaállítja az összes alkalmazásadatot?</string>
     <string name="button_yes_sure" comment="Button">Igen, biztos</string>
     <string name="button_cancel" comment="Button">Mégse</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
-    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Szép munka! {{*{{number}}*}} egymást követő napon nyitotta meg az alkalmazást.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Egymás után {{*{{number}}*}} alkalommal nyitottam meg a CV Project alkalmazást! Töltse le Ön is, és működjön közre a Common Voice projektben az okostelefonja segítségével.</string>
+    <string name="button_log_in_now" comment="Button">Bejelentkezés most</string>
+    <string name="button_translate_on_crowdin" comment="Button">Fordítás most</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Napi cél</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nincs cél megadva</string>
@@ -273,7 +274,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ez a napi cél nem egy hivatalos mozillás funkció. Ez csak az alkalmazás funkciója.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Tudta, hogy…?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 óra valamivel több mint 6 hónap alatt elérhető, ha 1 000 ember napi 45 klipet vesz fel.</string>
-    <string name="copie_string" comment="Toast message">Másolva</string>
+    <string name="copied_string" comment="Toast message">Másolva</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Az alkalmazás új verziója érhető el (verzió: {{*{{n_version}}*}}). Frissítheti a kedvenc alkalmazásboltjából (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) vagy közvetlenül a GitHubról.</string>
 </resources>

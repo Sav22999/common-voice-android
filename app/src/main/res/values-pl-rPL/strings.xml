@@ -130,6 +130,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Włącz baner reklamowy w {{*{{section_name}}*}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Kolorowy pasek postępu celu dziennego</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} i {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Ładowanie zdania...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Pomiń</string>
@@ -273,7 +274,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ten cel dzienny nie jest oficjalną funkcją Mozilli. Jest to tylko funkcja tej aplikacji.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Czy wiesz, że...?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 godzin można osiągnąć w nieco ponad 6 miesięcy, jeśli 1000 osób nagra 45 klipów dziennie.</string>
-    <string name="copie_string" comment="Toast message">Skopiowano</string>
+    <string name="copied_string" comment="Toast message">Copied</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Dostępna jest nowa wersja aplikacji (wydanie {{*{{n_version}}*}}). Możesz zaktualizować ją ze swojego ulubionego sklepu (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) lub bezpośrednio z GitHuba.</string>
 </resources>
