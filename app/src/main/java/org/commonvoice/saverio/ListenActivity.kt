@@ -185,7 +185,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 binding.progressBarListenSpeak.isGone = true
             }
             if (it.validations == 0 && it.recordings > 0 && it.getDailyGoal() > 0) {
-                binding.progressBarListenSpeak.isGone = true
+                binding.progressBarListenListen.isGone = true
             }
         })
 
@@ -235,7 +235,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             binding.progressBarListenSpeak.isGone = true
         }
         if (statsPrefManager.dailyGoal.value!!.validations == 0 && statsPrefManager.dailyGoal.value!!.recordings > 0 && statsPrefManager.dailyGoal.value!!.goal > 0) {
-            binding.progressBarListenSpeak.isGone = true
+            binding.progressBarListenListen.isGone = true
         }
 
         refreshAds()
@@ -291,9 +291,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         //val height = metrics.heightPixels
         var newValue = 0
 
-        if (dailyGoal == 0 || sum == 0) {
-            newValue = width / 2
+        if (dailyGoal > 0 && sum == 0) {
+            //daily goal set, but no contribution have been inserted yet
+            newValue = 1
             setProgressBarColour(progressBar, forced = true)
+            progressBar.isGone = true
+        } else if (dailyGoal == 0) {
+            //daily goal not set
+            newValue = width / 2
+            setProgressBarColour(progressBar, color = R.color.colorBlack)
+            progressBar.isGone = false
         } else if (sum >= dailyGoal) {
             val tempContributions =
                 (currentContributions.toFloat() * dailyGoal.toFloat()) / sum.toFloat()
@@ -581,6 +588,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 else -> resources.getDimension(R.dimen.title_small) * mainPrefManager.textSize
             }
         )
+        withBinding {
+            val metrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(metrics)
+            //val width = metrics.widthPixels
+            val height = metrics.heightPixels
+            val newMinHeight = if (height / 2 > 1500) 1000 else height / 3
+            textSentenceListen.minHeight = newMinHeight
+        }
     }
 
     private fun loadUIStateListening() = withBinding {

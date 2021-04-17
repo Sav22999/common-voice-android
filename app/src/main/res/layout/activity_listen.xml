@@ -49,8 +49,11 @@
             android:background="@drawable/top_bottom_border_radius"
             android:backgroundTintMode="screen"
             android:gravity="center|center_horizontal|center_vertical"
-            android:minHeight="300dp"
-            android:padding="16px"
+
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
             android:text="···"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
