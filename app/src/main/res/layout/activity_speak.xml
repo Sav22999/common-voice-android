@@ -136,7 +136,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionAudioBar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@color/colorTransparent"

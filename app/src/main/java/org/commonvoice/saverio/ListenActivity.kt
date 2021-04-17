@@ -64,12 +64,31 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
     private val settingsPrefManager by inject<SettingsPrefManager>()
 
+    var minHeightButton1 = 80
+    var maxHeightButton1 = 100
+    var minHeightButton2 = 100
+    var maxHeightButton2 = 120
+    var minHeightButtons = 50
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupInitialUIState()
 
         setupUI()
+
+        minHeightButton1 = binding.buttonStartStopListen.layoutParams.height
+        maxHeightButton1 = binding.viewListenAnimateButton1.layoutParams.height
+        minHeightButton2 = binding.viewListenAnimateButton1.layoutParams.height
+        maxHeightButton2 = binding.viewListenAnimateButton2.layoutParams.height
+        minHeightButtons = binding.viewListenAnimateButtonHidden.layoutParams.height
+
+        binding.viewListenAnimateButton1.layoutParams.height = minHeightButtons
+        binding.viewListenAnimateButton1.layoutParams.width = minHeightButtons
+        binding.viewListenAnimateButton2.layoutParams.height = minHeightButtons
+        binding.viewListenAnimateButton2.layoutParams.width = minHeightButtons
+        binding.viewListenAnimateButton1.requestLayout()
+        binding.viewListenAnimateButton2.requestLayout()
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -803,14 +822,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             this.animationsCount++
             animateListenAnimateButton(
                 binding.viewListenAnimateButton1,
-                280,
-                340,
+                minHeightButton1,
+                maxHeightButton1,
                 this.animationsCount
             )
             animateListenAnimateButton(
                 binding.viewListenAnimateButton2,
-                350,
-                400,
+                minHeightButton2,
+                maxHeightButton2,
                 this.animationsCount
             )
         }
@@ -823,13 +842,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 animateListenAnimateButton(
                     viewListenAnimateButton1,
                     viewListenAnimateButton1.height,
-                    200,
+                    minHeightButtons,
                     animationsCount
                 )
                 animateListenAnimateButton(
                     viewListenAnimateButton2,
                     viewListenAnimateButton2.height,
-                    200,
+                    minHeightButtons,
                     animationsCount
                 )
             }
@@ -845,12 +864,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING && this.isListenAnimateButtonVisible) {
             animationListenAnimateButton(view, view.height, min, max, animationsCountTemp)
             view.isVisible = true
-        } else if (!this.isListenAnimateButtonVisible && view.height >= 280) {
+        } else if (!this.isListenAnimateButtonVisible && view.height >= minHeightButton1) {
             animationListenAnimateButton(
                 view,
                 view.height,
                 view.height,
-                200,
+                minHeightButtons,
                 animationsCountTemp,
                 forced = true
             )
@@ -871,7 +890,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         val animation: ValueAnimator =
             ValueAnimator.ofInt(sizeNow, max)
 
-        if (max == 50 || max == 200) animation.duration = 300
+        if (max == minHeightButtons) animation.duration = 300
         else animation.duration = (800..1200).random().toLong()
         animation.addUpdateListener { anim ->
             val value = anim.animatedValue as Int

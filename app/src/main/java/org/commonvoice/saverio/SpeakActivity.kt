@@ -46,6 +46,7 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import java.util.*
+import kotlin.math.min
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     ActivitySpeakBinding::inflate
@@ -73,12 +74,18 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
 
+    var minHeight = 30
+    var maxHeight = 350
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupInitialUIState()
 
         setupUI()
+
+        minHeight = binding.imageAudioBar1.layoutParams.height
+        maxHeight = binding.speakSectionAudioBar.layoutParams.height
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -848,9 +855,14 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun animateAudioBar(view: View, animationsCountTemp: Int) {
         if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible) {
-            animationAudioBar(view, view.height, (30..350).random(), animationsCountTemp)
+            animationAudioBar(
+                view,
+                view.height,
+                (minHeight..maxHeight).random(),
+                animationsCountTemp
+            )
             view.isVisible = true
-        } else if (this.isAudioBarVisible && view.height >= 30) {
+        } else if (this.isAudioBarVisible && view.height >= minHeight) {
             animationAudioBar(view, view.height, 2, animationsCountTemp, forced = true)
             view.isVisible = true
         } else {
