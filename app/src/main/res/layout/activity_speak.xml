@@ -366,6 +366,16 @@
                 tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/viewSpacingSpeak2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speakSectionMiddle" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionBottom"
             android:layout_width="0dp"

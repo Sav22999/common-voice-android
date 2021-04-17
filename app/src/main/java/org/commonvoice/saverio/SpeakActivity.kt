@@ -265,6 +265,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
 
         refreshAds()
+        resizeSentence()
     }
 
     override fun onPause() {

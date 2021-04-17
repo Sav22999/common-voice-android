@@ -239,6 +239,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
 
         refreshAds()
+        resizeSentence()
     }
 
     private fun setupNestedScroll() {
