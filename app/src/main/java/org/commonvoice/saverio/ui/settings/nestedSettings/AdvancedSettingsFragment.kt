@@ -6,6 +6,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
+import android.widget.Toast
 import androidx.core.content.getSystemService
 import androidx.core.view.isGone
 import org.commonvoice.saverio.FirstLaunch
@@ -205,6 +206,11 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                     requireContext()
                         .getSystemService<ClipboardManager>()
                         ?.setPrimaryClip(ClipData.newPlainText("", statsRepository.getUserId()))
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.copied_string),
+                        Toast.LENGTH_LONG
+                    ).show()
                 })
             )
         }

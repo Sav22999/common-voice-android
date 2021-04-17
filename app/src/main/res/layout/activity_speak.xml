@@ -49,8 +49,11 @@
             android:background="@drawable/top_bottom_border_radius"
             android:backgroundTintMode="screen"
             android:gravity="center|center_horizontal|center_vertical"
-            android:minHeight="300dp"
-            android:padding="16px"
+
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
             android:text="···"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
@@ -133,7 +136,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionAudioBar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@color/colorTransparent"
@@ -362,6 +365,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/buttonStartStopSpeak"
                 tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewSpacingSpeak2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speakSectionMiddle" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionBottom"

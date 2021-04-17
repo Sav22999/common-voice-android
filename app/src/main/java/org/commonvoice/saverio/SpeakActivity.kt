@@ -46,6 +46,7 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import java.util.*
+import kotlin.math.min
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     ActivitySpeakBinding::inflate
@@ -73,12 +74,18 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
 
+    var minHeight = 30
+    var maxHeight = 350
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupInitialUIState()
 
         setupUI()
+
+        minHeight = binding.imageAudioBar1.layoutParams.height
+        maxHeight = binding.speakSectionAudioBar.layoutParams.height
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -265,6 +272,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
 
         refreshAds()
+        resizeSentence()
     }
 
     override fun onPause() {
@@ -401,6 +409,17 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         setProgressBarColour(progressBarSpeakSpeak, false)
         setProgressBarColour(progressBarSpeakListen, false)
+
+        if (settingsPrefManager.isLightThemeSentenceBoxSpeakListen) {
+            theme.setElement(
+                view,
+                textSentenceSpeak,
+                color_dark = R.color.colorWhite,
+                color_light = R.color.colorBlack,
+                background_dark = R.color.colorBlack,
+                background_light = R.color.colorWhite
+            )
+        }
     }
 
     private fun openReportDialog() {
@@ -578,6 +597,14 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 else -> resources.getDimension(R.dimen.title_small) * mainPrefManager.textSize
             }
         )
+        withBinding {
+            val metrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(metrics)
+            //val width = metrics.widthPixels
+            val height = metrics.heightPixels
+            val newMinHeight = if (height / 2 > 1500) 1000 else height / 3
+            textSentenceSpeak.minHeight = newMinHeight
+        }
     }
 
     private fun loadUIStateRecording() = withBinding {
@@ -731,9 +758,16 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         //val height = metrics.heightPixels
         var newValue = 0
 
-        if (dailyGoal == 0 || sum == 0) {
-            newValue = width / 2
+        if (dailyGoal > 0 && sum == 0) {
+            //daily goal set, but no contribution have been inserted yet
+            newValue = 1
             setProgressBarColour(progressBar, forced = true)
+            progressBar.isGone = true
+        } else if (dailyGoal == 0) {
+            //daily goal not set
+            newValue = width / 2
+            setProgressBarColour(progressBar, color = R.color.colorBlack)
+            progressBar.isGone = false
         } else if (sum >= dailyGoal) {
             val tempContributions =
                 (currentContributions.toFloat() * dailyGoal.toFloat()) / sum.toFloat()
@@ -821,9 +855,14 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun animateAudioBar(view: View, animationsCountTemp: Int) {
         if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING && this.isAudioBarVisible) {
-            animationAudioBar(view, view.height, (30..350).random(), animationsCountTemp)
+            animationAudioBar(
+                view,
+                view.height,
+                (minHeight..maxHeight).random(),
+                animationsCountTemp
+            )
             view.isVisible = true
-        } else if (this.isAudioBarVisible && view.height >= 30) {
+        } else if (this.isAudioBarVisible && view.height >= minHeight) {
             animationAudioBar(view, view.height, 2, animationsCountTemp, forced = true)
             view.isVisible = true
         } else {

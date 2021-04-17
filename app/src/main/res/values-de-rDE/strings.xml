@@ -130,6 +130,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Werbebanner in {{*{{section_name}}*}} aktivieren</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Farbige Tages-Fortschrittsleiste</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} und {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Lade Satz...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Überspringen</string>
@@ -273,7 +274,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Das Tagesziel ist keine offizielle Mozilla-Funktion. Es ist nur eine Funktion dieser App.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Wusstest Du, dass ... ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 Stunden sind in etwas mehr als 6 Monaten erreichbar, wenn 1.000 Menschen 45 Clips pro Tag aufnehmen.</string>
-    <string name="copie_string" comment="Toast message">Kopiert</string>
+    <string name="copied_string" comment="Toast message">Kopiert</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Eine neue Version der App ist verfügbar (Version {{*{{n_version}}*}}). Du kannst es in Deinem bevorzugten App Store (F-Droid, Google Play Store, Huawei AppGallery) oder direkt von GitHub aktualisieren.</string>
 </resources>

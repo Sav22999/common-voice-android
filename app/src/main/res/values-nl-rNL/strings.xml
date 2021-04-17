@@ -130,6 +130,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Advertentiebanner in {{*{{section_name}}*}} inschakelen</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Gekleurde voortgangsbalk dagdoel</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} en {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Licht thema ook voor de te lezen/valideren zin in Spreken en Luisteren (wanneer het lichte thema is ingeschakeld).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Zin laden...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
@@ -273,7 +274,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Dit dagelijkse doel is geen officiële Mozilla-functie. Het is alleen een functie van deze app.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Wist u dat ... ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 uur is haalbaar in iets meer dan 6 maanden, als 1.000 mensen 45 fragmenten per dag opnemen.</string>
-    <string name="copie_string" comment="Toast message">Gekopieerd</string>
+    <string name="copied_string" comment="Toast message">Gekopieerd</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Er is een nieuwe versie van de app beschikbaar (versie {{*{{n_version}}*}}). U kunt deze bijwerken vanuit uw favoriete store (F-Droid, Google Play Store, Huawei AppGallery, Amazon AppStore) of rechtstreeks vanuit GitHub.</string>
 </resources>

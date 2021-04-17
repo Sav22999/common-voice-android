@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
@@ -63,12 +64,31 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
     private val settingsPrefManager by inject<SettingsPrefManager>()
 
+    var minHeightButton1 = 80
+    var maxHeightButton1 = 100
+    var minHeightButton2 = 100
+    var maxHeightButton2 = 120
+    var minHeightButtons = 50
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupInitialUIState()
 
         setupUI()
+
+        minHeightButton1 = binding.buttonStartStopListen.layoutParams.height
+        maxHeightButton1 = binding.viewListenAnimateButton1.layoutParams.height
+        minHeightButton2 = binding.viewListenAnimateButton1.layoutParams.height
+        maxHeightButton2 = binding.viewListenAnimateButton2.layoutParams.height
+        minHeightButtons = binding.viewListenAnimateButtonHidden.layoutParams.height
+
+        binding.viewListenAnimateButton1.layoutParams.height = minHeightButtons
+        binding.viewListenAnimateButton1.layoutParams.width = minHeightButtons
+        binding.viewListenAnimateButton2.layoutParams.height = minHeightButtons
+        binding.viewListenAnimateButton2.layoutParams.width = minHeightButtons
+        binding.viewListenAnimateButton1.requestLayout()
+        binding.viewListenAnimateButton2.requestLayout()
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -184,7 +204,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 binding.progressBarListenSpeak.isGone = true
             }
             if (it.validations == 0 && it.recordings > 0 && it.getDailyGoal() > 0) {
-                binding.progressBarListenSpeak.isGone = true
+                binding.progressBarListenListen.isGone = true
             }
         })
 
@@ -194,7 +214,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         setupBadgeDialog()
 
-        setTheme()
+        setTheme(this)
 
         if (listenPrefManager.showAdBanner) {
             AdLoader.setupListenAdView(this, binding.adContainer)
@@ -234,10 +254,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             binding.progressBarListenSpeak.isGone = true
         }
         if (statsPrefManager.dailyGoal.value!!.validations == 0 && statsPrefManager.dailyGoal.value!!.recordings > 0 && statsPrefManager.dailyGoal.value!!.goal > 0) {
-            binding.progressBarListenSpeak.isGone = true
+            binding.progressBarListenListen.isGone = true
         }
 
         refreshAds()
+        resizeSentence()
     }
 
     private fun setupNestedScroll() {
@@ -290,9 +311,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         //val height = metrics.heightPixels
         var newValue = 0
 
-        if (dailyGoal == 0 || sum == 0) {
-            newValue = width / 2
+        if (dailyGoal > 0 && sum == 0) {
+            //daily goal set, but no contribution have been inserted yet
+            newValue = 1
             setProgressBarColour(progressBar, forced = true)
+            progressBar.isGone = true
+        } else if (dailyGoal == 0) {
+            //daily goal not set
+            newValue = width / 2
+            setProgressBarColour(progressBar, color = R.color.colorBlack)
+            progressBar.isGone = false
         } else if (sum >= dailyGoal) {
             val tempContributions =
                 (currentContributions.toFloat() * dailyGoal.toFloat()) / sum.toFloat()
@@ -358,28 +386,44 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         animation.start()
     }
 
-    private fun setTheme() = withBinding {
+    private fun setTheme(view: Context) = withBinding {
         theme.setElement(layoutListen)
-        theme.setElement(this@ListenActivity, 1, listenSectionBottom)
+        theme.setElement(view, 1, listenSectionBottom)
         theme.setElement(
-            this@ListenActivity,
+            view,
             textMessageAlertListen,
             R.color.colorAlertMessage,
             R.color.colorAlertMessageDT,
             textSize = 15F
         )
         theme.setElement(
-            this@ListenActivity,
+            view,
             textMotivationalSentencesListen,
             R.color.colorAdviceLightTheme,
             R.color.colorAdviceDarkTheme,
             textSize = 15F
         )
-        theme.setElement(this@ListenActivity, buttonReportListen, background = false)
-        theme.setElement(this@ListenActivity, buttonSkipListen)
+        theme.setElement(view, buttonReportListen, background = false)
+        theme.setElement(view, buttonSkipListen)
 
         setProgressBarColour(progressBarListenSpeak, false)
         setProgressBarColour(progressBarListenListen, false)
+
+        setTextSentenceListen(view)
+    }
+
+    private fun setTextSentenceListen(view: Context) = withBinding {
+        if (settingsPrefManager.isLightThemeSentenceBoxSpeakListen) {
+            theme.setElement(
+                view,
+                textSentenceListen,
+                color_dark = R.color.colorWhite,
+                color_light = R.color.colorBlack,
+                background_dark = R.color.colorBlack,
+                background_light = R.color.colorWhite
+            )
+        }
+        resizeSentence()
     }
 
     private fun openReportDialog() {
@@ -399,12 +443,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateLoading() = withBinding {
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
@@ -464,12 +503,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateNoMoreClips() = withBinding {
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (!listenViewModel.stopped) {
             textSentenceListen.text = "···"
@@ -491,12 +525,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun loadUIStateStandby(clip: Clip, noAutoPlay: Boolean = false) = withBinding {
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (listenViewModel.stopped) {
             //stopped recording
@@ -528,12 +557,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             )
         } else {
             textSentenceListen.text = clip.sentence.sentenceText
-            textSentenceListen.setTextColor(
-                ContextCompat.getColor(
-                    this@ListenActivity,
-                    R.color.colorWhite
-                )
-            )
+            setTextSentenceListen(this@ListenActivity)
         }
 
         hideListenAnimateButtons()
@@ -584,17 +608,20 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 else -> resources.getDimension(R.dimen.title_small) * mainPrefManager.textSize
             }
         )
+        withBinding {
+            val metrics = DisplayMetrics()
+            windowManager.defaultDisplay.getMetrics(metrics)
+            //val width = metrics.widthPixels
+            val height = metrics.heightPixels
+            val newMinHeight = if (height / 2 > 1500) 1000 else height / 3
+            textSentenceListen.minHeight = newMinHeight
+        }
     }
 
     private fun loadUIStateListening() = withBinding {
         stopButtons()
 
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
 
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
@@ -650,12 +677,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         resizeSentence()
         hideListenAnimateButtons()
 
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
         if (!listenViewModel.listenedOnce) {
             showButton(buttonYesClip)
         }
@@ -691,12 +713,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         textSentenceListen.text = "···"
         resizeSentence()
-        textSentenceListen.setTextColor(
-            ContextCompat.getColor(
-                this@ListenActivity,
-                R.color.colorWhite
-            )
-        )
+        setTextSentenceListen(this@ListenActivity)
         if (settingsPrefManager.showReportIcon) {
             hideImage(imageReportIconListen)
         } else {
@@ -805,14 +822,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             this.animationsCount++
             animateListenAnimateButton(
                 binding.viewListenAnimateButton1,
-                280,
-                340,
+                minHeightButton1,
+                maxHeightButton1,
                 this.animationsCount
             )
             animateListenAnimateButton(
                 binding.viewListenAnimateButton2,
-                350,
-                400,
+                minHeightButton2,
+                maxHeightButton2,
                 this.animationsCount
             )
         }
@@ -825,13 +842,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 animateListenAnimateButton(
                     viewListenAnimateButton1,
                     viewListenAnimateButton1.height,
-                    200,
+                    minHeightButtons,
                     animationsCount
                 )
                 animateListenAnimateButton(
                     viewListenAnimateButton2,
                     viewListenAnimateButton2.height,
-                    200,
+                    minHeightButtons,
                     animationsCount
                 )
             }
@@ -847,12 +864,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING && this.isListenAnimateButtonVisible) {
             animationListenAnimateButton(view, view.height, min, max, animationsCountTemp)
             view.isVisible = true
-        } else if (!this.isListenAnimateButtonVisible && view.height >= 280) {
+        } else if (!this.isListenAnimateButtonVisible && view.height >= minHeightButton1) {
             animationListenAnimateButton(
                 view,
                 view.height,
                 view.height,
-                200,
+                minHeightButtons,
                 animationsCountTemp,
                 forced = true
             )
@@ -873,7 +890,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         val animation: ValueAnimator =
             ValueAnimator.ofInt(sizeNow, max)
 
-        if (max == 50 || max == 200) animation.duration = 300
+        if (max == minHeightButtons) animation.duration = 300
         else animation.duration = (800..1200).random().toLong()
         animation.addUpdateListener { anim ->
             val value = anim.animatedValue as Int

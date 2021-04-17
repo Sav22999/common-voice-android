@@ -25,7 +25,7 @@ class SplashScreen : ViewBoundActivity<SplashScreenBinding>(
 
     companion object {
 
-        private const val SPLASH_DELAY = 2500L //Lowered from 3000L because this method is lagging a bit, I guess
+        private const val SPLASH_DELAY = 500L //Lowered from 3000L because this method is lagging a bit, I guess
 
     }
 

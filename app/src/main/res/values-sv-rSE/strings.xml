@@ -69,8 +69,8 @@ De främsta deltagarna</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivå {{*{{level}}*}}</string>
     <string name="level_up_message" comment="Message text">Grattis! Du har precis uppnått {{*{{n_level}}*}} nivån.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Jag har redan en verifieringslänk</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Verifieringslänk</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Verifieringslänken är inte giltig</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Öppna handledningen igen</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projekt öppen kod på GitHub</string>
@@ -129,9 +129,10 @@ De främsta deltagarna</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Visa en rapporteringsikon (övre högra hörnet) istället för en knapp (botten)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Textstorlek</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Annonsrad</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{*{{section_name}}*}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Aktivera annonsrad i {{*{{section_name}}*}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Färgad förloppsindikator för dagliga mål</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} och {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
@@ -177,21 +178,21 @@ De främsta deltagarna</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Du har slut på offline-klipp. Anslut till Internet för att ladda ner fler klipp för att validera.</string>
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Du kan spela in {{*{{n_sentences}}*}} fler meningar innan du behöver ansluta till Internet.</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Du kan validera {{*{{n_clips}}*}} fler klipp innan du behöver ansluta till Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Lyssnar...</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Funktionen \"{{*{{feature_name}}*}}\" är aktiverad. Gå till Inställningar för att inaktivera den.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Meningstexten är dold</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Det finns inga fler meningar på Common Voice servern. Försök igen senare eller kontakta Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Det finns inga fler klipp på Common Voice servern. Försök igen senare eller kontakta Mozilla.</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Du har redan validerat {{*{{number}}*}} klipp i rad, fortsätt så!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Fortsätt att validera klipp, du har validerat {{*{{number}}*}} klipp i rad.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Bra jobbat! Du har redan validerat {{*{{number}}*}} klipp i rad.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, du har superkrafter! Du har validerat {{*{{number}}*}} klipp i rad!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Du har skickat {{*{{number}}*}} inspelningar i rad.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Bra jobbat! Du har skickat {{*{{number}}*}} inspelningar i rad.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Grattis! Du har uppnått milstolpen {{*{{number}}*}} inspelade meningar. Fortsätt så.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, du har superkrafter! Du har spelat in {{*{{number}}*}} klipp i rad!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Du saknar endast {{*{{number}}*}} klipp för att uppnå ditt dagliga mål av {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Du saknar endast {{*{{number}}*}} meningar för att uppnå ditt dagliga mål av {{*{{dailygoal}}*}}!</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Kontrollera igen</string>
     <string name="txt_noconnection" comment="Message text">Du är inte ansluten till internet. Anslut till Wi-Fi eller mobildata, tryck sedan på knappen nedan.</string>
@@ -212,17 +213,17 @@ De främsta deltagarna</string>
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tryck på ikonen om du vill lyssna på klippet igen.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Om klippet matchar meningen, tryck på ikonen för att acceptera det.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Om klippet inte matchar meningen, tryck på ikonen för att avvisa den.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Om du är osäker på om du ska godkänna eller avslå en inspelning så kan du läsa de officiella riktlinjerna för validering på Mozillas Discourse.\nDu kan också hitta denna länk senare under Inställningar.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Läs nu</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Tyvärr, den här funktionen finns inte ännu.\nVi arbetar ständigt med att förbättra appen, så kom tillbaka senare för att se om den har lagts till.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Stäng</string>
     <string name="labelAllBadges" comment="Title for All badge section">Alla märken</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurra! Du har precis förtjänat ett nytt märke.\nGå till {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} för att se alla dina märken.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Du fick detta märke eftersom du validerade minst {{*{{n_clips}}*}} klipp.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Du fick detta märke eftersom du spelade in minst {{*{{n_sentences}}*}} meningar.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Du fick detta märke eftersom du validerade eller spelade in minst {{*{{n_total}}*}} klipp.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">Ok</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Fel</string>
@@ -237,26 +238,26 @@ De främsta deltagarna</string>
     <string name="text_help" comment="Title for Message text">Hjälp</string>
     <string name="text_info" comment="Title for Message text">Information</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Visa inte längre</string>
-    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
-    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
-    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" comment="Button" translatable="true">Log in again</string>
-    <string name="text_offline_mode" comment="Title">Offline mode</string>
+    <string name="text_report_website_bug" comment="Message text">Om du har problem med den officiella hemsidan för Common Voice, var vänlig rapportera dem på Mozillas Discourse-forum eller GitHub-repository så att Mozilla kan fixa dem.</string>
+    <string name="text_review_now" comment="Button" translatable="true">Granska nu</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Gillar du appen? Du kan stödja mitt arbete. Köp mig en fika på PayPal eller LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Logga in igen</string>
+    <string name="text_offline_mode" comment="Title">Offline-läge</string>
     <string name="text_offline_mode_enabled" comment="Message text">Du är nu offline och appen bytte till offline-läge automatiskt.\nDetta innebär att du kan fortsätta att spela in och validera, men förfrågningarna kommer att skickas senare.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Du kan se när du är i offline-läge genom att leta efter denna ikon på skärmen:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Du kan trycka på ikonen för att se nedladdade klipp och meningar.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
-    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
-    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
-    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
-    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
-    <string name="button_cancel" comment="Button">Cancel</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
-    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Offline-läget är inte aktiverat, så du kan inte använda appen utan internetanslutning.\nFör att kunna använda Offline-läget så aktiverar du det under Inställningar.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Visste du att du kan stödja mitt arbete helt gratis? Om du gillar appen så ber jag dig att överväga att aktivera annonser under Inställningar.</string>
+    <string name="text_open_settings_now">Öppna inställningar</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Är du säker på att du vill gå tillbaka och förlora inspelningen?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Är du säker på att du vill hoppa över och förlora inspelningen?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Är du säker på att du vill återställa all appdata?</string>
+    <string name="button_yes_sure" comment="Button">Ja, jag är säker</string>
+    <string name="button_cancel" comment="Button">Avbryt</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Bra gjort! Du har öppnat appen {{*{{number}}*}} dagar i rad.</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Jag har öppnat appen CV Project {{*{{number}}*}} dagar i rad! Ladda ner den du också för att bidra till projektet Common Voice via din smartphone.</string>
+    <string name="button_log_in_now" comment="Button">Logga in nu</string>
+    <string name="button_translate_on_crowdin" comment="Button">Översätt nu</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Dagligt mål</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Inget mål satt</string>
@@ -266,16 +267,16 @@ De främsta deltagarna</string>
     <string name="delete_daily_goal" comment="Button">Radera</string>
     <string name="cancel_daily_goal" comment="Button">Avbryt</string>
     <string name="description_setting_daily_goal" comment="Message text">Välj hur många meningar du vill spela in och klipp du vill validera (summan av dem) per dag.</string>
-    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Uppnådd idag</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Uppnått Idag</string>
     <string name="daily_goal_not_achieved_today">Inte uppnått idag</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Bra gjort! Du uppnådde ditt dagliga mål.\nDu validerade {{*{{n_clips}}*}} klipp(er) och spelade in {{*{{n_sentences}}*}} mening(er).\nKänn dig fri att fortsätta bidra till gemensam röst.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Dela</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Dela på</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Jag har precis uppnått mitt dagliga mål för @mozilla #CommonVoice med #CVProject.\nGå med du också och bidra! Installera CV Projekt från Google Play, F-Droid eller Huawei AppGallery nu {{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Detta dagliga mål är inte en officiell Mozilla-funktion. Det är bara en funktion i den här appen.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copie_string" comment="Toast message">Copied</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Visste du att ... ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 timmar kan uppnås på bara 6 månader om 1000 personer spelar in 45 klipp per dag.</string>
+    <string name="copied_string" comment="Toast message">Kopierat</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">En ny version av appen är tillgänglig (release {{*{{n_version}}*}}). Du kan uppdatera den från din favoritbutik (F-Droid, Google Play Store) eller direkt från GitHub.</string>
 </resources>

@@ -49,8 +49,11 @@
             android:background="@drawable/top_bottom_border_radius"
             android:backgroundTintMode="screen"
             android:gravity="center|center_horizontal|center_vertical"
-            android:minHeight="300dp"
-            android:padding="16px"
+
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
             android:text="···"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorWhite"
@@ -130,9 +133,9 @@
             app:layout_constraintTop_toBottomOf="@+id/textMotivationalSentencesListen" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/listenSectionMiddle"
+            android:id="@+id/listenSectionAnimateButtons"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@color/colorTransparent"
@@ -144,29 +147,55 @@
 
             <View
                 android:id="@+id/viewListenAnimateButton2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/colorListenAnimateButton2"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/viewListenAnimateButton1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/colorListenAnimateButton1"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/viewListenAnimateButtonHidden"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/circle"
                 android:backgroundTint="@color/colorListenAnimateButton2"
                 android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/listenSectionMiddle"
-                app:layout_constraintEnd_toEndOf="@+id/listenSectionMiddle"
-                app:layout_constraintStart_toStartOf="@+id/listenSectionMiddle"
-                app:layout_constraintTop_toTopOf="@+id/listenSectionMiddle"
-                tools:visibility="visible" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <View
-                android:id="@+id/viewListenAnimateButton1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/circle"
-                android:backgroundTint="@color/colorListenAnimateButton1"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/listenSectionMiddle"
-                app:layout_constraintEnd_toEndOf="@+id/listenSectionMiddle"
-                app:layout_constraintStart_toStartOf="@+id/listenSectionMiddle"
-                app:layout_constraintTop_toTopOf="@+id/listenSectionMiddle"
-                tools:visibility="visible" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/listenSectionMiddle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/colorTransparent"
+            android:padding="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen">
 
             <Button
                 android:id="@+id/buttonYesClip"
@@ -204,6 +233,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewSpacingListen2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listenSectionMiddle" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/listenSectionBottom"
