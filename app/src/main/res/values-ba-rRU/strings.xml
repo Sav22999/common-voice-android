@@ -12,7 +12,7 @@
     <string name="button_home_logout">Сығыу</string>
     <string name="button_home_profile">Сәхифә</string>
     <string name="text_hi_username">Сәләм</string>
-    <string name="message_log_in_again">Сессияғыҙ иҫкергән, киренән инеп кәрәк</string>
+    <string name="message_log_in_again">Сессия идентификаторы иҫкергән, һеҙгә яңынан инер кәрәк</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Статистика</string>
     <string name="dashboardVoicesOnline">Онлайн тауыштар</string>
@@ -20,149 +20,149 @@
     <string name="dashboardTabEveryone">Бөтәһе</string>
     <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Бөгөн</string>
     <string name="dashboardEver" comment="Sub-title in Dashboard">Бөтәһе</string>
-    <string name="toastNoLoginNoStatistics">Статистиканы ҡарар өсөн сайтҡа инеп кәрәк</string>
-    <string name="toastNoLoginNoDailyGoal">Көндәлек маҡсат ҡуйыр өсөн сайтҡа инеп кәрәк</string>
+    <string name="toastNoLoginNoStatistics">Һеҙ үҙ статистикағыҙҙы күреү өсөн системаға инергә тейешһегеҙ</string>
+    <string name="toastNoLoginNoDailyGoal">Көндәлек маҡсат ҡуйыу өсөн системаға инергә тейешһегеҙ</string>
     <string name="textHoursAbbreviation">сәғ</string>
     <string name="textHour">Сәғәт</string>
-    <string name="txt_top_contributors">Төп ярҙамсылар</string>
-    <string name="txt_top_contributors_recorded">Яҙылғаны</string>
-    <string name="txt_top_contributors_validated">Тикшерелгәне</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">Программаның статистикаһы</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Әлеге тел</string>
+    <string name="txt_top_contributors">Иң яҡшы ҡатнашыусылар</string>
+    <string name="txt_top_contributors_recorded">Яҙылған</string>
+    <string name="txt_top_contributors_validated">Тикшерелгән</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Программа статистикаһы</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Хәҙерге тел</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Бөтә телдәр</string>
     <string name="txt_not_available_offline" comment="Message text">Оффлайн булғанда килеп сыҡмай</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Башла</string>
+    <string name="btn_tutorial1" comment="Button">Старт</string>
     <string name="btn_tutorial2" comment="Button">Рөхсәт итергә</string>
     <string name="btn_tutorial3" comment="Button">Тағы</string>
     <string name="btn_tutorial4" comment="Button">Тағы эшләп ҡара</string>
-    <string name="btn_tutorial5" comment="Button">Бөттө</string>
+    <string name="btn_tutorial5" comment="Button">Тамам</string>
     <string name="btn_skip" comment="Button">Үткәр</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Рөхсәт алынды</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Хата: рөхсәт юҡ</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">Был Mozilla Common Voiceтың официал булмаған программаһы. Быны Saverio Morelli эшләне.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Дауам итһәгеҙ мозиланың бөтәһе ҡағиҙәләре менән килешәһегеҙ була.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Микрофонға рөхсәт кәрәк.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Хаталарҙы GitHub йә Telegram ға ебәреп була. Хатаны ебәрер өсөн беҙгә файл хаҡлар кәрәк, шуға һеҙҙең файлдарға ла рөхсәт кәрәк.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Иннтернет булмаған саҡта ла һеҙ эшләй алаһығыҙ. Оффлайн равтоматик рәүештә тоҡанған.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Теманың яҡтыһын йә ҡараһын һайлай алағыҙ.</string>
+    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project - Mozilla дөйөм тауыштары өсөн рәсми булмаған ҡушымта. Был Mozilla менән бер ниндәй ярҙам, хеҙмәттәшлекһеҙ Saverio Morelli тарафынан эшләнгән.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Дауам итеп, һеҙ Mozilla дөйөм тауышлы хеҙмәт шарттарына килешәһегеҙ.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Был ҡушымта һеҙҙең тауышығыҙҙы яҙҙырыу өсөн \"Микрофон\" рөхсәтенә мохтаж.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Һеҙ GitHub йәки Telegram аша хаталар тураһында хәбәр итә алаһығыҙ. Проблеманы тиҙ арала аңларға ярҙам итеү өсөн, һеҙ ҡушымтаның журнал файлын отчетҡа һалырға тейешһегеҙ. Ҡушымта журнал файлын һаҡлау өсөн \"Һаҡлау\" рөхсәтенә мохтаж.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Һеҙ оффлайнда ла үҙ өлөшөгөҙҙө индерә алаһығыҙ. Ҡушымта \"Оффлайн режимы\" автоматик рәүештә ярҙам итәсәк, һәм һеҙ Интернетҡа тоташмайса яҙа һәм тыңлай алаһығыҙ.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Һеҙ темагың яҡтыһын йәки ҡараһын һайлай алағыҙ. Һеҙ быны һуңыраҡ Көйләүҙәрҙә үҙгәртә алаһығыҙ.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Ҡара тема</string>
-    <string name="txt_gestures_first_launch" comment="Text | First-run">Ҡайһы осраҡта һеҙ жест ҡуллана аллаһығыҙ. Мәҫәлән үткәреп еббәр тигәнде һулаҡайға шыуҙырып эшләп була.</string>
-    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Был жестарҙы кәйләнмә битендә үҙгәртеп була.</string>
-    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Телеграмға яҙылып яңылыҡтар күрә алаң.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Группаға ҡушыл</string>
-    <string name="txt_choose_language_first_launch" comment="Text | First-run">Киттек! Телде һайлапп ал. Программаныү да телле шул телдә буласаҡ.</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Ҡайһы бер ғәмәлдәр тейешле ишараға эйә. Мәҫәлән, һеҙ тәҡдимдәрҙе һулға сиртеп үткәреп ебәрә алағыҙ.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Был ишараларҙы Көйләүҙәр битендә үҙгәртеп була.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Яңылыҡтар һәм ярҙам алыу өсөн Telegram төркөмөнә ҡушыла алаһығыҙ.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Төркөмгә инеү</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Киттек! Ҡайһы телдә һөйләргә йәки тыңларға теләгән телде һайлағыҙ. Ҡушымта шулай уҡ тәржемә итеү мөмкинлеге булһа, был телдә күрһәтеләсәк.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Йөкләйем...</string>
-    <string name="txt_profile_username" comment="Label in Profile">Исемең</string>
+    <string name="txt_loading_page" comment="Label">Тейәү...</string>
+    <string name="txt_profile_username" comment="Label in Profile">Ҡулланыусының исеме</string>
     <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Нисә йәш</string>
-    <string name="txt_profile_gender" comment="Label in Profile">Енесең</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Профилеңде сайтта үҙгәртә алаң.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Логиның дөрөҫ!</string>
+    <string name="txt_profile_age" comment="Label in Profile">Йәш</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Енесе</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Профиль тураһында мәғлүмәтте үҙгәртеү өсөн Common Voice сайтына инергә кәрәк.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Инеү уңышлы үтәлде!</string>
     <string name="txt_gender_male" comment="Label in Profile">Ир-егет</string>
     <string name="txt_gender_female" comment="Label in Profile">Ҡатын-ҡыҙ</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Башҡа</string>
     <string name="btn_badges_loggedin" comment="Button">Бөтә значоктар</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Уровень {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Афарин! Яңы уровенға күстең {{*{{n_level}}*}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">Минең верификация үтергә һылтанмам бар</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Верификация һылтанмаһы</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">Верификация һылтанмаһы дөрөҫ түгел</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Дәрәжә {{*{{level}}*}}</string>
+    <string name="level_up_message" comment="Message text">Ҡотлайбыҙ! Һеҙ яңы {{*{{n_level}}*}} дәрәжәгә ирештегеҙ.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Минең тикшереү һылтанмаһы бар</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Тикшереү һылтанмаһы</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Тикшереү һылтанмаһы дөрөҫ түгел</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Яңынан өйрәнеү битен асырға</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Асыҡ проект GitHub-та</string>
-    <string name="txt_developed_by" comment="Label in Settings">эшләүсеһе</string>
-    <string name="toast_language_changed" comment="Message text">Тел {{*{{lang}}*}} күсте</string>
+    <string name="txt_developed_by" comment="Label in Settings">эшләнгән</string>
+    <string name="toast_language_changed" comment="Message text">Тел уңышлы {{*{{lang}}*}} күсте</string>
     <string name="settingsLanguage" comment="Title in Settings">Тел</string>
-    <string name="settingsListen" comment="Title in Settings">Тикшереү</string>
-    <string name="settingsSpeak" comment="Title in Settings">Яҙҙырыу</string>
+    <string name="settingsListen" comment="Title in Settings">Тыңлау</string>
+    <string name="settingsSpeak" comment="Title in Settings">Һөйләү</string>
     <string name="settingsOther" comment="Title in Settings">Башҡа</string>
     <string name="settingsGeneral" comment="Title in Settings">Дөйөм</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Ярҙам итә торған һылтанмалар</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Файҙалы һылтанмалар</string>
     <string name="settingsLearnMore" comment="Button in Settings">Күберәк</string>
     <string name="radioThemeLight" comment="Radio-Button in Settings">Яҡты</string>
     <string name="radioThemeDark" comment="Radio-Button in Settings">Ҡара</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">Авто</string>
-    <string name="txt_donate_paypal_settings" comment="Button in Settings">Миңә ярҙам ит. Кофе һатып ал</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Миңә ярҙам ит. Миңә кофе һатып ал</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Клиптар автоматик рәүештә тейәлгәс уйнай</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Ҡара тема</string>
-    <string name="contact_developer_on_telegram" comment="Button in Settings">Телеграмға контакт</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Эксперименталь момкинселектәр</string>
-    <string name="toast_experimental_features_on" comment="Message text">Эксперименталь мөмкинлектәр ҡуйылған. \nУларҙа хата булыуы бар.</string>
-    <string name="txt_log_on_file" comment="Switch-Button in Settings">Логты файлға һаҡларға</string>
-    <string name="toast_log_on_file_on" comment="Message text">Логты файлға һаҡларға рөхсәт ителгән.\nҺеҙ уны беркетә алаһығыҙ\nКүберәк GitHubта уҡы.</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Telegram-да уйлап табыусы менән бәйләнешкә инегеҙ</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Эксперименталь үҙенсәлектәр</string>
+    <string name="toast_experimental_features_on" comment="Message text">Эксперименталь функциялар ҡабыҙылған.\nЯңы функциялар тотороҡһоҙ һәм хәүефһеҙ булырға мөмкин.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Журналды файлға һаҡларға</string>
+    <string name="toast_log_on_file_on" comment="Message text">Логты файлға һаҡларға рөхсәт ителгән.\nҺеҙ уны беркетә алаһығыҙ\nКүберәк GitHub-та уҡы.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Дөйөм статистика</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Мине программала иденцифицироватть иткән тексты күрһәтергә</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Ҡушымтала мине асыҡлаусы һыҙыҡты күрһәтергә</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Программаны ҡулланыу статистикаһы</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Ҡушымтаның ҡулланыу статистикаһы</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Яҙған тауышты тикшереп тормаҫҡа</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Тикшереү һүнде.\nХәҙер яҙған тауышты ебәрер алдынан уны тыңлап торорға кәрәкмәй.</string>
-    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Crowdin-да тәржемә итергә программаны</string>
-    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Программаның статистикаһын ҡарарға</string>
-    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Яҙыу индикаторының тауышы</string>
-    <string name="toast_recording_indicator_sound_on" comment="Message text">Яҙыу индикаторының тауышы бар.\nБыл тауышш башлаған һәм туҡтатҡан саҡта сығасаҡ.</string>
-    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Яңыртырға кәрәкме, шуны тикшерергә</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Ҡушымтаны Crowdin-да тәржемә итергә</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Ҡушымтаның статистикаһын ҡарарға</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Тауыш яҙмаһы индикаторы</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">Яҙыу индикаторының тауышы бар.\nБыл тауыш башлаған һәм туҡтатҡан саҡта сығасаҡ.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Яңыртыуҙарҙы тикшереү</string>
     <string name="txt_gestures" comment="Switch-Button in Settings">Ҡул хәрәкәттәре</string>
-    <string name="message_review_app_on_play_store" comment="Message text">Әгәр программа оҡшаһа Google Play Store-ҙа баһа бир.</string>
-    <string name="message_app_not_completely_translated" comment="Message text">Был телгә программа(тулыһынса) тәржемә ителмәгән.\nҺин Crowdin сайтында быны эшләп ярҙам итә алаң.</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Зинһар, әгәр был ҡушымта оҡшаһа, Google Play Store-ҙа баһа бирегеҙ.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Ҡушымта был телдә (тулыһынса) тәржемә ителмәгән.\nҺеҙ Crowdin сайтында ҡушымтаны тәржемә итеүҙә ҡатнаша алаһығыҙ.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Анимациялар</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Хәрефтәрҙең ҙурлығын үҙгәртеү</string>
-    <string name="txt_customise_gestures" comment="Button in Settings">Ҡул хәрәкәттәрен үҙгәртеү</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Шрифтың ҙурлығын көйләү</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Ҡул хәрәкәттәрен көйләү</string>
     <string name="title_theme_settings" comment="Title in Settings">Тема</string>
-    <string name="txt_telegram_group_settings" comment="Button in Settings">Программаның телеграм группаһы</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Һүрәттәр алдынан текст аңлатммаһын күрһәтергә</string>
-    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice Terms of Service ты уҡырға</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Нисек тикшереү тураһында аңлатмаларҙы уҡырға</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Ҡушымтаның Telegram төркөмө</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Меню иконалары аҫтындағы ярлыктарҙы күрһәтергә</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice Ҡулланыу шарттарын уҡырға</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Тикшереү өсөн аңлатмаларҙы уҡырға</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Google Play ҡарарға</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_ui_settings" comment="Option in Settings">Ҡулланыусы интерфейсы</string>
     <string name="title_advanced_settings" comment="Option in Settings">Өҫтәлмә</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Яҙмаларҙы телефонға һаҡларға</string>
-    <string name="txt_reset_data" comment="Button in Settings">Программаның данныйҙарын юйырға</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Эксперименталь мөмкинселектәр юҡ</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Тауыштарҙы тыңлағанда тексты күрһәтергә</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Report тигән кнопканы(өҫтә уң яҡта) күрһәтергә(әле аҫта тора)</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Яҙмаларҙы девайсҡа һаҡларға</string>
+    <string name="txt_reset_data" comment="Button in Settings">Ҡушымта мәғлүмәттәрен юйырға</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Әлегә эксперименталь функциялар юҡ</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Клиптарҙы тулыһынса тыңлағанда һөйләм текстын күрһәтергә</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Кнопка (аҫта) урынына отчет иконаһын (өҫтә уң яҡта) күрһәтергә</string>
     <string name="title_textsize_settings" comment="Title in Settings">Текстың ҙурлығы</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Реклама баннерҙары</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">{{*{{section_name}}*}} реклама күрһәтергә</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Реклама баннеры</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Реклама баннерын {{*{{section_name}}*}} күрһәтергә</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Көндәлек планды төҫ индикаторында күрһәтергә</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} һәм {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Һөйләмдәр йөкләнә...</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Һөйләмдәр тейәлә...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Үткәр</string>
-    <string name="btn_send_sentence" comment="Button in Speak">Яҙыуҙар тейәлә</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Тауыштар йөкләнә...</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Башлар өсөн кнокаға баҫ.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Туҡтатыр өсөн кнопкаға баҫ.</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Яҙыуҙы ебәреү</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Клипты тейәү...</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Яҙыуҙы башлау өсөн аҫтағы иконаға баҫығыҙ.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Яҙыуҙы туҡтатыу өсөе аҫтағы иконаға баҫығыҙ.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Һөйләм яҙылды. Тейәр өсөн тыңла.</string>
-    <string name="txt_sentence_record_failed" comment="Label in Speak">Яҙып булманы. Тағы ҡабатлағыҙ.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Яҙып булманы. Зинһар ҡабатлап ҡарағыҙ.</string>
     <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Әгәр дөрөҫ әйтһәгеҙ, тауышты ебәрегеҙ.\nӘгәр. дөрөҫ булмаһа, яңынан уҡып яҙҙырығыҙ.</string>
-    <string name="txt_listening_stopped" comment="Label in Speak">Үҙегеҙҙең яҙманы дөрөҫ яҙылғанмы икәнне тикшереп ҡарағыҙ.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Тыңлауҙы туҡтаттыр өсөн кнопкаға баҫ.</string>
-    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Тауыш ныҡ оҙон. Максимум 10 сеекунд булырға тейеш.</string>
-    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Тауыш ҡыҫҡа. Тағы яҙҙырып ҡара.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Ул дөрөҫ икәненә инаныр өсөн, бөтә яҙыуҙы тыңлағыҙ.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Тыңлауҙы туҡтатыр өсөн аҫтағы иконаға баҫығыҙ.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Яҙыу бигерәк оҙон. Максималь дауамлылыҡ - 10 секунд.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Яҙыу бик ҡыҫҡа. Зинһар, ҡабатлап ҡарағыҙ.</string>
     <string name="txt_sending_recording" comment="Label in Speak">Яҙма ебәрелә...</string>
     <string name="txt_recording_sent" comment="Label in Speak">Яҙма ебәрелде!</string>
-    <string name="txt_sending_recording_failed" comment="Message text">Ебәргәндә хата булды!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Ебәргәндә хата булды! Һеҙ тағы ҡабатлап ҡарай алаһығыҙ, йә {{*{{skip_button}}*}} кнопкаһына баҫып үткәреп ебәрегеҙ.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Тыңлар өсөн кнопкаға баҫ.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Яҙып бөткәс кнопкаға баҫ.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Әгәр дөрөҫ уҡылһа, бармаҡ өҫкә баҫ.\nДөрөҫ булмаһа бармаҡ аҫҡа баҫ.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Тағы тыңлар өсөн кнопкаға баҫ.</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Яҙыуҙы ебәреп булманы!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Яҙыуҙы ебәреп булманы! Һеҙ тағы ҡарай алаһығыҙ, йәки {{*{{skip_button}}*}} төймәһенә баҫығыҙ.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Клипты башлау өсөн аҫтағы иконаға баҫығыҙ.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Клипты туҡтатыр өсөн аҫтағы иконаға баҫығыҙ.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Клип дөрөҫ уҡылһа, өҫкө ҙур бармаҡҡа баҫығыҙ..\nӘгәр клип дөрөҫ булмаһа аҫҡы ҙур бармаҡҡа баҫығыҙ.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Клипты яңынан уйнатыу өсөн аҫтағы иконаға баҫ.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Тауыш дөрөҫ тип танылды!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Тауыш хаталы тип танылды!</string>
     <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Хата. {{*{{skip_button}}*}} ға баҫып үткәреп ебәр.</string>
-    <string name="txt_error_2_sending_failed" comment="Label in Listen">Ебәргәндә хата булды.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Яҙыуҙы ебәреп булманы.</string>
     <string name="txt_sending_validation" comment="Label in Listen">Ебәрәм...</string>
     <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Ебәрә алманым, ниндәйҙер хата. Тағы ебәреп ҡара, йә {{*{{skip_button}}*}} баҫып үткәреп ебәр.</string>
     <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Ябам...</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Хата. Был телдә башҡа яҙылған тауыштар бөттө.</string>
-    <string name="button_report" comment="Button">Report</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Тауышҡа ялған яҙырға:</string>
+    <string name="button_report" comment="Button">Отчет</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Роликка тураһында отчет:</string>
     <string name="title_report_sentence" comment="Title in Report a sentence">Һәйләмгә ялған яҙырға:</string>
     <string name="button_send_report" comment="Button">Ялғанды ебәрергә</string>
     <string name="checkbox_reason1_report_sentence" comment="Checkbox">Кәмһетеү тауыш</string>

@@ -130,7 +130,7 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Advertentiebanner in {{*{{section_name}}*}} inschakelen</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Gekleurde voortgangsbalk dagdoel</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} en {{*{{listen_name}}*}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Licht thema ook voor de te lezen/valideren zin in Spreken en Luisteren (wanneer het lichte thema is ingeschakeld).</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Zin laden...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
