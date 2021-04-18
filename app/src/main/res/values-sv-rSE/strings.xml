@@ -133,6 +133,7 @@ De främsta deltagarna</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Färgad förloppsindikator för dagliga mål</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} och {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Visa fält för hastighetskontroll</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
@@ -193,6 +194,7 @@ De främsta deltagarna</string>
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, du har superkrafter! Du har spelat in {{*{{number}}*}} klipp i rad!</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Du saknar endast {{*{{number}}*}} klipp för att uppnå ditt dagliga mål av {{*{{dailygoal}}*}}!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Du saknar endast {{*{{number}}*}} meningar för att uppnå ditt dagliga mål av {{*{{dailygoal}}*}}!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Hastighet är inställd till {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Kontrollera igen</string>
     <string name="txt_noconnection" comment="Message text">Du är inte ansluten till internet. Anslut till Wi-Fi eller mobildata, tryck sedan på knappen nedan.</string>

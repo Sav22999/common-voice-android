@@ -131,6 +131,7 @@
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">დღის მიზნის ფერადი ზოლი</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} და {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ნათელი თემა წინადადებების წაკითხვისთვის; ჩანაწერების შემოწმებისთვის (როცა ნათელი თემა ჩართულია).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">სიჩქარის მართვა</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
@@ -191,6 +192,7 @@
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">ოჰო, ზეადამიანური ენერგია გაქვთ! ზედიზედ {{*{{number}}*}} წინადადება გაქვთ გახმოვანებული!</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">მხოლოდ {{*{{number}}*}} ჩანაწერი გაკლიათ, რომ {{*{{dailygoal}}*}} ჩანაწერის დღიურ მიზანს მიაღწიოთ!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">მხოლოდ {{*{{number}}*}} წინადადება გაკლიათ, რომ {{*{{dailygoal}}*}} წინადადების დღიურ მიზანს მიაღწიოთ!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">სიჩქარე არის {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">თავიდან შემოწმება</string>
     <string name="txt_noconnection" comment="Message text">ინტერნეტთან დაკავშირებული არ ხართ. ჩართეთ Wi-Fi, ან მობილური ინტერნეტი და შემდეგ დააჭირეთ ქვედა ღილაკს.</string>
