@@ -42,6 +42,14 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
             }
             switchShowSentencesTextWhenClipsCompleted.isChecked =
                 listenPrefManager.isShowTheSentenceAtTheEnd
+
+            switchShowSpeedControlListen.setOnCheckedChangeListener { _, isChecked ->
+                listenPrefManager.showSpeedControl = isChecked
+                if (!isChecked) {
+                    listenPrefManager.audioSpeed = 1F
+                }
+            }
+            switchShowSpeedControlListen.isChecked = listenPrefManager.showSpeedControl
         }
 
         setTheme()

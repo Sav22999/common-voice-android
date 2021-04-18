@@ -77,7 +77,7 @@ class ListenViewModel(
             mediaPlayerRepository.setup {
                 _state.postValue(State.LISTENED)
             }
-            if (mediaPlayerRepository.playClip(clip)) {
+            if (mediaPlayerRepository.playClip(clip, listenPrefManager.audioSpeed)) {
                 _state.postValue(State.LISTENING)
             } else {
                 //TODO

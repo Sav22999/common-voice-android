@@ -10,6 +10,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
@@ -208,6 +209,21 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             }
         })
 
+        if (listenPrefManager.showSpeedControl) {
+            binding.listenSectionSpeedButtons.isGone = false
+
+            setSpeedControlButtons(listenPrefManager.audioSpeed, setup = true)
+            binding.buttonSpeed10Listen.setOnClickListener {
+                setSpeedControlButtons(1F)
+            }
+            binding.buttonSpeed15Listen.setOnClickListener {
+                setSpeedControlButtons(1.5F)
+            }
+            binding.buttonSpeed20Listen.setOnClickListener {
+                setSpeedControlButtons(2F)
+            }
+        }
+
         checkOfflineMode(connectionManager.isInternetAvailable)
 
         setupNestedScroll()
@@ -218,6 +234,49 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (listenPrefManager.showAdBanner) {
             AdLoader.setupListenAdView(this, binding.adContainer)
+        }
+    }
+
+    private fun setSpeedControlButtons(speed: Float, setup: Boolean = false) {
+        listenPrefManager.audioSpeed = speed
+        val buttons = mapOf(
+            1F to binding.buttonSpeed10Listen,
+            1.5F to binding.buttonSpeed15Listen,
+            2F to binding.buttonSpeed20Listen
+        )
+
+        for ((key, button) in buttons) {
+            theme.setElement(
+                this,
+                button,
+                R.color.colorSpeedButtonText,
+                R.color.colorSpeedButtonText,
+                R.color.colorSpeedButtonBackground,
+                R.color.colorSpeedButtonBackground,
+                12F,
+                scale = false
+            )
+        }
+        theme.setElement(
+            this,
+            buttons[speed],
+            R.color.colorSpeedButtonTextSelected,
+            R.color.colorSpeedButtonTextSelected,
+            R.color.colorSpeedButtonBackgroundSelected,
+            R.color.colorSpeedButtonBackgroundSelected,
+            12F,
+            scale = false
+        )
+
+        if (!setup) {
+            Toast.makeText(
+                this,
+                getString(R.string.toast_speed_set_successfully).replace(
+                    "{{*{{speed_value}}*}}",
+                    speed.toString()
+                ),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 

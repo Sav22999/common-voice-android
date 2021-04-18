@@ -135,7 +135,7 @@ class SpeakViewModel(
             mediaPlayerRepository.setup {
                 _state.postValue(State.LISTENED)
             }
-            mediaPlayerRepository.playRecording(recording)
+            mediaPlayerRepository.playRecording(recording, speakPrefManager.audioSpeed)
             _state.postValue(State.LISTENING)
         }
     }
