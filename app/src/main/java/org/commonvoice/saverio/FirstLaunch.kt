@@ -201,7 +201,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 startAnimation(buttonOpenTelegramFirstLaunch, animationFirstLaunch)
             } else if (status == 6) {
                 //offline mode
-                imageFirstLaunch.setImageResource(R.drawable.ic_no_wifi)
+                imageFirstLaunch.setImageResource(R.drawable.ic_offline_mode)
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
                 textDescriptionFirstLaunch.setText(R.string.txt_offline_mode_first_launch)
             } else if (status == 7) {

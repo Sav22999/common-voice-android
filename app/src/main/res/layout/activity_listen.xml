@@ -72,7 +72,7 @@
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adContainer"
-            app:srcCompat="@drawable/ic_no_wifi"
+            app:srcCompat="@drawable/ic_offline_mode"
             tools:visibility="visible" />
 
         <ImageView

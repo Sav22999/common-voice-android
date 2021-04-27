@@ -478,6 +478,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 background_dark = R.color.colorBlack,
                 background_light = R.color.colorWhite
             )
+            if (!theme.isDark) {
+                imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode_dark)
+                imageReportIconSpeak.setImageResource(R.drawable.ic_report_dark)
+            } else {
+                imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode)
+                imageReportIconSpeak.setImageResource(R.drawable.ic_report)
+            }
         }
     }
 

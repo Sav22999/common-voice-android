@@ -481,6 +481,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 background_dark = R.color.colorBlack,
                 background_light = R.color.colorWhite
             )
+            if (!theme.isDark) {
+                imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode_dark)
+                imageReportIconListen.setImageResource(R.drawable.ic_report_dark)
+            } else {
+                imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode)
+                imageReportIconListen.setImageResource(R.drawable.ic_report)
+            }
         }
         resizeSentence()
     }
