@@ -1,44 +1,45 @@
 <p>
-This is not the official app of Common Voice. It's developed by Saverio Morelli
+Dit is net de offisjele app fan Common Voice. Hy is ûntwikkele troch Saverio Morelli
 </p>
 <p>
-<b>App features:</b>
+<b>App-Funksjonaliteitenes:</b>
 
-- The user interface (UI) is smart, clear and modern
-- Log in to your Common Voice account
-- Validate clips
-- Record sentences
-- Report sentences/clips in the relative sections
-- Multi-languages supported
-- Offline mode (continue to contribute also when you aren't connected to the Internet!)
-- Common Voice statistics (of the selected language)
-- Top contributors (of the selected language)
-- App statistics (anonymous)
-- Voices online (of the selected language)
-- Dark theme supported
-- Daily goal
-- Gestures
-- Save your recordings on your device
-- Many other features
-- The app experience is totally customisable in Settings
+- De brûkersinterface (UI) is tûk, dúdlik en modern
+- Oanmelde mei jo Common Voice-account
+- Fragminten falidearje
+- Sinnen ynsprekke
+- Sinnen/fragminten yn de byhearrende seksjes rapportearje
+- Stipe foar meardere talen
+- Offlinemodus (bliuw ek bydrage wannear't jo net ferbûn binne mei it ynternet!)
+- Common Voice-statistiken (fan de selektearre taal)
+- Topmeiwurkers (fan de selektearre taal)
+- App-statistiken (anonym)
+- Stimmen online (fan de selektearre taal)
+- Stipe donker tema
+- Deistich doel
+- Gebearen
+- Jo opnamen op jo apparaat bewarje
+- In protte oare funksjes
+- De app-ûnderfining is folslein oan te passen yn Ynstellingen
 
-Join the Telegram group: https://t.me/common_voice_android (@common_voice_android)
-You can see complete app statistics here: https://bit.ly/3clgfkg
-Read more about this app on GitHub: http://bit.ly/2PeOGRg
+Kom by de Telegram-groep: https://t.me/common_voice_android (@common_voice_android)
+Jo kinne komplete app-statistiken hjir sjen: https://bit.ly/3clgfkg
+Lês mear oer dizze app op GitHub: http://bit.ly/2PeOGRg
 </p>
 <p>
-<b>What is Common Voice project?</b>
+<b>Wat is it Common Voice-projekt?</b>
 
-Common Voice is Mozilla's initiative to help teach machines how real people speak.
-Voice is natural, voice is human. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
-Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
-Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-You can find more details on the official website https://commonvoice.mozilla.org/
+Common Voice is het inisjatyf fan Mozilla om masinen te helpen learen hoe't echte minsken sprekke.
+Stim is natuerlik, stim is minsklik. Dêrom binne wy entûsjast oer it kreëarjen fan brûkbere spraaktechnology foar ús masinen. Mar om spraaksystemen te meitsjen, is in ekstreem grut oantal fan spraakgegevens fereaske.
+De measte gegevens brûkt troch grutte bedriuwen is net beskikber foar it grutte publyk. Wy tinke dat dat ynnovaasje behinderet. Dêrom hawwe wy it projekt Common Voice lansearre, in projekt om spraakwerkenning foar elkenien tagonklik te meitsjen.
+No kinne jo jo stim donearje om ús te helpen in iepen boarne stimdatabase te meitsjen dy't elkenien brûke kin
+om ynnovative apps te meitsjen foar apparaten en it web. Lês in sin om masinen te learen hoe't echte minsken sprekke. Kontrolearje it wurk fan oare dielnimmers om de kwaliteit te ferbetterjen. Sa ienfâldich is it!
+Mear ynformaasje fine jo op de offisjele website https://commonvoice.mozilla.org/fy-NL
 </p>
 <p>
-<b>Why should you use the app instead of the website on mobile?</b>
+<b>Wêrom soene jo de app brûke yn stee fan de mobile website?</b>
 
-The app is developed exactly for smartphones so it's native. It has many features that website don't provide you, such as dark theme, offline mode, customisation, gestures, etc.
-The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
-In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.
+De app is krekt ûntwikkele foar snoadfoans, dus hy is ynboud. Hy hat in protte funksjes dy't de website jo net jout, lykas donker tema, offlinemodus, oanpassingen, gebearen ensfh.
+De app is ljochter as de website, sûnder ferfelende animaasjes (en animaasjes yn de app kinne ek stoppe wurde yn Ynstellingen).
+De website hat in pear bugs, foaral de mobile ferzje, dus jo kinne net alles goed útfiere.
 </p>

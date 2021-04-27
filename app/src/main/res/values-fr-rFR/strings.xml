@@ -131,7 +131,7 @@
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barre de progression quotidienne colorée</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} et {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Thème clair aussi pour la phrase à lire/valider dans Parler et Écouter (lorsque le thème clair est activé).</string>
-    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Afficher la barre de contrôle de vitesse</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Chargement de la phrase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Passer</string>
@@ -192,7 +192,7 @@
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Ouah, vous avez des pouvoirs surhumains ! Vous avez enregistré {{*{{number}}*}} phrases d\'affilée !</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Il vous manque seulement {{*{{number}}*}} clips pour atteindre votre objectif quotidien de {{*{{dailygoal}}*}}!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Il vous manque seulement {{*{{number}}*}} phrases pour atteindre votre objectif quotidien de {{*{{dailygoal}}*}} !</string>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Speed successfully set to {{*{{speed_value}}*}}.</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">La vitesse a été réglée sur {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Vérifier à nouveau</string>
     <string name="txt_noconnection" comment="Message text">Vous n\'êtes pas connecté à Internet. Connectez-vous au Wi-Fi ou aux données mobiles, puis appuyez sur le bouton ci-dessous.</string>

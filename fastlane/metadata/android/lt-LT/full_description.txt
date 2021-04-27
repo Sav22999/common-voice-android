@@ -10,7 +10,7 @@ Tai nėra oficiali "Common Voice" programėlė. Programėlę kuria Saverio Morel
 - Įrašyti sakinius
 Pranešti apie sakinius/įrašus atitinkamose skiltyse
 - Palaikomos kelios kalbos
-- Offline rėžimas (galite prisidėti net kai nesate prisijungę prie interneto!)
+- Offline režimas (galite prisidėti net kai nesate prisijungę prie interneto!)
 - Common Voice statistika (pasirinktai kalbai)
 - Top talkininkai (pasirinktai kalbai)
 - Programėlės statistika (anoniminė)
