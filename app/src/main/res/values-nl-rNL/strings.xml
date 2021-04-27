@@ -131,6 +131,7 @@
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Gekleurde voortgangsbalk dagdoel</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} en {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Licht thema ook voor de te lezen/valideren zin in Spreken en Luisteren (wanneer het lichte thema is ingeschakeld).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Snelheidscontrolebalk tonen</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Zin laden...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
@@ -191,6 +192,7 @@
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wauw, u hebt bovenmenselijke krachten! U hebt {{*{{number}}*}} zinnen op rij opgenomen!</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">U hoeft nog maar {{*{{number}}*}} fragmenten om uw dagdoel van {{*{{dailygoal}}*}} te bereiken!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">U hoeft nog maar {{*{{number}}*}} zinnen om uw dagdoel van {{*{{dailygoal}}*}} te bereiken!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Snelheid met succes ingesteld op {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Opnieuw controleren</string>
     <string name="txt_noconnection" comment="Message text">U bent niet verbonden met het internet. Maak verbinding met wifi of mobiele data en druk vervolgens op de knop hieronder.</string>

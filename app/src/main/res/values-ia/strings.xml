@@ -131,6 +131,7 @@
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra colorate de progresso del objectivo quotidian</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} e {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Monstrar le barra de controlo velocitate</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -191,6 +192,7 @@
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Speed successfully set to {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Controlar ancora</string>
     <string name="txt_noconnection" comment="Message text">Tu non es connectite a internet. Connecte te a wifi o a datos mobile, pois pulsa le button infra.</string>
@@ -250,12 +252,12 @@
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
-    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
-    <string name="button_cancel" comment="Button">Cancel</string>
+    <string name="button_yes_sure" comment="Button">Si, io es secur</string>
+    <string name="button_cancel" comment="Button">Cancellar</string>
     <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
     <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="button_log_in_now" comment="Button">Acceder ora</string>
+    <string name="button_translate_on_crowdin" comment="Button">Traducer ora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Objectivo quotidian</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nulle objectivo configurate</string>
@@ -274,7 +276,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Iste objectivo quotidian non es un functionalitate official de Mozilla. Illo es solo un functionalitate de iste le application.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Sape tu que ... ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 horas es attingibile in poco plus de 6 menses si 1000 personas registra 45 phrases pro die.</string>
-    <string name="copied_string" comment="Toast message">Copied</string>
+    <string name="copied_string" comment="Toast message">Copiate</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Un nove version del application es disponibile (version {{*{{n_version}}*}}). Tu pote actualisar lo ex tu favorite magazinage (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) o directemente de GitHub.</string>
 </resources>

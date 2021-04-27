@@ -131,6 +131,7 @@
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra de progresso colorida da meta diária</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} e {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema claro também para a frase ler/para validar em Falar e Ouvir (quando o tema claro está ligado).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Mostrar barra de controle de velocidade</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregando frase...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ignorar</string>
@@ -191,6 +192,7 @@
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Uau, você tem poderes super-humanos! Você gravou {{*{{number}}*}} frases seguidas!</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Faltam apenas {{*{{number}}*}} clipes para você atingir sua meta diária de {{*{{dailygoal}}*}}!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Faltam apenas {{*{{number}}*}} frases para você atingir sua meta diária de {{*{{dailygoal}}*}}!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Velocidade definida com sucesso para {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verificar novamente</string>
     <string name="txt_noconnection" comment="Message text">Você não está conectado à internet. Conecte-se ao Wi-Fi ou aos dados móveis e pressione o botão abaixo.</string>

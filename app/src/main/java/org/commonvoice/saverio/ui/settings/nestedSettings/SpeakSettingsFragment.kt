@@ -48,6 +48,14 @@ class SpeakSettingsFragment : ViewBoundFragment<FragmentSpeakSettingsBinding>() 
                 speakPrefManager.saveRecordingsOnDevice = isChecked
             }
             switchSaveRecordingsOnDevice.isChecked = speakPrefManager.saveRecordingsOnDevice
+
+            switchShowSpeedControlSpeak.setOnCheckedChangeListener { _, isChecked ->
+                speakPrefManager.showSpeedControl = isChecked
+                if (!isChecked) {
+                    speakPrefManager.audioSpeed = 1F
+                }
+            }
+            switchShowSpeedControlSpeak.isChecked = speakPrefManager.showSpeedControl
         }
 
         setTheme()

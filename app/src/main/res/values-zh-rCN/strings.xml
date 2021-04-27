@@ -78,7 +78,7 @@
     <string name="settingsListen" comment="Title in Settings">监听</string>
     <string name="settingsSpeak" comment="Title in Settings">朗读</string>
     <string name="settingsOther" comment="Title in Settings">其他</string>
-    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsGeneral" comment="Title in Settings">通用设置</string>
     <string name="settingsUsefulLinks" comment="Title in Settings">相关链接</string>
     <string name="settingsLearnMore" comment="Button in Settings">了解详情</string>
     <string name="radioThemeLight" comment="Radio-Button in Settings">亮色</string>
@@ -123,14 +123,15 @@
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">保存录音至本地</string>
     <string name="txt_reset_data" comment="Button in Settings">重置应用数据</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">暂无新实验性功能</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">完全听取素材时显示句子文本</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">显示报告图标 (右上) 而不是按钮 (底部)</string>
     <string name="title_textsize_settings" comment="Title in Settings">字体大小</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">广告</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">在{{*{{section_name}}*}}界面开启广告</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} and {{*{{listen_name}}*}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">彩色每日目标进度条</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} 和 {{*{{listen_name}}*}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">对听与读中需要读取/验证的句子也开启浅色主题(当浅色主题开启时)。</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">显示速度控制栏</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">加载句子...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>
@@ -177,20 +178,21 @@
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">您可以先录制{{*{{n_sentences}}*}} 句子才需要连接到互联网。</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">在您需要连接到互联网之前，您可以验证更多片段{{*{{n_clips}}*}} 。</string>
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">正在聆听…</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">The \"{{*{{feature_name}}*}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" 已启用。可前往设置禁用。</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">句子文本已隐藏</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice 服务器中没有更多的句子。请稍后尝试或尝试联系 Mozilla 。</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice 服务器中没有更多的片段。请稍后尝试或尝试联系 Mozilla 。</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">您已经连续验证了 {{*{{number}}*}} 个片段，很不错，请坚持下去！</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">继续验证片段, 你连续验证{{*{{number}}*}} 个片段。</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">非常棒！您已经连续验证了 {{*{{number}}*}} 个片段。</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">哇，你像超人一样！你已连续验证{{*{{number}}*}} 个素材！</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">您连续发送了{{*{{number}}*}} 段录音。</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">太棒了！您连续发送了{{*{{number}}*}} 段录音。</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">恭喜！您已达到 {{*{{number}}*}} 段录音里程碑。请继续。</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">哇，你像超人一样！你已连续录音了 {{*{{number}}*}} 个句子！</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">您只差 {{*{{number}}*}} 个片段来实现您的每日目标 {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">您只差 {{*{{number}}*}} 个句子来实现您的每日目标 {{*{{dailygoal}}*}}!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">速度已成功设置为 {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">再次检查</string>
     <string name="txt_noconnection" comment="Message text">您没有连接到互联网。连接到 Wi-Fi 或移动数据，然后按下面的按钮。</string>
@@ -211,17 +213,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">如果你想要再次聆听剪辑，请点击此图标。</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">如果素材与句子相匹配，请点击此图标来接受。</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">如果素材与句子不匹配，请点击此图标拒绝它。</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">如果你不知道是接受还是拒绝录音，你可以在 Mozilla 教程中看到官方的验证指南。\n您也可以稍后在设置中找到此链接。</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">现在阅读</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">抱歉，此功能尚不存在。\n我们正在不断努力改进应用，所以稍后再回来看看是否添加了。</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">关闭</string>
     <string name="labelAllBadges" comment="Title for All badge section">所有徽章</string>
     <string name="new_badge_earnt_message" comment="Message text when you got a new badge">好耶！您刚刚获得了新勋章。\n请前往 {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} 来查看您的勋章列表。</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{*{{n_clips}}*}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{*{{n_sentences}}*}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{*{{n_total}}*}} clips.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">您获得了这个徽章，因为您验证了至少 {{*{{n_clips}}*}} 个片段。</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">您获得了这个徽章，因为您录制了至少 {{*{{n_sentences}}*}} 个句子。</string>
+    <string name="message_got_badge_because_levels" comment="Message text">您获得了这个徽章，因为您验证或录制了至少 {{*{{n_total}}*}} 个片段。</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">好的</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">错误</string>
@@ -237,25 +239,25 @@
     <string name="text_info" comment="Title for Message text">信息</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">不再显示</string>
     <string name="text_report_website_bug" comment="Message text">如果您在 Common Voice 官方网站遇到了问题, 请在 Mozilla Discourse 论坛或 GitHub 上报告它们，以便Mozilla 能够修复它们。</string>
-    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
-    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_review_now" comment="Button" translatable="true">现在检查</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">你喜欢这个应用吗？你可以支持我的工作，在PayPal或LiberaPay购买一杯咖啡。</string>
     <string name="text_log_in_again" comment="Button" translatable="true">重新登录</string>
     <string name="text_offline_mode" comment="Title">离线模式</string>
     <string name="text_offline_mode_enabled" comment="Message text">您现在处于离线状态，应用程序已自动切换到离线模式。\n这意味着您可以继续记录和验证，但请求将在以后发送。</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">您可以通过在屏幕上查找此图标来告诉何时处于离线模式：</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">您可以点击该图标来查看已下载的剪辑和句子。</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
-    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
-    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
-    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
-    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">离线模式未启用，您无法在没有互联网连接的情况下使用该应用。\n要使用离线模式功能，可在设置中打开。</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">你知道你可以免费支持我的工作吗？如果你喜欢这个应用，请考虑在设置中打开广告横条。</string>
+    <string name="text_open_settings_now">打开设置</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">您确定要返回并丢失录音吗？</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">您确定要跳过并丢失录音吗？</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">您确定要重置所有应用数据吗？</string>
+    <string name="button_yes_sure" comment="Button">是，我确定</string>
     <string name="button_cancel" comment="Button">取消</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
-    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">干得好！您连续打开应用程序 {{*{{number}}*}} 天。</string>
+    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">我连续打开了 {{*{{number}}*}} 天的 CV 项目应用程序！ 下载它也可以通过您的智能手机为Common Voice项目做出贡献。</string>
+    <string name="button_log_in_now" comment="Button">立即登录</string>
+    <string name="button_translate_on_crowdin" comment="Button">立即翻译</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">每日目标</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">未设定目标</string>
@@ -268,13 +270,13 @@
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">今天实现</string>
     <string name="daily_goal_not_achieved_today">今天没有实现</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">做得好！您实现了您的日常目标。\n您验证了 {{*{{n_clips}}*}} 个剪辑，并录制了{{*{{n_sentences}}*}} 句子。\n继续为共同声音做出贡献的自由。</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{*{{link}}*}}</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">分享</string>
+    <string name="share_daily_goal_title" comment="Title of panel">分享至</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">我刚刚使用#CV项目实现了@mozilla #CommonVoice 的每日目标。\n加入并做出贡献！现在从 Google Play、F-Droid 或 Huawei AppGallery 安装 CV 项目{{*{{link}}*}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">这个每日目标不是官方的 Mozilla 功能。它只是此应用程序的一个功能。</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that ... ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copied_string" comment="Toast message">Copied</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">你知道吗？</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">如果有1 000人每天记录45个片段，仅在6个多月就可达到10 000个小时。</string>
+    <string name="copied_string" comment="Toast message">已复制</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">A new version of the app is available (release {{*{{n_version}}*}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">有新版本的应用程序可用(版本 {{*{{n_version}}*}})。 您可以从您最喜欢的商店(F-Droid、Google Play、Huawei AppGallery、Amazon AppStore) 或直接从 GitHub 更新</string>
 </resources>

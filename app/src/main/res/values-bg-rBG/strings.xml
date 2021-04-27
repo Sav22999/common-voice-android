@@ -131,6 +131,7 @@
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Цветна лента за прогрес за дневна цел</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} и {{*{{listen_name}}*}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Зареждане на изречение...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропусни</string>
@@ -191,6 +192,7 @@
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Speed successfully set to {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Провери отново</string>
     <string name="txt_noconnection" comment="Message text">Не сте свързан към интернет. Свържете се с Wi-Fi или мобилни данни, после натиснете бутона по-долу.</string>
@@ -274,7 +276,7 @@
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Дневната цел не е официална фунция от Mozilla. Тя е само функция на това приложение.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Знаехте ли, че ... ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 часа са постижими за малко над 6 месеца, ако 1 000 човека записват по 45 клипа на ден.</string>
-    <string name="copied_string" comment="Toast message">Copied</string>
+    <string name="copied_string" comment="Toast message">Копирано</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Налична е нова версия на приложението (версия {{*{{n_version}}*}}). Можете да го обновите от любимият Ви магазин (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) или директно от GitHub.</string>
 </resources>

@@ -9,7 +9,7 @@ Tämä ei ole Common Voicen virallinen sovellus. Sen on kehittänyt Saverio More
 - Vahvista klippejä
 - Nauhoita virkkeitä
 - Report sentences/clips in the relative sections
-- Multi-languages supported
+- Monikieltä tuetaan
 - Offline-tila (jatka osallistumista myös silloin, kun et ole yhteydessä Internetiin!)
 - Common Voicen tilastot (valitusta kielestä)
 - Eniten osallistuneet (valitusta kielestä)
@@ -20,7 +20,7 @@ Tämä ei ole Common Voicen virallinen sovellus. Sen on kehittänyt Saverio More
 - Eleet
 - Tallenna nauhoitteesi laitteellesi
 - Monia muita ominaisuuksia
-- The app experience is totally customisable in Settings
+- Sovelluskokemus on täysin muokattavissa asetuksissa
 
 Liity Telegram-ryhmään: https://t.me/common_voice_android (@common_voice_android)
 You can see complete app statistics here: https://bit.ly/3clgfkg
@@ -38,7 +38,7 @@ Voit löytää lisää tietoa viralliselta verkkosivustolta https://commonvoice.
 <p>
 <b>Miksi sinun pitäisi käyttää sovellusta verkkosivun sijaan mobiililaitteilla?</b>
 
-The app is developed exactly for smartphones so it's native. It has many features that website don't provide you, such as dark theme, offline mode, customisation, gestures, etc.
+Sovellus on kehitetty juuri älypuhelimille, joten se on natiivi. Siinä on monia ominaisuuksia, joita sivustossa ei ole, kuten tumma teema, offline-tila, mukautus, eleet, jne.
 The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
 In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.
 </p>

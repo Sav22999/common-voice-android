@@ -44,6 +44,15 @@ class SpeakPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.SHOW_AD_BANNER.name, true)
         set(value) = preferences.edit().putBoolean(Keys.SHOW_AD_BANNER.name, value).apply()
 
+    var showSpeedControl: Boolean
+        get() = preferences.getBoolean(Keys.SHOW_SPEED_CONTROL_SPEAK.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_SPEED_CONTROL_SPEAK.name, value)
+            .apply()
+
+    var audioSpeed: Float
+        get() = preferences.getFloat(Keys.AUDIO_SPEED_SPEAK.name, 1F)
+        set(value) = preferences.edit().putFloat(Keys.AUDIO_SPEED_SPEAK.name, value).apply()
+
     private enum class Keys {
         REQUIRED_SENTENCES_COUNT,
         PERIODICALLY_REFRESH_SENTENCES,
@@ -52,6 +61,8 @@ class SpeakPrefManager(ctx: Context) {
         SAVE_RECORDINGS_ON_DEVICE,
         DEVICE_RECORDINGS_LOCATION,
         SHOW_AD_BANNER,
+        SHOW_SPEED_CONTROL_SPEAK,
+        AUDIO_SPEED_SPEAK,
 
         NO_MORE_SENTENCES_AVAILABLE,
     }

@@ -20,15 +20,16 @@ class MediaPlayerRepository {
         }
     }
 
-    fun playRecording(recording: Recording) {
+    fun playRecording(recording: Recording, speed: Float = 1.0F) {
         mediaPlayer?.apply {
             setDataSource(ByteArrayDataSource(recording))
             prepare()
+            playbackParams = playbackParams.setSpeed(speed)
             start()
         }
     }
 
-    fun playClip(clip: Clip): Boolean {
+    fun playClip(clip: Clip, speed: Float = 1.0F): Boolean {
         mediaPlayer?.apply {
             setDataSource(ByteArrayDataSource(clip))
             try {
@@ -38,6 +39,7 @@ class MediaPlayerRepository {
                 Log.e("Exception", e.toString())
                 return false
             }
+            playbackParams = playbackParams.setSpeed(speed)
             start()
         }
         return true

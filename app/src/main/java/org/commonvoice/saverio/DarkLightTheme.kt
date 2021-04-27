@@ -300,6 +300,26 @@ class DarkLightTheme(
         }
     }
 
+    fun setElement(
+        context: Context,
+        element: Button?,
+        color_light: Int,
+        color_dark: Int,
+        background_light: Int,
+        background_dark: Int,
+        textSize: Float = 12F,
+        scale: Boolean = true
+    ) {
+        if (isDark) {
+            element?.setTextColor(ContextCompat.getColor(context, color_light))
+            element?.backgroundTintList = ContextCompat.getColorStateList(context, background_light)
+        } else {
+            element?.setTextColor(ContextCompat.getColor(context, color_dark))
+            element?.backgroundTintList = ContextCompat.getColorStateList(context, background_dark)
+        }
+        if (scale) element?.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
+    }
+
     fun setElement(context: Context, element: CheckBox, textSize: Float = 18.0F) {
         if (isDark) {
             element.setTextColor(ContextCompat.getColor(context, R.color.colorWhite))

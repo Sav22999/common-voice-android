@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textDescriptionOfflineMode2"
-        app:srcCompat="@drawable/ic_no_wifi" />
+        app:srcCompat="@drawable/ic_offline_mode" />
 
     <TextView
         android:id="@+id/textDescriptionOfflineMode3"

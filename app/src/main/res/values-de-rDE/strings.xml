@@ -130,7 +130,8 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Werbebanner in {{*{{section_name}}*}} aktivieren</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Farbige Tages-Fortschrittsleiste</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} und {{*{{listen_name}}*}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Helles Thema auch für Abspielen und Anhören verwenden (wenn das helle Thema aktiviert ist).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Menü für Abspielgeschwindigkeit anzeigen</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Lade Satz...</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Überspringen</string>
@@ -191,6 +192,7 @@
     <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, du hast übermenschliche Kräfte! Du hast {{*{{number}}*}} Sätze in Folge aufgenommen!</string>
     <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Dir fehlen noch {{*{{number}}*}} Clips, um dein tägliches Ziel von {{*{{dailygoal}} *}} zu erreichen!</string>
     <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Dir fehlen noch {{*{{number}}*}} Sätze, um dein tägliches Ziel von {{*{{dailygoal}} *}} zu erreichen!</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Geschwindigkeit erfolgreich auf {{*{{speed_value}} *}} gesetzt.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Erneut überprüfen</string>
     <string name="txt_noconnection" comment="Message text">Du bist nicht mit dem Internet verbunden. Stelle eine Verbindung zu einem drahtlosen Netzwerk oder mobilen Daten her und tippe dann auf die Schaltfläche unten.</string>
@@ -255,7 +257,7 @@
     <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Gut gemacht! Du hast die App {{*{{number}}*}} Tage hintereinander geöffnet.</string>
     <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Ich habe {{*{{number}}*}} Tage in Folge mit CV Project App geholfen! Lad dir die App auch herunter, um via Smartphone zum Common Voice Projekt beizutragen.</string>
     <string name="button_log_in_now" comment="Button">Jetzt einloggen</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="button_translate_on_crowdin" comment="Button">Jetzt übersetzen</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Tagesziel</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Kein Ziel gesetzt</string>
