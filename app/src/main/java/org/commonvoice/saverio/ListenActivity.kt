@@ -26,6 +26,7 @@ import org.commonvoice.saverio.databinding.ActivityListenBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
+import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
@@ -64,6 +65,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private var numberSentThisSession: Int = 0
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
     private val settingsPrefManager by inject<SettingsPrefManager>()
+
+    private var messageInfoToShow = ""
 
     var minHeightButton1 = 80
     var maxHeightButton1 = 100
@@ -484,9 +487,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (!theme.isDark) {
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode_dark)
                 imageReportIconListen.setImageResource(R.drawable.ic_report_dark)
+                imageInfoListen.setImageResource(R.drawable.ic_info_dark)
             } else {
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode)
                 imageReportIconListen.setImageResource(R.drawable.ic_report)
+                imageInfoListen.setImageResource(R.drawable.ic_info_light)
             }
         }
         resizeSentence()
@@ -520,6 +525,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideImage(imageReportIconListen)
             } else {
                 buttonReportListen.isGone = true
+            }
+            if (settingsPrefManager.showInfoIcon) {
+                hideImage(imageInfoListen)
             }
 
             val motivationSentences = arrayOf(
@@ -581,6 +589,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             } else {
                 buttonReportListen.isGone = true
             }
+            if (settingsPrefManager.showInfoIcon) {
+                hideImage(imageInfoListen)
+            }
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         if (!listenViewModel.opened) {
@@ -625,6 +636,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             textSentenceListen.text = clip.sentence.sentenceText
             setTextSentenceListen(this@ListenActivity)
         }
+        messageInfoToShow =
+            "clip-id: ${clip.id}\nclip-glob: ${clip.glob}\nsentence-id: ${clip.sentence.sentenceId}\nexpiry-date: ${clip.sentence.expiryDate}"
 
         hideListenAnimateButtons()
 
@@ -634,6 +647,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             showImage(imageReportIconListen)
         } else {
             buttonReportListen.isGone = false
+        }
+        if (settingsPrefManager.showInfoIcon) {
+            showImage(imageInfoListen)
         }
 
         buttonStartStopListen.isEnabled = true
@@ -661,6 +677,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         imageReportIconListen.onClick {
             openReportDialog()
         }
+        imageInfoListen.onClick {
+            showInformationAboutClip()
+        }
+    }
+
+    private fun showInformationAboutClip() {
+        dialogInflater.show(
+            this,
+            InfoDialog(message = messageInfoToShow)
+        )
     }
 
     private fun resizeSentence() {

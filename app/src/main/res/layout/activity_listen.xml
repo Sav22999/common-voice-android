@@ -64,12 +64,26 @@
             app:layout_constraintTop_toBottomOf="@id/adContainer" />
 
         <ImageView
+            android:id="@+id/imageInfoListen"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/imageReportIconListen"
+            app:layout_constraintTop_toBottomOf="@+id/adContainer"
+            app:srcCompat="@drawable/ic_info_light"
+            tools:visibility="visible" />
+
+        <ImageView
             android:id="@+id/imageOfflineModeListen"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:visibility="invisible"
+            android:padding="5dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adContainer"
             app:srcCompat="@drawable/ic_offline_mode"
@@ -81,7 +95,8 @@
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
-            android:visibility="invisible"
+            android:padding="5dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adContainer"
             app:srcCompat="@drawable/ic_report"

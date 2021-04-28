@@ -2,6 +2,7 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentExperimentalSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -29,11 +30,22 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
         }
 
         withBinding {
+            textSettingsExperimentalFeaturesSpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
+                "{{*{{listen_name}}*}}",
+                getString(R.string.settingsListen)
+            ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
+
             switchThemeLightAlsoForSentenceBox.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isLightThemeSentenceBoxSpeakListen = isChecked
             }
             switchThemeLightAlsoForSentenceBox.isChecked =
                 settingsPrefManager.isLightThemeSentenceBoxSpeakListen
+
+            switchShowInfoIconSpeakListen.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.showInfoIcon = isChecked
+            }
+            switchShowInfoIconSpeakListen.isChecked =
+                settingsPrefManager.showInfoIcon
         }
 
         if (mainPrefManager.areGesturesEnabled)
