@@ -65,7 +65,7 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Inna</string>
     <string name="btn_badges_loggedin" comment="Button">Wszystkie odznaki</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Poziom {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Gratulacje! Właśnie osiągnąłeś poziom {{*{{n_level}}*}}.</string>
+    <string name="level_up_message" comment="Message text">Gratulacje! Właśnie osiągnięto poziom {{*{{n_level}}*}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Mam już link weryfikacyjny</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Link weryfikacyjny</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Link weryfikacyjny jest nieprawidłowy</string>
@@ -182,16 +182,16 @@
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Tekst zdania jest ukryty</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nie ma więcej zdań na serwerze Common Voice. Spróbuj później lub skontaktuj się z Mozillą.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nie ma więcej klipów na serwerze Common Voice. Spróbuj później lub skontaktuj się z Mozillą.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
+    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Sprawdzono już {{*{{number}}*}} klipów pod rząd, kontynuuj tę niesamowitą pracę!</string>
+    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Kontynuuj sprawdzanie klipów, już {{*{{number}}*}} pod rząd.</string>
+    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Doskonała robota! Sprawdzono już {{*{{number}}*}} klipów pod rząd.</string>
+    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Masz superludzkie moce! Sprawdzono {{*{{number}}*}} klipów pod rząd!</string>
+    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wysłano {{*{{number}}*}} nagrań pod rząd.</string>
+    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Dobra robota! Wysłano {{*{{number}}*}} nagrań pod rząd.</string>
+    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Gratulacje! Osiągnięto kamień milowy {{*{{number}}*}} nagranych zdań. Trzymaj tak.</string>
+    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Masz superludzkie moce! Nagrano {{*{{number}}*}} zdań pod rząd!</string>
+    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Brakuje Ci tylko {{*{{number}}*}} klipów, aby osiągnąć swój cel dzienny {{*{{dailygoal}}*}}!</string>
+    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Brakuje Ci tylko {{*{{number}}*}} zdań, aby osiągnąć swój cel dzienny {{*{{dailygoal}}*}}!</string>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Pomyślnie ustawiono prędkość na {{*{{speed_value}}*}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Sprawdź ponownie</string>
@@ -203,7 +203,7 @@
     <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Dotknij tę ikonę, aby rozpocząć nagrywanie.</string>
     <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Dotknij tę ikonę, aby zakończyć nagrywanie.</string>
     <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Dotknij tę ikonę, aby odtworzyć nagranie.</string>
-    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Dotknij tę ikonę, aby ponowić nagrywanie, jeśli popełniłeś błąd.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Dotknij tę ikonę, aby ponowić nagrywanie, jeśli popełniono błąd.</string>
     <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Dotknij tę ikonę, aby ponownie odtworzyć nagranie.</string>
     <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Dotknij tę ikonę, aby wysłać nagranie.</string>
     <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">To jest zdanie/klip, który masz sprawdzić.</string>
