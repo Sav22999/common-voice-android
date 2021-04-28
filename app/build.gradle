@@ -6,11 +6,11 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'org.commonvoice.saverio'
+        applicationId 'org.commonvoice.saverio.beta'
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode = 148
-        versionName '2.3.6.2'
+        versionCode = 149
+        versionName '2.3.6.3'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

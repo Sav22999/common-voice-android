@@ -59,8 +59,10 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
             theme.setElement(layoutSettingsExperimentalFeatures)
 
             theme.setElements(requireContext(), settingsSectionExperimental)
+            theme.setElements(requireContext(), settingsSectionSpeakAndListen)
 
             theme.setElement(requireContext(), 3, settingsSectionExperimental)
+            theme.setElement(requireContext(), 3, settingsSectionSpeakAndListen)
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionExperimental, textSize = 20F)
         }
