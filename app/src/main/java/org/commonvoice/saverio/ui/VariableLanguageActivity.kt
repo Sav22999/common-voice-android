@@ -51,7 +51,18 @@ abstract class VariableLanguageActivity : AppCompatActivity {
         val tempLang = mainPrefManager.language
         val lang = tempLang.split("-")[0]
         if (translationHandler.isLanguageSupported(lang)) {
+            // supported (1)
             super.attachBaseContext(newBase.wrap(Locale(lang)))
+        } else if (translationHandler.isLanguageSupported(tempLang)) {
+            // supported (2)
+            super.attachBaseContext(
+                newBase.wrap(
+                    Locale(
+                        lang,
+                        tempLang.split("-")[1]
+                    )
+                )
+            ) //Locale(language, country)
         } else {
             super.attachBaseContext(newBase.wrap(Locale(TranslationHandler.DEFAULT_LANGUAGE)))
         }

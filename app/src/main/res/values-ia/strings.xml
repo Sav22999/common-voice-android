@@ -249,9 +249,9 @@
     <string name="offline_mode_is_not_enabled" comment="Message text">Le Modo sin connexion non es activate, assi tu non pote usar le application sin un connexion a internet.\nPro usar le functionalitate Modo sin connexion, activa lo in Parametros.</string>
     <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Hallo, vole tu supportar gratis mi labor? Si te place le app, considera activar le banners in le parametros.</string>
     <string name="text_open_settings_now">Aperir le parametros ora</string>
-    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
-    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
-    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Desira tu vermente retroceder e perder le registration?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Desira tu vermente saltar e perder le registration?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Desira tu vermente remontar tote le datos del apps?</string>
     <string name="button_yes_sure" comment="Button">Si, io es secur</string>
     <string name="button_cancel" comment="Button">Cancellar</string>
     <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
