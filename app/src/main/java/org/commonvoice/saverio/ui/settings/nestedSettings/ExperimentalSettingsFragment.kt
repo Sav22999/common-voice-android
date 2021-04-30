@@ -31,9 +31,9 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
 
         withBinding {
             textSettingsExperimentalFeaturesSpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
-                "{{*{{listen_name}}*}}",
+                "{{listen_name}}",
                 getString(R.string.settingsListen)
-            ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
+            ).replace("{{speak_name}}", getString(R.string.settingsSpeak))
 
             switchThemeLightAlsoForSentenceBox.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isLightThemeSentenceBoxSpeakListen = isChecked

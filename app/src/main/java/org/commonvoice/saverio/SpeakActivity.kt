@@ -289,7 +289,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             Toast.makeText(
                 this,
                 getString(R.string.toast_speed_set_successfully).replace(
-                    "{{*{{speed_value}}*}}",
+                    "{{speed_value}}",
                     speed.toString()
                 ),
                 Toast.LENGTH_SHORT
@@ -587,18 +587,31 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonStartStopSpeak.isEnabled = false
 
         val motivationSentences = arrayOf(
-            getString(R.string.text_continue_to_send_1),
-            getString(R.string.text_continue_to_send_2),
-            getString(R.string.text_continue_to_send_3),
-            getString(R.string.text_continue_to_send_4)
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_1,
+                numberSentThisSession,
+                numberSentThisSession
+            ),
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_2,
+                numberSentThisSession,
+                numberSentThisSession
+            ),
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_3,
+                numberSentThisSession,
+                numberSentThisSession
+            ),
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_4,
+                numberSentThisSession,
+                numberSentThisSession
+            )
         )
         if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
             textMotivationSentencesSpeak.isGone = false
             textMotivationSentencesSpeak.text =
-                motivationSentences[(motivationSentences.indices).random()].replace(
-                    "{{*{{number}}*}}",
-                    numberSentThisSession.toString()
-                )
+                motivationSentences[(motivationSentences.indices).random()]
         } else {
             textMotivationSentencesSpeak.isGone = true
         }
@@ -615,11 +628,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             //if the dailygoal is set and it is almost achieved
             textMotivationSentencesSpeak.isGone = false
             textMotivationSentencesSpeak.text =
-                getString(R.string.text_almost_achieved_dailygoal_speak).replace(
-                    "{{*{{number}}*}}",
-                    5.toString()
+                resources.getQuantityString(
+                    R.plurals.text_almost_achieved_dailygoal_speak,
+                    5,
+                    5
                 ).replace(
-                    "{{*{{dailygoal}}*}}",
+                    "{{dailygoal}}",
                     dailyGoal.toString()
                 )
         }
@@ -779,11 +793,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                         StandardDialog(
                             message = getString(R.string.new_badge_earnt_message)
                                 .replace(
-                                    "{{*{{profile}}*}}",
+                                    "{{profile}}",
                                     getString(R.string.button_home_profile)
                                 )
                                 .replace(
-                                    "{{*{{all_badges}}*}}",
+                                    "{{all_badges}}",
                                     getString(R.string.btn_badges_loggedin)
                                 )
                         )
