@@ -1,44 +1,45 @@
 <p>
-This is not the official app of Common Voice. It's developed by Saverio Morelli
+Това не е официалното приложение на Common Voice. Разработено е от Saverio Morelli
 </p>
 <p>
-<b>App features:</b>
+<b>Функции на приложението:</b>
 
-- The user interface (UI) is smart, clear and modern
-- Log in to your Common Voice account
-- Validate clips
-- Record sentences
-- Report sentences/clips in the relative sections
-- Multi-languages supported
-- Offline mode (continue to contribute also when you aren't connected to the Internet!)
-- Common Voice statistics (of the selected language)
-- Top contributors (of the selected language)
-- App statistics (anonymous)
-- Voices online (of the selected language)
-- Dark theme supported
-- Daily goal
-- Gestures
-- Save your recordings on your device
-- Many other features
-- The app experience is totally customisable in Settings
+- Потребителският интерфейс (ПИ) е умен, изчистен и модерен
+- Влизане със вашия Common Voice профил
+- Проверка на клипове
+- Запис на изречения
+- Докладване на изречения/клипове
+- Многоезична поддръжка
+- Офлайн режим (продължавате да допринасяте докато не сте вързани към Интернет!)
+- Статистика от Common Voice (за избрания език)
+- Топ сътрудници (за избрания език)
+- Статистика за приложението (анонимна)
+- Гласове на линия (за избрания език)
+- Поддръжка на тъмна тема
+- Дневна цел
+- Жестове
+- Запазване на записите в устройството
+- Много други функции
+- Изживяването на приложението е напълно персонализируемо в Настройки
 
-Join the Telegram group: https://t.me/common_voice_android (@common_voice_android)
-You can see complete app statistics here: https://bit.ly/3clgfkg
-Read more about this app on GitHub: http://bit.ly/2PeOGRg
+Присъединете се към групата в Telegram: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Можете да видите пълната статистика за приложението тук: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">Статистика за приложението</a>
+Можете също да видите статистиката за употребата на приложението тук: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">Статистика за употребата на приложението</a>
+Прочетете повече за това приложение в GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project в GitHub</a>
 </p>
 <p>
-<b>What is Common Voice project?</b>
+<b>Какво представлява проектът Common Voice?</b>
 
-Common Voice is Mozilla's initiative to help teach machines how real people speak.
-Voice is natural, voice is human. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
-Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
-Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-You can find more details on the official website https://commonvoice.mozilla.org/
+Common Voice е инициатива на Mozilla, която помага на машините да разберат как говорят хората.
+Гласът е естествен, гласът е човешки. Ето защо сме очаровани от създаването на технологии за разпознаване на глас от машини. Но за създаване на гласови системи, разработчиците имат нужда от изключително голямо количество от гласови данни.
+Повечето от данните, използвани от големите компании, не са достъпни за голяма част от хората. Смятаме, че това задушава иновацията. Затова стартирахме проекта Common Voice, който ще отвори за всички технологиите за разпознаване на глас.
+Вече можете да дарите гласа си, за да ни помогнете да създадем отворена банка от данни, чрез която всеки може да създаде иновативни приложения за различни устройства и уеб. Четете изречения, за да помогнете на машините да научат как хората говорят. Проверявайте работата на другите помощници, за да подобрите качеството. Наистина е толкова просто!
+Можете да откриете повече подробности в официалния уебсайт <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
-<b>Why should you use the app instead of the website on mobile?</b>
+<b>Защо бихте използвали приложението вместо мобилния уебсайт?</b>
 
-The app is developed exactly for smartphones so it's native. It has many features that website don't provide you, such as dark theme, offline mode, customisation, gestures, etc.
-The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
-In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.
+Приложението е разработено специално за смартфони. То има много функции, които ги уебсайта не ви дава, като например черна тема, офлайн режим, персонализация, жестове и др.
+Приложението е по-леко от уебсайта, без досадни анимации (и анимациите в приложението също могат да бъдат спряни в Настройки).
+Допълнително, уебсайта има много неизправности, особено в мобилната версия, където не можете да правите всичко правилно.
 </p>

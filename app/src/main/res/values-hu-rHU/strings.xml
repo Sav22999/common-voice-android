@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">hu</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Főoldal</string>
+    <string name="title_dashboard">Vezérlőpult</string>
+    <string name="title_settings">Beállítások</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">Bejelentkezés / Regisztráció</string>
+    <string name="button_home_logout">Kijelentkezés</string>
+    <string name="button_home_profile">Profil</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="message_log_in_again">A munkamenet ideje lejárt, be kell lépnie újra</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Statisztikák</string>
+    <string name="dashboardVoicesOnline">Hangok online</string>
+    <string name="dashboardTabYou">Ön</string>
+    <string name="dashboardTabEveryone">Mindenki</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Ma</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Valaha</string>
+    <string name="toastNoLoginNoStatistics">Be kell lépnie a statisztikák megtekintéséhez</string>
+    <string name="toastNoLoginNoDailyGoal">Be kell lépnie a napi cél beállításához</string>
+    <string name="textHoursAbbreviation">ó</string>
+    <string name="textHour">Óra</string>
+    <string name="txt_top_contributors">Legtöbbet közreműködők</string>
+    <string name="txt_top_contributors_recorded">Felvett</string>
+    <string name="txt_top_contributors_validated">Hitelesített</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Az app statisztikái</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Aktuális nyelv</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Összes nyelv</string>
+    <string name="txt_not_available_offline" comment="Message text">Nem érhető el offline módban</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1" comment="Button">Kezdés</string>
+    <string name="btn_tutorial2" comment="Button">Engedélyezés</string>
+    <string name="btn_tutorial3" comment="Button">Tovább</string>
+    <string name="btn_tutorial4" comment="Button">Próbálja újra</string>
+    <string name="btn_tutorial5" comment="Button">Befejezés</string>
+    <string name="btn_skip" comment="Button">Átugrás</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Hozzáférés megadva</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Hiba: hozzáférés megtagadva</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project egy nem hivatalos app a Mozilla Common Voice-hoz. Saverio Morelli fejlesztői munkája Mozilla bármilyen támogatása és partnersége nélkül készül.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Folytatásával elfogadja a Mozilla Common Voice Szolgáltatási Feltételeit.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Szükség van \"Mikrofon\" jogosultságra, hogy felvegyük a hangját.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Bugokat jelenteni GitHubon vagy Telegramon lehet. Hogy a fejlesztő gyorsan megértse a problémát csatolja a log fájlt a jelentéshez. Szükség van \"Tárhely\" jogosultságra, hogy elmentse az app a log fájlt.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Akkor is hozzájárulhat, amikor offline. Az offline mód automatikusan be lesz kapcsolva, és folytathatja a felvételt és hallgatást internetkapcsolat nélkül.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Világos és sötét téma közül lehet választani. Később ezt módosíthatja a Beállításokban.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Sötét téma</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Egyes műveletekhez gesztusok tartoznak. Például balra húzással kihagyhatja a mondatot Beszéljen módban.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Testreszabhatja ezeket a gesztusok a Beállításokban.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Csatlakozhat a Telegram csoporthoz, hogy híreket és támogatást kapjon.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Csatlakozás a csoporthoz</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Gyerünk! Válassza ki, hogy melyik nyelven szeretne beszélni vagy figyelni. Az alkalmazás azon a nyelven is fog megjelenni, ha a fordítás elérhető.</string>
+    <!-- Login -->
+    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_profile_username" comment="Label in Profile">Felhasználónév</string>
+    <string name="txt_profile_email" comment="Label in Profile">E-mail</string>
+    <string name="txt_profile_age" comment="Label in Profile">Életkor</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Nem</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">A profilinformációk módosításához menjen a Common Voice weboldalra.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Bejelentkezés sikeres.</string>
+    <string name="txt_gender_male" comment="Label in Profile">Férfi</string>
+    <string name="txt_gender_female" comment="Label in Profile">Nő</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Egyéb</string>
+    <string name="btn_badges_loggedin" comment="Button">Összes jelvény</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
+    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Már rendelkezem ellenőrző hivatkozással</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Ellenőrző hivatkozással</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Az ellenőrző hivatkozás nem érvényes</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Oktatás újbóli megnyitása</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Nyílt forráskódú projekt a GitHubon</string>
+    <string name="txt_developed_by" comment="Label in Settings">fejlesztette:</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Nyelv</string>
+    <string name="settingsListen" comment="Title in Settings">Figyeljen</string>
+    <string name="settingsSpeak" comment="Title in Settings">Beszéljen</string>
+    <string name="settingsOther" comment="Title in Settings">Egyéb</string>
+    <string name="settingsGeneral" comment="Title in Settings">Általános</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Hasznos hivatkozások</string>
+    <string name="settingsLearnMore" comment="Button in Settings">További információk</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Világos</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Sötét</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automatikus</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Támogassa a munkámat. Vegyen nekem egy kávét 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Klip automatikus lejátszása, ha betöltődött</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Sötét téma</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Kapcsolatfelvétel a szerzővel Telegramon</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Kísérleti funkciók</string>
+    <string name="toast_experimental_features_on" comment="Message text">A kísérleti funkciók be vannak kapcsolva.\nAz új funkciók instabilak és nem biztonságok lehetnek.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Naplók fájlba mentése</string>
+    <string name="toast_log_on_file_on" comment="Message text">A naplók fájlba mentése be van kapcsolva.\nProblémák jelentésekor mellékelheti a log.txt fájlt.\nTovábbi információk GitHubon.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Általános statisztikák</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Megjeleníti a karakterláncot, amely azonosítja az alkalmazásban</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Alkalmazáshasználati statisztikák</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Felvétel előtti megerősítés átugrása</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">A felvétel előtt megerősítés átugrása be van kapcsolva.\nAnélkül küldheti be a felvételeket, hogy előbb meghallgatná őket.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Fordítsa le az alkalmazást a Crowdinen</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Alkalmazásstatisztikák megtekintése</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Felvételt jelző hang</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">A felvételt jelző hang be van kapcsolva.\nEgy hangjelzést fog hallani, amikor elindítja és leállítja a felvételt.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Frissítések keresése</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Gesztusok</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Ha tetszik Önnek az alkalmazás, akkor ne felejtse el értékelni a Google Play Áruházban.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">Az alkalmazás nincs (teljesen) lefordítva ezen a nyelven.\nKözreműködhet az alkalmazás fordításában a Crowdinen.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animációk</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Betűméret testreszabása</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Gesztusok testreszabása</string>
+    <string name="title_theme_settings" comment="Title in Settings">Téma</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Az alkalmazás Telegram csoportja</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Címkék megjelenítése a menüikonok alatt</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">A Mozilla Common Voice szolgáltatási feltételeinek elolvasása</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Az ellenőrzési irányelvek elolvasása</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Értékeljen a Google Playen</string>
+    <string name="title_ui_settings" comment="Option in Settings">Felhasználói felület</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Speciális</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Felvételek mentése erre az eszközre</string>
+    <string name="txt_reset_data" comment="Button in Settings">Alkalmazásadatok visszaállítása</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Jelenleg nem érhetők el kísérleti funkciók</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mondat szövegének megjelentése a klip végighallgatása után</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Jelentés ikon megjelenítése (jobb felül) a gomb helyett (alul)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Szöveg mérete</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Hirdetéssáv</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Napi célkitűzés nyomon követése színes sávval</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Világos téma a mondatok felolvasásánál és ellenőrzésénél is (ha a világos téma be van kapcsolva).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Átugrás</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Felvétel beküldése</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Koppintson az alábbi ikonra a felvétel elindításához.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Koppintson az alábbi ikonra a felvétel befejezéséhez.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Mondat rögzítve. Hallgassa meg a felvételt.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Felvétel sikertelen. Próbálja újra.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Ha helyesen beszélt, küldje be a felvételt.\nAmennyiben helytelennek ítéli, újrarögzítheti a mondatot.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Hallgassa végig a felvételt, hogy biztosan helyes-e.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Koppintson az alábbi ikonra a hallgatás befejezéséhez.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">A felvétel túl hosszú. Az időkorlát 10 másodperc.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">A felvétel túl rövid. Próbálja újra.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Felvétel beküldve.</string>
+    <string name="txt_sending_recording_failed" comment="Message text">A felvétel beküldése sikertelen.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Koppintson az alábbi ikonra a klip elindításához.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Koppintson az alábbi ikonra a klip leállításához.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Ha a klip helyes, koppintson a felfelé mutató ujjra.\nHa a klip hibás, koppintson a lefelé mutató ujjra.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Koppintson az alábbi ikonra a klip újbóli lejátszásához.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Klip helyesként jelölve.</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Klip helytelenként jelölve.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">A felvétel beküldése sikertelen.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Sending…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Hiba. Nem érhető el több klip ezen a nyelven.</string>
+    <string name="button_report" comment="Button">Jelentés</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Klip jelentése:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Mondat jelentése:</string>
+    <string name="button_send_report" comment="Button">Jelentés küldése</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Sértő nyelvezet</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Sértő beszéd</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Nyelvtani vagy helyesírási hiba</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Eltérő nyelv</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Nehezen ejthető ki</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Egyéb</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Megjegyzés</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Elfogytak az offline mondatok. Kapcsolódjon az Internethez, hogy több felvevendő mondatot töltsön le.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Elfogytak az offline klipek. Kapcsolódjon az Internethez, hogy több ellenőrzendő klipet töltsön le.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">A mondat szövege rejtett</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nincs több mondat a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nincs több klip a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
+        <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">Continue to validate clips, you validated %d clip in a row.</item>
+        <item quantity="other">Continue to validate clips, you validated %d clips in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">Excellent work! You have already validated %d clip in a row.</item>
+        <item quantity="other">Excellent work! You have already validated %d clips in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">Wow, you have superhuman powers! You validated %d clip in a row!</item>
+        <item quantity="other">Wow, you have superhuman powers! You validated %d clips in a row!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">You sent %d recording in a row.</item>
+        <item quantity="other">You sent %d recordings in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">Good job! You sent %d recording in a row.</item>
+        <item quantity="other">Good job! You sent %d recordings in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">Congratulations! You achieved the milestone of %d recorded sentence. Keep going.</item>
+        <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">Wow, you have superhuman powers! You recorded %d sentence in a row!</item>
+        <item quantity="other">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">You miss only %d clip to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="other">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">You miss only %d sentence to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection" comment="Button">Ellenőrzés újra</string>
+    <string name="txt_noconnection" comment="Message text">Nem kapcsolódik az internethez. Kapcsolódjon Wi-Fivel vagy mobil-adatkapcsolattal, majd koppintson a lenti gombra.</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Ez az a mondat, amit fel kell vennie.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Egy Önt segítő üzenet fog itt megjelenni.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Ha nem tetszik Önnek a mondat, akkor idekoppinthat, hogy átugorja és újat kérjen.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy elkezdje a felvételt.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy leállítsa a felvételt.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy visszajátssza a felvételt.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy újra felvegye, ha úgy gondolja, hogy hibát vétette.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre az ikonra, hogy újra visszajátssza a felvételt.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Koppintson erre a gombra, hogy elküldje a felvételt.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Ez az ellenőrizendő mondat vagy klip.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Ha nem tetszik Önnek a klip, akkor erre a gombra koppinthat, hogy átugorja és újat kérjen.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Koppintson erre az ikonra a klip lejátszásához.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Koppintson erre az ikonra a klip lejátszásának leállításához.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Koppintson erre az ikonra, ha újra meg akarja hallgatni a klipet.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Ha a klip megfelel a mondatnak, akkor koppintson erre az ikonra az elfogadásához.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Ha a klip nem felel meg a mondatnak, akkor koppintson erre az ikonra az elutasításához.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Ha nem tudja, hogy elfogadjon vagy elutasítson egy felvételt, akkor elolvashatja a hivatalos ellenőrzési irányelveket a Mozilla Discourse példányán.\nEzt a hivatkozást a Beállításokban is megtalálhatja.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Elolvasás most</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow" comment="Message text">Sajnáljuk, ez a funkció még nem létezik.\nFolyamatosan az alkalmazás fejlesztésén dolgozunk, így nézzen vissza később, hogy hozzáadásra került-e.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges" comment="Button">Bezárás</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Összes jelvény</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
+    <!-- Message dialog -->
+    <string name="btnOk" comment="Button">OK</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Hiba</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Ez nem működött.\nPróbálja újra később, vagy lépjen kapcsolatba a fejlesztővel.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">A bejelentkezés sikertelen</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Először be kell jelentkeznie a Common Voice weboldalon, és el kell fogadnia a Common Voice adatvédelmi irányelveit.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">A Common Voice megnyitása</string>
+    <string name="text_warning" comment="Title for Message text">Figyelmeztetés</string>
+    <string name="text_tip" comment="Title for Message text">Tipp</string>
+    <string name="text_changelog" comment="Title for Message text">Változásnapló</string>
+    <string name="text_help" comment="Title for Message text">Súgó</string>
+    <string name="text_info" comment="Title for Message text">Információ</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Többé ne jelenítse meg</string>
+    <string name="text_report_website_bug" comment="Message text">Ha problémai vannak a hivatalos Common Voice weboldallal, akkor jelentse őket a Mozilla Discourse fórumán vagy a GitHub tárolóban, hogy a Mozilla kijavíthassa.</string>
+    <string name="text_review_now" comment="Button" translatable="true">Ellenőrzés most</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Kedveli az alkalmazást? Támogathatja a munkámat. Vegyen nekem a kávét a PayPalon vagy LiberaPayen.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Jelentkezzen be újra</string>
+    <string name="text_offline_mode" comment="Title">Kapcsolat nélküli mód</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Nincs internetkapcsolat, így az alkalmazás automatikusan kapcsolat nélküli módba vált.\nEz azt jelenti, hogy továbbra is rögzíthet és ellenőrizhet, de a kérések csak később lesznek elküldve..</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Úgy tudhatja meg, hogy az alkalmazás kapcsolat nélküli módban van, hogy ezt az ikont keresi a képernyőn:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Rákoppinthat arra az ikonra, és láthatja a letöltött klipeket és mondatokat.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">A kapcsolat nélküli mód nem engedélyezett, így internetkapcsolat nélkül nem használhatja az alkalmazást.\nA kapcsolat nélküli mód használatához kapcsolja be a Beállításokban.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Tudja, hogy ingyen is támogathatja a munkámat? Ha kedveli az alkalmazást, fontolja meg a reklámcsíkok bekapcsolását a Beállításokban.</string>
+    <string name="text_open_settings_now">Beállítások megnyitása most</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Biztos, hogy visszalép és elveti a felvételt?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Biztos, hogy kihagyja és elveti a felvételt?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Biztos, hogy visszaállítja az összes alkalmazásadatot?</string>
+    <string name="button_yes_sure" comment="Button">Yes</string>
+    <string name="button_cancel" comment="Button">Mégse</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">Well done! You opened the app %d day in a row.</item>
+        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">I\'ve opened the CV Project app %d day in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
+    <string name="button_log_in_now" comment="Button">Bejelentkezés most</string>
+    <string name="button_translate_on_crowdin" comment="Button">Fordítás most</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title" comment="Title in Dashboard">Napi cél</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Nincs cél megadva</string>
+    <string name="set_daily_goal" comment="Button">Adjon meg egy célt</string>
+    <string name="edit_daily_goal" comment="Button">Cél szerkesztése</string>
+    <string name="save_daily_goal" comment="Button">Mentés</string>
+    <string name="delete_daily_goal" comment="Button">Törlés</string>
+    <string name="cancel_daily_goal" comment="Button">Mégse</string>
+    <string name="description_setting_daily_goal" comment="Message text">Válassza ki, hogy hány mondatot szeretne rögzíteni, és hány klipet szeretne ellenőrizni (a kettőt együtt) naponta.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Ma elért</string>
+    <string name="daily_goal_not_achieved_today">Ma nem elért</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Megosztás</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Megosztás itt:</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ez a napi cél nem egy hivatalos mozillás funkció. Ez csak az alkalmazás funkciója.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 óra valamivel több mint 6 hónap alatt elérhető, ha 1 000 ember napi 45 klipet vesz fel.</string>
+    <string name="copied_string" comment="Toast message">Másolva</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+</resources>

@@ -22,23 +22,24 @@ Toto není oficiální aplikace projektu Common Voice. Jejím vývojářem je Sa
 - Mnoho dalších funkcí
 - Zážitek z aplikace si lze zcela přizpůsobit v nastavení
 
-Připojte se do Telegram skupiny: https://t.me/common_voice_android (@common_voice_android)
-Kompletní statistiky aplikace lze vidět zde: https://bit.ly/3clgfkg
-Přečtěte si více o této aplikaci na GitHubu: http://bit.ly/2PeOGRg
+Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>Co je to projekt Common Voice?</b>
+<b>What is the Common Voice project?</b>
 
 Common Voice je iniciativa společnosti Mozilla pomoci naučit stroje, jak mluví opravdoví lidé.
 Hlas je přirozený, hlas je lidský. To je důvod, proč s nadšením vytváříme použitelnou hlasovou technologii pro naše stroje. Avšak k tomu, abychom vytvořili hlasové systémy, potřebují vývojáři extrémně velké množství hlasových dat.
 Většina dat, které používají velké společnosti, není pro většinu lidí dostupná. My si myslíme, že to potlačuje inovaci. Takže jsme spustili Common Voice, projekt, který pomůže otevřít a zpřístupnit rozpoznávání hlasu všem.
 Nyní můžete přispět svým hlasem a pomoci nám vybudovat open-source databázi, kterou může použít kdokoli pro vytváření inovativních aplikací pro zařízení a web. Přečtěte větu, abyste pomohli strojům učit se, jak mluví skuteční lidé. Kontrolujte práci ostatních přispěvatelů a zlepšujte kvalitu. Je to tak jednoduché!
-Více podrobností naleznete na oficiální stránce https://commonvoice.mozilla.org/
+You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Proč byste na telefonu měli používat aplikaci namísto webové stránky?</b>
 
-Aplikace je vyvinuta přímo pro telefony, takže je nativní. Má mnoho funkcí, které webová stránka neposkytuje, jako tmavý motiv, režim offline, přizpůsobení, gesta atd.
+The app is developed specifically for smartphones so it's native. Má mnoho funkcí, které webová stránka neposkytuje, jako tmavý motiv, režim offline, přizpůsobení, gesta atd.
 Aplikace je jednodušší než webová stránka, bez otravných animací (animace v aplikace lze také vypnout v nastavení).
 Kromě toho má webová stránka také mnoho chyb, zejména verze pro mobily, takže nemůžete vše dělat správně.
 </p>

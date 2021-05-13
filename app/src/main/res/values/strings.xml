@@ -3,9 +3,8 @@
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <string name="app_name" translatable="false">CV Project</string>
     <string name="app_name_long" translatable="false">CV Project</string>
-
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">en</string>
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">en</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -45,7 +44,7 @@
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
     <string name="linkTermsCommonVoice" translatable="false">https://commonvoice.mozilla.org/terms</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the "Microphone" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the "Storage" permission to save the log file.</string>
@@ -63,7 +62,7 @@
     <string name="txt_profile_email" comment="Label in Profile">Email</string>
     <string name="txt_profile_age" comment="Label in Profile">Age</string>
     <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">To modify your profile information, go to the Common Voice website.</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">To modify your profile information, go to the Common Voice website.</string>
     <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
     <string name="txt_gender_male" comment="Label in Profile">Male</string>
     <string name="txt_gender_female" comment="Label in Profile">Female</string>
@@ -132,13 +131,13 @@
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -> it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
     <string name="txt_common_voice_playbook_settings" comment="Button in Settings" translatable="false">Common Voice Playbook</string>
     <string name="txt_sentence_collector_settings" comment="Button in Settings" translatable="false">Sentence Collector</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
-    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings > Speak / Listen">Show speed control bar</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
@@ -186,7 +185,7 @@
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">The \"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
@@ -240,7 +239,7 @@
         <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
     </plurals>
     <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
-        <item quantity="one">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
+        <item quantity="one">Wow, you have superhuman powers! You recorded %d sentence in a row!</item>
         <item quantity="two">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
         <item quantity="few">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
         <item quantity="many">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
@@ -292,7 +291,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Close</string>
     <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} > {{all_badges}} to see all your badges.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
@@ -338,11 +337,11 @@
         <item quantity="other">Well done! You opened the app %d days in a row.</item>
     </plurals>
     <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
-        <item quantity="one">I\'ve opened %d day the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</item>
+        <item quantity="one">I\'ve opened the CV Project app %d day in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
         <item quantity="two">I\'ve opened %d days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</item>
         <item quantity="few">I\'ve opened %d days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</item>
         <item quantity="many">I\'ve opened %d days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</item>
-        <item quantity="other">I\'ve opened %d days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</item>
+        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
     </plurals>
     <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Log in now</string>

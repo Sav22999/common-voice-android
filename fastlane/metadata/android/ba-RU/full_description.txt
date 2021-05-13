@@ -1,5 +1,5 @@
 <p>
-Был официал булмаған Common Voice-тың программаһы. Быны Saverio Morelli эшләне
+Был официал булмаған Common Voice-тың программаһы. Был Saverio Morelli тарафынан эшләнгән
 </p>
 <p>
 <b>Программаның мөмкинселектәре</b>
@@ -7,38 +7,39 @@
 Иннтерфейс(UI) уңайлы
 Common Voice аккаунтына ин
 Тикшерелгән тауыштар
-Яҙылған һөйләмдәр
-Һөйләмдәргә/тауыштарға жалоба ебәреү
+- Һөйләмдәр яҙҙырыу
+- Һөйләмдәргә/тауыштарға ялыу ебәреү
 Күп телдәрҙә эшләнгән
-Оффлайн режим (интернет булмаһала дауам итә алаң)
+- Оффлайн режим (Интернетҡа тоташмағанда ла өлөш индереүҙе дауам итегеҙ!)
 Common Voice статистикаһы (һайланған телгә)
 Төп ярҙамсы (һайланған телгә)
 Программа статистикаһы (аноним)
 Онлайн булған тауыштар (һайланған телгә)
 Ҡара тема эшләнгән
 Көндәлек маҡсат
-Жесты
-Тауышыңды телефоныңа һаҡла
+- Ҡул хәрәкәттәре
+- Яҙмаларҙы девайсҡа һаҡлау
 Башҡа мөмкинселектәр
-Көйләнмә битендә бөтә нәмәне үҙгәрттеп була
+- Ҡушымта менән эшләү Көйләүҙәрҙә тулыһынса көйләнә
 
-Телеграмға ҡушыл: https://t.me/common_voice_android (@common_voice_android)
-Программа статистикаһын бында ҡарап була: https://bit.ly/3clgfkg
-Күберәкте GitHub-та уҡы: http://bit.ly/2PeOGRg
+Telegram төркөмөнә ҡушылығыҙ: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Һеҙ ҡушымтаның тулы статистикаһын бында күрә алаһығыҙ: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">Ҡушымта статистикаһы</a>
+Һеҙ шулай уҡ ҡушымтаны ҡулланыу статистикаһын бында күрә алаһығыҙ:<a href="https://www.saveriomorelli.com/commonvoice/app-usage/">Ҡушымтаны ҡулланыу статистикаһы</a>
+Был ҡушымта тураһында күберәк GitHub-та уҡығыҙ: <a href="https://github.com/Sav22999/common-voice-android/">CV Project GitHub-та</a>
 </p>
 <p>
-<b>Нимә ул Common Voice?</b>
+<b>Нимә ул Common Voice проект?</b>
 
 Common Voice Мозиланың машиналарҙы кеше кеүек аңларға өйрәтеү инициативаһы.
 Кеше тауышы. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
 Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
 Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-You can find more details on the official website https://commonvoice.mozilla.org/
+Һеҙ тулыраҡ мәғлүмәтте рәсми сайтта <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a> таба алаһығыҙ
 </p>
 <p>
 <b>Ни өсөн сайтҡа ҡарағанда программа уңайлыраҡ?</b>
 
-Был телефондар өсөн эшләнгән. Күп мөмкинселектәр сайтта юҡ.
+Ҡушымта махсус смартфондар өсөн эшләнгән, шуға ул туған. Күп мөмкинселектәр сайтта юҡ.
 Был тиҙерәк сайтҡа ҡарағанда (кәйләнмәлә үҙгәртеп була).
 Сайтта хаталар килеп сыға.
 </p>

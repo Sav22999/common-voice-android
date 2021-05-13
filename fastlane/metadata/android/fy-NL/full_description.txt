@@ -22,9 +22,10 @@ Dit is net de offisjele app fan Common Voice. Hy is ûntwikkele troch Saverio Mo
 - In protte oare funksjes
 - De app-ûnderfining is folslein oan te passen yn Ynstellingen
 
-Kom by de Telegram-groep: https://t.me/common_voice_android (@common_voice_android)
-Jo kinne komplete app-statistiken hjir sjen: https://bit.ly/3clgfkg
-Lês mear oer dizze app op GitHub: http://bit.ly/2PeOGRg
+Kom by de Telegram-groep: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Jo kinne hjir ek de folsleine app-statistiken besjen: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App-statistiken</a>
+Jo kinne hjir ek de folsleine app-gebrûksstatistiken besjen: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App-gebrûksstatistiken</a>
+Lês mear oer dizze app op GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project op GitHub</a>
 </p>
 <p>
 <b>Wat is it Common Voice-projekt?</b>
@@ -34,7 +35,7 @@ Stim is natuerlik, stim is minsklik. Dêrom binne wy entûsjast oer it kreëarje
 De measte gegevens brûkt troch grutte bedriuwen is net beskikber foar it grutte publyk. Wy tinke dat dat ynnovaasje behinderet. Dêrom hawwe wy it projekt Common Voice lansearre, in projekt om spraakwerkenning foar elkenien tagonklik te meitsjen.
 No kinne jo jo stim donearje om ús te helpen in iepen boarne stimdatabase te meitsjen dy't elkenien brûke kin
 om ynnovative apps te meitsjen foar apparaten en it web. Lês in sin om masinen te learen hoe't echte minsken sprekke. Kontrolearje it wurk fan oare dielnimmers om de kwaliteit te ferbetterjen. Sa ienfâldich is it!
-Mear ynformaasje fine jo op de offisjele website https://commonvoice.mozilla.org/fy-NL
+Jo fine mear details op de offisjele website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/fy-NL</a>
 </p>
 <p>
 <b>Wêrom soene jo de app brûke yn stee fan de mobile website?</b>

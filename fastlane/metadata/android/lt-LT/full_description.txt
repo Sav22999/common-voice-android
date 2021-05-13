@@ -22,23 +22,24 @@ Pranešti apie sakinius/įrašus atitinkamose skiltyse
 - Ir daug kitų funkcionalumų
 - Programos patirtį galima visiškai keisti nustatymuose
 
-Prisijunkite prie Telegram grupės: https://t.me/common_voice_android (@common_voice_android)
-Galite peržiūrėti visą programėlės statistiką čia: https://bit.ly/3clgfkg
-Daugiau informacijos apie programėlę rasite GitHub: http://bit.ly/2PeOGRg
+Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>Kas yra "Common Voice" projektas?</b>
+<b>What is the Common Voice project?</b>
 
 „Common Voice“ yra „Mozilla“ iniciatyva padėti išmokyti mašinas suprasti kaip kalba tikri žmonės.
 Balsas yra natūralus, balsas yra žmogiškas. Štai kodėl mes džiaugiamės galėdami sukurti tinkamas balso technologijas savo mašinoms. Tačiau norint sukurti balso sistemas, kūrėjams reikia itin daug balso duomenų.
 Daugumai didelių bendrovių naudojamų duomenų dauguma žmonių negali gauti. Mes manome, kad slopina inovacijas. Taigi mes pradėjome projektą „Common Voice“, padedantį balso atpažinimą padaryti atvirą ir prieinamą visiems.
 Dabar galite pasidalinti savo balsu, kad padėtumėte mums sukurti atviro kodo balso duomenų bazę, kurią visi galėtų naudoti kurdami novatoriškas įrenginių ir žiniatinklio programas. Perskaitykite sakinį, kuris padės mašinoms sužinoti, kaip kalba tikri žmonės. Patikrinkite kitų bendradarbių darbą, kad pagerintumėte kokybę. Tai taip paprasta!
-Daugiau informacijos rasite oficialioje svetainėje https://commonvoice.mozilla.org/
+You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Kodėl turėtumėte naudoti programėlę, o ne svetainę mobiliajame telefone?</b>
 
-Programėlė skirta išmaniesiems įrengiiams. Jame yra daugybė funkcijų, kurių svetainė jums neteikia, pvz., Tamsi tema, režimas neprisijungus, tinkinimas, gestai ir kt.
+The app is developed specifically for smartphones so it's native. Jame yra daugybė funkcijų, kurių svetainė jums neteikia, pvz., Tamsi tema, režimas neprisijungus, tinkinimas, gestai ir kt.
 Programa yra paprastesnė ir lengvesnė nei svetainė, be erzinančių animacijų (o programos animacijas taip pat galima sustabdyti nustatymuose).
 Be to, svetainėje yra daugybė klaidų, ypač mobiliosios versijos, todėl negalite padaryti visko teisingai.
 </p>

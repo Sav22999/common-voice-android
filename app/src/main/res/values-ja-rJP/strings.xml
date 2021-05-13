@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">ja</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">ホーム</string>
+    <string name="title_dashboard">ダッシュボード</string>
+    <string name="title_settings">設定</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">ログイン/サインアップ</string>
+    <string name="button_home_logout">ログアウト</string>
+    <string name="button_home_profile">プロフィール</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="message_log_in_again">セッションIDの有効期限が切れています。再度ログインする必要があります</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">統計情報</string>
+    <string name="dashboardVoicesOnline">オンライン中の声</string>
+    <string name="dashboardTabYou">あなたです</string>
+    <string name="dashboardTabEveryone">全員に</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">今日</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">これまで</string>
+    <string name="toastNoLoginNoStatistics">統計情報を表示するにはログインが必要です</string>
+    <string name="toastNoLoginNoDailyGoal">毎日の目標を設定するにはログインする必要があります</string>
+    <string name="textHoursAbbreviation">時間</string>
+    <string name="textHour">時間</string>
+    <string name="txt_top_contributors">Top contributors</string>
+    <string name="txt_top_contributors_recorded">Recorded</string>
+    <string name="txt_top_contributors_validated">Validated</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
+    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1" comment="Button">開始</string>
+    <string name="btn_tutorial2" comment="Button">Permit</string>
+    <string name="btn_tutorial3" comment="Button">次へ</string>
+    <string name="btn_tutorial4" comment="Button">もう一度やり直してください</string>
+    <string name="btn_tutorial5" comment="Button">完了</string>
+    <string name="btn_skip" comment="Button">スキップ</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">権限を取得しました</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">エラー: アクセスが拒否されました</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">続行することにより、Mozilla の Common Voice Terms of Serviceに同意したことになります。</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">このアプリは音声を録音するために「マイク」権限が必要です。</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">バグは GitHub または Telegram で報告できます。 開発者がこの問題を素早く理解できるようにするには、アプリのログファイルをレポートに添付する必要があります。 アプリはログファイルを保存するために「ストレージ」権限が必要です。</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">オフライン中に貢献することもできます。 アプリの「オフラインモード」は自動的に有効になり、インターネット接続なしで録音とリッスンを続けることができます。</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">ライトテーマまたはダークテーマのいずれかを選択できます。これは後から設定で変更できます。</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">ダークテーマ</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">いくつかのアクションは対応するジェスチャーを持っています。たとえば、左にスワイプしてSpeakで文をスキップできます。</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">これらのジェスチャーは設定でカスタマイズできます。</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Telegramグループに参加してニュースとサポートを受けることができます。</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">グループに参加</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">さあ、話したい言語を選択するか、聞きたい言語を選択しましょう。 翻訳がある場合は、その言語でアプリが表示されます。</string>
+    <!-- Login -->
+    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_profile_username" comment="Label in Profile">ユーザー名</string>
+    <string name="txt_profile_email" comment="Label in Profile">Eメールアドレス</string>
+    <string name="txt_profile_age" comment="Label in Profile">年齢</string>
+    <string name="txt_profile_gender" comment="Label in Profile">性別</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">プロフィール情報を変更するには、Common Voice の Web サイトを参照してください。</string>
+    <string name="txt_login_successful_alert" comment="Message text">ログイン成功！</string>
+    <string name="txt_gender_male" comment="Label in Profile">男性</string>
+    <string name="txt_gender_female" comment="Label in Profile">女性</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">その他</string>
+    <string name="btn_badges_loggedin" comment="Button">すべてのバッジ</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
+    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">チュートリアルを再度開く</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">GitHub上のプロジェクトのオープンソース</string>
+    <string name="txt_developed_by" comment="Label in Settings">開発者</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">言語</string>
+    <string name="settingsListen" comment="Title in Settings">Listen</string>
+    <string name="settingsSpeak" comment="Title in Settings">話す</string>
+    <string name="settingsOther" comment="Title in Settings">その他</string>
+    <string name="settingsGeneral" comment="Title in Settings">General</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">私の仕事をサポートしてください。コーヒーを買ってください 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">読み込み時にクリップを自動再生</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">ダークテーマ</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Telegramで開発者に連絡する</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">実験的な機能</string>
+    <string name="toast_experimental_features_on" comment="Message text">実験的な機能をオンにしました。\n新しい機能は不安定で安全ではない可能性があります。</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">ログをファイルに保存</string>
+    <string name="toast_log_on_file_on" comment="Message text">ログをファイルに保存するのがオンになっています。\n問題を報告するときにlog.txtファイルを添付することができます。\n詳細はGitHubをご覧ください。</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">録音確認をスキップ</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">録音をスキップする確認をオンにしました。\n録音を聞かずに録音を送信できるようになりました。</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Crowdin でアプリを翻訳</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">アプリの統計情報を見る</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">録音インジケーターの音</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">録音インジケーターをオンにしました。\n録音を開始して停止すると録音が再生されます。</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">アップデートを確認</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">ジェスチャー</string>
+    <string name="message_review_app_on_play_store" comment="Message text">このアプリが気に入った場合は、Google Play ストアで確認してください。</string>
+    <string name="message_app_not_completely_translated" comment="Message text">アプリはこの言語で(完全に)翻訳されていません。\nCrowdin でアプリの翻訳に貢献することができます。</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">アニメーション</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">フォントサイズをカスタマイズ</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">ジェスチャーをカスタマイズ</string>
+    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">アプリのTelegramグループ</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">メニューアイコンの下にラベルを表示する</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">スキップ</string>
+    <string name="btn_send_sentence" comment="Button in Speak">録音を送信</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">下のアイコンを押して録音を開始します。</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">下のアイコンを押して録画を停止します。</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">音声が録音されました。録音を聞いてください。</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">録音に失敗しました。もう一度やり直してください。</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">正しく話した場合は、録音を送ってください。\n間違えた場合は、もう一度文を録音できます。</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">それが正しいことを確認するために録音全体を聞いてください。</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">以下のアイコンを押して、聴き取りを停止します。</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">録音が長すぎます。最大時間は10秒です。</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">録音が短すぎます。もう一度やり直してください。</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_recording_sent" comment="Label in Speak">録音を送信しました！</string>
+    <string name="txt_sending_recording_failed" comment="Message text">録画を送信できませんでした！</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">下のアイコンを押してクリップを開始します。</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">下のアイコンを押してクリップを停止します。</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">クリップが正しい場合は、親指を上に押します。\nクリップが間違っている場合は、親指を下に押します。</string>
+    <string name="txt_clip_again" comment="Label in Listen">下のアイコンを押すと、クリップが再生されます。</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">クリップを正しいとマークしました!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">クリップを間違えた!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">録画の送信に失敗しました。</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Sending…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">エラー。この言語に使用可能なクリップはありません。</string>
+    <string name="button_report" comment="Button">レポート</string>
+    <string name="title_report_clip" comment="Title in Report a clip">レポートクリップ:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">レポート文:</string>
+    <string name="button_send_report" comment="Button">レポートを送信</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">攻撃的な言語</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">攻撃的なスピーチをする</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">異なる言語</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">発音が困難です</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">その他</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">コメント</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">オフラインの文章が不足しています。記録する文章をダウンロードするには、インターネットに接続してください。</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">オフラインクリップが不足しています。より多くのクリップを検証するにはインターネットに接続してください。</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="other">Continue to validate clips, you validated %d clips in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="other">Excellent work! You have already validated %d clips in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="other">Wow, you have superhuman powers! You validated %d clips in a row!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="other">You sent %d recordings in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="other">Good job! You sent %d recordings in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="other">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="other">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection" comment="Button">もう一度確認</string>
+    <string name="txt_noconnection" comment="Message text">インターネットに接続されていません。Wi-Fiまたはモバイルデータに接続し、下のボタンを押してください。</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">これはあなたが記録しなければならない文です。</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">ここに案内するメッセージが表示されます。</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">文章が気に入らない場合は、ここをタップして別の文を取得することができます。</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">録画を開始するには、このアイコンをタップします。</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">録画を停止するには、このアイコンをタップしてください。</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">録音を再生するには、このアイコンをタップします。</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">間違いを犯した場合は、このアイコンをタップして再録音してください。</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">このアイコンをタップすると録音を再度再生できます。</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">録音を送信するには、このボタンをタップします。</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">これは検証する必要がある文章/クリップです。</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">クリップが気に入らない場合は、このボタンをタップしてスキップして別のクリップを取得できます。</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">このアイコンをタップしてクリップを再生します。</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">このアイコンをタップしてクリップの再生を停止します。</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">クリップをもう一度再生したい場合は、このアイコンをタップします。</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">クリップが文章に一致する場合は、このアイコンをタップして同意します。</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">クリップが文と一致しない場合は、このアイコンをタップして拒否します。</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow" comment="Message text">申し訳ありませんが、この機能はまだ存在しません。\nアプリを改善するために常に取り組んでいますので、後ほど追加されたかどうかを確認してください。</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges" comment="Button">閉じる</string>
+    <string name="labelAllBadges" comment="Title for All badge section">すべてのバッジ</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
+    <!-- Message dialog -->
+    <string name="btnOk" comment="Button">OK</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">エラー</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">動作しませんでした。\nもう一度試すか、開発者に連絡してください。</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">ログインに失敗しました</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">まず、Common Voiceのウェブサイトにログインし、Common Voiceのプライバシーポリシーに同意する必要があります。</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">警告</string>
+    <string name="text_tip" comment="Title for Message text">Tip</string>
+    <string name="text_changelog" comment="Title for Message text">更新履歴</string>
+    <string name="text_help" comment="Title for Message text">ヘルプ</string>
+    <string name="text_info" comment="Title for Message text">情報</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">今後表示しない</string>
+    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Log in again</string>
+    <string name="text_offline_mode" comment="Title">Offline mode</string>
+    <string name="text_offline_mode_enabled" comment="Message text">これでオフラインになり、アプリが自動的にオフラインモードに切り替わります。\nこれは、記録と検証を続けることができることを意味しますが、リクエストは後ほど送信されます。</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">オフラインモードの場合は、画面上でこのアイコンを探すことで確認できます:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">アイコンをタップすると、ダウンロードしたクリップと文章が表示されます。</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="button_yes_sure" comment="Button">Yes</string>
+    <string name="button_cancel" comment="Button">Cancel</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
+    <string name="button_log_in_now" comment="Button">Log in now</string>
+    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title" comment="Title in Dashboard">毎日の目標</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">目標が設定されていません</string>
+    <string name="set_daily_goal" comment="Button">目標を設定</string>
+    <string name="edit_daily_goal" comment="Button">目標を編集</string>
+    <string name="save_daily_goal" comment="Button">保存</string>
+    <string name="delete_daily_goal" comment="Button">削除</string>
+    <string name="cancel_daily_goal" comment="Button">キャンセル</string>
+    <string name="description_setting_daily_goal" comment="Message text">1日あたりの検証(合計)を行う文章とクリップを録音したい文章の数を選択します。</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">本日達成されました</string>
+    <string name="daily_goal_not_achieved_today">今日は達成されていません</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">この日々の目標は公式の Mozilla 機能ではありません。このアプリの機能にすぎません。</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
+    <string name="copied_string" comment="Toast message">Copied</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+</resources>

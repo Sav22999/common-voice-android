@@ -22,23 +22,24 @@ Nid ap swyddogol Common Voice mo hwn. Fe'i datblygwyd gan Saverio Morelli.
 - Nifer o nodweddion eraill
 - Gosodiadau sy'n caniatáu addasu profiad defnyddio'r ap
 
-Grŵp Telegram yr ap: https://t.me/common_voice_android (@common_voice_android)
-Mae holl ystadegau'r ap i'w gweld yma: https://bit.ly/3clgfkg
-Mae cod yr ap a gwybodaeth bellach ar GitHub: http://bit.ly/2PeOGRg
+Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>Beth yw prosiect Common Voice?</b>
+<b>What is the Common Voice project?</b>
 
 Common Voice yw ymgyrch Mozilla i helpu dysgu peiriannau sut mae pobl go-iawn yn siarad.
 Mae llais yn naturiol ac yn ddynol. Ac mae'n gyffroes medru creu technoleg llais i'r teclynnau yn ein bywydau. Ond i allu creu systemau llais, mae ar ddatblygwyr a pheirianyddion angen swmp anferth o ddata llais.
 Mae'r cwmnïau mawrion yn dueddol o gasglu a chadw eu data i'w hunain. Mae hyn yn rwystr i ddatblygiad ac arloesi, yn enwedig yn achos ieithoedd gyda llai o siaradwyr. Lansiodd Mozilla prosiect Common Voice i helpu sicrhau bod technoleg adnabod llais yn agored ac ar gael i bawb.
 Gofynnwn i chi roi clipiau o'ch llais i'n helpu i adeiladu cronfa ddata agored y gall unrhyw un ei ddefnyddio i greu apiau a theclynnau arloesol yn y Gymraeg, fel pob iaith arall. Darllenwch frawddeg i helpu peiriannau dysgu sut mae pobl yn siarad. Gwiriwch gyfraniadau siaradwyr eraill i helpu gwella'r ansawdd. Mae mor syml â hynny!
-Ceir rhagor o wybodaeth ar y wefan swyddogol https://commonvoice.mozilla.org/cy
+You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Pam defnyddio'r ap hwn yn hytrach na'r gwefan swyddogol ar eich dyfais?</b>
 
-Datblygwyd yr ap yn bwrpasol ar gyfer ffonau. Mae'n cynnwys nodweddion na sydd ar gael ar y wefan, megis thema dywyll, modd all-lein, symudiadau, addasiadau, a mwy.
+The app is developed specifically for smartphones so it's native. Mae'n cynnwys nodweddion na sydd ar gael ar y wefan, megis thema dywyll, modd all-lein, symudiadau, addasiadau, a mwy.
 Mae'r ap yn ysgafnach na'r wefan, gyda llai o animeiddiadau, er enghraifft, a'r opsiwn i'w diffodd yn y Gosodiadau.
 Ac mae'r ap yn gyffredinol yn gweithio'n fwy esmwyth na'r wefan, gan eich caniatáu i gyfrannu mwy mewn llai o amser.
 </p>

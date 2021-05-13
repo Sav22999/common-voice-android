@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">gl</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Inicio</string>
+    <string name="title_dashboard">Taboleiro</string>
+    <string name="title_settings">Configuración</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">Iniciar sesión / Rexistrarse</string>
+    <string name="button_home_logout">Pechar sesión</string>
+    <string name="button_home_profile">Perfil</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="message_log_in_again">O identificación de sesión expirou, deberá iniciar sesión de novo</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Estatísticas</string>
+    <string name="dashboardVoicesOnline">Voces en liña</string>
+    <string name="dashboardTabYou">Vostede</string>
+    <string name="dashboardTabEveryone">Todos</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Hoxe</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">En total</string>
+    <string name="toastNoLoginNoStatistics">Ten que iniciar sesión para ver as súas estatísticas</string>
+    <string name="toastNoLoginNoDailyGoal">Ten que iniciar sesión para estabelecer o obxectivo diario</string>
+    <string name="textHoursAbbreviation">h</string>
+    <string name="textHour">Hora</string>
+    <string name="txt_top_contributors">Os máis colaboradores</string>
+    <string name="txt_top_contributors_recorded">Gravado</string>
+    <string name="txt_top_contributors_validated">Validado</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Estatísticas da app</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Idioma actual</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Todos os idiomas</string>
+    <string name="txt_not_available_offline" comment="Message text">Non está dispoñíbel en desconexión</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1" comment="Button">Comezar</string>
+    <string name="btn_tutorial2" comment="Button">Permitir</string>
+    <string name="btn_tutorial3" comment="Button">Seguinte</string>
+    <string name="btn_tutorial4" comment="Button">Téntao de novo</string>
+    <string name="btn_tutorial5" comment="Button">Rematar</string>
+    <string name="btn_skip" comment="Button">Saltar</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Permiso obtido</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Erro: permiso denegado</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project é unha app non oficial para Mozilla Common Voice. Desenvólvea Saverio Morelli sen ningún apoio nin asociación con Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Ao continuar, acepta os Termos de servizo de Mozilla Common Voice.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Esta app necesita permiso para acceder ao «Micrófono» co que gravar a súa voz.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Pode informar de fallos en GitHub ou Telegram. Para axudar o desenvolvedor a que comprenda a incidencia, debería achegar o ficheiro de rexistro da app no seu informe. A app necesita, pois, permiso de acceso ao «Almacenamento» para gardar o ficheiro de rexistro.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Pode incluso colaborar mentres está en desconexión. A app no seu «Modo en desconexión» activarase automaticamente e poderá continuar a gravar e escoitar sen unha conexión á Internet.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Pode escoller entre o tema claro ou o escuro. Pode cambiar esta opción na configuración.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tema escuro</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Algunhas accións teñen xestos asociados. Por exemplo, pode saltar unha frase en Falar esvarando co dedo á esquerda.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Pode personalizar eses xestos na configuración.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Pode participar no grupo do Telegram para obter novas e asistencia.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Incorporarse ao grupo</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Alá imos! Escolla en que idioma quere falar ou escoitar. A app tamén se amosará nese idioma se hai unha tradución dispoñíbel.</string>
+    <!-- Login -->
+    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_profile_username" comment="Label in Profile">Nome de usuario</string>
+    <string name="txt_profile_email" comment="Label in Profile">Enderezo de correo</string>
+    <string name="txt_profile_age" comment="Label in Profile">Idade</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Xénero</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">Para modificar a información do perfil, vaia ao sitio web de Common Voice.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Iniciou sesión correctamente</string>
+    <string name="txt_gender_male" comment="Label in Profile">Home</string>
+    <string name="txt_gender_female" comment="Label in Profile">Muller</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Outro</string>
+    <string name="btn_badges_loggedin" comment="Button">Todas as insignias</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
+    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Xa teño unha ligazón de comprobación</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Ligazón de comprobación</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">A ligazón de comprobación non é correcta</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Abrir titorial de novo</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Proxecto de código aberto en GitHub</string>
+    <string name="txt_developed_by" comment="Label in Settings">desenvolvido por</string>
+    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Idioma</string>
+    <string name="settingsListen" comment="Title in Settings">Escoitar</string>
+    <string name="settingsSpeak" comment="Title in Settings">Falar</string>
+    <string name="settingsOther" comment="Title in Settings">Outro</string>
+    <string name="settingsGeneral" comment="Title in Settings">Xeral</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Ligazóns útiles</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Saber máis</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Claro</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Escuro</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automático</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Apoie o meu traballo. Convídeme a un café 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Reproducir as gravacións cando se carguen</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tema escuro</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Contactar co desenvolvedor en Telegram</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Características experimentais</string>
+    <string name="toast_experimental_features_on" comment="Message text">Funcionalidades experimentais activas.\nAs funcionalidades novas poden ser inestábeis e inseguras.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Gardar rexistros a un ficheiro</string>
+    <string name="toast_log_on_file_on" comment="Message text">Está aceso a conservación de rexistros nun ficheiro.\n Pode achegar o ficheiro log.txt cando informe dunha incidencia.\nSaiba máis en GitHub.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Estatísticas xerais</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Amosar a cadea que me identifica dentro da app</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Estatísticas de uso da app</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Omitir a confirmación de gravación</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Saltar a confirmación de gravación activa.\nPoderá enviar as gravacións sen ter que escoitalas primeiro.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Traducir a app en Crowdin</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Ver as estatísticas da app</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Son indicador de gravación</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">O indicador de gravación de son está aceso agora.\nReproducirá un son cando comece e pare a gravación.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Buscar actualizacións</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Xestos</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Se lle gusta esta aplicación, lembre valorara na tenda Google Play.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">A app non está (completamente) traducida neste idioma.\nPode colaborar a traducir a app en Crowdin.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animacións</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Personalizar o tamaño do tipo de letra</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Personalizar xestos</string>
+    <string name="title_theme_settings" comment="Title in Settings">Tema</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Grupo do Telegram da app</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Amosar os rótulos por baixo das iconas do menú</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Ler os Termos de servizo de Mozilla Common Voice</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Ler as directrices para validacións</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Puntuar en Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Interface de usuario</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Avanzado</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Gardar as gravacións no dispositivo</string>
+    <string name="txt_reset_data" comment="Button in Settings">Restabelecer os datos da app</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Ningunha funcionalidade experimental está dispoñíbel neste intre</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Amosar o texto das frases despois de escoitar os fragmentos</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Mostrar icona de informe (arriba á dereita) no canto dun botón (abaixo)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Tamaño do texto</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Faixa de anuncios</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra de progreso a cor co obxectivo diario</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Omitir</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Enviar gravación</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Prema na icona inferior para iniciar a gravación.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Prema na icona inferior para parar a gravación.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Frase gravada. Escoite a gravación.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Produciuse un fallo na gravación. Ténteo de novo.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Se a leu correctamente, enviar a gravación.\nSe leu mal, pode gravar a frase outra vez.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Escoite toda a gravación para estar certo de que é correcta.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Prema na icona inferior para parar a reprodución.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">A gravación é longa de máis. A duración máxima son 10 segundos.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">A gravación é demasiado curta. Ténteo de novo.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Gravación enviada</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Produciuse un fallo enviando a gravación.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Prema na icona inferior para iniciar a gravación.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Prema na icona inferior para deter o fragmento.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Se a gravación é correcta, prema no polgar cara arriba.\nSe é incorrecta, prema no polgar cara abaixo.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Prema na icona inferior para reproducir a gravación de novo.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Gravación marcada como correcta</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Gravación marcada como incorrecta</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Fallou o envío da gravación.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Sending…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Erro. Non hai máis gravacións dispoñíbeis para este idioma.</string>
+    <string name="button_report" comment="Button">Reportar</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Informar da gravación:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Informar desta frase:</string>
+    <string name="button_send_report" comment="Button">Enviar informe</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Linguaxe ofensiva</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Expresión ofensiva</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Erro gramatical / ortográfico</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Idioma diferente</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Difícil de pronunciar</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Outro</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comentario</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">Acabáronse as frases sen conexión. Conéctese a internet para descargar máis frases que gravar.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">Acabáronse as gravacións sen conexión. Conéctese a internet para descargar máis gravacións que validar.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">O texto da frase está agochado</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Non hai máis frases no servidor de Common Voice. Ténteo máis adiante ou contacte con Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Non hai máis gravacións no servidor Common Voice. Ténteo máis tarde ou contacte con Mozilla.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
+        <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">Continue to validate clips, you validated %d clip in a row.</item>
+        <item quantity="other">Continue to validate clips, you validated %d clips in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">Excellent work! You have already validated %d clip in a row.</item>
+        <item quantity="other">Excellent work! You have already validated %d clips in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">Wow, you have superhuman powers! You validated %d clip in a row!</item>
+        <item quantity="other">Wow, you have superhuman powers! You validated %d clips in a row!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">You sent %d recording in a row.</item>
+        <item quantity="other">You sent %d recordings in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">Good job! You sent %d recording in a row.</item>
+        <item quantity="other">Good job! You sent %d recordings in a row.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">Congratulations! You achieved the milestone of %d recorded sentence. Keep going.</item>
+        <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">Wow, you have superhuman powers! You recorded %d sentence in a row!</item>
+        <item quantity="other">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">You miss only %d clip to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="other">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">You miss only %d sentence to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection" comment="Button">Comprobar outra vez</string>
+    <string name="txt_noconnection" comment="Message text">Non está conectado á Internet. Conectar co Wi-Fi ou con datos móbiles, logo premer o botón de abaixo.</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Esta é a frase que debe lembrar.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Unha mensaxe para guialo aparecerá aquí.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Se non lle gusta a frase, pode tocar aquí para saltala e pasar a outra.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Toque nesta icona para comezar a gravar.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Toque nesta icona para parar de gravar.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Toque nesta icona para volver reproducir a súa gravación.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Toque nesta icona para volver gravar se comete un erro.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Toque nesta icona para volver reproducir a súa gravación outra vez.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Toque neste botón para enviar a súa gravación.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Esta é a frase/gravación que debe validar.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Se non lle gusta esta gravación, pode tocar no botón inferior para ir a outra.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Toque nesta icona para reproducir a gravación.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Toque nesta icona para parar a reprodución da gravación.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Toque nesta icona se desexa escoitar a gravación de novo.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Se a gravación corresponde coa frase, toque nesta icona para aceptala.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Se a gravación non se corresponde coa frase, toque nesta icona para rexeitala.</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Se non está seguro de cando aceptar ou rexeitar a súa gravación, pode ler as directrices de validación en Mozilla Discourse.\nTamén pode atopar esta ligazón máis adiante en Configuración.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Ler agora</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow" comment="Message text">Desculpe, esta funcionalidade aínda non existe.\nEstamos a traballar constantemente para mellorar a app, comprobe máis tarde para ver se foi engadida.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges" comment="Button">Pechar</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Todas as insignias</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
+    <!-- Message dialog -->
+    <string name="btnOk" comment="Button">OK</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Erro</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Iso non funcionou.\nTénteo de novo outra vez ou contacte co desenvolvedor.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Fallou o inicio de sesión</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Primeiro debe iniciar sesión no sitio de Common Voice e aceptar a norma de privacidade de Common Voice.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Abrir Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">Aviso</string>
+    <string name="text_tip" comment="Title for Message text">Consello</string>
+    <string name="text_changelog" comment="Title for Message text">Rexistro de cambios</string>
+    <string name="text_help" comment="Title for Message text">Axuda</string>
+    <string name="text_info" comment="Title for Message text">Info</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Non mostrar de novo</string>
+    <string name="text_report_website_bug" comment="Message text">Se ten dificultades co sitio oficial de Common Voice, informe diso nos foros Discourse de Mozilla ou no repositorio de GitHub, para que Mozilla poida arranxalo.</string>
+    <string name="text_review_now" comment="Button" translatable="true">Revisar agora</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Gústalle a aplicación? Pode apoiar o meu traballo. Mérqueme un café en PayPal ou LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Iniciar sesión de novo</string>
+    <string name="text_offline_mode" comment="Title">Modo en desconexión</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Agora está no modo en desconexión e a app cambia a este modo automaticamente.\nIsto significa que pode continuar a gravar e validar pero as consultas enviaranse máis tarde.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Pode dicir cando está no modo en desconexión buscando esta icona na pantalla:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Pode tocar na icona para ver as gravación e frases descargadas.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">O modo en desconexión non está activado, pode utilizar a app sen ter unha conexión á Internet.\nPara utilizar a funcionalidade do modo en desconexión, actívea en Configuración.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Sabe que pode apoiar o meu traballo libremente? Se lle gusta a aplicación, considere activar os anuncios na Configuración.</string>
+    <string name="text_open_settings_now">Abrir Configuración agora</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="button_yes_sure" comment="Button">Yes</string>
+    <string name="button_cancel" comment="Button">Cancelar</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">Well done! You opened the app %d day in a row.</item>
+        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">I\'ve opened the CV Project app %d day in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
+    <string name="button_log_in_now" comment="Button">Acceder agora</string>
+    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title" comment="Title in Dashboard">Obxectivo diario</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Non se fixou ningún obxectivo</string>
+    <string name="set_daily_goal" comment="Button">Fixe un obxectivo</string>
+    <string name="edit_daily_goal" comment="Button">Editar obxectivo</string>
+    <string name="save_daily_goal" comment="Button">Gardar</string>
+    <string name="delete_daily_goal" comment="Button">Eliminar</string>
+    <string name="cancel_daily_goal" comment="Button">Cancelar</string>
+    <string name="description_setting_daily_goal" comment="Message text">Seleccione cantas frases desexa gravar e gravacións que quere validar (en total) por día.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Acadado hoxe</string>
+    <string name="daily_goal_not_achieved_today">Non conseguido hoxe</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Compartir</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Compartir en</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">O obxectivo diario non é unha funcionalidade oficial de Mozilla. Só é unha funcionalidade desta app.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 horas son acadábeis en só 6 meses se 1.000 persoas fan 45 gravacións diarias.</string>
+    <string name="copied_string" comment="Toast message">Copiado</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+</resources>

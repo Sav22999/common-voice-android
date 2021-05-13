@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">hi</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">होम</string>
+    <string name="title_dashboard">डैशबोर्ड</string>
+    <string name="title_settings">सेटिंग्स</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">लॉग इन / साइन अप</string>
+    <string name="button_home_logout">लॉग आउट</string>
+    <string name="button_home_profile">प्रोफाइल</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">नमस्ते</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">नमस्ते, {{username}}</string>
+    <string name="message_log_in_again">सत्र समाप्त हो चुका है, पुनः लॉगिन करें।</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">आँकड़े</string>
+    <string name="dashboardVoicesOnline">ऑनलाइन कण्ठ</string>
+    <string name="dashboardTabYou">आप</string>
+    <string name="dashboardTabEveryone">सभी लोग</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">आज</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">अभी तक</string>
+    <string name="toastNoLoginNoStatistics">आपको अपने आँकड़े देखने के लिए लॉगिन करना होगा।</string>
+    <string name="toastNoLoginNoDailyGoal">दैनिक लक्ष्य तय करने के लिए आपको लॉगिन करना होगा।</string>
+    <string name="textHoursAbbreviation">घं</string>
+    <string name="textHour">घण्टे</string>
+    <string name="txt_top_contributors">शीर्ष योगदान कर्ता</string>
+    <string name="txt_top_contributors_recorded">रिकॉर्ड किए गए</string>
+    <string name="txt_top_contributors_validated">सत्यापित</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">एप्प आँकड़े</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">वर्तमान भाषा</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">सभी भाषाएँ</string>
+    <string name="txt_not_available_offline" comment="Message text">ऑफलाइन मोड में उपलब्ध नहीं है</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1" comment="Button">शुरू करें</string>
+    <string name="btn_tutorial2" comment="Button">अनुमति दें</string>
+    <string name="btn_tutorial3" comment="Button">अगला</string>
+    <string name="btn_tutorial4" comment="Button">पुनः प्रयास करें</string>
+    <string name="btn_tutorial5" comment="Button">समाप्त करें</string>
+    <string name="btn_skip" comment="Button">छोड़ें</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">अनुमति प्राप्त हुई</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">त्रुटि: अनुमति नहीं मिली</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project Mozilla Common Voice के लिए अनाधिकारिक एप्प है। इसे मोजिला की बिना किसी सहायता के, Saverio Morelli के द्वारा बनाया गया है।</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">यहाँ से आगे बढ़ने पर, आप Mozilla के Common Voice की सेवा की शर्तों से सहमति प्रकट करते हैं।</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">आपकी आवाज को रिकॉर्ड करने के लिए इस एप्प को \"माइक्रोफोन\" के प्रयोग की अनुमति चाहिए।</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">आप एप्प की कमियों को GitHub या Telegram पर रिपोर्ट कर सकते हैं। आपको एप्प की लॉग फाइल को रिपोर्ट में जोड़ना चाहिए ताकि डेवलपर कमी को जल्दी समझ सके। लॉग फाइल सेव करने के लिए एप्प को \"स्टोरेज\" की अनुमति चाहिए।</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">ऑफलाइन होने पर भी आप योगदान दे सकते हैं। एप्प का ऑफलाइन मोड स्वतः सक्रिय हो जाएगा और बिना इन्टरनेट कनेक्शन के रिकॉर्ड व सत्यापन कर सकेंगे।</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">आप गहरी या हल्की थीम चुन सकते हैं। आप बाद में इसे सेटिंग में बदल सकते हैं।</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">गहरी थीम</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">कुछ क्रियाओं के लिए इशारे भी उपलब्ध हैं। उदहारण के लिए आप बायें स्वाइप करके रिकॉर्डिंग का वाक्य छोड़ सकते हैं।</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">इन इशारों को आप सेटिंग में बदल सकते हैं।</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">समाचार व सहयोग प्राप्त करने के लिए आप Telegram ग्रुप से जुड़ सकते हैं।</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">ग्रुप से जुड़ें</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">शुरू करते हैं! रिकॉर्ड व सत्यापन के लिए भाषा चुनें। यदि अनुवाद उपलब्ध होगा तो एप्प भी उसी भाषा में दिखाई देगी।</string>
+    <!-- Login -->
+    <string name="txt_loading_page" comment="Label">लोड हो रहा है…</string>
+    <string name="txt_profile_username" comment="Label in Profile">यूजरनेम</string>
+    <string name="txt_profile_email" comment="Label in Profile">ईमेल</string>
+    <string name="txt_profile_age" comment="Label in Profile">उम्र</string>
+    <string name="txt_profile_gender" comment="Label in Profile">लिंग</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">अपनी प्रोफाइल बदलने के लिए Common Voice वेबसाइट पर जाएं।</string>
+    <string name="txt_login_successful_alert" comment="Message text">लॉगिन सफल!</string>
+    <string name="txt_gender_male" comment="Label in Profile">पुस्र्ष</string>
+    <string name="txt_gender_female" comment="Label in Profile">स्त्री</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">अन्य</string>
+    <string name="btn_badges_loggedin" comment="Button">सभी बिल्ले</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">स्तर {{level}}</string>
+    <string name="level_up_message" comment="Message text">बधाई हो! आपने स्तर {{n_level}} प्राप्त कर लिया है।</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">मेरे पास सत्यापन लिंक पहले से है।</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">सत्यापन लिंक</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">सत्यापन लिंक अमान्य है</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">एप्प प्रशिक्षण दुबारा शुरू करें</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">प्रोजेक्ट GitHub पर open-source है</string>
+    <string name="txt_developed_by" comment="Label in Settings">द्वारा विकसित</string>
+    <string name="toast_language_changed" comment="Message text">भाषा {{lang}} हो गयी है।</string>
+    <string name="settingsLanguage" comment="Title in Settings">भाषा</string>
+    <string name="settingsListen" comment="Title in Settings">सत्यापन करें</string>
+    <string name="settingsSpeak" comment="Title in Settings">रिकॉर्ड करें</string>
+    <string name="settingsOther" comment="Title in Settings">अन्य</string>
+    <string name="settingsGeneral" comment="Title in Settings">सामान्य</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">उपयोगी लिंक</string>
+    <string name="settingsLearnMore" comment="Button in Settings">अधिक जानें</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">हल्की</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">गहरी</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">स्वतः</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">मेरा सहयोग करें। मेरे लिए एक कॉफी लें 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">लोड होने पर क्लिप को स्वतः चलायें</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">गहरी थीम</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Telegram पर डेवलपर से संपर्क करें</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">प्रयोगात्मक फीचर</string>
+    <string name="toast_experimental_features_on" comment="Message text">प्रयोगात्मक फीचर चालू हैं।\nनए फीचर अस्थिर और गड़बड़ हो सकते हैं।</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">लॉग को फाइल में सेव करें</string>
+    <string name="toast_log_on_file_on" comment="Message text">लॉग को फाइल में सेव करना शुरू हो गया है।\nआप इस log.txt फाइल को किसी कमी की रिपोर्ट के साथ लगा सकते हैं।\nGitHub से ज्यादा जानकारी प्राप्त करें।</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">सामान्य आँकड़े</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">एप्प में मेरी पहचान दर्शाने वाला नाम दिखायें</string>
+    <!--
+    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
+    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
+    -->
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">एप्प उपयोग करने के आंकड़े</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">रिकॉर्डिंग की पुष्टि न करवाएं</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">रिकॉर्डिंग की पुष्टि नहीं करवाई जाएगी।\nअब आप रिकोर्डिंगों सुने बिना ही भेज पाएंगे।</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">एप्प को Crowdin पर अनुवाद करें</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">एप्प के आँकड़े देखें</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">रिकॉर्डिंग का ध्वनि संकेत</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">रिकॉर्डिंग का ध्वनि संकेत अब चालू है।\nरिकॉर्डिंग के शुरू होने पर व समाप्त होने पर ध्वनि सुनाई देगी।</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">अपडेट के लिए चेक करें</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">इशारे</string>
+    <string name="message_review_app_on_play_store" comment="Message text">अगर आपको यह एप्प अच्छी लगी तो Google Play स्टोर पर इसकी समीक्षा करें।</string>
+    <string name="message_app_not_completely_translated" comment="Message text">एप्प इस भाषा में अभी तक (पूर्णतया) अनुवादित नहीं हुई है।\nआप Crowdin पर जाकर योगदान दे सकते हैं।</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">एनिमेशन</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">फॉण्ट का आकर बदलें</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">इशारे बदलें</string>
+    <string name="title_theme_settings" comment="Title in Settings">थीम</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">एप्प का टेलीग्राम ग्रुप</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">मेन्यू चित्रों के नीचे नाम दिखायें</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice की सेवा की शर्तों को पढ़ें।</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">सत्यापन के दिशानिर्देशों को पढ़ें</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Google Play पर समीक्षा करें</string>
+    <string name="title_ui_settings" comment="Option in Settings">यूजर इंटरफेस</string>
+    <string name="title_advanced_settings" comment="Option in Settings">उन्नत</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">रिकोर्डिंगों को डिवाइस पर सेव करें</string>
+    <string name="txt_reset_data" comment="Button in Settings">एप्प डाटा को प्रारम्भिक स्तिथि में लायें</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">कोई भी प्रयोगात्मक फीचर अभी उपलब्ध नहीं है</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">वाक्यों के शब्द क्लिप को पूरा सुनने के बाद दिखायें</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">रिपोर्ट करने के लिए बटन (नीचे) की जगह चित्र (बायें में ऊपर) दिखायें</string>
+    <string name="title_textsize_settings" comment="Title in Settings">अक्षरों का आकार</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">एड पट्टी</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">{{section_name}} में एड पट्टी दिखायें।</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">रंगीन दैनिक लक्ष्य पट्टी</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} व {{listen_name}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">वाक्यों को रिकॉर्ड करने/सत्यापन करने के लिए भी हल्की थीम (जब हल्की थीम प्रभाव में हो)</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">गति नियन्त्रक पट्टी दिखायें</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">जानकारी चिन्ह दिखायें</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence" comment="Label in Speak">वाक्य लोड हो रहा है…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">छोड़ें</string>
+    <string name="btn_send_sentence" comment="Button in Speak">रिकॉर्डिंग भेजें</string>
+    <string name="txt_loading_clip" comment="Label in Listen">क्लिप लोड हो रही है…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">रिकॉर्डिंग शुरू करने के लिए नीचे चित्र पर टच करें।</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">रिकॉर्डिंग बंद करने के लिए नीचे चित्र पर टच करें।</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">वाक्य रिकॉर्ड हो गया है। रिकॉर्डिंग सुनें।</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">रिकॉर्डिंग नहीं हो पायी। फिर से करें।</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">अगर आपने ठीक से बोला तो रिकॉर्डिंग भेजें।\nअगर कोई गलती हुई हो तो फिर से रिकॉर्ड करें।</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">रिकॉर्डिंग की शुद्धता निश्चित करने के लिए इसे ध्यानपूर्वक पूरा सुनें।</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">सुनना बन्द करने के लिए नीचे चित्र को टच करें।</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">रिकॉर्डिंग बहुत लम्बी है। अधिकतम 10 सेकंड की हो।</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">रिकॉर्डिंग बहुत छोटी है। फिर से करें।</string>
+    <string name="txt_sending_recording" comment="Label in Speak">रिकॉर्डिंग भेज हैं रहे हैं…</string>
+    <string name="txt_recording_sent" comment="Label in Speak">रिकॉर्डिंग भेज दी!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">रिकॉर्डिंग भेजने में असफल!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">रिकॉर्डिंग भेजने में असफल। आप या तो पुनः भेज सकते हैं, या {{skip_button}} बटन टच कर सकते हैं।</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">क्लिप चलाने के लिए नीचे चित्र पर टच करें।</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">क्लिप बन्द करने के लिए नीचे चित्र पर टच करें।</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">अगर क्लिप शुद्ध है तो अंगूठा ऊपर की ओर वाला चित्र टच करें।\nअन्यथा अंगूठा नीचे की ओर वाला चित्र टच करें।</string>
+    <string name="txt_clip_again" comment="Label in Listen">क्लिप पुनः चलाने के लिए नीचे चित्र पर टच करें।</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">क्लिप को शुद्ध चिन्हित किया।</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">क्लिप को अशुद्ध चिन्हित किया।</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">त्रुटि। जारी रखने के लिए {{skip_button}} बटन को टच करें।</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">रिकॉर्डिंग भेजने में असफल।</string>
+    <string name="txt_sending_validation" comment="Label in Listen">भेज रहे हैं...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">रिकॉर्डिंग भेजने में असफल। आप या तो पुनः भेज सकते हैं, या {{skip_button}} बटन टच कर सकते हैं।</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">बन्द कर रहे हैं…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">त्रुटि। इस भाषा के लिए अब और क्लिप उपलब्ध नहीं हैं।</string>
+    <string name="button_report" comment="Button">रिपोर्ट करें</string>
+    <string name="title_report_clip" comment="Title in Report a clip">क्लिप रिपोर्ट करें:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">वाक्य रिपोर्ट करें</string>
+    <string name="button_send_report" comment="Button">रिपोर्ट भेजें</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">भद्दी भाषा</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">भद्दे बोल</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">अशुद्ध व्याकरण / शब्द</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">कोई और भाषा है</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">बोलने में बहुत कठिन है</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">अन्य कोई</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">टिप्पणी</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">आपके ऑफलाइन वाक्य खत्म हो गए हैं। रिकॉर्ड करने के लिए और अधिक वाक्य डाउनलोड करने के लिए इंटरनेट से कनेक्ट करें।</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">आपकी ऑफलाइन क्लिप खत्म हो गयीं हैं। सत्यापन करने के लिए और अधिक क्लिप डाउनलोड करने के लिए इंटरनेट से कनेक्ट करें।</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">आप ऑफलाइन {{n_sentences}} और वाक्य ही रिकॉर्ड कर सकते हैं उसके बाद इन्टरनेट की आवश्यकता पड़ेगी।</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">आप ऑफलाइन {{n_clips}} और क्लिप ही सत्यापित कर सकते हैं उसके बाद इन्टरनेट की आवश्यकता पड़ेगी।</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">रिकॉर्ड हो रहा है…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" सक्षम है। इसे अक्षम करने के लिए सेटिंग में जायें।</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">वाक्य के शब्द छुपे हुए हैं</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">कॉमन वॉइस सर्वर में अब और वाक्य नहीं हैं। बाद में करें या मोजिला सम्पर्क करें।</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">कॉमन वॉइस सर्वर में अब और क्लिप नहीं हैं। बाद में करें या मोजिला सम्पर्क करें।</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">आपने लगातार %d क्लिप सत्यापित कर दी हैं, इस उत्कृष्ट कार्य को जारी रखें!</item>
+        <item quantity="other">आपने लगातार %d क्लिपें सत्यापित कर दी हैं, इस उत्कृष्ट कार्य को जारी रखें!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">क्लिपें सत्यापित करते रहें, अपने लगातार %d क्लिप सत्यापित कीं।</item>
+        <item quantity="other">क्लिपें सत्यापित करते रहें, अपने लगातार %d क्लिपें सत्यापित कीं।</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">बहुत सुन्दर, अपने लगातार %d क्लिप सत्यापित कीं।</item>
+        <item quantity="other">बहुत सुन्दर, अपने लगातार %d क्लिपें सत्यापित कीं।</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">वाह, आपमें शक्तिमान जैसी शक्तियाँ हैं, अपने लगातार %d क्लिप सत्यापित कीं।</item>
+        <item quantity="other">वाह, आपमें शक्तिमान जैसी शक्तियाँ हैं, अपने लगातार %d क्लिपें सत्यापित कीं।</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">अपने लगातार %d रिकॉर्डिंग भेज दी हैं।</item>
+        <item quantity="other">अपने लगातार %d रिकॉर्डिंगें भेज दी हैं।</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">बहुत सुन्दर, अपने लगातार %d रिकॉर्डिंग भेज दी हैं।</item>
+        <item quantity="other">बहुत सुन्दर, अपने लगातार %d रिकॉर्डिंगें भेज दी हैं।</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">बहुत सुन्दर! आप %d वाक्यों को रिकॉर्ड करने के मील के पत्थर तक पहुँच गए हैं। आगे बढ़ते रहिए।</item>
+        <item quantity="other">बहुत सुन्दर! आप %d वाक्यों को रिकॉर्ड करने के मील के पत्थर तक पहुँच गए हैं। आगे बढ़ते रहिए।</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">आप में शक्तिमान की शक्तियाँ हैं! आपने %d वाक्य को लगातार रिकॉर्ड किया।</item>
+        <item quantity="other">आप में शक्तिमान की शक्तियाँ हैं! आपने %d वाक्यों को लगातार रिकॉर्ड किया।</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">{{dailygoal}} का दैनिक लक्ष्य प्राप्त करने से आप सिर्फ %d क्लिप दूर हैं।</item>
+        <item quantity="other">{{dailygoal}} का दैनिक लक्ष्य प्राप्त करने से आप सिर्फ %d क्लिप दूर हैं।</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">{{dailygoal}} का दैनिक लक्ष्य प्राप्त करने से आप सिर्फ %d वाक्य दूर हैं।</item>
+        <item quantity="other">{{dailygoal}} का दैनिक लक्ष्य प्राप्त करने से आप सिर्फ %d वाक्य दूर हैं।</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">गति {{speed_value}} हो गयी है।</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection" comment="Button">फिर से जांचें</string>
+    <string name="txt_noconnection" comment="Message text">आप इन्टरनेट से कनेक्ट नहीं हैं। वाई-फाई या मोबाइल डाटा से कनेक्ट करने के बाद नीचे का बटन टच करें।</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">इस वाक्य ही को रिकॉर्ड करना है।</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">आपको निर्देशित करने के लिए सन्देश यहाँ प्रकट होगा।</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">अगर आपको वाक्य पसन्द नहीं है तो इस बटन को टच करके दूसरा ला सकते हैं।</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">रिकॉर्डिंग शुरू करने के लिए इस चित्र को टच करें।</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">रिकॉर्डिंग बन्द करने के लिए इस चित्र को टच करें।</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">अपनी रिकॉर्डिंग सुनने के लिए इस चित्र को टच करें।</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">अगर कोई गलती हुई है तो फिर से रिकॉर्डिंग के लिए इस चित्र को टच करें।</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">अपनी रिकॉर्डिंग फिर से चलाने के लिए इस चित्र को टच करें।</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">रिकॉर्डिंग भेजने के लिए इस चित्र को टच करें।</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">इस वाक्य/क्लिप ही को सत्यापित करना है।</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">अगर आपको वाक्य पसन्द नहीं है तो इस बटन को टच करके दूसरा ला सकते हैं।</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">क्लिप चलाने के लिए इस चित्र को टच करें।</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">क्लिप रोकने के लिए इस चित्र को टच करें।</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">इस चित्र को टच करें यदि आप क्लिप को दुबारा सुनना चाहते हैं।</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">अगर क्लिप शुद्ध है तो स्वीकारने के लिए इस चित्र को टच करें।</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">अगर क्लिप अशुद्ध है तो अस्वीकारने के लिए इस चित्र को टच करें।</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">अगर आप निश्चित नहीं कर पा रहे है कि रिकॉर्डिंग को स्वीकार करें या अस्वीकार करें तो आप सत्यापन के आधिकारिक दिशानिर्देशों को Mozilla Discourse पर पढ़ सकते हैं।\nइसका लिंक सेटिंग में भी उपलब्ध है।</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">अभी पढ़ें</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow" comment="Message text">यह फीचर अभी उपलब्ध नहीं है।\nहम एप्प को सुधारने के लिए लगातार प्रयत्न कर रहे हैं, सम्भव है कि निकट भविष्य में यह उपलब्ध हो।</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges" comment="Button">बंद करें</string>
+    <string name="labelAllBadges" comment="Title for All badge section">सभी बिल्ले</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">हेहे! आपको एक नया बिल्ला मिला है।\n अपने सभी बिल्ले देखने के लिए {{profile}} &gt; {{all_badges}} पर जायें।</string>
+    <string name="message_got_badge_because_clips" comment="Message text">आपको ये बिल्ला मिला है क्योंकि आपने {{n_clips}} से ज्यादा क्लिपें सत्यापित कीं हैं।</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">आपको ये बिल्ला मिला है क्योंकि आपने {{n_sentences}} से ज्यादा वाक्य रिकॉर्ड किये हैं।</string>
+    <string name="message_got_badge_because_levels" comment="Message text">आपको ये बिल्ला मिला है क्योंकि आपने {{n_total}} से ज्यादा वाक्य रिकॉर्ड या क्लिपें सत्यापित कीं हैं।</string>
+    <!-- Message dialog -->
+    <string name="btnOk" comment="Button">ठीक है</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">त्रुटि</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">इसने काम नहीं किया।\nपुनः करें या डेवलपर से सम्पर्क करें।</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">इसने काम नहीं किया। फिर से करें या डेवलपर से सम्पर्क करें।\n त्रुटि कोड: EX-{{error_code}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">लॉगिन असफल</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">आपको पहले Common Voice वेबसाइट पर लॉगिन करना होगा और फिर Common Voice निजता नीति को स्वीकार करना होगा।</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Common Voice खोलें</string>
+    <string name="text_warning" comment="Title for Message text">चेतावनी</string>
+    <string name="text_tip" comment="Title for Message text">सलाह</string>
+    <string name="text_changelog" comment="Title for Message text">परिवर्तन लॉग</string>
+    <string name="text_help" comment="Title for Message text">सहायता</string>
+    <string name="text_info" comment="Title for Message text">जानकारी</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">अब कभी न दिखायें</string>
+    <string name="text_report_website_bug" comment="Message text">अगर आपको आधिकारिक Common Voice वेबसाइट पर कोई दिक्कत हो रही है तो उसे Mozilla Discourse मंच या GitHub कोष पर रिपोर्ट करें ताकि Mozilla उसे ठीक कर सके।</string>
+    <string name="text_review_now" comment="Button" translatable="true">अभी समीक्षा करें</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">क्या आपको एप्प अच्छी लगी? आप मेरा सहयोग कर सकते हैं। मेरे लिए PayPal या LiberaPay पर कॉफी खरीदें।</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">पुनः लॉगिन करें</string>
+    <string name="text_offline_mode" comment="Title">ऑफलाइन मोड</string>
+    <string name="text_offline_mode_enabled" comment="Message text">अब आप ऑफलाइन है और एप्प ने ऑफलाइन मोड का उपयोग शुरू कर दिया है।\nइसका अर्थ है कि आप रिकॉर्ड व सत्यापन कर सकते है, लेकिन उन्हें बाद में भेजा जायेगा।</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">इस चित्र को स्क्रीन पर देखकर आप ऑफलाइन मोड में होने का पता कर सकते हैं।</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">उस चित्र पर टच करके आप डाउनलोड हो चुके क्लिप व वाक्यों को देख सकते हैं।</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">ऑफलाइन मोड को अभी सक्षम नहीं किया गया है, अतः एप्प को बिना इंटरनेट के प्रयोग नहीं कर सकते।\nसेटिंग में जाकर ऑफलाइन मोड को शुरू कर सकते हैं।</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">आप मेरा सहयोग मुफ्त में भी कर सकते हैं। सेटिंग में जाकर एड चालू कर दीजिए।</string>
+    <string name="text_open_settings_now">सेटिंग अभी खोलें</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">क्या आप निश्चित ही पीछे जाना चाहते है व रिकॉर्डिंग को खोना चाहते हैं?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">क्या आप निश्चित ही इसे छोड़ना चाहते है व रिकॉर्डिंग को खोना चाहते हैं?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">क्या आप निश्चित ही सारे एप्प डाटा को प्रारंभिक स्थिति में लाना चाहते हैं?</string>
+    <string name="button_yes_sure" comment="Button">हाँ</string>
+    <string name="button_cancel" comment="Button">रद्द करें</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">बहुत सुन्दर! अपने एप्प को लगातार %d दिन तक खोला।</item>
+        <item quantity="other">बहुत सुन्दर! अपने एप्प को लगातार %d दिनों तक खोला।</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">मैंने CV Project एप्प को लगातार %d दिन के लिए प्रयोग किया! इसे डाउनलोड करें ताकि आप Common Voice प्रोजेक्ट में अपने स्मार्टफोन से योगदान दे सकें।</item>
+        <item quantity="other">मैंने CV Project एप्प को लगातार %d दिनों के लिए प्रयोग किया! इसे डाउनलोड करें ताकि आप Common Voice प्रोजेक्ट में अपने स्मार्टफोन से योगदान दे सकें।</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
+    <string name="button_log_in_now" comment="Button">अभी लॉग इन करें</string>
+    <string name="button_translate_on_crowdin" comment="Button">अभी अनुवाद करें</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title" comment="Title in Dashboard">दैनिक लक्ष्य</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">कोई लक्ष्य निर्धारित नहीं है</string>
+    <string name="set_daily_goal" comment="Button">लक्ष्य निर्धारित करें</string>
+    <string name="edit_daily_goal" comment="Button">लक्ष्य बदलें</string>
+    <string name="save_daily_goal" comment="Button">सहेजें</string>
+    <string name="delete_daily_goal" comment="Button">मिटायें</string>
+    <string name="cancel_daily_goal" comment="Button">रद्द करें</string>
+    <string name="description_setting_daily_goal" comment="Message text">चुनें की आप प्रतिदिन कुल कितने वाक्य रिकॉर्ड व कितने सत्यापित (इनका जोड़) करना चाहते हैं।</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">आज पूरा किया</string>
+    <string name="daily_goal_not_achieved_today">आज पूरा नहीं किया नहीं किया</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">बहुत सुन्दर! आपने अपने दैनिक लक्ष्य को पूरा कर लिया है।\nआपने {{n_clips}} को सत्यापित और {{n_sentences}} को रिकॉर्ड किया।\nआप चाहें तो योगदान जारी रख सकते हैं।</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">साझा करें</string>
+    <string name="share_daily_goal_title" comment="Title of panel">पर साझा करें</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">मैंने @mozilla #CommonVoice के लिए #CVProject का उपयोग करके अपना आज का दैनिक लक्ष्य प्राप्त कर लिया है।\nइसमें शामिल हों और योगदान दें! CV Project को Google Play, F-Droid या Huawei AppGallery से इन्स्टॉल करें {{link}}।</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">ये दैनिक लक्ष्य मोजिला का आधिकारिक फीचर नहीं है। ये सिर्फ इस एप्प का फीचर है।</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">क्या आपको पता था कि … ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">यदि 1,000 लोग प्रतिदिन सिर्फ 45 रिकॉर्डिंग करें तो 10,000 घण्टे सिर्फ 6 महीनों में पूरे किये जा सकते हैं।</string>
+    <string name="copied_string" comment="Toast message">कॉपी किया</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">एप्प का नया संस्करण उपलब्ध है (रिलीज {{n_version}})। आप इसे GitHub या अपने पसंदीदा स्टोर से अपडेट कर सकते हैं (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore)।</string>
+</resources>

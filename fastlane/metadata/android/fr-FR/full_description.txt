@@ -22,9 +22,10 @@ Ceci n'est pas l'application officielle de Common Voice. Elle est développée p
 - Nombreuses autres fonctionnalités
 - L'expérience de l'application est entièrement personnalisable dans les Paramètres
 
-Rejoignez le groupe Telegram : https://t.me/common_voice_android (@common_voice_android)
-Vous pouvez voir les statistiques complètes de l'application ici : https://bit.ly/3clgfkg
-Lisez-en plus sur cette application sur Github : http://bit.ly/2PeOGRg
+Rejoignez le groupe Telegram : <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Vous pouvez voir les statistiques complètes de l'application ici : <a href="https://www.saveriomorelli.com/commonvoice/statistics/">Statistiques de l'application</a>
+Vous pouvez également voir les statistiques d'utilisation de l'application ici : <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">Statistiques d'utilisation de l'application</a>
+En savoir plus sur cette application sur GitHub : <a href="https://github.com/Sav22999/common-voice-android/">CV Projet sur GitHub</a>
 </p>
 <p>
 <b>Qu'est-ce que le projet Common Voice ?</b>
@@ -33,7 +34,7 @@ Le projet Common Voice est une initiative de Mozilla pour aider à apprendre aux
 La voix est naturelle, la voix est humaine. C’est pourquoi nous sommes impatients de créer une technologie vocale pour nos appareils. Mais pour élaborer de tels systèmes vocaux, les développeurs ont besoin de vastes échantillons de données vocales.
 La plupart des données utilisées par les grandes entreprises ne sont pas disponibles pour le grand public. Nous estimons que cela entrave l’innovation. C’est pourquoi nous avons lancé le projet Common Voice, destiné à rendre la reconnaissance vocale ouverte et accessible à tout le monde.
 Vous pouvez donner un peu de votre voix pour nous aider à créer une base de données libre, utilisable par n’importe qui pour réaliser des applications innovantes, y compris sur le Web. Lisez une phrase pour aider les machines à apprendre la façon de parler des êtres humains. Écoutez les enregistrements que d’autres ont réalisés pour les valider et ainsi améliorer la qualité des données. C’est aussi simple que ça !
-Vous trouverez plus d'informations sur le site officiel https://commonvoice.mozilla.org/
+Vous pouvez trouver plus de détails sur le site officiel <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Pourquoi devriez-vous utiliser l'application plutôt que le site Web sur mobile ?</b>
