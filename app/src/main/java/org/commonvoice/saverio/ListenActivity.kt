@@ -1,6 +1,8 @@
 package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
@@ -13,6 +15,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
@@ -29,6 +32,7 @@ import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
+import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.SpeakListenStandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
@@ -700,7 +704,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun showInformationAboutClip() {
         dialogInflater.show(
             this,
-            InfoDialog(message = messageInfoToShow)
+            IdentifyMeDialog(messageInfoToShow, onCopyClick = {
+                this
+                    .getSystemService<ClipboardManager>()
+                    ?.setPrimaryClip(ClipData.newPlainText("", messageInfoToShow))
+                Toast.makeText(
+                    this,
+                    getString(R.string.copied_string),
+                    Toast.LENGTH_LONG
+                ).show()
+            })
         )
     }
 
