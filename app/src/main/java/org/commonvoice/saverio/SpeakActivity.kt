@@ -311,7 +311,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
-
         animateProgressBar(
             binding.progressBarSpeakSpeak,
             sum = statsPrefManager.dailyGoal.value!!.recordings + statsPrefManager.dailyGoal.value!!.validations,
@@ -717,6 +716,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     private fun loadUIStateRecording() = withBinding {
+        recorded = true
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
 
