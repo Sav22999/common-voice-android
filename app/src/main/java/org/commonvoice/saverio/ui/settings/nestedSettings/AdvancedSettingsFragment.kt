@@ -71,7 +71,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             switchSaveLogToFile.isChecked = logPrefManager.saveLogFile
 
             switchHomeAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
-                "{{*{{section_name}}*}}",
+                "{{section_name}}",
                 getString(R.string.title_home)
             )
             switchHomeAds.setOnCheckedChangeListener { _, isChecked ->
@@ -80,7 +80,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             switchHomeAds.isChecked = mainPrefManager.showAdBanner
 
             switchListenAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
-                "{{*{{section_name}}*}}",
+                "{{section_name}}",
                 getString(R.string.settingsListen)
             )
             switchListenAds.setOnCheckedChangeListener { _, isChecked ->
@@ -89,7 +89,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             switchListenAds.isChecked = listenPrefManager.showAdBanner
 
             switchSpeakAds.text = getString(R.string.enable_ads_google_play_in_section).replace(
-                "{{*{{section_name}}*}}",
+                "{{section_name}}",
                 getString(R.string.settingsSpeak)
             )
             switchSpeakAds.setOnCheckedChangeListener { _, isChecked ->

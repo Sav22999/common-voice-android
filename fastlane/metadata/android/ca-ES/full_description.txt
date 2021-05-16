@@ -22,9 +22,10 @@ Aquesta no és l''aplicació oficial de Common Voice. És obra de Saverio Morell
 - Moltes més característiques
 - L'experiència d'ús és completament configurable a Configuració
 
-Uniu-vos al grup de Telegram: https://t.me/common_voice_android (@common_voice_android)
-Podeu trobar estadístiques completes de l'aplicació a https://bit.ly/3clgfkg
-Llegiu més sobre aquesta aplicació a GitHub: http://bit.ly/2PeOGRg
+Uniu-vos al grup de Telegram: <a href="https://t.me/common_voice_android"> (@common_voice_android)</a>
+Podeu veure veure les estadístiques d'ús a: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">Estadístiques d'ús</a>
+Podeu veure veure les estadístiques d'ús a: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">Estadístiques d'ús</a>
+Trobareu més informació sobre aquesta aplicació a GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project a GitHub</a>
 </p>
 <p>
 <b>Què és el projecte Common Voice?</b>
@@ -33,7 +34,7 @@ Common voice és una iniciativa de Mozilla per a contribuir a ensenyar a les mà
 La veu és natural, la veu és humana. Aquesta és la raó per la qual ens encisa la creació de tecnologies de veu usables per a les nostres màquines. Però per a crear sistemes de veu, els programadors necessiten una quantitat molt gran de dades de veu.
 La majoria de les dades que fan servir les grans empreses no estan a l'abast de la majoria de la gent. Pensem que això ofega la innovació. Per això hem encetat Common Voice, un projecte per a ajudar a fer que el reconeixement de veu sigui obert i accessible a tothom.
 Ara podeu donar la vostra veu per a ajudar-nos a construir una base de dades oberta que qualsevol pugui crear aplicacions innovadores tant per a dispositius com per a la web. Llegiu una frase per a ajudar a les màquines a aprendre com parla la gent de debò. Avalueu la tasca d'altres contribuïdors per a millorar-ne la qualitat. És així de simple!
-Podeu trobar-ne més detalls al web oficial https://commonvoice.mozilla.org/
+Podeu trobar-ne més detalls al web oficial <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Per què hauríeu de fer servir l'aplicació en comptes del lloc web amb el mòbil?</b>

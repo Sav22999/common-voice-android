@@ -22,9 +22,10 @@ Dit is niet de officiële app van Common Voice. Hij is ontwikkeld door Saverio M
 - Vele andere functies
 - De app-ervaring is volledig aanpasbaar in Instellingen
 
-Kom bij de Telegram-groep: https://t.me/common_voice_android (@common_voice_android)
-U kunt complete app-statistieken hier zien: https://bit.ly/3clgfkg
-Lees meer over deze app op GitHub: http://bit.ly/2PeOGRg
+Kom bij de Telegram-groep: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+U kunt hier de volledige app-statistieken bekijken: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App-statistieken</a>
+U kunt hier ook de app-gebruiksstatistieken bekijken: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App-gebruiksstatistieken</a>
+Lees meer over deze app op GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project op GitHub</a>
 </p>
 <p>
 <b>Wat is het Common Voice-project?</b>
@@ -33,12 +34,12 @@ Common Voice is het initiatief van Mozilla om machines te helpen leren hoe echte
 Stem is natuurlijk, stem is menselijk. Daarom zijn we enthousiast over het creëren van bruikbare spraaktechnologie voor onze machines. Maar om spraaksystemen te creëren hebben ontwikkelaars een zeer grote hoeveelheid spraakgegevens nodig.
 De meeste gegevens die door grote bedrijven worden gebruikt, zijn niet beschikbaar voor de meeste mensen. Wij denken dat dat de innovatie tegenhoudt. Dus we hebben Common Voice gelanceerd, een project om stemherkenning voor iedereen open en toegankelijk te maken.
 Nu kunt u uw stem doneren om ons te helpen een open-source spraakdatabase te bouwen die iedereen kan gebruiken om innovatieve apps te maken voor apparaten en het web. Lees een zin om machines te helpen leren hoe echte mensen spreken. Controleer het werk van andere bijdragers om de kwaliteit te verbeteren. Zo simpel is het!
-Meer informatie vindt u op de officiële website https://commonvoice.mozilla.org/nl
+U vindt meer details op de officiële website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Waarom zou u de app gebruiken in plaats van de mobiele website?</b>
 
-De app is juist ontwikkeld voor smartphones, dus hij is ingebouwd. Hij heeft veel functies die de website u niet biedt, zoals donker thema, offlinemodus, aanpassingen, gebaren enz.
+De app is speciaal ontwikkeld voor smartphones, dus hij is ingebouwd. Hij heeft veel functies die de website u niet biedt, zoals donker thema, offlinemodus, aanpassingen, gebaren enz.
 De app is lichter dan de website, zonder vervelende animaties (en animaties in de app kunnen ook worden gestopt in Instellingen).
 De website heeft een paar bugs, vooral de mobiele versie, dus u kunt niet alles goed uitvoeren.
 </p>

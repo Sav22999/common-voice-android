@@ -26,6 +26,7 @@ import org.commonvoice.saverio.databinding.ActivityListenBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
+import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
@@ -64,6 +65,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private var numberSentThisSession: Int = 0
     private var verticalScrollStatus: Int = 2 //0 top, 1 middle, 2 end
     private val settingsPrefManager by inject<SettingsPrefManager>()
+
+    private var messageInfoToShow = ""
 
     var minHeightButton1 = 80
     var maxHeightButton1 = 100
@@ -272,7 +275,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             Toast.makeText(
                 this,
                 getString(R.string.toast_speed_set_successfully).replace(
-                    "{{*{{speed_value}}*}}",
+                    "{{speed_value}}",
                     speed.toString()
                 ),
                 Toast.LENGTH_SHORT
@@ -484,9 +487,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (!theme.isDark) {
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode_dark)
                 imageReportIconListen.setImageResource(R.drawable.ic_report_dark)
+                imageInfoListen.setImageResource(R.drawable.ic_info_dark)
             } else {
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode)
                 imageReportIconListen.setImageResource(R.drawable.ic_report)
+                imageInfoListen.setImageResource(R.drawable.ic_info_light)
             }
         }
         resizeSentence()
@@ -521,20 +526,37 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             } else {
                 buttonReportListen.isGone = true
             }
+            if (settingsPrefManager.showInfoIcon) {
+                hideImage(imageInfoListen)
+            }
 
             val motivationSentences = arrayOf(
-                getString(R.string.text_continue_to_validate_1),
-                getString(R.string.text_continue_to_validate_2),
-                getString(R.string.text_continue_to_validate_3),
-                getString(R.string.text_continue_to_validate_4)
+                resources.getQuantityString(
+                    R.plurals.text_continue_to_validate_1,
+                    numberSentThisSession,
+                    numberSentThisSession
+                ),
+                resources.getQuantityString(
+                    R.plurals.text_continue_to_validate_2,
+                    numberSentThisSession,
+                    numberSentThisSession
+                ),
+                resources.getQuantityString(
+                    R.plurals.text_continue_to_validate_3,
+                    numberSentThisSession,
+                    numberSentThisSession
+                ),
+                resources.getQuantityString(
+                    R.plurals.text_continue_to_validate_4,
+                    numberSentThisSession,
+                    numberSentThisSession
+                )
             )
+
             if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
                 textMotivationalSentencesListen.isGone = false
                 textMotivationalSentencesListen.text =
-                    motivationSentences[(motivationSentences.indices).random()].replace(
-                        "{{*{{number}}*}}",
-                        numberSentThisSession.toString()
-                    )
+                    motivationSentences[(motivationSentences.indices).random()]
             } else {
                 textMotivationalSentencesListen.isGone = true
             }
@@ -551,11 +573,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 //if the dailygoal is not set and the dailygoal is almost achieved
                 textMotivationalSentencesListen.isGone = false
                 textMotivationalSentencesListen.text =
-                    getString(R.string.text_almost_achieved_dailygoal_listen).replace(
-                        "{{*{{number}}*}}",
-                        5.toString()
+                    resources.getQuantityString(
+                        R.plurals.text_almost_achieved_dailygoal_listen,
+                        5,
+                        5
                     ).replace(
-                        "{{*{{dailygoal}}*}}",
+                        "{{dailygoal}}",
                         dailyGoal.toString()
                     )
             }
@@ -580,6 +603,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideImage(imageReportIconListen)
             } else {
                 buttonReportListen.isGone = true
+            }
+            if (settingsPrefManager.showInfoIcon) {
+                hideImage(imageInfoListen)
             }
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
@@ -607,7 +633,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
-                "{{*{{feature_name}}*}}",
+                "{{feature_name}}",
                 getString(R.string.txt_show_sentence_at_the_ending)
             ) + "\n" + getString(R.string.txt_press_icon_below_listen_1)
 
@@ -625,6 +651,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             textSentenceListen.text = clip.sentence.sentenceText
             setTextSentenceListen(this@ListenActivity)
         }
+        messageInfoToShow =
+            "clip-id: ${clip.id}\nclip-glob: ${clip.glob}\nsentence-id: ${clip.sentence.sentenceId}\nexpiry-date: ${clip.sentence.expiryDate}"
 
         hideListenAnimateButtons()
 
@@ -634,6 +662,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             showImage(imageReportIconListen)
         } else {
             buttonReportListen.isGone = false
+        }
+        if (settingsPrefManager.showInfoIcon) {
+            showImage(imageInfoListen)
         }
 
         buttonStartStopListen.isEnabled = true
@@ -661,6 +692,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         imageReportIconListen.onClick {
             openReportDialog()
         }
+        imageInfoListen.onClick {
+            showInformationAboutClip()
+        }
+    }
+
+    private fun showInformationAboutClip() {
+        dialogInflater.show(
+            this,
+            InfoDialog(message = messageInfoToShow)
+        )
     }
 
     private fun resizeSentence() {
@@ -691,7 +732,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
-                "{{*{{feature_name}}*}}",
+                "{{feature_name}}",
                 getString(R.string.txt_show_sentence_at_the_ending)
             ) + "\n" + getString(
                 R.string.txt_press_icon_below_listen_2
@@ -811,11 +852,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                         this@ListenActivity, StandardDialog(
                             message = getString(R.string.new_badge_earnt_message)
                                 .replace(
-                                    "{{*{{profile}}*}}",
+                                    "{{profile}}",
                                     getString(R.string.button_home_profile)
                                 )
                                 .replace(
-                                    "{{*{{all_badges}}*}}",
+                                    "{{all_badges}}",
                                     getString(R.string.btn_badges_loggedin)
                                 )
                         )

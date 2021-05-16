@@ -62,9 +62,12 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
             textLoggedIn.isGone = false
             textLoggedIn.isVisible = true
             textLoggedIn.text = if (mainPrefManager.username == "") {
-                "${getString(R.string.text_hi_username)}!"
+                getString(R.string.text_hi_without_username)
             } else {
-                "${getString(R.string.text_hi_username)}, ${mainPrefManager.username}!"
+                getString(R.string.text_hi_with_username).replace(
+                    "{{username}}",
+                    mainPrefManager.username
+                )
             }
 
             binding.buttonHomeLogin.setText(R.string.button_home_profile)
@@ -117,7 +120,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
                     dialogInflater.show(
                         requireContext(), StandardDialog(
                             message = getString(R.string.message_dialog_new_version_available).replace(
-                                "{{*{{n_version}}*}}",
+                                "{{n_version}}",
                                 it
                             )
                         )

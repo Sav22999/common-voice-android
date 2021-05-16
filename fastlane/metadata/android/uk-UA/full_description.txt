@@ -1,44 +1,45 @@
 <p>
-This is not the official app of Common Voice. It's developed by Saverio Morelli
+Це не офіційний додаток загального Голосу. Розроблено Саверіо Мореллі
 </p>
 <p>
-<b>App features:</b>
+<b>Особливості:</b>
 
-- The user interface (UI) is smart, clear and modern
-- Log in to your Common Voice account
-- Validate clips
-- Record sentences
-- Report sentences/clips in the relative sections
-- Multi-languages supported
-- Offline mode (continue to contribute also when you aren't connected to the Internet!)
-- Common Voice statistics (of the selected language)
-- Top contributors (of the selected language)
-- App statistics (anonymous)
-- Voices online (of the selected language)
-- Dark theme supported
-- Daily goal
-- Gestures
-- Save your recordings on your device
-- Many other features
-- The app experience is totally customisable in Settings
+- Інтерфейс користувача (UI) розумний, зрозумілий і сучасний
+- Увійти в загальний Голосовий обліковий запис
+- Перевірка кліпів
+- Записи Відправки
+- Доповідь речень/кліпи у відносних розділах
+- Підтримка декількох мов
+- Оффлайн режим (продовжувати робити внесок, коли ви не підключені до Інтернету!)
+- Загальна голосова статистика (з вибраної мови)
+- Найактивніші автори (вибраної мови)
+- Статистика додатків (анонімна)
+- Онлайн голоси (вибраної мови)
+- Підтримка темної теми
+- Ціль на день
+- Жести
+- Зберігайте записи на пристрої
+- Багато інших функцій
+- Досвід додатка можна повністю налаштувати в Налаштуваннях
 
-Join the Telegram group: https://t.me/common_voice_android (@common_voice_android)
-You can see complete app statistics here: https://bit.ly/3clgfkg
-Read more about this app on GitHub: http://bit.ly/2PeOGRg
+Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>What is Common Voice project?</b>
+<b>What is the Common Voice project?</b>
 
-Common Voice is Mozilla's initiative to help teach machines how real people speak.
-Voice is natural, voice is human. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
-Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
-Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-You can find more details on the official website https://commonvoice.mozilla.org/
+Загальний Голос - це ініціатива Мозіли допомогти навчати машин, як говорять справжні люди.
+Голос природний, голос - це людина. Тому нам до вподоби створювати сприятливі голосові технології для нашої техніки. Але для створення голосових систем розробникам необхідна надзвичайно велика кількість голосових даних.
+Більшість даних, що використовуються великими компаніями, не доступні для більшості людей. Ми вважаємо, що це стримує інновації. Ми запустили Загальний Голос, проєкт, щоб допомогти зробити розпізнавання голосу відкритим і доступним для всіх.
+Тепер ви можете пожертвувати свій голос, щоб допомогти нам створити голосову базу даних з відкритим вихідним кодом, яку кожен зможе використовувати для створення інноваційних програм для пристроїв та мереж. Прочитайте речення, щоб допомогти машинам зрозуміти, як говорять справжні люди. Перевірте роботу інших учасників для покращення якості. Це ж так просто!
+You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
-<b>Why should you use the app instead of the website on mobile?</b>
+<b>Чому ви повинні використовувати додаток замість веб-сайту в телефоні?</b>
 
-The app is developed exactly for smartphones so it's native. It has many features that website don't provide you, such as dark theme, offline mode, customisation, gestures, etc.
-The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
-In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.
+The app is developed specifically for smartphones so it's native. Містить багато функцій, які веб-сайт не надає вам, наприклад, темну тему, режим оффлайн, жести, і т.д.
+Додаток більш легкий за сайт, без набридливої анімації (анімація у додатку також може бути зупинена в налаштуваннях).
+Крім того, сайт має багато помилок, особливо для мобільної версії, тому все не може бути правильно.
 </p>

@@ -2,7 +2,7 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">sv-SE</string>
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">sv-SE</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Hem</string>
     <string name="title_dashboard">Översikt</string>
@@ -11,7 +11,8 @@
     <string name="button_home_login">Logga in / Registrera dig</string>
     <string name="button_home_logout">Logga ut</string>
     <string name="button_home_profile">Profil</string>
-    <string name="text_hi_username">Hej</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hej!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Hej, {{username}}!</string>
     <string name="message_log_in_again">Session-id har löpt ut, du måste logga in igen</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistik</string>
@@ -42,7 +43,7 @@ De främsta deltagarna</string>
     <string name="btn_skip" comment="Button">Hoppa över</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Behörighet erhållen</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Fel: tillstånd nekas</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project är en inofficiell app för Mozilla Common Voice. Den är utvecklad av Saverio Morelli utan stöd eller partneskap med Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project är en inofficiell app för Mozilla Common Voice. Den är utvecklad av Saverio Morelli utan stöd eller partneskap med Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Genom att fortsätta godkänner du användarvillkoren för Mozillas Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Denna app behöver behörigheten \"Mikrofon\" för att spela in din röst.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Du kan rapportera fel på GitHub eller Telegram. För att hjälpa utvecklaren att förstå problemet snabbt bör du bifoga appens loggfil till din rapport. Appen behöver behörigheten \"Lagring\" för att spara loggfilen.</string>
@@ -55,19 +56,19 @@ De främsta deltagarna</string>
     <string name="btn_join_telegram_first_launch" comment="Button">Anslut till grupp</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Kom igång! Välj vilket språk du vill tala eller lyssna på. Appen kommer också att visas på det språket om en översättning är tillgänglig.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Laddar ...</string>
+    <string name="txt_loading_page" comment="Label">Laddar…</string>
     <string name="txt_profile_username" comment="Label in Profile">Användarnamn</string>
     <string name="txt_profile_email" comment="Label in Profile">Epost</string>
     <string name="txt_profile_age" comment="Label in Profile">Ålder</string>
     <string name="txt_profile_gender" comment="Label in Profile">Kön</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">För att ändra din profilinformation går du till webbplatsen Common Voice.</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">För att ändra din profilinformation går du till webbplatsen Common Voice.</string>
     <string name="txt_login_successful_alert" comment="Message text">Inloggning godkänd!</string>
     <string name="txt_gender_male" comment="Label in Profile">Man</string>
     <string name="txt_gender_female" comment="Label in Profile">Kvinna</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Annat</string>
     <string name="btn_badges_loggedin" comment="Button">Alla märken</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivå {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Grattis! Du har precis uppnått {{*{{n_level}}*}} nivån.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivå {{level}}</string>
+    <string name="level_up_message" comment="Message text">Grattis! Du har precis uppnått nivå {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Jag har redan en verifieringslänk</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verifieringslänk</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Verifieringslänken är inte giltig</string>
@@ -75,7 +76,7 @@ De främsta deltagarna</string>
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Öppna handledningen igen</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projekt öppen kod på GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">utvecklad av</string>
-    <string name="toast_language_changed" comment="Message text">Språket har ändrats till {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Språket har ändrats till {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Språk</string>
     <string name="settingsListen" comment="Title in Settings">Lyssna</string>
     <string name="settingsSpeak" comment="Title in Settings">Tala</string>
@@ -129,16 +130,17 @@ De främsta deltagarna</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Visa en rapporteringsikon (övre högra hörnet) istället för en knapp (botten)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Textstorlek</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Annonsrad</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Aktivera annonsrad i {{*{{section_name}}*}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Aktivera annonsrad i {{*{{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Färgad förloppsindikator för dagliga mål</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} och {{*{{listen_name}}*}}</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} och {{listen_name}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Visa fält för hastighetskontroll</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Visa info-ikon</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening...</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
     <string name="btn_send_sentence" comment="Button in Speak">Ladda upp inspelning</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Laddar klipp...</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Laddar klipp…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Tryck på ikonen nedan för att starta inspelningen.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Tryck på ikonen nedan för att stoppa inspelningen.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Mening inspelad. Lyssna på inspelningen.</string>
@@ -148,21 +150,21 @@ De främsta deltagarna</string>
     <string name="txt_listening_again_recording" comment="Label in Speak">Tryck på ikonen nedan för att sluta lyssna.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Inspelningen är för lång. 10 sekunder är max.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Inspelningen är för kort. Försök igen.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Laddar upp inspelningen...</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Skickar inspelningen…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Inspelningen uppladdad!</string>
     <string name="txt_sending_recording_failed" comment="Message text">Det gick inte att skicka inspelning!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Det gick inte att skicka inspelning! Du kan antingen försöka igen eller trycka på {{*{{skip_button}}*}} knappen.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Det gick inte att skicka inspelningen! Du kan antingen försöka igen eller trycka på knappen {{skip_button}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Tryck på ikonen nedan för att starta klippet.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Tryck på ikonen nedan för att stoppa klippet.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Om klipp är korrekt, tryck tummen upp.\nOm klipp är fel, tryck tummen ner.</string>
     <string name="txt_clip_again" comment="Label in Listen">Tryck på ikonen nedan för att spela upp klippet igen.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Klipp markerad som korrekt!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Klipp markerad som felaktig!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Fel. Tryck på {{*{{skip_button}}*}} för att fortsätta.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Fel. Tryck på knappen {{skip_button}} för att fortsätta.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">Det gick inte att skicka inspelningen.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Skickar...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Det gick inte att skicka resultatet. Du kan antingen försöka igen eller trycka på {{*{{skip_button}}*}} knappen.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Avslutar...</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Skickar…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Det gick inte att skicka resultatet. Du kan antingen försöka igen eller trycka på knappen {{skip_button}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Stänger…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Fel. Det finns inga fler tillgängliga klipp för detta språk.</string>
     <string name="button_report" comment="Button">Rapportera</string>
     <string name="title_report_clip" comment="Title in Report a clip">Rapportera klipp:</string>
@@ -177,24 +179,54 @@ De främsta deltagarna</string>
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Kommentar</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Du har slut på meningar offline. Anslut till Internet för att ladda ner fler meningar att spela in.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Du har slut på offline-klipp. Anslut till Internet för att ladda ner fler klipp för att validera.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Du kan spela in {{*{{n_sentences}}*}} fler meningar innan du behöver ansluta till Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Du kan validera {{*{{n_clips}}*}} fler klipp innan du behöver ansluta till Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Lyssnar...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Funktionen \"{{*{{feature_name}}*}}\" är aktiverad. Gå till Inställningar för att inaktivera den.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">Du kan spela in ytterligare {{n_sentences}} meningar innan du behöver ansluta till Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">Du kan validera ytterligare {{n_clips}} klipp innan du behöver ansluta till Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Lyssnar…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">Funktionen \"{{feature_name}}\" är aktiverad. Gå till Inställningar för att inaktivera den.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Meningstexten är dold</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Det finns inga fler meningar på Common Voice servern. Försök igen senare eller kontakta Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Det finns inga fler klipp på Common Voice servern. Försök igen senare eller kontakta Mozilla.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Du har redan validerat {{*{{number}}*}} klipp i rad, fortsätt så!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Fortsätt att validera klipp, du har validerat {{*{{number}}*}} klipp i rad.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Bra jobbat! Du har redan validerat {{*{{number}}*}} klipp i rad.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, du har superkrafter! Du har validerat {{*{{number}}*}} klipp i rad!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Du har skickat {{*{{number}}*}} inspelningar i rad.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Bra jobbat! Du har skickat {{*{{number}}*}} inspelningar i rad.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Grattis! Du har uppnått milstolpen {{*{{number}}*}} inspelade meningar. Fortsätt så.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, du har superkrafter! Du har spelat in {{*{{number}}*}} klipp i rad!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Du saknar endast {{*{{number}}*}} klipp för att uppnå ditt dagliga mål av {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">Du saknar endast {{*{{number}}*}} meningar för att uppnå ditt dagliga mål av {{*{{dailygoal}}*}}!</string>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Hastighet är inställd till {{*{{speed_value}}*}}.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">Du har redan validerat %d klipp i rad, fortsätt så!</item>
+        <item quantity="other">Du har redan validerat %d klipp i rad, fortsätt så!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">Fortsätt att validera klipp, du har validerat %d klipp i rad.</item>
+        <item quantity="other">Fortsätt att validera klipp, du har validerat %d klipp i rad.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">Bra jobbat! Du har redan validerat %d klipp i rad.</item>
+        <item quantity="other">Bra jobbat! Du har redan validerat %d klipp i rad.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">Wow, du har superkrafter! Du har validerat %d klipp i rad!</item>
+        <item quantity="other">Wow, du har superkrafter! Du har validerat %d klipp i rad!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">Du har skickat %d inspelning i rad.</item>
+        <item quantity="other">Du har skickat %d inspelningar i rad.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">Bra jobbat! Du har skickat %d inspelning i rad.</item>
+        <item quantity="other">Bra jobbat! Du har skickat %d inspelningar i rad.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">Grattis! Du har uppnått milstolpen %d inspelad mening. Fortsätt så.</item>
+        <item quantity="other">Grattis! Du har uppnått milstolpen %d inspelade meningar. Fortsätt så.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">Wow, du har superkrafter! Du har spelat in %d mening i rad!</item>
+        <item quantity="other">Wow, du har superkrafter! Du har spelat in %d meningar i rad!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">Du saknar endast %d klipp för att uppnå ditt dagliga mål av {{dailygoal}}!</item>
+        <item quantity="other">Du saknar endast %d klipp för att uppnå ditt dagliga mål av {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">Du saknar endast %d mening för att uppnå ditt dagliga mål av {{dailygoal}}!</item>
+        <item quantity="other">Du saknar endast %d meningar för att uppnå ditt dagliga mål av {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Hastighet är inställd till {{speed_value}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Kontrollera igen</string>
     <string name="txt_noconnection" comment="Message text">Du är inte ansluten till internet. Anslut till Wi-Fi eller mobildata, tryck sedan på knappen nedan.</string>
@@ -222,15 +254,15 @@ De främsta deltagarna</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Stäng</string>
     <string name="labelAllBadges" comment="Title for All badge section">Alla märken</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurra! Du har precis förtjänat ett nytt märke.\nGå till {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} för att se alla dina märken.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">Du fick detta märke eftersom du validerade minst {{*{{n_clips}}*}} klipp.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">Du fick detta märke eftersom du spelade in minst {{*{{n_sentences}}*}} meningar.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">Du fick detta märke eftersom du validerade eller spelade in minst {{*{{n_total}}*}} klipp.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurra! Du har precis förtjänat ett nytt märke.\nGå till {{profile}} &gt; {{all_badges}} för att se alla dina märken.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Du fick detta märke eftersom du validerade åtminstone {{n_clips}} klipp.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Du fick detta märke eftersom du spelade in åtminstone {{n_sentences}} meningar.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Du fick detta märke eftersom du validerade eller spelade in minst {{n_total}} klipp.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">Ok</string>
+    <string name="btnOk" comment="Button">OK</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Fel</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">Det fungerade inte.\nFörsök igen eller kontakta utvecklaren.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Det fungerade inte. Försök igen eller kontakta utvecklaren.\nFelkod: EX-{{*{{error_code}}*}}</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">Något gick fel. Vänligen försök igen eller kontakta utvecklaren.\nFelkod: EX-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Inloggning misslyckades</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Du måste först logga in på webbplatsen Common Voice och acceptera integritetspolicyn för Common Voice.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Öppen Common Voice</string>
@@ -254,10 +286,17 @@ De främsta deltagarna</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Är du säker på att du vill gå tillbaka och förlora inspelningen?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Är du säker på att du vill hoppa över och förlora inspelningen?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Är du säker på att du vill återställa all appdata?</string>
-    <string name="button_yes_sure" comment="Button">Ja, jag är säker</string>
+    <string name="button_yes_sure" comment="Button">Ja</string>
     <string name="button_cancel" comment="Button">Avbryt</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Bra gjort! Du har öppnat appen {{*{{number}}*}} dagar i rad.</string>
-    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">Jag har öppnat appen CV Project {{*{{number}}*}} dagar i rad! Ladda ner den du också för att bidra till projektet Common Voice via din smartphone.</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">Bra jobbat! Du har öppnat appen %d dag i rad.</item>
+        <item quantity="other">Bra jobbat! Du har öppnat appen %d dagar i rad.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">Jag har öppnat appen CV Project %d dag i rad! Ladda ner den du också för att bidra till projektet Common Voice via din smartphone.</item>
+        <item quantity="other">Jag har öppnat appen CV Project %d dagar i rad! Ladda ner den du också för att bidra till projektet Common Voice via din smartphone.</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Logga in nu</string>
     <string name="button_translate_on_crowdin" comment="Button">Översätt nu</string>
     <!-- Daily goal -->
@@ -271,14 +310,14 @@ De främsta deltagarna</string>
     <string name="description_setting_daily_goal" comment="Message text">Välj hur många meningar du vill spela in och klipp du vill validera (summan av dem) per dag.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Uppnått Idag</string>
     <string name="daily_goal_not_achieved_today">Inte uppnått idag</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Bra gjort! Du uppnådde ditt dagliga mål.\nDu validerade {{*{{n_clips}}*}} klipp(er) och spelade in {{*{{n_sentences}}*}} mening(er).\nKänn dig fri att fortsätta bidra till gemensam röst.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Bra jobbat! Du uppnådde ditt dagliga mål.\nDu validerade {{n_clips}} klipp och spelade in {{n_sentences}} mening(ar).\nOm du vill får du gärna fortsätta bidra till Common Voice.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Dela</string>
     <string name="share_daily_goal_title" comment="Title of panel">Dela på</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Jag har precis uppnått mitt dagliga mål för @mozilla #CommonVoice med #CVProject.\nGå med du också och bidra! Installera CV Projekt från Google Play, F-Droid eller Huawei AppGallery nu {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Jag har precis uppnått mitt dagliga mål för @mozilla #CommonVoice med #CVProject.\nGå med du också och bidra! Installera CV Projekt från Google Play, F-Droid eller Huawei AppGallery nu {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Detta dagliga mål är inte en officiell Mozilla-funktion. Det är bara en funktion i den här appen.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Visste du att ... ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10.000 timmar kan uppnås på bara 6 månader om 1000 personer spelar in 45 klipp per dag.</string>
     <string name="copied_string" comment="Toast message">Kopierat</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">En ny version av appen är tillgänglig (release {{*{{n_version}}*}}). Du kan uppdatera den från din favoritbutik (F-Droid, Google Play Store) eller direkt från GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">En ny version av appen är tillgänglig (release {{n_version}}). Du kan uppdatera den från din favoritbutik (F-Droid, Google Play Store) eller direkt från GitHub.</string>
 </resources>

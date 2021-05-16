@@ -1,6 +1,9 @@
+<h1 align="center">
+    <br>
+    <img width="70" src="images/icon.png" alt="CV Project icon" />
+    <br>
+</h1>
 
-
-#  <img src="images/icon.png" width="40px" alt=""></img> CV Project
 
 [**Official web page of this project**](https://www.saveriomorelli.com/commonvoice/): you can find F.A.Q. and some useful links.
 
@@ -30,11 +33,11 @@ You can contact me also on Telegram, with the username `@Sav22999` (I speak `Ita
 
 ### Support me and my work
 
-If you like this project, leave a *Star* to receive updates on your *GitHub dashboard*.
+If you like this project, leave a *Star* ⭐ to receive updates on your *GitHub dashboard*.
 
 To support me, you can do a donation :smile: with PayPal, LiberaPay or Ko-Fi:
 
-<a href="https://liberapay.com/Sav22999/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a> [<img src="images/badges/donatePayPal.png" width="200px"></img>](https://paypal.me/pools/c/8yl6auiU6e) [<img src="https://cdn.ko-fi.com/cdn/kofi1.png?v=2" width="200px"></img>](https://ko-fi.com/R5R31UQ8G)
+<a href="https://liberapay.com/Sav22999/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a> [<img src="images/badges/paypal.svg" width="160px"></img>](https://paypal.me/pools/c/8yl6auiU6e) [<img src="https://cdn.ko-fi.com/cdn/kofi1.png?v=2" width="120px"></img>](https://ko-fi.com/R5R31UQ8G)
 
 ### How contribute
 
@@ -43,7 +46,7 @@ If you want to help to develop this app, you can open an `Issue` an send feedbac
 You can contribute also to translate the app (follow every step, please):
 
 1. **Open a new issue** (use `Translation` template), so others know you are translating the app in that language
-1. Then go to [Crowdin](https://bit.ly/3bNBoUU), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
+1. Then go to [Crowdin](https://crowdin.com/project/common-voice-android), choose your language (you can ask for a new language if it’s not in the list) and translate strings.
 
 _If your language is not now supported by [Common Voice](https://commonvoice.mozilla.org/it), **don't worry!** You can translate the app anyway, when it will be supported, the app will be already translated in your language!_
 
@@ -59,15 +62,21 @@ There is already the website, which is responsive and mobile-friendly, but actua
 
 ### Gestures
 
-You can read more about Gesture here: [https://www.saveriomorelli.com/commonvoice/gestures/](https://bit.ly/3phQ0lP)
+You can read more about Gesture here: [https://www.saveriomorelli.com/commonvoice/gestures/](https://www.saveriomorelli.com/commonvoice/gestures/)
 
 ### Offline mode
 
-You can read more about Offline mode here: [https://www.saveriomorelli.com/commonvoice/offline-mode/](https://bit.ly/3nJwpuq)
+You can read more about Offline mode here: [https://www.saveriomorelli.com/commonvoice/offline-mode/](https://www.saveriomorelli.com/commonvoice/offline-mode/)
 
 ### Translations
 
-The app is translated in many languages, see list on Crowdin:  [<img src="images/badges/crowdinBadge.png" width="170px"></img>](https://bit.ly/3bNBoUU)
+The app is translated in many languages, see list on Crowdin:  
+
+<div align="center">
+<br>
+<a href="https://crowdin.com/project/common-voice-android"><img src="images/badges/crowdinBadge.png" width="170px" /></a>
+<br>
+</div>
 
 Thanks everyone translate it!
 
@@ -75,7 +84,11 @@ Thanks everyone translate it!
 
 The license of *CV Project* is GPLv3.
 
+<div align="center">
+<br>
 <img src="images/icons/gpl.png" width="100px"></img>
+<br>
+</div>
 
 ### Privacy policy
 
@@ -88,5 +101,3 @@ You can read the specific file about API (just relative to my website): [API.md]
 
 
 ![Generic badge](https://img.shields.io/badge/built%20in-Android%20Studio-green.svg) ![Generic badge](https://img.shields.io/badge/developed%20in-Kotlin-blue.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/Sav22999/common-voice-android) [![Generic badge](https://img.shields.io/badge/developed%20by-Sav22999-lightgrey.svg)](https://saveriomorelli.com)
-
-[<img src="https://www.saveriomorelli.com/images/badges/a-project-of.png" width="170px"></img>](https://saveriomorelli.com/projects)  [<img src="https://www.saveriomorelli.com/images/badges/realised-by.png" width="170px"></img>](https://saveriomorelli.com)

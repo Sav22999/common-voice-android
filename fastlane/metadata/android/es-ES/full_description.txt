@@ -22,23 +22,24 @@ Esta no es la aplicación oficial de Common Voice. Está desarrollada por Saveri
 - Muchas otras características
 - La experiencia de la aplicación es totalmente personalizable en Ajustes
 
-Únete al grupo de Telegram: https://t.me/common_voice_android (@common_voice_android)
-Puedes ver las estadísticas completas de la aplicación aquí: https://bit.ly/3clgfkg
-Lee más sobre esta aplicación en GitHub: http://bit.ly/2PeOGRg
+Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>¿Qué es el proyecto de Common Voice?</b>
+<b>What is the Common Voice project?</b>
 
 Common Voice es la iniciativa de Mozilla para ayudar a enseñar a las máquinas cómo habla la gente real.
 La voz es natural, la voz es humana. Por eso estamos entusiasmados con la creación de tecnología de voz utilizable para nuestras máquinas. Pero para crear sistemas de voz, los desarrolladores necesitan una gran cantidad de datos de voz.
 La mayoría de los datos utilizados por las grandes empresas no están disponibles para la mayoría de las personas. Creemos que esto reprime la innovación. Así que hemos lanzado Common Voice, un proyecto para ayudar a que el reconocimiento de voz sea abierto y accesible para todos.
 Ahora puedes donar tu voz para ayudarnos a construir una base de datos de voz de código abierto que cualquiera pueda utilizar para crear aplicaciones innovadoras para dispositivos y la web. Lee una frase para ayudar a las máquinas a aprender cómo hablan las personas reales. Comprueba el trabajo de otros colaboradores para mejorar la calidad. ¡Es así de simple!
-Puedes encontrar más detalles en el sitio web oficial https://commonvoice.mozilla.org/
+You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>¿Por qué deberías usar la aplicación en lugar de la página web en dispositivos móviles?</b>
 
-La aplicación se desarrolla exactamente para los smartphones así que es nativa. Tiene muchas características que el sitio web no le proporciona, como tema oscuro, modo sin conexión, personalización, gestos, etc.
+The app is developed specifically for smartphones so it's native. Tiene muchas características que el sitio web no le proporciona, como tema oscuro, modo sin conexión, personalización, gestos, etc.
 La aplicación es más ligera que la página web, sin animaciones molestas (y las animaciones en la aplicación también se pueden detener en Ajustes).
 Además, el sitio web tiene muchos errores, especialmente para la versión móvil, por lo que no puedes hacer todo correctamente.
 </p>

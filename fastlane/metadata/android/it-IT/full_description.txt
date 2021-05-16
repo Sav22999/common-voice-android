@@ -22,9 +22,10 @@ Questa non è l'app ufficiale di Common Voice. È sviluppata da Saverio Morelli
 - Molte altre funzionalità
 - L'esperienza dell'app è completamente personalizzabile nelle Impostazioni
 
-Unisciti al gruppo Telegram: https://t.me/common_voice_android (@common_voice_android)
-Puoi vedere le statistiche complete dell'app qui: https://bit.ly/3clgfkg
-Scopri di più su questa app su GitHub: http://bit.ly/2PeOGRg</p>
+Unisciti al gruppo Telegram: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Puoi vedere le statistiche complete delle app qui: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">Statistiche dell'app</a>
+Puoi vedere le statistiche complete delle app qui: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">Statistiche sull'uso dell'app</a>
+Scopri maggiori informazioni sull'app su GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project su GitHub</a>
 </p>
 <p>
 <b>Che cos'è il progetto Common Voice?</b>
@@ -33,7 +34,7 @@ Il progetto Common Voice è un’iniziativa di Mozilla per insegnare alle macchi
 La voce è naturale, la voce è umanità. Per questo l’idea di creare una tecnologia vocale utilizzabile dalle nostre macchine ci affascina così tanto. Per creare sistemi basati sulla tecnologia vocale, però, è necessaria un’altissima quantità di campioni.
 Buona parte dei dati usati dalle grandi aziende non è accessibile alla maggioranza delle persone. Secondo noi questo soffoca l’innovazione. Per questa ragione abbiamo sviluppato Common Voice, un progetto di riconoscimento vocale aperto a tutti.
 Ora puoi donare la tua voce per aiutarci a costruire un database vocale open source a disposizione di tutti gli sviluppatori di applicazioni per dispositivi o per il Web. Leggi una frase per insegnare alle macchine come le persone parlano nella vita reale. Verifica le registrazioni audio degli altri collaboratori per migliorare la qualità del database. Contribuire è semplicissimo!
-Puoi trovare maggiori informazioni sul sito ufficiale https://commonvoice.mozilla.org/
+Puoi trovare maggiori dettagli sul sito ufficiale <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Perché dovrei usare l'app invece del sito web su mobile?</b>

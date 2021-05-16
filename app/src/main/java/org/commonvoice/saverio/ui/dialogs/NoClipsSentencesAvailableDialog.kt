@@ -45,11 +45,11 @@ class NoClipsSentencesAvailableDialog(
             }
             isSentencesDialog -> {
                 ctx.getString(R.string.txt_residual_sentences_offline_mode)
-                    .replace("{{*{{n_sentences}}*}}", "$count")
+                    .replace("{{n_sentences}}", "$count")
             }
             !isSentencesDialog -> {
                 ctx.getString(R.string.txt_residual_clips_offline_mode)
-                    .replace("{{*{{n_clips}}*}}", "$count")
+                    .replace("{{n_clips}}", "$count")
             }
             else -> { //this will never happen
                 ctx.getString(R.string.messageDialogErrorTitle)

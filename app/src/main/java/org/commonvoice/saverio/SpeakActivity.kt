@@ -3,7 +3,6 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.animation.ValueAnimator
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Bundle
@@ -28,6 +27,7 @@ import org.commonvoice.saverio.databinding.ActivitySpeakBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
 import org.commonvoice.saverio.ui.dialogs.SpeakReportDialogFragment
+import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.WarningDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
@@ -47,7 +47,6 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import java.util.*
-import kotlin.math.min
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     ActivitySpeakBinding::inflate
@@ -74,6 +73,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private val settingsPrefManager by inject<SettingsPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
+
+    private var messageInfoToShow = ""
 
     var minHeight = 30
     var maxHeight = 350
@@ -148,6 +149,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             hideImage(imageReportIconSpeak)
         } else {
             buttonReportSpeak.isGone = true
+        }
+        if (settingsPrefManager.showInfoIcon) {
+            hideImage(imageInfoSpeak)
         }
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
@@ -285,7 +289,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             Toast.makeText(
                 this,
                 getString(R.string.toast_speed_set_successfully).replace(
-                    "{{*{{speed_value}}*}}",
+                    "{{speed_value}}",
                     speed.toString()
                 ),
                 Toast.LENGTH_SHORT
@@ -481,9 +485,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             if (!theme.isDark) {
                 imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode_dark)
                 imageReportIconSpeak.setImageResource(R.drawable.ic_report_dark)
+                imageInfoSpeak.setImageResource(R.drawable.ic_info_dark)
             } else {
                 imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode)
                 imageReportIconSpeak.setImageResource(R.drawable.ic_report)
+                imageInfoSpeak.setImageResource(R.drawable.ic_info_light)
             }
         }
     }
@@ -533,6 +539,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             openReportDialog()
         }
 
+        imageInfoSpeak.onClick {
+            showInformationAboutSentence()
+        }
+
         buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
         }
@@ -550,6 +560,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         startAnimation(buttonSkipSpeak, R.anim.zoom_in_speak_listen)
     }
 
+    private fun showInformationAboutSentence() {
+        dialogInflater.show(
+            this,
+            InfoDialog(message = messageInfoToShow)
+        )
+    }
+
     private fun loadUIStateLoading() = withBinding {
         textMessageAlertSpeak.setText(R.string.txt_loading_sentence)
         textSentenceSpeak.text = "···"
@@ -562,23 +579,39 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         } else {
             buttonReportSpeak.isGone = true
         }
+        if (settingsPrefManager.showInfoIcon) {
+            hideImage(imageInfoSpeak)
+        }
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
 
         val motivationSentences = arrayOf(
-            getString(R.string.text_continue_to_send_1),
-            getString(R.string.text_continue_to_send_2),
-            getString(R.string.text_continue_to_send_3),
-            getString(R.string.text_continue_to_send_4)
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_1,
+                numberSentThisSession,
+                numberSentThisSession
+            ),
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_2,
+                numberSentThisSession,
+                numberSentThisSession
+            ),
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_3,
+                numberSentThisSession,
+                numberSentThisSession
+            ),
+            resources.getQuantityString(
+                R.plurals.text_continue_to_send_4,
+                numberSentThisSession,
+                numberSentThisSession
+            )
         )
         if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
             textMotivationSentencesSpeak.isGone = false
             textMotivationSentencesSpeak.text =
-                motivationSentences[(motivationSentences.indices).random()].replace(
-                    "{{*{{number}}*}}",
-                    numberSentThisSession.toString()
-                )
+                motivationSentences[(motivationSentences.indices).random()]
         } else {
             textMotivationSentencesSpeak.isGone = true
         }
@@ -595,11 +628,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             //if the dailygoal is set and it is almost achieved
             textMotivationSentencesSpeak.isGone = false
             textMotivationSentencesSpeak.text =
-                getString(R.string.text_almost_achieved_dailygoal_speak).replace(
-                    "{{*{{number}}*}}",
-                    5.toString()
+                resources.getQuantityString(
+                    R.plurals.text_almost_achieved_dailygoal_speak,
+                    5,
+                    5
                 ).replace(
-                    "{{*{{dailygoal}}*}}",
+                    "{{dailygoal}}",
                     dailyGoal.toString()
                 )
         }
@@ -619,6 +653,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         } else {
             buttonReportSpeak.isGone = true
         }
+        if (settingsPrefManager.showInfoIcon) {
+            hideImage(imageInfoSpeak)
+        }
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
@@ -633,6 +670,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         } else {
             buttonReportSpeak.isGone = false
         }
+        if (settingsPrefManager.showInfoIcon) {
+            showImage(imageInfoSpeak)
+        }
 
         buttonSendSpeak.isGone = true
 
@@ -643,6 +683,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_1)
         textSentenceSpeak.text = sentence.sentenceText
+        messageInfoToShow =
+            "sentence-id: ${sentence.sentenceId}\nexpiry-date: ${sentence.expiryDate}"
+
 
         resizeSentence()
 
@@ -750,11 +793,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                         StandardDialog(
                             message = getString(R.string.new_badge_earnt_message)
                                 .replace(
-                                    "{{*{{profile}}*}}",
+                                    "{{profile}}",
                                     getString(R.string.button_home_profile)
                                 )
                                 .replace(
-                                    "{{*{{all_badges}}*}}",
+                                    "{{all_badges}}",
                                     getString(R.string.btn_badges_loggedin)
                                 )
                         )

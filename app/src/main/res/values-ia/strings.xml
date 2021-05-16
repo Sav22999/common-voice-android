@@ -2,7 +2,7 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">ia</string>
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">ia</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Al initio</string>
     <string name="title_dashboard">Controlo</string>
@@ -11,7 +11,8 @@
     <string name="button_home_login">Acceder / Registrar se</string>
     <string name="button_home_logout">Disconnecter se</string>
     <string name="button_home_profile">Profilo</string>
-    <string name="text_hi_username">Holla</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Holla!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Holla, {{username}}!</string>
     <string name="message_log_in_again">Le ID de session es expirate, tu debe authenticar te de novo</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistica</string>
@@ -40,7 +41,7 @@
     <string name="btn_skip" comment="Button">Saltar</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permisso obtenite</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permisso denegate</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project es un app non official pro Mozilla Common Voice. Illo es disveloppate per Saverio Morelli sin ulle assistentia o societate con Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project es un app non official pro Mozilla Common Voice. Illo es disveloppate per Saverio Morelli sin ulle assistentia o societate con Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Si tu procede, tu concorda con le Terminos de Servicio de Mozilla Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Iste le application besonia de permisso \"Microphono\" pro registrar tu voce.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Tu pote reportar bugs sur GitHub o Telegram. Pro adjutar le disveloppator a comprender le problema rapidemente, tu deberea attaccar a tu reporto le file de registro del app. Le app besoniante del permisso \"Immagazinage\" pro salvar le file de registro.</string>
@@ -53,19 +54,19 @@
     <string name="btn_join_telegram_first_launch" comment="Button">Junger te al gruppo</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Avante! Elige que lingua tu amarea parlar o ascoltar. Le app essera alsi monstrate in ille lingua si un traduction es disponibile.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Cargamento ...</string>
+    <string name="txt_loading_page" comment="Label">Cargamento…</string>
     <string name="txt_profile_username" comment="Label in Profile">Nomine de usator</string>
     <string name="txt_profile_email" comment="Label in Profile">Email</string>
     <string name="txt_profile_age" comment="Label in Profile">Etate</string>
     <string name="txt_profile_gender" comment="Label in Profile">Genere</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">Pro modificar tu informationes, va al sito web de Common Voice.</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">Pro modificar tu informationes, va al sito web de Common Voice.</string>
     <string name="txt_login_successful_alert" comment="Message text">Accesso con successo!</string>
     <string name="txt_gender_male" comment="Label in Profile">Masculo</string>
     <string name="txt_gender_female" comment="Label in Profile">Femina</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Altero</string>
     <string name="btn_badges_loggedin" comment="Button">Tote le badges</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivello {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Congratulationes! Tu ha justo attingite le nivello {{*{{n_level}}*}}.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivello {{level}}</string>
+    <string name="level_up_message" comment="Message text">Felicitationes! Tu ha justo attingite le nivello {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Io ha jam un ligamine de verification</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Ligamine de verification</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Le ligamine de verification non es valide</string>
@@ -73,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Reaperir le exercitation</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projecto open-source sur GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">disveloppate per</string>
-    <string name="toast_language_changed" comment="Message text">Lingua definite con successo como {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Lingua stabilite con successo a {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Lingua</string>
     <string name="settingsListen" comment="Title in Settings">Ascoltar</string>
     <string name="settingsSpeak" comment="Title in Settings">Parlar</string>
@@ -127,16 +128,17 @@
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Monstrar le icone del reporto (in alto a dextera) in vice del button (in basso)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Dimension del texto</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Banner de avisos publicitari</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activar banner avisos in {{*{{section_name}}*}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activar banner avisos in {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra colorate de progresso del objectivo quotidian</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} e {{*{{listen_name}}*}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} e {{listen_name}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Le thema clar alsi pro le phrase a leger o validar in Parlar e Ascoltar (quando le thema clar es activate).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Monstrar le barra de controlo velocitate</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Monstrar icone informative</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase...</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
     <string name="btn_send_sentence" comment="Button in Speak">Inviar registration</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Cargante retalio...</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Cargamento registration…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Pulsa le icone infra pro initiar registration.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Pulsa le icone infra pro cessar registration.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Phrase registrate. Ascolta registration.</string>
@@ -146,21 +148,21 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">Pulsa le icone infra pro cessar ascolta.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Registration troppo longe. Durata maxime 10 secundas.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Le registration es troppo breve. Reproba.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Invio del registration...</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Invio del registration…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Registration inviate!</string>
     <string name="txt_sending_recording_failed" comment="Message text">Falta a inviar registration!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Falta a inviar registration! Tu pote reprobar o pulsar le {{*{{skip_button}}*}} button.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Falta a inviar registration! Tu pote retentar o pulsar le button {{skip_button}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Pulsa le icone infra pro ascoltar le retalio.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Pulsa le icone infra pro cessar le ascolta.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Si le retalio es correcte, pulsa le pollice in alto.\nSi errate, pulsa le pollice in basso.</string>
     <string name="txt_clip_again" comment="Label in Listen">Pulsa le icone infra pro reascoltar le retalio.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Registration marcate como correcte!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Registration marcate como correcte!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Pulsa le {{*{{skip_button}}*}} button pro continuar.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Pulsa le button {{skip_button}} pro continuar.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">Falta a inviar registration.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Expedition...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Falta a inviar le resultato. Tu pote reprobar o pulsar le {{*{{skip_button}}*}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Clausura...</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Invio…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Falta a inviar le resultato. Tu pote retentar o pulsar le button {{skip_button}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Clausura…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. Il non ha plus registrationes disponibile pro iste lingua.</string>
     <string name="button_report" comment="Button">Signalar</string>
     <string name="title_report_clip" comment="Title in Report a clip">Signalar registration:</string>
@@ -175,24 +177,54 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Commento</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Tu ha exhaurite le phrases disponibile sin connexion. Connecte te a internet pro discargar altere phrases a registrar.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Tu ha exhaurite le registrationes disponibile sin connexion. Connecte te a internet pro discargar altere registrationes a validar.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Tu pote registrar {{*{{n_sentences}}*}} altere phrases ante que tu debe connecter te a internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Tu pote validar {{*{{n_clips}}*}} altere registrationes ante que tu debe connecter te a internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Ascolta...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">Le \"{{*{{feature_name}}*}}\" es activate. Va a Parametros pro disactivar lo.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">Tu pote registrar {{n_sentences}} altere phrases ante que tu debe connecter te a internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">Tu pote validar {{n_clips}} altere registrationes ante que tu debe connecter te a internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Ascolta…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">Le \"{{feature_name}}\" es activate. Va a Parametros pro disactivar lo.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Le texto del phrase es celate</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Il non ha ulle plus phrases in le servitor de Common Voice.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Il non ha ulle plus registrationes in le servitor de Common Voice.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Speed successfully set to {{*{{speed_value}}*}}.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">Tu ha jam validate %d registration, continua iste stupende labor!</item>
+        <item quantity="other">Tu ha jam validate %d registrationes in fila, continua iste stupende labor!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">Continua validar registrationes, tu ha validate %d registration.</item>
+        <item quantity="other">Continua validar registrationes, tu ha validate %d registrationes in fila.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">Excellente labor! Tu ha jam validate %d registration.</item>
+        <item quantity="other">Excellente labor! Tu ha jam validate %d registrationes in fila.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">Aheu, tu ha poteres superhuman! Tu ha validate %d registration!</item>
+        <item quantity="other">Aheu, tu ha poteres superhuman! Tu ha validate %d registrationes in fila!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">Tu ha inviate %d registration.</item>
+        <item quantity="other">Tu ha inviate %d registrationes in fila.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">Bon labor! Tu ha inviate %d registration.</item>
+        <item quantity="other">Bon labor! Tu ha inviate %d registrationes in fila.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">Congratulationes! Tu ha attingite le petra milliari de %d phrase registrate. Persevera.</item>
+        <item quantity="other">Congratulationes! Tu ha attingite le petra milliari de %d phrases registrate. Persevera.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">Aheu, tu ha poteres superhuman! Tu ha registrate %d phrase!</item>
+        <item quantity="other">Aheu, tu ha poteres superhuman! Tu ha registrate %d phrases in fila!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">Te manca solo %d registration pro attinger tu objectivo quotidian de {{dailygoal}}!</item>
+        <item quantity="other">Te manca solo %d registrationes pro attinger tu objectivo quotidian de {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">Te manca solo %d phrase pro attinger tu objectivo quotidian de {{dailygoal}}!</item>
+        <item quantity="other">Te manca solo %d phrases pro attinger tu objectivo quotidian de {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Velocitate stabilite con successo a {{speed_value}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Controlar ancora</string>
     <string name="txt_noconnection" comment="Message text">Tu non es connectite a internet. Connecte te a wifi o a datos mobile, pois pulsa le button infra.</string>
@@ -220,15 +252,15 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Clauder</string>
     <string name="labelAllBadges" comment="Title for All badge section">Tote le badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Bravo! Tu ha justo ganiate un nove insignia.\nVa a {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} pro vider tote tu insignias.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">Tu recipeva iste insignia perque tu ha validate al minus {{*{{n_clips}}*}} registrationes.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">Tu recipeva iste insignia perque tu registrate al minus {{*{{n_sentences}}*}} phrases.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">Tu recipeva iste insignia perque tu ha validate o registrate al minus {{*{{n_total}}*}} registrationes.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Tu ha justo ganiate un nove insignia.\nVa a in {{profile}} &gt; {{all_badges}} pro vider tote tu insignias.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Tu recipeva iste insignia perque tu ha validate al minus {{n_clips}} registrationes.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Tu recipeva iste insignia perque tu ha registrate al minus {{n_sentences}} phrases.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Tu recipeva iste insignia perque tu ha validate o registrate al minus {{n_total}} registrationes.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">Ok</string>
+    <string name="btnOk" comment="Button">OK</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">Illo non functiona.\nReproba, o contacta le disveloppator.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Illo non functiona. Reproba o contacta le disveloppator.\nCodice error: EX-{{*{{error_code}}*}}</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">Illo non functiona. Retenta o continge le disveloppator.\nCodice de error: EX-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Authentication fallite</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Tu debe primo acceder sur le sito web de Common Voice e acceptar le politica de confidentialitate.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Aperir Common Voice</string>
@@ -252,10 +284,17 @@
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Desira tu vermente retroceder e perder le registration?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Desira tu vermente saltar e perder le registration?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Desira tu vermente remontar tote le datos del apps?</string>
-    <string name="button_yes_sure" comment="Button">Si, io es secur</string>
+    <string name="button_yes_sure" comment="Button">Si</string>
     <string name="button_cancel" comment="Button">Cancellar</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
-    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">Ben facite! Tu ha aperite le app %d die.</item>
+        <item quantity="other">Ben facite! Tu ha aperite le app %d dies in fila.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">Io ha aperite le app CV Project %d die! Discarga lo tu alsi, assi que tu pote contribuer al projecto Common Voice con tu smartphono.</item>
+        <item quantity="other">Io ha aperite le app CV Project %d dies in fila! Discarga lo tu alsi, assi que tu pote contribuer al projecto Common Voice con tu smartphono.</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Acceder ora</string>
     <string name="button_translate_on_crowdin" comment="Button">Traducer ora</string>
     <!-- Daily goal -->
@@ -269,14 +308,14 @@
     <string name="description_setting_daily_goal" comment="Message text">Elige quante phrases tu desira a registrar e quante registrationes validar (summa de illos) cata die.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Complite hodie</string>
     <string name="daily_goal_not_achieved_today">Non complite hodie</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Ben facite! Tu ha complite tu objectivo quotidian.\nTu ha validate {{*{{n_clips}}*}} registration(es) e registrate {{*{{n_sentences}}*}} phrase(s).\nSenti te libere de continuar contribuer a Common Voice.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Ben facite! Tu ha attingite tu objectivo quotidian.\nTu ha validate {{n_clips}} registration(s) e registrate {{n_sentences}} phrase(s).\nSentite libere de continuar contribuer a Common Voice.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Compartir</string>
     <string name="share_daily_goal_title" comment="Title of panel">Compartir sur</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Io ha justo complite mi objectivo quotidian pro @mozilla #CommonVoice per le #CVProject.\nJunge te e collabora! Installa CV Project per Google Play, F-Droid o Huawei AppGallery now {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Io ha justo attingite mi objectivo quotidian pro @mozilla #CommonVoice per le #CVProject.\nJunge te e collabora! Installa ora CV Project de Google Play, F-Droid o Huawei AppGallery {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Iste objectivo quotidian non es un functionalitate official de Mozilla. Illo es solo un functionalitate de iste le application.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Sape tu que ... ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Sape tu que … ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 horas es attingibile in poco plus de 6 menses si 1000 personas registra 45 phrases pro die.</string>
     <string name="copied_string" comment="Toast message">Copiate</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Un nove version del application es disponibile (version {{*{{n_version}}*}}). Tu pote actualisar lo ex tu favorite magazinage (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) o directemente de GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">Un nove version del app es disponibile (version {{n_version}}). Tu pote actualisar lo ex tu favorite repositorio (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) o directemente de GitHub.</string>
 </resources>

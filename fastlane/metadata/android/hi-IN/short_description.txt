@@ -1,1 +1,1 @@
-This app permits you to contribute to Common Voice from your smartphone.
+यह एप्प आपको Common Voice में अपने स्मार्टफोन से योगदान करने की सुविधा देता है।

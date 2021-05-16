@@ -2,7 +2,7 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">bg</string>
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">bg</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Начало</string>
     <string name="title_dashboard">Табло</string>
@@ -11,7 +11,8 @@
     <string name="button_home_login">Вход / Регистрация</string>
     <string name="button_home_logout">Изход</string>
     <string name="button_home_profile">Профил</string>
-    <string name="text_hi_username">Здравейте</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Здравейте!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Здравейте, {{username}}!</string>
     <string name="message_log_in_again">Сесията Ви е изтекла, нужно е да влезете отново</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Статистика</string>
@@ -40,10 +41,10 @@
     <string name="btn_skip" comment="Button">Пропусни</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Получено разрешение</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Грешка: отказано разрешение</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project е неофициално приложение за Mozilla Common Voice. То е разработено от Saverio Morelli без никаква подкрепа или партньорство с Mozilla.</string>
-    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Продължавайки, Вие се съгласявате с условията за ползване на Mozilla Common Voice.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project е неофициално приложение за Mozilla Common Voice. То е разработено от Saverio Morelli без никаква подкрепа или партньорство с Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Продължавайки, вие се съгласявате с условията за ползване на Mozilla Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Това приложение се нуждае от разрешението „Микрофон“ да записва гласа Ви.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Можете да докладвате за неизправности в GitHub или Telegram. За да помогнете на разработчика да разбере проблема бързо, трябва да прикачите файла с логовете на приложението към вашият доклад. Приложението се нуждае от разрешението „Хранилище“ да запазва файла с логовете.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Можете да докладвате за неизправности в GitHub или Telegram. За да помогнете на разработчика да разбере проблема бързо, трябва да прикачите файла с логовете на приложението към вашия доклад. Приложението се нуждае от разрешението „Хранилище“ да запазва файла с логовете.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Можете да допринасяте докато сте офлайн. Офлайн режимът на приложението ви ще бъде включен автоматично и ще можете да продължите да записвате и прослушвате без интернет връзка.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">Можете да избере светла или тъмна тема. Можете да промените това по-късно в Настройки.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Тъмна тема</string>
@@ -53,19 +54,19 @@
     <string name="btn_join_telegram_first_launch" comment="Button">Присъединяване към групата</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Да започваме! Изберете език, на който желаете да говорите или слушате. Приложението също ще бъде показано на желаният език при наличен превод.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Зареждане ...</string>
+    <string name="txt_loading_page" comment="Label">Зареждане…</string>
     <string name="txt_profile_username" comment="Label in Profile">Потребителско име</string>
     <string name="txt_profile_email" comment="Label in Profile">Имейл</string>
     <string name="txt_profile_age" comment="Label in Profile">Възраст</string>
     <string name="txt_profile_gender" comment="Label in Profile">Пол</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">За да промените информацията по профила Ви, отидете на сайта на Common Voice.</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">За да промените информацията по профила Ви, отидете на сайта на Common Voice.</string>
     <string name="txt_login_successful_alert" comment="Message text">Успешен вход!</string>
     <string name="txt_gender_male" comment="Label in Profile">Мъжки</string>
     <string name="txt_gender_female" comment="Label in Profile">Женски</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Друг</string>
     <string name="btn_badges_loggedin" comment="Button">Всички значки</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Ниво {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">Поздравления! Вие току що достигнахте ниво {{*{{n_level}}*}}.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Ниво {{level}}</string>
+    <string name="level_up_message" comment="Message text">Поздравления! Вие току що достигнахте ниво {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Вече имам връзка за потвърждение</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Връзка за потвърждение</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Връзката за потвърждение не е валидна</string>
@@ -73,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Повторно отваряне на ръководството</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Проект с отворен код в GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">разработено от</string>
-    <string name="toast_language_changed" comment="Message text">Езикът е успешно зададен на {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">Езикът е успешно зададен на {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Език</string>
     <string name="settingsListen" comment="Title in Settings">Прослушване</string>
     <string name="settingsSpeak" comment="Title in Settings">Говорене</string>
@@ -98,7 +99,7 @@
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Статистика за използването на приложението</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Статистика за употреба на приложението</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Пропускане на потвърждение на запис</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Пропускането на потвърждение на запис е вкючено.\nЩе можете да изпращате записи, без да се налага да ги прослушвате преди това.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Превод на приложението в Crowdin</string>
@@ -127,16 +128,17 @@
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Показ на икона за докладване (отгоре вдясно) вместо бутон (отдолу)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Големина на текста</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Рекламен банер</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Включване на рекламни банери в {{*{{section_name}}*}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Включване на рекламни банери в {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Цветна лента за прогрес за дневна цел</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} и {{*{{listen_name}}*}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
-    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} и {{listen_name}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Светла тема също за изречение за прочит/проверка в Говорене и Прослушване (при пусната светла тема).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Покажи лента за контрол на скоростта</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Покажи икона с информация</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Зареждане на изречение...</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Зареждане на изречение…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропусни</string>
     <string name="btn_send_sentence" comment="Button in Speak">Изпрати запис</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Зареждане на клип...</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Зареждане на клип…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Натиснете иконата по-долу за започване на запис.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Натиснете иконата по-долу за спиране на запис.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Изречението е записано. Прослушайте записа.</string>
@@ -146,21 +148,21 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">Натиснете иконата по-долу за спиране на прослушването.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Записът е прекалено дълъг. Максималната дължина е 10 секунди.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Записът е прекалено кратък. Моля, опитайте отново.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Изпращане на запис...</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Изпращане на запис…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Записът бе изпратен!</string>
     <string name="txt_sending_recording_failed" comment="Message text">Неуспешно изпращане на запис!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Неуспешно изпращане на запис! Можете да опитате отново или да натиснете бутона {{*{{skip_button}}*}}.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Неуспешно изпращане на запис! Можете да опитате отново или да натиснете бутона {{skip_button}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Натиснете иконата по-долу за започване на клип.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Натиснете иконата по-долу за спиране на клип.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Ако клипът е правилен, натиснете палецът нагоре.\nАко клипът е грешен, натиснете палецът надолу.</string>
     <string name="txt_clip_again" comment="Label in Listen">Натиснете иконата по-долу за повторно прослушване на клипа.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Клипът е маркиран като верен!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Клипът е маркиран като грешен!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Грешка. Натиснете бутона {{*{{skip_button}}*}} да продължите.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Грешка. Натиснете бутона {{skip_button}} да продължите.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">Неуспешно изпращане на записa.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Изпращане...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Неуспешно изпращане на резултат! Можете да опитате отново или да натиснете бутона {{*{{skip_button}}*}}.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Затваряне...</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Изпращане…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Неуспешно изпращане на резултат! Можете да опитате отново или да натиснете бутона {{skip_button}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Затваряне…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Грешка. Няма повече налични клипове за този език.</string>
     <string name="button_report" comment="Button">Докладвай</string>
     <string name="title_report_clip" comment="Title in Report a clip">Докладване на клип:</string>
@@ -175,24 +177,54 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Коментар</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Офлайн изреченията се изчерпаха. Свържете се с интернет, за да свалите още изречения за запис.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Офлайн клиповете се изчерпаха. Свържете се с интернет, за да свалите още клипове за проверка.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">Можете да запишете още {{*{{n_sentences}}*}} изречения преди да трябва да се свържете с интернет.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">Можете да проверите още {{*{{n_clips}}*}} клипа преди да трябва да се свържете с интернет.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Слушане...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">\"{{*{{feature_name}}*}}\" е включено. Отидете в Настройки за да го изключите.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">Можете да запишете още {{n_sentences}} изречения преди да трябва да се свържете с интернет.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">Можете да проверите още {{n_clips}} клипа преди да трябва да се свържете с интернет.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Слушане…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" е включено. Отидете в Настройки за да го изключите.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Текста на изречението е скрит</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Няма повече изречения на Common Voice сървъра. Опитайте по-късно или опитайте да се свържете с Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Няма повече клипове на Common Voice сървъра. Опитайте по-късно или опитайте да се свържете с Mozilla.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">You have already validated {{*{{number}}*}} clips in a row, continue this amazing work!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Continue to validate clips, you validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Excellent work! You have already validated {{*{{number}}*}} clips in a row.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You validated {{*{{number}}*}} clips in a row!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Good job! You sent {{*{{number}}*}} recordings in a row.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Congratulations! You achieved the milestone of  {{*{{number}}*}} recorded sentences. Keep going.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">Wow, you have superhuman powers! You recorded {{*{{number}}*}} sentences in a row!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} clips to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">You miss only {{*{{number}}*}} sentences to achieve your daily goal of {{*{{dailygoal}}*}}!</string>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">Speed successfully set to {{*{{speed_value}}*}}.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">Вече проверихте %d клип подред, продължавайте страхотната си работа!</item>
+        <item quantity="other">Вече проверихте %d клипа подред, продължавайте страхотната си работа!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">Продължавайте да проверявате клипове, проверили сте %d клип подред.</item>
+        <item quantity="other">Продължавайте да проверявате клипове, проверили сте %d клипа подред.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">Страхотна работа! Вече сте проверили %d клип подред.</item>
+        <item quantity="other">Страхотна работа! Вече сте проверили %d клипа подред.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">Леле, вие имате свръхчовешки сили! Проверихте %d клип подред!</item>
+        <item quantity="other">Леле, вие имате свръхчовешки сили! Проверихте %d клипа подред!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">Изпратихте %d запис подред.</item>
+        <item quantity="other">Изпратихте %d записа подред.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">Добра работа! Изпратихте %d запис подред.</item>
+        <item quantity="other">Добра работа! Изпратихте %d записа подред.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">Поздравления! Постигнахте целта от %d записано изречение. Продължавайте.</item>
+        <item quantity="other">Поздравления! Постигнахте целта от %d записани изречение. Продължавайте.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">Леле, вие имате свръхчовешки сили! Записахте %d изречение подред!</item>
+        <item quantity="other">Леле, вие имате свръхчовешки сили! Записахте %d изречения подред!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">Липсва Ви само %d клип до постигане на дневната ви цел от {{dailygoal}}!</item>
+        <item quantity="other">Липсват Ви само %d клипа до постигане на дневната ви цел от {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">Липсва Ви само %d изречение до постигане на дневната ви цел от {{dailygoal}}!</item>
+        <item quantity="other">Липсват Ви само %d изречения до постигане на дневната ви цел от {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Скоростта е успешно зададена на {{speed_value}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Провери отново</string>
     <string name="txt_noconnection" comment="Message text">Не сте свързан към интернет. Свържете се с Wi-Fi или мобилни данни, после натиснете бутона по-долу.</string>
@@ -202,10 +234,10 @@
     <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Ако не харесвате изречението, можете да докоснете тук за пропускане и взимане на друг.</string>
     <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за започване на запис.</string>
     <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за спиране на запис.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за прослушване на вашият запис.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за прослушване на вашия запис.</string>
     <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за презаписване ако сте сгрешили.</string>
-    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за повторно прослушване на вашият запис.</string>
-    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за изпращане на вашият запис.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за повторно прослушване на вашия запис.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Докоснете тази икона за изпращане на вашия запис.</string>
     <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Това е изречението/клипа, който трябва да проверите.</string>
     <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Ако не харесвате клипа, можете да докоснете този бутон за пропускане и взимане на нов.</string>
     <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Докоснете тази икона за прослушване на клип.</string>
@@ -220,15 +252,15 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Затвори</string>
     <string name="labelAllBadges" comment="Title for All badge section">Всички значки</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Ура! Вие току що спечелихте нова значка.\nОтидете в {{*{{profile}}*}} &gt; {{*{{all_badges}}*}} да видите всичките си значки.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">Имате тази значка, защото сте проверили поне {{*{{n_clips}}*}} клипа.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">Имате тази значка, защото сте записали поне {{*{{n_sentences}}*}} изречения.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">Имате тази значка, защото сте проверили или записали поне {{*{{n_total}}*}} клипа.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Ура! Вие току що спечелихте нова значка.\nОтидете в {{profile}} &gt; {{all_badges}} да видите всичките си значки.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Имате тази значка, защото сте проверили поне {{n_clips}} клипа.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Имате тази значка, защото сте записали поне {{n_sentences}} изречения.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Имате тази значка, защото сте проверили или записали поне {{n_total}} клипа.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">Ок</string>
+    <string name="btnOk" comment="Button">OK</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Грешка</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">Това не сработи.\nМоля, опитайте отново или се свържете с разработчика.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">Това не сработи. Моля, опитайте отново или се свържете с разработчика.\nКод на грешка: EX-{{*{{error_code}}*}}</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">Това не сработи. Моля, опитайте отново или се свържете с разработчика.\nКод на грешка: EX-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Неуспешен вход</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Трябва първо да се влезете на сайта на Common Voice и да приемете политиката за поверителност на Common Voice.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Отваряне на Common Voice</string>
@@ -239,25 +271,32 @@
     <string name="text_info" comment="Title for Message text">Информация</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Без повторен показ</string>
     <string name="text_report_website_bug" comment="Message text">Ако имате проблеми с официалният сайт на Common Voice, моля доклавайте ги във форумите на Mozilla Discourse или в GitHub хранилището, за да може Mozilla да ги оправи.</string>
-    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
-    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" comment="Button" translatable="true">Log in again</string>
+    <string name="text_review_now" comment="Button" translatable="true">Оцени сега</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Харесвате ли приложението? Можете да подкрепите труда ми. Купете ми кафе през PayPal или LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Влизане отново</string>
     <string name="text_offline_mode" comment="Title">Офлайн режим</string>
     <string name="text_offline_mode_enabled" comment="Message text">Вие офлайн сега и приложението премина в офлайн режим автоматично.\nТова означава, че можете да продължите да записвате и проверявате, но заявките ще бъдат изпратени по-късно.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Можете да разберете кога сте в офлайн режим, гледайки за тази икона на екрана:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Можете да докоснете тази икона, за да видите свалените клипове и изречения.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Офлайн режимът не е включен, затова не можете да използвате приложението без интернет връзка.\nЗа да използвате функцията офлайн режим, включете я от Настройки.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
-    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
-    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
-    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
-    <string name="button_yes_sure" comment="Button">Yes, I\'m sure</string>
-    <string name="button_cancel" comment="Button">Cancel</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">Well done! You opened the app {{*{{number}}*}} days in a row.</string>
-    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">I\'ve opened {{*{{number}}*}} days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</string>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Знаете ли, че можете да подрепите труда ми безплатно? Моля, ако харесвате приложението, обмислете пускането на рекламни банери от Настройки.</string>
+    <string name="text_open_settings_now">Отвори Настройки сега</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Сигурни ли сте, че искате да се върнете назад и да загубите записа?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Сигурни ли сте, че искате да пропуснете и да загубите записа?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Сигурни ли сте, че искате да нулирате всички данни на приложението?</string>
+    <string name="button_yes_sure" comment="Button">Да</string>
+    <string name="button_cancel" comment="Button">Отказ</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">Добра работа! Вие сте отворили приложението %d ден подред.</item>
+        <item quantity="other">Добра работа! Вие сте отворили приложението %d дни подред.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">Отворих приложението CV Project %d ден подред! Свалете го и вие, за да допринесете към проекта Common Voice с вашия телефон.</item>
+        <item quantity="other">Отворих приложението CV Project %d дни подред! Свалете го и вие, за да допринесете към проекта Common Voice с вашия телефон.</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
+    <string name="button_log_in_now" comment="Button">Влез сега</string>
+    <string name="button_translate_on_crowdin" comment="Button">Преведи сега</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Дневна цел</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Не е зададена цел</string>
@@ -269,14 +308,14 @@
     <string name="description_setting_daily_goal" comment="Message text">Изберете колко изречения искате да записвате и колко клипа искате да проверявате (сбора от тях) на ден.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Постигнати днес</string>
     <string name="daily_goal_not_achieved_today">Не са постигнати днес</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">Отлично! Постигнахте вашата дневна цел.\nВие проверихте {{*{{n_clips}}*}} клип(а) и записахте {{*{{n_sentences}}*}} изречение(я).\nЧувствайте се свободни продължите да допринасяте към Common Voice.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Отлично! Постигнахте вашата дневна цел.\nВие проверихте {{n_clips}} клип(а) и записахте {{n_sentences}} изречение(я).\nЧувствайте се свободни продължите да допринасяте към Common Voice.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Сподели</string>
     <string name="share_daily_goal_title" comment="Title of panel">Споделяне в</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Току що достигнах дневната си цел за @mozilla #CommonVoice използвайки #CVProject.\nПрисъединете се и допринесете! Инстайлирайте CV Project от Google Play, F-Droid или Huawei AppGallery сега {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Току що достигнах дневната си цел за @mozilla #CommonVoice използвайки #CVProject.\nПрисъединете се и допринесете! Инстайлирайте CV Project от Google Play, F-Droid или Huawei AppGallery сега {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Дневната цел не е официална фунция от Mozilla. Тя е само функция на това приложение.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Знаехте ли, че ... ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Знаехте ли, че … ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 часа са постижими за малко над 6 месеца, ако 1 000 човека записват по 45 клипа на ден.</string>
     <string name="copied_string" comment="Toast message">Копирано</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">Налична е нова версия на приложението (версия {{*{{n_version}}*}}). Можете да го обновите от любимият Ви магазин (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) или директно от GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">Налична е нова версия на приложението (версия {{n_version}}). Можете да го обновите от любимият Ви магазин (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) или директно от GitHub.</string>
 </resources>

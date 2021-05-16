@@ -351,7 +351,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     dialogInflater.show(
                         this, StandardDialog(
                             message = getString(R.string.toast_language_changed).replace(
-                                "{{*{{lang}}*}}",
+                                "{{lang}}",
                                 translationHandler.getLanguageName(mainPrefManager.language)
                             ) + detailsMessage,
                             button2TextRes = R.string.button_translate_on_crowdin,
@@ -369,7 +369,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     dialogInflater.show(
                         this, StandardDialog(
                             message = getString(R.string.toast_language_changed).replace(
-                                "{{*{{lang}}*}}",
+                                "{{lang}}",
                                 translationHandler.getLanguageName(mainPrefManager.language)
                             )
                         )

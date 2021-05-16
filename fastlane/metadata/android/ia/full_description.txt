@@ -22,23 +22,24 @@ Isto non es le app official de Common Voice. Isto es disveloppate per Saverio Mo
 - Multe altere functionalitates
 - Le experientia del app es totalmente personalisabile in Parametros
 
-Junge te al gruppo Telegram: https://t.me/common_voice_android (@common_voice_android)
-Tu pote vider le statistica complete del application hic: https://bit.ly/3clgfkg
-Lege plus re iste app sur GitHub: http://bit.ly/2PeOGRg
+Junge te al gruppo Telegram: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Tu pote vider le statistica complete del app hic: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">Statistica del app</a>
+Tu pote alsi vider le statistica de uso del app hic: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">Statistica uso app</a>
+Lege plus re iste app sur GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project sur GitHub</a>
 </p>
 <p>
-<b>Que es le projecto Common Voice?</b>
+<b>Que es le Projecto Common Voice?</b>
 
 Common Voice es un initiativa de Mozilla pro adjutar a inseniar al machinas como parla le personas real.
 Le voce es natural, voce es human. Pro isto nos es exaltante re crear technologia vocal usabile pro nostre machinas. Ma pro crear systemas vocal, le disveloppatores require un grandissime quantitate de datos de voce.
 Le major parte del datos usate per le grande companias non es disponibile al majoritate del personas. Nos pensa que illo suffoca le innovation. Assi nos ha lanceate Common Voice, un projecto pro adjutar a render le recognition del voce aperte e accessibile a totes.
 Ora tu pote donar tu voce pro adjutar nos a construer un base de datos vocal open-source que totes pote usar pro facer innovative applicationes pro apparatos e Web. Lege un phrase pro adjutar machinas a apprender como parla le personas real. Controla le labor de altere collaboratores pro meliorar le qualitate. Illo es simple!
-Tu pote trovar plus detalios sur le sito web official https://commonvoice.mozilla.org/
+Tu pote trovar plus detalios sur le sito web official <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Perque deberea tu usar le app in vice del sito web sur apparato mobile?</b>
 
-Le app es disveloppate exactemente pro smartphonos assi il es native. Illo ha multe functionalitates que le sito web non te forni, como: thema obscur, modo sin connexion, personalisation, gestos, etc.
+Le app es disveloppate specificamente pro smartphonos assi illo es native. Illo ha multe functionalitates que le sito web non te forni, como: thema obscur, modo sin connexion, personalisation, gestos, etc.
 Le app es plus leve del sito web, sin enoiose animationes (e animationes in le app poter alsi esser stoppate in Parametros).
 In addition, le sito web ha multe errores, specialmente pro mobile-version, assi tu non pote facer toto correctemente.
 </p>

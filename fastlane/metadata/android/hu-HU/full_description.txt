@@ -22,23 +22,24 @@ Ez nem a Common Voice hivatalos alkalmazása. Saverio Morelli fejleszti.
 - Sok más funkció
 - Az alkalmazás élménye teljesen testreszabható a Beállításokban
 
-Csatlakozzon a Telegram csoporthoz: https://t.me/common_voice_android (@common_voice_android)
-Itt láthatja a teljes alkalmazásstatisztikát: https://bit.ly/3clgfkg
-További információk az alkalmazásról a GitHubon: https://bit.ly/2PeOGRg
+Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>Mi a Common Voice projekt?</b>
+<b>What is the Common Voice project?</b>
 
 A Common Voice a Mozilla kezdeményezése, hogy segítsünk megtanítani a gépeket, hogyan beszélnek az emberek.
 A beszéd természetes, a beszéd emberi. Ezért lelkesedünk egy gépeink számára használható beszédtechnológia létrehozásáért. De a hangalapú rendszerek elkészítéséhez a fejlesztőknek hatalmas mennyiségű beszédmintára van szükségük.
 A nagyvállalatok által használt hangminták a legtöbb ember számára nem érhetőek el. Szerintünk ez elfojtja az innovációt. Ezért létrehoztuk a Common Voice projektet, hogy segítsük a hangfelismerési technológiát mindenki számára hozzáférhetővé tenni.
 Most adhatja a hangját, hogy segítsen nekünk egy nyílt forrású hang adatbázist építeni, amit bárki szabadon használhat arra, hogy innovatív alkalmazásokat készítsen eszközökre és a webre. Olvasson fel egy mondatot, hogy segítse a gépeket megtanulni, hogyan beszélnek az emberek. Ellenőrizze mások hozzájárulásait, javítva a minőséget. Ilyen egyszerű!
-Több információt találhat a hivatalos weboldalon: https://commonvoice.mozilla.org/
+You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Miért használja az alkalmazást a mobilos weboldal helyett?</b>
 
-Az alkalmazás kifejezetten okostelefonokra készül, így natív. Számos funkciója van, amelyet a weboldal nem biztosít, mint a sötét téma, offline mód, testreszabás, gesztusok stb.
+The app is developed specifically for smartphones so it's native. Számos funkciója van, amelyet a weboldal nem biztosít, mint a sötét téma, offline mód, testreszabás, gesztusok stb.
 Az alkalmazás könnyűsúlyúbb mint a weboldal, nincsenek idegesítő animációk (és az alkalmazás animáció kikapcsolhatók a Beállításokban).
 Továbbá a weboldalon számos hiba van, különösen a mobil változatban, így nem tud mindent helyesen elvégezni.
 </p>

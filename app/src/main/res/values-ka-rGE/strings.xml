@@ -2,7 +2,7 @@
 <resources>
     <!-- DO NOT TRANSLATE OR CHANGE THIS -->
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
-    <string name="language">ka</string>
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">ka</string>
     <!-- Buttons (nav) -->
     <string name="title_home">მთავარი</string>
     <string name="title_dashboard">პანელი</string>
@@ -11,7 +11,8 @@
     <string name="button_home_login">შესვლა / რეგისტრაცია</string>
     <string name="button_home_logout">გასვლა</string>
     <string name="button_home_profile">პროფილი</string>
-    <string name="text_hi_username">გამარჯობა</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">გამარჯობა!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">{{username}} გამარჯობა!</string>
     <string name="message_log_in_again">სესიის ID ამოიწურა, ახლიდან უნდა შეხვიდეთ</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">სტატისტიკა</string>
@@ -40,7 +41,7 @@
     <string name="btn_skip" comment="Button">გამოტოვება</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">ნებართვა მიღებულია</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">შეცდომა: ნებართვა მიღებულია</string>
-    <string name="txt_introduction_app_first_launch" comment="Text | First-run">CV Project არის Mozilla Common Voice-ის არაოფიციალური აპი. Saverio Morelli-ს მიერ არის შექმნილი Mozilla-ს მხარდაჭერის, ან მასთან პარტნიორობის გარეშე.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project არის Mozilla Common Voice-ის არაოფიციალური აპი. Saverio Morelli-ს მიერ არის შექმნილი Mozilla-ს მხარდაჭერის, ან მასთან პარტნიორობის გარეშე.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">გაგრძელებით, თქვენ ეთანხმებით Mozilla-ს Common Voice-ის მომსახურების პირობებს.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">აპს სჭირდება წვდომა „მიკროფონზე“, რომ ჩაწეროს თქვენი ხმა.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">შეცდომების შესახებ მოგვწერეთ GitHub-ზე, ან Telegram-ზე. რომ დაგვეხმაროთ მალე გავიგოთ შეცდომის მიზეზი, აპის ლოგიც გამოგვიგზავნეთ. აპს სჭირდება წვდომა მობილურის „მეხსიერებაზე,“ რომ შეინახოს ლოგის ფაილი.</string>
@@ -53,19 +54,19 @@
     <string name="btn_join_telegram_first_launch" comment="Button">გაწევრიანება</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">წინ! შეარჩიეთ რომელ ენაზე გინდათ ჩაწეროთ, ან მოუსმინოთ. აპლიკაციაც მაგ ენაზე იქნება, თუ თარგმანი არის.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">იტვირთება ...</string>
+    <string name="txt_loading_page" comment="Label">იტვირთება…</string>
     <string name="txt_profile_username" comment="Label in Profile">მომ. სახელი</string>
     <string name="txt_profile_email" comment="Label in Profile">ელფოსტა</string>
     <string name="txt_profile_age" comment="Label in Profile">ასაკი</string>
     <string name="txt_profile_gender" comment="Label in Profile">სქესი</string>
-    <string name="txt_profile_edit_data_alert" comment="Text in Profile">თქვენს პროფილზე ინფორმაციის შეცვლისთვის, ეწვიეთ Common Voice-ის საიტს.</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">თქვენს პროფილზე ინფორმაციის შეცვლისთვის, ეწვიეთ Common Voice-ის საიტს.</string>
     <string name="txt_login_successful_alert" comment="Message text">შესვლა წარმატებულია!</string>
     <string name="txt_gender_male" comment="Label in Profile">მამრ.</string>
     <string name="txt_gender_female" comment="Label in Profile">მდედრ.</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">სხვა</string>
     <string name="btn_badges_loggedin" comment="Button">ყველა ნიშანი</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">დონე {{*{{level}}*}}</string>
-    <string name="level_up_message" comment="Message text">გილოცავთ! თქვენ მიაღწიეთ დონეს {{*{{n_level}}*}}.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">დონე {{level}}</string>
+    <string name="level_up_message" comment="Message text">გილოცავთ! თქვენ მიაღწიეთ დონეს {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">დადასტურების ბმული მაქვს უკვე</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">დადასტურების ბმული</string>
     <string name="txt_verification_link_not_valid" comment="Message text">დადასტურების ბმული არ არის სწორი</string>
@@ -73,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">ინსტრუქციის ხელახლა გახსნა</string>
     <string name="txt_project_github_settings" comment="Button in Settings">პროექტი ღია წვდომაშია GitHub-ზე</string>
     <string name="txt_developed_by" comment="Label in Settings">შემქმნელი</string>
-    <string name="toast_language_changed" comment="Message text">არჩეული ენა: {{*{{lang}}*}}</string>
+    <string name="toast_language_changed" comment="Message text">არჩეული ენა: {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">ენა</string>
     <string name="settingsListen" comment="Title in Settings">მოსმენა</string>
     <string name="settingsSpeak" comment="Title in Settings">ლაპარაკი</string>
@@ -127,16 +128,17 @@
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">შეტყობინების ღილაკის ზედა მარჯვენა კუთხეში იყოს და არა ქვემოთ</string>
     <string name="title_textsize_settings" comment="Title in Settings">ტექსტის ზომა</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">ბანერის დამატება</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{*{{section_name}}*}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">რეკლამის ბანერის ჩართვა. {{*{{section_name}}*}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">რეკლამის ბანერის ჩართვა. {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">დღის მიზნის ფერადი ზოლი</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{*{{listen_name}}*}} and {{*{{speak_name}}*}}">{{*{{speak_name}}*}} და {{*{{listen_name}}*}}</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} და {{listen_name}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ნათელი თემა წინადადებების წაკითხვისთვის; ჩანაწერების შემოწმებისთვის (როცა ნათელი თემა ჩართულია).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">სიჩქარის მართვა</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ინფოს ხატულის ჩვენება</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება...</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
     <string name="btn_send_sentence" comment="Button in Speak">ჩანაწერის გაგზავნა</string>
-    <string name="txt_loading_clip" comment="Label in Listen">კლიპი იტვირთება...</string>
+    <string name="txt_loading_clip" comment="Label in Listen">კლიპი იტვირთება…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">დააჭირეთ ქვედა ღილაკს ჩაწერის დაწყებისთვის.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">დააჭირეთ ქვედა ღილაკს ჩაწერის გაჩერებისთვის.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">წინადადება ჩაიწერა. მოუსმინეთ ჩანაწერს.</string>
@@ -146,21 +148,21 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">დააჭირეთ ქვედა ღილაკს მოსმენის გაჩერებისთვის.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">ჩანაწერი ძალიან გრძელია. მაქსიმალური ხანგრძლივობა 10 წამია.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">ჩანაწერი ძალიან მოკლეა. გთხოვთ, თავიდან სცადოთ.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">ჩანაწერი იგზავნება...</string>
+    <string name="txt_sending_recording" comment="Label in Speak">ჩანაწერი იგზავნება…</string>
     <string name="txt_recording_sent" comment="Label in Speak">ჩანაწერი გაიგზავნა!</string>
     <string name="txt_sending_recording_failed" comment="Message text">ჩანაწერი ვერ გაიგზავნა!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">ჩანაწერი ვერ გაიგზავნა! თავიდან სცადეთ ან დააჭირეთ {{*{{skip_button}}*}} ღილაკს.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">ჩანაწერი ვერ გაიგზავნა! ისევ სცადეთ, ან დააჭირეთ ღილაკს {{skip_button}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის მოსასმენად.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის გაჩერებისთვის.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">თუ სწორია ჩანაწერი — ცერი ზევით.\nთუ შეცდომითაა — ცერი ქვევით.</string>
     <string name="txt_clip_again" comment="Label in Listen">დააჭირეთ ღილაკს კლიპის თავიდან მოსასმენად.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">ჩანაწერი ზუსტია!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">ჩანაწერი არაა ზუსტი!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">შეცდომაა. დააჭირეთ „{{*{{skip_button}}*}}“ ღილაკს, რომ გააგრძელოთ.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">შეცდომაა. დააჭირეთ ღილაკს {{skip_button}}, რომ გააგრძელოთ.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">ჩანაწერი ვერ გაიგზავნა.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">იგზავნება...</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">შედეგი ვერ გაიგზავნა. თავიდან სცადეთ ან დააჭირეთ {{*{{skip_button}}*}} ღილაკს.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">იხურება...</string>
+    <string name="txt_sending_validation" comment="Label in Listen">იგზავნება…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">შედეგი ვერ გაიგზავნა. თავიდან სცადეთ, ან დააჭირეთ ღილაკს {{skip_button}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">იხურება…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">შეცდომაა. ამ ენისთვის მეტი კლიპი არ არის.</string>
     <string name="button_report" comment="Button">შეტყობინება</string>
     <string name="title_report_clip" comment="Title in Report a clip">კლიპის შეტყობინება:</string>
@@ -175,24 +177,54 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">კომენტარი</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">ოფლაინ წინადადებები გათავდა. ინტერნეტს დაუკავშირდით, რომ გადმოწეროთ ჩასაწერი წინადადებები.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">ოფლაინ ჩანაწერები გათავდა. ინტერნეტს დაუკავშირდით, რომ გადმოწეროთ შესამოწმებელი ჩანაწერები.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{*{{n_sentences}}*}}">ინტერნეტთან დაკავშირების გარეშე კიდე {{*{{n_sentences}}*}} წინადადება შეგიძლიათ ჩაწეროთ.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{*{{n_clips}}*}}">ინტერნეტთან დაკავშირების გარეშე კიდე {{*{{n_clips}}*}} ჩანაწერი შეგიძლიათ შეამოწმოთ.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">მოსმენა...</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{*{{feature_name}}*}}">„{{*{{feature_name}}*}}“ ჩართულია. პარამეტრებში შეგიძლიათ გამორთოთ.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">ინტერნეტის გარეშე კიდე {{n_sentences}} წინადადება შეგიძლიათ ჩაწეროთ.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">ინტერნეტის გარეშე კიდე {{n_clips}} ჩანაწერი შეგიძლიათ შეამოწმოთ.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">მოსმენა…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">„{{feature_name}}“ ჩართულია. პარამეტრებში შეგიძლიათ გამორთოთ.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">წინადადება დამალულია</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice-ის სერვერზე მეტი წინადადება არ არის. მოგვიანებით სცადეთ, ან დაუკავშირდით Mozilla-ს.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice-ის სერვერზე მეტი კლიპი არ არის. მოგვიანებით სცადეთ, ან დაუკავშირდით Mozilla-ს.</string>
-    <string name="text_continue_to_validate_1" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">თქვენ უკვე ზედიზედ {{*{{number}}*}} ჩანაწერი შეამოწმეთ, მასე გააგრძელეთ!</string>
-    <string name="text_continue_to_validate_2" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">გააგრძელეთ ჩანაწერების შემოწმება, ზედიზედ {{*{{number}}*}} ჩანაწერი გაქვთ შემოწმებული.</string>
-    <string name="text_continue_to_validate_3" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">შესანიშნავი ნამუშევარია! უკვე ზედიზედ {{*{{number}}*}} ჩანაწერი გაქვთ შემოწმებული.</string>
-    <string name="text_continue_to_validate_4" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}}">ოჰო, ზეადამიანური ენერგია გაქვთ! ზედიზედ {{*{{number}}*}} ჩანაწერი გაქვთ შემოწმებული!</string>
-    <string name="text_continue_to_send_1" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">ზედიზედ {{*{{number}}*}} ჩანაწერი გააგზავნეთ.</string>
-    <string name="text_continue_to_send_2" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">კარგი ნამუშევარია! ზედიზედ {{*{{number}}*}} ჩანაწერი გააგზავნეთ.</string>
-    <string name="text_continue_to_send_3" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">გილოცავთ! {{*{{number}}*}} გახმოვანებული წინადადების საფეხურს მიაღწიეთ. მასე გააგრძელეთ.</string>
-    <string name="text_continue_to_send_4" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}}">ოჰო, ზეადამიანური ენერგია გაქვთ! ზედიზედ {{*{{number}}*}} წინადადება გაქვთ გახმოვანებული!</string>
-    <string name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">მხოლოდ {{*{{number}}*}} ჩანაწერი გაკლიათ, რომ {{*{{dailygoal}}*}} ჩანაწერის დღიურ მიზანს მიაღწიოთ!</string>
-    <string name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak | Do not translate {{*{{number}}*}} and {{*{{dailygoal}}*}}">მხოლოდ {{*{{number}}*}} წინადადება გაკლიათ, რომ {{*{{dailygoal}}*}} წინადადების დღიურ მიზანს მიაღწიოთ!</string>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{*{{speed_value}}*}}">სიჩქარე არის {{*{{speed_value}}*}}.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">ზედიზედ უკვე %d ჩანაწერი შეამოწმეთ, მასე გააგრძელეთ!</item>
+        <item quantity="other">ზედიზედ უკვე %d ჩანაწერი შეამოწმეთ, მასე გააგრძელეთ!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">გააგრძელეთ ჩანაწერების შემოწმება, ზედიზედ %d ჩანაწერი გაქვთ შემოწმებული.</item>
+        <item quantity="other">გააგრძელეთ ჩანაწერების შემოწმება, ზედიზედ %d ჩანაწერი გაქვთ შემოწმებული.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">შესანიშნავი ნამუშევარია! ზედიზედ უკვე %d ჩანაწერი გაქვთ შემოწმებული.</item>
+        <item quantity="other">შესანიშნავი ნამუშევარია! ზედიზედ უკვე %d ჩანაწერი გაქვთ შემოწმებული.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">ოჰო, ზეადამიანური ენერგია გაქვთ! ზედიზედ %d ჩანაწერი გაქვთ შემოწმებული!</item>
+        <item quantity="other">ოჰო, ზეადამიანური ენერგია გაქვთ! ზედიზედ %d ჩანაწერი გაქვთ შემოწმებული!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">ზედიზედ %d ჩანაწერი გააგზავნეთ.</item>
+        <item quantity="other">ზედიზედ %d ჩანაწერი გააგზავნეთ.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">კარგი ნამუშევარია! ზედიზედ %d ჩანაწერი გააგზავნეთ.</item>
+        <item quantity="other">კარგი ნამუშევარია! ზედიზედ %d ჩანაწერი გააგზავნეთ.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">გილოცავთ! %d გახმოვანებული წინადადების საფეხურს მიაღწიეთ. მასე გააგრძელეთ.</item>
+        <item quantity="other">გილოცავთ! %d გახმოვანებული წინადადების საფეხურს მიაღწიეთ. მასე გააგრძელეთ.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">ოჰო, ზეადამიანური ენერგია გაქვთ! ზედიზედ %d წინადადება გაქვთ გახმოვანებული!</item>
+        <item quantity="other">ოჰო, ზეადამიანური ენერგია გაქვთ! ზედიზედ %d წინადადება გაქვთ გახმოვანებული!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">მხოლოდ %d ჩანაწერი გაკლიათ, რომ {{dailygoal}} ჩანაწერის დღიურ მიზანს მიაღწიოთ!</item>
+        <item quantity="other">მხოლოდ %d ჩანაწერი გაკლიათ, რომ {{dailygoal}} ჩანაწერის დღიურ მიზანს მიაღწიოთ!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">მხოლოდ %d წინადადება გაკლიათ, რომ {{dailygoal}} ჩანაწერის დღიურ მიზანს მიაღწიოთ!</item>
+        <item quantity="other">მხოლოდ %d წინადადება გაკლიათ, რომ {{dailygoal}} ჩანაწერის დღიურ მიზანს მიაღწიოთ!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">სიჩქარე არის {{speed_value}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">თავიდან შემოწმება</string>
     <string name="txt_noconnection" comment="Message text">ინტერნეტთან დაკავშირებული არ ხართ. ჩართეთ Wi-Fi, ან მობილური ინტერნეტი და შემდეგ დააჭირეთ ქვედა ღილაკს.</string>
@@ -220,15 +252,15 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">დახურვა</string>
     <string name="labelAllBadges" comment="Title for All badge section">ყველა ნიშანი</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">ვაშა! ახალი ნიშანი დაიმსახურეთ.\nგახსენით {{*{{profile}}*}} &gt; {{*{{all_badges}}*}}, რომ ნახოთ თქვენი ყველა ნიშანი.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{*{{n_clips}}*}} კლიპი შეამოწმეთ.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{*{{n_sentences}}*}} წინადადება ჩაწერეთ.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{*{{n_total}}*}} კლიპი შეამოწმეთ, ან ჩაწერეთ.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">ვაშა! ახალი ნიშანი დაიმსახურეთ.\nგახსენით {{profile}} &gt; {{all_badges}}, რომ ნახოთ თქვენი ყველა ნიშანი.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{n_clips}} კლიპი შეამოწმეთ.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{n_sentences}} წინადადება ჩაწერეთ.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">ეს ნიშანი მიიღეთ იმიტომ, რომ მინიმუმ {{n_total}} კლიპი შეამოწმეთ, ან ჩაწერეთ.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">კარგი</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">შეცდომა</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">ქმედება არ შესრულდა.\nგთხოვთ თავიდან სცადოთ, ან დაუკავშირდით პროგრამისტს.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{*{{error_code}}*}}">ქმედება არ შესრულდა. გთხოვთ თავიდან სცადოთ, ან დაუკავშირდით პროგრამისტს.\nError code: EX-{{*{{error_code}}*}}</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">ქმედება არ შესრულდა. გთხოვთ თავიდან სცადოთ, ან დაუკავშირდით პროგრამისტს.\nError code: EX-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">შესვლა წარუმატებელია</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">პირველ რიგში Common Voice საიტზე უნდა შეხვიდეთ და დაეთანხმოთ Common Voice-ის კონფიდენციალურობის პოლიტიკას.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Common Voice-ის გახსნა</string>
@@ -254,8 +286,15 @@
     <string name="text_are_you_sure_reset_app_data" comment="Message text">დარწმუნებული ხართ, რომ გინდათ აპის მონაცემები საწყის პარამეტრებზე დააყენოთ?</string>
     <string name="button_yes_sure" comment="Button">დიახ</string>
     <string name="button_cancel" comment="Button">გაუქმება</string>
-    <string name="text_opened_the_app_n_times_in_a_row" comment="Message text | Do not translate {{*{{number}}*}}, it's an integer '&gt; 1'">ყოჩაღ! აპლიკაცია ზედიზედ {{*{{number}}*}} დღე გამოიყენეთ.</string>
-    <string name="text_share_n_times_in_a_row" comment="Message text to share on socials">CV Project აპლიკაცია ზედიზედ {{*{{number}}*}} დღე გამოვიყენე! თქვენც გადმოწერეთ, რომ შეიტანოთ თქვენი წვლილი Common Voice-ის პროექტში.</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">ყოჩაღ! აპლიკაცია ზედიზედ %d დღე გამოიყენეთ.</item>
+        <item quantity="other">ყოჩაღ! აპლიკაცია ზედიზედ %d დღე გამოიყენეთ.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">CV Project აპლიკაცია ზედიზედ %d დღე გამოვიყენე! თქვენც გადმოწერეთ, რომ შეიტანოთ თქვენი წვლილი Common Voice-ის პროექტში.</item>
+        <item quantity="other">CV Project აპლიკაცია ზედიზედ %d დღე გამოვიყენე! თქვენც გადმოწერეთ, რომ შეიტანოთ თქვენი წვლილი Common Voice-ის პროექტში.</item>
+    </plurals>
+    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">შესვლა</string>
     <string name="button_translate_on_crowdin" comment="Button">თარგმნეთ</string>
     <!-- Daily goal -->
@@ -269,14 +308,14 @@
     <string name="description_setting_daily_goal" comment="Message text">შეარჩიეთ, ჯამში, დღეში რამდენი წინადადების ჩაწერა და ჩანაწერის შემოწმება გინდათ.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">დღევანდელი მიღწევა</string>
     <string name="daily_goal_not_achieved_today">დღეს არ გაქვთ მიღწეული</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{*{{n_clips}}*}} and {{*{{n_sentences}}*}}">ყოჩაღ! დღის მიზანს მიაღწიეთ.\n{{*{{n_clips}}*}} ჩანაწერი შეამოწმეთ და {{*{{n_sentences}}*}} წინადადება ჩაწერეთ.\nშეგიძლიათ გააგრძელოთ ჩაწერა და შემოწმება.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">ყოჩაღ! დღის მიზანს მიაღწიეთ.\n{{n_clips}} ჩანაწერი შეამოწმეთ და {{n_sentences}} წინადადება ჩაწერეთ.\nშეგიძლიათ გააგრძელოთ ჩაწერა და შემოწმება.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">გაზიარება</string>
     <string name="share_daily_goal_title" comment="Title of panel">გაზიარება</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{*{{link}}*}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">ამ წამს მივაღწიე ჩემს დღის მიზანს @mozilla #CommonVoice -ისთვის #CVProject აპით.\nშემოგვიერთდით და შეიტანეთ თქვენი წვლილი! გადმოწერეთ CV Project Google Play-დან, ან F-Droid-იდან {{*{{link}}*}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">ამ წამს მივაღწიე ჩემს დღის მიზანს @mozilla #CommonVoice -ისთვის #CVProject აპით.\nშემოგვიერთდით და შეიტანეთ თქვენი წვლილი! გადმოწერეთ CV Project Google Play-დან, ან F-Droid-იდან {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">ეს დღის მიზანი, არ არის Mozilla-ს ოფიციალური ფუნქცია. აპის ფუნქცია არის.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">იცოდით რომ ... ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">იცოდით რომ … ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 საათი მიიღწევა სულ რაღაც 6 თვეში, თუ 1,000 ადამიანი დღეში 45 ჩანაწერს გააკეთებს.</string>
     <string name="copied_string" comment="Toast message">ასლი</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{*{{n_version}}*}}">აპის ახალი ვერსია არის ხელმისაწვდომი (ვერსია {{*{{n_version}}*}}). განაახლეთ სასურველი მაღაზიიდან (F-Droid, Google Play Store, Huawei AppGallery, Amazon AppStore), ან პირდაპირ GitHub-იდან.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">აპის ახალი ვერსია არის ხელმისაწვდომი (ვერსია {{n_version}}). განაახლეთ სასურველი მაღაზიიდან (F-Droid, Google Play Store, Huawei AppGallery, Amazon AppStore), ან პირდაპირ GitHub-იდან.</string>
 </resources>

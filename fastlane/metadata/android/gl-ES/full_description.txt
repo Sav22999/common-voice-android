@@ -22,23 +22,24 @@ Esta non é a aplicación oficial de Common Voice. Desenvolvida por Saverio More
 - Moitas outras características
 - A experiencia da aplicación é totalmente personalizábel na Configuración
 
-Participa no grupo de Telegram https://t.me/common_voice_android (@common_voice_android)
-Pode ver as estatísticas completas da aplicación aquí: https://bit.ly/3clgfkg
-Lea máis sobre esta aplicación en GitHub: http://bit.ly/2PeOGRg
+Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>Que é o proxecto Common Voice?</b>
+<b>What is the Common Voice project?</b>
 
 Common Voice é a iniciativa de Mozilla para ensinar ás máquinas como falan as persoas reais.
 A voz é natural, a voz é humana. Por iso estamos encantados de crear tecnoloxía de voz utilizábel para as nosas máquinas. Pero para crear sistemas de voz, os desenvolvedores necesitan unha cantidade extremadamente grande de datos de voz.
 A maioría dos datos empregados por grandes empresas non están dispoñíbeis para a maioría da xente. Pensamos que iso abafa a innovación. Destarte lanzamos Common Voice, un proxecto para apoiar o recoñecemento de voz aberto e accesíbel para todos.
 Agora pode doar a súa voz para axudarnos a construír unha base de datos de voz de código aberto que calquera pode usar para crear aplicacións innovadoras para dispositivos e para a web. Lea unha frase para axudar ás máquinas a aprender como falan as persoas reais. Comprobe o traballo doutros colaboradores para mellorar a calidade. Así de simple!
-Podes atopar máis detalles na páxina web oficial https://commonvoice.mozilla.org/
+You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Por que sería mellor utilizar a app en vez do sitio web mentres colabora desde o móbil?</b>
 
-A aplicación está desenvolvida exactamente para smartphones, polo que é nativa. Ten moitas funcións que o sitio web non lle proporciona, como o tema escuro, o modo sen conexión, a personalización, xestos, etc.
+The app is developed specifically for smartphones so it's native. Ten moitas funcións que o sitio web non lle proporciona, como o tema escuro, o modo sen conexión, a personalización, xestos, etc.
 A aplicación é máis lixeira que o sitio web, sen animacións molestas (e as animacións da aplicación tamén se poden deter na Configuración).
 Ademais, o sitio web ten moitos erros, especialmente para a versión móbil, polo que non se pode facer todo correctamente.
 </p>

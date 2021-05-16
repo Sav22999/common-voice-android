@@ -35,9 +35,9 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             }
 
             textSettingsUISpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
-                "{{*{{listen_name}}*}}",
+                "{{listen_name}}",
                 getString(R.string.settingsListen)
-            ).replace("{{*{{speak_name}}*}}", getString(R.string.settingsSpeak))
+            ).replace("{{speak_name}}", getString(R.string.settingsSpeak))
 
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsUI.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }

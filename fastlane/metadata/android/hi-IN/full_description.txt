@@ -1,44 +1,45 @@
 <p>
-This is not the official app of Common Voice. It's developed by Saverio Morelli
+ये Common Voice की आधिकारिक एप्प नहीं है। इसे Saverio Morelli ने बनाया है।
 </p>
 <p>
-<b>App features:</b>
+<b> विशेषताएं: </b>
 
-- The user interface (UI) is smart, clear and modern
-- Log in to your Common Voice account
-- Validate clips
-- Record sentences
-- Report sentences/clips in the relative sections
-- Multi-languages supported
-- Offline mode (continue to contribute also when you aren't connected to the Internet!)
-- Common Voice statistics (of the selected language)
-- Top contributors (of the selected language)
-- App statistics (anonymous)
-- Voices online (of the selected language)
-- Dark theme supported
-- Daily goal
-- Gestures
-- Save your recordings on your device
-- Many other features
-- The app experience is totally customisable in Settings
+- यूजर इंटरफेस (UI) सहज, सुन्दर व आधुनिक है
+- अपने Common Voice खाते में लॉगिन करें
+- क्लिपें सत्यापित करें
+- वाक्यों को रिकॉर्ड करें
+- अनुचित वाक्यों/क्लिपों को रिपोर्ट करें
+- यह एप्प कई भाषाओं में उपलब्ध है
+- ऑफलाइन मोड (इन्टरनेट से कनेक्ट न होने पर भी योगदान कर सकते हैं)
+- Common Voice के आँकड़े (चुनी हुई भाषा के)
+- शीर्ष योगदानकर्त्ता (चुनी हुई भाषा के)
+- एप्प के आँकड़े (अनाम)
+- ऑनलाइन वाणियाँ (चुनी हुई भाषा की)
+- गहरी थीम उपलब्ध है
+- दैनिक लक्ष्य
+- इशारे
+- अपनी रिकोर्डिंगों को फोन में सेव कर सकते हैं
+बहुत सारी अन्य विशेषताएं
+- एप्प को सेटिंग में पूरी तरह से स्वानुकूलित किया जा सकता है
 
-Join the Telegram group: https://t.me/common_voice_android (@common_voice_android)
-You can see complete app statistics here: https://bit.ly/3clgfkg
-Read more about this app on GitHub: http://bit.ly/2PeOGRg
+Telegram ग्रुप से जुड़ें: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+यहाँ पर आप एप्प के सभी आँकड़े देख सकते हैं: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">एप्प के आँकड़े</a>
+यहाँ पर आप एप्प को प्रयोग करने के सभी आँकड़े देख सकते हैं: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">एप्प के प्रयोग के आँकड़े</a>
+इस एप्प के बारे में GitHub पर ज्यादा जानें: <a href="https://github.com/Sav22999/common-voice-android/">GitHub पर CV Project</a>
 </p>
 <p>
-<b>What is Common Voice project?</b>
+<b>Common Voice प्रोजेक्ट क्या है?</b>
 
-Common Voice is Mozilla's initiative to help teach machines how real people speak.
-Voice is natural, voice is human. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
-Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
-Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-You can find more details on the official website https://commonvoice.mozilla.org/
+Common Voice Mozilla का लोगों के बात करने के वास्तविक ढंग को मशीनों को सिखाने का उपक्रम है।
+वाणी नैसर्गिक व मानवीय होती है। इसीलिए हम अपनी मशीनों के लिए वाणी की बेहतर तकनीक बनाने के लिए अग्रसर हैं। लेकिन ऐसी तकनीक बनाने के लिए, डेवलेपरों को अत्यधिक मात्रा में वाणी का डाटा चाहिए।
+बड़ी कम्पनिओं के द्वारा प्रयोग में लाया जाने वाला डाटा आम लोगों की पहुँच से बाहर है। हमें लगता है की ये नवोन्मेष का गाला घोंटना है। इसीलिए हमने Common Voice शुरू किया है, ऐसा प्रोजेक्ट जिससे सभी को वाणी पहचान की तकनीक सुलभ हो सके।
+एक ओपन-सोर्स वाणी का डाटाबेस बनाने के लिए आप अपनी वाणी दान कर सकते है ताकि कोई भी डिवाइसों व वेब के लिए नवोन्मेषी एप्प बना सके। वाक्यों को पढ़े ताकि उससे मशीनें मनुष्य के बोलने का ढंग सीख सकें। गुणवत्ता सुधारने के लिए अन्य योगदानकर्त्ताओं के कार्य को सत्यापित करें। ये इतना आसान है!
+आधिकारिक वेबसाइट <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a> पर आप अधिक जानकारी प्राप्त कर सकते हैं।
 </p>
 <p>
-<b>Why should you use the app instead of the website on mobile?</b>
+<b>आपको मोबाइल पर वेबसाइट के जगह एप्प क्यों इस्तेमाल क्यों करनी चाहिए?</b>
 
-The app is developed exactly for smartphones so it's native. It has many features that website don't provide you, such as dark theme, offline mode, customisation, gestures, etc.
-The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
-In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.
+इस एप्प को विशेष रूप से स्मार्टफोन के लिए ही बनाया गया। इसमें ऐसी कई विशेषताएं हैं जो कि वेबसाइट में नहीं हैं, जैसे की गहरी थीम, ऑफलाइन मोड, अनुकूलन, इशारे आदि।
+एप्प वेबसाइट से ज्यादा हल्की है, क्योंकि इसमें फालतू के एनिमेशन नहीं हैं (एप्प के एनिमेशनों को सेटिंग में बंद किया जा सकता है)।
+इसके अलावा, वेबसाइट में बहुत सारी कमियाँ है, खासकर मोबाइल संस्करण में, जिससे कार्य ठीक से नहीं हो पाता है।
 </p>

@@ -82,19 +82,19 @@ class BadgesFragment : ViewBoundFragment<AllBadgesBinding>() {
                 val message = when (badge) {
                     is Badge.Level -> {
                         getString(R.string.message_got_badge_because_levels).replace(
-                            "{{*{{n_total}}*}}",
+                            "{{n_total}}",
                             badge.value.toString()
                         )
                     }
                     is Badge.ListenAchievement -> {
                         getString(R.string.message_got_badge_because_clips).replace(
-                            "{{*{{n_clips}}*}}",
+                            "{{n_clips}}",
                             badge.value.toString()
                         )
                     }
                     is Badge.SpeakAchievement -> {
                         getString(R.string.message_got_badge_because_sentences).replace(
-                            "{{*{{n_sentences}}*}}",
+                            "{{n_sentences}}",
                             badge.value.toString()
                         )
                     }

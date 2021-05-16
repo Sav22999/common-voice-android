@@ -1,0 +1,2 @@
+Personalitza la IU
+Mode fora de línia, tema fosc

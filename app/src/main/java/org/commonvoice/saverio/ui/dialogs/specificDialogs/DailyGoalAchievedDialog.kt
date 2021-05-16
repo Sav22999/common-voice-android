@@ -20,10 +20,10 @@ class DailyGoalAchievedDialog(
         return DialogDailyGoalAchievedBinding.inflate(inflater).also {
             it.labelTextMessageDialogDailyAchieved.text =
                 context.getString(R.string.daily_goal_achieved_message).replace(
-                    "{{*{{n_clips}}*}}",
+                    "{{n_clips}}",
                     "${dailyGoal.validations}"
                 ).replace(
-                    "{{*{{n_sentences}}*}}",
+                    "{{n_sentences}}",
                     "${dailyGoal.recordings}"
                 )
 
@@ -35,7 +35,7 @@ class DailyGoalAchievedDialog(
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "type/palin"
                 val textToShare = context.getString(R.string.share_daily_goal_text_on_social).replace(
-                    "{{*{{link}}*}}",
+                    "{{link}}",
                     "https://bit.ly/2XhnO7h"
                 )
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
