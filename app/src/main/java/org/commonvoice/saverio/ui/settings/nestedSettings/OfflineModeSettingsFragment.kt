@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.core.view.isGone
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
@@ -35,6 +37,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
 
+    private var changedNumber = false
+
     override fun onStart() {
         super.onStart()
 
@@ -46,25 +50,32 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
+
             val oldStatus = settingsPrefManager.isOfflineMode
             switchSettingsSubSectionOfflineMode.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isOfflineMode = isChecked
+                settingsSectionCustomiseOfflineMode.isGone = !isChecked
                 if (oldStatus != isChecked) {
                     var count = 50
                     if (!settingsPrefManager.isOfflineMode)
                         count = 3
                     listenPrefManager.requiredClipsCount = count
                     speakPrefManager.requiredSentencesCount = count
-                    mainViewModel.clearDB().invokeOnCompletion {
-                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                            workManager,
-                            ExistingWorkPolicy.REPLACE
-                        )
-                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                            workManager,
-                            ExistingWorkPolicy.REPLACE
-                        )
-                    }
+                }
+                var count = if (listenPrefManager.requiredClipsCount >= 50) {
+                    listenPrefManager.requiredClipsCount
+                } else {
+                    50
+                }
+
+                if (isChecked) {
+                    listenPrefManager.requiredClipsCount = count
+                    speakPrefManager.requiredSentencesCount = count
+                    showCustomisationSection()
+                } else {
+                    count = 3
+                    listenPrefManager.requiredClipsCount = count
+                    speakPrefManager.requiredSentencesCount = count
                 }
             }
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
@@ -77,13 +88,72 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         setTheme()
     }
 
+    private fun showCustomisationSection() {
+        withBinding {
+            setSeekBar((speakPrefManager.requiredSentencesCount - 50).toFloat())
+            seekOfflineModeValue.progress = speakPrefManager.requiredSentencesCount - 50
+            seekOfflineModeValue.setOnSeekBarChangeListener(object :
+                SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seek: SeekBar,
+                    progress: Int, fromUser: Boolean
+                ) {
+                    //onProgress
+                    setSeekBar(seek.progress.toFloat())
+                }
+
+                override fun onStartTrackingTouch(seek: SeekBar) {
+                    //onStart
+                }
+
+                override fun onStopTrackingTouch(seek: SeekBar) {
+                    //onStop
+                    setSeekBar(seek.progress.toFloat())
+                }
+            })
+        }
+    }
+
+    private fun setSeekBar(value: Float) {
+        val valueToUse = (value - value % 5).toInt() + 50
+        withBinding {
+            labelOfflineModeValue.text = valueToUse.toString()
+
+            listenPrefManager.requiredClipsCount = valueToUse
+            speakPrefManager.requiredSentencesCount = valueToUse
+
+            changedNumber = true
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        if (changedNumber) {
+            mainViewModel.clearDB().invokeOnCompletion {
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    ExistingWorkPolicy.REPLACE
+                )
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    ExistingWorkPolicy.REPLACE
+                )
+            }
+        }
+    }
+
     fun setTheme() {
         withBinding {
             theme.setElement(layoutSettingsOfflineMode)
 
-            theme.setElements(requireContext(), settingsSectionOfflineMode)
+            theme.setElements(requireContext(), settingsSectionLearnMoreOfflineMode)
+            theme.setElements(requireContext(), settingsSectionCustomiseOfflineMode)
 
-            theme.setElement(requireContext(), 3, settingsSectionOfflineMode)
+            theme.setElement(requireContext(), 3, settingsSectionLearnMoreOfflineMode)
+            theme.setElement(requireContext(), 3, settingsSectionCustomiseOfflineMode)
+
+            theme.setElement(requireContext(), seekOfflineModeValue)
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionOfflineMode, textSize = 20F)
         }
