@@ -35,11 +35,12 @@ class AuthenticationInterceptor(
                 addHeader("Cookie", "connect.sid=${mainPrefManager.sessIdCookie}")
             } else {
                 //If the user isn't authenticated we use a generic token
-                addHeader("Authorization",
+                addHeader(
+                    "Authorization",
                     token
                 )
             }
-        }.build())
+        }.addHeader("source", "sav_android").build())
     }
 
 }
