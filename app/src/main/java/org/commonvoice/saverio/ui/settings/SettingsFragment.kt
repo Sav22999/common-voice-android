@@ -117,10 +117,10 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             //TODO: remove, when implemented In-app purchare:
             buttonBuyMeACoffee.isGone = true
             separator28.isGone = true
-            if (statsPrefManager.buyMeACoffeeCounter >= 20) {
+            /*if (statsPrefManager.buyMeACoffeeCounter >= 20) {
                 buttonBuyMeACoffee.isGone = false
                 separator28.isGone = false
-            }
+            }*/
         }
 
         //In-App review
@@ -159,7 +159,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             inAppPurchase()
         } else {*/
         buttonBuyMeACoffee.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/pools/c/8yl6auiU6e")))
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/donate/")))
         }
         /*}*/
     }
