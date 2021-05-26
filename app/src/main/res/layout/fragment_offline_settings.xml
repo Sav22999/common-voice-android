@@ -116,6 +116,47 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/subtitleMotivationOfflineMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="2dp"
+                android:text="@string/did_you_know_that"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelTextOfflineMode" />
+
+            <TextView
+                android:id="@+id/textMotivationOfflineMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="2dp"
+                android:text="@string/text_choose_number_sentences_clips_offline_mode_explanation"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subtitleMotivationOfflineMode" />
+
+            <TextView
                 android:id="@+id/labelOfflineModeValue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -135,7 +176,7 @@
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/labelTextOfflineMode" />
+                app:layout_constraintTop_toBottomOf="@+id/textMotivationOfflineMode" />
 
             <SeekBar
                 android:id="@+id/seekOfflineModeValue"
@@ -144,12 +185,12 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:max="450"
+                android:max="490"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
-                android:progress="0"
+                android:progress="40"
                 android:progressBackgroundTint="@color/colorAccent"
                 android:progressTint="@color/colorAccent"
                 android:thumbTint="@color/colorBlack"

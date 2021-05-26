@@ -8,6 +8,7 @@ import android.widget.SeekBar
 import androidx.core.view.isGone
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -39,6 +40,9 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
 
     private var changedNumber = false
 
+    private val minimumOfflineModeNumber = 10
+    private val stepsOfflineMode = 10
+
     override fun onStart() {
         super.onStart()
 
@@ -62,7 +66,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                     listenPrefManager.requiredClipsCount = count
                     speakPrefManager.requiredSentencesCount = count
                 }
-                var count = if (listenPrefManager.requiredClipsCount >= 50) {
+                var count = if (listenPrefManager.requiredClipsCount >= minimumOfflineModeNumber) {
                     listenPrefManager.requiredClipsCount
                 } else {
                     50
@@ -90,8 +94,9 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
 
     private fun showCustomisationSection() {
         withBinding {
-            setSeekBar((speakPrefManager.requiredSentencesCount - 50).toFloat())
-            seekOfflineModeValue.progress = speakPrefManager.requiredSentencesCount - 50
+            setSeekBar((speakPrefManager.requiredSentencesCount - minimumOfflineModeNumber).toFloat())
+            seekOfflineModeValue.progress =
+                speakPrefManager.requiredSentencesCount - minimumOfflineModeNumber
             seekOfflineModeValue.setOnSeekBarChangeListener(object :
                 SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
@@ -115,7 +120,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     }
 
     private fun setSeekBar(value: Float) {
-        val valueToUse = (value - value % 5).toInt() + 50
+        val valueToUse = (value - value % stepsOfflineMode).toInt() + minimumOfflineModeNumber
         withBinding {
             labelOfflineModeValue.text = valueToUse.toString()
 
@@ -156,6 +161,22 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             theme.setElement(requireContext(), seekOfflineModeValue)
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionOfflineMode, textSize = 20F)
+
+            theme.setElement(
+                requireContext(),
+                subtitleMotivationOfflineMode,
+                R.color.colorGray,
+                R.color.colorLightGray,
+                textSize = 15f
+            )
+
+            theme.setElement(
+                requireContext(),
+                textMotivationOfflineMode,
+                R.color.colorGray,
+                R.color.colorLightGray,
+                textSize = 15f
+            )
         }
     }
 
