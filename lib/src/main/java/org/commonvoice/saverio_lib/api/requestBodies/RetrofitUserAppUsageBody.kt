@@ -27,4 +27,13 @@ data class RetrofitUserAppUsageBody(
     @Json(name = "offline")
     val offline: Int,
 
+    @Json(name = "sentence_id")
+    val sentence_id: String,
+
+    @Json(name = "clip_id")
+    val clip_id: String,
+
+    @Json(name = "details")
+    val details: String,
+
     )

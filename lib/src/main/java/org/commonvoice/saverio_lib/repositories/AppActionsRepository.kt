@@ -17,14 +17,22 @@ class AppActionsRepository(
 
     private val actionsDao = database.appActions()
 
-    suspend fun insertAction(actionType: AppAction.Type) {
+    suspend fun insertAction(
+        actionType: AppAction.Type,
+        sentenceId: String = "",
+        clipId: String = "",
+        actionDetails: String = ""
+    ) {
         if (connectionManager != null && workManager != null) {
             insertAction(
                 AppAction(
                     0,
                     prefManager.language,
                     actionType,
-                    !connectionManager.isInternetAvailable
+                    !connectionManager.isInternetAvailable,
+                    sentenceId,
+                    clipId,
+                    actionDetails
                 )
             )
 

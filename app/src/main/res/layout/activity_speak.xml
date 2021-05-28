@@ -13,38 +13,30 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/adContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+        <View
+            android:id="@+id/progressBarSpeakSpeak"
+            android:layout_width="100dp"
+            android:layout_height="5dp"
+            android:background="@color/colorSpeak"
+            android:elevation="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/progressBarSpeakSpeak"
-            android:layout_width="100dp"
-            android:layout_height="10dp"
-            android:background="@color/colorSpeak"
-            android:elevation="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/adContainer" />
-
-        <View
             android:id="@+id/progressBarSpeakListen"
             android:layout_width="100dp"
-            android:layout_height="10dp"
+            android:layout_height="5dp"
             android:background="@color/colorListen"
             android:elevation="5dp"
             app:layout_constraintStart_toEndOf="@+id/progressBarSpeakSpeak"
-            app:layout_constraintTop_toBottomOf="@id/adContainer" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textSentenceSpeak"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/top_bottom_border_radius"
             android:backgroundTintMode="screen"
@@ -62,18 +54,18 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/adContainer" />
+            app:layout_constraintTop_toBottomOf="@id/progressBarSpeakSpeak" />
 
         <ImageView
             android:id="@+id/imageOfflineModeSpeak"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:padding="5dp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adContainer"
+            app:layout_constraintStart_toStartOf="@+id/textSentenceSpeak"
+            app:layout_constraintTop_toTopOf="@+id/textSentenceSpeak"
             app:srcCompat="@drawable/ic_offline_mode"
             tools:visibility="visible" />
 
@@ -81,12 +73,12 @@
             android:id="@+id/imageReportIconSpeak"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:padding="5dp"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adContainer"
+            app:layout_constraintEnd_toEndOf="@+id/textSentenceSpeak"
+            app:layout_constraintTop_toTopOf="@+id/textSentenceSpeak"
             app:srcCompat="@drawable/ic_report"
             tools:visibility="visible" />
 
@@ -94,12 +86,12 @@
             android:id="@+id/imageInfoSpeak"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/imageReportIconSpeak"
-            app:layout_constraintTop_toBottomOf="@+id/adContainer"
+            app:layout_constraintTop_toTopOf="@+id/textSentenceSpeak"
             app:srcCompat="@drawable/ic_info_light"
             tools:visibility="visible" />
 
@@ -173,7 +165,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:gravity="center|top|center_vertical"
             android:textColor="@color/colorAlertMessage"
@@ -205,14 +197,11 @@
         <View
             android:id="@+id/viewSpacingSpeak"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_height="10dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/speakSectionMiddle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMotivationSentencesSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionAudioBar"
@@ -221,10 +210,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@color/colorTransparent"
-            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
+            app:layout_constraintBottom_toTopOf="@+id/viewSpacingSpeak2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak">
+            app:layout_constraintTop_toBottomOf="@+id/viewSpacingSpeak">
 
             <View
                 android:id="@+id/imageAudioBar1"
@@ -399,10 +388,10 @@
             android:layout_height="wrap_content"
             android:background="@color/colorTransparent"
             android:padding="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
+            app:layout_constraintBottom_toTopOf="@+id/viewSpacingSpeak2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak">
+            app:layout_constraintTop_toBottomOf="@+id/viewSpacingSpeak">
 
             <Button
                 android:id="@+id/buttonRecordOrListenAgain"
@@ -450,12 +439,11 @@
         <View
             android:id="@+id/viewSpacingSpeak2"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="10dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/speakSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/speakSectionMiddle" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionBottom"
@@ -466,7 +454,7 @@
             android:background="@drawable/top_border_radius"
             android:backgroundTint="@color/colorWhite"
             android:padding="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/adContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -505,6 +493,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

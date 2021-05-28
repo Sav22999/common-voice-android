@@ -134,6 +134,8 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ნათელი თემა წინადადებების წაკითხვისთვის; ჩანაწერების შემოწმებისთვის (როცა ნათელი თემა ჩართულია).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">სიჩქარის მართვა</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ინფოს ხატულის ჩვენება</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">მიუთითეთ რამდენი წინადადება და ჩანაწერი გადმოიწეროს, რომლებსაც გამოიყენებთ როცა ინტერნეტი არ გექნებათ.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">საშუალოდ, 50 ჩანაწერის შემოწმებისთვის 13 წუთი და 50 წინადადების ჩაწერისთვის 26 წუთია საკმარისი.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>

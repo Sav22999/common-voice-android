@@ -1,6 +1,12 @@
 
 
-#  <img src="images/icon.png" width="40px" alt=""></img> Privacy: CV Android
+<h1 align="center">
+    <br>
+    <img width="70" src="images/icon.png" alt="CV Project icon" />
+    <br>
+    <b>CV Project: Privacy</b>
+    <br>
+</h1>
 
 The app doesn’t collect your personal data. Anyway, some data are saved on your device (*user_id* of Common Voice, *selected language*, *validations and recordings number*, and others data). You can clear them just *Clear data* of the app (but they are necessary to use Common Voice Android).
 
@@ -71,16 +77,19 @@ The app, from version 2.2, send to my website also the app usage. These informat
 
 This is what the app send to my server:
 
-| Key        | Value                           | Explanation                                                  |
-| ---------- | ------------------------------- | ------------------------------------------------------------ |
-| `type`     | `0` or `1` or `2` or `3` or `4` | It's an integer value `0 ` or `1` if you validated a clip (the first one "rejected", the latter one "accepted"), `2` if you reported a clip, `3` if you sent a recording and `4` if you reported a sentence.<br />So, the `0`, `1` and `2` are about "Listen", the `3` and `4` are about "Speak" |
-| `language` | *String*                        | It's the language code you are using the app (`en`, `it`, ...) |
-| `version`  | *Integer*                       | It's the version code of the app (`90`, `91`, ...)           |
-| `source`   | `GPS`, `FD-GH` or `HAG`         | It indicates the source from you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub, `HAG`: Huawei AppGallery, `n.d.`: not defined) |
-| `logged`   | `0` or `1`                      | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
-| `offline`  | `0` or `1`                      | It's an integer value `0` if you were using the app online when you contributed to Common Voice with the app, `1` if you were using it offline<br />It's useful to know if users use the offline mode or not |
-| `username` | *String*                        | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |
+| Key           | Value                           | Explanation                                                  |
+| ------------- | ------------------------------- | ------------------------------------------------------------ |
+| `type`        | `0` or `1` or `2` or `3` or `4` | It's an integer value `0 ` or `1` if you validated a clip (the first one "rejected", the latter one "accepted"), `2` if you reported a clip, `3` if you sent a recording and `4` if you reported a sentence.<br />So, the `0`, `1` and `2` are about "Listen", the `3` and `4` are about "Speak" |
+| `language`    | *String*                        | It's the language code you are using the app (`en`, `it`, ...) |
+| `version`     | *Integer*                       | It's the version code of the app (`90`, `91`, ...)           |
+| `source`      | `GPS`, `FD-GH` or `HAG`         | It indicates the source from you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub, `HAG`: Huawei AppGallery, `n.d.`: not defined) |
+| `logged`      | `0` or `1`                      | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
+| `offline`     | `0` or `1`                      | It's an integer value `0` if you were using the app online when you contributed to Common Voice with the app, `1` if you were using it offline<br />It's useful to know if users use the offline mode or not |
+| `username`    | *String*                        | It's a unique string generated just the first time you run the app (not every time you run it), and it doesn't contain personal data.<br />The string is like this: `UserYYYYMMDDHHMMSSMMMM::CVAppSav` |
+| `sentence_id` | *String*                        | It identifies the *sentence_id* reported, recorded or validated |
+| `clip_id`     | *String*                        | It identifies the *clip_id* (`glob`) validated or reported. If you are in the *Speak* section, this parameter is empty |
+| `details`     | *String*                        | Here you can find more information. For example, you can find the *sentence_text* or the reasons about the clips/sentences reported |
 
 
 
-*Last update: 30th November 2020*
+*Last update: 28th May 2021*

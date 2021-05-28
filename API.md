@@ -1,4 +1,10 @@
-# API documentation
+<h1 align="center">
+    <br>
+    <img width="70" src="images/icon.png" alt="CV Project icon" />
+    <br>
+    <b>CV Project: API</b>
+    <br>
+</h1>
 
 API: Application Programming Interface
 

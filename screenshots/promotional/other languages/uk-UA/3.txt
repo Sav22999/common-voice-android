@@ -1,2 +1,2 @@
-Customise the UI
-Offline mode, Dark theme
+Налаштувати інтерфейс користувача
+Офлайн режим, Темна тема

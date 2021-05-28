@@ -4,8 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.core.view.isGone
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
+import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -35,6 +38,11 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
 
+    private var changedNumber = false
+
+    private val minimumOfflineModeNumber = 10
+    private val stepsOfflineMode = 10
+
     override fun onStart() {
         super.onStart()
 
@@ -46,25 +54,32 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             if (mainPrefManager.areGesturesEnabled)
                 nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
 
+
             val oldStatus = settingsPrefManager.isOfflineMode
             switchSettingsSubSectionOfflineMode.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isOfflineMode = isChecked
+                settingsSectionCustomiseOfflineMode.isGone = !isChecked
                 if (oldStatus != isChecked) {
                     var count = 50
                     if (!settingsPrefManager.isOfflineMode)
                         count = 3
                     listenPrefManager.requiredClipsCount = count
                     speakPrefManager.requiredSentencesCount = count
-                    mainViewModel.clearDB().invokeOnCompletion {
-                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                            workManager,
-                            ExistingWorkPolicy.REPLACE
-                        )
-                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                            workManager,
-                            ExistingWorkPolicy.REPLACE
-                        )
-                    }
+                }
+                var count = if (listenPrefManager.requiredClipsCount >= minimumOfflineModeNumber) {
+                    listenPrefManager.requiredClipsCount
+                } else {
+                    50
+                }
+
+                if (isChecked) {
+                    listenPrefManager.requiredClipsCount = count
+                    speakPrefManager.requiredSentencesCount = count
+                    showCustomisationSection()
+                } else {
+                    count = 3
+                    listenPrefManager.requiredClipsCount = count
+                    speakPrefManager.requiredSentencesCount = count
                 }
             }
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
@@ -77,15 +92,91 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         setTheme()
     }
 
+    private fun showCustomisationSection() {
+        withBinding {
+            setSeekBar((speakPrefManager.requiredSentencesCount - minimumOfflineModeNumber).toFloat())
+            seekOfflineModeValue.progress =
+                speakPrefManager.requiredSentencesCount - minimumOfflineModeNumber
+            seekOfflineModeValue.setOnSeekBarChangeListener(object :
+                SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seek: SeekBar,
+                    progress: Int, fromUser: Boolean
+                ) {
+                    //onProgress
+                    setSeekBar(seek.progress.toFloat())
+                }
+
+                override fun onStartTrackingTouch(seek: SeekBar) {
+                    //onStart
+                }
+
+                override fun onStopTrackingTouch(seek: SeekBar) {
+                    //onStop
+                    setSeekBar(seek.progress.toFloat())
+                }
+            })
+        }
+    }
+
+    private fun setSeekBar(value: Float) {
+        val valueToUse = (value - value % stepsOfflineMode).toInt() + minimumOfflineModeNumber
+        withBinding {
+            labelOfflineModeValue.text = valueToUse.toString()
+
+            listenPrefManager.requiredClipsCount = valueToUse
+            speakPrefManager.requiredSentencesCount = valueToUse
+
+            changedNumber = true
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        if (changedNumber) {
+            mainViewModel.clearDB().invokeOnCompletion {
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    ExistingWorkPolicy.REPLACE
+                )
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    ExistingWorkPolicy.REPLACE
+                )
+            }
+        }
+    }
+
     fun setTheme() {
         withBinding {
             theme.setElement(layoutSettingsOfflineMode)
 
-            theme.setElements(requireContext(), settingsSectionOfflineMode)
+            theme.setElements(requireContext(), settingsSectionLearnMoreOfflineMode)
+            theme.setElements(requireContext(), settingsSectionCustomiseOfflineMode)
 
-            theme.setElement(requireContext(), 3, settingsSectionOfflineMode)
+            theme.setElement(requireContext(), 3, settingsSectionLearnMoreOfflineMode)
+            theme.setElement(requireContext(), 3, settingsSectionCustomiseOfflineMode)
+
+            theme.setElement(requireContext(), seekOfflineModeValue)
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionOfflineMode, textSize = 20F)
+
+            theme.setElement(
+                requireContext(),
+                subtitleMotivationOfflineMode,
+                R.color.colorGray,
+                R.color.colorLightGray,
+                textSize = 15f
+            )
+
+            theme.setElement(
+                requireContext(),
+                textMotivationOfflineMode,
+                R.color.colorGray,
+                R.color.colorLightGray,
+                textSize = 15f
+            )
         }
     }
 

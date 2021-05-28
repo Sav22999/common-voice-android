@@ -1,2 +1,2 @@
-Personalizar la IU
-Modo offline, Modo oscuro
+Personalice la interfaz
+Modo sin conexión, Modo oscuro

@@ -13,38 +13,30 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/adContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+        <View
+            android:id="@+id/progressBarListenSpeak"
+            android:layout_width="100dp"
+            android:layout_height="5dp"
+            android:background="@color/colorSpeak"
+            android:elevation="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/progressBarListenSpeak"
-            android:layout_width="100dp"
-            android:layout_height="10dp"
-            android:background="@color/colorSpeak"
-            android:elevation="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/adContainer" />
-
-        <View
             android:id="@+id/progressBarListenListen"
             android:layout_width="100dp"
-            android:layout_height="10dp"
+            android:layout_height="5dp"
             android:background="@color/colorListen"
             android:elevation="5dp"
             app:layout_constraintStart_toEndOf="@+id/progressBarListenSpeak"
-            app:layout_constraintTop_toBottomOf="@id/adContainer" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textSentenceListen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/top_bottom_border_radius"
             android:backgroundTintMode="screen"
@@ -62,18 +54,18 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/adContainer" />
+            app:layout_constraintTop_toBottomOf="@id/progressBarListenSpeak" />
 
         <ImageView
             android:id="@+id/imageInfoListen"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/imageReportIconListen"
-            app:layout_constraintTop_toBottomOf="@+id/adContainer"
+            app:layout_constraintTop_toTopOf="@+id/textSentenceListen"
             app:srcCompat="@drawable/ic_info_light"
             tools:visibility="visible" />
 
@@ -81,12 +73,12 @@
             android:id="@+id/imageOfflineModeListen"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:padding="5dp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adContainer"
+            app:layout_constraintStart_toStartOf="@+id/textSentenceListen"
+            app:layout_constraintTop_toTopOf="@+id/textSentenceListen"
             app:srcCompat="@drawable/ic_offline_mode"
             tools:visibility="visible" />
 
@@ -94,12 +86,12 @@
             android:id="@+id/imageReportIconListen"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:padding="5dp"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adContainer"
+            app:layout_constraintEnd_toEndOf="@+id/textSentenceListen"
+            app:layout_constraintTop_toTopOf="@+id/textSentenceListen"
             app:srcCompat="@drawable/ic_report"
             tools:visibility="visible" />
 
@@ -173,7 +165,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:gravity="center|top|center_vertical"
             android:textColor="@color/colorAlertMessage"
@@ -203,11 +195,8 @@
         <View
             android:id="@+id/viewSpacingListen"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_height="10dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/listenSectionMiddle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textMotivationalSentencesListen" />
@@ -220,10 +209,10 @@
             android:layout_marginEnd="10dp"
             android:background="@color/colorTransparent"
             android:padding="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
+            app:layout_constraintBottom_toTopOf="@+id/viewSpacingListen2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen">
+            app:layout_constraintTop_toBottomOf="@+id/viewSpacingListen">
 
             <View
                 android:id="@+id/viewListenAnimateButton2"
@@ -272,10 +261,10 @@
             android:layout_marginEnd="10dp"
             android:background="@color/colorTransparent"
             android:padding="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
+            app:layout_constraintBottom_toTopOf="@+id/viewSpacingListen2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSentenceListen">
+            app:layout_constraintTop_toBottomOf="@+id/viewSpacingListen">
 
             <Button
                 android:id="@+id/buttonYesClip"
@@ -317,13 +306,11 @@
         <View
             android:id="@+id/viewSpacingListen2"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="5dp"
+            android:layout_height="10dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/listenSectionBottom"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/listenSectionMiddle" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/listenSectionBottom"
@@ -334,7 +321,7 @@
             android:background="@drawable/top_border_radius"
             android:backgroundTint="@color/colorWhite"
             android:padding="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/adContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -373,6 +360,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -1,5 +1,5 @@
 <p>
-This is not the official app of Common Voice. Este dezvoltată de Saverio Morelli
+Aceasta nu este aplicația oficială Common Voice. Este dezvoltată de Saverio Morelli
 </p>
 <p>
 <b>App features:</b>

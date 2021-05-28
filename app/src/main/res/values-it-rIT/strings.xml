@@ -134,6 +134,8 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema chiaro anche per la frase da leggere / da convalidare in Parla e Ascolta (quando il tema chiaro è attivo).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Mostra la barra di controllo della velocità</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostra icona informazioni</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Scegli il numero di frasi e il numero di registrazioni da scaricare e utilizzare quando l\'app è in modalità offline.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Solitamente gli utenti impiegano circa 13 minuti per convalidare 50 registrazioni e 26 minuti per registrare 50 frasi.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Caricamento di una frase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Salta</string>
@@ -143,7 +145,7 @@
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Premi l\'icona sotto per fermare la registrazione.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Frase registrata. Ascoltala per accertarti che sia corretta.</string>
     <string name="txt_sentence_record_failed" comment="Label in Speak">Registrazione fallita, sei pregato di riprovare.</string>
-    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Se hai registrato la frase correttamente, invia la registrazione.\nSe la registrazione presenta degli errori, registra la frase di nuovo.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Se hai registrato la frase correttamente, invia la registrazione.\nSe invece presenta degli errori, effettua una nuova registrazione.</string>
     <string name="txt_listening_stopped" comment="Label in Speak">Ascolta la registrazione per intero e assicurati che sia corretta.</string>
     <string name="txt_listening_again_recording" comment="Label in Speak">Premi l\'icona sotto per fermare l\'ascolto della tua registrazione.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">La registrazione è troppo lunga. La durata massima è di 10 secondi.</string>

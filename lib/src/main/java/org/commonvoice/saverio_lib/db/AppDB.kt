@@ -10,7 +10,7 @@ import org.commonvoice.saverio_lib.models.*
 
 @Database(
     entities = [Clip::class, Recording::class, Sentence::class, Validation::class, Report::class, AppAction::class],
-    version = 3,
+    version = 4,
     exportSchema = false //eventually set "true"
 )
 @TypeConverters(DBTypeConverters::class)
@@ -27,7 +27,8 @@ abstract class AppDB : RoomDatabase() {
 
     companion object {
 
-        @Volatile private var INSTANCE: AppDB? = null
+        @Volatile
+        private var INSTANCE: AppDB? = null
 
         fun getInstance(context: Context): AppDB =
             INSTANCE ?: synchronized(this) {

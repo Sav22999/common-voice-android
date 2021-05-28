@@ -81,7 +81,10 @@ class StatsRepository(
             appSource,
             appAction.type.num,
             if (mainPrefManager.areAppUsageStatsEnabled) getUserId() else "",
-            if (appAction.offline) 1 else 0
+            if (appAction.offline) 1 else 0,
+            appAction.sentence_id,
+            appAction.clip_id,
+            appAction.details
         )
 
         try {
@@ -123,12 +126,18 @@ class StatsRepository(
             ?.sortedByDescending { it.id }
             ?.filter {
                 (it.startDateFilter == null || dateMillis(it.startDateFilter) <= currentMillis)
-                && (it.endDateFilter == null || (dateMillis(it.endDateFilter) + DAY_MILLIS) >= currentMillis)
-                && (it.userFilter == mainPrefManager.statsUserId || (it.userFilter == null
-                    && (it.sourceFilter == null || it.sourceFilter.equals(mainPrefManager.appSourceStore, true))
-                    && (it.languageFilter == null || it.languageFilter.equals(mainPrefManager.language, true))
-                    && (it.versionCodeFilter == null || it.versionCodeFilter.toIntOrNull() == mainPrefManager.appVersionCode))
-                )
+                        && (it.endDateFilter == null || (dateMillis(it.endDateFilter) + DAY_MILLIS) >= currentMillis)
+                        && (it.userFilter == mainPrefManager.statsUserId || (it.userFilter == null
+                        && (it.sourceFilter == null || it.sourceFilter.equals(
+                    mainPrefManager.appSourceStore,
+                    true
+                ))
+                        && (it.languageFilter == null || it.languageFilter.equals(
+                    mainPrefManager.language,
+                    true
+                ))
+                        && (it.versionCodeFilter == null || it.versionCodeFilter.toIntOrNull() == mainPrefManager.appVersionCode))
+                        )
             }
             ?: emptyList()
     }

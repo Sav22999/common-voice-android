@@ -15,6 +15,7 @@ import org.commonvoice.saverio_lib.mediaPlayer.MediaPlayerRepository
 import org.commonvoice.saverio_lib.models.AppAction
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.models.Report
+import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.repositories.AppActionsRepository
@@ -95,6 +96,8 @@ class ListenViewModel(
     fun validate(result: Boolean) = viewModelScope.launch(Dispatchers.IO) {
         currentClip.value?.let { clip ->
             mediaPlayerRepository.stopPlaying()
+            val sentence: Sentence = clip.sentence
+            val clipId = clip.glob
             val validation = clip.toValidation(result)
 
             validationsRepository.insertValidation(validation)
@@ -106,7 +109,12 @@ class ListenViewModel(
                 ValidationsUploadWorker.attachToWorkManager(workManager)
             }
 
-            appActionsRepository.insertAction(if (result) AppAction.Type.LISTEN_ACCEPTED else AppAction.Type.LISTEN_REJECTED)
+            appActionsRepository.insertAction(
+                if (result) AppAction.Type.LISTEN_ACCEPTED else AppAction.Type.LISTEN_REJECTED,
+                sentenceId = sentence.sentenceId,
+                clipId = clipId,
+                actionDetails = "sentenceText = ${sentence.sentenceText}"
+            )
         }
         stopped = false
     }
@@ -122,8 +130,16 @@ class ListenViewModel(
 
     fun reportClip(reasons: List<String>) = viewModelScope.launch {
         currentClip.value?.let {
+            val sentence: Sentence = it.sentence
+            val clipId = it.glob
             reportsRepository.insertReport(Report(it, reasons))
-            appActionsRepository.insertAction(AppAction.Type.LISTEN_REPORTED)
+
+            appActionsRepository.insertAction(
+                AppAction.Type.LISTEN_REPORTED,
+                sentenceId = sentence.sentenceId,
+                clipId = clipId,
+                actionDetails = "sentenceText = ${sentence.sentenceText}\nreasons = ${reasons.toString()}"
+            )
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipClip()
         }

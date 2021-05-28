@@ -11,8 +11,8 @@
     <string name="button_home_login">ورود یا ثبت‌نام</string>
     <string name="button_home_logout">خروج</string>
     <string name="button_home_profile">نمایه</string>
-    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">سلام!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">سلام, {{username}}!</string>
     <string name="message_log_in_again">شناسهٔ نشست منقضی شده. باید دوباره وارد شوید</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">آمار</string>
@@ -54,7 +54,7 @@
     <string name="btn_join_telegram_first_launch" comment="Button">پیوستن به گروه</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_loading_page" comment="Label">در حال بارگذاری…</string>
     <string name="txt_profile_username" comment="Label in Profile">نام کاربری</string>
     <string name="txt_profile_email" comment="Label in Profile">رایانامه</string>
     <string name="txt_profile_age" comment="Label in Profile">سن</string>
@@ -66,10 +66,10 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">ديگر</string>
     <string name="btn_badges_loggedin" comment="Button">همهٔ نشان‌ها</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="level_up_message" comment="Message text">تبریک! به سطح {{n_level}} رسیدید.</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">من در حال حاضر یک پیوند تایید دارم</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">لینک تأیید</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">لینک تأیید معتبر نیست</string>
     <!-- Settings -->
     <string name="btn_open_tutorial_settings" comment="Button in Settings">گشودن دوبارهٔ خودآموز</string>
     <string name="txt_project_github_settings" comment="Button in Settings">پروژهٔ نرم‌افزار آزاد روی گیت‌هاب</string>
@@ -80,8 +80,8 @@
     <string name="settingsSpeak" comment="Title in Settings">گفتن</string>
     <string name="settingsOther" comment="Title in Settings">ديگر</string>
     <string name="settingsGeneral" comment="Title in Settings">فراگیر</string>
-    <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">لینک‌های مفید</string>
+    <string name="settingsLearnMore" comment="Button in Settings">بیشتر بدانید</string>
     <string name="radioThemeLight" comment="Radio-Button in Settings">روشن</string>
     <string name="radioThemeDark" comment="Radio-Button in Settings">تیره</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">خودکار</string>
@@ -93,13 +93,13 @@
     <string name="toast_experimental_features_on" comment="Message text">ویژگی‌های آزمایشی روشن شدند.\nویژگی‌های جدید می‌توانند ناپایدار و ناامن باشند.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">ذخیرهٔ گزارش‌ها به یک پرونده</string>
     <string name="toast_log_on_file_on" comment="Message text">ذخیرهٔ گزارش‌ها در یک پرونده خاموش شد.\nمی‌توانید هنگام گزارش یک مشکل، پروندهٔ log.txt را پیوست کنید.\nدر گیت‌هاب بیش‌تر بخوانید.</string>
-    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">آمارهای کلی</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">رشته ای که من را درون برنامه شناسایی میکند نمایش بده</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
     -->
-    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">آمار استفاده از برنامه</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">پرش از تأیید ضبط</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">ترجمهٔ کاره روی کرودین</string>
@@ -113,27 +113,29 @@
     <string name="txt_animations" comment="Switch-Button in Settings">پویانمایی‌ها</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">سفارشی‌سازی اندازهٔ قلم</string>
     <string name="txt_customise_gestures" comment="Button in Settings">شخصی‌سازی اشاره‌ها</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">پوسته</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">گروه تلگرام کاره</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">شرایط خدمت آواهای مشترک موزیلا را بخوانید</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the guidelines for validations</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">دستورالعمل های اعتبار سنجی را بخوانید</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">بازبینی روی گوگل پلی</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
+    <string name="title_ui_settings" comment="Option in Settings">رابط کاربری</string>
     <string name="title_advanced_settings" comment="Option in Settings">پیشرفته</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">ذخیره ضبط ها روی دستگاه</string>
+    <string name="txt_reset_data" comment="Button in Settings">پاک کردن حافظه برنامه</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="title_textsize_settings" comment="Title in Settings">اندازه متن</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">بنر تبلیغاتی</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">معمولاً اعتبارسنجی 50 کلیپ برای کاربران حدود 13 دقیقه و ضبط 26 جمله 50 دقیقه زمان می‌برد.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">پرش</string>
@@ -160,9 +162,9 @@
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">قطعه به عنوان نادرست، علامت خورد!</string>
     <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">شکست در فرستادن ضبط.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending…</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing…</string>
+    <string name="txt_sending_validation" comment="Label in Listen">در حال ارسال …</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">شکست در فرستادن نتیجه. می‌توانید دوباره تلاش کرده یا دکمهٔ {{skip_button}} را بزنید.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">در حال بستن…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">خطا. قطعه‌های موجود بیش‌تری برای این زبان وجود ندارد.</string>
     <string name="button_report" comment="Button">گزارش</string>
     <string name="title_report_clip" comment="Title in Report a clip">گزارش قطعه:</string>
@@ -179,7 +181,7 @@
     <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">در حال گوش دادن…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
@@ -284,7 +286,7 @@
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">مطمئنید می‌خواهید برگشته و ضبط را از دست دهید؟</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">مطمئنید می‌خواهید رد شده و ضبط را از دست دهید؟</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">مطمئنید می‌خواهید همهٔ داده‌های کاره را بازنشانی کنید؟</string>
-    <string name="button_yes_sure" comment="Button">Yes</string>
+    <string name="button_yes_sure" comment="Button">بلی!</string>
     <string name="button_cancel" comment="Button">لغو</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
         <item quantity="one">Well done! You opened the app %d day in a row.</item>

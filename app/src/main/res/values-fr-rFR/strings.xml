@@ -12,7 +12,7 @@
     <string name="button_home_logout">Se déconnecter</string>
     <string name="button_home_profile">Profil</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Salut !</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Salut, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Salut, {{username}} !</string>
     <string name="message_log_in_again">L\'identifiant de session a expiré, vous devez vous reconnecter</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiques</string>
@@ -134,6 +134,8 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Thème clair aussi pour la phrase à lire/valider dans Parler et Écouter (lorsque le thème clair est activé).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Afficher la barre de contrôle de vitesse</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Afficher l\'icône infos</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choisissez le nombre de phrases et le nombre de clips à télécharger et à utiliser lorsque l\'appli est en mode hors ligne.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Habituellement, les utilisateurs prennent environ 13 minutes pour valider 50 clips et 26 minutes pour enregistrer 50 phrases.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Chargement de la phrase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Passer</string>
