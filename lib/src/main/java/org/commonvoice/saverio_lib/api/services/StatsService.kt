@@ -10,6 +10,8 @@ import retrofit2.http.*
 
 interface StatsService {
 
+    //TODO: this is the requests API page
+
     @Headers("Content-Type: application/json")
     @POST("v2/")
     suspend fun postStats(@Body stats: RetrofitStatsUpdate)

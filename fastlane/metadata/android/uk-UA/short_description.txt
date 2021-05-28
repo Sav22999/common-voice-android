@@ -1,1 +1,1 @@
-This app permits you to contribute to Common Voice from your smartphone.
+Ця програма дозволяє вам брати участь у Common Voice зі свого смартфона.

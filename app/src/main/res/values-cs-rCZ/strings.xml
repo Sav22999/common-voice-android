@@ -11,8 +11,8 @@
     <string name="button_home_login">Přihlásit se / Zaregistrovat se</string>
     <string name="button_home_logout">Odhlásit se</string>
     <string name="button_home_profile">Profil</string>
-    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Vítejte!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Vítejte, {{username}}!</string>
     <string name="message_log_in_again">Relace vypršela, musíte se přihlásit znovu</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiky</string>
@@ -134,6 +134,8 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Přeskočit</string>
@@ -305,7 +307,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
     <string name="button_yes_sure" comment="Button">Yes</string>
-    <string name="button_cancel" comment="Button">Cancel</string>
+    <string name="button_cancel" comment="Button">Zrušit</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
         <item quantity="one">Well done! You opened the app %d day in a row.</item>
         <item quantity="few">Well done! You opened the app %d days in a row.</item>

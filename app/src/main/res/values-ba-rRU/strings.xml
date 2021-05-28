@@ -74,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Яңынан өйрәнеү битен асырға</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Асыҡ проект GitHub-та</string>
     <string name="txt_developed_by" comment="Label in Settings">тарафынан эшләнгән</string>
-    <string name="toast_language_changed" comment="Message text">Тел уңышлы {{*{{lang}}*}} нә күсте</string>
+    <string name="toast_language_changed" comment="Message text">Тел уңышлы {{lang}}-нә күсте</string>
     <string name="settingsLanguage" comment="Title in Settings">Тел</string>
     <string name="settingsListen" comment="Title in Settings">Тыңлау</string>
     <string name="settingsSpeak" comment="Title in Settings">Һөйләү</string>
@@ -134,6 +134,8 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Әгәр яҡты тема ҡуйылған булһа (тауыш яҙҙырып һәм тикшергән саҡта ла) текстың фоно шул төҫтә була.</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Тауыш тиҙлеген үҙгәрткән кнопкаларҙы күрһәтергә</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Мәғлүмәт иконаһын күрһәт</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Ҡушымта оффлайн булғанда тейәү һәм ҡулланыу өсөн һөйләмдәр һанын һәм клиптар һанын һайлағыҙ.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Ғәҙәттә ҡулланыусыларға 50 клипты тикшереү өсөн 13 минут һәм 50 һөйләм яҙҙырыу өсөн 26 минут ваҡыт кәрәк.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Һөйләмдәр тейәлә…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Үткәр</string>
@@ -284,7 +286,7 @@
     </plurals>
     <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Хәҙер инеү</string>
-    <string name="button_translate_on_crowdin" comment="Button">Хәҙер тәржемә итергә</string>
+    <string name="button_translate_on_crowdin" comment="Button">Тәржемә итергә</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Көндәлек маҡсат</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Маҡсат ҡуйылмаған</string>

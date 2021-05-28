@@ -152,8 +152,11 @@ class SpeakViewModel(
     fun sendRecording() = viewModelScope.launch(Dispatchers.IO) {
         stopListening()
         currentRecording?.let { recording ->
+            var sentence = currentSentence.value
             recordingsRepository.insertRecording(recording)
+
             currentSentence.value?.let {
+                sentence = it
                 sentencesRepository.deleteSentence(it)
             }
             currentRecording = null
@@ -163,7 +166,12 @@ class SpeakViewModel(
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
             }
 
-            appActionsRepository.insertAction(AppAction.Type.SPEAK_SENT)
+            appActionsRepository.insertAction(
+                AppAction.Type.SPEAK_SENT,
+                sentenceId = sentence?.sentenceId.toString(),
+                clipId = "",
+                actionDetails = "sentenceText = ${sentence?.sentenceText}"
+            )
         }
     }
 
@@ -199,8 +207,15 @@ class SpeakViewModel(
 
     fun reportSentence(reasons: List<String>) = viewModelScope.launch {
         currentSentence.value?.let {
+            val sentence = currentSentence.value
             reportsRepository.insertReport(Report(it, reasons))
-            appActionsRepository.insertAction(AppAction.Type.SPEAK_REPORTED)
+
+            appActionsRepository.insertAction(
+                AppAction.Type.SPEAK_REPORTED,
+                sentenceId = sentence?.sentenceId.toString(),
+                clipId = "",
+                actionDetails = "sentenceText = ${sentence?.sentenceText}\nreasons = ${reasons.toString()}"
+            )
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipSentence()
         }

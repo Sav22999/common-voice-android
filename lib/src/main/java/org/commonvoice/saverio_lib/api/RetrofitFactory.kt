@@ -44,7 +44,8 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     private val genericRetrofit = baseRetrofit.baseUrl(genericURL).build()
 
-    fun makeRecordingService(): RecordingsService = genericRetrofit.create(RecordingsService::class.java)
+    fun makeRecordingService(): RecordingsService =
+        genericRetrofit.create(RecordingsService::class.java)
 
     fun makeSentenceService(): SentencesService = langRetrofit.create(SentencesService::class.java)
 
@@ -52,7 +53,8 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
     fun makeStatsService(): StatsService = unauthRetrofit.create(StatsService::class.java)
 
-    fun makeLanguagesService(): LanguagesService = unauthRetrofit.create(LanguagesService::class.java)
+    fun makeLanguagesService(): LanguagesService =
+        unauthRetrofit.create(LanguagesService::class.java)
 
     fun makeCVStatsService(): CVStatsService = genericRetrofit.create(CVStatsService::class.java)
 

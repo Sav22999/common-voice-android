@@ -134,6 +134,8 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema claro também para a frase ler/para validar em Falar e Ouvir (quando o tema claro está ligado).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Mostrar barra de controle de velocidade</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostrar ícone de informações</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Escolha o número de frases e o número de clipes a serem baixados e usados quando o aplicativo estiver em modo offline.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Geralmente os usuários levam cerca de 13 minutos para validar 50 clipes e 26 minutos para gravar 50 frases.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregando frase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ignorar</string>

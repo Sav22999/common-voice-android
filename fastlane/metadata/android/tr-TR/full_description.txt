@@ -22,24 +22,24 @@ Bu Common Voice'un resmi uygulaması değil. Saverio Morelli tarafından gelişt
 - Diğer birçok özellik
 - Uygulama deneyimi, Ayarlar'da tamamen özelleştirilebilir
 
-Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
-You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
-You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
-Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
+Telegram grubuna katılın: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Uygulama istatistiklerinin tamamını buradan görebilirsiniz: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
+Ayrıca uygulama kullanım istatistiklerini de buradan görebilirsiniz: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Github üzerinden bu uygulama hakkında daha fazla şey okuyabilirsiniz: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
 </p>
 <p>
-<b>What is the Common Voice project?</b>
+<b>Common Voice projesi nedir?</b>
 
 Common Voice, Mozilla'nın makinelere gerçek insanların nasıl konuştuğunu öğretmeye yardımcı olma girişimidir.
 Ses doğaldır, ses insandır. Bu nedenle makinelerimiz için kullanılabilir ses teknolojisi yaratma konusunda heyecanlıyız. Ancak ses sistemleri oluşturmak için geliştiricilerin son derece büyük miktarda ses verisine ihtiyacı vardır.
 Büyük şirketler tarafından kullanılan verilerin çoğu, insanların kullanımı için uygun değildir. Bunun yeniliği engellediğini düşünüyoruz. Bu nedenle, ses tanımayı herkese açık ve erişilebilir hale getirmeye yardımcı olacak bir proje olan Common Voice'u başlattık.
 Artık herkesin cihazlar ve web için yenilikçi uygulamalar yapmak üzere kullanabileceği açık kaynaklı bir ses veritabanı oluşturmamıza yardımcı olması için sesinizi bağışlayabilirsiniz. Makinelerin gerçek insanların nasıl konuştuğunu öğrenmesine yardımcı olmak için bir cümle okuyun. Kaliteyi arttırmak için diğer katkıda bulunanların çalışmalarını kontrol edin. Bu kadar basit!
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+Resmi website üzerinden daha fazla detaya erişebilirsiniz <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
 </p>
 <p>
 <b>Neden mobil web sitesi yerine uygulamayı kullanmalısınız?</b>
 
-The app is developed specifically for smartphones so it's native. Karanlık tema, çevrimdışı mod, özelleştirme, hareketler vb. Gibi web sitesinin size sağlamadığı birçok özelliğe sahiptir.
+Bu uygulama sadece akıllı telefonlar için geliştirilmiştir. Karanlık tema, çevrimdışı mod, özelleştirme, hareketler vb. Gibi web sitesinin size sağlamadığı birçok özelliğe sahiptir.
 Uygulama, sinir bozucu animasyonlar olmadan web sitesinden daha hafiftir (ve uygulamadaki animasyonlar Ayarlar'dan da durdurulabilir).
 Ek olarak, web sitesinde özellikle mobil sürüm için birçok hata var, bu nedenle her şeyi doğru şekilde yapamazsınız.
 </p>

@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 151,
-      "versionName": "2.3.6.5",
+      "versionCode": 154,
+      "versionName": "2.3.7",
       "outputFile": "app-HAG-release.apk"
     }
   ]

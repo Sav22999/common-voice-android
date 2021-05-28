@@ -11,8 +11,8 @@
     <string name="button_home_login">登录/注册</string>
     <string name="button_home_logout">退出登录</string>
     <string name="button_home_profile">个人信息</string>
-    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">你好！</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">您好，{{username}}！</string>
     <string name="message_log_in_again">会话ID已过期，您需要重新登录</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">统计</string>
@@ -54,7 +54,7 @@
     <string name="btn_join_telegram_first_launch" comment="Button">加入群组</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">让我们开始吧！选择你想要录制或验证的语言。 如果此应用有你选择的语言所对应的版本，则应用界面也将以该语言显示。</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_loading_page" comment="Label">加载中...</string>
     <string name="txt_profile_username" comment="Label in Profile">用户名</string>
     <string name="txt_profile_email" comment="Label in Profile">电子邮件地址</string>
     <string name="txt_profile_age" comment="Label in Profile">年龄</string>
@@ -65,7 +65,7 @@
     <string name="txt_gender_female" comment="Label in Profile">女</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">其他</string>
     <string name="btn_badges_loggedin" comment="Button">所有徽章</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">等级 {{level}}</string>
     <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">我已有验证链接</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">输入验证链接的网址</string>
@@ -134,6 +134,8 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">对听与读中需要读取/验证的句子也开启浅色主题(当浅色主题开启时)。</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">显示速度控制栏</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>

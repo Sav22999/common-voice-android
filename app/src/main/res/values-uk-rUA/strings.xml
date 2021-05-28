@@ -11,8 +11,8 @@
     <string name="button_home_login">Увійти / Зареєструватися</string>
     <string name="button_home_logout">Вийти</string>
     <string name="button_home_profile">Профіль</string>
-    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Вітаю!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Привіт, {{username}}!</string>
     <string name="message_log_in_again">Час очікування вийшов, увійдіть ще раз</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Статистика</string>
@@ -41,7 +41,7 @@
     <string name="btn_skip" comment="Button">Пропустити</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Дозвіл отримано</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Помилка: немає дозволу</string>
-    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project - це неофіційний додаток Mozilla Common Voice. Розроблений Saverio Morelli без будь-якої підтримки та партнерства з Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Продовжуючи, ви погоджуєтеся з умовами використання Mozilla\'s Common Voice.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Програмі необхідний дозвіл на мікрофон для запису вашого голосу.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Ви можете повідомити про помилки на GitHub або Telegram. Щоб допомогти розробнику швидко зрозуміти проблему, ви повинні додати лог-файл програми до вашого звіту. Застосункові потрібен дозвіл на збереження лог-файлу у сховищі.</string>
@@ -54,7 +54,7 @@
     <string name="btn_join_telegram_first_launch" comment="Button">Долучитись до групи</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Почнемо! Виберіть, яку мову ви хотіли б розмовляти, або слухати. Додаток також буде відображатися на цій мові, якщо такий переклад доступний.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_loading_page" comment="Label">Завантаження…</string>
     <string name="txt_profile_username" comment="Label in Profile">Ім\'я користувача</string>
     <string name="txt_profile_email" comment="Label in Profile">Ел. пошта</string>
     <string name="txt_profile_age" comment="Label in Profile">Вік</string>
@@ -65,8 +65,8 @@
     <string name="txt_gender_female" comment="Label in Profile">Жінка</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Інше</string>
     <string name="btn_badges_loggedin" comment="Button">Всі значки</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Рівень {{level}}</string>
+    <string name="level_up_message" comment="Message text">Вітаємо! Ви щойно досягли рівня {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">У мене вже є посилання для підтвердження</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Посилання для підтвердження</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Посилання для підтвердження не дійсне</string>
@@ -74,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Відкрити помічник знову</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Проєкт із відкритим вихідним кодом на GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">розроблено</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="toast_language_changed" comment="Message text">Мову успішно встановлено на {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Мова</string>
     <string name="settingsListen" comment="Title in Settings">Слухати</string>
     <string name="settingsSpeak" comment="Title in Settings">Вимовити</string>
@@ -94,7 +94,7 @@
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Зберегти логи у файл</string>
     <string name="toast_log_on_file_on" comment="Message text">Збереження журналів у файл увімкнено.\nВи можете прикріпити файл log.txt до звіту про проблему.\nЧитайте більше на GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Загальна статистика</string>
-    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Показати рядок, який ідентифікує мене всередині додатку</string>
     <!--
     <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
     <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
@@ -113,32 +113,34 @@
     <string name="txt_animations" comment="Switch-Button in Settings">Анімація</string>
     <string name="txt_customise_the_font_size" comment="Button in Settings">Налаштувати розмір шрифту</string>
     <string name="txt_customise_gestures" comment="Button in Settings">Налаштувати жести</string>
-    <string name="title_theme_settings" comment="Title in Settings">Theme</string>
+    <string name="title_theme_settings" comment="Title in Settings">Тема</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Група застосунку в Telegram</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Відображати ярлики під піктограмами меню</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Прочитати умови використання Mozilla Common Voice</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Прочитати рекомендації для перевірки</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Написати відгук у Google Play</string>
-    <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
-    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
-    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
-    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="title_ui_settings" comment="Option in Settings">Інтерфейс користувача</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Розширені</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Зберегти записи на пристрій</string>
+    <string name="txt_reset_data" comment="Button in Settings">Скинути дані додатка</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Наразі немає доступних експериментальних функцій</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Показувати текст речень, коли кліпи прослуховуються повністю</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Показати піктограму звіту (угорі праворуч) замість кнопки (знизу)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Розмір тексту</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Рекламний банер</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Ввімкнути рекламний банер в {{section_name}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Розфарбувати прогрес щоденних цілей</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} і {{listen_name}}</string>
+    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Світла тема також для речення для читання/перевірки в режимі «Говори і слухай» (коли світлу тему ввімкнено).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Показати регулятор швидкості</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показати піктограму інформації</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Виберіть кількість пропозицій та кількість кліпів, які потрібно завантажити та використовувати, коли програма перебуває в автономному режимі.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Зазвичай, користувачам потрібно близько 13 хвилин, щоб перевірити 50 кліпів, і 26 хвилин, щоб записати 50 речень.</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Завантаження речення…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропустити</string>
     <string name="btn_send_sentence" comment="Button in Speak">Надіслати запис</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Завантаження кліпу…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Натисніть на іконку нижче, щоб почати запис.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Натисніть на іконку нижче, щоб зупинити запис.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Речення записано. Прослухайте запис.</string>
@@ -148,21 +150,21 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">Натисніть на іконку нижче, щоб припинити слухати.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Запис занадто довгий. Максимальна тривалість становить 10 секунд.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Запис занадто короткий. Будь ласка, спробуйте ще раз.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Надсилання запису…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Запис надіслано!</string>
     <string name="txt_sending_recording_failed" comment="Message text">Не вдалося надіслати запис!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Не вдалося надіслати запис! Ви можете спробувати ще раз або натиснути кнопку {{skip_button}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Натисніть на значок знизу для запуску кліпу.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Натисніть на іконку нижче, щоб зупинити кліп.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Якщо кліп є правильним, натисни палець вгору.\nЯкщо кліп неправильний, натисніть палець вниз.</string>
     <string name="txt_clip_again" comment="Label in Listen">Натисніть на значок нижче, щоб відтворити заново.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Кліп позначено як правильний!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Кліп позначено як неправильний!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Помилка. Натисніть кнопку {{skip_button}}, щоб продовжити.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">Не вдалося надіслати запис.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending…</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing…</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Надсилання…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Не вдалося надіслати результат. Ви можете спробувати ще раз або натиснути кнопку {{skip_button}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Закриття…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Помилка. Більше немає доступних кліпів для цієї мови.</string>
     <string name="button_report" comment="Button">Доповісти</string>
     <string name="title_report_clip" comment="Title in Report a clip">Звіт про кліп:</string>
@@ -177,13 +179,13 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Коментар</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Вам не вистачає речень у режимі офлайн. Під\'єднайтеся до Інтернету, щоб завантажити більше речень для запису.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">У вас закінчилися офлайн кліпи. Під\'єднайтеся до Інтернету, щоб завантажити більше кліпів для перевірки.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">Ви можете записати ще {{n_sentences}}, перш ніж вам потрібно буде під’єднатись до Інтернету.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">Ви можете перевірити {{n_clips}} ще кліпів, перш ніж вам потрібно буде підключитись до Інтернету.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Прослуховування…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" увімкнено. Перейдіть до Налаштувань, щоб відключити.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Текст речення приховано</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">На сервері Common Voice більше немає речень. Спробуйте пізніше або зв’яжіться з Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">На сервері Common Voice більше немає речень. Спробуйте пізніше або зв’яжіться з Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
         <item quantity="few">You have already validated %d clips in a row, continue this amazing work!</item>
@@ -244,7 +246,7 @@
         <item quantity="many">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
         <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
     </plurals>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Швидкість успішно встановлено на {{speed_value}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Перевірити знову</string>
     <string name="txt_noconnection" comment="Message text">Ви не під\'єднані до інтернету. Під\'єднайтеся до Wi-Fi або мобільних мереж, потім натисніть кнопку нижче.</string>
@@ -265,22 +267,22 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Натисніть на цю піктограму, якщо ви хочете знову послухати кліп.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Якщо кліп підходить до речень, натисніть на цей значок, щоб прийняти його.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Якщо кліп не відповідає реченню, натисніть на цей значок, щоб відхилити його.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
-    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Якщо ви не впевнені, приймати чи відхиляти запис, ви можете прочитати офіційні вказівки щодо перевірки на Mozilla Discourse.\nЦе посилання ви також знайдете пізніше в Налаштуваннях.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Читайте</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">На жаль, ця функція ще не існує.\nМи постійно працюємо для вдосконалення додатку, тому перевірте пізніше, щоб побачити, чи було додано.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Закрити</string>
     <string name="labelAllBadges" comment="Title for All badge section">Всі значки</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Ура! Ви щойно отримали новий значок.\nПерейдіть до {{profile}} &gt; {{all_badges}}, щоб переглянути всі свої значки.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Ви отримали цей значок, оскільки перевірили принаймні {{n_clips}} кліпів.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Ви отримали цей значок, оскільки записали принаймні {{n_sentences}} речень.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Ви отримали цей значок, оскільки підтвердили або записали принаймні {{n_total}} кліпи.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">OK</string>
+    <string name="btnOk" comment="Button">ОК</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Помилка</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">Це не спрацювало.\nСпробуйте ще раз або зверніться до розробника.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">Це не спрацювало. Повторіть спробу або зв’яжіться з розробником.\nКод помилки: EX-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Помилка входу в систему</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Ви повинні спочатку ввійти на сайт Common Voice і погодитися з політикою конфіденційності Common Voice.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Відкрити Common Voice</string>
@@ -291,21 +293,21 @@
     <string name="text_info" comment="Title for Message text">Інформація</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Більше не показувати</string>
     <string name="text_report_website_bug" comment="Message text">Якщо ви маєте проблеми з офіційним сайтом Common Voice, будь ласка, повідомте про них на форумах Mozilla Discourse або в репозіторії GitHub, щоб Mozilla могла їх виправити.</string>
-    <string name="text_review_now" comment="Button" translatable="true">Review now</string>
-    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
-    <string name="text_log_in_again" comment="Button" translatable="true">Log in again</string>
+    <string name="text_review_now" comment="Button" translatable="true">Переглянути</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Подобається додаток? Ви можете підтримати мою роботу. Купіть мені каву на PayPal або LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Увійти знову</string>
     <string name="text_offline_mode" comment="Title">Режим офлайн</string>
     <string name="text_offline_mode_enabled" comment="Message text">Тепер Ви перебуваєте в автономному режимі, і додаток автоматично переключився в автономний режим.\nЦе означає, що ви можете продовжити запис та перевірити, але запити будуть відправлені пізніше.</string>
     <string name="text_offline_mode_enabled_2" comment="Message text">Ви можете вказати, коли ви знаходитесь в режимі офлайн, шукаючи цей значок на екрані:</string>
     <string name="text_offline_mode_enabled_3" comment="Message text">Ви можете торкнутися цієї піктограми, щоб побачити завантажені відео та речення.</string>
-    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
-    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
-    <string name="text_open_settings_now">Open Settings now</string>
-    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
-    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
-    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
-    <string name="button_yes_sure" comment="Button">Yes</string>
-    <string name="button_cancel" comment="Button">Cancel</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Режим офлайн не ввімкнено, тому ви не можете користуватися програмою без підключення до Інтернету.\nЩоб користуватися функцією режиму офлайн, увімкніть її в Налаштуваннях.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Чи знаєте ви, що можете підтримувати мою роботу? Будь ласка, якщо вам подобається додаток, подумайте про те, щоб увімкнути рекламні банери в Налаштуваннях.</string>
+    <string name="text_open_settings_now">Відкрити Налаштування</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Ви впевнені, що хочете повернутися назад і втратити запис?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Ви впевнені, що хочете пропустити та втратити запис?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Ви впевнені, що хочете скинути всі дані додатку?</string>
+    <string name="button_yes_sure" comment="Button">Так</string>
+    <string name="button_cancel" comment="Button">Скасувати</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
         <item quantity="one">Well done! You opened the app %d day in a row.</item>
         <item quantity="few">Well done! You opened the app %d days in a row.</item>
@@ -319,8 +321,8 @@
         <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
     </plurals>
     <string name="text_share_n_times_in_a_row" comment=""></string>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="button_log_in_now" comment="Button">Увійти</string>
+    <string name="button_translate_on_crowdin" comment="Button">Перекласти</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Ціль на день</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Ціль не налаштовано</string>
@@ -332,14 +334,14 @@
     <string name="description_setting_daily_goal" comment="Message text">Виберіть скільки речень ви хочете записувати та кліпи, які хочете перевірити (сума їх) в день.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Сьогоднішні досягнення</string>
     <string name="daily_goal_not_achieved_today">Не досягнуто сьогодні</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
-    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
-    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Дуже добре! Ви досягли своєї повсякденної мети.\nВи перевірили {{n_clips}} кліп(и) та записали {{n_sentences}} речення(ь).\nНе соромтесь продовжувати разом з Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Поділитись</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Поділіться</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Я щойно досяг своєї щоденної мети для @mozilla #CommonVoice за допомогою #CVProject.\nПриєднуйтесь і робіть свій внесок! Встановіть CV Project із Google Play, F-Droid або Huawei AppGallery {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ця щоденна мета - не офіційна функція Mozilla. Це лише функція застосунку.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
-    <string name="copied_string" comment="Toast message">Copied</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Ви знали, що … ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 годин можна досягти трохи більше ніж за 6 місяців, якщо 1 000 людей записують 45 кліпів на день.</string>
+    <string name="copied_string" comment="Toast message">Скопійовано</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">Доступна нова версія додатку (випуск {{n_version}}). Ви можете оновити його з улюбленого магазину (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) або безпосередньо з GitHub.</string>
 </resources>

@@ -20,6 +20,15 @@ data class AppAction(
     @ColumnInfo(name = "offline")
     val offline: Boolean,
 
+    @ColumnInfo(name = "sentence_id")
+    val sentence_id: String,
+
+    @ColumnInfo(name = "clip_id")
+    val clip_id: String,
+
+    @ColumnInfo(name = "details")
+    val details: String,
+
     ) {
 
     enum class Type(val num: Int) {
@@ -30,5 +39,4 @@ data class AppAction(
         SPEAK_SENT(3),
         SPEAK_REPORTED(4),
     }
-
 }

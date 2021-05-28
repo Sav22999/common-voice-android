@@ -1,5 +1,5 @@
 <p>
-This is not the official app of Common Voice. It's developed by Saverio Morelli
+Ĉi tio ne estas oficiala aplikaĵo de Common Voice. Ĝi estas farita de Saverio Morelli
 </p>
 <p>
 <b>App features:</b>

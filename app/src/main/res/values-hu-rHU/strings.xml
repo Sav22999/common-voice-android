@@ -11,8 +11,8 @@
     <string name="button_home_login">Bejelentkezés / Regisztráció</string>
     <string name="button_home_logout">Kijelentkezés</string>
     <string name="button_home_profile">Profil</string>
-    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Üdv!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Üdv, {{username}}!</string>
     <string name="message_log_in_again">A munkamenet ideje lejárt, be kell lépnie újra</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statisztikák</string>
@@ -54,7 +54,7 @@
     <string name="btn_join_telegram_first_launch" comment="Button">Csatlakozás a csoporthoz</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Gyerünk! Válassza ki, hogy melyik nyelven szeretne beszélni vagy figyelni. Az alkalmazás azon a nyelven is fog megjelenni, ha a fordítás elérhető.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_loading_page" comment="Label">Betöltés…</string>
     <string name="txt_profile_username" comment="Label in Profile">Felhasználónév</string>
     <string name="txt_profile_email" comment="Label in Profile">E-mail</string>
     <string name="txt_profile_age" comment="Label in Profile">Életkor</string>
@@ -65,8 +65,8 @@
     <string name="txt_gender_female" comment="Label in Profile">Nő</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Egyéb</string>
     <string name="btn_badges_loggedin" comment="Button">Összes jelvény</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">{{level}}. szint</string>
+    <string name="level_up_message" comment="Message text">Gratulálunk! Elérte a(z) {{n_level}}. szintet.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Már rendelkezem ellenőrző hivatkozással</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Ellenőrző hivatkozással</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Az ellenőrző hivatkozás nem érvényes</string>
@@ -74,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Oktatás újbóli megnyitása</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Nyílt forráskódú projekt a GitHubon</string>
     <string name="txt_developed_by" comment="Label in Settings">fejlesztette:</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="toast_language_changed" comment="Message text">Nyelv sikeresen beállítva erre: {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Nyelv</string>
     <string name="settingsListen" comment="Title in Settings">Figyeljen</string>
     <string name="settingsSpeak" comment="Title in Settings">Beszéljen</string>
@@ -128,17 +128,19 @@
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Jelentés ikon megjelenítése (jobb felül) a gomb helyett (alul)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Szöveg mérete</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Hirdetéssáv</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Hirdetéssáv engedélyezése a {{section_name}} oldalon</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Napi célkitűzés nyomon követése színes sávval</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} és {{listen_name}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Világos téma a mondatok felolvasásánál és ellenőrzésénél is (ha a világos téma be van kapcsolva).</string>
-    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Sebességvezérlő-sáv megjelenítése</string>
+    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Információ ikon megjelenítése</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Mondat betöltése…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Átugrás</string>
     <string name="btn_send_sentence" comment="Button in Speak">Felvétel beküldése</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Klip betöltése…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Koppintson az alábbi ikonra a felvétel elindításához.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Koppintson az alábbi ikonra a felvétel befejezéséhez.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Mondat rögzítve. Hallgassa meg a felvételt.</string>
@@ -148,21 +150,21 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">Koppintson az alábbi ikonra a hallgatás befejezéséhez.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">A felvétel túl hosszú. Az időkorlát 10 másodperc.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">A felvétel túl rövid. Próbálja újra.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Felvétel beküldése…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Felvétel beküldve.</string>
     <string name="txt_sending_recording_failed" comment="Message text">A felvétel beküldése sikertelen.</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">A felvétel beküldése sikertelen. Megpróbálhatja újra, vagy nyomja meg a {{skip_button}} gombot.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Koppintson az alábbi ikonra a klip elindításához.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Koppintson az alábbi ikonra a klip leállításához.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Ha a klip helyes, koppintson a felfelé mutató ujjra.\nHa a klip hibás, koppintson a lefelé mutató ujjra.</string>
     <string name="txt_clip_again" comment="Label in Listen">Koppintson az alábbi ikonra a klip újbóli lejátszásához.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Klip helyesként jelölve.</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Klip helytelenként jelölve.</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Hiba. A folytatáshoz kattintson a {{skip_button}} gombra.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">A felvétel beküldése sikertelen.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending…</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing…</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Küldés…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Az eredmény beküldése sikertelen. Megpróbálhatja újra, vagy nyomja meg a {{skip_button}} gombot.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Bezárás…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Hiba. Nem érhető el több klip ezen a nyelven.</string>
     <string name="button_report" comment="Button">Jelentés</string>
     <string name="title_report_clip" comment="Title in Report a clip">Klip jelentése:</string>
@@ -177,54 +179,54 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Megjegyzés</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Elfogytak az offline mondatok. Kapcsolódjon az Internethez, hogy több felvevendő mondatot töltsön le.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Elfogytak az offline klipek. Kapcsolódjon az Internethez, hogy több ellenőrzendő klipet töltsön le.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">Még {{n_sentences}} további mondatot vehet fel, mielőtt kapcsolódnia kell az Internethez.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">Még {{n_clips}} további klipet ellenőrizhet, mielőtt kapcsolódnia kell az Internethez.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Hallgatás…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">A(z) „{{feature_name}}” engedélyezett. A kikapcsolásához ugorjon a Beállításokhoz.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">A mondat szövege rejtett</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nincs több mondat a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nincs több klip a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
-        <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
-        <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>
+        <item quantity="one">Már %d klipet ellenőrzött egymás után, folytassa a nagyszerű munkát!</item>
+        <item quantity="other">Már %d klipet ellenőrzött egymás után, folytassa a nagyszerű munkát!</item>
     </plurals>
     <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
-        <item quantity="one">Continue to validate clips, you validated %d clip in a row.</item>
-        <item quantity="other">Continue to validate clips, you validated %d clips in a row.</item>
+        <item quantity="one">Folytassa a klipek ellenőrzését, már %d klipet ellenőrzött egymás után.</item>
+        <item quantity="other">Folytassa a klipek ellenőrzését, már %d klipet ellenőrzött egymás után.</item>
     </plurals>
     <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
-        <item quantity="one">Excellent work! You have already validated %d clip in a row.</item>
-        <item quantity="other">Excellent work! You have already validated %d clips in a row.</item>
+        <item quantity="one">Kiváló munka! Már %d klipet ellenőrzött egymás után.</item>
+        <item quantity="other">Kiváló munka! Már %d klipet ellenőrzött egymás után.</item>
     </plurals>
     <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
-        <item quantity="one">Wow, you have superhuman powers! You validated %d clip in a row!</item>
-        <item quantity="other">Wow, you have superhuman powers! You validated %d clips in a row!</item>
+        <item quantity="one">Hűha, emberfeletti képessége van! %d klipet ellenőrzött egymás után!</item>
+        <item quantity="other">Hűha, emberfeletti képessége van! %d klipet ellenőrzött egymás után!</item>
     </plurals>
     <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
-        <item quantity="one">You sent %d recording in a row.</item>
-        <item quantity="other">You sent %d recordings in a row.</item>
+        <item quantity="one">%d felvételt küldött be egymás után.</item>
+        <item quantity="other">%d felvételt küldött be egymás után.</item>
     </plurals>
     <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
-        <item quantity="one">Good job! You sent %d recording in a row.</item>
-        <item quantity="other">Good job! You sent %d recordings in a row.</item>
+        <item quantity="one">Szép munka! %d felvételt küldött be egymás után.</item>
+        <item quantity="other">Szép munka! %d felvételt küldött be egymás után.</item>
     </plurals>
     <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
-        <item quantity="one">Congratulations! You achieved the milestone of %d recorded sentence. Keep going.</item>
-        <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
+        <item quantity="one">Gratulálunk! Elérte a(z) %d felvételes mérföldkövet. Csak így tovább.</item>
+        <item quantity="other">Gratulálunk! Elérte a(z) %d felvételes mérföldkövet. Csak így tovább.</item>
     </plurals>
     <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
-        <item quantity="one">Wow, you have superhuman powers! You recorded %d sentence in a row!</item>
-        <item quantity="other">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
+        <item quantity="one">Hűha, emberfeletti képessége van! %d mondatot rögzített egymás után!</item>
+        <item quantity="other">Hűha, emberfeletti képessége van! %d mondatot rögzített egymás után!</item>
     </plurals>
     <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
-        <item quantity="one">You miss only %d clip to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="other">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="one">Már csak %d klip szükséges a(z) {{dailygoal}} klipes napi célja eléréséhez!</item>
+        <item quantity="other">Már csak %d klip szükséges a(z) {{dailygoal}} klipes napi célja eléréséhez!</item>
     </plurals>
     <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
-        <item quantity="one">You miss only %d sentence to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="one">Már csak %d mondat szükséges a(z) {{dailygoal}} mondatos napi célja eléréséhez!</item>
+        <item quantity="other">Már csak %d mondat szükséges a(z) {{dailygoal}} mondatos napi célja eléréséhez!</item>
     </plurals>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Sebesség sikeresen beállítva erre: {{speed_value}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Ellenőrzés újra</string>
     <string name="txt_noconnection" comment="Message text">Nem kapcsolódik az internethez. Kapcsolódjon Wi-Fivel vagy mobil-adatkapcsolattal, majd koppintson a lenti gombra.</string>
@@ -252,15 +254,15 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Bezárás</string>
     <string name="labelAllBadges" comment="Title for All badge section">Összes jelvény</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurrá! Kiérdemelte az első jelvényét.\nUgorjon a {{profile}} &gt; {{all_badges}} menüponthoz, hogy lássa az összes jelvényét.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Azért kapta ezt a jelvényt, mert legalább {{n_clips}} klipet ellenőrzött.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Azért kapta ezt a jelvényt, mert legalább {{n_sentences}} mondatot vett fel.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Azért kapta ezt a jelvényt, mert legalább {{n_total}} klipet ellenőrzött vagy vett fel.</string>
     <!-- Message dialog -->
     <string name="btnOk" comment="Button">OK</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Hiba</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">Ez nem működött.\nPróbálja újra később, vagy lépjen kapcsolatba a fejlesztővel.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">Ez nem működött. Próbálja újra, vagy lépjen kapcsolatba a fejlesztővel.\nHibakód: EX-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">A bejelentkezés sikertelen</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Először be kell jelentkeznie a Common Voice weboldalon, és el kell fogadnia a Common Voice adatvédelmi irányelveit.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">A Common Voice megnyitása</string>
@@ -284,15 +286,15 @@
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Biztos, hogy visszalép és elveti a felvételt?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Biztos, hogy kihagyja és elveti a felvételt?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Biztos, hogy visszaállítja az összes alkalmazásadatot?</string>
-    <string name="button_yes_sure" comment="Button">Yes</string>
+    <string name="button_yes_sure" comment="Button">Igen</string>
     <string name="button_cancel" comment="Button">Mégse</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
-        <item quantity="one">Well done! You opened the app %d day in a row.</item>
-        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+        <item quantity="one">Szép munka! %d egymást követő napon nyitotta meg az alkalmazást.</item>
+        <item quantity="other">Szép munka! %d egymást követő napon nyitotta meg az alkalmazást.</item>
     </plurals>
     <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
-        <item quantity="one">I\'ve opened the CV Project app %d day in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
-        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+        <item quantity="one">%d egymást követő napon nyitottam meg a CV Project alkalmazást! Töltse le Ön is, és működjön közre a Common Voice projektben az okostelefonja segítségével.</item>
+        <item quantity="other">%d egymást követő napon nyitottam meg a CV Project alkalmazást! Töltse le Ön is, és működjön közre a Common Voice projektben az okostelefonja segítségével.</item>
     </plurals>
     <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Bejelentkezés most</string>
@@ -308,14 +310,14 @@
     <string name="description_setting_daily_goal" comment="Message text">Válassza ki, hogy hány mondatot szeretne rögzíteni, és hány klipet szeretne ellenőrizni (a kettőt együtt) naponta.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Ma elért</string>
     <string name="daily_goal_not_achieved_today">Ma nem elért</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Szép munka! Elérte a napi célját.\nEllenőrzött {{n_clips}} klipet, és rögzített {{n_sentences}} mondatot.\nTovábbra is nyugodtan működjön közre a Common Voice-ban.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Megosztás</string>
     <string name="share_daily_goal_title" comment="Title of panel">Megosztás itt:</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Épp most értem el a napi célom a @mozilla #CommonVoice projektjében, a #CVProject használatával.\nCsatlakozzon és vegye ki a részét! Telepítse most a CV Project alkalmazást a Google Play-ből, az F-Droidból vagy a Huawei AppGallery-ből {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ez a napi cél nem egy hivatalos mozillás funkció. Ez csak az alkalmazás funkciója.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Tudta, hogy…?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10 000 óra valamivel több mint 6 hónap alatt elérhető, ha 1 000 ember napi 45 klipet vesz fel.</string>
     <string name="copied_string" comment="Toast message">Másolva</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">Az alkalmazás új verziója érhető el (verzió: {{n_version}}). Frissítheti a kedvenc alkalmazásboltjából (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) vagy közvetlenül a GitHubról.</string>
 </resources>
