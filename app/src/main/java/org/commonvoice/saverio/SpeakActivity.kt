@@ -2,16 +2,19 @@ package org.commonvoice.saverio
 
 import android.Manifest
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
@@ -87,6 +90,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private var scrollingStatus = 0
     private var scrollingToBefore = ""
+    private var longPressEnabled = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -424,11 +428,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         })
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupGestures() {
         binding.nestedScrollSpeak.setOnTouchListener(object :
             OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
-                /*
+                //println(">>Swipe Left<<")
                 if (!recorded) {
                     speakViewModel.skipSentence()
                 } else {
@@ -443,44 +448,50 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                             button2TextRes = R.string.button_cancel,
                             onButton2Click = {}
                         ))
-                }*/
-                println(">>Swipe Left<<")
+                }
             }
 
             override fun onSwipeRight() {
-                //onBackPressed()
-                println(">>Swipe Right<<")
+                //println(">>Swipe Right<<")
+                onBackPressed()
             }
 
             override fun onSwipeTop() {
-                println(">>Swipe Top<<")
-                /*
+                //println(">>Swipe Top<<")
                 if (verticalScrollStatus == 2) {
                     openReportDialog()
-                }*/
+                }
+            }
+
+            override fun onSwipeBottom() {
+                //println(">>Swipe Bottom<<")
             }
 
             override fun onLongPress() {
                 //println(">>Long Press<<")
+                longPressEnabled = true
+                showFillScreenGesturesGuide()
             }
 
             override fun onScroll(scrollTo: String) {
                 //println(">>Scroll $scrollTo<<")
                 //println(">>Scrolling to $scrollTo, status $scrollingStatus and scrollBefore $scrollingToBefore<<")
-                if (scrollingToBefore == scrollTo) scrollingStatus++
-                else {
+                val currentOrientation = resources.configuration.orientation
+                if (scrollingToBefore == scrollTo && (currentOrientation == Configuration.ORIENTATION_LANDSCAPE && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r") || currentOrientation == Configuration.ORIENTATION_PORTRAIT)) {
+                    scrollingStatus++
+
+                    if (scrollingStatus >= 10) {
+                        if (scrollingStatus >= 10 && scrollingStatus <= 100) {
+                            showGesturesGuide(scrollTo, scrollingStatus)
+                        }
+                        if (scrollingStatus == 100) {
+                            showLeaveToEnable(scrollTo)
+                        }
+                    }
+                } else {
+                    hideGesturesGuide()
                     scrollingStatus = 1
                     scrollingToBefore = scrollTo
-                }
-
-                if (scrollingStatus >= 10) {
-                    if (scrollingStatus == 10) println("Continue to scrolling to $scrollingToBefore for enabling the gesture")
-                    if (scrollingStatus == 100) {
-                        if (scrollingToBefore == "r") println("You can tap up for enabling the gesture")
-                        else if (scrollingToBefore == "l") println("You can tap up for enabling the gesture")
-                        else if (scrollingToBefore == "u") println("You can tap up for enabling the gesture")
-                        else if (scrollingToBefore == "d") println("You can tap up for enabling the gesture")
-                    }
                 }
             }
 
@@ -490,24 +501,124 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
             override fun onDoubleTap() {
                 //println(">>Double Tap<<")
+                showFillScreenGesturesGuide(startAnimation = true)
             }
 
             override fun onTouch(v: View, event: MotionEvent): Boolean {
                 if (event.action == 1) {
                     //ACTION_UP
-                    println(">>Finished (hide)<<")
-                    if (scrollingStatus >= 100) {
-                        if (scrollingToBefore == "r") onSwipeRight()
-                        else if (scrollingToBefore == "l") onSwipeLeft()
-                        else if (scrollingToBefore == "u") onSwipeTop()
-                        else if (scrollingToBefore == "d") onSwipeBottom()
+                    if (scrollingToBefore != "" && scrollingStatus > 0) {
+                        hideGesturesGuide()
+                        if (scrollingStatus >= 100) {
+                            if (scrollingToBefore == "r") onSwipeRight()
+                            else if (scrollingToBefore == "l") onSwipeLeft()
+                            else if (scrollingToBefore == "u") onSwipeTop()
+                            else if (scrollingToBefore == "d") onSwipeBottom()
+                        }
+                        scrollingStatus = 0
+                        scrollingToBefore = ""
                     }
-                    scrollingStatus = 0
-                    scrollingToBefore = ""
+                    if (longPressEnabled) {
+                        longPressEnabled = false
+                        showFillScreenGesturesGuide(startAnimation = true)
+                    }
                 }
                 return super.onTouch(v, event)
             }
         })
+    }
+
+    fun showGesturesGuide(scrollTo: String, increment: Int) {
+        hideGesturesGuide(except = scrollTo)
+
+        val widthOrHeight = increment * 3 + binding.progressBarSpeakListen.layoutParams.height
+
+        if (scrollTo == "r") {
+            binding.leftSideViewSpeak.isGone = false
+            binding.leftSideViewSpeak.layoutParams.width = widthOrHeight
+            binding.leftSideViewSpeak.requestLayout()
+        } else if (scrollTo == "l") {
+            binding.rightSideViewSpeak.isGone = false
+            binding.rightSideViewSpeak.layoutParams.width = widthOrHeight
+            binding.rightSideViewSpeak.requestLayout()
+        } else if (scrollTo == "u") {
+            binding.bottomSideViewSpeak.isGone = false
+            binding.bottomSideViewSpeak.layoutParams.height = widthOrHeight
+            binding.bottomSideViewSpeak.requestLayout()
+        } else if (scrollTo == "d") {
+            binding.topSideViewSpeak.isGone = false
+            binding.topSideViewSpeak.layoutParams.height = widthOrHeight
+            binding.topSideViewSpeak.requestLayout()
+        }
+    }
+
+    fun showLeaveToEnable(scrollTo: String) {
+        if (scrollTo == "r") {
+            binding.leftSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        } else if (scrollTo == "l") {
+            binding.rightSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        } else if (scrollTo == "u") {
+            binding.bottomSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        } else if (scrollTo == "d") {
+            binding.topSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        }
+    }
+
+    fun hideGesturesGuide(except: String = "") {
+        val widthOrHeight = binding.progressBarSpeakListen.layoutParams.height
+        if (except != "r" && !binding.leftSideViewSpeak.isGone) {
+            binding.leftSideViewSpeak.isGone = true
+            binding.leftSideViewSpeak.layoutParams.width = widthOrHeight
+            binding.leftSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.leftSideViewSpeak.requestLayout()
+        }
+
+        if (except != "l" && !binding.rightSideViewSpeak.isGone) {
+            binding.rightSideViewSpeak.isGone = true
+            binding.rightSideViewSpeak.layoutParams.width = widthOrHeight
+            binding.rightSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.rightSideViewSpeak.requestLayout()
+        }
+
+        if (except != "u" && !binding.bottomSideViewSpeak.isGone) {
+            binding.bottomSideViewSpeak.isGone = true
+            binding.bottomSideViewSpeak.layoutParams.height = widthOrHeight
+            binding.bottomSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.bottomSideViewSpeak.requestLayout()
+        }
+
+        if (except != "d" && !binding.topSideViewSpeak.isGone) {
+            binding.topSideViewSpeak.isGone = true
+            binding.topSideViewSpeak.layoutParams.height = widthOrHeight
+            binding.topSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.topSideViewSpeak.requestLayout()
+        }
+    }
+
+    fun showFillScreenGesturesGuide(startAnimation: Boolean = false) {
+        binding.fillScreenViewSpeak.isGone = false
+        if (startAnimation) {
+            Handler().postDelayed(
+                {
+                    binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide2)
+                    Handler().postDelayed({
+                        Handler().postDelayed({
+                            binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide3)
+                            Handler().postDelayed({
+                                binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide4)
+                                Handler().postDelayed({
+                                    binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide5)
+                                    Handler().postDelayed({
+                                        binding.fillScreenViewSpeak.isGone = true
+                                        binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide1)
+                                    }, 50)
+                                }, 50)
+                            }, 50)
+                        }, 50)
+                    }, 50)
+                }, 50
+            )
+        }
     }
 
     fun setTheme(view: Context) = withBinding {

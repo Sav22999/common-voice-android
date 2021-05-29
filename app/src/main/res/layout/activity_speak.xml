@@ -500,7 +500,70 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+
+        </FrameLayout>
+
+        <View
+            android:id="@+id/leftSideViewSpeak"
+            android:layout_width="5dp"
+            android:layout_height="0dp"
+            android:background="@color/colorGesturesGuide"
+            android:elevation="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/rightSideViewSpeak"
+            android:layout_width="5dp"
+            android:layout_height="0dp"
+            android:background="@color/colorGesturesGuide"
+            android:elevation="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/topSideViewSpeak"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@color/colorGesturesGuide"
+            android:elevation="5dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/bottomSideViewSpeak"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@color/colorGesturesGuide"
+            android:elevation="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/fillScreenViewSpeak"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorGesturesGuide"
+            android:elevation="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

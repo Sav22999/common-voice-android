@@ -46,6 +46,9 @@ class SettingsPrefManager(ctx: Context) {
             .putBoolean(Keys.INFO_ICON_SPEAK_LISTEN.name, value)
             .apply()
 
+
+
+
     private enum class Keys {
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
