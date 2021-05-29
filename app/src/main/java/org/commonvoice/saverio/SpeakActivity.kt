@@ -10,6 +10,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -51,6 +52,7 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import java.util.*
+import kotlin.math.log
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     ActivitySpeakBinding::inflate
@@ -82,6 +84,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     var minHeight = 30
     var maxHeight = 350
+
+    private var scrollingStatus = 0
+    private var scrollingToBefore = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -423,6 +428,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         binding.nestedScrollSpeak.setOnTouchListener(object :
             OnSwipeTouchListener(this@SpeakActivity) {
             override fun onSwipeLeft() {
+                /*
                 if (!recorded) {
                     speakViewModel.skipSentence()
                 } else {
@@ -437,17 +443,69 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                             button2TextRes = R.string.button_cancel,
                             onButton2Click = {}
                         ))
-                }
+                }*/
+                println(">>Swipe Left<<")
             }
 
             override fun onSwipeRight() {
-                onBackPressed()
+                //onBackPressed()
+                println(">>Swipe Right<<")
             }
 
             override fun onSwipeTop() {
+                println(">>Swipe Top<<")
+                /*
                 if (verticalScrollStatus == 2) {
                     openReportDialog()
+                }*/
+            }
+
+            override fun onLongPress() {
+                //println(">>Long Press<<")
+            }
+
+            override fun onScroll(scrollTo: String) {
+                //println(">>Scroll $scrollTo<<")
+                //println(">>Scrolling to $scrollTo, status $scrollingStatus and scrollBefore $scrollingToBefore<<")
+                if (scrollingToBefore == scrollTo) scrollingStatus++
+                else {
+                    scrollingStatus = 1
+                    scrollingToBefore = scrollTo
                 }
+
+                if (scrollingStatus >= 10) {
+                    if (scrollingStatus == 10) println("Continue to scrolling to $scrollingToBefore for enabling the gesture")
+                    if (scrollingStatus == 100) {
+                        if (scrollingToBefore == "r") println("You can tap up for enabling the gesture")
+                        else if (scrollingToBefore == "l") println("You can tap up for enabling the gesture")
+                        else if (scrollingToBefore == "u") println("You can tap up for enabling the gesture")
+                        else if (scrollingToBefore == "d") println("You can tap up for enabling the gesture")
+                    }
+                }
+            }
+
+            override fun onSingleTap() {
+                //println(">>Single Tap<<")
+            }
+
+            override fun onDoubleTap() {
+                //println(">>Double Tap<<")
+            }
+
+            override fun onTouch(v: View, event: MotionEvent): Boolean {
+                if (event.action == 1) {
+                    //ACTION_UP
+                    println(">>Finished (hide)<<")
+                    if (scrollingStatus >= 100) {
+                        if (scrollingToBefore == "r") onSwipeRight()
+                        else if (scrollingToBefore == "l") onSwipeLeft()
+                        else if (scrollingToBefore == "u") onSwipeTop()
+                        else if (scrollingToBefore == "d") onSwipeBottom()
+                    }
+                    scrollingStatus = 0
+                    scrollingToBefore = ""
+                }
+                return super.onTouch(v, event)
             }
         })
     }
