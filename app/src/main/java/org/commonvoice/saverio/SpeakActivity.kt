@@ -670,6 +670,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 }
             }
             "info" -> {
+                showInformationAboutSentence()
             }
             "animations" -> {
             }
