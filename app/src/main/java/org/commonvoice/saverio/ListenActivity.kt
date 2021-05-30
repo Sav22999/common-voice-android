@@ -29,7 +29,6 @@ import org.commonvoice.saverio.databinding.ActivityListenBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
-import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
@@ -41,6 +40,7 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
+import org.commonvoice.saverio_lib.dataClasses.DailyGoal
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
@@ -77,6 +77,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     var minHeightButton2 = 100
     var maxHeightButton2 = 120
     var minHeightButtons = 50
+
+    private var dailyGoalAchievedAndNotShown = false
+    private lateinit var dailyGoalAchievedAndNotShownIt: DailyGoal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,7 +128,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private fun setupInitialUIState() = withBinding {
         buttonSkipListen.onClick {
-            listenViewModel.skipClip()
+            skipClip()
         }
 
         buttonYesClip.isGone = true
@@ -189,8 +192,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         statsPrefManager.dailyGoal.observe(this, Observer {
             if ((numberSentThisSession > 0) && it.checkDailyGoal()) {
-                stopAndRefresh()
-                dialogInflater.show(this, DailyGoalAchievedDialog(this, it))
+                //achieved
+                setDailyGoalAchievedAndNotShown(it)
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.STANDBY) showDailyGoalAchievedMessage()
             }
 
             animateProgressBar(
@@ -241,6 +245,19 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (listenPrefManager.showAdBanner) {
             AdLoader.setupListenAdView(this, binding.adContainer)
+        }
+    }
+
+    private fun setDailyGoalAchievedAndNotShown(dailyGoal: DailyGoal) {
+        dailyGoalAchievedAndNotShown = true
+        dailyGoalAchievedAndNotShownIt = dailyGoal
+    }
+
+    private fun showDailyGoalAchievedMessage() {
+        if (dailyGoalAchievedAndNotShownIt != null) {
+            dailyGoalAchievedAndNotShown = false
+            stopAndRefresh()
+            dialogInflater.show(this, DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt))
         }
     }
 
@@ -361,6 +378,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 }
             }
         })
+    }
+
+    private fun skipClip() {
+        listenViewModel.skipClip()
+        if (dailyGoalAchievedAndNotShown) {
+            showDailyGoalAchievedMessage()
+        }
     }
 
     private fun animateProgressBar(
@@ -785,6 +809,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (numberSentThisSession % refreshAdsAfterListen == 0) {
                 refreshAds()
             }
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
+            }
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -813,6 +840,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             numberSentThisSession++
             if (numberSentThisSession % refreshAdsAfterListen == 0) {
                 refreshAds()
+            }
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
             }
         }
         buttonStartStopListen.onClick {

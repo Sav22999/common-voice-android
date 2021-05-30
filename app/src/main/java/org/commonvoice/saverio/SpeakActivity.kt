@@ -45,6 +45,7 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
+import org.commonvoice.saverio_lib.dataClasses.DailyGoal
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
@@ -90,6 +91,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var scrollingToBefore = ""
     private var longPressEnabled = false
     private var enableGestureAt = 50
+
+    private var dailyGoalAchievedAndNotShown = false
+    private lateinit var dailyGoalAchievedAndNotShownIt: DailyGoal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -211,8 +215,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         statsPrefManager.dailyGoal.observe(this, {
             if ((numberSentThisSession > 0) && it.checkDailyGoal()) {
-                stopAndRefresh()
-                dialogInflater.show(this, DailyGoalAchievedDialog(this, it))
+                //achieved
+                setDailyGoalAchievedAndNotShown(it)
+                if (speakViewModel.state.value == SpeakViewModel.Companion.State.STANDBY) showDailyGoalAchievedMessage()
             }
 
             animateProgressBar(
@@ -263,6 +268,19 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         if (speakPrefManager.showAdBanner) {
             AdLoader.setupSpeakAdView(this, binding.adContainer)
+        }
+    }
+
+    private fun setDailyGoalAchievedAndNotShown(dailyGoal: DailyGoal) {
+        dailyGoalAchievedAndNotShown = true
+        dailyGoalAchievedAndNotShownIt = dailyGoal
+    }
+
+    private fun showDailyGoalAchievedMessage() {
+        if (dailyGoalAchievedAndNotShownIt != null) {
+            dailyGoalAchievedAndNotShown = false
+            stopAndRefresh()
+            dialogInflater.show(this, DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt))
         }
     }
 
@@ -674,21 +692,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 openReportDialog()
             }
             "skip" -> {
-                if (!recorded) {
-                    speakViewModel.skipSentence()
-                } else {
-                    dialogInflater.show(this@SpeakActivity,
-                        StandardDialog(
-                            messageRes = R.string.text_are_you_sure_skip_and_lose_the_recording,
-                            buttonTextRes = R.string.button_yes_sure,
-                            onButtonClick = {
-                                this@SpeakActivity.recorded = false
-                                speakViewModel.skipSentence()
-                            },
-                            button2TextRes = R.string.button_cancel,
-                            onButton2Click = {}
-                        ))
-                }
+                skipSentence()
             }
             "info" -> {
                 showInformationAboutSentence()
@@ -712,6 +716,30 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     /*
     END | GESTURES
     */
+
+    private fun skipSentence() {
+        if (!recorded) {
+            speakViewModel.skipSentence()
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
+            }
+        } else {
+            dialogInflater.show(this@SpeakActivity,
+                StandardDialog(
+                    messageRes = R.string.text_are_you_sure_skip_and_lose_the_recording,
+                    buttonTextRes = R.string.button_yes_sure,
+                    onButtonClick = {
+                        this@SpeakActivity.recorded = false
+                        speakViewModel.skipSentence()
+                        if (dailyGoalAchievedAndNotShown) {
+                            showDailyGoalAchievedMessage()
+                        }
+                    },
+                    button2TextRes = R.string.button_cancel,
+                    onButton2Click = {}
+                ))
+        }
+    }
 
     fun setTheme(view: Context) = withBinding {
         theme.setElement(layoutSpeak)
@@ -778,21 +806,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun setupInitialUIState() = withBinding {
         buttonSkipSpeak.onClick {
-            if (!recorded) {
-                speakViewModel.skipSentence()
-            } else {
-                dialogInflater.show(this@SpeakActivity,
-                    StandardDialog(
-                        messageRes = R.string.text_are_you_sure_skip_and_lose_the_recording,
-                        buttonTextRes = R.string.button_yes_sure,
-                        onButtonClick = {
-                            this@SpeakActivity.recorded = false
-                            speakViewModel.skipSentence()
-                        },
-                        button2TextRes = R.string.button_cancel,
-                        onButton2Click = {}
-                    ))
-            }
+            skipSentence()
         }
 
         buttonReportSpeak.onClick {
@@ -818,6 +832,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 refreshAds()
             }
             recorded = false
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
+            }
         }
 
         startAnimation(buttonStartStopSpeak, R.anim.zoom_in_speak_listen)
