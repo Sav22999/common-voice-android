@@ -29,7 +29,8 @@ class ListenPrefManager(ctx: Context) {
 
     var showSpeedControl: Boolean
         get() = preferences.getBoolean(Keys.SHOW_SPEED_CONTROL_LISTEN.name, false)
-        set(value) = preferences.edit().putBoolean(Keys.SHOW_SPEED_CONTROL_LISTEN.name, value).apply()
+        set(value) = preferences.edit().putBoolean(Keys.SHOW_SPEED_CONTROL_LISTEN.name, value)
+            .apply()
 
     var audioSpeed: Float
         get() = preferences.getFloat(Keys.AUDIO_SPEED_LISTEN.name, 1F)

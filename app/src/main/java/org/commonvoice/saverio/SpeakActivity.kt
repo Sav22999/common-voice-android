@@ -697,14 +697,38 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 showInformationAboutSentence()
             }
             "animations" -> {
+                mainPrefManager.areAnimationsEnabled = !mainPrefManager.areAnimationsEnabled
             }
             "speed-control" -> {
+                speakPrefManager.showSpeedControl = !speakPrefManager.showSpeedControl
+                if (speakPrefManager.showSpeedControl) {
+                    binding.speakSectionSpeedButtons.isGone = false
+
+                    setSpeedControlButtons(speakPrefManager.audioSpeed, setup = true)
+                    binding.buttonSpeed10Speak.setOnClickListener {
+                        setSpeedControlButtons(1F)
+                    }
+                    binding.buttonSpeed15Speak.setOnClickListener {
+                        setSpeedControlButtons(1.5F)
+                    }
+                    binding.buttonSpeed20Speak.setOnClickListener {
+                        setSpeedControlButtons(2F)
+                    }
+                } else {
+                    speakPrefManager.audioSpeed = 1F
+                    binding.speakSectionSpeedButtons.isGone = true
+                }
             }
             "save-recordings" -> {
+                speakPrefManager.saveRecordingsOnDevice = !speakPrefManager.saveRecordingsOnDevice
             }
             "skip-confirmation" -> {
+                speakPrefManager.skipRecordingConfirmation =
+                    !speakPrefManager.skipRecordingConfirmation
             }
             "indicator-sound" -> {
+                speakPrefManager.playRecordingSoundIndicator =
+                    !speakPrefManager.playRecordingSoundIndicator
             }
             else -> {
                 //nothing

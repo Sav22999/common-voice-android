@@ -619,14 +619,30 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 showInformationAboutClip()
             }
             "animations" -> {
+                mainPrefManager.areAnimationsEnabled = !mainPrefManager.areAnimationsEnabled
             }
             "speed-control" -> {
+                listenPrefManager.showSpeedControl = !listenPrefManager.showSpeedControl
+                if (listenPrefManager.showSpeedControl) {
+                    binding.listenSectionSpeedButtons.isGone = false
+
+                    setSpeedControlButtons(listenPrefManager.audioSpeed, setup = true)
+                    binding.buttonSpeed10Listen.setOnClickListener {
+                        setSpeedControlButtons(1F)
+                    }
+                    binding.buttonSpeed15Listen.setOnClickListener {
+                        setSpeedControlButtons(1.5F)
+                    }
+                    binding.buttonSpeed20Listen.setOnClickListener {
+                        setSpeedControlButtons(2F)
+                    }
+                } else {
+                    listenPrefManager.audioSpeed = 1F
+                    binding.listenSectionSpeedButtons.isGone = true
+                }
             }
-            "save-recordings" -> {
-            }
-            "skip-confirmation" -> {
-            }
-            "indicator-sound" -> {
+            "auto-play" -> {
+                listenPrefManager.isAutoPlayClipEnabled = !listenPrefManager.isAutoPlayClipEnabled
             }
             else -> {
                 //nothing
