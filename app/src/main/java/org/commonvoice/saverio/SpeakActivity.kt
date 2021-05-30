@@ -53,6 +53,7 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import java.util.*
+import kotlin.math.abs
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     ActivitySpeakBinding::inflate
@@ -88,6 +89,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var scrollingStatus = 0
     private var scrollingToBefore = ""
     private var longPressEnabled = false
+    private var enableGestureAt = 50
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -425,39 +427,30 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         })
     }
 
-    private fun isAvailableGesture(gesture: String): Boolean {
-        return when (gesture) {
-            "swipeRight" -> (speakPrefManager.gesturesSwipeRight != "")
-            "swipeLeft" -> (speakPrefManager.gesturesSwipeLeft != "")
-            "swipeTop" -> (speakPrefManager.gesturesSwipeTop != "")
-            "swipeBottom" -> (speakPrefManager.gesturesSwipeBottom != "")
-            "longPress" -> (speakPrefManager.gesturesLongPress != "")
-            "doubleTap" -> (speakPrefManager.gesturesDoubleTap != "")
-            else -> false
-        }
-    }
+
+    /*
+    GESTURES
+    */
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setupGestures() {
+
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        val width = metrics.widthPixels
+        val height = metrics.heightPixels
+
+        val valueToUse = if (width < height) {
+            width
+        } else {
+            height
+        }
+
+        //set the width/height when gestures have to be enabled
+        enableGestureAt = valueToUse / 8 //TODO: option to cusomise this field
+
         binding.nestedScrollSpeak.setOnTouchListener(object :
             OnSwipeTouchListener(this@SpeakActivity) {
-            /*override fun onSwipeLeft() {
-                swipeLeft()
-            }
-
-            override fun onSwipeRight() {
-                swipeRight()
-            }
-
-            override fun onSwipeTop() {
-                if (verticalScrollStatus == 2) {
-                    swipeTop()
-                }
-            }
-
-            override fun onSwipeBottom() {
-                swipeBottom()
-            }*/
 
             override fun onLongPress() {
                 if (isAvailableGesture("longPress")) {
@@ -466,17 +459,18 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 }
             }
 
-            override fun onScroll(scrollTo: String) {
+            override fun onScroll(scrollTo: String, widthOrHeight: Int) {
                 val currentOrientation = resources.configuration.orientation
                 if (scrollingToBefore == scrollTo && (currentOrientation == Configuration.ORIENTATION_LANDSCAPE && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r") || currentOrientation == Configuration.ORIENTATION_PORTRAIT)) {
-                    scrollingStatus++
+                    scrollingStatus = widthOrHeight
 
                     scrollingToBefore = scrollTo
-                    if (scrollingStatus >= 10) {
-                        if (scrollingStatus >= 10 && scrollingStatus <= 50) {
-                            showGesturesGuide(scrollTo, scrollingStatus)
+                    if (scrollingStatus >= 0) {
+                        if (scrollingStatus >= 0 && scrollingStatus <= enableGestureAt) {
+                            showGesturesGuide(scrollTo, widthOrHeight)
                         }
-                        if (scrollingStatus == 50) {
+                        if (scrollingStatus >= enableGestureAt) {
+                            showGesturesGuide(scrollTo, enableGestureAt)
                             showLeaveToEnable(scrollTo)
                         }
                     }
@@ -485,9 +479,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     scrollingStatus = 1
                     scrollingToBefore = scrollTo
                 }
-            }
-
-            override fun onSingleTap() {
             }
 
             override fun onDoubleTap() {
@@ -504,8 +495,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                             "swipeBottom"
                         ) || isAvailableGesture("swipeLeft") || isAvailableGesture("swipeRight")
                     ) {
-                        hideGesturesGuide()
-                        if (scrollingStatus >= 50) {
+                        Handler().postDelayed({
+                            hideGesturesGuide()
+                        }, 100)
+                        if (scrollingStatus >= enableGestureAt) {
+                            //swipe top/bottom/right/left
                             if (scrollingToBefore == "r" && isAvailableGesture("swipeRight")) swipeRight()
                             else if (scrollingToBefore == "l" && isAvailableGesture("swipeLeft")) swipeLeft()
                             else if (scrollingToBefore == "u" && isAvailableGesture("swipeTop")) swipeTop()
@@ -515,6 +509,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                         scrollingToBefore = ""
                     }
                     if (longPressEnabled && isAvailableGesture("longPress")) {
+                        //longPress
                         longPressEnabled = false
                         showFillScreenGesturesGuide(startAnimation = true)
                         longPressFunction()
@@ -525,26 +520,40 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         })
     }
 
-    fun showGesturesGuide(scrollTo: String, increment: Int) {
-        hideGesturesGuide(except = scrollTo)
+    private fun isAvailableGesture(gesture: String): Boolean {
+        return when (gesture) {
+            "swipeRight" -> (speakPrefManager.gesturesSwipeRight != "")
+            "swipeLeft" -> (speakPrefManager.gesturesSwipeLeft != "")
+            "swipeTop" -> (speakPrefManager.gesturesSwipeTop != "")
+            "swipeBottom" -> (speakPrefManager.gesturesSwipeBottom != "")
+            "longPress" -> (speakPrefManager.gesturesLongPress != "")
+            "doubleTap" -> (speakPrefManager.gesturesDoubleTap != "")
+            else -> false
+        }
+    }
 
-        val widthOrHeight = increment * 3 + binding.progressBarSpeakListen.layoutParams.height
+    fun showGesturesGuide(scrollTo: String, widthOrHeight: Int) {
+        hideGesturesGuide(except = scrollTo)
 
         if (scrollTo == "r" && isAvailableGesture("swipeRight")) {
             binding.leftSideViewSpeak.isGone = false
             binding.leftSideViewSpeak.layoutParams.width = widthOrHeight
+            binding.leftSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
             binding.leftSideViewSpeak.requestLayout()
         } else if (scrollTo == "l" && isAvailableGesture("swipeLeft")) {
             binding.rightSideViewSpeak.isGone = false
             binding.rightSideViewSpeak.layoutParams.width = widthOrHeight
+            binding.rightSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
             binding.rightSideViewSpeak.requestLayout()
         } else if (scrollTo == "u" && isAvailableGesture("swipeTop")) {
             binding.bottomSideViewSpeak.isGone = false
             binding.bottomSideViewSpeak.layoutParams.height = widthOrHeight
+            binding.bottomSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
             binding.bottomSideViewSpeak.requestLayout()
         } else if (scrollTo == "d" && isAvailableGesture("swipeBottom")) {
             binding.topSideViewSpeak.isGone = false
             binding.topSideViewSpeak.layoutParams.height = widthOrHeight
+            binding.topSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
             binding.topSideViewSpeak.requestLayout()
         }
     }
@@ -630,18 +639,30 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     fun swipeTop() {
         allActions(speakPrefManager.gesturesSwipeTop)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
     }
 
     fun swipeBottom() {
         allActions(speakPrefManager.gesturesSwipeBottom)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
     }
 
     fun swipeRight() {
         allActions(speakPrefManager.gesturesSwipeRight)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
     }
 
     fun swipeLeft() {
         allActions(speakPrefManager.gesturesSwipeLeft)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
     }
 
     fun allActions(action: String) {
@@ -687,6 +708,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             }
         }
     }
+
+    /*
+    END | GESTURES
+    */
 
     fun setTheme(view: Context) = withBinding {
         theme.setElement(layoutSpeak)

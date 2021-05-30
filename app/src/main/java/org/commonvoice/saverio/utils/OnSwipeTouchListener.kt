@@ -100,7 +100,13 @@ abstract class OnSwipeTouchListener(ctx: Context) : View.OnTouchListener {
                     type = "u"//up
                 }
             }
-            onScroll(type);
+            //println("ass(diffX): ${abs(diffX)} ass(diffY): ${abs(diffY)}")
+            var widthOrHeight = if (abs(diffX) > abs(diffY)) {
+                abs(diffX)
+            } else {
+                abs(diffY)
+            }
+            onScroll(type, widthOrHeight.toInt());
             return super.onScroll(e1, e2, distanceX, distanceY)
         }
 
@@ -126,7 +132,7 @@ abstract class OnSwipeTouchListener(ctx: Context) : View.OnTouchListener {
 
     open fun onShowPress() {}
 
-    open fun onScroll(scrollTo: String = "") {}
+    open fun onScroll(scrollTo: String = "", widthOrHeight: Int = 0) {}
 
     open fun onFling() {}
 
