@@ -452,7 +452,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setupGestures() {
-
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
         val width = metrics.widthPixels

@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -9,6 +10,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -77,6 +79,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     var minHeightButton2 = 100
     var maxHeightButton2 = 120
     var minHeightButtons = 50
+
+    private var scrollingStatus = 0
+    private var scrollingToBefore = ""
+    private var longPressEnabled = false
+    private var enableGestureAt = 50
 
     private var dailyGoalAchievedAndNotShown = false
     private lateinit var dailyGoalAchievedAndNotShownIt: DailyGoal
@@ -361,24 +368,275 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         })
     }
 
+    /*
+    GESTURES
+    */
+
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupGestures() {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        val width = metrics.widthPixels
+        val height = metrics.heightPixels
+
+        val valueToUse = if (width < height) {
+            width
+        } else {
+            height
+        }
+
+        //set the width/height when gestures have to be enabled
+        enableGestureAt = valueToUse / 8 //TODO: option to cusomise this field
+
         binding.nestedScrollListen.setOnTouchListener(object :
             OnSwipeTouchListener(this@ListenActivity) {
-            override fun onSwipeLeft() {
-                listenViewModel.skipClip()
-            }
 
-            override fun onSwipeRight() {
-                onBackPressed()
-            }
-
-            override fun onSwipeTop() {
-                if (verticalScrollStatus == 2) {
-                    openReportDialog()
+            override fun onLongPress() {
+                if (isAvailableGesture("longPress")) {
+                    longPressEnabled = true
+                    showFillScreenGesturesGuide()
                 }
+            }
+
+            override fun onScroll(scrollTo: String, widthOrHeight: Int) {
+                val currentOrientation = resources.configuration.orientation
+                if (scrollingToBefore == scrollTo && (currentOrientation == Configuration.ORIENTATION_LANDSCAPE && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r") || currentOrientation == Configuration.ORIENTATION_PORTRAIT)) {
+                    scrollingStatus = widthOrHeight
+
+                    scrollingToBefore = scrollTo
+                    if (scrollingStatus >= 0) {
+                        if (scrollingStatus >= 0 && scrollingStatus <= enableGestureAt) {
+                            showGesturesGuide(scrollTo, widthOrHeight)
+                        }
+                        if (scrollingStatus >= enableGestureAt) {
+                            showGesturesGuide(scrollTo, enableGestureAt)
+                            showLeaveToEnable(scrollTo)
+                        }
+                    }
+                } else {
+                    hideGesturesGuide()
+                    scrollingStatus = 1
+                    scrollingToBefore = scrollTo
+                }
+            }
+
+            override fun onDoubleTap() {
+                if (isAvailableGesture("doubleTap")) {
+                    showFillScreenGesturesGuide(startAnimation = true)
+                    doubleTapFunction()
+                }
+            }
+
+            override fun onTouch(v: View, event: MotionEvent): Boolean {
+                if (event.action == 1) {
+                    //ACTION_UP
+                    if (scrollingToBefore != "" && scrollingStatus > 0 && isAvailableGesture("swipeTop") || isAvailableGesture(
+                            "swipeBottom"
+                        ) || isAvailableGesture("swipeLeft") || isAvailableGesture("swipeRight")
+                    ) {
+                        Handler().postDelayed({
+                            hideGesturesGuide()
+                        }, 100)
+                        if (scrollingStatus >= enableGestureAt) {
+                            //swipe top/bottom/right/left
+                            if (scrollingToBefore == "r" && isAvailableGesture("swipeRight")) swipeRight()
+                            else if (scrollingToBefore == "l" && isAvailableGesture("swipeLeft")) swipeLeft()
+                            else if (scrollingToBefore == "u" && isAvailableGesture("swipeTop")) swipeTop()
+                            else if (scrollingToBefore == "d" && isAvailableGesture("swipeBottom")) swipeBottom()
+                        }
+                        scrollingStatus = 0
+                        scrollingToBefore = ""
+                    }
+                    if (longPressEnabled && isAvailableGesture("longPress")) {
+                        //longPress
+                        longPressEnabled = false
+                        showFillScreenGesturesGuide(startAnimation = true)
+                        longPressFunction()
+                    }
+                }
+                return super.onTouch(v, event)
             }
         })
     }
+
+    private fun isAvailableGesture(gesture: String): Boolean {
+        return when (gesture) {
+            "swipeRight" -> (listenPrefManager.gesturesSwipeRight != "")
+            "swipeLeft" -> (listenPrefManager.gesturesSwipeLeft != "")
+            "swipeTop" -> (listenPrefManager.gesturesSwipeTop != "")
+            "swipeBottom" -> (listenPrefManager.gesturesSwipeBottom != "")
+            "longPress" -> (listenPrefManager.gesturesLongPress != "")
+            "doubleTap" -> (listenPrefManager.gesturesDoubleTap != "")
+            else -> false
+        }
+    }
+
+    fun showGesturesGuide(scrollTo: String, widthOrHeight: Int) {
+        hideGesturesGuide(except = scrollTo)
+
+        if (scrollTo == "r" && isAvailableGesture("swipeRight")) {
+            binding.leftSideViewListen.isGone = false
+            binding.leftSideViewListen.layoutParams.width = widthOrHeight
+            binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.leftSideViewListen.requestLayout()
+        } else if (scrollTo == "l" && isAvailableGesture("swipeLeft")) {
+            binding.rightSideViewListen.isGone = false
+            binding.rightSideViewListen.layoutParams.width = widthOrHeight
+            binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.rightSideViewListen.requestLayout()
+        } else if (scrollTo == "u" && isAvailableGesture("swipeTop")) {
+            binding.bottomSideViewListen.isGone = false
+            binding.bottomSideViewListen.layoutParams.height = widthOrHeight
+            binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.bottomSideViewListen.requestLayout()
+        } else if (scrollTo == "d" && isAvailableGesture("swipeBottom")) {
+            binding.topSideViewListen.isGone = false
+            binding.topSideViewListen.layoutParams.height = widthOrHeight
+            binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.topSideViewListen.requestLayout()
+        }
+    }
+
+    fun showLeaveToEnable(scrollTo: String) {
+        if (scrollTo == "r" && isAvailableGesture("swipeRight")) {
+            binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        } else if (scrollTo == "l" && isAvailableGesture("swipeLeft")) {
+            binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        } else if (scrollTo == "u" && isAvailableGesture("swipeTop")) {
+            binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        } else if (scrollTo == "d" && isAvailableGesture("swipeBottom")) {
+            binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+        }
+    }
+
+    fun hideGesturesGuide(except: String = "") {
+        val widthOrHeight = binding.progressBarListenListen.layoutParams.height
+        if (except != "r" && !binding.leftSideViewListen.isGone) {
+            binding.leftSideViewListen.isGone = true
+            binding.leftSideViewListen.layoutParams.width = widthOrHeight
+            binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.leftSideViewListen.requestLayout()
+        }
+
+        if (except != "l" && !binding.rightSideViewListen.isGone) {
+            binding.rightSideViewListen.isGone = true
+            binding.rightSideViewListen.layoutParams.width = widthOrHeight
+            binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.rightSideViewListen.requestLayout()
+        }
+
+        if (except != "u" && !binding.bottomSideViewListen.isGone) {
+            binding.bottomSideViewListen.isGone = true
+            binding.bottomSideViewListen.layoutParams.height = widthOrHeight
+            binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.bottomSideViewListen.requestLayout()
+        }
+
+        if (except != "d" && !binding.topSideViewListen.isGone) {
+            binding.topSideViewListen.isGone = true
+            binding.topSideViewListen.layoutParams.height = widthOrHeight
+            binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.topSideViewListen.requestLayout()
+        }
+    }
+
+    fun showFillScreenGesturesGuide(startAnimation: Boolean = false) {
+        if (isAvailableGesture("longPress") || isAvailableGesture("doubleTap")) {
+            binding.fillScreenViewListen.isGone = false
+            if (startAnimation) {
+                Handler().postDelayed(
+                    {
+                        binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide2)
+                        Handler().postDelayed({
+                            Handler().postDelayed({
+                                binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide3)
+                                Handler().postDelayed({
+                                    binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide4)
+                                    Handler().postDelayed({
+                                        binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide5)
+                                        Handler().postDelayed({
+                                            binding.fillScreenViewListen.isGone = true
+                                            binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide1)
+                                        }, 50)
+                                    }, 50)
+                                }, 50)
+                            }, 50)
+                        }, 50)
+                    }, 50
+                )
+            }
+        }
+    }
+
+    fun longPressFunction() {
+        allActions(listenPrefManager.gesturesLongPress)
+    }
+
+    fun doubleTapFunction() {
+        allActions(listenPrefManager.gesturesDoubleTap)
+    }
+
+    fun swipeTop() {
+        allActions(listenPrefManager.gesturesSwipeTop)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
+    }
+
+    fun swipeBottom() {
+        allActions(listenPrefManager.gesturesSwipeBottom)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
+    }
+
+    fun swipeRight() {
+        allActions(listenPrefManager.gesturesSwipeRight)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
+    }
+
+    fun swipeLeft() {
+        allActions(listenPrefManager.gesturesSwipeLeft)
+        Handler().postDelayed({
+            hideGesturesGuide()
+        }, 100)
+    }
+
+    fun allActions(action: String) {
+        when (action) {
+            "back" -> {
+                onBackPressed()
+            }
+            "report" -> {
+                openReportDialog()
+            }
+            "skip" -> {
+                skipClip()
+            }
+            "info" -> {
+                showInformationAboutClip()
+            }
+            "animations" -> {
+            }
+            "speed-control" -> {
+            }
+            "save-recordings" -> {
+            }
+            "skip-confirmation" -> {
+            }
+            "indicator-sound" -> {
+            }
+            else -> {
+                //nothing
+            }
+        }
+    }
+
+    /*
+    END | GESTURES
+    */
 
     private fun skipClip() {
         listenViewModel.skipClip()
