@@ -119,11 +119,15 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                dialogInflater.show(
+                NoClipsSentencesAvailableDialog(
                     this,
-                    SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
-                        onBackPressed()
-                    })
+                    isSentencesDialog = false,
+                    isOfflineModeDisabledDialog = true,
+                    0,
+                    theme
+                ).show {
+                    onBackPressed()
+                }
             } else {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
@@ -147,7 +151,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             lifecycleScope.launch {
                 val count = listenViewModel.getClipsCount()
                 withContext(Dispatchers.Main) {
-                    NoClipsSentencesAvailableDialog(this@ListenActivity, false, count, theme).show()
+                    NoClipsSentencesAvailableDialog(
+                        this@ListenActivity,
+                        isSentencesDialog = false,
+                        isOfflineModeDisabledDialog = false,
+                        count,
+                        theme
+                    ).show()
                 }
             }
         }
@@ -158,7 +168,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         listenViewModel.hasFinishedClips.observe(this, Observer {
             if (it && !connectionManager.isInternetAvailable) {
-                NoClipsSentencesAvailableDialog(this, false, 0, theme).show {
+                NoClipsSentencesAvailableDialog(
+                    this,
+                    isSentencesDialog = false,
+                    isOfflineModeDisabledDialog = false,
+                    0,
+                    theme
+                ).show {
                     onBackPressed()
                 }
             }

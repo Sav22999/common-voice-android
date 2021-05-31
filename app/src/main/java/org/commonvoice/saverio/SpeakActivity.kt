@@ -116,11 +116,15 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                dialogInflater.show(
+                NoClipsSentencesAvailableDialog(
                     this,
-                    SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
-                        onBackPressed()
-                    })
+                    isSentencesDialog = true,
+                    isOfflineModeDisabledDialog = true,
+                    0,
+                    theme
+                ).show {
+                    onBackPressed()
+                }
             } else {
                 startAnimation(binding.imageOfflineModeSpeak, R.anim.zoom_out_speak_listen)
                 speakViewModel.offlineModeIconVisible = false
@@ -184,7 +188,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             lifecycleScope.launch {
                 val count = speakViewModel.getSentencesCount()
                 withContext(Dispatchers.Main) {
-                    NoClipsSentencesAvailableDialog(this@SpeakActivity, true, count, theme).show()
+                    NoClipsSentencesAvailableDialog(
+                        this@SpeakActivity,
+                        isSentencesDialog = true,
+                        isOfflineModeDisabledDialog = false,
+                        count,
+                        theme
+                    ).show()
                 }
             }
         }
@@ -195,7 +205,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
         speakViewModel.hasFinishedSentences.observe(this, {
             if (it && !connectionManager.isInternetAvailable) {
-                NoClipsSentencesAvailableDialog(this, true, 0, theme).show {
+                NoClipsSentencesAvailableDialog(
+                    this,
+                    isSentencesDialog = true,
+                    isOfflineModeDisabledDialog = false,
+                    0,
+                    theme
+                ).show {
                     onBackPressed()
                 }
             }
@@ -406,6 +422,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
+                this@SpeakActivity.recorded = false
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_SHORT -> {
                 dialogInflater.show(
@@ -415,6 +432,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
+                this@SpeakActivity.recorded = false
             }
             SpeakViewModel.Companion.State.RECORDING_TOO_LONG -> {
                 dialogInflater.show(
@@ -424,6 +442,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 speakViewModel.currentSentence.value?.let { sentence ->
                     setupUIStateStandby(sentence)
                 }
+                this@SpeakActivity.recorded = false
             }
         }
     }

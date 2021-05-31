@@ -22,6 +22,7 @@ class SpeakListenStandardDialog(
                 onDismissListener()
                 dismiss()
             }
+            if (it.labelTitleMessageDialog.text == "") it.labelTitleMessageDialog.isGone = true
         }
     }
 

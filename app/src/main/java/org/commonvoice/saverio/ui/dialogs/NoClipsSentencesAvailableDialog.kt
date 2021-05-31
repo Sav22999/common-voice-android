@@ -12,6 +12,7 @@ import org.commonvoice.saverio.utils.*
 class NoClipsSentencesAvailableDialog(
     private val ctx: Context,
     private val isSentencesDialog: Boolean,
+    private val isOfflineModeDisabledDialog: Boolean,
     private val count: Int,
     private val darkLightTheme: DarkLightTheme
 ) {
@@ -37,6 +38,9 @@ class NoClipsSentencesAvailableDialog(
 
     private fun getText(ctx: Context): String {
         return when {
+            isOfflineModeDisabledDialog -> {
+                ctx.getString(R.string.offline_mode_is_not_enabled)
+            }
             isSentencesDialog && count == 0 -> {
                 ctx.getString(R.string.txt_sentences_finished_offline_mode)
             }
