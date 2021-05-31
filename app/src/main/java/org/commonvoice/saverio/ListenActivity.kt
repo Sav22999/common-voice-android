@@ -644,6 +644,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             "auto-play" -> {
                 listenPrefManager.isAutoPlayClipEnabled = !listenPrefManager.isAutoPlayClipEnabled
             }
+            "validate-yes" -> {
+                validateYes()
+            }
+            "validate-no" -> {
+                validateNo()
+            }
             else -> {
                 //nothing
             }
@@ -1064,9 +1070,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (!listenViewModel.startedOnce) {
             Handler().postDelayed({
-                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
-                    buttonNoClip
-                )
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING)
+                    showButton(buttonNoClip)
             }, 900)
         }
 
@@ -1077,15 +1082,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.setBackgroundResource(R.drawable.stop_cv)
 
         buttonNoClip.onClick {
-            listenViewModel.validate(result = false)
-            numberSentThisSession++
-            hideButtons()
-            if (numberSentThisSession % refreshAdsAfterListen == 0) {
-                refreshAds()
-            }
-            if (dailyGoalAchievedAndNotShown) {
-                showDailyGoalAchievedMessage()
-            }
+            validateNo()
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -1109,15 +1106,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
 
         buttonYesClip.onClick {
-            hideButtons()
-            listenViewModel.validate(result = true)
-            numberSentThisSession++
-            if (numberSentThisSession % refreshAdsAfterListen == 0) {
-                refreshAds()
-            }
-            if (dailyGoalAchievedAndNotShown) {
-                showDailyGoalAchievedMessage()
-            }
+            validateYes()
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
@@ -1128,6 +1117,34 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                         buttonNoClip
                     )
                 }, 900)
+            }
+        }
+    }
+
+    private fun validateYes() {
+        if (!binding.buttonYesClip.isGone) {
+            hideButtons()
+            listenViewModel.validate(result = true)
+            numberSentThisSession++
+            if (numberSentThisSession % refreshAdsAfterListen == 0) {
+                refreshAds()
+            }
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
+            }
+        }
+    }
+
+    private fun validateNo() {
+        if (!binding.buttonNoClip.isGone) {
+            hideButtons()
+            listenViewModel.validate(result = false)
+            numberSentThisSession++
+            if (numberSentThisSession % refreshAdsAfterListen == 0) {
+                refreshAds()
+            }
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
             }
         }
     }
