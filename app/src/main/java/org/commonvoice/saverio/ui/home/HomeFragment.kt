@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Message
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
@@ -19,6 +20,8 @@ import org.commonvoice.saverio.*
 import org.commonvoice.saverio.databinding.FragmentHomeBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.messageDialogs.MessageInfoDialog
+import org.commonvoice.saverio.ui.dialogs.messageDialogs.MessageStandardDialog
 import org.commonvoice.saverio.ui.dialogs.messageDialogs.MessageWarningDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.onClick
@@ -136,6 +139,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         setTheme(requireContext())
 
         setupBannerMessage()
+        showDaysInARow()
         showDialogMessages()
 
         startAnimation(binding.buttonSpeak, R.anim.zoom_out)
@@ -188,6 +192,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
                 binding.homeMessageBoxBannerContainer.isVisible = false
                 activity?.window?.statusBarColor =
                     ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark)
+                showDaysInARow()
                 setupBannerMessage()
             }
 
@@ -209,12 +214,95 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         }
     }
 
+    private fun showDaysInARow() {
+        if (!statsPrefManager.daysInARowShown && statsPrefManager.daysInARow > 0 && (statsPrefManager.daysInARow == 5 || statsPrefManager.daysInARow == 10 || statsPrefManager.daysInARow % 10 == 0)) {
+            var msg: org.commonvoice.saverio_lib.models.Message =
+                org.commonvoice.saverio_lib.models.Message(
+                    statsPrefManager.daysInARow * (-1),
+                    null,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    resources.getQuantityString(
+                        R.plurals.text_opened_the_app_n_times_in_a_row,
+                        statsPrefManager.daysInARow, statsPrefManager.daysInARow
+                    ),
+                    getString(R.string.share_daily_goal),
+                    null,
+                    null,
+                    null,
+                    true
+                )
+            activity?.window?.statusBarColor =
+                ContextCompat.getColor(requireContext(), R.color.colorMessageBanner)
+            binding.homeMessageBoxBannerContainer.isVisible = true
+            binding.textHomeMessageBoxBanner.text = msg.text
+            binding.hideMessageBanner.isVisible = true
+            binding.hideMessageBanner.onClick {
+                binding.homeMessageBoxBannerContainer.isVisible = false
+                activity?.window?.statusBarColor =
+                    ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark)
+                statsPrefManager.daysInARowShown = true
+            }
+
+            binding.button1HomeMessageBoxBanner.isVisible = msg.button1Text != null
+            binding.button2HomeMessageBoxBanner.isVisible = msg.button2Text != null
+
+            msg.button1Text?.let { binding.button1HomeMessageBoxBanner.text = it }
+            binding.button1HomeMessageBoxBanner.onClick {
+                shareDaysInARow()
+            }
+        }
+    }
+
+    fun shareDaysInARow() {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "type/palin"
+        val textToShare = resources.getQuantityString(
+            R.plurals.text_share_n_times_in_a_row,
+            statsPrefManager.daysInARow, statsPrefManager.daysInARow
+        )
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_daily_goal_title)))
+        statsPrefManager.daysInARowShown = true
+    }
+
     private fun showDialogMessages() {
-        homeViewModel.getOtherMessages().observe(this) {
+        homeViewModel.getStandardMessages().observe(this) {
+            it.forEach { message ->
+                dialogInflater.show(
+                    requireContext(),
+                    MessageStandardDialog(requireContext(), message)
+                )
+                homeViewModel.markMessageAsSeen(message)
+            }
+        }
+        homeViewModel.getInfoMessages().observe(this) {
+            it.forEach { message ->
+                dialogInflater.show(
+                    requireContext(),
+                    MessageInfoDialog(requireContext(), message)
+                )
+                homeViewModel.markMessageAsSeen(message)
+            }
+        }
+        homeViewModel.getWarningMessages().observe(this) {
             it.forEach { message ->
                 dialogInflater.show(
                     requireContext(),
                     MessageWarningDialog(requireContext(), message)
+                )
+                homeViewModel.markMessageAsSeen(message)
+            }
+        }
+        homeViewModel.getOtherMessages().observe(this) {
+            it.forEach { message ->
+                dialogInflater.show(
+                    requireContext(),
+                    MessageStandardDialog(requireContext(), message)
                 )
                 homeViewModel.markMessageAsSeen(message)
             }

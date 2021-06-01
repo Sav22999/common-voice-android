@@ -57,6 +57,15 @@ class HomeViewModel(
         }
     }
 
+    /*
+    type=null | Banner
+    type=0 | Standard
+    type=1 | Info
+    type=2 | Warning
+    type=3 | News/Changelog
+    type=4 | Tip
+     */
+
     fun getLastBannerMessage(): LiveData<Message> = liveData {
         statsRepository.getNewMessages()
             .filter { it.type == null }
@@ -67,9 +76,36 @@ class HomeViewModel(
             }
     }
 
+    fun getStandardMessages(): LiveData<List<Message>> = liveData {
+        statsRepository.getNewMessages()
+            .filter { it.type == 0 }
+            .filterNot { it.id in prefManager.shownMessagesId }
+            .let {
+                emit(it)
+            }
+    }
+
+    fun getInfoMessages(): LiveData<List<Message>> = liveData {
+        statsRepository.getNewMessages()
+            .filter { it.type == 1 }
+            .filterNot { it.id in prefManager.shownMessagesId }
+            .let {
+                emit(it)
+            }
+    }
+
+    fun getWarningMessages(): LiveData<List<Message>> = liveData {
+        statsRepository.getNewMessages()
+            .filter { it.type == 2 }
+            .filterNot { it.id in prefManager.shownMessagesId }
+            .let {
+                emit(it)
+            }
+    }
+
     fun getOtherMessages(): LiveData<List<Message>> = liveData {
         statsRepository.getNewMessages()
-            .filter { it.type != null }
+            .filter { it.type != null && it.type != 1 && it.type != 2 }
             .filterNot { it.id in prefManager.shownMessagesId }
             .let {
                 emit(it)

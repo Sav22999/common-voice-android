@@ -155,6 +155,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             statsPrefManager.lastDateOpenedTheApp = today
             if (lastDateOpenedTheApp == null) statsPrefManager.daysInARow = 1
             else statsPrefManager.daysInARow = daysInARow + 1
+            statsPrefManager.daysInARowShown = false
         }
     }
 

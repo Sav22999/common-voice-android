@@ -21,7 +21,7 @@ OS language (in English):_ (e.g. `Italian`)
 
 <!--For OS: I mean Android, HarmonyOS, etc. You can fiend this information, usually, in "System" > "Software info"-->
 
-##### About the app (CV Android)*
+##### About the app (CV Project)*
 
 _App release:_ (e.g. `2.2 (#125::GPS)`) -> you can find it in `Settings`, center-bottom position
 

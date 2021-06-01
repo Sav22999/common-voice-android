@@ -345,7 +345,6 @@
         <item quantity="many">I\'ve opened %d days the CV Project app in a row! Download it also you to contribute to the Common Voice project via your smartphone.</item>
         <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Log in now</string>
     <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
     <!-- Daily goal -->
