@@ -165,12 +165,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             resources.getDimension(R.dimen.title_very_big)
         )
         buttonRecordOrListenAgain.isGone = true
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && !imageReportIconSpeak.isGone) {
             hideImage(imageReportIconSpeak)
         } else {
             buttonReportSpeak.isGone = true
         }
-        if (settingsPrefManager.showInfoIcon) {
+        if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
         }
         buttonSkipSpeak.isEnabled = false
@@ -906,12 +906,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         resizeSentence()
 
         buttonRecordOrListenAgain.isGone = true
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && !imageReportIconSpeak.isGone) {
             hideImage(imageReportIconSpeak)
         } else {
             buttonReportSpeak.isGone = true
         }
-        if (settingsPrefManager.showInfoIcon) {
+        if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
         }
         buttonSendSpeak.isGone = true
@@ -940,7 +940,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 numberSentThisSession
             )
         )
-        if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
+        if (textMotivationSentencesSpeak.isGone && (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500)) {
             textMotivationSentencesSpeak.isGone = false
             textMotivationSentencesSpeak.text =
                 motivationSentences[(motivationSentences.indices).random()]
@@ -980,12 +980,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         resizeSentence()
 
         buttonRecordOrListenAgain.isGone = true
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && !imageReportIconSpeak.isGone) {
             hideImage(imageReportIconSpeak)
         } else {
             buttonReportSpeak.isGone = true
         }
-        if (settingsPrefManager.showInfoIcon) {
+        if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
         }
         buttonSendSpeak.isGone = true
@@ -997,12 +997,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         buttonSkipSpeak.isEnabled = true
         buttonStartStopSpeak.isEnabled = true
 
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && imageReportIconSpeak.isGone) {
             showImage(imageReportIconSpeak)
         } else {
             buttonReportSpeak.isGone = false
         }
-        if (settingsPrefManager.showInfoIcon) {
+        if (settingsPrefManager.showInfoIcon && imageInfoSpeak.isGone) {
             showImage(imageInfoSpeak)
         }
 
@@ -1340,7 +1340,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun showImage(image: ImageView) {
         if (!image.isVisible) {
-            image.isVisible = true
+            image.isGone = false
             image.isEnabled = true
             startAnimation(
                 image,
@@ -1356,7 +1356,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             image,
             R.anim.zoom_out_speak_listen
         )
-        image.isVisible = false
+        image.isGone = true
     }
 
     private fun stopImage(image: ImageView) {

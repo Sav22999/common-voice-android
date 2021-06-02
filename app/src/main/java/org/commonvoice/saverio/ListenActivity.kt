@@ -845,12 +845,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             resizeSentence()
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
-            if (settingsPrefManager.showReportIcon) {
+            if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
                 hideImage(imageReportIconListen)
             } else {
                 buttonReportListen.isGone = true
             }
-            if (settingsPrefManager.showInfoIcon) {
+            if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
 
@@ -877,7 +877,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 )
             )
 
-            if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
+            if (textMotivationalSentencesListen.isGone && (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500)) {
                 textMotivationalSentencesListen.isGone = false
                 textMotivationalSentencesListen.text =
                     motivationSentences[(motivationSentences.indices).random()]
@@ -923,12 +923,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             resizeSentence()
             textMessageAlertListen.setText(R.string.txt_common_voice_clips_finished)
             buttonStartStopListen.isEnabled = false
-            if (settingsPrefManager.showReportIcon) {
+            if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
                 hideImage(imageReportIconListen)
             } else {
                 buttonReportListen.isGone = true
             }
-            if (settingsPrefManager.showInfoIcon) {
+            if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
         }
@@ -982,12 +982,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         resizeSentence()
 
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && imageReportIconListen.isGone) {
             showImage(imageReportIconListen)
         } else {
             buttonReportListen.isGone = false
         }
-        if (settingsPrefManager.showInfoIcon) {
+        if (settingsPrefManager.showInfoIcon && imageInfoListen.isGone) {
             showImage(imageInfoListen)
         }
 
@@ -1171,10 +1171,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         textSentenceListen.text = "···"
         resizeSentence()
         setTextSentenceListen(this@ListenActivity)
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
             hideImage(imageReportIconListen)
         } else {
             buttonReportListen.isGone = true
+        }
+        if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
+            hideImage(imageInfoListen)
         }
         buttonStartStopListen.isEnabled = false
         buttonSkipListen.isEnabled = false
