@@ -853,6 +853,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
+            if (!buttonYesClip.isGone) {
+                hideButton(buttonYesClip)
+            }
+            if(!buttonNoClip.isGone) {
+                hideButton(buttonNoClip)
+            }
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            hideListenAnimateButtons()
 
             val motivationSentences = arrayOf(
                 resources.getQuantityString(
@@ -931,6 +939,14 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
+            if (!buttonYesClip.isGone) {
+                hideButton(buttonYesClip)
+            }
+            if(!buttonNoClip.isGone) {
+                hideButton(buttonNoClip)
+            }
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            hideListenAnimateButtons()
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         if (!listenViewModel.opened) {
