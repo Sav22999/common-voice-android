@@ -137,7 +137,6 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     override fun onBackPressed() = withBinding {
         if (!recorded) {
             onBackPressedCustom()
-
             super.onBackPressed()
         } else {
             dialogInflater.show(this@SpeakActivity,
@@ -759,8 +758,8 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     END | GESTURES
     */
 
-    private fun skipSentence() {
-        if (!recorded) {
+    private fun skipSentence(forced: Boolean = false) {
+        if (!recorded || forced) {
             speakViewModel.skipSentence()
             if (dailyGoalAchievedAndNotShown) {
                 showDailyGoalAchievedMessage()
@@ -772,10 +771,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     buttonTextRes = R.string.button_yes_sure,
                     onButtonClick = {
                         this@SpeakActivity.recorded = false
-                        speakViewModel.skipSentence()
-                        if (dailyGoalAchievedAndNotShown) {
-                            showDailyGoalAchievedMessage()
-                        }
+                        skipSentence(forced = true)
                     },
                     button2TextRes = R.string.button_cancel,
                     onButton2Click = {}
@@ -828,13 +824,27 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
-    private fun openReportDialog() {
-        if (!binding.buttonReportSpeak.isGone || !binding.imageReportIconSpeak.isGone) {
-            if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
-                speakViewModel.stopRecording()
-            }
+    private fun openReportDialog(forced: Boolean = false) {
+        if (!recorded || forced) {
+            if (!binding.buttonReportSpeak.isGone || !binding.imageReportIconSpeak.isGone) {
+                if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
+                    speakViewModel.stopRecording()
+                }
 
-            SpeakReportDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
+                SpeakReportDialogFragment().show(supportFragmentManager, "SPEAK_REPORT")
+            }
+        } else {
+            dialogInflater.show(this@SpeakActivity,
+                StandardDialog(
+                    messageRes = R.string.text_are_you_sure_continue_and_lose_the_recording,
+                    buttonTextRes = R.string.button_yes_sure,
+                    onButtonClick = {
+                        this@SpeakActivity.recorded = false
+                        openReportDialog(forced = true)
+                    },
+                    button2TextRes = R.string.button_cancel,
+                    onButton2Click = {}
+                ))
         }
     }
 

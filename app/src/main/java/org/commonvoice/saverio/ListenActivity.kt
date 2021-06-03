@@ -856,7 +856,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (!buttonYesClip.isGone) {
                 hideButton(buttonYesClip)
             }
-            if(!buttonNoClip.isGone) {
+            if (!buttonNoClip.isGone) {
                 hideButton(buttonNoClip)
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
@@ -942,7 +942,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (!buttonYesClip.isGone) {
                 hideButton(buttonYesClip)
             }
-            if(!buttonNoClip.isGone) {
+            if (!buttonNoClip.isGone) {
                 hideButton(buttonNoClip)
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
