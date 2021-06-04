@@ -44,6 +44,10 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getBoolean(Keys.GESTURES_ENABLED.name, true)
         set(value) = preferences.edit().putBoolean(Keys.GESTURES_ENABLED.name, value).apply()
 
+    var gestureSwipeSize: Int
+        get() = preferences.getInt(Keys.GESTURES_SWIPE_SIZE.name, 8)
+        set(value) = preferences.edit().putInt(Keys.GESTURES_SWIPE_SIZE.name, value).apply()
+
     var statsUserId: String
         get() = preferences.getString(Keys.STATS_USERID.name, "") ?: ""
         set(value) = preferences.edit().putString(Keys.STATS_USERID.name, value).apply()
@@ -126,6 +130,7 @@ class MainPrefManager(ctx: Context) {
         TOKEN_AUTH,
         IS_LOGGED_IN,
         GESTURES_ENABLED,
+        GESTURES_SWIPE_SIZE,
         STATS_USERID,
         ARE_GENERIC_STATS,
         ARE_APP_USAGE_STATS,

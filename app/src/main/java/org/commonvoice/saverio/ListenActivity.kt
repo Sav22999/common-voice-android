@@ -402,7 +402,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
 
         //set the width/height when gestures have to be enabled
-        enableGestureAt = valueToUse / 8 //TODO: option to cusomise this field
+        enableGestureAt = valueToUse / mainPrefManager.gestureSwipeSize
 
         binding.nestedScrollListen.setOnTouchListener(object :
             OnSwipeTouchListener(this@ListenActivity) {

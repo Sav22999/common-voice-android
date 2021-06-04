@@ -482,7 +482,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
 
         //set the width/height when gestures have to be enabled
-        enableGestureAt = valueToUse / 8 //TODO: option to cusomise this field
+        enableGestureAt = valueToUse / mainPrefManager.gestureSwipeSize
 
         binding.nestedScrollSpeak.setOnTouchListener(object :
             OnSwipeTouchListener(this@SpeakActivity) {
