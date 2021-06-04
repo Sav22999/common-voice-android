@@ -5,29 +5,31 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.RadioButton
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.BottomsheetGesturesBinding
 import org.commonvoice.saverio.utils.onClick
+import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
+import org.commonvoice.saverio_lib.viewmodels.CustomiseGesturesViewModel
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.stateSharedViewModel
 
 class CustomiseGesturesListenDialogFragment : BottomSheetDialogFragment() {
 
-    private val listenViewModel: ListenViewModel by stateSharedViewModel()
     private val mainPrefManager by inject<MainPrefManager>()
+    private val listenPrefManager by inject<ListenPrefManager>()
 
     private var _binding: BottomsheetGesturesBinding? = null
     private val binding get() = _binding!!
 
     private var valueToSave = ""
+
+    private val actionViewModel: CustomiseGesturesViewModel by lazy {
+        ViewModelProviders.of(requireActivity()).get(CustomiseGesturesViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,9 +54,9 @@ class CustomiseGesturesListenDialogFragment : BottomSheetDialogFragment() {
             binding.radioButtonCustomiseGesturesInfo,
             binding.radioButtonCustomiseGesturesAnimations,
             binding.radioButtonCustomiseGesturesSpeedControl,
-            binding.radioButtonCustomiseGesturesSaveRecordings,
-            binding.radioButtonCustomiseGesturesSkipConfirmation,
-            binding.radioButtonCustomiseGesturesIndicatorSound
+            binding.radioButtonCustomiseGesturesAutoPlay,
+            binding.radioButtonCustomiseGesturesValidateYes,
+            binding.radioButtonCustomiseGesturesValidateNo
         )
 
         val gesture: Map<String, String> = mapOf(
@@ -66,119 +68,129 @@ class CustomiseGesturesListenDialogFragment : BottomSheetDialogFragment() {
             "GESTURE_LISTEN_DOUBLE_TAP" to getString(R.string.text_customise_gestures_settings_double_tap)
         )
 
-        binding.titleMainSectionGesture.text =
-            getString(R.string.title_customise_gestures_settings_bottomsheet).replace(
-                "{{main_section}}",
-                getString(R.string.settingsListen)
-            ).replace("{{gesture}}", gesture[tag].toString())
-
-        /*
-        val reasonsMap: Map<String, String> = mapOf(
-            getString(R.string.checkbox_reason1_report_clip) to "offensive-speech",
-            getString(R.string.checkbox_reason2_report) to "grammar-or-spelling",
-            getString(R.string.checkbox_reason3_report) to "different-language"
-        )
+        val propertyToUse = when (tag) {
+            "GESTURE_LISTEN_SWIPE_UP" -> listenPrefManager.gesturesSwipeTop
+            "GESTURE_LISTEN_SWIPE_DOWN" -> listenPrefManager.gesturesSwipeBottom
+            "GESTURE_LISTEN_SWIPE_RIGHT" -> listenPrefManager.gesturesSwipeRight
+            "GESTURE_LISTEN_SWIPE_LEFT" -> listenPrefManager.gesturesSwipeLeft
+            "GESTURE_LISTEN_LONG_PRESS" -> listenPrefManager.gesturesLongPress
+            else -> listenPrefManager.gesturesDoubleTap
+        }
 
         binding.apply {
-            val radiobutton: List<CheckBox> = listOf(
-                checkBoxReason1Report,
-                checkBoxReason2Report,
-                checkBoxReason3Report
+            titleMainSectionGesture.text =
+                getString(R.string.title_customise_gestures_settings_bottomsheet).replace(
+                    "{{main_section}}",
+                    getString(R.string.settingsListen)
+                ).replace("{{gesture}}", gesture[tag].toString())
+
+            buttonCancelCustomiseGestures.onClick {
+                dismiss()
+            }
+
+            radioButtons.forEach { radioButton ->
+                radioButton.isGone = false
+            }
+            radioButtonCustomiseSkip.text =
+                getString(R.string.text_customise_gestures_settings_skip_clip)
+            radioButtonCustomiseGesturesReport.text =
+                getString(R.string.text_customise_gestures_settings_report_clip)
+            radioButtonCustomiseGesturesInfo.text =
+                getString(R.string.text_customise_gestures_settings_show_info_clip)
+            radioButtonCustomiseGesturesAnimations.text =
+                getString(R.string.text_customise_gestures_settings_enable_disable_feature).replace(
+                    "{{feature}}",
+                    getString(R.string.txt_animations)
+                )
+            radioButtonCustomiseGesturesSpeedControl.text =
+                getString(R.string.text_customise_gestures_settings_enable_disable_feature).replace(
+                    "{{feature}}",
+                    getString(R.string.txt_show_speed_control_in_speak_listen)
+                )
+            radioButtonCustomiseGesturesAutoPlay.text =
+                getString(R.string.text_customise_gestures_settings_enable_disable_feature).replace(
+                    "{{feature}}",
+                    getString(R.string.txt_autoplay_clips_after_loading_settings)
+                )
+
+            radioGroupCustomiseGestures.check(
+                when (propertyToUse) {
+                    "back" -> R.id.radioButtonCustomiseGesturesGoBack
+                    "skip" -> R.id.radioButtonCustomiseSkip
+                    "report" -> R.id.radioButtonCustomiseGesturesReport
+                    "info" -> R.id.radioButtonCustomiseGesturesInfo
+                    "animations" -> R.id.radioButtonCustomiseGesturesAnimations
+                    "speed-control" -> R.id.radioButtonCustomiseGesturesSpeedControl
+                    "auto-play" -> R.id.radioButtonCustomiseGesturesAutoPlay
+                    "validate-yes" -> R.id.radioButtonCustomiseGesturesValidateYes
+                    "validate-no" -> R.id.radioButtonCustomiseGesturesValidateNo
+                    else -> R.id.radioButtonCustomiseGesturesNothing
+                }
             )
-
-            titleReportSentenceClip.text = getString(R.string.title_report_clip)
-            checkBoxReason1Report.text = getString(R.string.checkbox_reason1_report_clip)
-            checkBoxReason4Report.isGone = true
-
-            checkBoxReasonOtherReport.setOnCheckedChangeListener { _, isChecked ->
-                textReasonOtherReport.isVisible = isChecked
-                if (isChecked) {
-                    buttonSendReport.isEnabled = textReasonOtherReport.text.isNotBlank()
-                    textReasonOtherReport.requestFocus()
-                } else {
-                    buttonSendReport.isEnabled = true
+            valueToSave = propertyToUse
+            radioGroupCustomiseGestures.setOnCheckedChangeListener { _, checkedId ->
+                valueToSave = when (checkedId) {
+                    R.id.radioButtonCustomiseGesturesNothing -> ""
+                    R.id.radioButtonCustomiseGesturesGoBack -> "back"
+                    R.id.radioButtonCustomiseSkip -> "skip"
+                    R.id.radioButtonCustomiseGesturesReport -> "report"
+                    R.id.radioButtonCustomiseGesturesInfo -> "info"
+                    R.id.radioButtonCustomiseGesturesAnimations -> "animations"
+                    R.id.radioButtonCustomiseGesturesSpeedControl -> "speed-control"
+                    R.id.radioButtonCustomiseGesturesAutoPlay -> "auto-play"
+                    R.id.radioButtonCustomiseGesturesValidateYes -> "validate-yes"
+                    R.id.radioButtonCustomiseGesturesValidateNo -> "validate-no"
+                    else -> ""
                 }
+                save()
             }
 
-            textReasonOtherReport.doAfterTextChanged { editable ->
-                if (checkBoxReasonOtherReport.isChecked) {
-                    buttonSendReport.isEnabled = editable?.isNotBlank() ?: false
-                } else {
-                    buttonSendReport.isEnabled = true
-                }
-            }
-
-            buttonSendReport.onClick {
-                val reasons = mutableListOf<String>()
-
-                checkboxes.forEach { checkBox ->
-                    if (checkBox.isChecked) {
-                        reasonsMap[checkBox.text]?.let { reason ->
-                            reasons.add(reason)
-                        }
-                    }
-                }
-
-                if (checkBoxReasonOtherReport.isChecked && textReasonOtherReport.text.isNotBlank()) {
-                    reasons.add(textReasonOtherReport.text.toString())
-                } else if (checkBoxReasonOtherReport.isChecked) {
-                    return@onClick
-                }
-
-                if (reasons.isNotEmpty()) {
-                    listenViewModel.reportClip(reasons)
-                    dismiss()
-                }
-            }
-
-            buttonCancelReport.onClick {
+            buttonSaveCustomiseGestures.onClick {
+                save()
                 dismiss()
             }
         }
-        */
 
         setTheme()
     }
 
+    fun save() {
+        when (tag) {
+            "GESTURE_LISTEN_SWIPE_UP" -> listenPrefManager.gesturesSwipeTop = valueToSave
+            "GESTURE_LISTEN_SWIPE_DOWN" -> listenPrefManager.gesturesSwipeBottom =
+                valueToSave
+            "GESTURE_LISTEN_SWIPE_RIGHT" -> listenPrefManager.gesturesSwipeRight =
+                valueToSave
+            "GESTURE_LISTEN_SWIPE_LEFT" -> listenPrefManager.gesturesSwipeLeft = valueToSave
+            "GESTURE_LISTEN_LONG_PRESS" -> listenPrefManager.gesturesLongPress = valueToSave
+            else -> listenPrefManager.gesturesDoubleTap = valueToSave
+        }
+        actionViewModel.changeAction(valueToSave)
+    }
+
     fun setTheme() = binding.apply {
-        /*titleReportSentenceClip.setTextSize(
+        titleMainSectionGesture.setTextSize(
+            TypedValue.COMPLEX_UNIT_SP,
+            15F * mainPrefManager.textSize
+        )
+        titleChooseAction.setTextSize(
             TypedValue.COMPLEX_UNIT_SP,
             20F * mainPrefManager.textSize
         )
 
-        checkBoxReason1Report.setTextSize(
+        buttonCancelCustomiseGestures.setTextSize(
             TypedValue.COMPLEX_UNIT_SP,
-            22F * mainPrefManager.textSize
+            16F * mainPrefManager.textSize
         )
-        checkBoxReason2Report.setTextSize(
+        buttonSaveCustomiseGestures.setTextSize(
             TypedValue.COMPLEX_UNIT_SP,
-            22F * mainPrefManager.textSize
+            16F * mainPrefManager.textSize
         )
-        checkBoxReason3Report.setTextSize(
-            TypedValue.COMPLEX_UNIT_SP,
-            22F * mainPrefManager.textSize
-        )
-        checkBoxReason4Report.setTextSize(
-            TypedValue.COMPLEX_UNIT_SP,
-            22F * mainPrefManager.textSize
-        )
-        checkBoxReasonOtherReport.setTextSize(
-            TypedValue.COMPLEX_UNIT_SP,
-            22F * mainPrefManager.textSize
-        )
-        textReasonOtherReport.setTextSize(
-            TypedValue.COMPLEX_UNIT_SP,
-            18F * mainPrefManager.textSize
-        )
-
-        buttonCancelReport.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F * mainPrefManager.textSize)
-        buttonSendReport.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F * mainPrefManager.textSize)
-
-         */
     }
 
     override fun onDestroyView() {
         _binding = null
+        actionViewModel.changeAction("")
         super.onDestroyView()
     }
 

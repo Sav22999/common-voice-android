@@ -1,39 +1,36 @@
 package org.commonvoice.saverio.ui.dialogs
 
 import android.os.Bundle
-import android.provider.Settings
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.RadioButton
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.BottomsheetGesturesBinding
 import org.commonvoice.saverio.utils.onClick
-import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
-import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
+import org.commonvoice.saverio_lib.viewmodels.CustomiseGesturesViewModel
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.stateSharedViewModel
 
 class CustomiseGesturesSpeakDialogFragment : BottomSheetDialogFragment() {
 
     private val mainPrefManager by inject<MainPrefManager>()
     private val speakPrefManager by inject<SpeakPrefManager>()
-    private val listenPrefManager by inject<ListenPrefManager>()
-    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     private var _binding: BottomsheetGesturesBinding? = null
     private val binding get() = _binding!!
 
     private var valueToSave = ""
+
+    private val actionViewModel: CustomiseGesturesViewModel by lazy {
+        ViewModelProviders.of(requireActivity()).get(CustomiseGesturesViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -140,6 +137,7 @@ class CustomiseGesturesSpeakDialogFragment : BottomSheetDialogFragment() {
                     else -> R.id.radioButtonCustomiseGesturesNothing
                 }
             )
+            valueToSave = propertyToUse
             radioGroupCustomiseGestures.setOnCheckedChangeListener { _, checkedId ->
                 valueToSave = when (checkedId) {
                     R.id.radioButtonCustomiseGesturesNothing -> ""
@@ -154,63 +152,34 @@ class CustomiseGesturesSpeakDialogFragment : BottomSheetDialogFragment() {
                     R.id.radioButtonCustomiseGesturesIndicatorSound -> "indicator-sound"
                     else -> ""
                 }
-                println(">> valueToSave : " + valueToSave)
+                save()
             }
 
             buttonSaveCustomiseGestures.onClick {
-                when (tag) {
-                    "GESTURE_SPEAK_SWIPE_UP" -> speakPrefManager.gesturesSwipeTop = valueToSave
-                    "GESTURE_SPEAK_SWIPE_DOWN" -> speakPrefManager.gesturesSwipeBottom = valueToSave
-                    "GESTURE_SPEAK_SWIPE_RIGHT" -> speakPrefManager.gesturesSwipeRight = valueToSave
-                    "GESTURE_SPEAK_SWIPE_LEFT" -> speakPrefManager.gesturesSwipeLeft = valueToSave
-                    "GESTURE_SPEAK_LONG_PRESS" -> speakPrefManager.gesturesLongPress = valueToSave
-                    else -> speakPrefManager.gesturesDoubleTap = valueToSave
-                }
-
+                save()
                 dismiss()
             }
-
-            /*
-            textReasonOtherReport.doAfterTextChanged { editable ->
-                if (checkBoxReasonOtherReport.isChecked) {
-                    buttonSendReport.isEnabled = editable?.isNotBlank() ?: false
-                } else {
-                    buttonSendReport.isEnabled = true
-                }
-            }
-
-            buttonSendReport.onClick {
-                val reasons = mutableListOf<String>()
-
-                checkboxes.forEach { checkBox ->
-                    if (checkBox.isChecked) {
-                        reasonsMap[checkBox.text]?.let { reason ->
-                            reasons.add(reason)
-                        }
-                    }
-                }
-
-                if (checkBoxReasonOtherReport.isChecked && textReasonOtherReport.text.isNotBlank()) {
-                    reasons.add(textReasonOtherReport.text.toString())
-                } else if (checkBoxReasonOtherReport.isChecked) {
-                    return@onClick
-                }
-
-                if (reasons.isNotEmpty()) {
-                    listenViewModel.reportClip(reasons)
-                    dismiss()
-                }
-            }
-            */
         }
 
         setTheme()
     }
 
+    fun save() {
+        when (tag) {
+            "GESTURE_SPEAK_SWIPE_UP" -> speakPrefManager.gesturesSwipeTop = valueToSave
+            "GESTURE_SPEAK_SWIPE_DOWN" -> speakPrefManager.gesturesSwipeBottom = valueToSave
+            "GESTURE_SPEAK_SWIPE_RIGHT" -> speakPrefManager.gesturesSwipeRight = valueToSave
+            "GESTURE_SPEAK_SWIPE_LEFT" -> speakPrefManager.gesturesSwipeLeft = valueToSave
+            "GESTURE_SPEAK_LONG_PRESS" -> speakPrefManager.gesturesLongPress = valueToSave
+            else -> speakPrefManager.gesturesDoubleTap = valueToSave
+        }
+        actionViewModel.changeAction(valueToSave)
+    }
+
     fun setTheme() = binding.apply {
         titleMainSectionGesture.setTextSize(
             TypedValue.COMPLEX_UNIT_SP,
-            R.dimen.text_small * mainPrefManager.textSize
+            15F * mainPrefManager.textSize
         )
         titleChooseAction.setTextSize(
             TypedValue.COMPLEX_UNIT_SP,
@@ -229,7 +198,7 @@ class CustomiseGesturesSpeakDialogFragment : BottomSheetDialogFragment() {
 
     override fun onDestroyView() {
         _binding = null
+        actionViewModel.changeAction("")
         super.onDestroyView()
     }
-
 }

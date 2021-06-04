@@ -162,7 +162,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings > Gestures">Show information about the sentence</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings > Gestures">Save</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings > Gestures">Choose an action</string>
-    <string name="title_customise_gestures_settings_bottomsheet" comment="Title of the BottomSheet in Settings > Gestures || {{main_section}} is 'Speak' or 'Listen', {{gesture}} is 'Swipe up', 'Swipe down', etc. || Example: Listen > Swipe up, Speak > Long press, ...">{{main_section}} > {{gesture}}</string>
+    <string name="title_customise_gestures_settings_bottomsheet" comment="Title of the BottomSheet in Settings > Gestures || {{main_section}} is 'Speak' or 'Listen', {{gesture}} is 'Swipe up', 'Swipe down', etc. || Example: Listen > Swipe up, Speak > Long press, ..." translatable="false">{{main_section}} > {{gesture}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
