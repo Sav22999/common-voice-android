@@ -141,16 +141,28 @@
     <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings > Gestures">Swipe down</string>
     <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings > Gestures">Swipe left</string>
     <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings > Gestures">Swipe right</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings > Gestures">Long press</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings > Gestures">Double tap</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings > Gestures">Swipe up: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings > Gestures">Swipe down: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings > Gestures">Swipe left: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings > Gestures">Swipe right: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings > Gestures">Long press: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings > Gestures">Double tap: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings > Gestures">Nothing</string>
     <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings > Gestures">Go back</string>
     <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings > Gestures">Skip the clip</string>
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings > Gestures">Skip the sentence</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings > Gestures">Accept the clip (Mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings > Gestures">Reject the clip (Mark as incorrect)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings > Gestures || {{feature}} is the feature name">Enable/Disable {{feature}}</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings > Gestures">Accept the clip (mark as correct)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings > Gestures">Reject the clip (mark as incorrect)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings > Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
     <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings > Gestures">Report the clip</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings > Gestures">Report the sentence</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings > Gestures">Show information about the clip</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings > Gestures">Show information about the sentence</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings > Gestures">Save</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings > Gestures">Choose an action</string>
+    <string name="title_customise_gestures_settings_bottomsheet" comment="Title of the BottomSheet in Settings > Gestures || {{main_section}} is 'Speak' or 'Listen', {{gesture}} is 'Swipe up', 'Swipe down', etc. || Example: Listen > Swipe up, Speak > Long press, ...">{{main_section}} > {{gesture}}</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
