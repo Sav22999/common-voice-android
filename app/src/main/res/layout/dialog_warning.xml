@@ -47,10 +47,10 @@
             android:scaleType="fitCenter"
             android:src="@drawable/ic_warning"
             android:visibility="visible"
-            app:tint="@color/colorWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textMessageType"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/colorWhite" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
