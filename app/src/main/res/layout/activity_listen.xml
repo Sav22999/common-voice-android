@@ -371,15 +371,15 @@
 
         <ImageView
             android:id="@+id/imageLeftSideViewListen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
             android:elevation="6dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_nothing" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/leftSideViewListen"
@@ -394,15 +394,15 @@
 
         <ImageView
             android:id="@+id/imageRightSideViewListen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
             android:elevation="6dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_nothing" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/rightSideViewListen"
@@ -417,15 +417,15 @@
 
         <ImageView
             android:id="@+id/imageTopSideViewListen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
             android:elevation="6dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_nothing" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/topSideViewListen"
@@ -440,15 +440,15 @@
 
         <ImageView
             android:id="@+id/imageBottomSideViewListen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
             android:elevation="6dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_nothing" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <View
             android:id="@+id/bottomSideViewListen"
@@ -471,8 +471,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_nothing" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/fullScreenViewListen"
