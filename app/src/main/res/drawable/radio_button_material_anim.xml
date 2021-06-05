@@ -12,17 +12,17 @@
 <animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/on"
-        android:state_checked="true"
-        android:drawable="@drawable/radio_button_on_mtrl" />
+        android:drawable="@drawable/radio_button_on_mtrl"
+        android:state_checked="true" />
     <item
         android:id="@+id/off"
         android:drawable="@drawable/radio_button_off_mtrl" />
     <transition
+        android:drawable="@drawable/radio_button_on_to_off_mtrl_animation"
         android:fromId="@+id/on"
-        android:toId="@+id/off"
-        android:drawable="@drawable/radio_button_on_to_off_mtrl_animation" />
+        android:toId="@+id/off" />
     <transition
+        android:drawable="@drawable/radio_button_off_to_on_mtrl_animation"
         android:fromId="@+id/off"
-        android:toId="@+id/on"
-        android:drawable="@drawable/radio_button_off_to_on_mtrl_animation" />
+        android:toId="@+id/on" />
 </animated-selector>
