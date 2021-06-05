@@ -499,7 +499,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 binding.imageRightSideViewSpeak.isGone = true
                 binding.imageLeftSideViewSpeak.isGone = true
 
-                if (scrollingToBefore == scrollTo && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r")) {
+                if (scrollingToBefore == scrollTo && (scrollTo == "d" && (verticalScrollStatus == 0 || verticalScrollStatus == 2) || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r")) {
                     scrollingStatus = widthOrHeight - scrollingStatusBefore
 
                     scrollingToBefore = scrollTo
