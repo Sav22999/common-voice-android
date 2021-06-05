@@ -86,6 +86,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     var maxHeight = 350
 
     private var scrollingStatus = 0
+    private var scrollingStatusBefore = 0
     private var scrollingToBefore = ""
     private var longPressEnabled = false
     private var enableGestureAt = 50
@@ -493,19 +494,19 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             }
 
             override fun onScroll(scrollTo: String, widthOrHeight: Int) {
-                val currentOrientation = resources.configuration.orientation
-                if (scrollingToBefore == scrollTo && (currentOrientation == Configuration.ORIENTATION_LANDSCAPE && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r") || currentOrientation == Configuration.ORIENTATION_PORTRAIT)) {
-                    scrollingStatus = widthOrHeight
+                binding.imageTopSideViewSpeak.isGone = true
+                binding.imageBottomSideViewSpeak.isGone = true
+                binding.imageRightSideViewSpeak.isGone = true
+                binding.imageLeftSideViewSpeak.isGone = true
+
+                if (scrollingToBefore == scrollTo && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r")) {
+                    scrollingStatus = widthOrHeight - scrollingStatusBefore
 
                     scrollingToBefore = scrollTo
                     if (scrollingStatus >= 0) {
-                        binding.imageTopSideViewSpeak.isGone = true
-                        binding.imageBottomSideViewSpeak.isGone = true
-                        binding.imageRightSideViewSpeak.isGone = true
-                        binding.imageLeftSideViewSpeak.isGone = true
 
                         if (scrollingStatus >= 0 && scrollingStatus <= enableGestureAt) {
-                            showGesturesGuide(scrollTo, widthOrHeight)
+                            showGesturesGuide(scrollTo, scrollingStatus)
                         }
                         if (scrollingStatus >= enableGestureAt) {
                             showGesturesGuide(scrollTo, enableGestureAt)
@@ -514,8 +515,13 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     }
                 } else {
                     hideGesturesGuide()
+                    scrollingStatusBefore = 0
                     scrollingStatus = 1
                     scrollingToBefore = scrollTo
+                    if (scrollTo == "d" && verticalScrollStatus == 1 || scrollTo == "u" && verticalScrollStatus == 1) {
+                        //reset scrolling //TODO
+                        scrollingStatusBefore = widthOrHeight
+                    }
                 }
             }
 
@@ -529,6 +535,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             override fun onTouch(v: View, event: MotionEvent): Boolean {
                 if (event.action == 1) {
                     //ACTION_UP
+                    scrollingStatusBefore = 0
                     if (scrollingToBefore != "" && scrollingStatus > 0 && isAvailableGesture("swipeTop") || isAvailableGesture(
                             "swipeBottom"
                         ) || isAvailableGesture("swipeLeft") || isAvailableGesture("swipeRight")
@@ -617,33 +624,38 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     }
 
     fun hideGesturesGuide(except: String = "") {
-        val widthOrHeight = binding.progressBarSpeakListen.layoutParams.height
-        if (except != "r" && !binding.leftSideViewSpeak.isGone) {
-            binding.leftSideViewSpeak.isGone = true
-            binding.leftSideViewSpeak.layoutParams.width = widthOrHeight
-            binding.leftSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.leftSideViewSpeak.requestLayout()
-        }
+        var widthOrHeight = 0
+        try {
+            widthOrHeight = binding.progressBarSpeakListen.layoutParams.height
 
-        if (except != "l" && !binding.rightSideViewSpeak.isGone) {
-            binding.rightSideViewSpeak.isGone = true
-            binding.rightSideViewSpeak.layoutParams.width = widthOrHeight
-            binding.rightSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.rightSideViewSpeak.requestLayout()
-        }
+            if (except != "r" && !binding.leftSideViewSpeak.isGone) {
+                binding.leftSideViewSpeak.isGone = true
+                binding.leftSideViewSpeak.layoutParams.width = widthOrHeight
+                binding.leftSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.leftSideViewSpeak.requestLayout()
+            }
 
-        if (except != "u" && !binding.bottomSideViewSpeak.isGone) {
-            binding.bottomSideViewSpeak.isGone = true
-            binding.bottomSideViewSpeak.layoutParams.height = widthOrHeight
-            binding.bottomSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.bottomSideViewSpeak.requestLayout()
-        }
+            if (except != "l" && !binding.rightSideViewSpeak.isGone) {
+                binding.rightSideViewSpeak.isGone = true
+                binding.rightSideViewSpeak.layoutParams.width = widthOrHeight
+                binding.rightSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.rightSideViewSpeak.requestLayout()
+            }
 
-        if (except != "d" && !binding.topSideViewSpeak.isGone) {
-            binding.topSideViewSpeak.isGone = true
-            binding.topSideViewSpeak.layoutParams.height = widthOrHeight
-            binding.topSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.topSideViewSpeak.requestLayout()
+            if (except != "u" && !binding.bottomSideViewSpeak.isGone) {
+                binding.bottomSideViewSpeak.isGone = true
+                binding.bottomSideViewSpeak.layoutParams.height = widthOrHeight
+                binding.bottomSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.bottomSideViewSpeak.requestLayout()
+            }
+
+            if (except != "d" && !binding.topSideViewSpeak.isGone) {
+                binding.topSideViewSpeak.isGone = true
+                binding.topSideViewSpeak.layoutParams.height = widthOrHeight
+                binding.topSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.topSideViewSpeak.requestLayout()
+            }
+        } catch (e: Exception) {
         }
     }
 
@@ -696,32 +708,32 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         allActions(speakPrefManager.gesturesSwipeTop)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageBottomSideViewSpeak.isGone = true
         }, 100)
-        binding.imageBottomSideViewSpeak.isGone = true
     }
 
     fun swipeBottom() {
         allActions(speakPrefManager.gesturesSwipeBottom)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageTopSideViewSpeak.isGone = true
         }, 100)
-        binding.imageTopSideViewSpeak.isGone = true
     }
 
     fun swipeRight() {
         allActions(speakPrefManager.gesturesSwipeRight)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageLeftSideViewSpeak.isGone = true
         }, 100)
-        binding.imageLeftSideViewSpeak.isGone = true
     }
 
     fun swipeLeft() {
         allActions(speakPrefManager.gesturesSwipeLeft)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageRightSideViewSpeak.isGone = true
         }, 100)
-        binding.imageRightSideViewSpeak.isGone = true
     }
 
     fun allActions(action: String) {
@@ -813,9 +825,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
-    /*
-    END | GESTURES
-    */
+/*
+END | GESTURES
+*/
 
     private fun skipSentence(forced: Boolean = false) {
         if (!recorded || forced) {

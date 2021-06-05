@@ -80,6 +80,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     var minHeightButtons = 50
 
     private var scrollingStatus = 0
+    private var scrollingStatusBefore = 0
     private var scrollingToBefore = ""
     private var longPressEnabled = false
     private var enableGestureAt = 50
@@ -414,19 +415,19 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             }
 
             override fun onScroll(scrollTo: String, widthOrHeight: Int) {
-                val currentOrientation = resources.configuration.orientation
-                if (scrollingToBefore == scrollTo && (currentOrientation == Configuration.ORIENTATION_LANDSCAPE && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r") || currentOrientation == Configuration.ORIENTATION_PORTRAIT)) {
-                    scrollingStatus = widthOrHeight
+                binding.imageTopSideViewListen.isGone = true
+                binding.imageBottomSideViewListen.isGone = true
+                binding.imageRightSideViewListen.isGone = true
+                binding.imageLeftSideViewListen.isGone = true
+
+                if (scrollingToBefore == scrollTo && (scrollTo == "d" && verticalScrollStatus == 0 || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r")) {
+                    scrollingStatus = widthOrHeight - scrollingStatusBefore
 
                     scrollingToBefore = scrollTo
                     if (scrollingStatus >= 0) {
-                        binding.imageTopSideViewListen.isGone = true
-                        binding.imageBottomSideViewListen.isGone = true
-                        binding.imageRightSideViewListen.isGone = true
-                        binding.imageLeftSideViewListen.isGone = true
 
                         if (scrollingStatus >= 0 && scrollingStatus <= enableGestureAt) {
-                            showGesturesGuide(scrollTo, widthOrHeight)
+                            showGesturesGuide(scrollTo, scrollingStatus)
                         }
                         if (scrollingStatus >= enableGestureAt) {
                             showGesturesGuide(scrollTo, enableGestureAt)
@@ -435,8 +436,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     }
                 } else {
                     hideGesturesGuide()
+                    scrollingStatusBefore = 0
                     scrollingStatus = 1
                     scrollingToBefore = scrollTo
+                    if (scrollTo == "d" && verticalScrollStatus == 1 || scrollTo == "u" && verticalScrollStatus == 1) {
+                        //reset scrolling //TODO
+                        scrollingStatusBefore = widthOrHeight
+                    }
                 }
             }
 
@@ -538,33 +544,38 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     fun hideGesturesGuide(except: String = "") {
-        val widthOrHeight = binding.progressBarListenListen.layoutParams.height
-        if (except != "r" && !binding.leftSideViewListen.isGone) {
-            binding.leftSideViewListen.isGone = true
-            binding.leftSideViewListen.layoutParams.width = widthOrHeight
-            binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.leftSideViewListen.requestLayout()
-        }
+        var widthOrHeight = 0
+        try {
+            widthOrHeight = binding.progressBarListenListen.layoutParams.height
 
-        if (except != "l" && !binding.rightSideViewListen.isGone) {
-            binding.rightSideViewListen.isGone = true
-            binding.rightSideViewListen.layoutParams.width = widthOrHeight
-            binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.rightSideViewListen.requestLayout()
-        }
+            if (except != "r" && !binding.leftSideViewListen.isGone) {
+                binding.leftSideViewListen.isGone = true
+                binding.leftSideViewListen.layoutParams.width = widthOrHeight
+                binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.leftSideViewListen.requestLayout()
+            }
 
-        if (except != "u" && !binding.bottomSideViewListen.isGone) {
-            binding.bottomSideViewListen.isGone = true
-            binding.bottomSideViewListen.layoutParams.height = widthOrHeight
-            binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.bottomSideViewListen.requestLayout()
-        }
+            if (except != "l" && !binding.rightSideViewListen.isGone) {
+                binding.rightSideViewListen.isGone = true
+                binding.rightSideViewListen.layoutParams.width = widthOrHeight
+                binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.rightSideViewListen.requestLayout()
+            }
 
-        if (except != "d" && !binding.topSideViewListen.isGone) {
-            binding.topSideViewListen.isGone = true
-            binding.topSideViewListen.layoutParams.height = widthOrHeight
-            binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
-            binding.topSideViewListen.requestLayout()
+            if (except != "u" && !binding.bottomSideViewListen.isGone) {
+                binding.bottomSideViewListen.isGone = true
+                binding.bottomSideViewListen.layoutParams.height = widthOrHeight
+                binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.bottomSideViewListen.requestLayout()
+            }
+
+            if (except != "d" && !binding.topSideViewListen.isGone) {
+                binding.topSideViewListen.isGone = true
+                binding.topSideViewListen.layoutParams.height = widthOrHeight
+                binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.topSideViewListen.requestLayout()
+            }
+        } catch (e: Exception) {
         }
     }
 
@@ -616,32 +627,32 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         allActions(listenPrefManager.gesturesSwipeTop)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageBottomSideViewListen.isGone = true
         }, 100)
-        binding.imageBottomSideViewListen.isGone = true
     }
 
     fun swipeBottom() {
         allActions(listenPrefManager.gesturesSwipeBottom)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageTopSideViewListen.isGone = true
         }, 100)
-        binding.imageTopSideViewListen.isGone = true
     }
 
     fun swipeRight() {
         allActions(listenPrefManager.gesturesSwipeRight)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageLeftSideViewListen.isGone = true
         }, 100)
-        binding.imageLeftSideViewListen.isGone = true
     }
 
     fun swipeLeft() {
         allActions(listenPrefManager.gesturesSwipeLeft)
         Handler().postDelayed({
             hideGesturesGuide()
+            binding.imageRightSideViewListen.isGone = true
         }, 100)
-        binding.imageRightSideViewListen.isGone = true
     }
 
     fun allActions(action: String) {
@@ -720,10 +731,10 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 R.drawable.ic_auto_play_white
             }
             "validate-yes" -> {
-                R.drawable.yes_thumb_cv2
+                R.drawable.ic_yes_thumb2
             }
             "validate-no" -> {
-                R.drawable.no_thumb_cv2
+                R.drawable.ic_no_thumb2
             }
             else -> {
                 R.drawable.ic_nothing
