@@ -38,7 +38,6 @@ import org.commonvoice.saverio.ui.dialogs.commonTypes.WarningDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
-import org.commonvoice.saverio.ui.dialogs.specificDialogs.SpeakListenStandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
@@ -54,7 +53,6 @@ import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import java.util.*
-import kotlin.math.abs
 
 class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     ActivitySpeakBinding::inflate
@@ -490,7 +488,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             override fun onLongPress() {
                 if (isAvailableGesture("longPress")) {
                     longPressEnabled = true
-                    showFillScreenGesturesGuide()
+                    showFullScreenGesturesGuide(gesture = "long-press")
                 }
             }
 
@@ -501,6 +499,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
                     scrollingToBefore = scrollTo
                     if (scrollingStatus >= 0) {
+                        binding.imageTopSideViewSpeak.isGone = true
+                        binding.imageBottomSideViewSpeak.isGone = true
+                        binding.imageRightSideViewSpeak.isGone = true
+                        binding.imageLeftSideViewSpeak.isGone = true
+
                         if (scrollingStatus >= 0 && scrollingStatus <= enableGestureAt) {
                             showGesturesGuide(scrollTo, widthOrHeight)
                         }
@@ -518,7 +521,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
             override fun onDoubleTap() {
                 if (isAvailableGesture("doubleTap")) {
-                    showFillScreenGesturesGuide(startAnimation = true)
+                    showFullScreenGesturesGuide(startAnimation = true)
                     doubleTapFunction()
                 }
             }
@@ -546,7 +549,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     if (longPressEnabled && isAvailableGesture("longPress")) {
                         //longPress
                         longPressEnabled = false
-                        showFillScreenGesturesGuide(startAnimation = true)
+                        showFullScreenGesturesGuide(startAnimation = true, gesture = "long-press")
                         longPressFunction()
                     }
                 }
@@ -596,12 +599,20 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     fun showLeaveToEnable(scrollTo: String) {
         if (scrollTo == "r" && isAvailableGesture("swipeRight")) {
             binding.leftSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageLeftSideViewSpeak.isGone = false
+            binding.imageLeftSideViewSpeak.setImageResource(imageAllActions(speakPrefManager.gesturesSwipeRight))
         } else if (scrollTo == "l" && isAvailableGesture("swipeLeft")) {
             binding.rightSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageRightSideViewSpeak.setImageResource(imageAllActions(speakPrefManager.gesturesSwipeLeft))
+            binding.imageRightSideViewSpeak.isGone = false
         } else if (scrollTo == "u" && isAvailableGesture("swipeTop")) {
             binding.bottomSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageBottomSideViewSpeak.isGone = false
+            binding.imageBottomSideViewSpeak.setImageResource(imageAllActions(speakPrefManager.gesturesSwipeTop))
         } else if (scrollTo == "d" && isAvailableGesture("swipeBottom")) {
             binding.topSideViewSpeak.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageTopSideViewSpeak.isGone = false
+            binding.imageTopSideViewSpeak.setImageResource(imageAllActions(speakPrefManager.gesturesSwipeBottom))
         }
     }
 
@@ -636,23 +647,31 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
-    fun showFillScreenGesturesGuide(startAnimation: Boolean = false) {
+    fun showFullScreenGesturesGuide(startAnimation: Boolean = false, gesture: String = "") {
         if (isAvailableGesture("longPress") || isAvailableGesture("doubleTap")) {
-            binding.fillScreenViewSpeak.isGone = false
+            val action = if (gesture == "long-press") {
+                speakPrefManager.gesturesLongPress
+            } else {
+                speakPrefManager.gesturesDoubleTap
+            }
+            binding.imageFullScreenViewSpeak.setImageResource(imageAllActions(action))
+            binding.imageFullScreenViewSpeak.isGone = false
+            binding.fullScreenViewSpeak.isGone = false
             if (startAnimation) {
                 Handler().postDelayed(
                     {
-                        binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide2)
+                        binding.fullScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide2)
                         Handler().postDelayed({
                             Handler().postDelayed({
-                                binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide3)
+                                binding.fullScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide3)
                                 Handler().postDelayed({
-                                    binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide4)
+                                    binding.fullScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide4)
                                     Handler().postDelayed({
-                                        binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide5)
+                                        binding.fullScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide5)
                                         Handler().postDelayed({
-                                            binding.fillScreenViewSpeak.isGone = true
-                                            binding.fillScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide1)
+                                            binding.fullScreenViewSpeak.isGone = true
+                                            binding.fullScreenViewSpeak.setBackgroundResource(R.color.colorGesturesGuide1)
+                                            binding.imageFullScreenViewSpeak.isGone = true
                                         }, 50)
                                     }, 50)
                                 }, 50)
@@ -666,6 +685,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     fun longPressFunction() {
         allActions(speakPrefManager.gesturesLongPress)
+        binding.imageFullScreenViewSpeak.isGone = true
     }
 
     fun doubleTapFunction() {
@@ -677,6 +697,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageBottomSideViewSpeak.isGone = true
     }
 
     fun swipeBottom() {
@@ -684,6 +705,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageTopSideViewSpeak.isGone = true
     }
 
     fun swipeRight() {
@@ -691,6 +713,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageLeftSideViewSpeak.isGone = true
     }
 
     fun swipeLeft() {
@@ -698,6 +721,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageRightSideViewSpeak.isGone = true
     }
 
     fun allActions(action: String) {
@@ -750,6 +774,41 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             }
             else -> {
                 //nothing
+            }
+        }
+    }
+
+    fun imageAllActions(action: String): Int {
+        return when (action) {
+            "back" -> {
+                R.drawable.ic_back_dark
+            }
+            "report" -> {
+                R.drawable.ic_report
+            }
+            "skip" -> {
+                R.drawable.ic_skip
+            }
+            "info" -> {
+                R.drawable.ic_info_light
+            }
+            "animations" -> {
+                R.drawable.ic_animations_white
+            }
+            "speed-control" -> {
+                R.drawable.ic_speed_control_white
+            }
+            "save-recordings" -> {
+                R.drawable.ic_save_white
+            }
+            "skip-confirmation" -> {
+                R.drawable.ic_skip_confirmation_white
+            }
+            "indicator-sound" -> {
+                R.drawable.ic_indicator_sound_white
+            }
+            else -> {
+                R.drawable.ic_nothing
             }
         }
     }

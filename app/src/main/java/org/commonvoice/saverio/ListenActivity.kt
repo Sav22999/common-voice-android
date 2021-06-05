@@ -35,7 +35,6 @@ import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
-import org.commonvoice.saverio.ui.dialogs.specificDialogs.SpeakListenStandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
@@ -410,7 +409,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             override fun onLongPress() {
                 if (isAvailableGesture("longPress")) {
                     longPressEnabled = true
-                    showFillScreenGesturesGuide()
+                    showFullScreenGesturesGuide(gesture = "long-press")
                 }
             }
 
@@ -421,6 +420,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
                     scrollingToBefore = scrollTo
                     if (scrollingStatus >= 0) {
+                        binding.imageTopSideViewListen.isGone = true
+                        binding.imageBottomSideViewListen.isGone = true
+                        binding.imageRightSideViewListen.isGone = true
+                        binding.imageLeftSideViewListen.isGone = true
+
                         if (scrollingStatus >= 0 && scrollingStatus <= enableGestureAt) {
                             showGesturesGuide(scrollTo, widthOrHeight)
                         }
@@ -438,7 +442,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
             override fun onDoubleTap() {
                 if (isAvailableGesture("doubleTap")) {
-                    showFillScreenGesturesGuide(startAnimation = true)
+                    showFullScreenGesturesGuide(startAnimation = true)
                     doubleTapFunction()
                 }
             }
@@ -466,7 +470,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     if (longPressEnabled && isAvailableGesture("longPress")) {
                         //longPress
                         longPressEnabled = false
-                        showFillScreenGesturesGuide(startAnimation = true)
+                        showFullScreenGesturesGuide(startAnimation = true)
                         longPressFunction()
                     }
                 }
@@ -516,12 +520,20 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     fun showLeaveToEnable(scrollTo: String) {
         if (scrollTo == "r" && isAvailableGesture("swipeRight")) {
             binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageLeftSideViewListen.isGone = false
+            binding.imageLeftSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeRight))
         } else if (scrollTo == "l" && isAvailableGesture("swipeLeft")) {
             binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageRightSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeLeft))
+            binding.imageRightSideViewListen.isGone = false
         } else if (scrollTo == "u" && isAvailableGesture("swipeTop")) {
             binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageBottomSideViewListen.isGone = false
+            binding.imageBottomSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeTop))
         } else if (scrollTo == "d" && isAvailableGesture("swipeBottom")) {
             binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageTopSideViewListen.isGone = false
+            binding.imageTopSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeBottom))
         }
     }
 
@@ -556,23 +568,30 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
     }
 
-    fun showFillScreenGesturesGuide(startAnimation: Boolean = false) {
+    fun showFullScreenGesturesGuide(startAnimation: Boolean = false, gesture: String = "") {
         if (isAvailableGesture("longPress") || isAvailableGesture("doubleTap")) {
-            binding.fillScreenViewListen.isGone = false
+            val action = if (gesture == "long-press") {
+                listenPrefManager.gesturesLongPress
+            } else {
+                listenPrefManager.gesturesDoubleTap
+            }
+            binding.imageFullScreenViewListen.setImageResource(imageAllActions(action))
+            binding.fullScreenViewListen.isGone = false
             if (startAnimation) {
                 Handler().postDelayed(
                     {
-                        binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide2)
+                        binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide2)
                         Handler().postDelayed({
                             Handler().postDelayed({
-                                binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide3)
+                                binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide3)
                                 Handler().postDelayed({
-                                    binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide4)
+                                    binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide4)
                                     Handler().postDelayed({
-                                        binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide5)
+                                        binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide5)
                                         Handler().postDelayed({
-                                            binding.fillScreenViewListen.isGone = true
-                                            binding.fillScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide1)
+                                            binding.fullScreenViewListen.isGone = true
+                                            binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide1)
+                                            binding.imageFullScreenViewListen.isGone = true
                                         }, 50)
                                     }, 50)
                                 }, 50)
@@ -586,6 +605,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     fun longPressFunction() {
         allActions(listenPrefManager.gesturesLongPress)
+        binding.imageFullScreenViewListen.isGone = true
     }
 
     fun doubleTapFunction() {
@@ -597,6 +617,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageBottomSideViewListen.isGone = true
     }
 
     fun swipeBottom() {
@@ -604,6 +625,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageTopSideViewListen.isGone = true
     }
 
     fun swipeRight() {
@@ -611,6 +633,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageLeftSideViewListen.isGone = true
     }
 
     fun swipeLeft() {
@@ -618,6 +641,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         Handler().postDelayed({
             hideGesturesGuide()
         }, 100)
+        binding.imageRightSideViewListen.isGone = true
     }
 
     fun allActions(action: String) {
@@ -668,6 +692,41 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             }
             else -> {
                 //nothing
+            }
+        }
+    }
+
+    fun imageAllActions(action: String): Int {
+        return when (action) {
+            "back" -> {
+                R.drawable.ic_back_dark
+            }
+            "report" -> {
+                R.drawable.ic_report
+            }
+            "skip" -> {
+                R.drawable.ic_skip
+            }
+            "info" -> {
+                R.drawable.ic_info_light
+            }
+            "animations" -> {
+                R.drawable.ic_animations_white
+            }
+            "speed-control" -> {
+                R.drawable.ic_speed_control_white
+            }
+            "auto-play" -> {
+                R.drawable.ic_auto_play_white
+            }
+            "validate-yes" -> {
+                R.drawable.yes_thumb_cv2
+            }
+            "validate-no" -> {
+                R.drawable.no_thumb_cv2
+            }
+            else -> {
+                R.drawable.ic_nothing
             }
         }
     }

@@ -504,6 +504,18 @@
 
         </FrameLayout>
 
+        <ImageView
+            android:id="@+id/imageLeftSideViewSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="6dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_nothing" />
+
         <View
             android:id="@+id/leftSideViewSpeak"
             android:layout_width="5dp"
@@ -514,6 +526,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageRightSideViewSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="6dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_nothing" />
 
         <View
             android:id="@+id/rightSideViewSpeak"
@@ -526,6 +550,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/imageTopSideViewSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="6dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_nothing" />
+
         <View
             android:id="@+id/topSideViewSpeak"
             android:layout_width="0dp"
@@ -536,6 +572,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageBottomSideViewSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="6dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_nothing" />
 
         <View
             android:id="@+id/bottomSideViewSpeak"
@@ -548,8 +596,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <ImageView
+            android:id="@+id/imageFullScreenViewSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:elevation="11dp"
+            android:padding="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_nothing" />
+
         <View
-            android:id="@+id/fillScreenViewSpeak"
+            android:id="@+id/fullScreenViewSpeak"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/colorGesturesGuide"

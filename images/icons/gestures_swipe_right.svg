@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="91.857189"
-     inkscape:cy="107.9548"
+     inkscape:zoom="1.979899"
+     inkscape:cx="162.63817"
+     inkscape:cy="58.683156"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -54,7 +54,7 @@
      transform="translate(-68.442017,-28.351593)">
     <g
        id="g840"
-       transform="rotate(-90,97.823886,59.065834)">
+       transform="rotate(-90,106.29901,50.590705)">
       <path
          fill="context-fill"
          d="m 86.755602,61.359243 9.99997,9.999995 a 2.4999973,2.4999973 0 0 0 0.817314,0.542456 2.4599974,2.4599974 0 0 0 0.615118,0.125008 2.3449974,2.3449974 0 0 0 0.334488,0.06709 2.3449974,2.3449974 0 0 0 0.335436,-0.06709 2.4599974,2.4599974 0 0 0 0.615118,-0.125008 2.4999973,2.4999973 0 0 0 0.822044,-0.55748 l 10.00006,-9.999985 a 2.4999973,2.4999973 0 0 0 -3.54,-3.520003 l -5.7325,5.732498 V 44.594243 a 2.500016,2.500016 0 0 0 -5.000028,0 v 18.962481 l -5.7325,-5.732498 a 2.4999973,2.4999973 0 0 0 -3.53499,3.534997 z"
@@ -62,9 +62,10 @@
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
          fill="context-fill"
-         d="m 83.490052,68.843241 a 2.4999973,2.4999973 0 0 1 2.50005,2.49999 v 7.5 a 2.4999973,2.4999973 0 0 0 2.49997,2.5 h 20.000008 a 2.4999973,2.4999973 0 0 0 2.49996,-2.5 v -7.5 a 2.500015,2.500015 0 0 1 5.00003,0 v 7.5 a 7.4999918,7.4999918 0 0 1 -7.49999,7.49998 H 88.490072 a 7.4999918,7.4999918 0 0 1 -7.5,-7.49998 v -7.5 a 2.4999973,2.4999973 0 0 1 2.49998,-2.49999 z"
+         d="m 83.490052,13.46973 30.016158,2.3e-5 c 1.2446,0.0072 2.48386,0.840473 2.48386,2.499967 v 7.5 c -1e-5,4.142126 -3.35786,7.499979 -7.49999,7.49998 H 88.490072 c -4.14213,5e-6 -7.499993,-3.35785 -7.5,-7.49998 v -7.5 c 4e-6,-1.380701 1.119279,-2.49998 2.49998,-2.49999 z"
          id="path4"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:nodetypes="ccscscccc" />
       <circle
          style="fill:#000000;fill-opacity:1;stroke-width:0.0505733;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
          id="path835"
