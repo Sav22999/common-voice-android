@@ -778,19 +778,19 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
-    fun imageAllActions(action: String): Int {
+    private fun imageAllActions(action: String): Int {
         return when (action) {
             "back" -> {
-                R.drawable.ic_back_dark
+                R.drawable.ic_back_gestures
             }
             "report" -> {
-                R.drawable.ic_report
+                R.drawable.ic_report_gestures
             }
             "skip" -> {
                 R.drawable.ic_skip
             }
             "info" -> {
-                R.drawable.ic_info_light
+                R.drawable.ic_info_gestures
             }
             "animations" -> {
                 R.drawable.ic_animations_white
