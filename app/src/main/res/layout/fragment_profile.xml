@@ -258,12 +258,10 @@
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/title_small"
             android:textStyle="bold"
-            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageProfileImage"
-            tools:text="Level 1"
-            tools:visibility="visible" />
+            tools:text="Level 1" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/loginSectionLogout"

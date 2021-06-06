@@ -86,7 +86,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private var enableGestureAt = 50
 
     private var dailyGoalAchievedAndNotShown = false
-    private lateinit var dailyGoalAchievedAndNotShownIt: DailyGoal
+    private var dailyGoalAchievedAndNotShownIt: DailyGoal? = null
+    private var noAutoPlayForced: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -278,9 +279,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private fun showDailyGoalAchievedMessage() {
         if (dailyGoalAchievedAndNotShownIt != null) {
+            dialogInflater.show(
+                this,
+                DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt!!)
+            )
+            //stopAndRefresh()
+            noAutoPlayForced = true
             dailyGoalAchievedAndNotShown = false
-            stopAndRefresh()
-            dialogInflater.show(this, DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt))
         }
     }
 
@@ -440,7 +445,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     scrollingStatus = 1
                     scrollingToBefore = scrollTo
                     if (scrollTo == "d" && verticalScrollStatus == 1 || scrollTo == "u" && verticalScrollStatus == 1) {
-                        //reset scrolling //TODO
+                        //reset scrolling
                         scrollingStatusBefore = widthOrHeight
                     }
                 }
@@ -917,7 +922,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             buttonStartStopListen.isEnabled = false
             if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
                 hideImage(imageReportIconListen)
-            } else {
+            } else if (!settingsPrefManager.showReportIcon) {
                 buttonReportListen.isGone = true
             }
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
@@ -1003,7 +1008,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             buttonStartStopListen.isEnabled = false
             if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
                 hideImage(imageReportIconListen)
-            } else {
+            } else if (!settingsPrefManager.showReportIcon) {
                 buttonReportListen.isGone = true
             }
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
@@ -1070,7 +1075,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (settingsPrefManager.showReportIcon && imageReportIconListen.isGone) {
             showImage(imageReportIconListen)
-        } else {
+        } else if (!settingsPrefManager.showReportIcon) {
             buttonReportListen.isGone = false
         }
         if (settingsPrefManager.showInfoIcon && imageInfoListen.isGone) {
@@ -1091,10 +1096,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
 
         if (!listenViewModel.startedOnce) {
-            if (listenViewModel.autoPlay() && !noAutoPlay && !(!settingsPrefManager.isOfflineMode && !connectionManager.isInternetAvailable)) {
+            if (listenViewModel.autoPlay() && !noAutoPlayForced && !noAutoPlay && !(!settingsPrefManager.isOfflineMode && !connectionManager.isInternetAvailable)) {
                 listenViewModel.startListening()
             }
         }
+        noAutoPlayForced = false
 
         buttonReportListen.onClick {
             openReportDialog()
@@ -1259,7 +1265,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         setTextSentenceListen(this@ListenActivity)
         if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
             hideImage(imageReportIconListen)
-        } else {
+        } else if (!settingsPrefManager.showReportIcon) {
             buttonReportListen.isGone = true
         }
         if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {

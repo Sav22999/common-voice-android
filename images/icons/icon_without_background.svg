@@ -7,10 +7,10 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="12.577751"
-   width="13.985106"
+   height="26.981028"
+   width="30"
    xml:space="preserve"
-   viewBox="0 0 13.985106 12.577751"
+   viewBox="0 0 29.999999 26.981027"
    y="0px"
    x="0px"
    sodipodi:docname="icon_without_background.svg"
@@ -37,7 +37,7 @@
    showgrid="false"
    pagecolor="#ffffff"
    objecttolerance="10"
-   inkscape:zoom="44.500589"
+   inkscape:zoom="11.125147"
    inkscape:window-y="-8"
    inkscape:window-x="-8"
    inkscape:window-width="1920"
@@ -46,9 +46,9 @@
    inkscape:pageshadow="2"
    inkscape:pageopacity="0"
    inkscape:document-rotation="0"
-   inkscape:cy="8.8900956"
-   inkscape:cx="1.7778174"
-   inkscape:current-layer="cv-icon"
+   inkscape:cy="12.919049"
+   inkscape:cx="-12.528771"
+   inkscape:current-layer="svg6"
    id="namedview8"
    guidetolerance="10"
    gridtolerance="10"
@@ -78,7 +78,7 @@
    inkscape:label="Face"
    inkscape:export-ydpi="6861.6401"
    inkscape:export-xdpi="6861.6401"
-   transform="matrix(0.22340426,0,0,0.22340589,-0.15638298,-0.24574648)"
+   transform="matrix(0.47923323,0,0,0.47923672,-0.33546326,-0.52716039)"
    id="cv-icon"
    inkscape:export-filename="D:\Downloads\icon_without_background.png">
 	<path
@@ -99,7 +99,7 @@
    inkscape:label="internal face"
    inkscape:connector-curvature="0"
    id="Rectangle-Copy-4"
-   style="stroke-width:0.89523481;stroke-miterlimit:10;stroke-dasharray:none" />
+   style="stroke-width:0.895235;stroke-miterlimit:10;stroke-dasharray:none" />
 	
 		<linearGradient
    gradientTransform="matrix(0.2234,0,0,-0.2234,-631.7687,-616.0897)"

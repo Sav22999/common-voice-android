@@ -92,7 +92,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private var enableGestureAt = 50
 
     private var dailyGoalAchievedAndNotShown = false
-    private lateinit var dailyGoalAchievedAndNotShownIt: DailyGoal
+    private var dailyGoalAchievedAndNotShownIt: DailyGoal? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -292,9 +292,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
 
     private fun showDailyGoalAchievedMessage() {
         if (dailyGoalAchievedAndNotShownIt != null) {
+            //stopAndRefresh()
+            dialogInflater.show(this, DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt!!))
             dailyGoalAchievedAndNotShown = false
-            stopAndRefresh()
-            dialogInflater.show(this, DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt))
         }
     }
 
@@ -519,7 +519,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     scrollingStatus = 1
                     scrollingToBefore = scrollTo
                     if (scrollTo == "d" && verticalScrollStatus == 1 || scrollTo == "u" && verticalScrollStatus == 1) {
-                        //reset scrolling //TODO
+                        //reset scrolling
                         scrollingStatusBefore = widthOrHeight
                     }
                 }

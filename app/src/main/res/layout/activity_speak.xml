@@ -197,11 +197,12 @@
         <View
             android:id="@+id/viewSpacingSpeak"
             android:layout_width="0dp"
-            android:layout_height="10dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMessageAlertSpeak" />
+            app:layout_constraintTop_toBottomOf="@+id/textSentenceSpeak" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/speakSectionAudioBar"
