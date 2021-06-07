@@ -155,6 +155,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             statsPrefManager.lastDateOpenedTheApp = today
             if (lastDateOpenedTheApp == null) statsPrefManager.daysInARow = 1
             else statsPrefManager.daysInARow = daysInARow + 1
+            statsPrefManager.daysInARowShown = false
         }
     }
 
@@ -167,7 +168,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private fun showBuyMeACoffeeDialog() {
         val counter = statsPrefManager.buyMeACoffeeCounter
         val times = 200 //after this times it will show the message
-        if ((((counter % times) == 0 || (counter % times) == times)) && mainPrefManager.showDonationDialog) {
+        if ((((counter % times) == 0 || (counter % times) == times)) && mainPrefManager.showDonationDialog && counter > 0) {
             dialogInflater.show(this, CheckboxedStandardDialog(
                 messageRes = R.string.text_buy_me_a_coffee,
                 buttonTextRes = R.string.liberapay_name,

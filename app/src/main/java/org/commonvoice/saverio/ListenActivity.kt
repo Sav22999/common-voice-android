@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -9,6 +10,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -29,18 +31,17 @@ import org.commonvoice.saverio.databinding.ActivityListenBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.ListenReportDialogFragment
 import org.commonvoice.saverio.ui.dialogs.NoClipsSentencesAvailableDialog
-import org.commonvoice.saverio.ui.dialogs.commonTypes.InfoDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
-import org.commonvoice.saverio.ui.dialogs.specificDialogs.SpeakListenStandardDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
+import org.commonvoice.saverio_lib.dataClasses.DailyGoal
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
@@ -78,6 +79,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     var maxHeightButton2 = 120
     var minHeightButtons = 50
 
+    private var scrollingStatus = 0
+    private var scrollingStatusBefore = 0
+    private var scrollingToBefore = ""
+    private var longPressEnabled = false
+    private var enableGestureAt = 50
+
+    private var dailyGoalAchievedAndNotShown = false
+    private var dailyGoalAchievedAndNotShownIt: DailyGoal? = null
+    private var noAutoPlayForced: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -109,11 +120,15 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     dialogInflater.show(this, OfflineModeDialog(mainPrefManager))
                 }
             } else if (!settingsPrefManager.isOfflineMode) {
-                dialogInflater.show(
+                NoClipsSentencesAvailableDialog(
                     this,
-                    SpeakListenStandardDialog(messageRes = R.string.offline_mode_is_not_enabled) {
-                        onBackPressed()
-                    })
+                    isSentencesDialog = false,
+                    isOfflineModeDisabledDialog = true,
+                    0,
+                    theme
+                ).show {
+                    onBackPressed()
+                }
             } else {
                 startAnimation(binding.imageOfflineModeListen, R.anim.zoom_out_speak_listen)
                 listenViewModel.offlineModeIconVisible = false
@@ -125,7 +140,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private fun setupInitialUIState() = withBinding {
         buttonSkipListen.onClick {
-            listenViewModel.skipClip()
+            skipClip()
         }
 
         buttonYesClip.isGone = true
@@ -137,7 +152,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             lifecycleScope.launch {
                 val count = listenViewModel.getClipsCount()
                 withContext(Dispatchers.Main) {
-                    NoClipsSentencesAvailableDialog(this@ListenActivity, false, count, theme).show()
+                    NoClipsSentencesAvailableDialog(
+                        this@ListenActivity,
+                        isSentencesDialog = false,
+                        isOfflineModeDisabledDialog = false,
+                        count,
+                        theme
+                    ).show()
                 }
             }
         }
@@ -148,7 +169,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         listenViewModel.hasFinishedClips.observe(this, Observer {
             if (it && !connectionManager.isInternetAvailable) {
-                NoClipsSentencesAvailableDialog(this, false, 0, theme).show {
+                NoClipsSentencesAvailableDialog(
+                    this,
+                    isSentencesDialog = false,
+                    isOfflineModeDisabledDialog = false,
+                    0,
+                    theme
+                ).show {
                     onBackPressed()
                 }
             }
@@ -189,8 +216,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         statsPrefManager.dailyGoal.observe(this, Observer {
             if ((numberSentThisSession > 0) && it.checkDailyGoal()) {
-                stopAndRefresh()
-                dialogInflater.show(this, DailyGoalAchievedDialog(this, it))
+                //achieved
+                setDailyGoalAchievedAndNotShown(it)
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.STANDBY) showDailyGoalAchievedMessage()
             }
 
             animateProgressBar(
@@ -241,6 +269,23 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (listenPrefManager.showAdBanner) {
             AdLoader.setupListenAdView(this, binding.adContainer)
+        }
+    }
+
+    private fun setDailyGoalAchievedAndNotShown(dailyGoal: DailyGoal) {
+        dailyGoalAchievedAndNotShown = true
+        dailyGoalAchievedAndNotShownIt = dailyGoal
+    }
+
+    private fun showDailyGoalAchievedMessage() {
+        if (dailyGoalAchievedAndNotShownIt != null) {
+            dialogInflater.show(
+                this,
+                DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt!!)
+            )
+            //stopAndRefresh()
+            noAutoPlayForced = true
+            dailyGoalAchievedAndNotShown = false
         }
     }
 
@@ -344,23 +389,373 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         })
     }
 
+    /*
+    GESTURES
+    */
+
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupGestures() {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        val width = metrics.widthPixels
+        val height = metrics.heightPixels
+
+        val valueToUse = if (width < height) {
+            width
+        } else {
+            height
+        }
+
+        //set the width/height when gestures have to be enabled
+        enableGestureAt = valueToUse / mainPrefManager.gestureSwipeSize
+
         binding.nestedScrollListen.setOnTouchListener(object :
             OnSwipeTouchListener(this@ListenActivity) {
-            override fun onSwipeLeft() {
-                listenViewModel.skipClip()
-            }
 
-            override fun onSwipeRight() {
-                onBackPressed()
-            }
-
-            override fun onSwipeTop() {
-                if (verticalScrollStatus == 2) {
-                    openReportDialog()
+            override fun onLongPress() {
+                if (isAvailableGesture("longPress")) {
+                    longPressEnabled = true
+                    showFullScreenGesturesGuide(gesture = "long-press")
                 }
             }
+
+            override fun onScroll(scrollTo: String, widthOrHeight: Int) {
+                binding.imageTopSideViewListen.isGone = true
+                binding.imageBottomSideViewListen.isGone = true
+                binding.imageRightSideViewListen.isGone = true
+                binding.imageLeftSideViewListen.isGone = true
+
+                if (scrollingToBefore == scrollTo && (scrollTo == "d" && (verticalScrollStatus == 0 || verticalScrollStatus == 2) || scrollTo == "u" && verticalScrollStatus == 2 || scrollTo == "l" || scrollTo == "r")) {
+                    scrollingStatus = widthOrHeight - scrollingStatusBefore
+
+                    scrollingToBefore = scrollTo
+                    if (scrollingStatus >= 0) {
+
+                        if (scrollingStatus >= 0 && scrollingStatus <= enableGestureAt) {
+                            showGesturesGuide(scrollTo, scrollingStatus)
+                        }
+                        if (scrollingStatus >= enableGestureAt) {
+                            showGesturesGuide(scrollTo, enableGestureAt)
+                            showLeaveToEnable(scrollTo)
+                        }
+                    }
+                } else {
+                    hideGesturesGuide()
+                    scrollingStatusBefore = 0
+                    scrollingStatus = 1
+                    scrollingToBefore = scrollTo
+                    if (scrollTo == "d" && verticalScrollStatus == 1 || scrollTo == "u" && verticalScrollStatus == 1) {
+                        //reset scrolling
+                        scrollingStatusBefore = widthOrHeight
+                    }
+                }
+            }
+
+            override fun onDoubleTap() {
+                if (isAvailableGesture("doubleTap")) {
+                    showFullScreenGesturesGuide(startAnimation = true)
+                    doubleTapFunction()
+                }
+            }
+
+            override fun onTouch(v: View, event: MotionEvent): Boolean {
+                if (event.action == 1) {
+                    //ACTION_UP
+                    if (scrollingToBefore != "" && scrollingStatus > 0 && isAvailableGesture("swipeTop") || isAvailableGesture(
+                            "swipeBottom"
+                        ) || isAvailableGesture("swipeLeft") || isAvailableGesture("swipeRight")
+                    ) {
+                        Handler().postDelayed({
+                            hideGesturesGuide()
+                        }, 100)
+                        if (scrollingStatus >= enableGestureAt) {
+                            //swipe top/bottom/right/left
+                            if (scrollingToBefore == "r" && isAvailableGesture("swipeRight")) swipeRight()
+                            else if (scrollingToBefore == "l" && isAvailableGesture("swipeLeft")) swipeLeft()
+                            else if (scrollingToBefore == "u" && isAvailableGesture("swipeTop")) swipeTop()
+                            else if (scrollingToBefore == "d" && isAvailableGesture("swipeBottom")) swipeBottom()
+                        }
+                        scrollingStatus = 0
+                        scrollingToBefore = ""
+                    }
+                    if (longPressEnabled && isAvailableGesture("longPress")) {
+                        //longPress
+                        longPressEnabled = false
+                        showFullScreenGesturesGuide(startAnimation = true)
+                        longPressFunction()
+                    }
+                }
+                return super.onTouch(v, event)
+            }
         })
+    }
+
+    private fun isAvailableGesture(gesture: String): Boolean {
+        return when (gesture) {
+            "swipeRight" -> (listenPrefManager.gesturesSwipeRight != "")
+            "swipeLeft" -> (listenPrefManager.gesturesSwipeLeft != "")
+            "swipeTop" -> (listenPrefManager.gesturesSwipeTop != "")
+            "swipeBottom" -> (listenPrefManager.gesturesSwipeBottom != "")
+            "longPress" -> (listenPrefManager.gesturesLongPress != "")
+            "doubleTap" -> (listenPrefManager.gesturesDoubleTap != "")
+            else -> false
+        }
+    }
+
+    fun showGesturesGuide(scrollTo: String, widthOrHeight: Int) {
+        hideGesturesGuide(except = scrollTo)
+
+        if (scrollTo == "r" && isAvailableGesture("swipeRight")) {
+            binding.leftSideViewListen.isGone = false
+            binding.leftSideViewListen.layoutParams.width = widthOrHeight
+            binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.leftSideViewListen.requestLayout()
+        } else if (scrollTo == "l" && isAvailableGesture("swipeLeft")) {
+            binding.rightSideViewListen.isGone = false
+            binding.rightSideViewListen.layoutParams.width = widthOrHeight
+            binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.rightSideViewListen.requestLayout()
+        } else if (scrollTo == "u" && isAvailableGesture("swipeTop")) {
+            binding.bottomSideViewListen.isGone = false
+            binding.bottomSideViewListen.layoutParams.height = widthOrHeight
+            binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.bottomSideViewListen.requestLayout()
+        } else if (scrollTo == "d" && isAvailableGesture("swipeBottom")) {
+            binding.topSideViewListen.isGone = false
+            binding.topSideViewListen.layoutParams.height = widthOrHeight
+            binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+            binding.topSideViewListen.requestLayout()
+        }
+    }
+
+    fun showLeaveToEnable(scrollTo: String) {
+        if (scrollTo == "r" && isAvailableGesture("swipeRight")) {
+            binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageLeftSideViewListen.isGone = false
+            binding.imageLeftSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeRight))
+        } else if (scrollTo == "l" && isAvailableGesture("swipeLeft")) {
+            binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageRightSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeLeft))
+            binding.imageRightSideViewListen.isGone = false
+        } else if (scrollTo == "u" && isAvailableGesture("swipeTop")) {
+            binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageBottomSideViewListen.isGone = false
+            binding.imageBottomSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeTop))
+        } else if (scrollTo == "d" && isAvailableGesture("swipeBottom")) {
+            binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuideLeaveToEnable)
+            binding.imageTopSideViewListen.isGone = false
+            binding.imageTopSideViewListen.setImageResource(imageAllActions(listenPrefManager.gesturesSwipeBottom))
+        }
+    }
+
+    fun hideGesturesGuide(except: String = "") {
+        var widthOrHeight = 0
+        try {
+            widthOrHeight = binding.progressBarListenListen.layoutParams.height
+
+            if (except != "r" && !binding.leftSideViewListen.isGone) {
+                binding.leftSideViewListen.isGone = true
+                binding.leftSideViewListen.layoutParams.width = widthOrHeight
+                binding.leftSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.leftSideViewListen.requestLayout()
+            }
+
+            if (except != "l" && !binding.rightSideViewListen.isGone) {
+                binding.rightSideViewListen.isGone = true
+                binding.rightSideViewListen.layoutParams.width = widthOrHeight
+                binding.rightSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.rightSideViewListen.requestLayout()
+            }
+
+            if (except != "u" && !binding.bottomSideViewListen.isGone) {
+                binding.bottomSideViewListen.isGone = true
+                binding.bottomSideViewListen.layoutParams.height = widthOrHeight
+                binding.bottomSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.bottomSideViewListen.requestLayout()
+            }
+
+            if (except != "d" && !binding.topSideViewListen.isGone) {
+                binding.topSideViewListen.isGone = true
+                binding.topSideViewListen.layoutParams.height = widthOrHeight
+                binding.topSideViewListen.setBackgroundResource(R.color.colorGesturesGuide)
+                binding.topSideViewListen.requestLayout()
+            }
+        } catch (e: Exception) {
+        }
+    }
+
+    fun showFullScreenGesturesGuide(startAnimation: Boolean = false, gesture: String = "") {
+        if (isAvailableGesture("longPress") || isAvailableGesture("doubleTap")) {
+            val action = if (gesture == "long-press") {
+                listenPrefManager.gesturesLongPress
+            } else {
+                listenPrefManager.gesturesDoubleTap
+            }
+            binding.imageFullScreenViewListen.setImageResource(imageAllActions(action))
+            binding.fullScreenViewListen.isGone = false
+            if (startAnimation) {
+                Handler().postDelayed(
+                    {
+                        binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide2)
+                        Handler().postDelayed({
+                            Handler().postDelayed({
+                                binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide3)
+                                Handler().postDelayed({
+                                    binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide4)
+                                    Handler().postDelayed({
+                                        binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide5)
+                                        Handler().postDelayed({
+                                            binding.fullScreenViewListen.isGone = true
+                                            binding.fullScreenViewListen.setBackgroundResource(R.color.colorGesturesGuide1)
+                                            binding.imageFullScreenViewListen.isGone = true
+                                        }, 50)
+                                    }, 50)
+                                }, 50)
+                            }, 50)
+                        }, 50)
+                    }, 50
+                )
+            }
+        }
+    }
+
+    fun longPressFunction() {
+        allActions(listenPrefManager.gesturesLongPress)
+        binding.imageFullScreenViewListen.isGone = true
+    }
+
+    fun doubleTapFunction() {
+        allActions(listenPrefManager.gesturesDoubleTap)
+    }
+
+    fun swipeTop() {
+        allActions(listenPrefManager.gesturesSwipeTop)
+        Handler().postDelayed({
+            hideGesturesGuide()
+            binding.imageBottomSideViewListen.isGone = true
+        }, 100)
+    }
+
+    fun swipeBottom() {
+        allActions(listenPrefManager.gesturesSwipeBottom)
+        Handler().postDelayed({
+            hideGesturesGuide()
+            binding.imageTopSideViewListen.isGone = true
+        }, 100)
+    }
+
+    fun swipeRight() {
+        allActions(listenPrefManager.gesturesSwipeRight)
+        Handler().postDelayed({
+            hideGesturesGuide()
+            binding.imageLeftSideViewListen.isGone = true
+        }, 100)
+    }
+
+    fun swipeLeft() {
+        allActions(listenPrefManager.gesturesSwipeLeft)
+        Handler().postDelayed({
+            hideGesturesGuide()
+            binding.imageRightSideViewListen.isGone = true
+        }, 100)
+    }
+
+    fun allActions(action: String) {
+        when (action) {
+            "back" -> {
+                onBackPressed()
+            }
+            "report" -> {
+                openReportDialog()
+            }
+            "skip" -> {
+                skipClip()
+            }
+            "info" -> {
+                showInformationAboutClip()
+            }
+            "animations" -> {
+                mainPrefManager.areAnimationsEnabled = !mainPrefManager.areAnimationsEnabled
+            }
+            "speed-control" -> {
+                listenPrefManager.showSpeedControl = !listenPrefManager.showSpeedControl
+                if (listenPrefManager.showSpeedControl) {
+                    binding.listenSectionSpeedButtons.isGone = false
+
+                    setSpeedControlButtons(listenPrefManager.audioSpeed, setup = true)
+                    binding.buttonSpeed10Listen.setOnClickListener {
+                        setSpeedControlButtons(1F)
+                    }
+                    binding.buttonSpeed15Listen.setOnClickListener {
+                        setSpeedControlButtons(1.5F)
+                    }
+                    binding.buttonSpeed20Listen.setOnClickListener {
+                        setSpeedControlButtons(2F)
+                    }
+                } else {
+                    listenPrefManager.audioSpeed = 1F
+                    binding.listenSectionSpeedButtons.isGone = true
+                }
+            }
+            "auto-play" -> {
+                listenPrefManager.isAutoPlayClipEnabled = !listenPrefManager.isAutoPlayClipEnabled
+            }
+            "validate-yes" -> {
+                validateYes()
+            }
+            "validate-no" -> {
+                validateNo()
+            }
+            else -> {
+                //nothing
+            }
+        }
+    }
+
+    private fun imageAllActions(action: String): Int {
+        return when (action) {
+            "back" -> {
+                R.drawable.ic_back_gestures
+            }
+            "report" -> {
+                R.drawable.ic_report_gestures
+            }
+            "skip" -> {
+                R.drawable.ic_skip
+            }
+            "info" -> {
+                R.drawable.ic_info_gestures
+            }
+            "animations" -> {
+                R.drawable.ic_animations_white
+            }
+            "speed-control" -> {
+                R.drawable.ic_speed_control_white
+            }
+            "auto-play" -> {
+                R.drawable.ic_auto_play_white
+            }
+            "validate-yes" -> {
+                R.drawable.ic_yes_thumb2
+            }
+            "validate-no" -> {
+                R.drawable.ic_no_thumb2
+            }
+            else -> {
+                R.drawable.ic_nothing
+            }
+        }
+    }
+
+    /*
+    END | GESTURES
+    */
+
+    private fun skipClip() {
+        listenViewModel.skipClip()
+        if (dailyGoalAchievedAndNotShown) {
+            showDailyGoalAchievedMessage()
+        }
     }
 
     private fun animateProgressBar(
@@ -525,14 +920,22 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             resizeSentence()
             textMessageAlertListen.setText(R.string.txt_loading_sentence)
             buttonStartStopListen.isEnabled = false
-            if (settingsPrefManager.showReportIcon) {
+            if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
                 hideImage(imageReportIconListen)
-            } else {
+            } else if (!settingsPrefManager.showReportIcon) {
                 buttonReportListen.isGone = true
             }
-            if (settingsPrefManager.showInfoIcon) {
+            if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
+            if (!buttonYesClip.isGone) {
+                hideButton(buttonYesClip)
+            }
+            if (!buttonNoClip.isGone) {
+                hideButton(buttonNoClip)
+            }
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            hideListenAnimateButtons()
 
             val motivationSentences = arrayOf(
                 resources.getQuantityString(
@@ -557,7 +960,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 )
             )
 
-            if (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500) {
+            if (textMotivationalSentencesListen.isGone && (numberSentThisSession == 5 || numberSentThisSession == 20 || numberSentThisSession == 40 || numberSentThisSession == 80 || numberSentThisSession == 120 || numberSentThisSession == 200 || numberSentThisSession == 300 || numberSentThisSession == 500)) {
                 textMotivationalSentencesListen.isGone = false
                 textMotivationalSentencesListen.text =
                     motivationSentences[(motivationSentences.indices).random()]
@@ -603,14 +1006,22 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             resizeSentence()
             textMessageAlertListen.setText(R.string.txt_common_voice_clips_finished)
             buttonStartStopListen.isEnabled = false
-            if (settingsPrefManager.showReportIcon) {
+            if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
                 hideImage(imageReportIconListen)
-            } else {
+            } else if (!settingsPrefManager.showReportIcon) {
                 buttonReportListen.isGone = true
             }
-            if (settingsPrefManager.showInfoIcon) {
+            if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
+            if (!buttonYesClip.isGone) {
+                hideButton(buttonYesClip)
+            }
+            if (!buttonNoClip.isGone) {
+                hideButton(buttonNoClip)
+            }
+            buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            hideListenAnimateButtons()
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         if (!listenViewModel.opened) {
@@ -662,12 +1073,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         resizeSentence()
 
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && imageReportIconListen.isGone) {
             showImage(imageReportIconListen)
-        } else {
+        } else if (!settingsPrefManager.showReportIcon) {
             buttonReportListen.isGone = false
         }
-        if (settingsPrefManager.showInfoIcon) {
+        if (settingsPrefManager.showInfoIcon && imageInfoListen.isGone) {
             showImage(imageInfoListen)
         }
 
@@ -685,10 +1096,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
 
         if (!listenViewModel.startedOnce) {
-            if (listenViewModel.autoPlay() && !noAutoPlay && !(!settingsPrefManager.isOfflineMode && !connectionManager.isInternetAvailable)) {
+            if (listenViewModel.autoPlay() && !noAutoPlayForced && !noAutoPlay && !(!settingsPrefManager.isOfflineMode && !connectionManager.isInternetAvailable)) {
                 listenViewModel.startListening()
             }
         }
+        noAutoPlayForced = false
 
         buttonReportListen.onClick {
             openReportDialog()
@@ -766,9 +1178,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
         if (!listenViewModel.startedOnce) {
             Handler().postDelayed({
-                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
-                    buttonNoClip
-                )
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING)
+                    showButton(buttonNoClip)
             }, 900)
         }
 
@@ -779,12 +1190,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.setBackgroundResource(R.drawable.stop_cv)
 
         buttonNoClip.onClick {
-            listenViewModel.validate(result = false)
-            numberSentThisSession++
-            hideButtons()
-            if (numberSentThisSession % refreshAdsAfterListen == 0) {
-                refreshAds()
-            }
+            validateNo()
         }
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
@@ -808,12 +1214,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
 
         buttonYesClip.onClick {
-            hideButtons()
-            listenViewModel.validate(result = true)
-            numberSentThisSession++
-            if (numberSentThisSession % refreshAdsAfterListen == 0) {
-                refreshAds()
-            }
+            validateYes()
         }
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
@@ -828,16 +1229,47 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
     }
 
+    private fun validateYes() {
+        if (!binding.buttonYesClip.isGone) {
+            hideButtons()
+            listenViewModel.validate(result = true)
+            numberSentThisSession++
+            if (numberSentThisSession % refreshAdsAfterListen == 0) {
+                refreshAds()
+            }
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
+            }
+        }
+    }
+
+    private fun validateNo() {
+        if (!binding.buttonNoClip.isGone) {
+            hideButtons()
+            listenViewModel.validate(result = false)
+            numberSentThisSession++
+            if (numberSentThisSession % refreshAdsAfterListen == 0) {
+                refreshAds()
+            }
+            if (dailyGoalAchievedAndNotShown) {
+                showDailyGoalAchievedMessage()
+            }
+        }
+    }
+
     override fun onBackPressed() = withBinding {
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
         textSentenceListen.text = "···"
         resizeSentence()
         setTextSentenceListen(this@ListenActivity)
-        if (settingsPrefManager.showReportIcon) {
+        if (settingsPrefManager.showReportIcon && !imageReportIconListen.isGone) {
             hideImage(imageReportIconListen)
-        } else {
+        } else if (!settingsPrefManager.showReportIcon) {
             buttonReportListen.isGone = true
+        }
+        if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
+            hideImage(imageInfoListen)
         }
         buttonStartStopListen.isEnabled = false
         buttonSkipListen.isEnabled = false

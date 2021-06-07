@@ -59,6 +59,10 @@ class StatsPrefManager(ctx: Context) {
         get() = preferences.getInt(Keys.DAYS_IN_A_ROW.name, 0)
         set(value) = preferences.edit().putInt(Keys.DAYS_IN_A_ROW.name, value).apply()
 
+    var daysInARowShown: Boolean
+        get() = preferences.getBoolean(Keys.DAYS_IN_A_ROW_SHOWN.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.DAYS_IN_A_ROW_SHOWN.name, value).apply()
+
     var lastDateOpenedTheApp: String?
         get() = preferences.getString(Keys.LAST_DATE_OPENED_THE_APP.name, null)
         set(value) = preferences.edit().putString(Keys.LAST_DATE_OPENED_THE_APP.name, value).apply()
@@ -151,6 +155,7 @@ class StatsPrefManager(ctx: Context) {
         BUY_ME_COFFEE_COUNTER,
         CHECK_ADS_DISABLED_GPS,
         DAYS_IN_A_ROW,
+        DAYS_IN_A_ROW_SHOWN,
         LAST_DATE_OPENED_THE_APP,
 
         TODAY_CONTRIBUTING_DATE,

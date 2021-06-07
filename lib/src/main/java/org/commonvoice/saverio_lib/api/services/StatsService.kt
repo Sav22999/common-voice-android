@@ -43,7 +43,7 @@ interface StatsService {
         @Query("end_date") end_date: String?
     ): Response<ResponseAppUsage>
 
-    @GET("v2/messages/get")
+    @GET("v2/messages/get/")
     suspend fun getNewMessages(): Response<Map<String, Message>>
 
 }

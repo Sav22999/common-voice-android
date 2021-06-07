@@ -97,10 +97,6 @@ De främsta deltagarna</string>
     <string name="toast_log_on_file_on" comment="Message text">Spara loggar till en fil påslagen.\nDu kan bifoga filen log.txt när du rapporterar ett problem.\nLäs mer på GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Allmän statistik</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Visa strängen som identifierar mig inuti appen</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Användningsstatistik</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Hoppa över inspelningsbekräftelse</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Hoppa över bekräftelsen på inspelningen aktiverad.\nDu kommer nu att kunna skicka inspelningar utan att behöva lyssna på dem först.</string>
@@ -136,8 +132,33 @@ De främsta deltagarna</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Visa fält för hastighetskontroll</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Visa info-ikon</string>
-    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
-    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Välj antal meningar och antal klipp att ladda ner och använda när appen är i offlineläge.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Det tar vanligtvis en användare ca 13 minuter att validera 50 klipp och 26 minuter att spela in 50 meningar.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Svep uppåt</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Svep nedåt</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Svep åt vänster</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Svep åt höger</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Långtryck</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Dubbelklick</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Svep uppåt: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Svep nedåt: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Svep åt vänster: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Svep åt höger: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Långtryck: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Dubbeltryck: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Inget</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Gå tillbaka</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Hoppa över klippet</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Hoppa över meningen</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Acceptera klippet (markera som korrekt)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Avvisa klippet (markera som felaktigt)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Rapportera klippet</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Rapportera meningen</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Visa information om klippet</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Visa information om meningen</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Spara</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Välj en åtgärd</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
@@ -287,6 +308,7 @@ De främsta deltagarna</string>
     <string name="text_open_settings_now">Öppna inställningar</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Är du säker på att du vill gå tillbaka och förlora inspelningen?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Är du säker på att du vill hoppa över och förlora inspelningen?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Är du säker på att du vill fortsätta och förlora inspelningen?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Är du säker på att du vill återställa all appdata?</string>
     <string name="button_yes_sure" comment="Button">Ja</string>
     <string name="button_cancel" comment="Button">Avbryt</string>
@@ -298,7 +320,6 @@ De främsta deltagarna</string>
         <item quantity="one">Jag har öppnat appen CV Project %d dag i rad! Ladda ner den du också för att bidra till projektet Common Voice via din smartphone.</item>
         <item quantity="other">Jag har öppnat appen CV Project %d dagar i rad! Ladda ner den du också för att bidra till projektet Common Voice via din smartphone.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Logga in nu</string>
     <string name="button_translate_on_crowdin" comment="Button">Översätt nu</string>
     <!-- Daily goal -->

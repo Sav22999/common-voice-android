@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">ლოგის შენახვა ჩართულია.\nშეგიძლიათ log.txt ფაილის გამოგზავნა შეცდომის შეტყობინების დროს.\nგაიგეთ მეტი GitHub-ზე.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">ზოგადი სტატისტიკა</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">მაჩვენეთ ჩემი საიდენტიფიკაციო კოდი</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">აპის გამოყენების სტატისტიკა</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">ჩანაწერის დამოწმების გამოტოვება</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">ჩანაწერის დამოწმების გამოტოვება ჩართულია.\nახლა, შეგიძლიათ გააგზავნოთ ჩანაწერები მათი მოსმენის გარეშე.</string>
@@ -136,6 +132,31 @@
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ინფოს ხატულის ჩვენება</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">მიუთითეთ რამდენი წინადადება და ჩანაწერი გადმოიწეროს, რომლებსაც გამოიყენებთ როცა ინტერნეტი არ გექნებათ.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">საშუალოდ, 50 ჩანაწერის შემოწმებისთვის 13 წუთი და 50 წინადადების ჩაწერისთვის 26 წუთია საკმარისი.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">ამოუსვით</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">ჩამოუსვით</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">მარცხნივ გაუსვით</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">მარჯვნივ გაუსვით</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">დიდხანს დაჭერა</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">ორმაგი კაკუნი</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">ამოსმა: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">ჩამოსმა: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">მარცხნივ გამოსმა: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">მარჯვნივ გამოსმა: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">დიდხანს დაჭერა: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">ორმაგი კაკუნი: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">არაფერი</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">უკან</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">კლიპის გამოტოვება</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">წინადადების გამოტოვება</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">კლიპის დამოწმება (მონიშნეთ, როგორც სწორი)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">კლიპის დაწუნება (მონიშნეთ, როგორც არასწორი)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">„{{feature}}“ ჩართვა/გამორთვა</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">კლიპის შეტყობინება</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">წინადადების შეტყობინება</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">კლიპის შესახებ ინფორმაციის ჩვენება</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">წინადადების შესახებ ინფორმაციის ჩვენება</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">შენახვა</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">მოქმედების არჩევა</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
@@ -285,6 +306,7 @@
     <string name="text_open_settings_now">პარამეტრების გახსნა</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">დარწმუნებული ხართ, რომ გინდათ გაბრუნდეთ და დაკარგოთ ჩანაწერი?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">დარწმუნებული ხართ, რომ გინდათ გამოტოვოთ და დაკარგოთ ჩანაწერი?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">დარწმუნებული ხართ, რომ გინდათ გააგრძელოთ და დაკარგოთ ჩანაწერი?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">დარწმუნებული ხართ, რომ გინდათ აპის მონაცემები საწყის პარამეტრებზე დააყენოთ?</string>
     <string name="button_yes_sure" comment="Button">დიახ</string>
     <string name="button_cancel" comment="Button">გაუქმება</string>
@@ -296,7 +318,6 @@
         <item quantity="one">CV Project აპლიკაცია ზედიზედ %d დღე გამოვიყენე! თქვენც გადმოწერეთ, რომ შეიტანოთ თქვენი წვლილი Common Voice-ის პროექტში.</item>
         <item quantity="other">CV Project აპლიკაცია ზედიზედ %d დღე გამოვიყენე! თქვენც გადმოწერეთ, რომ შეიტანოთ თქვენი წვლილი Common Voice-ის პროექტში.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">შესვლა</string>
     <string name="button_translate_on_crowdin" comment="Button">თარგმნეთ</string>
     <!-- Daily goal -->

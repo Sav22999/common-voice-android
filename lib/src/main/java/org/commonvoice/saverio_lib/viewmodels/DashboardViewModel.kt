@@ -45,7 +45,7 @@ class DashboardViewModel(
     var lastStatsUpdate: Long = 0
 
     fun updateStats(force: Boolean = false) = viewModelScope.launch(Dispatchers.IO) {
-        if ((System.currentTimeMillis() - lastStatsUpdate >= 30000 && connectionManager.isInternetAvailable) || force){
+        if ((System.currentTimeMillis() - lastStatsUpdate >= 30000 && connectionManager.isInternetAvailable) || force) {
             lastStatsUpdate = System.currentTimeMillis()
 
             val dailyVotes = async {
@@ -72,16 +72,18 @@ class DashboardViewModel(
                 statsRepository.getStats()
             }
 
-            _stats.postValue(Stats(
-                dailyVotes.await(),
-                dailyClips.await(),
-                everCount.await().total,
-                everCount.await().valid,
-                statsPrefManager.todayValidated,
-                statsPrefManager.todayRecorded,
-                userClient.await()?.votes_count,
-                userClient.await()?.clips_count
-            ))
+            _stats.postValue(
+                Stats(
+                    dailyVotes.await(),
+                    dailyClips.await(),
+                    everCount.await().total,
+                    everCount.await().valid,
+                    statsPrefManager.todayValidated,
+                    statsPrefManager.todayRecorded,
+                    userClient.await()?.votes_count,
+                    userClient.await()?.clips_count
+                )
+            )
 
             cvStatsRepository.getHourlyVoices().body()?.let {
                 it.takeLast(2).let {
@@ -93,10 +95,12 @@ class DashboardViewModel(
                 }
             }
 
-            _contributors.postValue(Contributors(
-                topContributorsSpeak.await(),
-                topContributorsListen.await()
-            ))
+            _contributors.postValue(
+                Contributors(
+                    topContributorsSpeak.await(),
+                    topContributorsListen.await()
+                )
+            )
 
             _usage.postValue(appUsage.await().let { usage ->
                 AppUsage(

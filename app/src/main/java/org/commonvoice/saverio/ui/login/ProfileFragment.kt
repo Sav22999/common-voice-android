@@ -91,6 +91,7 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
         binding.textProfileAge.setText("···")
         binding.textProfileGender.setText("···")
         binding.textProfileUsername.setText("···")
+        binding.textLevel.setText("···")
         binding.btnBadges.isEnabled = false
 
         loginViewModel.getUserClient().observe(this, {
@@ -111,6 +112,11 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
                     statsPrefManager.allTimeValidated = it.votes_count
                     statsPrefManager.allTimeRecorded = it.clips_count
                     statsPrefManager.allTimeLevel = it.votes_count + it.clips_count
+
+                    binding.textLevel.text = getString(R.string.txt_your_level).replace(
+                        "{{level}}",
+                        getLevel(statsPrefManager.allTimeLevel)
+                    )
 
                     statsPrefManager.localLevel = 0
                     statsPrefManager.localRecorded = 0
@@ -186,7 +192,27 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
         theme.setElement(requireContext(), labelProfileEmail)
         theme.setElement(requireContext(), labelProfileAge)
         theme.setElement(requireContext(), labelProfileGender)
-        theme.setTextView(requireContext(), textLevel, border = false)
+        theme.setTextView(requireContext(), textLevel, border = false, textSize = 30F)
+    }
+
+    private fun getLevel(contributions: Int): String {
+        return when {
+            contributions > 4000000 -> "15"
+            contributions > 2000000 -> "14"
+            contributions > 1000000 -> "13"
+            contributions > 500000 -> "12"
+            contributions > 200000 -> "11"
+            contributions > 100000 -> "10"
+            contributions > 50000 -> "9"
+            contributions > 10000 -> "8"
+            contributions > 5000 -> "7"
+            contributions > 1000 -> "6"
+            contributions > 500 -> "5"
+            contributions > 100 -> "4"
+            contributions > 50 -> "3"
+            contributions > 10 -> "2"
+            else -> "1"
+        }
     }
 
     private fun logoutAndExit() {

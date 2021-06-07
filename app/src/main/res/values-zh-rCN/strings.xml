@@ -66,7 +66,7 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">其他</string>
     <string name="btn_badges_loggedin" comment="Button">所有徽章</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">等级 {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
+    <string name="level_up_message" comment="Message text">恭喜！您刚刚达到了等级 {{n_level}}。</string>
     <string name="btn_use_a_verification_link_login" comment="Button">我已有验证链接</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">输入验证链接的网址</string>
     <string name="txt_verification_link_not_valid" comment="Message text">此链接无效</string>
@@ -74,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">再次打开教程</string>
     <string name="txt_project_github_settings" comment="Button in Settings">GitHub 上的项目开源</string>
     <string name="txt_developed_by" comment="Label in Settings">开发者</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="toast_language_changed" comment="Message text">已成功设置语言为 {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">语言</string>
     <string name="settingsListen" comment="Title in Settings">监听</string>
     <string name="settingsSpeak" comment="Title in Settings">朗读</string>
@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">将日志保存到文件已开启。\n您可以在报告问题时附上log.txt文件。\n在 GitHub 上阅读更多信息。</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">通用统计</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">显示应用内用户标识符</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">应用用量数据</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">跳过录制确认</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">跳过录音确认已开启。\n您现在可以发送录音，而无需先收听。</string>
@@ -128,14 +124,39 @@
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">显示报告图标 (右上) 而不是按钮 (底部)</string>
     <string name="title_textsize_settings" comment="Title in Settings">字体大小</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">广告</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">在{{section_name}}界面启用广告横幅</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">彩色每日目标进度条</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}}和{{listen_name}}</string>
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">对听与读中需要读取/验证的句子也开启浅色主题(当浅色主题开启时)。</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">显示速度控制栏</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>
@@ -275,6 +296,7 @@
     <string name="text_open_settings_now">打开设置</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">您确定要返回并丢失录音吗？</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">您确定要跳过并丢失录音吗？</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">您确定要重置所有应用数据吗？</string>
     <string name="button_yes_sure" comment="Button">Yes</string>
     <string name="button_cancel" comment="Button">取消</string>
@@ -284,7 +306,6 @@
     <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
         <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">立即登录</string>
     <string name="button_translate_on_crowdin" comment="Button">立即翻译</string>
     <!-- Daily goal -->

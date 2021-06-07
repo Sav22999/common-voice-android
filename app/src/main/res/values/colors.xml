@@ -23,6 +23,14 @@
     <color name="colorMenuInactive">#777777</color>
     <color name="colorMenuActive">@color/colorWhite</color>
 
+    <color name="colorGesturesGuide">#660077FF</color>
+    <color name="colorGesturesGuideLeaveToEnable">#CC0077FF</color>
+    <color name="colorGesturesGuide1">#770077FF</color>
+    <color name="colorGesturesGuide2">#880077FF</color>
+    <color name="colorGesturesGuide3">#990077FF</color>
+    <color name="colorGesturesGuide4">#AA0077FF</color>
+    <color name="colorGesturesGuide5">#BB0077FF</color>
+
     <color name="colorSpeak">#FF505F</color>
     <color name="colorListen">#5ACCB8</color>
 

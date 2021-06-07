@@ -64,12 +64,81 @@ abstract class OnSwipeTouchListener(ctx: Context) : View.OnTouchListener {
             } catch (exception: Exception) {
                 exception.printStackTrace()
             }
-
+            onFling()
             return result
         }
 
+        override fun onLongPress(e: MotionEvent?) {
+            onLongPress();
+            super.onLongPress(e)
+        }
 
+        override fun onDoubleTap(e: MotionEvent?): Boolean {
+            onDoubleTap();
+            return super.onDoubleTap(e)
+        }
+
+        override fun onScroll(
+            e1: MotionEvent?,
+            e2: MotionEvent?,
+            distanceX: Float,
+            distanceY: Float
+        ): Boolean {
+            var type = ""
+            val diffY = e2!!.y - e1!!.y
+            val diffX = e2!!.x - e1!!.x
+            if (abs(diffX) > abs(diffY)) {
+                if (diffX > 0) {
+                    type = "r"//right
+                } else {
+                    type = "l"//left
+                }
+            } else {
+                if (diffY > 0) {
+                    type = "d"//down
+                } else {
+                    type = "u"//up
+                }
+            }
+            //println("ass(diffX): ${abs(diffX)} ass(diffY): ${abs(diffY)}")
+            var widthOrHeight = if (abs(diffX) > abs(diffY)) {
+                abs(diffX)
+            } else {
+                abs(diffY)
+            }
+            onScroll(type, widthOrHeight.toInt());
+            return super.onScroll(e1, e2, distanceX, distanceY)
+        }
+
+        override fun onShowPress(e: MotionEvent?) {
+            onShowPress()
+            super.onShowPress(e)
+        }
+
+        override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
+            onSingleTap()
+            return super.onSingleTapConfirmed(e)
+        }
+
+        override fun onSingleTapUp(e: MotionEvent?): Boolean {
+            onSingleTapUp()
+            return super.onSingleTapUp(e)
+        }
     }
+
+    open fun onSingleTapUp() {}
+
+    open fun onSingleTap() {}
+
+    open fun onShowPress() {}
+
+    open fun onScroll(scrollTo: String = "", widthOrHeight: Int = 0) {}
+
+    open fun onFling() {}
+
+    open fun onLongPress() {}
+
+    open fun onDoubleTap() {}
 
     open fun onSwipeRight() {}
 
