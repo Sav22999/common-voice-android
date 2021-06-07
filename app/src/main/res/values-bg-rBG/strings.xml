@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">Запазването на логове във файл е пуснато.\nМожете да прикачите файла log.txt, когато искате да докладвате за проблем.\nПрочетете повече в GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Обща статистика</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Показване на низа, идентифициращ ме в приложението</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Статистика за употреба на приложението</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Пропускане на потвърждение на запис</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Пропускането на потвърждение на запис е вкючено.\nЩе можете да изпращате записи, без да се налага да ги прослушвате преди това.</string>
@@ -135,7 +131,32 @@
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Покажи лента за контрол на скоростта</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Покажи икона с информация</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Изберете броя изречения и клипове за сваляне и употреба, когато приложението е в офлайн режим.</string>
-    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Обикновено потребителите отнемат около 13 минути, за да валидират 50 клипове и 26 минути, за да запишете 50 изречения.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Плъзгане нагоре</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Плъзгане надолу</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Плъзгане наляво</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Плъзгане надясно</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Задържане</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Двойно докосване</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Плъзгане нагоре: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Плъзгане надолу: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Плъзгане наляво: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Плъзгане надясно: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Задържане: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Двойно докосване: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Нищо</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Връщане назад</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Пропускане на клипа</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Пропускане на изречението</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Приемане на клипа (маркиране като правилно)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Отхвърляне на клипа (маркиране като неправилно)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Включване/Изключване на \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Докладване на клипа</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Докладване на изречението</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Даване на сведения за клипа</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Даване на сведения за изречението</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Запази</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Избиране на действие</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Зареждане на изречение…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропусни</string>
@@ -285,6 +306,7 @@
     <string name="text_open_settings_now">Отвори Настройки сега</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Сигурни ли сте, че искате да се върнете назад и да загубите записа?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Сигурни ли сте, че искате да пропуснете и да загубите записа?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Сигурни ли сте, че искате да продължите и да загубите записа?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Сигурни ли сте, че искате да нулирате всички данни на приложението?</string>
     <string name="button_yes_sure" comment="Button">Да</string>
     <string name="button_cancel" comment="Button">Отказ</string>
@@ -296,7 +318,6 @@
         <item quantity="one">Отворих приложението CV Project %d ден подред! Свалете го и вие, за да допринесете към проекта Common Voice с вашия телефон.</item>
         <item quantity="other">Отворих приложението CV Project %d дни подред! Свалете го и вие, за да допринесете към проекта Common Voice с вашия телефон.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Влез сега</string>
     <string name="button_translate_on_crowdin" comment="Button">Преведи сега</string>
     <!-- Daily goal -->

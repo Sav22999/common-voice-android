@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">Enregistrement des journaux sur un fichier activé\nVous pouvez joindre le fichier log.txt lorsque vous signalez un problème\nEn savoir plus sur Github.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Statistiques générales</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Afficher la chaîne qui m\'identifie dans l\'application</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Statistiques d\'utilisation de l\'application</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Passer la confirmation d’enregistrement</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Les confirmations d\'enregistrement sont ignorées.\nVous pouvez maintenant envoyer des enregistrements sans avoir à les écouter d\'abord.</string>
@@ -136,6 +132,31 @@
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Afficher l\'icône infos</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choisissez le nombre de phrases et le nombre de clips à télécharger et à utiliser lorsque l\'appli est en mode hors ligne.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Habituellement, les utilisateurs prennent environ 13 minutes pour valider 50 clips et 26 minutes pour enregistrer 50 phrases.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Balayer vers le haut</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Balayer vers le bas</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Balayer vers la gauche</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Balayer vers la droite</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Appui long</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double appui</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Balayer vers le haut : {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Balayer vers le bas : {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Balayer vers la gauche : {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Balayer vers la droite : {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Appui long : {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double appui : {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Rien</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Retour</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Ignorer le clip</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Ignorer la phrase</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accepter le clip (marquer comme correct)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Rejeter le clip (marquer comme incorrect)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Activer/Désactiver « {{feature}} »</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Signaler le clip</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Signaler la phrase</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Afficher les infos sur le clip</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Afficher les infos sur la phrase</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Enregistrer</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choisissez une action</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Chargement de la phrase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Passer</string>
@@ -285,6 +306,7 @@
     <string name="text_open_settings_now">Accéder aux paramètres</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Êtes-vous sûr·e de vouloir revenir en arrière et perdre l\'enregistrement ?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Êtes-vous sûr·e de vouloir passer et perdre l\'enregistrement ?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Êtes-vous sûr·e de vouloir continuer et perdre l\'enregistrement ?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Êtes-vous sûr·e de vouloir réinitialiser toutes les données de l\'application ?</string>
     <string name="button_yes_sure" comment="Button">Oui</string>
     <string name="button_cancel" comment="Button">Annuler</string>
@@ -296,7 +318,6 @@
         <item quantity="one">J\'ai ouvert l\'application de CV Projet %d jour d\'affilée ! Téléchargez-la également pour pouvoir contribuer au projet de Common Voice avec votre téléphone.</item>
         <item quantity="other">J\'ai ouvert l\'application de CV Projet %d jours d\'affilée ! Téléchargez-la également pour pouvoir contribuer au projet de Common Voice avec votre téléphone.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Se connecter</string>
     <string name="button_translate_on_crowdin" comment="Button">Traduire</string>
     <!-- Daily goal -->

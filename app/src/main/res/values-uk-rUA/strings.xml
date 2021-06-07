@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">Збереження журналів у файл увімкнено.\nВи можете прикріпити файл log.txt до звіту про проблему.\nЧитайте більше на GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Загальна статистика</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Показати рядок, який ідентифікує мене всередині додатку</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Статистика використання додатку</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Пропустити підтвердження запису</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Пропуск підтвердження запису ввімкнено.\nТепер ви зможете відправляти записи без необхідності їх прослуховувати.</string>
@@ -136,6 +132,31 @@
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показати піктограму інформації</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Виберіть кількість пропозицій та кількість кліпів, які потрібно завантажити та використовувати, коли програма перебуває в автономному режимі.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Зазвичай, користувачам потрібно близько 13 хвилин, щоб перевірити 50 кліпів, і 26 хвилин, щоб записати 50 речень.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Завантаження речення…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропустити</string>
@@ -187,64 +208,64 @@
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">На сервері Common Voice більше немає речень. Спробуйте пізніше або зв’яжіться з Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">На сервері Common Voice більше немає речень. Спробуйте пізніше або зв’яжіться з Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
-        <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
-        <item quantity="few">You have already validated %d clips in a row, continue this amazing work!</item>
-        <item quantity="many">You have already validated %d clips in a row, continue this amazing work!</item>
-        <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>
+        <item quantity="one">Ви вже перевірили %d кліп поспіль, продовжуйте цю дивовижну роботу!</item>
+        <item quantity="few">Ви вже перевірили %d кліп поспіль, продовжуйте цю дивовижну роботу!</item>
+        <item quantity="many">Ви вже перевірили %d кліп поспіль, продовжуйте цю дивовижну роботу!</item>
+        <item quantity="other">Ви вже перевірили %d кліпи поспіль, продовжуйте цю дивовижну роботу!</item>
     </plurals>
     <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
-        <item quantity="one">Continue to validate clips, you validated %d clip in a row.</item>
-        <item quantity="few">Continue to validate clips, you validated %d clips in a row.</item>
-        <item quantity="many">Continue to validate clips, you validated %d clips in a row.</item>
-        <item quantity="other">Continue to validate clips, you validated %d clips in a row.</item>
+        <item quantity="one">Продовжуйте перевіряти кліпи, ви перевірили %d кліп підряд.</item>
+        <item quantity="few">Продовжуйте перевіряти кліпи, ви перевірили %d кліп підряд.</item>
+        <item quantity="many">Продовжуйте перевіряти кліпи, ви перевірили %d кліп підряд.</item>
+        <item quantity="other">Продовжуйте перевіряти кліпи, ви перевірили %d кліпи підряд.</item>
     </plurals>
     <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
-        <item quantity="one">Excellent work! You have already validated %d clip in a row.</item>
-        <item quantity="few">Excellent work! You have already validated %d clips in a row.</item>
-        <item quantity="many">Excellent work! You have already validated %d clips in a row.</item>
-        <item quantity="other">Excellent work! You have already validated %d clips in a row.</item>
+        <item quantity="one">Відмінна робота! Ви вже перевірили %d кліп підряд.</item>
+        <item quantity="few">Відмінна робота! Ви вже перевірили %d кліп підряд.</item>
+        <item quantity="many">Відмінна робота! Ви вже перевірили %d кліп підряд.</item>
+        <item quantity="other">Відмінна робота! Ви вже перевірили %d кліпи підряд.</item>
     </plurals>
     <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
-        <item quantity="one">Wow, you have superhuman powers! You validated %d clip in a row!</item>
-        <item quantity="few">Wow, you have superhuman powers! You validated %d clips in a row!</item>
-        <item quantity="many">Wow, you have superhuman powers! You validated %d clips in a row!</item>
-        <item quantity="other">Wow, you have superhuman powers! You validated %d clips in a row!</item>
+        <item quantity="one">Ого, ви маєте надлюдські сили! Ви перевірили %d кліп поспіль!</item>
+        <item quantity="few">Ого, ви маєте надлюдські сили! Ви перевірили %d кліп поспіль!</item>
+        <item quantity="many">Ого, ви маєте надлюдські сили! Ви перевірили %d кліп поспіль!</item>
+        <item quantity="other">Ого, ви маєте надлюдські сили! Ви перевірили %d кліпи поспіль!</item>
     </plurals>
     <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
-        <item quantity="one">You sent %d recording in a row.</item>
-        <item quantity="few">You sent %d recordings in a row.</item>
-        <item quantity="many">You sent %d recordings in a row.</item>
-        <item quantity="other">You sent %d recordings in a row.</item>
+        <item quantity="one">Ви надіслали %d запис підряд.</item>
+        <item quantity="few">Ви надіслали %d запис підряд.</item>
+        <item quantity="many">Ви надіслали %d запис підряд.</item>
+        <item quantity="other">Ви надіслали %d записів підряд.</item>
     </plurals>
     <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
-        <item quantity="one">Good job! You sent %d recording in a row.</item>
-        <item quantity="few">Good job! You sent %d recordings in a row.</item>
-        <item quantity="many">Good job! You sent %d recordings in a row.</item>
-        <item quantity="other">Good job! You sent %d recordings in a row.</item>
+        <item quantity="one">Хороша робота! Ви надіслали %d запис підряд.</item>
+        <item quantity="few">Хороша робота! Ви надіслали %d записів підряд.</item>
+        <item quantity="many">Хороша робота! Ви надіслали %d запис підряд.</item>
+        <item quantity="other">Хороша робота! Ви надіслали %d записів підряд.</item>
     </plurals>
     <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
-        <item quantity="one">Congratulations! You achieved the milestone of %d recorded sentence. Keep going.</item>
-        <item quantity="few">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
-        <item quantity="many">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
-        <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
+        <item quantity="one">Вітаємо! Ви досягли межі %d записаного речення. Не зупиняйтесь.</item>
+        <item quantity="few">Вітаємо! Ви досягли межі %d записаних речень. Не зупиняйтесь.</item>
+        <item quantity="many">Вітаємо! Ви досягли межі %d записаного речення. Не зупиняйтесь.</item>
+        <item quantity="other">Вітаємо! Ви досягли межі %d записаних речень. Не зупиняйтесь.</item>
     </plurals>
     <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
-        <item quantity="one">Wow, you have superhuman powers! You recorded %d sentence in a row!</item>
-        <item quantity="few">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
-        <item quantity="many">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
-        <item quantity="other">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
+        <item quantity="one">Ого, ви маєте надлюдські сили! Ви записали %d речення поспіль!</item>
+        <item quantity="few">Ого, ви маєте надлюдські сили! Ви записали %d речень поспіль!</item>
+        <item quantity="many">Ого, ви маєте надлюдські сили! Ви записали %d речення поспіль!</item>
+        <item quantity="other">Ого, ви маєте надлюдські сили! Ви записали %d речень поспіль!</item>
     </plurals>
     <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
-        <item quantity="one">You miss only %d clip to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="few">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="many">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="other">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="one">Ви пропускаєте лише %d кліп, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
+        <item quantity="few">Ви пропускаєте лише %d кліпи, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
+        <item quantity="many">Ви пропускаєте лише %d кліп, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
+        <item quantity="other">Ви пропускаєте лише %d кліпи, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
     </plurals>
     <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
-        <item quantity="one">You miss only %d sentence to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="few">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="many">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="one">Ви пропустите лише %d речення, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
+        <item quantity="few">Ви пропустите лише %d речень, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
+        <item quantity="many">Ви пропустите лише %d речення, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
+        <item quantity="other">Ви пропустите лише %d речень, щоб досягти своєї щоденної мети {{dailygoal}}!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Швидкість успішно встановлено на {{speed_value}}.</string>
     <!-- NoConnection -->
@@ -305,22 +326,22 @@
     <string name="text_open_settings_now">Відкрити Налаштування</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Ви впевнені, що хочете повернутися назад і втратити запис?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Ви впевнені, що хочете пропустити та втратити запис?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Ви впевнені, що хочете скинути всі дані додатку?</string>
     <string name="button_yes_sure" comment="Button">Так</string>
     <string name="button_cancel" comment="Button">Скасувати</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
-        <item quantity="one">Well done! You opened the app %d day in a row.</item>
-        <item quantity="few">Well done! You opened the app %d days in a row.</item>
-        <item quantity="many">Well done! You opened the app %d days in a row.</item>
-        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+        <item quantity="one">Дуже добре! Ви відкривали програму %d день поспіль.</item>
+        <item quantity="few">Дуже добре! Ви відкривали програму %d днів поспіль.</item>
+        <item quantity="many">Дуже добре! Ви відкривали програму %d день поспіль.</item>
+        <item quantity="other">Дуже добре! Ви відкривали програму %d днів поспіль.</item>
     </plurals>
     <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
-        <item quantity="one">I\'ve opened the CV Project app %d day in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
-        <item quantity="few">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
-        <item quantity="many">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
-        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+        <item quantity="one">Я відкрив додаток CV Project %d день поспіль! Завантажте і ви, щоб могли зробити свій внесок у проект Common Voice за допомогою свого смартфона.</item>
+        <item quantity="few">Я відкрив додаток CV Project %d днів поспіль! Завантажте і ви, щоб могли зробити свій внесок у проект Common Voice за допомогою свого смартфона.</item>
+        <item quantity="many">Я відкрив додаток CV Project %d день поспіль! Завантажте і ви, щоб могли зробити свій внесок у проект Common Voice за допомогою свого смартфона.</item>
+        <item quantity="other">Я відкрив додаток CV Project %d днів поспіль! Завантажте і ви, щоб могли зробити свій внесок у проект Common Voice за допомогою свого смартфона.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Увійти</string>
     <string name="button_translate_on_crowdin" comment="Button">Перекласти</string>
     <!-- Daily goal -->

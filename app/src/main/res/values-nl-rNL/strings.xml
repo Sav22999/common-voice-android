@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">Opslaan logs als een bestand is ingeschakeld.\nU kunt het log.txt-bestand bijvoegen als u een probleem meldt.\nMeer info op GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Algemene statistieken</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">De tekenreeks die mij identificeert in de app tonen</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Appgebruiksstatistieken</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Opnamebevestiging overslaan</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Opnamebevestiging overslaan is ingeschakeld.\nU kunt nu opnamen verzenden zonder ze eerst te moeten beluisteren.</string>
@@ -135,7 +131,32 @@
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Snelheidscontrolebalk tonen</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Info-pictogram tonen</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Kies het aantal te downloaden zinnen en fragmenten dat u in de app in de offline-modus wilt gebruiken.</string>
-    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Normaal hebben gebruikers ongeveer 15 minuten nodig om 100 clips te valideren en 30 minuten om 100 zinnen op te nemen.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Normaal hebben gebruikers ongeveer 15 minuten nodig om 50 clips te valideren en 30 minuten om 50 zinnen op te nemen.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Omhoog vegen</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Omlaag vegen</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Naar links vegen</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Naar rechts vegen</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Lang aanraken</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Dubbeltikken</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Omhoog vegen: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Omlaag vegen: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Naar links vegen: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Naar rechts vegen: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Lang aanraken: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Dubbeltikken: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Niets</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Terug</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment overslaan</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Zin overslaan</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment accepteren (als juist markeren)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment afwijzen (als onjuist markeren)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">*{{feature}}* in-/uitschakelen</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment rapporteren</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Zin rapporteren</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Informatie over het fragment tonen</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Informatie over de zin tonen</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Opslaan</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Selecteer een actie</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Zin laden…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
@@ -285,6 +306,7 @@
     <string name="text_open_settings_now">Instellingen nu openen</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Weet u zeker dat u terug wilt gaan en de opname wilt verwijderen?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Weet u zeker dat u wilt overslaan en de opname wilt verwijderen?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Weet u zeker dat u door wilt gaan en de opname wilt verwijderen?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Weet u zeker dat u alle app-gegevens wilt resetten?</string>
     <string name="button_yes_sure" comment="Button">Ja</string>
     <string name="button_cancel" comment="Button">Annuleren</string>
@@ -296,7 +318,6 @@
         <item quantity="one">Ik heb de CV Project-app op %d opeenvolgende dag geopend! Download de app ook als u via uw smartphone aan het Common Voice-project wilt bijdragen.</item>
         <item quantity="other">Ik heb de CV Project-app op %d opeenvolgende dagen geopend! Download de app ook als u via uw smartphone aan het Common Voice-project wilt bijdragen.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Nu aanmelden</string>
     <string name="button_translate_on_crowdin" comment="Button">Nu vertalen</string>
     <!-- Daily goal -->

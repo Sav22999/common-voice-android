@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">Логты файлға һаҡларға рөхсәт ителгән.\nҺеҙ уны беркетә алаһығыҙ\nКүберәк GitHub-та уҡы.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Дөйөм статистика</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Ҡушымтала мине асыҡлаусы һыҙыҡты күрһәтергә</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Ҡушымтаның ҡулланыу статистикаһы</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Яҙған тауышты тикшереп тормаҫҡа</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Тикшереү һүнде.\nХәҙер яҙған тауышты ебәрер алдынан уны тыңлап торорға кәрәкмәй.</string>
@@ -136,6 +132,31 @@
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Мәғлүмәт иконаһын күрһәт</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Ҡушымта оффлайн булғанда тейәү һәм ҡулланыу өсөн һөйләмдәр һанын һәм клиптар һанын һайлағыҙ.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Ғәҙәттә ҡулланыусыларға 50 клипты тикшереү өсөн 13 минут һәм 50 һөйләм яҙҙырыу өсөн 26 минут ваҡыт кәрәк.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Өҫкә сиртегеҙ</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Аҫҡа сиртегеҙ</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Һулға сиртегеҙ</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Уңға сиртегеҙ</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Оҙаҡ баҫ</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Ике тапҡыр баҫыу</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Өҫкә һыйпа: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Аҫҡа һыйпа: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Һулға һыйпа: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Уңға һыйпа: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Оҙаҡ баҫ: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Икене баҫ: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Ҡулланылмай</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Артҡа</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Яҙманы үткәрергә</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Һөйләмде үткәрергә</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Яҙманы дөрөҫ тип билдәләргә (дөрөҫ яуап)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Яҙманы үткәрмәҫкә (хата бар)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">\"{{feature}}\" Һүндерергә/Ҡабыҙырға</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Ролик тураһында отчет</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Һөйләм тураһында хәбәр итеү</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Яҙма тураһында мәғлүмәт күрһәтергә</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Яҙма тураһында мәғлүмәт күрһәтергә</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Һаҡларға</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Нимә эшләүҙе һайлау</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Һөйләмдәр тейәлә…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Үткәр</string>
@@ -275,6 +296,7 @@
     <string name="text_open_settings_now">Хәҙер Көйләүҙәрҙе асыу</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Һеҙ кире ҡайтып яҙыуҙы юғалтырға теләйһегеҙме?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Быны үткәреп яҙманы юғалтырға әҙерһегеҙме?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Быны үткәреп яҙманы юғалтырға әҙерһегеҙме?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Бөтә мәғлүмәтте юғалтырға әҙерһегеҙме?</string>
     <string name="button_yes_sure" comment="Button">Эйе</string>
     <string name="button_cancel" comment="Button">Кире алыу</string>
@@ -284,7 +306,6 @@
     <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
         <item quantity="other">Мин CV Project ҡушымтаһын көнөнә %d тапҡыр астым! Смартфонығыҙ менән Common Voice проектына өлөш индереү өсөн, уны тейәп алығыҙ.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Хәҙер инеү</string>
     <string name="button_translate_on_crowdin" comment="Button">Тәржемә итергә</string>
     <!-- Daily goal -->

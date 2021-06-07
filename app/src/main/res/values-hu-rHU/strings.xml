@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">A naplók fájlba mentése be van kapcsolva.\nProblémák jelentésekor mellékelheti a log.txt fájlt.\nTovábbi információk GitHubon.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Általános statisztikák</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Megjeleníti a karakterláncot, amely azonosítja az alkalmazásban</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Alkalmazáshasználati statisztikák</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Felvétel előtti megerősítés átugrása</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">A felvétel előtt megerősítés átugrása be van kapcsolva.\nAnélkül küldheti be a felvételeket, hogy előbb meghallgatná őket.</string>
@@ -134,8 +130,33 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Világos téma a mondatok felolvasásánál és ellenőrzésénél is (ha a világos téma be van kapcsolva).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Sebességvezérlő-sáv megjelenítése</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Információ ikon megjelenítése</string>
-    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
-    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Válassza ki a letöltendő mondatok és klipek számát arra az esetre, ha az alkalmazás kapcsolat nélküli módba kerül.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Általában a felhasználóknak 13 percükbe telik, hogy ellenőrizzenek 50 klipet, és 26 percükbe telik, hogy felvegyenek 50 mondatot.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Seprés felfelé</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Seprés lefelé</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Seprés balra</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Seprés jobbra</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Hosszú érintés</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Dupla koppintás</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Seprés felfelé: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Seprés lefelé: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Seprés balra: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Seprés jobbra: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Hosszú érintés: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Dupla koppintás: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Semmi</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Vissza</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Klip kihagyása</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Mondat kihagyása</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Klip elfogadása (megjelölés helyesként)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Klip elvetése (megjelölés helytelenként)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">„{{feature}}” be/ki</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Klip jelentése</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Mondat jelentése</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Információ megjelenítése a klipről</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Információ megjelenítése a mondatról</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Mentés</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Válasszon egy műveletet</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Mondat betöltése…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Átugrás</string>
@@ -285,6 +306,7 @@
     <string name="text_open_settings_now">Beállítások megnyitása most</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Biztos, hogy visszalép és elveti a felvételt?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Biztos, hogy kihagyja és elveti a felvételt?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Biztos, hogy folytatja és elveti a felvételt?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Biztos, hogy visszaállítja az összes alkalmazásadatot?</string>
     <string name="button_yes_sure" comment="Button">Igen</string>
     <string name="button_cancel" comment="Button">Mégse</string>
@@ -296,7 +318,6 @@
         <item quantity="one">%d egymást követő napon nyitottam meg a CV Project alkalmazást! Töltse le Ön is, és működjön közre a Common Voice projektben az okostelefonja segítségével.</item>
         <item quantity="other">%d egymást követő napon nyitottam meg a CV Project alkalmazást! Töltse le Ön is, és működjön közre a Common Voice projektben az okostelefonja segítségével.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Bejelentkezés most</string>
     <string name="button_translate_on_crowdin" comment="Button">Fordítás most</string>
     <!-- Daily goal -->

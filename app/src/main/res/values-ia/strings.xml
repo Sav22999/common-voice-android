@@ -95,10 +95,6 @@
     <string name="toast_log_on_file_on" comment="Message text">Salvamento del registros al file activate.\nTu pote attachar le file log.txt quando tu signala un problema.\nLege plus sur GitHub.</string>
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Statistica generic</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Monstrar le catena que me identifica in le application</string>
-    <!--
-    <string name="toast_anonymous_statistics_on" comment="Message text">Anonymous statistics turned on.\nWe don\'t collect your personal data. We only use statistics to see how many people use the app each day.</string>
-    <string name="toast_anonymous_statistics_off" comment="Message text">Anonymous statistics turned off. Please note that we only use statistics to see how many people use the app each day. We do not collect any personal data. Please consider turning statistics back on.</string>
-    -->
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Statistica de uso del app</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Salto del confirmation de registration</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Salto del confirmation de registration activate.\nTu ora potera inviar registrationes sin deber primo ascoltar los.</string>
@@ -134,8 +130,33 @@
     <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Le thema clar alsi pro le phrase a leger o validar in Parlar e Ascoltar (quando le thema clar es activate).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Monstrar le barra de controlo velocitate</string>
     <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Monstrar icone informative</string>
-    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
-    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Elige le numero de phrases e le numero de registrationes a discargar e usar quando le app es sin connexion.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usualmente usatores prende circa 13 minutas pro validar 50 registrationes e 26 minutas pro registrar 50 phrases.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Glissar a alto</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Glissar a basso</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Glissar a sinistra</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Glissar a dextera</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Longe pulsa</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Duple tocca</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Glissar a alto: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Glissar a basso: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Glissar a sinistra: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Glissar a dextera: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Longe pulsar: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Duple toccar: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nihil</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Receder</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Saltar le registration</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Saltar le phrase</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Acceptar le registration (marcar como correcte)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Rejectar le registration (marcar como non correcte)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Activar/Disactivar \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Reportar le registration</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Reportar le phrase</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Monstrar informationes del registration</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Monstrar informationes del phrase</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Salvar</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Elige un action</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -285,6 +306,7 @@
     <string name="text_open_settings_now">Aperir le parametros ora</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Desira tu vermente retroceder e perder le registration?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Desira tu vermente saltar e perder le registration?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Desira tu vermente continuar e perder le registration?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Desira tu vermente remontar tote le datos del apps?</string>
     <string name="button_yes_sure" comment="Button">Si</string>
     <string name="button_cancel" comment="Button">Cancellar</string>
@@ -296,7 +318,6 @@
         <item quantity="one">Io ha aperite le app CV Project %d die! Discarga lo tu alsi, assi que tu pote contribuer al projecto Common Voice con tu smartphono.</item>
         <item quantity="other">Io ha aperite le app CV Project %d dies in fila! Discarga lo tu alsi, assi que tu pote contribuer al projecto Common Voice con tu smartphono.</item>
     </plurals>
-    <string name="text_share_n_times_in_a_row" comment=""></string>
     <string name="button_log_in_now" comment="Button">Acceder ora</string>
     <string name="button_translate_on_crowdin" comment="Button">Traducer ora</string>
     <!-- Daily goal -->
