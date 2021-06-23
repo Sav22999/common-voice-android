@@ -8,6 +8,7 @@ import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
+import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
 
 class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSettingsBinding>() {
@@ -21,6 +22,7 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
 
     private val mainPrefManager by inject<MainPrefManager>()
     private val settingsPrefManager by inject<SettingsPrefManager>()
+    private val speakPrefManager by inject<SpeakPrefManager>()
 
     override fun onStart() {
         super.onStart()
@@ -30,10 +32,11 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
         }
 
         withBinding {
-            textSettingsExperimentalFeaturesSpeakAndListen.text = getString(R.string.txt_speak_and_listen).replace(
-                "{{listen_name}}",
-                getString(R.string.settingsListen)
-            ).replace("{{speak_name}}", getString(R.string.settingsSpeak))
+            textSettingsExperimentalFeaturesSpeakAndListen.text =
+                getString(R.string.txt_speak_and_listen).replace(
+                    "{{listen_name}}",
+                    getString(R.string.settingsListen)
+                ).replace("{{speak_name}}", getString(R.string.settingsSpeak))
 
             switchThemeLightAlsoForSentenceBox.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.isLightThemeSentenceBoxSpeakListen = isChecked
@@ -46,6 +49,11 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
             }
             switchShowInfoIconSpeakListen.isChecked =
                 settingsPrefManager.showInfoIcon
+
+            switchPushToTalkSpeak.setOnCheckedChangeListener { _, isChecked ->
+                speakPrefManager.pushToTalk = isChecked
+            }
+            switchShowInfoIconSpeakListen.isChecked = speakPrefManager.pushToTalk
         }
 
         if (mainPrefManager.areGesturesEnabled)
@@ -59,10 +67,12 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
             theme.setElement(layoutSettingsExperimentalFeatures)
 
             theme.setElements(requireContext(), settingsSectionExperimental)
-            theme.setElements(requireContext(), settingsSectionSpeakAndListen)
+            theme.setElements(requireContext(), settingsSectionSpeakAndListenExperimental)
+            theme.setElements(requireContext(), settingsSectionSpeakExperimental)
 
             theme.setElement(requireContext(), 3, settingsSectionExperimental)
-            theme.setElement(requireContext(), 3, settingsSectionSpeakAndListen)
+            theme.setElement(requireContext(), 3, settingsSectionSpeakAndListenExperimental)
+            theme.setElement(requireContext(), 3, settingsSectionSpeakExperimental)
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionExperimental, textSize = 20F)
         }

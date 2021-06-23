@@ -14,6 +14,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
@@ -293,7 +294,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private fun showDailyGoalAchievedMessage() {
         if (dailyGoalAchievedAndNotShownIt != null) {
             //stopAndRefresh()
-            dialogInflater.show(this, DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt!!))
+            dialogInflater.show(
+                this,
+                DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt!!)
+            )
             dailyGoalAchievedAndNotShown = false
         }
     }
@@ -1102,10 +1106,64 @@ END | GESTURES
 
         resizeSentence()
 
-        buttonStartStopSpeak.onClick {
-            checkPermission()
-            speakViewModel.startRecording()
-        }
+        setStartStopButton(buttonStartStopSpeak, 0)
+    }
+
+    private fun startRecording() {
+        checkPermission()
+        speakViewModel.startRecording()
+    }
+
+    private fun stopRecording() {
+        checkPermission()
+        speakViewModel.stopRecording()
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setStartStopButton(buttonStartStopSpeak: Button, status: Int) {
+        //status: {0: start, 1: stop, 2: listen, 3: stop-listen, 4: record-again}
+
+        buttonStartStopSpeak.setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
+        object :
+            OnSwipeTouchListener(this@SpeakActivity) {
+
+            var pushToTalkLongPress = false
+
+            override fun onTouch(v: View, event: MotionEvent): Boolean {
+                println("status : $status")
+
+                if (event.action == MotionEvent.ACTION_UP) {
+                    //ACTION_UP
+                    if (status == 0) {
+                        if (!pushToTalkLongPress) {
+                            startRecording()
+                        } else {
+                            stopRecording()
+                        }
+                    } else if (status == 1) {
+                        stopRecording()
+                    } else if (status == 2) {
+                        speakViewModel.startListening()
+                    } else if (status == 3) {
+                        speakViewModel.stopListening()
+                    } else if (status == 4) {
+                        if (!pushToTalkLongPress) {
+                            checkPermission()
+                            speakViewModel.redoRecording()
+                        } else {
+                            stopRecording()
+                        }
+                    }
+                    pushToTalkLongPress = false
+                } else if (event.action == MotionEvent.ACTION_DOWN) {
+                    if (speakPrefManager.pushToTalk && (status == 0 || status==4)) {
+                        startRecording()
+                        pushToTalkLongPress = true
+                    }
+                }
+                return super.onTouch(v, event)
+            }
+        })
     }
 
     private fun resizeSentence() {
@@ -1138,10 +1196,7 @@ END | GESTURES
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
         speakViewModel.isFirstTimeListening = true
 
-        buttonStartStopSpeak.onClick {
-            checkPermission()
-            speakViewModel.stopRecording()
-        }
+        setStartStopButton(buttonStartStopSpeak, 1)
     }
 
     private fun loadUIStateRecorded() = withBinding {
@@ -1153,9 +1208,7 @@ END | GESTURES
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_1)
 
-        buttonStartStopSpeak.onClick {
-            speakViewModel.startListening()
-        }
+        setStartStopButton(buttonStartStopSpeak, 2)
 
         buttonRecordOrListenAgain.onClick {
             checkPermission()
@@ -1168,9 +1221,7 @@ END | GESTURES
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
 
-        buttonStartStopSpeak.onClick {
-            speakViewModel.stopListening()
-        }
+        setStartStopButton(buttonStartStopSpeak, 3)
     }
 
     private fun loadUIStateListened() = withBinding {
@@ -1187,11 +1238,7 @@ END | GESTURES
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
 
-
-        buttonStartStopSpeak.onClick {
-            checkPermission()
-            speakViewModel.redoRecording()
-        }
+        setStartStopButton(buttonStartStopSpeak, 4)
 
         buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
