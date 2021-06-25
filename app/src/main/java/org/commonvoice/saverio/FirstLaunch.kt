@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Paint
@@ -13,6 +14,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.commonvoice.saverio.databinding.FirstLaunchBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
@@ -32,6 +35,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -68,6 +72,10 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 checkStatus(next = false) //back
             }
         })
+
+        lifecycleScope.launch {
+            translationHandler.updateLanguages()
+        }
 
         setTheme()
     }
@@ -210,7 +218,11 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
                 textDescriptionFirstLaunch.setText(R.string.txt_choose_language_first_launch)
                 // set languages imported
-                binding.languageListFirstLaunch.adapter = ArrayAdapter(this@FirstLaunch, android.R.layout.simple_list_item_1, translationHandler.availableLanguageNames)
+                binding.languageListFirstLaunch.adapter = ArrayAdapter(
+                    this@FirstLaunch,
+                    android.R.layout.simple_list_item_1,
+                    translationHandler.availableLanguageNames
+                )
                 binding.languageListFirstLaunch.onItemSelectedListener =
                     object : AdapterView.OnItemSelectedListener {
                         override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -223,10 +235,15 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                             position: Int,
                             id: Long
                         ) {
-                            mainPrefManager.language = translationHandler.availableLanguageCodes[position]
+                            mainPrefManager.language =
+                                translationHandler.availableLanguageCodes[position]
                         }
                     }
-                binding.languageListFirstLaunch.setSelection(translationHandler.availableLanguageCodes.indexOf(getString(R.string.language)))
+                binding.languageListFirstLaunch.setSelection(
+                    translationHandler.availableLanguageCodes.indexOf(
+                        getString(R.string.language)
+                    )
+                )
                 languageListFirstLaunch.isGone = false
                 buttonNextFirstLaunch.setText(R.string.btn_tutorial5)
             }
