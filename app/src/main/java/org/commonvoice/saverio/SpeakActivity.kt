@@ -856,7 +856,7 @@ END | GESTURES
 
     fun setTheme(view: Context) = withBinding {
         theme.setElement(layoutSpeak)
-        theme.setElement(view, buttonSendSpeak)
+        //theme.setElement(view, buttonSendSpeak)
         theme.setElement(view, 1, speakSectionBottom)
         theme.setElement(
             view,
