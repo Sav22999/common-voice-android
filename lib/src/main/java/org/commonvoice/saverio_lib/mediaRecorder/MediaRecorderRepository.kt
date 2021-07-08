@@ -3,6 +3,7 @@ package org.commonvoice.saverio_lib.mediaRecorder
 import android.media.MediaRecorder
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Sentence
+import timber.log.Timber
 
 class MediaRecorderRepository(
     private val fileHolder: FileHolder
@@ -81,9 +82,11 @@ class MediaRecorderRepository(
             }
             return
         }
-        val array = fileHolder.getByteArray()
+        MediaConverter.convertToFormat(fileHolder) {
+            Timber.i("Conversion was successfull")
+            onSuccess(sentence.toRecording(it))
+        }
         setupRecorder()
-        onSuccess(sentence.toRecording(array))
     }
 
     fun stop(suppressError: Boolean) {
