@@ -24,7 +24,7 @@ class MediaRecorderRepository(
             setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
             setMaxDuration(10000)
-            setAudioEncodingBitRate(16 * 44100)
+            setAudioEncodingBitRate(65536)
             setAudioSamplingRate(44100)
             setOutputFile(fileHolder.fileDescriptor)
             prepare()
