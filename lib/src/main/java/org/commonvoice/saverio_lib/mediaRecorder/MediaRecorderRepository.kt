@@ -83,7 +83,7 @@ class MediaRecorderRepository(
             return
         }
         MediaConverter.convertToFormat(fileHolder) {
-            Timber.i("Conversion was successfull")
+            Timber.i("Conversion was successful")
             onSuccess(sentence.toRecording(it))
         }
         setupRecorder()

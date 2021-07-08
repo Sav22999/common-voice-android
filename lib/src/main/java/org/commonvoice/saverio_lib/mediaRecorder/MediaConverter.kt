@@ -59,20 +59,18 @@ object MediaConverter {
         inputCodec.setCallback(object: MediaCodec.Callback() {
             override fun onError(codec: MediaCodec, e: MediaCodec.CodecException) {
                 Timber.e("MediaConverter error. Codec: ${codec.name}. Exception: ${e.diagnosticInfo}")
-                Timber.e("MediaConverter error. Codec: ${codec.name}. Exception: ${e.diagnosticInfo}")
             }
 
             override fun onInputBufferAvailable(codec: MediaCodec, index: Int) {
-                val buffer = codec.getInputBuffer(index)!!
-                var eos = true
-                val size = if (buffer.capacity() < inputArray.available()) {
-                    eos = false
-                    buffer.capacity()
-                } else inputArray.available()
-                inputArray.readByteString(size).asByteBuffer().let {
-                    buffer.put(it)
+                var size = 0
+                codec.getInputBuffer(index)?.let {
+                    Timber.e("Provola, ${it.remaining()}, $index")
+                    while (it.remaining() > 0 && inputArray.available() > 0) {
+                        it.putChar(inputArray.read().toChar())
+                        size++
+                    }
                 }
-                codec.queueInputBuffer(index, 0, size, 0, if (eos) MediaCodec.BUFFER_FLAG_END_OF_STREAM else 0)
+                codec.queueInputBuffer(index, 0, size, 0, if (inputArray.available() > 0) 0 else MediaCodec.BUFFER_FLAG_END_OF_STREAM)
             }
 
             override fun onOutputBufferAvailable(
@@ -86,9 +84,9 @@ object MediaConverter {
                 temporaryArray.write(byteArray)
                 if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
                     outputCodec.start()
+                    inputCodec.stop()
                 }
                 codec.releaseOutputBuffer(index, 0)
-                inputCodec.stop()
             }
 
             override fun onOutputFormatChanged(codec: MediaCodec, format: MediaFormat) {
@@ -99,14 +97,13 @@ object MediaConverter {
         outputCodec.setCallback(object: MediaCodec.Callback() {
             override fun onError(codec: MediaCodec, e: MediaCodec.CodecException) {
                 Timber.e("MediaConverter error. Codec: ${codec.name}. Exception: ${e.diagnosticInfo}")
-                Timber.e("MediaConverter error. Codec: ${codec.name}. Exception: ${e.diagnosticInfo}")
             }
 
             override fun onInputBufferAvailable(codec: MediaCodec, index: Int) {
                 val buffer = codec.getInputBuffer(index)!!
-                var eos = false
-                val size = if (buffer.capacity() > temporaryInputArray.available()) {
-                    eos = true
+                var eos = true
+                val size = if (buffer.capacity() < temporaryInputArray.available()) {
+                    eos = false
                     buffer.capacity()
                 } else temporaryInputArray.available()
                 temporaryInputArray.readByteString(size).asByteBuffer().let {
@@ -121,14 +118,18 @@ object MediaConverter {
                 info: MediaCodec.BufferInfo
             ) {
                 val buffer = codec.getOutputBuffer(index)
-                temporaryArray.write(buffer?.array())
+                outputArray.write(buffer?.array())
                 codec.releaseOutputBuffer(index, 0)
                 if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
                     outputCodec.stop()
-                    onSuccess(temporaryArray.toByteArray())
                     outputCodec.release()
+                    inputCodec.release()
+                    inputArray.close()
+                    temporaryArray.close()
+                    temporaryInputArray.close()
+                    onSuccess(outputArray.toByteArray())
+                    outputArray.close()
                 }
-                inputCodec.release()
             }
 
             override fun onOutputFormatChanged(codec: MediaCodec, format: MediaFormat) {
@@ -143,8 +144,6 @@ object MediaConverter {
                 null,
                 0
             )
-
-            Timber.e("Codec: ${outputFormat.getString(MediaFormat.KEY_MIME)}, ${outputFormat.getInteger(MediaFormat.KEY_SAMPLE_RATE)}")
 
             outputCodec.configure(
                 outputFormat,
