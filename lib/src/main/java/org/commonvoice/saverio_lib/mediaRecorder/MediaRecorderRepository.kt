@@ -84,6 +84,7 @@ class MediaRecorderRepository(
         }
         MediaConverter.convertToFormat(fileHolder) {
             Timber.i("Conversion was successful")
+            Timber.i("Conversion result: ${it.decodeToString()}")
             onSuccess(sentence.toRecording(it))
         }
         setupRecorder()

@@ -8,10 +8,10 @@ import okio.ByteString.Companion.readByteString
 import org.commonvoice.saverio_lib.mediaPlayer.ByteArrayDataSource
 import timber.log.Timber
 import java.io.*
+import java.lang.IllegalStateException
 
 object MediaConverter {
 
-    private val extractor = MediaExtractor()
     private val codecList = MediaCodecList(REGULAR_CODECS)
 
     private val outputCodecName by lazy {
@@ -22,16 +22,17 @@ object MediaConverter {
             }
             .find {
                 it.supportedTypes.contains(
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && false)
                         MediaFormat.MIMETYPE_AUDIO_OPUS
                     else
                         MediaFormat.MIMETYPE_AUDIO_FLAC
                 )
             }
-            ?.name ?: ""
+            ?.name ?: throw IOException("The required codecs are not available")
     }
 
     fun convertToFormat(input: FileHolder, onSuccess: (ByteArray) -> Unit) {
+        val extractor = MediaExtractor()
         extractor.setDataSource(ByteArrayDataSource(input.getByteArray()))
         val inputFormat = extractor.getTrackFormat(0)
         val inputCodecName = codecList.findDecoderForFormat(inputFormat)
@@ -39,12 +40,12 @@ object MediaConverter {
 
         val inputArray = ByteArrayInputStream(input.getByteArray())
         val temporaryArray = ByteArrayOutputStream()
-        val temporaryInputArray = ByteArrayInputStream(temporaryArray.toByteArray())
+        var temporaryInputArray: ByteArrayInputStream? = null
         val outputArray = ByteArrayOutputStream()
 
         val outputCodec = MediaCodec.createByCodecName(outputCodecName)
         val outputFormat = MediaFormat.createAudioFormat(
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && false)
                 MediaFormat.MIMETYPE_AUDIO_OPUS
             else
                 MediaFormat.MIMETYPE_AUDIO_FLAC,
@@ -62,15 +63,72 @@ object MediaConverter {
             }
 
             override fun onInputBufferAvailable(codec: MediaCodec, index: Int) {
+                if (inputArray.available() <= 0) {
+                    codec.queueInputBuffer(index, 0, 0, 0, MediaCodec.BUFFER_FLAG_END_OF_STREAM)
+                    return
+                }
+
+                val buffer = codec.getInputBuffer(index)!!
+
+                Timber.i("InputCodec InputBuffer available, ${buffer.remaining()}, $index")
+
+                val written = if (buffer.remaining() < inputArray.available())
+                    buffer.remaining()
+                else
+                    inputArray.available()
+                val temp = ByteArray(written)
+                inputArray.read(temp, 0, written)
+                buffer.put(temp)
+
+                Timber.i("InputCodec; filled buffer with $written bytes. Available bytes: ${inputArray.available()}")
+                codec.queueInputBuffer(index, 0, written, 0, 0)
+            }
+
+            override fun onOutputBufferAvailable(
+                codec: MediaCodec,
+                index: Int,
+                info: MediaCodec.BufferInfo
+            ) {
+                val buffer = codec.getOutputBuffer(index)!!
+                val byteArray = ByteArray(buffer.remaining())
+                Timber.i("InputCodec; received output buffer with ${info.size} bytes (offset: ${info.offset}). Flags: ${info.flags}")
+                buffer.get(byteArray)
+                temporaryArray.write(byteArray)
+                codec.releaseOutputBuffer(index, false)
+                if ((info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM) == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
+                    Timber.i("Intermediate buffer size: ${temporaryArray.size()}")
+                    temporaryInputArray = ByteArrayInputStream(temporaryArray.toByteArray())
+                    temporaryArray.close()
+                    outputCodec.start()
+                    //inputCodec.stop()
+                }
+            }
+
+            override fun onOutputFormatChanged(codec: MediaCodec, format: MediaFormat) {
+                Timber.e("MediaConverter error. Output format changed. New format: ${format.getString(MediaFormat.KEY_MIME)}")
+            }
+        })
+
+        outputCodec.setCallback(object: MediaCodec.Callback() {
+            override fun onError(codec: MediaCodec, e: MediaCodec.CodecException) {
+                Timber.e("MediaConverter error. Codec: ${codec.name}. Exception: ${e.diagnosticInfo}")
+            }
+
+            override fun onInputBufferAvailable(codec: MediaCodec, index: Int) {
                 var size = 0
+                if (temporaryInputArray!!.available() <= 0) {
+                    codec.queueInputBuffer(index, 0, 0, 0, MediaCodec.BUFFER_FLAG_END_OF_STREAM)
+                    return
+                }
                 codec.getInputBuffer(index)?.let {
-                    Timber.e("Provola, ${it.remaining()}, $index")
-                    while (it.remaining() > 0 && inputArray.available() > 0) {
-                        it.putChar(inputArray.read().toChar())
+                    Timber.i("OutputCodec InputBuffer available, ${it.remaining()}, $index")
+                    while (it.remaining() > 0 && temporaryInputArray!!.available() > 0) {
+                        it.put(temporaryInputArray!!.read().toByte())
                         size++
                     }
                 }
-                codec.queueInputBuffer(index, 0, size, 0, if (inputArray.available() > 0) 0 else MediaCodec.BUFFER_FLAG_END_OF_STREAM)
+                Timber.i("OutputCodec; filled buffer with $size bytes. Available bytes: ${temporaryInputArray!!.available()}")
+                codec.queueInputBuffer(index, 0, size, 0, 0)
             }
 
             override fun onOutputBufferAvailable(
@@ -81,52 +139,16 @@ object MediaConverter {
                 val buffer = codec.getOutputBuffer(index)!!
                 val byteArray = ByteArray(buffer.remaining())
                 buffer.get(byteArray)
-                temporaryArray.write(byteArray)
-                if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
-                    outputCodec.start()
-                    inputCodec.stop()
-                }
-                codec.releaseOutputBuffer(index, 0)
-            }
-
-            override fun onOutputFormatChanged(codec: MediaCodec, format: MediaFormat) {
-                Timber.e("MediaConverter error. Output format changed.")
-            }
-        })
-
-        outputCodec.setCallback(object: MediaCodec.Callback() {
-            override fun onError(codec: MediaCodec, e: MediaCodec.CodecException) {
-                Timber.e("MediaConverter error. Codec: ${codec.name}. Exception: ${e.diagnosticInfo}")
-            }
-
-            override fun onInputBufferAvailable(codec: MediaCodec, index: Int) {
-                val buffer = codec.getInputBuffer(index)!!
-                var eos = true
-                val size = if (buffer.capacity() < temporaryInputArray.available()) {
-                    eos = false
-                    buffer.capacity()
-                } else temporaryInputArray.available()
-                temporaryInputArray.readByteString(size).asByteBuffer().let {
-                    buffer.put(it)
-                }
-                codec.queueInputBuffer(index, 0, size, 0, if (eos) MediaCodec.BUFFER_FLAG_END_OF_STREAM else 0)
-            }
-
-            override fun onOutputBufferAvailable(
-                codec: MediaCodec,
-                index: Int,
-                info: MediaCodec.BufferInfo
-            ) {
-                val buffer = codec.getOutputBuffer(index)
-                outputArray.write(buffer?.array())
-                codec.releaseOutputBuffer(index, 0)
+                outputArray.write(byteArray)
+                codec.releaseOutputBuffer(index, false)
                 if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
                     outputCodec.stop()
                     outputCodec.release()
                     inputCodec.release()
+                    extractor.release()
                     inputArray.close()
                     temporaryArray.close()
-                    temporaryInputArray.close()
+                    temporaryInputArray!!.close()
                     onSuccess(outputArray.toByteArray())
                     outputArray.close()
                 }
