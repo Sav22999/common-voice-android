@@ -50,6 +50,7 @@ import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.utils.AudioConstants
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -153,6 +154,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                     onButton2Click = {}
                 ))
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        volumeControlStream = AudioConstants.VolumeControlStream
     }
 
     private fun onBackPressedCustom() = withBinding {

@@ -46,6 +46,7 @@ import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.utils.AudioConstants
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -108,6 +109,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         binding.viewListenAnimateButton2.layoutParams.width = minHeightButtons
         binding.viewListenAnimateButton1.requestLayout()
         binding.viewListenAnimateButton2.requestLayout()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        volumeControlStream = AudioConstants.VolumeControlStream
     }
 
     private fun checkOfflineMode(available: Boolean) {

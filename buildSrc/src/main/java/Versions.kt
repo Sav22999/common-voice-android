@@ -25,7 +25,7 @@ object Versions {
     const val gpsAdsLiteVersion = "20.2.0"
 
     // Coroutines
-    const val androidVersion = "1.5.0"
+    const val androidVersion = "1.5.1"
 
     // Square
     const val retrofitVersion = "2.9.0"

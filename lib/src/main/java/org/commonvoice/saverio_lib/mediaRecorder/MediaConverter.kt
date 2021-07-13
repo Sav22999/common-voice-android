@@ -64,7 +64,7 @@ object MediaConverter {
 
             override fun onInputBufferAvailable(codec: MediaCodec, index: Int) {
                 if (inputArray.available() <= 0) {
-                    codec.queueInputBuffer(index, 0, 0, 0, MediaCodec.BUFFER_FLAG_END_OF_STREAM)
+                    codec.queueInputBuffer(index, 0, 0, 5000000, MediaCodec.BUFFER_FLAG_END_OF_STREAM)
                     return
                 }
 
@@ -105,7 +105,7 @@ object MediaConverter {
             }
 
             override fun onOutputFormatChanged(codec: MediaCodec, format: MediaFormat) {
-                Timber.e("MediaConverter error. Output format changed. New format: ${format.getString(MediaFormat.KEY_MIME)}")
+                Timber.i("MediaConverter output format changed. New format: ${format.getString(MediaFormat.KEY_MIME)}")
             }
         })
 
@@ -141,17 +141,17 @@ object MediaConverter {
                 buffer.get(byteArray)
                 outputArray.write(byteArray)
                 codec.releaseOutputBuffer(index, false)
-                if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
+                /*if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM == MediaCodec.BUFFER_FLAG_END_OF_STREAM) {
                     outputCodec.stop()
                     outputCodec.release()
-                    inputCodec.release()
+                    //inputCodec.release()
                     extractor.release()
                     inputArray.close()
                     temporaryArray.close()
                     temporaryInputArray!!.close()
                     onSuccess(outputArray.toByteArray())
                     outputArray.close()
-                }
+                }*/
             }
 
             override fun onOutputFormatChanged(codec: MediaCodec, format: MediaFormat) {
