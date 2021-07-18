@@ -46,19 +46,14 @@ class ReportsUploadWorker(
 
         private const val TAG = "reportsUploadWorker"
 
-        private val constraint = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        private val request = OneTimeWorkRequestBuilder<ReportsUploadWorker>()
-            .setConstraints(constraint)
-            .build()
-
-        fun attachToWorkManager(wm: WorkManager) {
+        fun attachToWorkManager(
+            wm: WorkManager,
+            wifiOnly: Boolean = false
+        ) {
             wm.enqueueUniqueWork(
                 TAG,
                 ExistingWorkPolicy.KEEP,
-                request
+                WorkerUtil.request<ReportsUploadWorker>(wifiOnly)
             )
         }
 

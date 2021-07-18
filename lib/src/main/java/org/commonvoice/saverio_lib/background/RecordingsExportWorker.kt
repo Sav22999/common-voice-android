@@ -100,18 +100,4 @@ class RecordingsExportWorker(
         }
     }
 
-    companion object {
-
-        private const val TAG = "recordingsExportUploadWorker"
-
-        private val constraint = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        internal val request = OneTimeWorkRequestBuilder<RecordingsExportWorker>()
-            .setConstraints(constraint)
-            .build()
-
-    }
-
 }

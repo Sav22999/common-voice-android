@@ -8,7 +8,6 @@ import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.repositories.AppActionsRepository
 import org.commonvoice.saverio_lib.repositories.StatsRepository
-import java.util.concurrent.TimeUnit
 
 class AppUsageUploadWorker(
     appContext: Context,
@@ -47,20 +46,11 @@ class AppUsageUploadWorker(
 
         private const val TAG = "appUsageUploadWorker"
 
-        private val constraint = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        private val request = OneTimeWorkRequestBuilder<AppUsageUploadWorker>()
-            .setConstraints(constraint)
-            .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30, TimeUnit.SECONDS)
-            .build()
-
         fun attachToWorkManager(wm: WorkManager) {
             wm.enqueueUniqueWork(
                 TAG,
                 ExistingWorkPolicy.KEEP,
-                request
+                WorkerUtil.genericOneTimeRequest<AppUsageUploadWorker>()
             )
         }
 
