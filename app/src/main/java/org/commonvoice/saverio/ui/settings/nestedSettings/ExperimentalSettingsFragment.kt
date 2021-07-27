@@ -53,7 +53,7 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
             switchPushToTalkSpeak.setOnCheckedChangeListener { _, isChecked ->
                 speakPrefManager.pushToTalk = isChecked
             }
-            switchShowInfoIconSpeakListen.isChecked = speakPrefManager.pushToTalk
+            switchPushToTalkSpeak.isChecked = speakPrefManager.pushToTalk
         }
 
         if (mainPrefManager.areGesturesEnabled)
