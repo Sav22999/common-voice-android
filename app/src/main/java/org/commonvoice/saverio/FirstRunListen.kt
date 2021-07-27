@@ -12,7 +12,7 @@ import org.koin.android.ext.android.inject
 
 
 class FirstRunListen : ViewBoundActivity<FirstRunListenBinding>(
-  FirstRunListenBinding::inflate  
+    FirstRunListenBinding::inflate
 ) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
@@ -65,7 +65,7 @@ class FirstRunListen : ViewBoundActivity<FirstRunListenBinding>(
     }
 
     fun goNextOrBack(next: Boolean = true) = withBinding {
-        if (status in 0..8) {
+        if (status in 0..(binding.seekBarFirstRunListen.max)) {
             btnNumberBottomListen.isGone = true
             txtTutorialMessageBottomListen.isGone = true
             btnNumberTopListen.isGone = true
