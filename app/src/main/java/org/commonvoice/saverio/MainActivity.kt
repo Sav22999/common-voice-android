@@ -360,7 +360,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                                 startActivity(
                                     Intent(
                                         Intent.ACTION_VIEW,
-                                        Uri.parse("https://bit.ly/3bNBoUU")
+                                        Uri.parse("https://crowdin.com/project/common-voice-android")
                                     )
                                 )
                             }

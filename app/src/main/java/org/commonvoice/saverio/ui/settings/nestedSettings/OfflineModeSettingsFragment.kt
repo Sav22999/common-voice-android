@@ -85,7 +85,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
 
             buttonOfflineModeLearnMore.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/3nJwpuq")))
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/offline-mode/")))
             }
         }
 

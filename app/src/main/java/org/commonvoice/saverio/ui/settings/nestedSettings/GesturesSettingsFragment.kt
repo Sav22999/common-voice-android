@@ -73,7 +73,7 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
             settingsSectionGesturesSubListen.isGone = !mainPrefManager.areGesturesEnabled
 
             buttonGesturesLearnMore.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/3phQ0lP")))
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/gestures/")))
             }
 
             updateAllGestures()

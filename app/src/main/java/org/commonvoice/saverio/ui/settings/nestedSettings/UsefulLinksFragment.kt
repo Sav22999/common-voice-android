@@ -33,15 +33,30 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
             }
 
             buttonTranslateApp.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3bNBoUU")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://crowdin.com/project/common-voice-android")
+                    )
+                )
             }
 
             buttonSeeAppStatistics.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/35d2dza")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://www.saveriomorelli.com/commonvoice/statistics/")
+                    )
+                )
             }
 
             buttonTelegramGroupCVAndroid.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3clgfkg")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://t.me/common_voice_android")
+                    )
+                )
             }
 
             buttonGuidelinesForValidations.setOnClickListener {
@@ -53,15 +68,25 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
             }
 
             buttonContactDeveloperOnTelegram.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/359wgbg")))
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/Sav22999")))
             }
 
             buttonProjectOnGitHub.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2PeOGRg")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://github.com/Sav22999/common-voice-android")
+                    )
+                )
             }
 
             buttonCommonVoicePlaybook.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://bit.ly/2OnuNcX")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://common-voice.github.io/community-playbook/")
+                    )
+                )
             }
 
             buttonSentenceCollector.setOnClickListener {
