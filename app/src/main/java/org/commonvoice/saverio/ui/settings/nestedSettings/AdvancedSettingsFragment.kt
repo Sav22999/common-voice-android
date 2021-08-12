@@ -127,6 +127,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             settingsPrefManager.automaticallyCheckForUpdates = false
                             settingsPrefManager.latestVersion = ""
                             settingsPrefManager.isProgressBarColouredEnabled = true
+                            settingsPrefManager.isLightThemeSentenceBoxSpeakListen = false
+                            settingsPrefManager.showInfoIcon = false
 
                             //Reset Stats
                             statsPrefManager.dailyGoalObjective = 0
@@ -149,6 +151,14 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             listenPrefManager.isAutoPlayClipEnabled = true
                             listenPrefManager.isShowTheSentenceAtTheEnd = false
                             listenPrefManager.showAdBanner = true
+                            listenPrefManager.showSpeedControl = false
+                            listenPrefManager.audioSpeed = 1F
+                            listenPrefManager.gesturesSwipeTop = "report"
+                            listenPrefManager.gesturesSwipeBottom = ""
+                            listenPrefManager.gesturesSwipeLeft = "skip"
+                            listenPrefManager.gesturesSwipeRight = "back"
+                            listenPrefManager.gesturesLongPress = ""
+                            listenPrefManager.gesturesDoubleTap = ""
 
                             //Reset Speak
                             speakPrefManager.requiredSentencesCount = 50
@@ -156,6 +166,15 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             speakPrefManager.skipRecordingConfirmation = false
                             speakPrefManager.saveRecordingsOnDevice = false
                             speakPrefManager.showAdBanner = true
+                            speakPrefManager.showSpeedControl = false
+                            speakPrefManager.audioSpeed = 1F
+                            speakPrefManager.gesturesSwipeTop = "report"
+                            speakPrefManager.gesturesSwipeBottom = ""
+                            speakPrefManager.gesturesSwipeLeft = "skip"
+                            speakPrefManager.gesturesSwipeRight = "back"
+                            speakPrefManager.gesturesLongPress = ""
+                            speakPrefManager.gesturesDoubleTap = ""
+                            speakPrefManager.pushToTalk = false
 
                             //Reset Main
                             mainPrefManager.language = "en"

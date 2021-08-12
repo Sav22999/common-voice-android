@@ -398,13 +398,13 @@
                 android:id="@+id/buttonRecordOrListenAgain"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/listen2_cv"
                 android:textColor="@color/colorWhite"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/buttonStartStopSpeak"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonStartStopSpeak"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
 
             <Button
@@ -421,19 +421,20 @@
 
             <Button
                 android:id="@+id/buttonSendSpeak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btn_rounded"
+
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/ic_send"
                 android:paddingStart="50dp"
                 android:paddingEnd="50dp"
                 android:text="@string/btn_send_sentence"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text_button"
                 android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonStartStopSpeak"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonStartStopSpeak"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

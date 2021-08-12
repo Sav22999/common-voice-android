@@ -71,7 +71,7 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
     }
 
     fun goNextOrBack(next: Boolean = true) = withBinding {
-        if (status in 0..8) {
+        if (status in 0..(binding.seekBarFirstRunSpeak.max)) {
             btnNumberBottomSpeak.isGone = true
             txtTutorialMessageBottomSpeak.isGone = true
             btnNumberTopSpeak.isGone = true
@@ -85,7 +85,6 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             imgBtnRecordSpeak.setImageResource(R.drawable.speak_cv)
             imgBtnListenAgainSpeak.isGone = true
             imgBtnSendSpeak.isGone = true
-            imgTxt4Speak.isGone = true
         }
 
         if (next) seekBarFirstRunSpeak.progress = status
@@ -170,7 +169,6 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             btnFourSpeak.text = "7"
             imgBtnListenAgainSpeak.isGone = false
             imgBtnSendSpeak.isGone = false
-            imgTxt4Speak.isGone = false
             imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
             stopAnimation(btnFourSpeak)
             stopAnimation(btnEightSpeak)
@@ -179,16 +177,16 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             status = 8
             btnNextSpeak.setText(R.string.btn_tutorial3)
             btnNumberBottomSpeak.text = "8"
-            txtTutorialMessageBottomSpeak.setText(R.string.txt8_tutorial_speak)
-            btnNumberTopSpeak.isGone = true
-            txtTutorialMessageTopSpeak.isGone = true
-            btnNumberBottomSpeak.isGone = false
-            txtTutorialMessageBottomSpeak.isGone = false
+            btnNumberTopSpeak.text = "9"
+            txtTutorialMessageTopSpeak.setText(R.string.txt8_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnNumberBottomSpeak.isGone = true
+            txtTutorialMessageBottomSpeak.isGone = true
             btnEightSpeak.isGone = false
             btnNineSpeak.isGone = true
             imgBtnListenAgainSpeak.isGone = false
             imgBtnSendSpeak.isGone = false
-            imgTxt4Speak.isGone = false
             imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
             stopAnimation(btnFourSpeak)
             stopAnimation(btnNineSpeak)
@@ -206,12 +204,14 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             imgBtnListenAgainSpeak.isGone = false
             imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
             imgBtnSendSpeak.isGone = false
-            imgTxt4Speak.isGone = false
             stopAnimation(btnEightSpeak)
             startAnimation(btnNineSpeak, R.anim.zoom_in)
         } else if (status == 9) {
             firstRunPrefManager.speak = false
-            if (ContextCompat.checkSelfPermission(this@FirstRunSpeak, Manifest.permission.RECORD_AUDIO)
+            if (ContextCompat.checkSelfPermission(
+                    this@FirstRunSpeak,
+                    Manifest.permission.RECORD_AUDIO
+                )
                 != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(

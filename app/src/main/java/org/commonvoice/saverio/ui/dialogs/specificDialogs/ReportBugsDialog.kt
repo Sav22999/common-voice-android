@@ -37,7 +37,7 @@ class ReportBugsDialog(
                 context.startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://bit.ly/2Z73TZZ")
+                        Uri.parse("https://github.com/common-voice/common-voice/issues")
                     )
                 )
                 dismiss()

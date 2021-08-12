@@ -271,12 +271,11 @@
                 android:id="@+id/buttonYesClip"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginEnd="200dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/yes_thumb_cv"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonStartStopListen"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
@@ -295,12 +294,11 @@
                 android:id="@+id/buttonNoClip"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="200dp"
+                android:layout_marginStart="30dp"
                 android:background="@drawable/no_thumb_cv"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonStartStopListen"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

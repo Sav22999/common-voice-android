@@ -93,7 +93,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
         startActivity(
             Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("https://bit.ly/3clgfkg")
+                Uri.parse("https://t.me/common_voice_android")
             )
         )
     }

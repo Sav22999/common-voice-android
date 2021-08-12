@@ -46,6 +46,19 @@ class SettingsPrefManager(ctx: Context) {
             .putBoolean(Keys.INFO_ICON_SPEAK_LISTEN.name, value)
             .apply()
 
+    var wifiOnlyUpload: Boolean
+        get() = preferences.getBoolean(Keys.WIFI_ONLY_UPLOAD.name, false)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.WIFI_ONLY_UPLOAD.name, value)
+            .apply()
+
+    var wifiOnlyDownload: Boolean
+        get() = preferences.getBoolean(Keys.WIFI_ONLY_DOWNLOAD.name, false)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.WIFI_ONLY_DOWNLOAD.name, value)
+            .apply()
+
+
     private enum class Keys {
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
@@ -54,7 +67,9 @@ class SettingsPrefManager(ctx: Context) {
         APP_LANGUAGES,
         DAILYGOAL_PROGRESSBAR_COLOURED,
         LIGHT_THEME_SENTENCE_BOX_SPEAK_LISTEN,
-        INFO_ICON_SPEAK_LISTEN
+        INFO_ICON_SPEAK_LISTEN,
+        WIFI_ONLY_UPLOAD,
+        WIFI_ONLY_DOWNLOAD,
     }
 
 }
