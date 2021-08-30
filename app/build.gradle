@@ -73,10 +73,6 @@ dependencies {
     implementation Libs.constraintlayout
     implementation Libs.navFragmentKtx
     implementation Libs.navUiKtx
-    implementation Libs.viewModel
-    implementation Libs.viewModelSavedState
-    implementation Libs.liveData
-    implementation Libs.commonJava8
     implementation Libs.legacySupport
     testImplementation Libs.junit4
     androidTestImplementation Libs.junitExt

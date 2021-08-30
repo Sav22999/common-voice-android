@@ -82,7 +82,7 @@ object Libs {
         "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp3Version}"
 
     // Koin
-    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koinVersion}"
+    const val koinViewModel = "io.insert-koin:koin-androidx-viewmodel:${Versions.koinVersion}"
 
     // Debug
     const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
