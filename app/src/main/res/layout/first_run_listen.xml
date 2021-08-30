@@ -304,14 +304,14 @@
         tools:viewBindingIgnore="true">
 
         <TextView
-            android:id="@+id/txtReadGuidelinesReviewListen"
+            android:id="@+id/txtReadContributionCriteriaListen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="70dp"
             android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/txt_guidelines_review_listen"
+            android:text="@string/txt_contribution_criteria"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_big"
             android:textStyle="normal"
@@ -321,7 +321,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnReadNowGuidelinesListen"
+            android:id="@+id/btnReadNowContributionCriteriaListen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -333,7 +333,7 @@
             android:textSize="@dimen/text_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtReadGuidelinesReviewListen" />
+            app:layout_constraintTop_toBottomOf="@+id/txtReadContributionCriteriaListen" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

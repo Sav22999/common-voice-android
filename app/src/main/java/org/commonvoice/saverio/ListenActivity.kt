@@ -5,7 +5,9 @@ import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -894,10 +896,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode_dark)
                 imageReportIconListen.setImageResource(R.drawable.ic_report_dark)
                 imageInfoListen.setImageResource(R.drawable.ic_info_dark)
+                imageContributionCriteriaListen.setImageResource(R.drawable.ic_read_contribution_criteria_dark)
             } else {
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode)
                 imageReportIconListen.setImageResource(R.drawable.ic_report)
                 imageInfoListen.setImageResource(R.drawable.ic_info_light)
+                imageContributionCriteriaListen.setImageResource(R.drawable.ic_read_contribution_criteria_light)
             }
         }
         resizeSentence()
@@ -934,6 +938,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             }
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
+            }
+            if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
+                hideImage(imageContributionCriteriaListen)
             }
             if (!buttonYesClip.isGone) {
                 hideButton(buttonYesClip)
@@ -1021,6 +1028,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
+            if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
+                hideImage(imageContributionCriteriaListen)
+            }
             if (!buttonYesClip.isGone) {
                 hideButton(buttonYesClip)
             }
@@ -1088,6 +1098,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         if (settingsPrefManager.showInfoIcon && imageInfoListen.isGone) {
             showImage(imageInfoListen)
         }
+        if (settingsPrefManager.showContributionCriteriaIcon && imageContributionCriteriaListen.isGone) {
+            showImage(imageContributionCriteriaListen)
+        }
 
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
@@ -1117,6 +1130,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
         imageInfoListen.onClick {
             showInformationAboutClip()
+        }
+        imageContributionCriteriaListen.onClick {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/criteria"))
+            startActivity(browserIntent)
         }
     }
 
@@ -1277,6 +1295,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
         if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
             hideImage(imageInfoListen)
+        }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
+            hideImage(imageContributionCriteriaListen)
         }
         buttonStartStopListen.isEnabled = false
         buttonSkipListen.isEnabled = false

@@ -291,6 +291,52 @@
         tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutFirstRunSpeakNoSmartphone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/firstRunSpeakSectionBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:viewBindingIgnore="true">
+
+        <TextView
+            android:id="@+id/txtReadContributionCriteriaSpeak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="70dp"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/txt_contribution_criteria"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_big"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnReadNowContributionCriteriaSpeak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_rounded"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:text="@string/btn_read_now_guidelines_listen"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtReadContributionCriteriaSpeak" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/firstRunSpeakSectionBottom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -329,7 +375,7 @@
             android:foregroundTint="@color/colorBackground"
             android:indeterminate="false"
             android:indeterminateTint="@color/colorBackground"
-            android:max="8"
+            android:max="9"
             android:progress="0"
             android:progressBackgroundTint="@color/colorBackground"
             android:progressDrawable="@color/colorTransparent"

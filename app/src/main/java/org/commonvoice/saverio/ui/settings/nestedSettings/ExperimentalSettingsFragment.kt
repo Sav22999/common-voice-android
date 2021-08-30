@@ -50,6 +50,12 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
             switchShowInfoIconSpeakListen.isChecked =
                 settingsPrefManager.showInfoIcon
 
+            switchShowContributionCriteriaIconSpeakListen.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.showContributionCriteriaIcon = isChecked
+            }
+            switchShowContributionCriteriaIconSpeakListen.isChecked =
+                settingsPrefManager.showContributionCriteriaIcon
+
             switchPushToTalkSpeak.setOnCheckedChangeListener { _, isChecked ->
                 speakPrefManager.pushToTalk = isChecked
             }

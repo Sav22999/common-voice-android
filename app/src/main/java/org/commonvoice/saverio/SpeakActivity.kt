@@ -6,8 +6,10 @@ import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -178,6 +180,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
         if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
+        }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaSpeak.isGone) {
+            hideImage(imageContributionCriteriaSpeak)
         }
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
@@ -898,10 +903,12 @@ END | GESTURES
                 imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode_dark)
                 imageReportIconSpeak.setImageResource(R.drawable.ic_report_dark)
                 imageInfoSpeak.setImageResource(R.drawable.ic_info_dark)
+                imageContributionCriteriaSpeak.setImageResource(R.drawable.ic_read_contribution_criteria_dark)
             } else {
                 imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode)
                 imageReportIconSpeak.setImageResource(R.drawable.ic_report)
                 imageInfoSpeak.setImageResource(R.drawable.ic_info_light)
+                imageContributionCriteriaSpeak.setImageResource(R.drawable.ic_read_contribution_criteria_light)
             }
         }
     }
@@ -954,6 +961,11 @@ END | GESTURES
         imageInfoSpeak.onClick {
             showInformationAboutSentence()
         }
+        imageContributionCriteriaSpeak.onClick {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/criteria"))
+            startActivity(browserIntent)
+        }
 
         buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
@@ -1005,6 +1017,9 @@ END | GESTURES
         }
         if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
+        }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaSpeak.isGone) {
+            hideImage(imageContributionCriteriaSpeak)
         }
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
@@ -1080,6 +1095,9 @@ END | GESTURES
         if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
         }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaSpeak.isGone) {
+            hideImage(imageContributionCriteriaSpeak)
+        }
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
@@ -1096,6 +1114,9 @@ END | GESTURES
         }
         if (settingsPrefManager.showInfoIcon && imageInfoSpeak.isGone) {
             showImage(imageInfoSpeak)
+        }
+        if (settingsPrefManager.showContributionCriteriaIcon && imageContributionCriteriaSpeak.isGone) {
+            showImage(imageContributionCriteriaSpeak)
         }
 
         buttonSendSpeak.isGone = true
@@ -1163,7 +1184,7 @@ END | GESTURES
                     }
                     pushToTalkLongPress = false
                 } else if (event.action == MotionEvent.ACTION_DOWN) {
-                    if (speakPrefManager.pushToTalk && (status == 0 || status==4)) {
+                    if (speakPrefManager.pushToTalk && (status == 0 || status == 4)) {
                         startRecording()
                         pushToTalkLongPress = true
                     }

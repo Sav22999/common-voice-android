@@ -50,7 +50,7 @@ class FirstRunListen : ViewBoundActivity<FirstRunListenBinding>(
         theme.setElement(layoutFirstRunListen)
         theme.setElements(this@FirstRunListen, layoutFirstRunListenNoSmartphone)
         theme.setElement(layoutFirstRunListenNoSmartphone)
-        theme.setElement(this@FirstRunListen, btnReadNowGuidelinesListen)
+        theme.setElement(this@FirstRunListen, btnReadNowContributionCriteriaListen)
         theme.setElement(this@FirstRunListen, btnNextListen)
         theme.setElement(
             this@FirstRunListen,
@@ -181,17 +181,17 @@ class FirstRunListen : ViewBoundActivity<FirstRunListenBinding>(
             imgBtnNoListen.isGone = false
             layoutFirstRunListenNoSmartphone.isGone = true
             stopAnimation(btnSevenListen)
-            stopAnimation(btnReadNowGuidelinesListen)
+            stopAnimation(btnReadNowContributionCriteriaListen)
             startAnimation(btnEightListen, R.anim.zoom_in)
         } else if (status == 8 || status == 10 && !next) {
             status = 9
             btnNextListen.setText(R.string.btn_tutorial5)
             layoutFirstRunListenNoSmartphone.isGone = false
             stopAnimation(btnEightListen)
-            startAnimation(btnReadNowGuidelinesListen, R.anim.zoom_in_first_launch)
-            btnReadNowGuidelinesListen.setOnClickListener {
+            startAnimation(btnReadNowContributionCriteriaListen, R.anim.zoom_in_first_launch)
+            btnReadNowContributionCriteriaListen.setOnClickListener {
                 val browserIntent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ"))
+                    Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/criteria"))
                 startActivity(browserIntent)
             }
         } else if (status == 9) {

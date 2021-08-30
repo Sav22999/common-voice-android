@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -57,6 +58,9 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
         theme.setElements(this@FirstRunSpeak, firstRunSpeakSectionBottom)
         theme.setElement(this@FirstRunSpeak, 1, firstRunSpeakSectionBottom)
         theme.setElement(layoutFirstRunSpeak)
+        theme.setElements(this@FirstRunSpeak, layoutFirstRunSpeakNoSmartphone)
+        theme.setElement(layoutFirstRunSpeakNoSmartphone)
+        theme.setElement(this@FirstRunSpeak, btnReadNowContributionCriteriaSpeak)
         theme.setElement(this@FirstRunSpeak, btnNextSpeak)
         theme.setElement(
             this@FirstRunSpeak,
@@ -203,10 +207,26 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             btnNineSpeak.isGone = false
             imgBtnListenAgainSpeak.isGone = false
             imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
+            layoutFirstRunSpeakNoSmartphone.isGone = true
             imgBtnSendSpeak.isGone = false
             stopAnimation(btnEightSpeak)
+            stopAnimation(btnReadNowContributionCriteriaSpeak)
             startAnimation(btnNineSpeak, R.anim.zoom_in)
-        } else if (status == 9) {
+        } else if (status == 9 || status == 11 && !next) {
+            status = 10
+            btnNextSpeak.setText(R.string.btn_tutorial5)
+            layoutFirstRunSpeakNoSmartphone.isGone = false
+            stopAnimation(btnNineSpeak)
+            startAnimation(btnReadNowContributionCriteriaSpeak, R.anim.zoom_in_first_launch)
+            btnReadNowContributionCriteriaSpeak.setOnClickListener {
+                val browserIntent =
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://commonvoice.mozilla.org/criteria")
+                    )
+                startActivity(browserIntent)
+            }
+        } else if (status == 10) {
             firstRunPrefManager.speak = false
             if (ContextCompat.checkSelfPermission(
                     this@FirstRunSpeak,

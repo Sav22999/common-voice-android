@@ -46,6 +46,12 @@ class SettingsPrefManager(ctx: Context) {
             .putBoolean(Keys.INFO_ICON_SPEAK_LISTEN.name, value)
             .apply()
 
+    var showContributionCriteriaIcon: Boolean
+        get() = preferences.getBoolean(Keys.CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN.name, true)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN.name, value)
+            .apply()
+
     var wifiOnlyUpload: Boolean
         get() = preferences.getBoolean(Keys.WIFI_ONLY_UPLOAD.name, false)
         set(value) = preferences.edit()
@@ -68,6 +74,7 @@ class SettingsPrefManager(ctx: Context) {
         DAILYGOAL_PROGRESSBAR_COLOURED,
         LIGHT_THEME_SENTENCE_BOX_SPEAK_LISTEN,
         INFO_ICON_SPEAK_LISTEN,
+        CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN,
         WIFI_ONLY_UPLOAD,
         WIFI_ONLY_DOWNLOAD,
     }

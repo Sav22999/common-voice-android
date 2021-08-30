@@ -59,8 +59,8 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
                 )
             }
 
-            buttonGuidelinesForValidations.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://mzl.la/2Z5OxEQ")))
+            buttonReadContributionCriteria.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/criteria")))
             }
 
             buttonTermsOfService.setOnClickListener {
@@ -90,7 +90,7 @@ class UsefulLinksFragment : ViewBoundFragment<FragmentUsefulLinksSettingsBinding
             }
 
             buttonSentenceCollector.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://mzl.la/3birwVc")))
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/sentence-collector/")))
             }
         }
 
