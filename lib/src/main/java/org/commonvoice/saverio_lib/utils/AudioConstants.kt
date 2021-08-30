@@ -17,5 +17,4 @@ object AudioConstants {
 
     @RequiresApi(Build.VERSION_CODES.O)
     val VolumeControlStream = AudioAttribute.volumeControlStream
-
 }

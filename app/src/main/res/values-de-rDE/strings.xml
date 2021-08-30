@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram-Gruppe der App</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Beschriftungen unterhalb der Menüsymbole anzeigen</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Lese die Nutzungsbedingungen für Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Lesen Sie die Überprüfungs-Richtlinien</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Auf Google Play bewerten</string>
     <string name="title_ui_settings" comment="Option in Settings">Benutzeroberfläche</string>
     <string name="title_advanced_settings" comment="Option in Settings">Erweiterte Einstellungen</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Werbebanner in {{section_name}} aktivieren</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Farbige Tages-Fortschrittsleiste</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} und {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Helles Thema auch für Abspielen und Anhören verwenden (wenn das helle Thema aktiviert ist).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Helles Thema auch für Abspielen und Anhören verwenden (wenn das helle Thema aktiviert ist).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Menü für Abspielgeschwindigkeit anzeigen</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Info-Symbol anzeigen</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Info-Symbol anzeigen</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Wähle die Anzahl der Sätze und die Anzahl der Clips, die heruntergeladen und verwendet werden sollen, wenn sich die App im Offline-Modus befindet.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
@@ -144,8 +145,8 @@
     <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
     <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
     <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nichts</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Zurück</string>
     <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
     <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Clip akzeptieren (als korrekt markieren)</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Speichern</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Aktion auswählen</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Satz wird geladen…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Überspringen</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tippe auf dieses Symbol, wenn du die Aufnahme erneut hören möchtest.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Wenn die Aufnahme mit dem Satz übereinstimmt, tippe auf dieses Symbol, um sie zu akzeptieren.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Wenn die Aufnahme nicht mit dem Satz übereinstimmt, tippe auf dieses Symbol, um sie abzulehnen.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Wenn du dir nicht sicher bist, ob du eine Aufnahme annehmen oder ablehnen willst, schau dir die offiziellen Überprüfungs-Richtlinien auf Mozilla Discourse an.\nDiesen Link findest du auch später in den Einstellungen.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Jetzt lesen</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Leider existiert diese Funktion noch nicht.\nWir arbeiten ständig an der Verbesserung der App, also schau einfach später wieder vorbei, um zu sehen, ob sie hinzugefügt wurde.</string>

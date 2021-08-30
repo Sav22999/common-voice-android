@@ -115,7 +115,7 @@ De främsta deltagarna</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram grupp av appen</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Visa etiketter under menyikonerna</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Läs användarvillkoren för Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Läs riktlinjerna för valideringar</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Betygsätt oss på Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Användargränssnitt</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avancerat</string>
@@ -129,9 +129,10 @@ De främsta deltagarna</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Aktivera annonsrad i {{*{{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Färgad förloppsindikator för dagliga mål</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} och {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Visa fält för hastighetskontroll</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Visa info-ikon</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Visa info-ikon</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Välj antal meningar och antal klipp att ladda ner och använda när appen är i offlineläge.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Det tar vanligtvis en användare ca 13 minuter att validera 50 klipp och 26 minuter att spela in 50 meningar.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Svep uppåt</string>
@@ -152,13 +153,14 @@ De främsta deltagarna</string>
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Hoppa över meningen</string>
     <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Acceptera klippet (markera som korrekt)</string>
     <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Avvisa klippet (markera som felaktigt)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Aktivera/inaktivera \"{{feature}}\"</string>
     <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Rapportera klippet</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Rapportera meningen</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Visa information om klippet</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Visa information om meningen</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Spara</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Välj en åtgärd</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
@@ -270,7 +272,7 @@ De främsta deltagarna</string>
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tryck på ikonen om du vill lyssna på klippet igen.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Om klippet matchar meningen, tryck på ikonen för att acceptera det.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Om klippet inte matchar meningen, tryck på ikonen för att avvisa den.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Om du är osäker på om du ska godkänna eller avslå en inspelning så kan du läsa de officiella riktlinjerna för validering på Mozillas Discourse.\nDu kan också hitta denna länk senare under Inställningar.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Läs nu</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Tyvärr, den här funktionen finns inte ännu.\nVi arbetar ständigt med att förbättra appen, så kom tillbaka senare för att se om den har lagts till.</string>

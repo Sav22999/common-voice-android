@@ -54,7 +54,7 @@
     <string name="btn_join_telegram_first_launch" comment="Button">پیوستن به گروه</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">در حال بارگذاری…</string>
+    <string name="txt_loading_page" comment="Label">در حال آماده‌سازی…</string>
     <string name="txt_profile_username" comment="Label in Profile">نام کاربری</string>
     <string name="txt_profile_email" comment="Label in Profile">رایانامه</string>
     <string name="txt_profile_age" comment="Label in Profile">سن</string>
@@ -65,7 +65,7 @@
     <string name="txt_gender_female" comment="Label in Profile">ماده</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">ديگر</string>
     <string name="btn_badges_loggedin" comment="Button">همهٔ نشان‌ها</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">سطح {{level}}</string>
     <string name="level_up_message" comment="Message text">تبریک! به سطح {{n_level}} رسیدید.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">من در حال حاضر یک پیوند تایید دارم</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">لینک تأیید</string>
@@ -74,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">گشودن دوبارهٔ خودآموز</string>
     <string name="txt_project_github_settings" comment="Button in Settings">پروژهٔ نرم‌افزار آزاد روی گیت‌هاب</string>
     <string name="txt_developed_by" comment="Label in Settings">توسعه‌یافته به دست</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="toast_language_changed" comment="Message text">زبان با موفقیت روی {{lang}} تنظیم شد</string>
     <string name="settingsLanguage" comment="Title in Settings">زبان</string>
     <string name="settingsListen" comment="Title in Settings">شنیدن</string>
     <string name="settingsSpeak" comment="Title in Settings">گفتن</string>
@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">گروه تلگرام کاره</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">نمایش برچسب‌ها زیر نقشک‌های فهرست</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">شرایط خدمت آواهای مشترک موزیلا را بخوانید</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">دستورالعمل های اعتبار سنجی را بخوانید</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">بازبینی روی گوگل پلی</string>
     <string name="title_ui_settings" comment="Option in Settings">رابط کاربری</string>
     <string name="title_advanced_settings" comment="Option in Settings">پیشرفته</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">معمولاً اعتبارسنجی 50 کلیپ برای کاربران حدود 13 دقیقه و ضبط 26 جمله 50 دقیقه زمان می‌برد.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">به بالا بکشید</string>
@@ -157,11 +158,12 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">اطلاعاتی درباره جمله نشان بده</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">ذخیره</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">یک عمل را انتخاب کنید</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">دریافت جمله…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">پرش</string>
     <string name="btn_send_sentence" comment="Button in Speak">فرستادن ضبط</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_loading_clip" comment="Label in Listen">دریافت صدا…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">برای شروع ضبط، نقشک زیر را بزنید.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">برای پایان ضبط، نقشک زیر را بزنید.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">جمله ضبط شد. به ضبط گوش دهید.</string>
@@ -171,7 +173,7 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">برای پایان شنیدن، نقشک زیر را بزنید.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">ضبط خیلی طولانی است. بیشینهٔ طول، ۱۰ ثانیه است.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">ضبط بیش از حد کوتاه است. لطفاً دوباره تلاش کنید.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_sending_recording" comment="Label in Speak">فرستادن صدای ضبط شده…</string>
     <string name="txt_recording_sent" comment="Label in Speak">ضبط فرستاده شد!</string>
     <string name="txt_sending_recording_failed" comment="Message text">شکست در فرستادن ضبط!</string>
     <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
@@ -204,7 +206,7 @@
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">در حال گوش دادن…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
-    <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">متن جمله پنهان است</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">اگر می‌خواهید دوباره به قطعه گوش کنید، روی این نقشک بزنید.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">اگر قطعه با جمله مطابق است، برای پذیرشش، روی این نقشک بزنید.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">اگر قطعه با جمله مطابق نیست، برای ردش، روی این نقشک بزنید.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, you can read the official guidelines for validation on Mozilla Discourse.\nYou also can find this link later in Settings.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>

@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram группа приложения</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Показывать метки под значками меню</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Прочтите условия использования Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Ознакомьтесь с руководством по валидации</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Оцените нас на Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Интерфейс пользователя</string>
     <string name="title_advanced_settings" comment="Option in Settings">Дополнительно</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Включить рекламный баннер в {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Цветной индикатор выполнения ежедневных целей</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} и {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Световая тема также для предложения, которое нужно прочитать/проверить в Speak and Listen (когда включена световая тема).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Световая тема также для предложения, которое нужно прочитать/проверить в Speak and Listen (когда включена световая тема).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Показывать панель управления скоростью</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показать значок с информацией</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показать значок с информацией</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Выберите количество предложений и количество записей для загрузки и использования в автономном режиме.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Обычно пользователям требуется около 13 минут для проверки 50 клипов и 26 минут для записи 50 предложений.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
@@ -155,8 +156,9 @@
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Сохранить</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Загрузка предложения…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропустить</string>
@@ -288,7 +290,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Нажмите на этот значок, если вы хотите прослушать клип снова.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Если клип соответствует предложению, нажмите на этот значок, чтобы принять его.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Если клип не соответствует предложению, нажмите на этот значок, чтобы отклонить его.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Если вы не уверены, принять или отклонить запись, вы можете прочитать официальное руководство по проверке на Mozilla Discourse.\nВы также можете найти эту ссылку позже в настройках.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Прочитать сейчас</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">К сожалению, эта функция пока не существует.\nМы постоянно работаем над улучшением приложения, поэтому проверьте позже, чтобы убедиться, что она была добавлена.</string>

@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram 群組應用程式</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">在菜单图标下方显示标签</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">查看 Mozilla Common Voice 服务条款</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">查看验证语音片段的指引</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">在 Google Play 上评价</string>
     <string name="title_ui_settings" comment="Option in Settings">界面</string>
     <string name="title_advanced_settings" comment="Option in Settings">高级选项</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">在{{section_name}}界面启用广告横幅</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">彩色每日目标进度条</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}}和{{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">对听与读中需要读取/验证的句子也开启浅色主题(当浅色主题开启时)。</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">显示速度控制栏</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>
@@ -258,7 +260,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">如果你想要再次聆听剪辑，请点击此图标。</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">如果素材与句子相匹配，请点击此图标来接受。</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">如果素材与句子不匹配，请点击此图标拒绝它。</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">如果你不知道是接受还是拒绝录音，你可以在 Mozilla 教程中看到官方的验证指南。\n您也可以稍后在设置中找到此链接。</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">现在阅读</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">抱歉，此功能尚不存在。\n我们正在不断努力改进应用，所以稍后再回来看看是否添加了。</string>

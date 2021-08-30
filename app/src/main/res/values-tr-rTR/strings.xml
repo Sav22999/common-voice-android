@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Uygulamanın Telegram grubu</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Menü simgelerinin altında etiketleri göster</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice Hizmet Şartlarını okuyun</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Doğrulamalar için yönergeleri okuyun</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Google Play\'de Değerlendir</string>
     <string name="title_ui_settings" comment="Option in Settings">Kullanıcı arayüzü</string>
     <string name="title_advanced_settings" comment="Option in Settings">Gelişmiş</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">{{section_name}} içinde reklam şeridini etkinleştir</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Renklendirilmiş günlük başarım ilerlemesi barı</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} ve {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Aydınlık tema ayrıca cümlelerin okunması ve onaylanması için Konuş ve Dinlenin içerisindedir (aydınlık tema aktifleştirildiğinde).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Aydınlık tema ayrıca cümlelerin okunması ve onaylanması için Konuş ve Dinlenin içerisindedir (aydınlık tema aktifleştirildiğinde).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Hız kontrol barını göster</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Bilgi ikonunu göster</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Bilgi ikonunu göster</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Uygulama çevrimdışı moddayken indirilecek ve kullanılacak cümle ve klip sayısını seçin.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Kullanıcılar genellikle 50 adet klibi onaylamak için 13 dakika ve 50 kelime kaydetmek için 26 dakika harcarlar.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Yukarı kaydır</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Cümle hakkında bilgi göster</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Kaydet</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Bir eylem seçin</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cümle yükleniyor…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Atla</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Kaydı tekrar dinlemek isterseniz bu simgeye dokunun.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Kayıt cümleyle eşleşiyorsa, doğrulamak için bu simgeye dokunun.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Kayıt cümle ile uyuşmuyorsa, reddetmek için bu simgeye dokunun.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Bir kaydı kabul edip etmeyeceğinizden emin değilseniz, Mozilla Discourse\'da doğrulama için resmi yönergeleri okuyabilirsiniz.\nBu bağlantıyı daha sonra Ayarlar\'da da bulabilirsiniz.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Şimdi Oku</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Maalesef bu özellik henüz mevcut değil.\nUygulamayı iyileştirmek için sürekli çalışıyoruz, bu nedenle daha sonra eklenip eklenmediğini görmek için tekrar kontrol edin.</string>

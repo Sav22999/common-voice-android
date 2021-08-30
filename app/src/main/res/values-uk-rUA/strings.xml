@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Група застосунку в Telegram</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Відображати ярлики під піктограмами меню</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Прочитати умови використання Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Прочитати рекомендації для перевірки</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Написати відгук у Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Інтерфейс користувача</string>
     <string name="title_advanced_settings" comment="Option in Settings">Розширені</string>
@@ -127,27 +127,28 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Ввімкнути рекламний банер в {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Розфарбувати прогрес щоденних цілей</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} і {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Світла тема також для речення для читання/перевірки в режимі «Говори і слухай» (коли світлу тему ввімкнено).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Світла тема також для речення для читання/перевірки в режимі «Говори і слухай» (коли світлу тему ввімкнено).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Показати регулятор швидкості</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показати піктограму інформації</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показати піктограму інформації</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Виберіть кількість пропозицій та кількість кліпів, які потрібно завантажити та використовувати, коли програма перебуває в автономному режимі.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Зазвичай, користувачам потрібно близько 13 хвилин, щоб перевірити 50 кліпів, і 26 хвилин, щоб записати 50 речень.</string>
-    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
-    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
-    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Провести вгору</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Провести вниз</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Провести вліво</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Провести вправо</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Тривале натискання</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Подвійне натискання</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Проведіть вгору: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Проведіть вниз: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Проведіть вліво: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Проведіть вправо: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Тривале натискання: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Подвійне натискання: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Нічого</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Повернутись назад</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Пропустити кліп</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Пропустити речення</string>
     <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
     <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
     <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
@@ -155,8 +156,9 @@
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Зберегти</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Завантаження речення…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропустити</string>
@@ -288,7 +290,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Натисніть на цю піктограму, якщо ви хочете знову послухати кліп.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Якщо кліп підходить до речень, натисніть на цей значок, щоб прийняти його.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Якщо кліп не відповідає реченню, натисніть на цей значок, щоб відхилити його.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Якщо ви не впевнені, приймати чи відхиляти запис, ви можете прочитати офіційні вказівки щодо перевірки на Mozilla Discourse.\nЦе посилання ви також знайдете пізніше в Налаштуваннях.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Читайте</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">На жаль, ця функція ще не існує.\nМи постійно працюємо для вдосконалення додатку, тому перевірте пізніше, щоб побачити, чи було додано.</string>

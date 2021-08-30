@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Ҡушымтаның Telegram төркөмө</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Меню иконалары аҫтындағы ярлыктарҙы күрһәтергә</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice Ҡулланыу шарттарын уҡырға</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Тикшереү өсөн аңлатмаларҙы уҡырға</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Google Play-ҙа ҡарарға</string>
     <string name="title_ui_settings" comment="Option in Settings">Ҡулланыусы интерфейсы</string>
     <string name="title_advanced_settings" comment="Option in Settings">Өҫтәлмә</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">{{section_name}} секцияһында баннер күренә</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Көндәлек планды төҫ индикаторында күрһәтергә</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} һәм {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Әгәр яҡты тема ҡуйылған булһа (тауыш яҙҙырып һәм тикшергән саҡта ла) текстың фоно шул төҫтә була.</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Тауыш тиҙлеген үҙгәрткән кнопкаларҙы күрһәтергә</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Мәғлүмәт иконаһын күрһәт</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Ҡушымта оффлайн булғанда тейәү һәм ҡулланыу өсөн һөйләмдәр һанын һәм клиптар һанын һайлағыҙ.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Ғәҙәттә ҡулланыусыларға 50 клипты тикшереү өсөн 13 минут һәм 50 һөйләм яҙҙырыу өсөн 26 минут ваҡыт кәрәк.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Өҫкә сиртегеҙ</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Яҙма тураһында мәғлүмәт күрһәтергә</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Һаҡларға</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Нимә эшләүҙе һайлау</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Һөйләмдәр тейәлә…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Үткәр</string>
@@ -258,7 +260,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Клипты яңынан тыңларға теләһәгеҙ ошо иконаға баҫығыҙ.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Әгәр клип һөйләмгә тура килһә, уны ҡабул итеү өсөн ошо иконаға баҫығыҙ.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Әгәр клип һөйләмгә тура килмәһә, уны кире ҡағыу өсөн ошо иконаға баҫығыҙ.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Яҙманы ҡабул итеү йәки кире ҡағыу тураһында белмәһәгеҙ, һеҙ Mozilla Discourse тикшереү өсөн рәсми инструкцияларҙы уҡый алаһығыҙ.\nҺеҙ шулай уҡ был һылтанманы һуңыраҡ Көйләүҙәрҙә таба алаһығыҙ.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Хәҙер уҡығыҙ</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Ҡыҙғанысҡа ҡаршы, был функция әлегә юҡ.\nБеҙ ҡушымтаны яҡшыртыу өҫтөндә даими эшләйбеҙ, шуға күрә һуңғараҡ уны белер өсөн тикшерегеҙ.</string>

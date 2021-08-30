@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram-groep fan de app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Labels ûnder de menu-ikoanen toane</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">De tsjinstbetingsten fan Mozilla Common Voice lêze</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">De rjochtlinen foar falidaasjes lêze</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Op Google Play beoardiele</string>
     <string name="title_ui_settings" comment="Option in Settings">Brûkersinterface</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avansearre</string>
@@ -127,36 +127,38 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Advertinsjebanner by ‘{{section_name}}’ tastean</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Kleurde foartgongsbalke deidoel</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} en {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljocht tema ek foar de te lêzen/falidearjen sin yn Sprekke en Harkje (wannear\'t it ljochte tema ynskeakele is).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljocht tema ek foar de te lêzen/falidearjen sin yn Sprekke en Harkje (wannear\'t it ljochte tema ynskeakele is).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Snelheidskontrôlebalke toane</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ynfo-piktogram toane</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ynfo-piktogram toane</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Kies it oantal te downloaden sinnen en fragminten dy\'t jo yn de app yn de offlinemodus brûke wolle.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Normalerwize hawwe brûkers ûngefear 15 minuten nedich om 100 clips te falidearjen en 30 minuten om 100 sinnen op te nimmen.</string>
-    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
-    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
-    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
-    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
-    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
-    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
-    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
-    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Omheech feie</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Omleech feie</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Nei links feie</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Nei rjochts feie</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Lang oanreitsje</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Dûbeldtikke</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Omheech feie: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Omleech feie: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Nei links feie: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Nei rjochts feie: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Lang oanreitsje: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Dûbeldtikke: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Neat</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Tebek</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Fragmint oerslaan</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Sin oerslaan</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Fragmint akseptearje (as korrekt markearje)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Fragmint ôfwize (as net korrekt markearje)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">*{{feature}}* yn-/útskeakelje</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Fragmint rapportearje</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Sin rapportearje</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Ynformaasje oer it fragmint toane</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Ynformaasje oer de sin toane</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Bewarje</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Selektearje in aksje</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Sin lade…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Oerslaan</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tik op dit piktogram as jo it fragmint opnij beharkje wolle.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">As it fragmint en de sin mei inoar oerienkomme, tikke jo op dit piktogram om it te akseptearjen.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">As it fragmint net mei de sin oerienkomt, tikke jo op dit piktogram om it ôf te karren.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">As jo net wis binne oft jo in opname akseptearje of ôfkarre, kinne jo de offisjele rjochtlinen foar falidaasje op Mozilla Discourse lêze.\nJo kinne dizze keppeling letter ek fine yn Ynstellingen.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">No lêze</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, dizze funksje bestiet noch net.\nWy wurkje konstant oan it ferbetterjen fan de app, dus sjoch letter nochris om te sjen oft dizze tafoege is.</string>
@@ -306,7 +308,7 @@
     <string name="text_open_settings_now">Ynstellingen no iepenje</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Binne jo wis dat jo tebek gean wolle en de opname fuortsmite wolle?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Binne jo wis dat jo oerslaan wolle en de opname fuortsmite wolle?</string>
-    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Binne jo wis dat jo trochgean wolle en de opname fuortsmite wolle?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Binne jo wis dat jo alle app-gegevens opnij ynstelle wolle?</string>
     <string name="button_yes_sure" comment="Button">Ja</string>
     <string name="button_cancel" comment="Button">Annulearje</string>

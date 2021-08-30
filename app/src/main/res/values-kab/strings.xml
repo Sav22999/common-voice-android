@@ -11,8 +11,8 @@
     <string name="button_home_login">Qqen / Jerred</string>
     <string name="button_home_logout">Ffeɣ</string>
     <string name="button_home_profile">Amaɣnu</string>
-    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Azul!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username">Azul, {{username}}!</string>
     <string name="message_log_in_again">Id n timit yemmut, isra ales n tuqqna</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Tiddadanin</string>
@@ -54,7 +54,7 @@
     <string name="btn_join_telegram_first_launch" comment="Button">Ddu ar ugraw</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Bdu! Fren tutlayt ideg tebɣiḍ ad temmeslayeḍ neɣ ad tesleḍ. Asnas ad d-iban s tutlayt-nni ma tella tsuqqilt.</string>
     <!-- Login -->
-    <string name="txt_loading_page" comment="Label">Loading…</string>
+    <string name="txt_loading_page" comment="Label">Asali…</string>
     <string name="txt_profile_username" comment="Label in Profile">Isem n useqdac</string>
     <string name="txt_profile_email" comment="Label in Profile">Imayl</string>
     <string name="txt_profile_age" comment="Label in Profile">Awtay</string>
@@ -65,8 +65,8 @@
     <string name="txt_gender_female" comment="Label in Profile">Unti</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Nniḍen</string>
     <string name="btn_badges_loggedin" comment="Button">Akk tisikaz</string>
-    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Aswir {{level}}</string>
+    <string name="level_up_message" comment="Message text">Ayyuz! Akken kan i tfukkeḍ aswir {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Ɣur-i yakan aseɣwen n usenqed</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Aseɣwen n usenqed</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Aseɣwen n usenqed mačči d ameɣtu</string>
@@ -74,7 +74,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Ldi almeḍris daɣen</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Asenfar n uɣbalu yeldin deg GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">yesnefl-it</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="toast_language_changed" comment="Message text">Tutlayt tettusbadu akken iwata ɣer {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Tutlayt</string>
     <string name="settingsListen" comment="Title in Settings">Timesliwt</string>
     <string name="settingsSpeak" comment="Title in Settings">Mmeslay</string>
@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Agraw n Telegram n usnas</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Sken tibzimin ddaw tegnitin n wumuɣ</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Ɣeṛ tiwtilin n useqdec n Common Voice n Mozilla</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Ɣer iwellihen i usentem</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Asenqed deg Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Agrudem n useqdac</string>
     <string name="title_advanced_settings" comment="Option in Settings">Talqayt</string>
@@ -124,44 +124,46 @@
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Sken tagnit n uneqqis (usawen ɣer uyeffus) deg wadeg n tqeffalt (ukessar)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Teɣzi n uḍris</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Rnu aɣarrac</string>
-    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Rmed aɣarrac n udellel deg {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Afeggag n ukala n yal ass yettuseɣman</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Asentel aceεlal i tefyirt ara d-yettwaɣren/i usentem deg Mmeslay syen Sell (mi ara yermed usentel acewlal).</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} d {{listen_name}}</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Asentel aceεlal i tefyirt ara d-yettwaɣren/i usentem deg Mmeslay syen Sell (mi ara yermed usentel acewlal).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Sken afeggag n usenqed arurad</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Sken tagnit n talɣut</string>
-    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
-    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
-    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
-    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
-    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
-    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
-    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
-    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
-    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
-    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Sken tagnit n talɣut</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Fren amḍan n tefyar d umḍan n tuṭṭfiwin i usader d useqdec mi ara yili usnas deg uskar aruqqin.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">S umata iseqdacen tteṭṭfen 13 n tesdatin akken ad snetmen 50 n tuṭṭfiwin d 26 n tesdatin akken ad skelsen 50 n tefyar.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Zuɣer d asawen</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Zuɣer d akessar</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Zuɣer zelmeḍ</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Zuɣer yeffus</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Senned mliḥ</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Senned snat n tikkal</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Zuɣer d asawen: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Zuɣer d akessar: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Zuɣer zelmeḍ: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Zuɣer yeffus: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Senned mliḥ: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Senne snat n tikkal: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Ulac</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Uγal ɣer deffir</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Zgel tuṭṭfa</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Zgel tafyirt</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Qbel tuṭṭfa (creḍ d ameɣtu)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Agi tuṭṭfa (creḍ d arameɣtu)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Rmed/Sens \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Mel tuṭṭfa</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Mel tafyirt</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Sken-d isallen ɣef tuṭṭfa</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Sken-d isallen ɣef tefyirt</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Sekles</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Fren tigawt</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
-    <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
+    <string name="txt_loading_sentence" comment="Label in Speak">Asali n tefyirt…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Zgel</string>
     <string name="btn_send_sentence" comment="Button in Speak">Azen asekles</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Asali n tuṭṭfa…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Sit ɣef tignit seddaw akken ad tebduḍ asekles.</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Sit ɣef tignit seddaw akken ad tesḥebseḍ asekles.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Tafyirt tettwasekles. Sel i usekles.</string>
@@ -171,21 +173,21 @@
     <string name="txt_listening_again_recording" comment="Label in Speak">Sit ɣef tignit seddaw akken ad tesḥebseḍ timesliwt.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Asekles bezzaf ɣezzif. Tanzagt tafellayt d 10 n tsintin.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Asekles bezzaf wezzil. Ttxil, ɛreḍ tikkelt-nniḍen.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Tuzzna n usekles…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Asekles yettwazen!</string>
     <string name="txt_sending_recording_failed" comment="Message text">Tuzzna n usekles ur teddi ara!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Tuzzna n usekles ur teddi ara! Tzemreḍ ad tɛerḍeḍ tikkelt-nniḍen, neɣ sit ɣef tqeffalt {{skip_button}}.</string>
     <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Sit ɣef tignit seddaw akken ad tebduḍ aklip.</string>
     <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Sit ɣef tignit ddaw i wakken ad tesḥebseḍ aklip.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Ma yella aklip-a d ameɣtu, sit ɣef yidebbuzen d asawen.\nMa yella aklip d arameɣtu, sit ɣef yidebbuzen d akessar.</string>
     <string name="txt_clip_again" comment="Label in Listen">Sit ɣef tignit ddaw i wakken ad teɣreḍ aklip tikkelt-nniḍen.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Aklip ittwacreḍ iseḥḥa!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Aklip ittwacreḍ ur iseḥḥa ara!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Tuccḍa. Sit ɣef {{skip_button}}* tqeffalt iwakken ad tkemmleḍ.</string>
     <string name="txt_error_2_sending_failed" comment="Label in Listen">Tuzna n usekles ur teddi ara.</string>
-    <string name="txt_sending_validation" comment="Label in Listen">Sending…</string>
-    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
-    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Closing…</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Tuzna…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Tuzna n usekles ur teddi ara. Tzemreḍ ad tɛerḍeḍ tikkelt-nniḍen, neɣ sit ɣef tqeffalt {{skip_button}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Amdal…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Tuccḍa. Ulac iklipen-nniḍen yellan i tutlayt-a.</string>
     <string name="button_report" comment="Button">Aneqqis</string>
     <string name="title_report_clip" comment="Title in Report a clip">Azen aklip:</string>
@@ -200,54 +202,54 @@
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Awennit</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Dayen kfan akk yiklipen i tesɛiḍ beṛṛa n tuqqna. Qqen ɣer internet i wakken ad d-tsaliḍ iklipen-nniḍen i usentem.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Dayen kfant tefyar i tesɛiḍ beṛṛa n tuqqna. Qqen ɣer internet i wakken ad d-tsaliḍ iklipen-nniḍen i usentem.</string>
-    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
-    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
-    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">Tzemreḍ ad teskelseḍ {{n_sentences}} ugar n tefyar send ad teḥwiǧeḍ tuqqna ɣer Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">Tzemreḍ ad tesnetmeḍ {{n_clips}} ugar n yiklipen send ad teḥwiǧeḍ ad teqqneḍ ɣer Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Timesliwt…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" termed. Ddu ɣer yiɣewwaren iwakken ad tt-tsenseḍ.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Aḍris n tefyirt yettwaffar</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Ulac ula d yiwet n tefyirt deg uqeddac n Commn Voice. Ɛreḍ tikkelt-niḍen ticki neɣ nermes Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">Ulac ula d yiwen uklip deg uqeddac n Commn Voice. Ɛreḍ tikkelt-niḍen ticki neɣ nermes Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
-        <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
-        <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>
+        <item quantity="one">Tesnetmeḍ yakan %d n tuṭṭfa ɣef tikkelt, kemmel deg umahil-a igerrzen!</item>
+        <item quantity="other">Tesnetmeḍ yakan %d n tuṭṭfiwin ɣef tikkelt, kemmel deg umahil-a igerrzen!</item>
     </plurals>
     <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
-        <item quantity="one">Continue to validate clips, you validated %d clip in a row.</item>
-        <item quantity="other">Continue to validate clips, you validated %d clips in a row.</item>
+        <item quantity="one">Kemmel asentem n yiklipen, tesnetmeḍ %d n tuṭṭfa ɣef tikkelt.</item>
+        <item quantity="other">Kemmel asentem n yiklipen, tesnetmeḍ %d n tuṭṭfiwin ɣef tikkelt.</item>
     </plurals>
     <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
-        <item quantity="one">Excellent work! You have already validated %d clip in a row.</item>
-        <item quantity="other">Excellent work! You have already validated %d clips in a row.</item>
+        <item quantity="one">D amahil igerrzen aṭas! Tesnetmeḍ yakan %d n tuṭṭfa ɣef tikkelt.</item>
+        <item quantity="other">D amahil igerrzen aṭas! Tesnetmeḍ yakan %d n tuṭṭfiwin ɣef tikkelt.</item>
     </plurals>
     <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
-        <item quantity="one">Wow, you have superhuman powers! You validated %d clip in a row!</item>
-        <item quantity="other">Wow, you have superhuman powers! You validated %d clips in a row!</item>
+        <item quantity="one">Waw, tesɛiḍ tizemmar yugaren tid n umdan amagnu! Tesnetmeḍ %d n tuṭṭfa ɣef tikkelt!</item>
+        <item quantity="other">Waw, tesɛiḍ tizemmar yugaren tid n umdan amagnu! Tesnetmeḍ %d n tuṭṭfiwin ɣef tikkelt!</item>
     </plurals>
     <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
-        <item quantity="one">You sent %d recording in a row.</item>
-        <item quantity="other">You sent %d recordings in a row.</item>
+        <item quantity="one">Tuzneḍ %d n ukalas ɣef tikkelt.</item>
+        <item quantity="other">Tuzneḍ %d n yiseklasen ɣef tikkelt.</item>
     </plurals>
     <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
-        <item quantity="one">Good job! You sent %d recording in a row.</item>
-        <item quantity="other">Good job! You sent %d recordings in a row.</item>
+        <item quantity="one">D amahil igerrzen! Tuzneḍ %d n ukalas ɣef tikkelt.</item>
+        <item quantity="other">D amahil igerrzen! Tuzneḍ %d n yiseklasen ɣef tikkelt.</item>
     </plurals>
     <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
-        <item quantity="one">Congratulations! You achieved the milestone of %d recorded sentence. Keep going.</item>
-        <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
+        <item quantity="one">Gedha! Tessawḍeḍ taqacuct n %d n tefyirt yettwaskelsen. Kemmel kan akka.</item>
+        <item quantity="other">Gedha! Tessawḍeḍ taqacuct n %d n tefyar yettwaskelsen. Kemmel kan akka.</item>
     </plurals>
     <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
-        <item quantity="one">Wow, you have superhuman powers! You recorded %d sentence in a row!</item>
-        <item quantity="other">Wow, you have superhuman powers! You recorded %d sentences in a row!</item>
+        <item quantity="one">Waw, tesɛiḍ tizemmar yugaren tid n umdan amagnu! Teskelseḍ %d n tefyirt ɣef tikkelt!</item>
+        <item quantity="other">Waw, tesɛiḍ tizemmar yugaren tid n umdan amagnu! Teskelseḍ %d n tefyar ɣef tikkelt!</item>
     </plurals>
     <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
-        <item quantity="one">You miss only %d clip to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="other">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="one">Xuṣṣen-ak·am kan %d n tuṭṭfa iwakken ad tessiwḍeḍ iswi-ines n yal ass n {{dailygoal}}!</item>
+        <item quantity="other">Xuṣṣen-ak·am kan %d n tuṭṭfiwin iwakken ad tessiwḍeḍ iswi-ines n yal ass n {{dailygoal}}!</item>
     </plurals>
     <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
-        <item quantity="one">You miss only %d sentence to achieve your daily goal of {{dailygoal}}!</item>
-        <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
+        <item quantity="one">Xuṣṣen-ak·am kan %d n tefyirt iwakken ad tessiwḍeḍ iswi-ines n yal ass n {{dailygoal}}!</item>
+        <item quantity="other">Xuṣṣen-ak·am kan %d n tefyar iwakken ad tessiwḍeḍ iswi-ines n yal ass n {{dailygoal}}!</item>
     </plurals>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Arured yettusbadu akken iwata ɣer {{speed_value}}.</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Senqed tikkelt nniḍen</string>
     <string name="txt_noconnection" comment="Message text">Ur teqqineḍ ara ɣer internet. Qqen ɣer Wi-Fi neɣ ɣer yisefka n uziraz, syen sit ɣef tqeffalt ddaw.</string>
@@ -268,22 +270,22 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Sit ɣef tignit-a ma yella tebɣiḍ ad tesleḍ i aklip tikkelt-nniḍen.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Ma yella aklip yemṣada d tefyirt, sit ɣef tegnit-a i wakken ad t-tqebleḍ.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Ma aklip ur imsaḍa ara d tefyirt, sit ɣef tignit-a akken ad t-tagiḍ.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Ma yella ur tetḥiqeḍ ara ma ad tqebleḍ neɣ ad tagiḍ asekles, tzemreḍ ad teɣreḍ iwellihen unṣiben n Musentem n Mozilla Discource. \nTzemreḍ daɣen ad tafeḍ aseɣwen-a sya ɣer sdat deg yiɣewwaren.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Ɣeṛ tura</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Suref-aɣ, tamahilt-a urɛad telli.\nAql-aɣ nxeddem akken ad nesnerni asnas, ihi senqed ticki akken ad teẓreḍ ma tettwarna.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Mdel</string>
     <string name="labelAllBadges" comment="Title for All badge section">Akk tisikaz</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
-    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
-    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
-    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
+    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Gedha! Aql-ak·akem trebḥeḍ tasakezt tamaynut.\nDdu ɣer {{profile}} &gt; {{all_badges}} akken ad twaliḍ meṛṛa tisukaz-ik·im.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">Trebḥeḍ tasakezt-a acku tesnetmeḍ ma drus {{n_clips}} n tuṭṭfiwin.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">Tewwiḍ tasakezt-a acku teskelseḍ ma drus {{n_sentences}} n tefyar.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">Tewwiḍ tasakezt-a acku tesnetmeḍ neɣ teskelseḍ ma drus {{n_total}} n tuṭṭfiwin.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">OK</string>
+    <string name="btnOk" comment="Button">IH</string>
     <string name="messageDialogErrorTitle" comment="Title for Message text">Tuccḍa</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">Yugi ad yeddu.\nTtxil ɛreḍ tikkelt-nniḍen, neɣ nermes aneflay.</string>
-    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">Yugi ad yeddu. Ttxil ɛreḍ tikkelt-nniḍen, neɣ nermes aneflay.\nTangalt n tuccḍa: Ex-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Tuqqna ur teddi ara</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">Ilaq ad tkecmeḍ qbel ɣer usmel web n Common Voice ad ternuḍ ad tqebleḍ tasertit n tbaḍnit n Common Voice.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Ldi Common Voice</string>
@@ -306,17 +308,17 @@
     <string name="text_open_settings_now">Ldi iɣewwaren tura</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">D tidet tebɣiḍ ad tuɣaleḍ ɣer deffir, ad tesruḥeḍ asekles?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">D tidet tebɣiḍ ad tuɣaleḍ ɣer tzegleḍ, ad tesruḥeḍ asekles?</string>
-    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">D tidet tebɣiḍ ad tkemmleḍ yerna ad tesruḥeḍ asekles?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">D tidet tebɣiḍ ad twennzeḍ meṛṛa isefka n usnas?</string>
-    <string name="button_yes_sure" comment="Button">Yes</string>
+    <string name="button_yes_sure" comment="Button">Ih</string>
     <string name="button_cancel" comment="Button">Sefsex</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
-        <item quantity="one">Well done! You opened the app %d day in a row.</item>
-        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+        <item quantity="one">Gedha! Teldiḍ asnas %d n wass ɣef tikkelt.</item>
+        <item quantity="other">Gedha! Teldiḍ asnas %d n wussan ɣef tikkelt.</item>
     </plurals>
     <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
-        <item quantity="one">I\'ve opened the CV Project app %d day in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
-        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+        <item quantity="one">Ldiɣ asnas n CV Project %d n wass ɣef tikkelt! Sader-it daɣen i uttekki deg usenfar n Common Voice s tilifun-ik·im.</item>
+        <item quantity="other">Ldiɣ asnas n CV Project %d n wussan ɣef tikkelt! Sader-it daɣen i uttekki deg usenfar n Common Voice s tilifun-ik·im.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Qqen tura</string>
     <string name="button_translate_on_crowdin" comment="Button">Suqel tura</string>
@@ -331,14 +333,14 @@
     <string name="description_setting_daily_goal" comment="Message text">Fren acḥal n tefyar i tebɣiḍ ad t-skelseḍ akk d iklipen i tebɣiḍ ad t-sɣebleḍ (meṛṛa) i wass.</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Yettwag ass-a</string>
     <string name="daily_goal_not_achieved_today">Ur yettwag ara ass-a</string>
-    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Igerrez! Tuwḍeḍ ɣ ɣer yiswi-inek•inem n wass.\nTesnetmeḍ {{n_clips}} tuṭṭfa (tuṭṭfiwin) terniḍ teskelseḍ {{n_sentences}} tafyirt (tifyar).\nUr ttkukru, kemmel attekki deg Common Voice.</string>
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Bḍu</string>
     <string name="share_daily_goal_title" comment="Title of panel">Bḍu deg</string>
-    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Aql-i akken ssawḍeɣ iswi-inu n yal ass i @mozilla #CommonVoice s useqdec n #CVProject.\nRnu-d ɣer-neɣ, tettekkiḍ! Sebded CV Project seg Google Play, F-Droid neɣ Huawei AppGallery tura {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Iswi-a n wass mačči d tamahilt tunṣibt n Mozilla. D tamahilt n usnas-a kan.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Teẓriḍ belli … ?</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">Ma yella 10,000 yisragen seklasen 45 iklipen i wass, 10 000 yisragen ad mmden deg 6 wayyuren kan.</string>
     <string name="copied_string" comment="Toast message">Yettwanɣel</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">Lqem amaynut n usnas yella tura (lqem {{n_version}}). Tzemreḍ ad t-tleqqmeḍ seg tḥanut i tebɣiḍ (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) neɣ srid seg GitHub.</string>
 </resources>

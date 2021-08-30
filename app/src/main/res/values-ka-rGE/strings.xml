@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">აპის ჯგუფი Telegram-ზე</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">მენიუს ხატულების ქვემოთ სათაურების ჩვენება</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">წაიკითხეთ Mozilla-ს Common Voice-ის მომსახურების პირობები</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">წაიკითხეთ შემოწმების სახელმძღვანელო</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Google Play-ზე შეფასება</string>
     <string name="title_ui_settings" comment="Option in Settings">ინტერფეისი</string>
     <string name="title_advanced_settings" comment="Option in Settings">დამატებითი</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">რეკლამის ბანერის ჩართვა. {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">დღის მიზნის ფერადი ზოლი</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} და {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ნათელი თემა წინადადებების წაკითხვისთვის; ჩანაწერების შემოწმებისთვის (როცა ნათელი თემა ჩართულია).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ნათელი თემა წინადადებების წაკითხვისთვის; ჩანაწერების შემოწმებისთვის (როცა ნათელი თემა ჩართულია).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">სიჩქარის მართვა</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ინფოს ხატულის ჩვენება</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ინფოს ხატულის ჩვენება</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">მიუთითეთ რამდენი წინადადება და ჩანაწერი გადმოიწეროს, რომლებსაც გამოიყენებთ როცა ინტერნეტი არ გექნებათ.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">საშუალოდ, 50 ჩანაწერის შემოწმებისთვის 13 წუთი და 50 წინადადების ჩაწერისთვის 26 წუთია საკმარისი.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">ამოუსვით</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">წინადადების შესახებ ინფორმაციის ჩვენება</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">შენახვა</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">მოქმედების არჩევა</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">დააჭირეთ ღილაკს კლიპის თავიდან მოსასმენად.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">კლიპი თუ ემთხვევა წინადადებას დააჭირეთ ამ ღილაკს, რომ დაამოწმოთ.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">კლიპი თუ არ ემთხვევა წინადადებას დააჭირეთ ამ ღილაკს, რომ არ მიიღოთ.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">თუ არ ხართ დარწმუნებული ვარგა, თუ არა ჩანაწერი, შეგიძლიათ დამოწმების ოფიციალური სახელმძღვანელო წაიკითხოთ Mozilla Discourse-ზე.\nამ ბმულს პარამეტრებშიც ნახავთ.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">წაკითხვა</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">უკაცრავად, ეს ფუნქცია ჯერ არ არსებობს.\nაპის გაუმჯობესებაზე მუდმივად ვმუშაობთ; მოგვიანებით შეამოწმეთ, რომ ნახოთ თუ დაემატა.</string>

@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Gruppo Telegram del app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Monstrar etiquettas sub le icones del menu</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Lege le terminos de servicio de Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Lege le lineas guida pro le validationes</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Pone tu valutation sur Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Interfacie de usator</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avantiate</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Activar banner avisos in {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra colorate de progresso del objectivo quotidian</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} e {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Le thema clar alsi pro le phrase a leger o validar in Parlar e Ascoltar (quando le thema clar es activate).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Le thema clar alsi pro le phrase a leger o validar in Parlar e Ascoltar (quando le thema clar es activate).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Monstrar le barra de controlo velocitate</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Monstrar icone informative</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Monstrar icone informative</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Elige le numero de phrases e le numero de registrationes a discargar e usar quando le app es sin connexion.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usualmente usatores prende circa 13 minutas pro validar 50 registrationes e 26 minutas pro registrar 50 phrases.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Glissar a alto</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Monstrar informationes del phrase</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Salvar</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Elige un action</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tocca iste icone si tu desira ascoltar le registration de novo.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Si le registration concorda con le phrase, tocca iste icone pro acceptar lo.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Si le registration non concorda le phrase, tocca iste icone pro rejectar lo.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Si tu non es secur si acceptar o rejectar un registration, tu pote leger le lineas guida official pro le validation sur Mozilla Discourse.\nTu alsi pote trovar iste ligamine plus tarde in Parametros.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Lege ora</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Desolate, iste functionalitate non existe ancora.\nNos labora constantemente pro meliorar le application, assi re-controla plus tarde pro vider si illo ha essite addite.</string>

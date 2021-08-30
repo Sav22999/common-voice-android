@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">एप्प का टेलीग्राम ग्रुप</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">मेन्यू चित्रों के नीचे नाम दिखायें</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice की सेवा की शर्तों को पढ़ें।</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">सत्यापन के दिशानिर्देशों को पढ़ें</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Google Play पर समीक्षा करें</string>
     <string name="title_ui_settings" comment="Option in Settings">यूजर इंटरफेस</string>
     <string name="title_advanced_settings" comment="Option in Settings">उन्नत</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">{{section_name}} में एड पट्टी दिखायें।</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">रंगीन दैनिक लक्ष्य पट्टी</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} व {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">वाक्यों को रिकॉर्ड करने/सत्यापन करने के लिए भी हल्की थीम (जब हल्की थीम प्रभाव में हो)</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">गति नियन्त्रक पट्टी दिखायें</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">जानकारी चिन्ह दिखायें</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">ऑफलाइन मोड में उपयोग करने के लिए वाक्यों व रिकोर्डिंगों को डाउनलोड करने की संख्या चुनें।</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">सामान्यतः 50 क्लिपों को सत्यापित करने में 13 मिनट और 50 वाक्यों को रिकॉर्ड करने में 26 मिनट लगते हैं।</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">वाक्य लोड हो रहा है…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">छोड़ें</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">इस चित्र को टच करें यदि आप क्लिप को दुबारा सुनना चाहते हैं।</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">अगर क्लिप शुद्ध है तो स्वीकारने के लिए इस चित्र को टच करें।</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">अगर क्लिप अशुद्ध है तो अस्वीकारने के लिए इस चित्र को टच करें।</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">अगर आप निश्चित नहीं कर पा रहे है कि रिकॉर्डिंग को स्वीकार करें या अस्वीकार करें तो आप सत्यापन के आधिकारिक दिशानिर्देशों को Mozilla Discourse पर पढ़ सकते हैं।\nइसका लिंक सेटिंग में भी उपलब्ध है।</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">अभी पढ़ें</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">यह फीचर अभी उपलब्ध नहीं है।\nहम एप्प को सुधारने के लिए लगातार प्रयत्न कर रहे हैं, सम्भव है कि निकट भविष्य में यह उपलब्ध हो।</string>

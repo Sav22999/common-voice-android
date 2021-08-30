@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Grupo do Telegram do aplicativo</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Mostrar etiquetas abaixo dos ícones de menu</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Leia os Termos de Serviço do Common Voice da Mozilla</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Leia as diretrizes para validações</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Revise no Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Interface de usuário</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avançado</string>
@@ -127,36 +127,38 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Habilitar banner de anúncio em {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra de progresso colorida da meta diária</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} e {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema claro também para a frase ler/para validar em Falar e Ouvir (quando o tema claro está ligado).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema claro também para a frase ler/para validar em Falar e Ouvir (quando o tema claro está ligado).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Mostrar barra de controle de velocidade</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostrar ícone de informações</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostrar ícone de informações</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Escolha o número de frases e o número de clipes a serem baixados e usados quando o aplicativo estiver em modo offline.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Geralmente os usuários levam cerca de 13 minutos para validar 50 clipes e 26 minutos para gravar 50 frases.</string>
-    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
-    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
-    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
-    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
-    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
-    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
-    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
-    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Deslizar para cima</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Deslizar para baixo</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Deslizar para a esquerda</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Deslizar para a direita</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Toque prolongado</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Toque duplo</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Deslizar para cima: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Deslizar para baixo: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Deslizar para a esquerda: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Deslizar para a direita: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Toque prolongado: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Toque duplo: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nenhuma</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Voltar</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Pular o clipe</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Pular a frase</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Aceitar o clipe (marcar como correto)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Rejeitar o clipe (marcar como incorreto)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Ativar/Desativar \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Reportar o clipe</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Reportar a frase</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Mostrar informações sobre o clipe</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Mostrar informações sobre a frase</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Salvar</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Escolha uma ação</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregando frase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ignorar</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Toque neste ícone se quiser ouvir o clipe novamente.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Se o clipe corresponder à frase, toque neste ícone para aceitá-la.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Se o clipe não corresponder à frase, toque neste ícone para rejeitá-lo.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Se você não tem certeza se aceita ou rejeita uma gravação, pode ler as diretrizes oficiais para validação no Mozilla Discourse.\nVocê também pode encontrar este link mais tarde em Configurações.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Ler agora</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Desculpe, este recurso ainda não existe.\nEstamos trabalhando constantemente para melhorar o aplicativo, então volte mais tarde para ver se ele foi adicionado.</string>
@@ -306,7 +308,7 @@
     <string name="text_open_settings_now">Abrir configurações agora</string>
     <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Tem certeza de que deseja voltar e perder a gravação?</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Tem certeza de que deseja pular e perder a gravação?</string>
-    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Tem certeza de que deseja continuar e perder a gravação?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Tem certeza de que deseja redefinir todos os dados do aplicativo?</string>
     <string name="button_yes_sure" comment="Button">Sim</string>
     <string name="button_cancel" comment="Button">Cancelar</string>

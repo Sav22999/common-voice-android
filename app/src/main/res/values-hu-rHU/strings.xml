@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Az alkalmazás Telegram csoportja</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Címkék megjelenítése a menüikonok alatt</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">A Mozilla Common Voice szolgáltatási feltételeinek elolvasása</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Az ellenőrzési irányelvek elolvasása</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Értékeljen a Google Playen</string>
     <string name="title_ui_settings" comment="Option in Settings">Felhasználói felület</string>
     <string name="title_advanced_settings" comment="Option in Settings">Speciális</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Hirdetéssáv engedélyezése a {{section_name}} oldalon</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Napi célkitűzés nyomon követése színes sávval</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} és {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Világos téma a mondatok felolvasásánál és ellenőrzésénél is (ha a világos téma be van kapcsolva).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Világos téma a mondatok felolvasásánál és ellenőrzésénél is (ha a világos téma be van kapcsolva).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Sebességvezérlő-sáv megjelenítése</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Információ ikon megjelenítése</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Információ ikon megjelenítése</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Válassza ki a letöltendő mondatok és klipek számát arra az esetre, ha az alkalmazás kapcsolat nélküli módba kerül.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Általában a felhasználóknak 13 percükbe telik, hogy ellenőrizzenek 50 klipet, és 26 percükbe telik, hogy felvegyenek 50 mondatot.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Seprés felfelé</string>
@@ -157,6 +158,7 @@
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Információ megjelenítése a mondatról</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Mentés</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Válasszon egy műveletet</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Mondat betöltése…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Átugrás</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Koppintson erre az ikonra, ha újra meg akarja hallgatni a klipet.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Ha a klip megfelel a mondatnak, akkor koppintson erre az ikonra az elfogadásához.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Ha a klip nem felel meg a mondatnak, akkor koppintson erre az ikonra az elutasításához.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Ha nem tudja, hogy elfogadjon vagy elutasítson egy felvételt, akkor elolvashatja a hivatalos ellenőrzési irányelveket a Mozilla Discourse példányán.\nEzt a hivatkozást a Beállításokban is megtalálhatja.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Elolvasás most</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sajnáljuk, ez a funkció még nem létezik.\nFolyamatosan az alkalmazás fejlesztésén dolgozunk, így nézzen vissza később, hogy hozzáadásra került-e.</string>

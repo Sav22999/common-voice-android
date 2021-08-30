@@ -113,7 +113,7 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram-groep van de app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Labels onder de menupictogrammen tonen</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">De servicevoorwaarden van Mozilla Common Voice lezen</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">De richtlijnen voor validaties lezen</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Op Google Play beoordelen</string>
     <string name="title_ui_settings" comment="Option in Settings">Gebruikersinterface</string>
     <string name="title_advanced_settings" comment="Option in Settings">Geavanceerd</string>
@@ -127,9 +127,10 @@
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Advertentiebanner in {{section_name}} toestaan</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Gekleurde voortgangsbalk dagdoel</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} en {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Licht thema ook voor de te lezen/valideren zin in Spreken en Luisteren (wanneer het lichte thema is ingeschakeld).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Snelheidscontrolebalk tonen</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Info-pictogram tonen</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Kies het aantal te downloaden zinnen en fragmenten dat u in de app in de offline-modus wilt gebruiken.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Normaal hebben gebruikers ongeveer 15 minuten nodig om 50 clips te valideren en 30 minuten om 50 zinnen op te nemen.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Omhoog vegen</string>
@@ -150,13 +151,14 @@
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Zin overslaan</string>
     <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment accepteren (als juist markeren)</string>
     <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment afwijzen (als onjuist markeren)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">*{{feature}}* in-/uitschakelen</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">‘{{feature}}’ in-/uitschakelen</string>
     <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment rapporteren</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Zin rapporteren</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Informatie over het fragment tonen</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Informatie over de zin tonen</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Opslaan</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Selecteer een actie</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Zin laden…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
@@ -268,7 +270,7 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram als u het fragment opnieuw wilt beluisteren.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Als het fragment en de zin met elkaar overeenkomen, tikt u op dit pictogram om het te accepteren.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Als het fragment niet met de zin overeenkomt, tik dan op dit pictogram om het te verwerpen.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Als u niet zeker weet of u een opname accepteert of verwerpt, kunt u de officiële richtlijnen voor validatie op Mozilla Discourse lezen.\nU kunt deze koppeling later ook vinden in Instellingen.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Nu lezen</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, deze functie bestaat nog niet.\nWe werken constant aan het verbeteren van de app, dus kijk later nog eens om te zien of deze is toegevoegd.</string>
