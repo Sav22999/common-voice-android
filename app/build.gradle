@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId 'org.commonvoice.saverio.beta'
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode = 166
         versionName '2.4'
