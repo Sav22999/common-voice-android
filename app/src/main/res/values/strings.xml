@@ -370,6 +370,8 @@
     </plurals>
     <string name="button_log_in_now" comment="Button">Log in now</string>
     <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
+    <string name="show_device_is_not_supported_anymore">This Android version unfortunately won\'t be supported anymore by this app. I\'m so sorry about it. You can know more information about this decision on the Telegram group.\nThis doesn\'t mean you won\'t be able to use the app anymore, in fact you can use this version but you won\'t receive any new updates.\nAll devices with Android 8.0 and later will receive as usual new updates 😁</string>
+    <string name="button_open_telegram_group">Open the Telegram group</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Daily goal</string>
     <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">No goal set</string>

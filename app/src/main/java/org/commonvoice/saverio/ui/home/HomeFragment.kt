@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Message
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -138,6 +139,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
 
         setTheme(requireContext())
 
+        showUnsupportedDevice()
         setupBannerMessage()
         showDaysInARow()
         showDialogMessages()
@@ -181,34 +183,36 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     }
 
     private fun setupBannerMessage() {
-        homeViewModel.getLastBannerMessage().observe(this) { msg ->
-            activity?.window?.statusBarColor =
-                ContextCompat.getColor(requireContext(), R.color.colorMessageBanner)
-            binding.homeMessageBoxBannerContainer.isVisible = true
-            binding.textHomeMessageBoxBanner.text = msg.text
-            binding.hideMessageBanner.isVisible = msg.canBeClosed ?: true
-            binding.hideMessageBanner.onClick {
-                homeViewModel.markMessageAsSeen(msg)
-                binding.homeMessageBoxBannerContainer.isVisible = false
+        if (!binding.homeMessageBoxBannerContainer.isVisible) {
+            homeViewModel.getLastBannerMessage().observe(this) { msg ->
                 activity?.window?.statusBarColor =
-                    ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark)
-                showDaysInARow()
-                setupBannerMessage()
-            }
-
-            binding.button1HomeMessageBoxBanner.isVisible = msg.button1Text != null
-            binding.button2HomeMessageBoxBanner.isVisible = msg.button2Text != null
-
-            msg.button1Text?.let { binding.button1HomeMessageBoxBanner.text = it }
-            msg.button2Text?.let { binding.button2HomeMessageBoxBanner.text = it }
-            msg.button1Link?.let { link ->
-                binding.button1HomeMessageBoxBanner.onClick {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                    ContextCompat.getColor(requireContext(), R.color.colorMessageBanner)
+                binding.homeMessageBoxBannerContainer.isVisible = true
+                binding.textHomeMessageBoxBanner.text = msg.text
+                binding.hideMessageBanner.isVisible = msg.canBeClosed ?: true
+                binding.hideMessageBanner.onClick {
+                    homeViewModel.markMessageAsSeen(msg)
+                    binding.homeMessageBoxBannerContainer.isVisible = false
+                    activity?.window?.statusBarColor =
+                        ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark)
+                    showDaysInARow()
+                    setupBannerMessage()
                 }
-            }
-            msg.button2Link?.let { link ->
-                binding.button2HomeMessageBoxBanner.onClick {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+
+                binding.button1HomeMessageBoxBanner.isVisible = msg.button1Text != null
+                binding.button2HomeMessageBoxBanner.isVisible = msg.button2Text != null
+
+                msg.button1Text?.let { binding.button1HomeMessageBoxBanner.text = it }
+                msg.button2Text?.let { binding.button2HomeMessageBoxBanner.text = it }
+                msg.button1Link?.let { link ->
+                    binding.button1HomeMessageBoxBanner.onClick {
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                    }
+                }
+                msg.button2Link?.let { link ->
+                    binding.button2HomeMessageBoxBanner.onClick {
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+                    }
                 }
             }
         }
@@ -254,6 +258,47 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
             msg.button1Text?.let { binding.button1HomeMessageBoxBanner.text = it }
             binding.button1HomeMessageBoxBanner.onClick {
                 shareDaysInARow()
+            }
+        }
+    }
+
+    private fun showUnsupportedDevice() {
+        if (Build.VERSION.SDK_INT < 26) {
+            var msg: org.commonvoice.saverio_lib.models.Message =
+                org.commonvoice.saverio_lib.models.Message(
+                    -9999,
+                    null,
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    getString(R.string.show_device_is_not_supported_anymore),
+                    getString(R.string.button_open_telegram_group),
+                    null,
+                    "https://t.me/common_voice_android",
+                    null,
+                    true
+                )
+            activity?.window?.statusBarColor =
+                ContextCompat.getColor(requireContext(), R.color.colorMessageBanner)
+            binding.homeMessageBoxBannerContainer.isVisible = true
+            binding.textHomeMessageBoxBanner.text = msg.text
+            binding.hideMessageBanner.isVisible = true
+            binding.hideMessageBanner.onClick {
+                binding.homeMessageBoxBannerContainer.isVisible = false
+                activity?.window?.statusBarColor =
+                    ContextCompat.getColor(requireContext(), R.color.colorPrimaryDark)
+                statsPrefManager.daysInARowShown = true
+            }
+
+            binding.button1HomeMessageBoxBanner.isVisible = msg.button1Text != null
+            binding.button2HomeMessageBoxBanner.isVisible = msg.button2Text != null
+
+            msg.button1Text?.let { binding.button1HomeMessageBoxBanner.text = it }
+            binding.button1HomeMessageBoxBanner.onClick {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/common_voice_android")))
             }
         }
     }
