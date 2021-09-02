@@ -52,6 +52,18 @@ class SettingsPrefManager(ctx: Context) {
             .putBoolean(Keys.CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN.name, value)
             .apply()
 
+    var notifications: Boolean
+        get() = preferences.getBoolean(Keys.NOTIFICATIONS.name, true)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.NOTIFICATIONS.name, value)
+            .apply()
+
+    var notificationsCounter: Int
+        get() = preferences.getInt(Keys.NOTIFICATIONS_COUNTER.name, 0)
+        set(value) = preferences.edit()
+            .putInt(Keys.NOTIFICATIONS_COUNTER.name, value)
+            .apply()
+
     var wifiOnlyUpload: Boolean
         get() = preferences.getBoolean(Keys.WIFI_ONLY_UPLOAD.name, false)
         set(value) = preferences.edit()
@@ -75,6 +87,8 @@ class SettingsPrefManager(ctx: Context) {
         LIGHT_THEME_SENTENCE_BOX_SPEAK_LISTEN,
         INFO_ICON_SPEAK_LISTEN,
         CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN,
+        NOTIFICATIONS,
+        NOTIFICATIONS_COUNTER,
         WIFI_ONLY_UPLOAD,
         WIFI_ONLY_DOWNLOAD,
     }

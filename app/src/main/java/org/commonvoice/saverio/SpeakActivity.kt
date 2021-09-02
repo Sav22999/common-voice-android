@@ -3,13 +3,19 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.graphics.BitmapFactory
+import android.media.RingtoneManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -18,9 +24,11 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.core.view.children
@@ -41,6 +49,8 @@ import org.commonvoice.saverio.ui.dialogs.commonTypes.WarningDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
+import org.commonvoice.saverio.ui.login.BadgesFragment
+import org.commonvoice.saverio.ui.login.ProfileFragment
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
@@ -1353,24 +1363,102 @@ END | GESTURES
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
                 if (it is BadgeDialogMediator.Speak || it is BadgeDialogMediator.Level) {
+                    val messageToUse = getString(R.string.new_badge_earnt_message)
+                        .replace(
+                            "{{profile}}",
+                            getString(R.string.button_home_profile)
+                        )
+                        .replace(
+                            "{{all_badges}}",
+                            getString(R.string.btn_badges_loggedin)
+                        )
+
                     dialogInflater.show(
                         this@SpeakActivity,
                         StandardDialog(
-                            message = getString(R.string.new_badge_earnt_message)
-                                .replace(
-                                    "{{profile}}",
-                                    getString(R.string.button_home_profile)
-                                )
-                                .replace(
-                                    "{{all_badges}}",
-                                    getString(R.string.btn_badges_loggedin)
-                                )
+                            message = messageToUse,
+                            title = getString(R.string.message_new_badge_title)
                         )
+                    )
+
+                    sendNotification(
+                        context = applicationContext,
+                        title = getString(R.string.message_new_badge_title),
+                        message = messageToUse,
+                        autoCancel = true
                     )
                 }
             }
         }
     } else Unit
+
+    fun sendNotification(
+        context: Context,
+        title: String,
+        message: String,
+        autoCancel: Boolean = true
+    ) {
+        val notificationNumber = getNotificationsCounter()
+        val NOTIFICATION_CHANNEL_ID =
+            "${context.packageName.replace(".", "_")}_notification_${notificationNumber}"
+        val NOTIFICATION_CHANNEL_NAME = "${context.packageName}_notification".replace(".", "_")
+        val notificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val notificationChannel = NotificationChannel(
+                NOTIFICATION_CHANNEL_ID,
+                NOTIFICATION_CHANNEL_NAME,
+                importance
+            )
+            notificationManager?.createNotificationChannel(notificationChannel)
+        }
+
+        val intent = Intent(context, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+
+        val pendingIntent =
+            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val defaultSoundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+        var notificationBuilder =
+            NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_icon_one_color)
+                .setLargeIcon(
+                    BitmapFactory.decodeResource(
+                        this.resources,
+                        R.drawable.icon_without_background
+                    )
+                )
+                .setContentTitle(title)
+                .setContentText(message)
+                .setStyle(NotificationCompat.BigTextStyle()
+                    .bigText(message))
+                .setAutoCancel(autoCancel)
+                .setSound(defaultSoundUri)
+                .setContentIntent(pendingIntent)
+
+        if (settingsPrefManager.notifications) {
+            notificationManager!!.notify(
+                notificationNumber,
+                notificationBuilder.build()
+            )
+            incrementNotificationCounter()
+        } else {
+            //Notifications disabled
+        }
+    }
+
+    private fun getNotificationsCounter(): Int {
+        return settingsPrefManager.notificationsCounter
+    }
+
+    fun incrementNotificationCounter() {
+        //increment notifications counter number
+        settingsPrefManager.notificationsCounter = (settingsPrefManager.notificationsCounter + 1)
+    }
 
     private fun checkPermission() {
         var conditions = ContextCompat.checkSelfPermission(
