@@ -1,5 +1,6 @@
 package org.commonvoice.saverio_lib.viewmodels
 
+import android.os.Build
 import android.os.Parcelable
 import androidx.lifecycle.*
 import androidx.work.WorkManager
@@ -113,7 +114,8 @@ class ListenViewModel(
                 if (result) AppAction.Type.LISTEN_ACCEPTED else AppAction.Type.LISTEN_REJECTED,
                 sentenceId = sentence.sentenceId,
                 clipId = clipId,
-                actionDetails = "sentenceText = ${sentence.sentenceText}"
+                actionDetails = "sentenceText = ${sentence.sentenceText}\n" +
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
             )
         }
         stopped = false
@@ -138,7 +140,8 @@ class ListenViewModel(
                 AppAction.Type.LISTEN_REPORTED,
                 sentenceId = sentence.sentenceId,
                 clipId = clipId,
-                actionDetails = "sentenceText = ${sentence.sentenceText}\nreasons = ${reasons.toString()}"
+                actionDetails = "sentenceText = ${sentence.sentenceText}\nreasons = ${reasons.toString()}\n" +
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
             )
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipClip()
