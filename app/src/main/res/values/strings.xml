@@ -303,7 +303,7 @@
     <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Start recording</string>
     <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Record again the sentence</string>
     <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
-    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Listen recording</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
     <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
     <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Send recording</string>
     <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>

@@ -1199,47 +1199,64 @@ END | GESTURES
     private fun setStartStopButton(buttonStartStopSpeak: Button, status: Int) {
         //status: {0: start, 1: stop, 2: listen, 3: stop-listen, 4: record-again}
 
-        buttonStartStopSpeak.setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
-        object :
-            OnSwipeTouchListener(this@SpeakActivity) {
+        if (speakPrefManager.pushToTalk) {
+            buttonStartStopSpeak.setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
+            object :
+                OnSwipeTouchListener(this@SpeakActivity) {
 
-            var pushToTalkLongPress = false
+                var pushToTalkLongPress = false
 
-            override fun onTouch(v: View, event: MotionEvent): Boolean {
-                println("status : $status")
+                override fun onTouch(v: View, event: MotionEvent): Boolean {
+                    println("status : $status")
 
-                if (event.action == MotionEvent.ACTION_UP) {
-                    //ACTION_UP
-                    if (status == 0) {
-                        if (!pushToTalkLongPress) {
+                    if (event.action == MotionEvent.ACTION_UP) {
+                        //ACTION_UP
+                        if (status == 0) {
+                            if (!pushToTalkLongPress) {
+                                startRecording()
+                            } else {
+                                stopRecording()
+                            }
+                        } else if (status == 1) {
+                            stopRecording()
+                        } else if (status == 2) {
+                            speakViewModel.startListening()
+                        } else if (status == 3) {
+                            speakViewModel.stopListening()
+                        } else if (status == 4) {
+                            if (!pushToTalkLongPress) {
+                                checkPermission()
+                                speakViewModel.redoRecording()
+                            } else {
+                                stopRecording()
+                            }
+                        }
+                        pushToTalkLongPress = false
+                    } else if (event.action == MotionEvent.ACTION_DOWN) {
+                        if (speakPrefManager.pushToTalk && (status == 0 || status == 4)) {
                             startRecording()
-                        } else {
-                            stopRecording()
-                        }
-                    } else if (status == 1) {
-                        stopRecording()
-                    } else if (status == 2) {
-                        speakViewModel.startListening()
-                    } else if (status == 3) {
-                        speakViewModel.stopListening()
-                    } else if (status == 4) {
-                        if (!pushToTalkLongPress) {
-                            checkPermission()
-                            speakViewModel.redoRecording()
-                        } else {
-                            stopRecording()
+                            pushToTalkLongPress = true
                         }
                     }
-                    pushToTalkLongPress = false
-                } else if (event.action == MotionEvent.ACTION_DOWN) {
-                    if (speakPrefManager.pushToTalk && (status == 0 || status == 4)) {
-                        startRecording()
-                        pushToTalkLongPress = true
-                    }
+                    return super.onTouch(v, event)
                 }
-                return super.onTouch(v, event)
+            })
+        } else {
+            buttonStartStopSpeak.setOnClickListener {
+                if (status == 0) {
+                    startRecording()
+                } else if (status == 1) {
+                    stopRecording()
+                } else if (status == 2) {
+                    speakViewModel.startListening()
+                } else if (status == 3) {
+                    speakViewModel.stopListening()
+                } else if (status == 4) {
+                    checkPermission()
+                    speakViewModel.redoRecording()
+                }
             }
-        })
+        }
     }
 
     private fun resizeSentence() {
@@ -1283,7 +1300,8 @@ END | GESTURES
             getString(R.string.accessibility_record_again_sentence)
         startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
-        buttonRecordOrListenAgain.contentDescription=getString(R.string.accessibility_record_again_sentence)
+        buttonRecordOrListenAgain.contentDescription =
+            getString(R.string.accessibility_record_again_sentence)
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
         buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_listen_recording)
@@ -1300,7 +1318,7 @@ END | GESTURES
     private fun loadUIStateListening() = withBinding {
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_listen_cv)
-        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_stop_clip)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_stop_listening)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
 
         setStartStopButton(buttonStartStopSpeak, 3)
