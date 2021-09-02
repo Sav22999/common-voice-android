@@ -136,7 +136,7 @@ class FirstRunListen : ViewBoundActivity<FirstRunListenBinding>(
             txtTutorialMessageTopListen.isGone = false
             btnFourListen.isGone = false
             btnFourListen.text = "5"
-            imgBtnPlayListen.setImageResource(R.drawable.stop_speak_cv)
+            imgBtnPlayListen.setImageResource(R.drawable.stop_listen_cv)
             stopAnimation(btnFourListen)
             startAnimation(btnFourListen, R.anim.zoom_in)
         } else if (status == 5 || status == 7 && !next) {
@@ -191,7 +191,10 @@ class FirstRunListen : ViewBoundActivity<FirstRunListenBinding>(
             startAnimation(btnReadNowContributionCriteriaListen, R.anim.zoom_in_first_launch)
             btnReadNowContributionCriteriaListen.setOnClickListener {
                 val browserIntent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/criteria"))
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://commonvoice.mozilla.org/criteria")
+                    )
                 startActivity(browserIntent)
             }
         } else if (status == 9) {

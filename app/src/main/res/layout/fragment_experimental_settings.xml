@@ -31,6 +31,7 @@
             android:id="@+id/buttonBackSettingsSubSectionExperimental"
             android:layout_width="60sp"
             android:layout_height="60sp"
+            android:contentDescription="@string/accessibility_go_back"
             android:elevation="5dp"
             android:padding="18dp"
             android:scaleType="fitCenter"

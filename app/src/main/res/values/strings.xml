@@ -295,6 +295,31 @@
     <string name="button_speed_1_5x" comment="1.5x" translatable="false">1.5x</string>
     <string name="button_speed_2_0x" comment="2x" translatable="false">2x</string>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Reject clip</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Accept clip</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Play clip</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Stop clip</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Start recording</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Record again the sentence</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Listen recording</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Send recording</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">See offline mode details</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">See information about the current clip</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">See information about the current sentence</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Report the current clip</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Report the current sentence</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Go back</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Enable/Disable</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Close message</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copy</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Increase</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Decrease</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Check again</string>
     <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>

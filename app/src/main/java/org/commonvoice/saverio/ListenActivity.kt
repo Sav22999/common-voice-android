@@ -969,6 +969,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideButton(buttonNoClip)
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
             hideListenAnimateButtons()
 
             val motivationSentences = arrayOf(
@@ -1058,6 +1059,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideButton(buttonNoClip)
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
             hideListenAnimateButtons()
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
@@ -1082,6 +1084,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             listenViewModel.listenedOnce = false
             listenViewModel.startedOnce = false
         }
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
 
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
@@ -1233,6 +1236,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonSkipListen.isEnabled = true
 
         buttonStartStopListen.setBackgroundResource(R.drawable.stop_listen_cv)
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_stop_clip)
 
         buttonNoClip.onClick {
             validateNo()
@@ -1257,6 +1261,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
         buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
 
         buttonYesClip.onClick {
             validateYes()
@@ -1305,6 +1310,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     override fun onBackPressed() = withBinding {
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
         textSentenceListen.text = "···"
         resizeSentence()
         setTextSentenceListen(this@ListenActivity)

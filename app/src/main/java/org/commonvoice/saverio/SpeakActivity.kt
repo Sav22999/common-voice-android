@@ -167,6 +167,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private fun onBackPressedCustom() = withBinding {
         textMessageAlertSpeak.setText(R.string.txt_closing)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_start_recording)
         textSentenceSpeak.text = "···"
         textSentenceSpeak.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
@@ -1169,6 +1170,7 @@ END | GESTURES
 
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_start_recording)
 
         hideAudioBar()
 
@@ -1265,6 +1267,7 @@ END | GESTURES
         recorded = true
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_speak_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_stop_recording)
 
         buttonSendSpeak.isGone = true
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
@@ -1276,10 +1279,14 @@ END | GESTURES
     private fun loadUIStateRecorded() = withBinding {
         recorded = true
         buttonRecordOrListenAgain.isGone = false
+        buttonRecordOrListenAgain.contentDescription =
+            getString(R.string.accessibility_record_again_sentence)
         startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
+        buttonRecordOrListenAgain.contentDescription=getString(R.string.accessibility_record_again_sentence)
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_listen_recording)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_1)
 
         setStartStopButton(buttonStartStopSpeak, 2)
@@ -1293,6 +1300,7 @@ END | GESTURES
     private fun loadUIStateListening() = withBinding {
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_listen_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_stop_clip)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
 
         setStartStopButton(buttonStartStopSpeak, 3)
@@ -1310,7 +1318,11 @@ END | GESTURES
         buttonRecordOrListenAgain.isGone = false
         startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+        buttonRecordOrListenAgain.contentDescription =
+            getString(R.string.accessibility_listen_recording)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
+        buttonStartStopSpeak.contentDescription =
+            getString(R.string.accessibility_record_again_sentence)
 
         setStartStopButton(buttonStartStopSpeak, 4)
 
