@@ -3,11 +3,13 @@ package org.commonvoice.saverio
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.ClipData
+import android.content.Intent
+import android.net.Uri
+import org.commonvoice.saverio.utils.onClick
+import androidx.core.content.ContextCompat
 import android.content.ClipboardManager
 import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -18,7 +20,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
-import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -39,7 +40,6 @@ import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
-import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
@@ -715,6 +715,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             "validate-no" -> {
                 validateNo()
             }
+            "play-stop-clip" -> {
+                playStopClip()
+            }
             else -> {
                 //nothing
             }
@@ -750,6 +753,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             "validate-no" -> {
                 R.drawable.ic_no_thumb2
             }
+            "play-stop-clip" -> {
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) {
+                    R.drawable.ic_stop_clip
+                } else {
+                    R.drawable.ic_play_clip
+                }
+            }
             else -> {
                 R.drawable.ic_nothing
             }
@@ -764,6 +774,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         listenViewModel.skipClip()
         if (dailyGoalAchievedAndNotShown) {
             showDailyGoalAchievedMessage()
+        }
+    }
+
+    private fun playStopClip() {
+        if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) {
+            //stop
+            listenViewModel.stopListening()
+        } else {
+            //play
+            listenViewModel.startListening()
         }
     }
 
@@ -1212,7 +1232,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         listenViewModel.startedOnce = true
         buttonSkipListen.isEnabled = true
 
-        buttonStartStopListen.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopListen.setBackgroundResource(R.drawable.stop_listen_cv)
 
         buttonNoClip.onClick {
             validateNo()

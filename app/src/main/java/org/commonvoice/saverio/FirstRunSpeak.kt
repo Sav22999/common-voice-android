@@ -147,7 +147,7 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             txtTutorialMessageTopSpeak.isGone = false
             btnFourSpeak.isGone = false
             btnFourSpeak.text = "5"
-            imgBtnRecordSpeak.setImageResource(R.drawable.stop_cv)
+            imgBtnRecordSpeak.setImageResource(R.drawable.stop_speak_cv)
             stopAnimation(btnFourSpeak)
             startAnimation(btnFourSpeak, R.anim.zoom_in)
         } else if (status == 5 || status == 7 && !next) {
@@ -197,7 +197,7 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             startAnimation(btnEightSpeak, R.anim.zoom_in)
         } else if (status == 8 || status == 10 && !next) {
             status = 9
-            btnNextSpeak.setText(R.string.btn_tutorial5)
+            btnNextSpeak.setText(R.string.btn_tutorial3)
             btnNumberTopSpeak.text = "9"
             txtTutorialMessageTopSpeak.setText(R.string.txt9_tutorial_speak)
             btnNumberTopSpeak.isGone = false

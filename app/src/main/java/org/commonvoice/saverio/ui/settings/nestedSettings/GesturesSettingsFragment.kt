@@ -73,7 +73,12 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
             settingsSectionGesturesSubListen.isGone = !mainPrefManager.areGesturesEnabled
 
             buttonGesturesLearnMore.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/gestures/")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://www.saveriomorelli.com/commonvoice/gestures/")
+                    )
+                )
             }
 
             updateAllGestures()
@@ -173,10 +178,6 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
         }
     }
 
-    public fun test() {
-        println("!! !! test")
-    }
-
     private fun getTheValue(action: String = "", section: String): String {
         return if (section == "speak") {
             //section=speak
@@ -205,6 +206,8 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
                     "{{feature}}",
                     getString(R.string.txt_recording_indicator_sound)
                 )
+                "start-stop-recording" -> getString(R.string.text_customise_gestures_settings_start_stop_recording)
+                "play-stop-recording" -> getString(R.string.text_customise_gestures_settings_play_stop_recording)
                 else -> ""
             }
         } else {
@@ -228,6 +231,7 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
                     "{{feature}}",
                     getString(R.string.txt_autoplay_clips_after_loading_settings)
                 )
+                "play-stop-clip" -> getString(R.string.text_customise_gestures_settings_play_stop_clip)
                 else -> ""
             }
         }

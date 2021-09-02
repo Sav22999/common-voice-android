@@ -136,7 +136,7 @@ class FirstRunListen : ViewBoundActivity<FirstRunListenBinding>(
             txtTutorialMessageTopListen.isGone = false
             btnFourListen.isGone = false
             btnFourListen.text = "5"
-            imgBtnPlayListen.setImageResource(R.drawable.stop_cv)
+            imgBtnPlayListen.setImageResource(R.drawable.stop_speak_cv)
             stopAnimation(btnFourListen)
             startAnimation(btnFourListen, R.anim.zoom_in)
         } else if (status == 5 || status == 7 && !next) {

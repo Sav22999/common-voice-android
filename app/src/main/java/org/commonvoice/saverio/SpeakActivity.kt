@@ -800,6 +800,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 speakPrefManager.playRecordingSoundIndicator =
                     !speakPrefManager.playRecordingSoundIndicator
             }
+            "start-stop-recording" -> {
+                startStopRecording()
+            }
+            "play-stop-recording" -> {
+                playStopRecording()
+            }
             else -> {
                 //nothing
             }
@@ -835,6 +841,24 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             "indicator-sound" -> {
                 R.drawable.ic_indicator_sound_white
             }
+            "start-stop-recording" -> {
+                if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
+                    R.drawable.ic_stop_recording
+                } else {
+                    R.drawable.ic_start_recording
+                }
+            }
+            "play-stop-recording" -> {
+                if (speakViewModel.state.value == SpeakViewModel.Companion.State.LISTENING) {
+                    R.drawable.ic_stop_clip
+                } else {
+                    if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDED || recorded) {
+                        R.drawable.ic_play_recording
+                    } else {
+                        R.drawable.ic_nothing
+                    }
+                }
+            }
             else -> {
                 R.drawable.ic_nothing
             }
@@ -863,6 +887,28 @@ END | GESTURES
                     button2TextRes = R.string.button_cancel,
                     onButton2Click = {}
                 ))
+        }
+    }
+
+    private fun startStopRecording() {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
+            //stop
+            stopRecording()
+        } else {
+            //start
+            startRecording()
+        }
+    }
+
+    private fun playStopRecording() {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.LISTENING) {
+            //stop
+            speakViewModel.stopListening()
+        } else {
+            if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDED || recorded) {
+                //play
+                speakViewModel.startListening()
+            }
         }
     }
 
@@ -1218,7 +1264,7 @@ END | GESTURES
     private fun loadUIStateRecording() = withBinding {
         recorded = true
         buttonRecordOrListenAgain.isGone = true
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_speak_cv)
 
         buttonSendSpeak.isGone = true
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
@@ -1246,7 +1292,7 @@ END | GESTURES
 
     private fun loadUIStateListening() = withBinding {
         buttonRecordOrListenAgain.isGone = true
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_listen_cv)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
 
         setStartStopButton(buttonStartStopSpeak, 3)

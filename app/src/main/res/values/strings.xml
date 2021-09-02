@@ -161,10 +161,15 @@
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings > Gestures">Report the sentence</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings > Gestures">Show information about the clip</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings > Gestures">Show information about the sentence</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings > Gestures">Play/Stop clip</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings > Gestures">Start/Stop recording</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings > Gestures">Play/Stop recording</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings > Gestures">Save</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings > Gestures">Choose an action</string>
     <string name="title_customise_gestures_settings_bottomsheet" comment="Title of the BottomSheet in Settings > Gestures || {{main_section}} is 'Speak' or 'Listen', {{gesture}} is 'Swipe up', 'Swipe down', etc. || Example: Listen > Swipe up, Speak > Long press, ..." translatable="false">{{main_section}} > {{gesture}}</string>
     <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Upload using Wi-Fi only</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download using Wi-Fi only</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>

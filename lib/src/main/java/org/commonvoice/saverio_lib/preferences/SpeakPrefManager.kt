@@ -74,6 +74,9 @@ class SpeakPrefManager(ctx: Context) {
     "save-recordings": [Speak] enable/disable the saving on file of the recordings,
     "skip-confirmation": [Speak] enable/disable the feature "skip recording confirmation",
     "indicator-sound": [Speak] enable/disable recording indicator sound
+    "play-stop-clip": [Listen] play/stop the clip
+    "start-stop-recording": [Speak] start/stop the recording
+    "play-stop-recording": [Speak] play/stop the recording
      */
 
     var gesturesSwipeTop: String
