@@ -4,16 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_auto_play.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_github.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_info_dark.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_info_light.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_notification.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode_20x20.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode_dark.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_play_stop_clip.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_play_stop_recording.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_read_contribution_criteria.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_read_contribution_criteria_dark.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_read_contribution_criteria_light.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report_dark.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report_gestures.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report_settings.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_start_stop_recording.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_stop_clip.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_stop_recording.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_storage.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_telegram.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_telegram_2.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_theme_auto.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_yes_thumb2.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/speak2_cv.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/speak_cv.xml" value="0.2708333333333333" />

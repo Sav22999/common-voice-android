@@ -36,6 +36,11 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                 settingsPrefManager.automaticallyCheckForUpdates = isChecked
             }
             switchCheckUpdates.isChecked = settingsPrefManager.automaticallyCheckForUpdates
+
+            switchGeneralNotifications.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.notifications = isChecked
+            }
+            switchGeneralNotifications.isChecked = settingsPrefManager.notifications
         }
 
         setTheme()
