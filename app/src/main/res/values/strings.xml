@@ -170,6 +170,8 @@
     <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Upload using Wi-Fi only</string>
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download using Wi-Fi only</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Generic notifications</string>
+    <string name="text_title_notifications" comment="Title in Settings">Notifications</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
@@ -347,7 +349,7 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Close</string>
     <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
-    <string name="message_new_badge_title" comment="Title for the message dialog">Earnt new badge</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">New badge earnt</string>
     <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
