@@ -151,7 +151,6 @@
                 android:drawableStart="@drawable/ic_notifications"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorGray"
-                android:enabled="false"
                 android:foreground="@drawable/ripple"
                 android:gravity="center|clip_vertical|start"
                 android:padding="20dp"
