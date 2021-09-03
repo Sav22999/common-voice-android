@@ -69,7 +69,6 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Other</string>
     <string name="btn_badges_loggedin" comment="Button">All badges</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
     <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
@@ -350,7 +349,9 @@
     <string name="btnCloseBadges" comment="Button">Close</string>
     <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
     <string name="message_new_badge_title" comment="Title for the message dialog">New badge earnt</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">New level achieved</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Congrats! You have just achieved a new level and you earnt a new badge as well.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
@@ -404,6 +405,7 @@
         <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Log in now</string>
+    <string name="button_open_profile_now" comment="Button">Open Profile now</string>
     <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Daily goal</string>

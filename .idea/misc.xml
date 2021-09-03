@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_auto_play.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_github.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_icon_one_color.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_info_dark.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_info_light.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_level.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_notification.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode_20x20.xml" value="0.2708333333333333" />
@@ -70,6 +72,7 @@
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_useful_links_settings.xml" value="0.2546875" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_you_have_to_accept_privacy_policy.xml" value="0.2546875" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/message_dialog_no_clips_sentences_available.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/viewholder_badge_level.xml" value="0.4" />
       </map>
     </option>
   </component>

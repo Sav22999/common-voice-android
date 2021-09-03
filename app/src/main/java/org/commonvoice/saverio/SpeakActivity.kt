@@ -62,6 +62,7 @@ import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager.Companion.getLevel
 import org.commonvoice.saverio_lib.utils.AudioConstants
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
@@ -1362,8 +1363,8 @@ END | GESTURES
     private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
-                if (it is BadgeDialogMediator.Speak || it is BadgeDialogMediator.Level) {
-                    val messageToUse = getString(R.string.new_badge_earnt_message)
+                if (it is BadgeDialogMediator.Speak) {
+                    val messageToUse = getString(R.string.message_new_badge_earnt_text)
                         .replace(
                             "{{profile}}",
                             getString(R.string.button_home_profile)
@@ -1373,24 +1374,52 @@ END | GESTURES
                             getString(R.string.btn_badges_loggedin)
                         )
 
-                    dialogInflater.show(
-                        this@SpeakActivity,
-                        StandardDialog(
-                            message = messageToUse,
-                            title = getString(R.string.message_new_badge_title)
-                        )
+                    showPopupAndSendNotification(
+                        messageToUse,
+                        getString(R.string.message_new_badge_title)
                     )
+                }
 
-                    sendNotification(
-                        context = applicationContext,
-                        title = getString(R.string.message_new_badge_title),
-                        message = messageToUse,
-                        autoCancel = true
+                if (it is BadgeDialogMediator.Level) {
+                    val messageToUse = getString(R.string.message_level_up_text)
+                        .replace(
+                            "{{profile}}",
+                            getString(R.string.button_home_profile)
+                        )
+                        .replace(
+                            "{{all_badges}}",
+                            getString(R.string.btn_badges_loggedin)
+                        )
+
+                    showPopupAndSendNotification(
+                        messageToUse,
+                        getString(R.string.message_level_up_title)
                     )
                 }
             }
         }
     } else Unit
+
+    private fun showPopupAndSendNotification(message: String, title: String = "") {
+        dialogInflater.show(
+            this@SpeakActivity,
+            StandardDialog(
+                message = message,
+                title = title,
+                button2TextRes = R.string.button_open_profile_now,
+                onButton2Click = {
+                    startActivity(Intent(applicationContext, LoginActivity::class.java))
+                }
+            )
+        )
+
+        sendNotification(
+            context = applicationContext,
+            title = title,
+            message = message,
+            autoCancel = true
+        )
+    }
 
     fun sendNotification(
         context: Context,
@@ -1434,8 +1463,10 @@ END | GESTURES
                 )
                 .setContentTitle(title)
                 .setContentText(message)
-                .setStyle(NotificationCompat.BigTextStyle()
-                    .bigText(message))
+                .setStyle(
+                    NotificationCompat.BigTextStyle()
+                        .bigText(message)
+                )
                 .setAutoCancel(autoCancel)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent)
