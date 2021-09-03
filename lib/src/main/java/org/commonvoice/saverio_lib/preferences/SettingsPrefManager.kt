@@ -58,6 +58,24 @@ class SettingsPrefManager(ctx: Context) {
             .putBoolean(Keys.NOTIFICATIONS.name, value)
             .apply()
 
+    var dailyGoalNotifications: Boolean
+        get() = preferences.getBoolean(Keys.DAILY_GOAL_NOTIFICATIONS.name, false)//TODO: the default value have to be TRUE
+        set(value) = preferences.edit()
+            .putBoolean(Keys.DAILY_GOAL_NOTIFICATIONS.name, value)
+            .apply()
+
+    var dailyGoalNotificationsHour: Int
+        get() = preferences.getInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR.name, 17)
+        set(value) = preferences.edit()
+            .putInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR.name, value)
+            .apply()
+
+    var dailyGoalNotificationsLastSentDate: String
+        get() = preferences.getString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name, "")!!
+        set(value) = preferences.edit()
+            .putString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name, value)
+            .apply()
+
     var notificationsCounter: Int
         get() = preferences.getInt(Keys.NOTIFICATIONS_COUNTER.name, 0)
         set(value) = preferences.edit()
@@ -88,6 +106,9 @@ class SettingsPrefManager(ctx: Context) {
         INFO_ICON_SPEAK_LISTEN,
         CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN,
         NOTIFICATIONS,
+        DAILY_GOAL_NOTIFICATIONS,
+        DAILY_GOAL_NOTIFICATIONS_HOUR,
+        DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE,
         NOTIFICATIONS_COUNTER,
         WIFI_ONLY_UPLOAD,
         WIFI_ONLY_DOWNLOAD,

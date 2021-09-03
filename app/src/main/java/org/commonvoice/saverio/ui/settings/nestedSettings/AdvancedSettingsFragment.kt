@@ -129,6 +129,13 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             settingsPrefManager.isProgressBarColouredEnabled = true
                             settingsPrefManager.isLightThemeSentenceBoxSpeakListen = false
                             settingsPrefManager.showInfoIcon = false
+                            settingsPrefManager.showContributionCriteriaIcon = true
+                            settingsPrefManager.dailyGoalNotificationsHour = 17
+                            settingsPrefManager.dailyGoalNotificationsLastSentDate = ""
+                            settingsPrefManager.dailyGoalNotifications = true
+                            settingsPrefManager.notifications = true
+                            settingsPrefManager.wifiOnlyUpload = false
+                            settingsPrefManager.wifiOnlyUpload = false
 
                             //Reset Stats
                             statsPrefManager.dailyGoalObjective = 0

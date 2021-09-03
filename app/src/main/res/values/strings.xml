@@ -170,7 +170,13 @@
     <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Upload using Wi-Fi only</string>
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download using Wi-Fi only</string>
     <string name="text_general_notifications" comment="Switch-Button in Settings">Generic notifications</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
     <string name="text_title_notifications" comment="Title in Settings">Notifications</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Don\'t forget to contribute to Common Voice today!\nYou haven\'t achieved yet your daily goal.\nTap here to open the app and start to contribute now.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">Daily goal not achieved yet today!</string>
+    <string name="text_dailygoal_notifications_details" comment="">Choose the hour you want to receive the notification if you haven\'t already achieved the daily goal.</string>
+    <string name="text_dailygoal_notifications_details2" comment="">Because of some Android devices use battery optimisation practise, this hour is just estimated and could be not precise.</string>
+    <string name="label_dailygoal_notifications_hour" comment="Label">Hour</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
