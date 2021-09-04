@@ -269,50 +269,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/textHourDailyGoalNotifications"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="2dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="2dp"
                     android:layout_marginBottom="2dp"
                     android:background="@drawable/txt_rounded_dashboard_intern"
-                    android:clickable="true"
-                    android:editable="false"
                     android:ems="10"
                     android:enabled="true"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
-                    android:fontFamily="@font/sourcecodepro_black"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:hint="@string/label_dailygoal_notifications_hour"
                     android:inputType="time"
+                    android:paddingStart="20dp"
+                    android:popupBackground="@drawable/txt_rounded_with_border"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/text_big"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/labelAfterHourDailyGoalNotifications"
-                    app:layout_constraintStart_toEndOf="@+id/labelHourDailyGoalNotifications"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/labelAfterHourDailyGoalNotifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/sourcecodepro"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:text=":00"
-                    android:textAlignment="gravity"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/text_normal"
-                    android:textStyle="normal"
-                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelHourDailyGoalNotifications"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

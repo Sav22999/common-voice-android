@@ -3,6 +3,7 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.app.Activity
 import android.view.*
 import android.view.inputmethod.InputMethodManager
+import android.widget.AdapterView
 import androidx.core.view.isGone
 import androidx.core.widget.addTextChangedListener
 import org.commonvoice.saverio.R
@@ -12,6 +13,8 @@ import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
+import android.widget.ArrayAdapter
+
 
 class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() {
 
@@ -46,6 +49,41 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
             }
             switchGeneralNotifications.isChecked = settingsPrefManager.notifications
 
+            val listOfHours = arrayOf(
+                "0:00",
+                "1:00",
+                "2:00",
+                "3:00",
+                "4:00",
+                "5:00",
+                "6:00",
+                "7:00",
+                "8:00",
+                "9:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00",
+                "19:00",
+                "20:00",
+                "21:00",
+                "22:00",
+                "23:00"
+            )
+            val adapter: ArrayAdapter<String> =
+                ArrayAdapter<String>(
+                    requireContext(),
+                    android.R.layout.simple_spinner_item,
+                    listOfHours
+                )
+            adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+            textHourDailyGoalNotifications.setAdapter(adapter)
+
             switchDailygoalNotifications.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.dailyGoalNotifications = isChecked
                 settingsSectionCustomiseDailyGoalNotifications.isGone = !isChecked
@@ -53,25 +91,30 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                     settingsPrefManager.dailyGoalNotificationsHour = 17
                     settingsPrefManager.dailyGoalNotificationsLastSentDate = ""
                 }
-                textHourDailyGoalNotifications.setText(settingsPrefManager.dailyGoalNotificationsHour.toString())
+                textHourDailyGoalNotifications.setSelection(listOfHours.indexOf(settingsPrefManager.dailyGoalNotificationsHour.toString() + ":00"))
             }
             switchDailygoalNotifications.isChecked = settingsPrefManager.dailyGoalNotifications
             settingsSectionCustomiseDailyGoalNotifications.isGone =
                 !settingsPrefManager.dailyGoalNotifications
-            textHourDailyGoalNotifications.setText(settingsPrefManager.dailyGoalNotificationsHour.toString())
+            textHourDailyGoalNotifications.setSelection(listOfHours.indexOf(settingsPrefManager.dailyGoalNotificationsHour.toString() + ":00"))
 
-            textHourDailyGoalNotifications.addTextChangedListener {
-                val valueTemp = textHourDailyGoalNotifications.text.toString()
-                if (valueTemp != "") {
-                    if (valueTemp.toInt() > 24) {
-                        textHourDailyGoalNotifications.setText("24")
+            textHourDailyGoalNotifications.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+
                     }
-                    settingsPrefManager.dailyGoalNotificationsHour =
-                        (textHourDailyGoalNotifications.text).toString().toInt()
-                } else {
-                    settingsPrefManager.dailyGoalNotificationsHour = 17
+
+                    override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        println(adapter.getItem(position))
+                        settingsPrefManager.dailyGoalNotificationsHour =
+                            adapter.getItem(position).toString().replace(":00", "").toInt()
+                    }
                 }
-            }
         }
 
         setTheme()
@@ -93,13 +136,6 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                 otherSubSubSectionDailyGoalNotificationsHour,
                 R.color.colorTabBackgroundInactive,
                 R.color.colorTabBackgroundInactiveDT
-            )
-
-            theme.setTextView(
-                requireContext(),
-                textHourDailyGoalNotifications,
-                border = false,
-                intern = true
             )
 
             theme.setElement(
