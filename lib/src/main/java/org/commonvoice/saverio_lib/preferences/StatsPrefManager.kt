@@ -148,7 +148,7 @@ class StatsPrefManager(ctx: Context) {
         }
     }
 
-    private enum class Keys {
+    enum class Keys {
         DAILY_GOAL_OBJECTIVE,
 
         REVIEW_ON_PLAYSTORE_COUNTER,

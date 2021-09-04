@@ -257,6 +257,11 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 //achieved
                 setDailyGoalAchievedAndNotShown(it)
                 if (speakViewModel.state.value == SpeakViewModel.Companion.State.STANDBY) showDailyGoalAchievedMessage()
+
+                val c = Calendar.getInstance()
+                val currentDate =
+                    "${c.get(Calendar.YEAR)}-${c.get(Calendar.MONTH + 1)}-${c.get(Calendar.DAY_OF_MONTH)}"
+                settingsPrefManager.dailyGoalNotificationsLastSentDate = currentDate
             }
 
             animateProgressBar(

@@ -135,7 +135,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             settingsPrefManager.dailyGoalNotifications = true
                             settingsPrefManager.notifications = true
                             settingsPrefManager.wifiOnlyUpload = false
-                            settingsPrefManager.wifiOnlyUpload = false
+                            settingsPrefManager.wifiOnlyDownload = false
 
                             //Reset Stats
                             statsPrefManager.dailyGoalObjective = 0

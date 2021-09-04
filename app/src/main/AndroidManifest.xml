@@ -97,6 +97,8 @@
             android:name=".NotAvailableNow"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
+        <!-- NotificationReceiver -->
+        <receiver android:name=".utils.NotificationsDailyGoalReceiver" />
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"

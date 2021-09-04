@@ -236,6 +236,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 //achieved
                 setDailyGoalAchievedAndNotShown(it)
                 if (listenViewModel.state.value == ListenViewModel.Companion.State.STANDBY) showDailyGoalAchievedMessage()
+
+                val c = Calendar.getInstance()
+                val currentDate =
+                    "${c.get(Calendar.YEAR)}-${c.get(Calendar.MONTH + 1)}-${c.get(Calendar.DAY_OF_MONTH)}"
+                settingsPrefManager.dailyGoalNotificationsLastSentDate = currentDate
             }
 
             animateProgressBar(

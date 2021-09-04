@@ -59,7 +59,7 @@ class SettingsPrefManager(ctx: Context) {
             .apply()
 
     var dailyGoalNotifications: Boolean
-        get() = preferences.getBoolean(Keys.DAILY_GOAL_NOTIFICATIONS.name, false)//TODO: the default value have to be TRUE
+        get() = preferences.getBoolean(Keys.DAILY_GOAL_NOTIFICATIONS.name, true)
         set(value) = preferences.edit()
             .putBoolean(Keys.DAILY_GOAL_NOTIFICATIONS.name, value)
             .apply()
@@ -71,7 +71,10 @@ class SettingsPrefManager(ctx: Context) {
             .apply()
 
     var dailyGoalNotificationsLastSentDate: String
-        get() = preferences.getString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name, "")!!
+        get() = preferences.getString(
+            Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name,
+            ""
+        )!! //YYYY-MM-DD
         set(value) = preferences.edit()
             .putString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name, value)
             .apply()
@@ -95,7 +98,7 @@ class SettingsPrefManager(ctx: Context) {
             .apply()
 
 
-    private enum class Keys {
+    enum class Keys {
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
         OFFLINE_MODE,
