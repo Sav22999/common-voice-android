@@ -160,12 +160,51 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
     }
 
     private fun setTheme() = withBinding {
+        theme.setElements(requireContext(), profileSubSectionEmail)
+        theme.setElements(requireContext(), profileSubSectionUsername)
+        theme.setElements(requireContext(), profileSubSectionAge)
+        theme.setElements(requireContext(), profileSubSectionGender)
         theme.setElement(layoutLogin)
         theme.setElement(requireContext(), 3, loginSectionData)
         theme.setElement(requireContext(), 3, loginSectionInformation)
         theme.setElement(requireContext(), 1, loginSectionLogout)
         theme.setElement(requireContext(), btnBadges)
         theme.setElement(requireContext(), btnLogout)
+
+        theme.setTextView(requireContext(), textProfileEmail, border = false, intern = true)
+        theme.setTextView(requireContext(), textProfileUsername, border = false, intern = true)
+        theme.setTextView(requireContext(), textProfileAge, border = false, intern = true)
+        theme.setTextView(requireContext(), textProfileGender, border = false, intern = true)
+
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionEmail,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionUsername,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionAge,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionGender,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+
         theme.setElement(
             requireContext(),
             labelToModifyInformation,
@@ -173,26 +212,6 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
             R.color.colorAlertMessageDT,
             textSize = 15F
         )
-        theme.setTextView(
-            requireContext(),
-            textProfileUsername
-        )
-        theme.setTextView(
-            requireContext(),
-            textProfileEmail
-        )
-        theme.setTextView(
-            requireContext(),
-            textProfileAge
-        )
-        theme.setTextView(
-            requireContext(),
-            textProfileGender
-        )
-        theme.setElement(requireContext(), labelProfileUsername)
-        theme.setElement(requireContext(), labelProfileEmail)
-        theme.setElement(requireContext(), labelProfileAge)
-        theme.setElement(requireContext(), labelProfileGender)
         theme.setTextView(requireContext(), textLevel, border = false, textSize = 30F)
     }
 
