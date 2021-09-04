@@ -169,11 +169,13 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
     }
 
     private fun setupLanguageSpinner() {
-        binding.languageList.adapter = ArrayAdapter(
+        val adapter: ArrayAdapter<String> = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_1,
+            R.layout.spinner_text,
             translationHandler.availableLanguageNames
         )
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_text)
+        binding.languageList.adapter = adapter
 
         binding.languageList.setSelection(
             translationHandler.availableLanguageCodes.indexOf(
@@ -231,6 +233,13 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             theme.setElement(requireContext(), 3, settingsSectionGeneral)
             theme.setElement(requireContext(), 3, newSettingsSectionOther)
             theme.setElement(requireContext(), 1, settingsSectionBottom)
+
+            theme.setSpinner(
+                requireContext(),
+                languageList,
+                R.drawable.spinner_background,
+                R.drawable.spinner_background_dark
+            )
 
             theme.setElement(requireContext(), textDevelopedBy, textSize = 15F, background = false)
             theme.setElement(requireContext(), textDeveloper, textSize = 25F, background = false)

@@ -78,10 +78,10 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
             val adapter: ArrayAdapter<String> =
                 ArrayAdapter<String>(
                     requireContext(),
-                    android.R.layout.simple_spinner_item,
+                    R.layout.spinner_text,
                     listOfHours
                 )
-            adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+            adapter.setDropDownViewResource(R.layout.spinner_dropdown_text)
             textHourDailyGoalNotifications.setAdapter(adapter)
 
             switchDailygoalNotifications.setOnCheckedChangeListener { _, isChecked ->
@@ -142,6 +142,13 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                 R.color.colorGray,
                 R.color.colorLightGray,
                 textSize = 15f
+            )
+
+            theme.setSpinner(
+                requireContext(),
+                textHourDailyGoalNotifications,
+                R.drawable.spinner_background,
+                R.drawable.spinner_background_dark
             )
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionOther, textSize = 20F)

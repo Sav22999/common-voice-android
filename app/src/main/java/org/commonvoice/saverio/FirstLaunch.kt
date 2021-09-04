@@ -218,11 +218,13 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
                 textDescriptionFirstLaunch.setText(R.string.txt_choose_language_first_launch)
                 // set languages imported
-                binding.languageListFirstLaunch.adapter = ArrayAdapter(
+                val adapter: ArrayAdapter<String> = ArrayAdapter(
                     this@FirstLaunch,
-                    android.R.layout.simple_list_item_1,
+                    R.layout.spinner_text,
                     translationHandler.availableLanguageNames
                 )
+                adapter.setDropDownViewResource(R.layout.spinner_dropdown_text)
+                binding.languageListFirstLaunch.adapter = adapter
                 binding.languageListFirstLaunch.onItemSelectedListener =
                     object : AdapterView.OnItemSelectedListener {
                         override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -289,6 +291,13 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             textCommonVoiceAndroidFirstLaunch,
             background = false,
             textSize = 30F
+        )
+
+        theme.setSpinner(
+            this@FirstLaunch,
+            languageListFirstLaunch,
+            R.drawable.spinner_background,
+            R.drawable.spinner_background_dark
         )
     }
 
