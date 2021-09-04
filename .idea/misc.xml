@@ -36,6 +36,11 @@
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/spinner_background_dark.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/stop_cv.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/stop_listen_cv.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_border_radius_with_border_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_bottom_border_radius_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_bottom_border_radius_with_border.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_bottom_border_radius_with_border_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/txt_rounded_darktheme_dashboard_intern.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/txt_rounded_dashboard_intern.xml" value="0.2708333333333333" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/activity_listen.xml" value="0.2546875" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/activity_login.xml" value="0.2546875" />
@@ -81,6 +86,7 @@
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/spinner_dropdown_items.xml" value="0.2546875" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/spinner_dropdown_text.xml" value="0.2546875" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/spinner_text.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/splash_screen.xml" value="0.2546875" />
         <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/viewholder_badge_level.xml" value="0.4" />
       </map>
     </option>
