@@ -89,7 +89,6 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                 settingsSectionCustomiseDailyGoalNotifications.isGone = !isChecked
                 if (!isChecked) {
                     settingsPrefManager.dailyGoalNotificationsHour = 17
-                    settingsPrefManager.dailyGoalNotificationsLastSentDate = ""//TODO: remove this line
                 }
                 textHourDailyGoalNotifications.setSelection(listOfHours.indexOf(settingsPrefManager.dailyGoalNotificationsHour.toString() + ":00"))
             }
