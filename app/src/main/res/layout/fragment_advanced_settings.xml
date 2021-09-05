@@ -423,6 +423,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <Button
+                android:id="@+id/buttonCustomiseAPIServer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_rounded"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="@string/button_customise_api_server"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_destinationAPIServerSubSettings"
+                tools:visibility="visible" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/advancedSubSectionDestinarioAPIServer"
                 android:layout_width="0dp"
@@ -433,9 +452,11 @@
                 android:background="@drawable/top_bottom_border_radius"
                 android:backgroundTint="@color/colorDarkWhite"
                 android:padding="0dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title_destinationAPIServerSubSettings">
+                app:layout_constraintTop_toBottomOf="@id/title_destinationAPIServerSubSettings"
+                tools:visibility="gone">
 
                 <EditText
                     android:id="@+id/textDestinationAPIServer"
@@ -458,6 +479,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/text_normal"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -479,9 +501,12 @@
                 android:text="@string/button_reset_default_api_server"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/text_button"
+                android:textStyle="normal"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/advancedSubSectionDestinarioAPIServer" />
+                app:layout_constraintTop_toBottomOf="@+id/advancedSubSectionDestinarioAPIServer"
+                tools:visibility="gone" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -179,7 +179,9 @@
     <string name="label_dailygoal_notifications_hour" comment="Label">Hour</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings > Advanced">Statistics</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings > Advanced">Destination API server</string>
-    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset default API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset the default API server</string>
+    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is a potential dangerous action.\nAnyway, you will be able to reset to the default API server in any moments.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>

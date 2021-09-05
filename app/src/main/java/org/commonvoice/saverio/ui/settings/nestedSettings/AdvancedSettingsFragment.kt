@@ -10,6 +10,7 @@ import android.webkit.CookieManager
 import android.widget.Toast
 import androidx.core.content.getSystemService
 import androidx.core.view.isGone
+import androidx.core.widget.addTextChangedListener
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -44,6 +45,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     private val loginViewModel by viewModel<LoginViewModel>()
     private val dialogInflater by inject<DialogInflater>()
     private val statsRepository by inject<StatsRepository>()
+
+    private val defaultAPIServer = "https://commonvoice.mozilla.org/api/v1/"
 
     override fun onStart() {
         super.onStart()
@@ -113,9 +116,30 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
             buttonResetDefaultAPIServer.paintFlags = Paint.UNDERLINE_TEXT_FLAG
             buttonResetDefaultAPIServer.setOnClickListener {
-                mainPrefManager.genericAPIUrl =
-                    "https://commonvoice.mozilla.org/api/v1/"
+                mainPrefManager.genericAPIUrl = defaultAPIServer
+                textDestinationAPIServer.setText(mainPrefManager.genericAPIUrl)
 
+                buttonCustomiseAPIServer.isGone = false
+                advancedSubSectionDestinarioAPIServer.isGone = true
+                buttonResetDefaultAPIServer.isGone = true
+            }
+            textDestinationAPIServer.addTextChangedListener {
+                var valueTemp = textDestinationAPIServer.text.toString()
+                if (valueTemp != "") {
+                    if (valueTemp.get(valueTemp.length - 1).toString() != "/") {
+                        valueTemp = valueTemp + "/"
+                    }
+                    mainPrefManager.genericAPIUrl = valueTemp
+                } else {
+                    mainPrefManager.genericAPIUrl = defaultAPIServer
+                }
+            }
+            textDestinationAPIServer.setText(mainPrefManager.genericAPIUrl)
+
+            if (mainPrefManager.genericAPIUrl != defaultAPIServer) {
+                buttonCustomiseAPIServer.isGone = true
+                advancedSubSectionDestinarioAPIServer.isGone = false
+                buttonResetDefaultAPIServer.isGone = false
             }
 
             buttonResetData.setOnClickListener {
@@ -193,8 +217,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
                             //Reset Main
                             mainPrefManager.language = "en"
-                            mainPrefManager.genericAPIUrl =
-                                "https://commonvoice.mozilla.org/api/v1/"
+                            mainPrefManager.genericAPIUrl = defaultAPIServer
                             mainPrefManager.tokenUserId = ""
                             mainPrefManager.tokenAuth = ""
                             mainPrefManager.showOfflineModeMessage = true
@@ -250,6 +273,25 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 })
             )
         }
+
+        binding.buttonCustomiseAPIServer.setOnClickListener {
+            dialogInflater.show(
+                requireContext(),
+                StandardDialog(
+                    messageRes = R.string.message_customisation_api_server_text,
+                    buttonTextRes = R.string.button_yes_sure,
+                    onButtonClick = {
+                        withBinding {
+                            buttonCustomiseAPIServer.isGone = true
+                            advancedSubSectionDestinarioAPIServer.isGone = false
+                            buttonResetDefaultAPIServer.isGone = false
+                        }
+                    },
+                    button2TextRes = R.string.button_cancel,
+                    onButton2Click = {}
+                )
+            )
+        }
     }
 
     private fun setTheme() {
@@ -268,6 +310,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             theme.setElement(requireContext(), 3, settingsSectionAdvancedAds)
             theme.setElement(requireContext(), 3, settingsSectionAdvancedDestinationAPIServer)
             theme.setElement(requireContext(), 3, settingsSectionAdvancedResetAppData)
+
+            theme.setElement(requireContext(), buttonCustomiseAPIServer)
 
             theme.setElement(
                 requireContext(),
