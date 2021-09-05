@@ -10,6 +10,10 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getString(Keys.LANGUAGE.name, "en") ?: "en"
         set(value) = preferences.edit().putString(Keys.LANGUAGE.name, value).apply()
 
+    var genericAPIUrl: String
+        get() = preferences.getString(Keys.GENERIC_API_URL.name, "https://commonvoice.mozilla.org/api/v1/") ?: "https://commonvoice.mozilla.org/api/v1/"
+        set(value) = preferences.edit().putString(Keys.GENERIC_API_URL.name, value).apply()
+
     var tokenUserId: String
         get() = preferences.getString(Keys.TOKEN_USERID.name, "") ?: ""
         set(value) = preferences.edit().putString(Keys.TOKEN_USERID.name, value).apply()
@@ -125,6 +129,7 @@ class MainPrefManager(ctx: Context) {
 
     private enum class Keys {
         LANGUAGE,
+        GENERIC_API_URL,
         SESSID_COOKIE,
         TOKEN_USERID,
         TOKEN_AUTH,

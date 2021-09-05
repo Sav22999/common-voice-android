@@ -35,7 +35,7 @@
             android:contentDescription="@string/accessibility_go_back"
             android:elevation="5dp"
             android:padding="18dp"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionOfflineMode"
             app:srcCompat="@drawable/ic_back_dark" />

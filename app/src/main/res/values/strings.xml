@@ -174,9 +174,13 @@
     <string name="text_title_notifications" comment="Title in Settings">Notifications</string>
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
     <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
-    <string name="text_dailygoal_notifications_details" comment="">Choose the hour you want to receive the notification if you haven\'t already achieved the daily goal.</string>
-    <string name="text_dailygoal_notifications_details2" comment="">Please note that this might not be exact due to battery optimisation settings.</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact due to battery optimisation settings.</string>
     <string name="label_dailygoal_notifications_hour" comment="Label">Hour</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings > Advanced">Statistics</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings > Advanced">Destination API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset default API server</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>

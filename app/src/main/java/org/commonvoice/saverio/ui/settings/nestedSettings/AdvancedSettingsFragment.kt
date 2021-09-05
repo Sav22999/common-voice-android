@@ -3,6 +3,7 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
@@ -110,6 +111,13 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 }
             }
 
+            buttonResetDefaultAPIServer.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            buttonResetDefaultAPIServer.setOnClickListener {
+                mainPrefManager.genericAPIUrl =
+                    "https://commonvoice.mozilla.org/api/v1/"
+
+            }
+
             buttonResetData.setOnClickListener {
                 dialogInflater.show(requireContext(),
                     StandardDialog(
@@ -185,6 +193,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
                             //Reset Main
                             mainPrefManager.language = "en"
+                            mainPrefManager.genericAPIUrl =
+                                "https://commonvoice.mozilla.org/api/v1/"
                             mainPrefManager.tokenUserId = ""
                             mainPrefManager.tokenAuth = ""
                             mainPrefManager.showOfflineModeMessage = true
@@ -247,10 +257,32 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             theme.setElement(layoutSettingsAdvanced)
 
             theme.setElements(requireContext(), settingsSectionAdvanced)
+            theme.setElements(requireContext(), settingsSectionAdvancedStatistics)
             theme.setElements(requireContext(), settingsSectionAdvancedAds)
+            theme.setElements(requireContext(), settingsSectionAdvancedDestinationAPIServer)
+            theme.setElements(requireContext(), settingsSectionAdvancedResetAppData)
+            theme.setElements(requireContext(), advancedSubSectionDestinarioAPIServer)
 
             theme.setElement(requireContext(), 3, settingsSectionAdvanced)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedStatistics)
             theme.setElement(requireContext(), 3, settingsSectionAdvancedAds)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedDestinationAPIServer)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedResetAppData)
+
+            theme.setElement(
+                requireContext(),
+                3,
+                advancedSubSectionDestinarioAPIServer,
+                R.color.colorTabBackgroundInactive,
+                R.color.colorTabBackgroundInactiveDT
+            )
+
+            theme.setTextView(
+                requireContext(),
+                textDestinationAPIServer,
+                border = false,
+                intern = true
+            )
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionAdvanced, textSize = 20F)
         }
