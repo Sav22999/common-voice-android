@@ -48,10 +48,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/dashboardSectionTabs"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:weightSum="100"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -63,34 +64,31 @@
 
                 <Button
                     android:id="@+id/buttonEveryoneStatisticsDashboard"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="0dp"
                     android:background="@drawable/btn_rounded"
                     android:backgroundTint="@color/colorTabBackgroundInactive"
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp"
                     android:text="@string/dashboardTabEveryone"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/text_button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/buttonYouStatisticsDashboard"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="@dimen/text_button" />
 
                 <Button
                     android:id="@+id/buttonYouStatisticsDashboard"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:background="@drawable/btn_rounded"
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp"
                     android:text="@string/dashboardTabYou"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:textSize="@dimen/text_button" />
+            </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/dashboardSectionToday"
@@ -786,10 +784,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/dashboardSectionTabsTopContributors"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:weightSum="100"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -801,7 +800,8 @@
 
                 <Button
                     android:id="@+id/buttonRecordingsTopContributorsDashboard"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_rounded"
                     android:paddingStart="30dp"
@@ -809,14 +809,12 @@
                     android:stateListAnimator="@null"
                     android:text="@string/txt_top_contributors_recorded"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text_button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="@dimen/text_button" />
 
                 <Button
                     android:id="@+id/buttonValidationsTopContributorsDashboard"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/btn_rounded"
@@ -826,12 +824,9 @@
                     android:stateListAnimator="@null"
                     android:text="@string/txt_top_contributors_validated"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/text_button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/buttonRecordingsTopContributorsDashboard"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textSize="@dimen/text_button" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/dashboardTopContributorsFirst"
