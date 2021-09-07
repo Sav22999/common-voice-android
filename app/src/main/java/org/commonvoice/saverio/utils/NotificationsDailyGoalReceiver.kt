@@ -113,30 +113,30 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
 
         if (dailyGoalNotifications) {
             if (c.get(Calendar.HOUR_OF_DAY) >= hourWhenShow && currentDate != savedDate && dailyGoalObjective > 0) {
-                println("^^^^^^^^^^^^^^^^^^^^ > enabled first")
                 notificationManager!!.notify(
                     notificationNumber,
                     notificationBuilder.build()
                 )
                 dailyGoalNotificationsLastSentDate = currentDate
                 incrementNotificationCounter()
+                //println("^^^^^^^^^^^^^^^^^^^^ > enabled first")
             } else if (c.get(Calendar.HOUR_OF_DAY) >= hourWhenShowSecond && currentDate != savedDateSecond && dailyGoalObjective > 0) {
-                println("^^^^^^^^^^^^^^^^^^^^ > enabled second")
                 notificationManager!!.notify(
                     notificationNumber,
                     notificationBuilder.build()
                 )
                 dailyGoalNotificationsLastSentDateSecond = currentDate
                 incrementNotificationCounter()
+                //println("^^^^^^^^^^^^^^^^^^^^ > enabled second")
             } else if (dailyGoalObjective == 0) {
                 //Daily goal not set
-                println("^^^^^^^^^^^^^^^^^^^^ > daily goal not set")
+                //println("^^^^^^^^^^^^^^^^^^^^ > daily goal not set")
             } else if (c.get(Calendar.HOUR_OF_DAY) < hourWhenShow) {
                 //Too early o'clock (first alert)
-                println("^^^^^^^^^^^^^^^^^^^^ > too early first")
+                //println("^^^^^^^^^^^^^^^^^^^^ > too early first")
             } else if (c.get(Calendar.HOUR_OF_DAY) < hourWhenShowSecond) {
                 //Too early o'clock (second alert)
-                println("^^^^^^^^^^^^^^^^^^^^ > too early second")
+                //println("^^^^^^^^^^^^^^^^^^^^ > too early second")
             } else {
                 //Notification already sent
                 //println("^^^^^^^^^^^^^^^^^^^^ > already sent (or already achieved)")
