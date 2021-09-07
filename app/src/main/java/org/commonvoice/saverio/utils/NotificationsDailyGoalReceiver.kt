@@ -120,7 +120,7 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
                 dailyGoalNotificationsLastSentDate = currentDate
                 incrementNotificationCounter()
                 //println("^^^^^^^^^^^^^^^^^^^^ > enabled first")
-            } else if (c.get(Calendar.HOUR_OF_DAY) >= hourWhenShowSecond && currentDate != savedDateSecond && dailyGoalObjective > 0) {
+            } else if (hourWhenShowSecond >= 0 && c.get(Calendar.HOUR_OF_DAY) >= hourWhenShowSecond && currentDate != savedDateSecond && dailyGoalObjective > 0) {
                 notificationManager!!.notify(
                     notificationNumber,
                     notificationBuilder.build()
