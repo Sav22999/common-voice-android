@@ -73,7 +73,7 @@
     <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
     <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Open tutorial again</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">developed by</string>
     <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
@@ -175,13 +175,15 @@
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
     <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
     <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
-    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact due to battery optimisation settings.</string>
-    <string name="label_dailygoal_notifications_hour" comment="Label">Hour</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings > Advanced">Statistics</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings > Advanced">Destination API server</string>
-    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset the default API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
     <string name="button_customise_api_server" comment="Button">Customise API server</string>
-    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is a potential dangerous action.\nAnyway, you will be able to reset to the default API server in any moments.</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>

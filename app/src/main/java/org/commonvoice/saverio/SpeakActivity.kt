@@ -262,6 +262,7 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 val currentDate =
                     "${c.get(Calendar.YEAR)}-${c.get(Calendar.MONTH + 1)}-${c.get(Calendar.DAY_OF_MONTH)}"
                 settingsPrefManager.dailyGoalNotificationsLastSentDate = currentDate
+                settingsPrefManager.dailyGoalNotificationsLastSentDateSecond = currentDate
             }
 
             animateProgressBar(

@@ -240,7 +240,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/labelTextDailyGoalNotifications" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/otherSubSubSectionDailyGoalNotificationsHour"
+                android:id="@+id/otherSubSubSectionDailyGoalNotificationsFirstAlert"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -254,11 +254,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/labelDetailsTextDailyGoalNotifications">
 
                 <TextView
-                    android:id="@+id/labelHourDailyGoalNotifications"
+                    android:id="@+id/labelHourDailyGoalNotificationsFirstAlert"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:text="@string/label_dailygoal_notifications_hour"
+                    android:text="@string/label_dailygoal_notifications_first_alert"
                     android:textAlignment="gravity"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorPrimaryDark"
@@ -270,7 +270,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Spinner
-                    android:id="@+id/textHourDailyGoalNotifications"
+                    android:id="@+id/textHourDailyGoalNotificationsFirstAlert"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="5dp"
@@ -290,7 +290,63 @@
                     android:textSize="@dimen/text_big"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/labelHourDailyGoalNotifications"
+                    app:layout_constraintStart_toEndOf="@+id/labelHourDailyGoalNotificationsFirstAlert"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/otherSubSubSectionDailyGoalNotificationsSecondAlert"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otherSubSubSectionDailyGoalNotificationsFirstAlert">
+
+                <TextView
+                    android:id="@+id/labelHourDailyGoalNotificationsSecondAlert"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:text="@string/label_dailygoal_notifications_second_alert"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:textStyle="italic"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/textHourDailyGoalNotificationsSecondAlert"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/spinner_background"
+                    android:ems="10"
+                    android:enabled="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:inputType="time"
+                    android:popupBackground="@drawable/spinner_background"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_big"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelHourDailyGoalNotificationsSecondAlert"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

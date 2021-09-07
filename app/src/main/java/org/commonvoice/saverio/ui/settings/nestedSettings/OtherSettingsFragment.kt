@@ -75,6 +75,33 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                 "22:00",
                 "23:00"
             )
+            val listOfHoursSecond = arrayOf(
+                getString(R.string.label_dailygoal_notifications_second_alert_none),
+                "0:00",
+                "1:00",
+                "2:00",
+                "3:00",
+                "4:00",
+                "5:00",
+                "6:00",
+                "7:00",
+                "8:00",
+                "9:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00",
+                "19:00",
+                "20:00",
+                "21:00",
+                "22:00",
+                "23:00"
+            )
             val adapter: ArrayAdapter<String> =
                 ArrayAdapter<String>(
                     requireContext(),
@@ -82,22 +109,32 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                     listOfHours
                 )
             adapter.setDropDownViewResource(R.layout.spinner_dropdown_text)
-            textHourDailyGoalNotifications.setAdapter(adapter)
+            textHourDailyGoalNotificationsFirstAlert.setAdapter(adapter)
+
+            val adapterSecond: ArrayAdapter<String> =
+                ArrayAdapter<String>(
+                    requireContext(),
+                    R.layout.spinner_text,
+                    listOfHoursSecond
+                )
+            adapterSecond.setDropDownViewResource(R.layout.spinner_dropdown_text)
+            textHourDailyGoalNotificationsSecondAlert.setAdapter(adapterSecond)
 
             switchDailygoalNotifications.setOnCheckedChangeListener { _, isChecked ->
                 settingsPrefManager.dailyGoalNotifications = isChecked
                 settingsSectionCustomiseDailyGoalNotifications.isGone = !isChecked
                 if (!isChecked) {
                     settingsPrefManager.dailyGoalNotificationsHour = 17
+                    settingsPrefManager.dailyGoalNotificationsHourSecond = -1
                 }
-                textHourDailyGoalNotifications.setSelection(listOfHours.indexOf(settingsPrefManager.dailyGoalNotificationsHour.toString() + ":00"))
+                setChoosingHourSelection(listOfHours, listOfHoursSecond)
             }
             switchDailygoalNotifications.isChecked = settingsPrefManager.dailyGoalNotifications
             settingsSectionCustomiseDailyGoalNotifications.isGone =
                 !settingsPrefManager.dailyGoalNotifications
-            textHourDailyGoalNotifications.setSelection(listOfHours.indexOf(settingsPrefManager.dailyGoalNotificationsHour.toString() + ":00"))
+            setChoosingHourSelection(listOfHours, listOfHoursSecond)
 
-            textHourDailyGoalNotifications.onItemSelectedListener =
+            textHourDailyGoalNotificationsFirstAlert.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener {
                     override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -111,11 +148,82 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
                     ) {
                         settingsPrefManager.dailyGoalNotificationsHour =
                             adapter.getItem(position).toString().replace(":00", "").toInt()
+
+                        if (settingsPrefManager.dailyGoalNotificationsHourSecond > 0) {
+                            if (settingsPrefManager.dailyGoalNotificationsHour > settingsPrefManager.dailyGoalNotificationsHourSecond) {
+                                val temp = settingsPrefManager.dailyGoalNotificationsHour
+                                settingsPrefManager.dailyGoalNotificationsHour =
+                                    settingsPrefManager.dailyGoalNotificationsHourSecond
+                                settingsPrefManager.dailyGoalNotificationsHourSecond = temp
+                                setChoosingHourSelection(listOfHours, listOfHoursSecond)
+                            } else if (settingsPrefManager.dailyGoalNotificationsHour == settingsPrefManager.dailyGoalNotificationsHourSecond) {
+                                settingsPrefManager.dailyGoalNotificationsHourSecond = -1
+                                setChoosingHourSelection(listOfHours, listOfHoursSecond)
+                            }
+                        }
+                    }
+                }
+            textHourDailyGoalNotificationsSecondAlert.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                    }
+
+                    override fun onItemSelected(
+                        parent: AdapterView<*>,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        if (adapterSecond.getItem(position)
+                                .toString() == getString(R.string.label_dailygoal_notifications_second_alert_none)
+                        ) {
+                            settingsPrefManager.dailyGoalNotificationsHourSecond = -1
+                        } else {
+                            settingsPrefManager.dailyGoalNotificationsHourSecond =
+                                adapterSecond.getItem(position).toString().replace(":00", "").toInt()
+                            println(adapterSecond.getItem(position).toString())
+
+                            if (settingsPrefManager.dailyGoalNotificationsHour > settingsPrefManager.dailyGoalNotificationsHourSecond) {
+                                val temp = settingsPrefManager.dailyGoalNotificationsHour
+                                settingsPrefManager.dailyGoalNotificationsHour =
+                                    settingsPrefManager.dailyGoalNotificationsHourSecond
+                                settingsPrefManager.dailyGoalNotificationsHourSecond = temp
+                                setChoosingHourSelection(listOfHours, listOfHoursSecond)
+                            } else if (settingsPrefManager.dailyGoalNotificationsHour == settingsPrefManager.dailyGoalNotificationsHourSecond) {
+                                settingsPrefManager.dailyGoalNotificationsHourSecond = -1
+                                setChoosingHourSelection(listOfHours, listOfHoursSecond)
+                            }
+                        }
                     }
                 }
         }
 
         setTheme()
+    }
+
+    private fun setChoosingHourSelection(
+        listOfHours: Array<String>,
+        listOfHoursSecond: Array<String>
+    ) {
+        withBinding {
+            textHourDailyGoalNotificationsFirstAlert.setSelection(
+                listOfHours.indexOf(
+                    settingsPrefManager.dailyGoalNotificationsHour.toString() + ":00"
+                )
+            )
+            var selectionSecondAlert =
+                settingsPrefManager.dailyGoalNotificationsHourSecond.toString() + ":00"
+            if (settingsPrefManager.dailyGoalNotificationsHourSecond < 0) {
+                selectionSecondAlert =
+                    getString(R.string.label_dailygoal_notifications_second_alert_none)
+            }
+            textHourDailyGoalNotificationsSecondAlert.setSelection(
+                listOfHoursSecond.indexOf(
+                    selectionSecondAlert
+                )
+            )
+        }
     }
 
     fun setTheme() {
@@ -124,14 +232,22 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
 
             theme.setElements(requireContext(), settingsSubSectionOther)
             theme.setElements(requireContext(), settingsSectionCustomiseDailyGoalNotifications)
-            theme.setElements(requireContext(), otherSubSubSectionDailyGoalNotificationsHour)
+            theme.setElements(requireContext(), otherSubSubSectionDailyGoalNotificationsFirstAlert)
+            theme.setElements(requireContext(), otherSubSubSectionDailyGoalNotificationsSecondAlert)
 
             theme.setElement(requireContext(), 3, settingsSubSectionOther)
             theme.setElement(requireContext(), 3, settingsSectionCustomiseDailyGoalNotifications)
             theme.setElement(
                 requireContext(),
                 3,
-                otherSubSubSectionDailyGoalNotificationsHour,
+                otherSubSubSectionDailyGoalNotificationsFirstAlert,
+                R.color.colorTabBackgroundInactive,
+                R.color.colorTabBackgroundInactiveDT
+            )
+            theme.setElement(
+                requireContext(),
+                3,
+                otherSubSubSectionDailyGoalNotificationsSecondAlert,
                 R.color.colorTabBackgroundInactive,
                 R.color.colorTabBackgroundInactiveDT
             )
@@ -146,7 +262,13 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
 
             theme.setSpinner(
                 requireContext(),
-                textHourDailyGoalNotifications,
+                textHourDailyGoalNotificationsFirstAlert,
+                R.drawable.spinner_background,
+                R.drawable.spinner_background_dark
+            )
+            theme.setSpinner(
+                requireContext(),
+                textHourDailyGoalNotificationsSecondAlert,
                 R.drawable.spinner_background,
                 R.drawable.spinner_background_dark
             )

@@ -27,6 +27,7 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
     val pattern = "YYYY-MM-dd"
 
     private var hourWhenShow = 17
+    private var hourWhenShowSecond = -1
 
     lateinit var context: Context
 
@@ -66,6 +67,7 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
     ) {
         val notificationNumber = notificationsCounter
         hourWhenShow = dailyGoalNotificationsHour
+        hourWhenShowSecond = dailyGoalNotificationsHourSecond
         val NOTIFICATION_CHANNEL_ID =
             "${context.packageName.replace(".", "_")}_notification_${notificationNumber}"
         val NOTIFICATION_CHANNEL_NAME = "${context.packageName}_notification".replace(".", "_")
@@ -103,6 +105,7 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
                 .setContentIntent(pendingIntent)
 
         val savedDate = dailyGoalNotificationsLastSentDate
+        val savedDateSecond = dailyGoalNotificationsLastSentDateSecond
 
         val c = Calendar.getInstance()
         val currentDate =
@@ -110,19 +113,30 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
 
         if (dailyGoalNotifications) {
             if (c.get(Calendar.HOUR_OF_DAY) >= hourWhenShow && currentDate != savedDate && dailyGoalObjective > 0) {
-                println("^^^^^^^^^^^^^^^^^^^^ > enabled")
+                println("^^^^^^^^^^^^^^^^^^^^ > enabled first")
                 notificationManager!!.notify(
                     notificationNumber,
                     notificationBuilder.build()
                 )
                 dailyGoalNotificationsLastSentDate = currentDate
                 incrementNotificationCounter()
+            } else if (c.get(Calendar.HOUR_OF_DAY) >= hourWhenShowSecond && currentDate != savedDateSecond && dailyGoalObjective > 0) {
+                println("^^^^^^^^^^^^^^^^^^^^ > enabled second")
+                notificationManager!!.notify(
+                    notificationNumber,
+                    notificationBuilder.build()
+                )
+                dailyGoalNotificationsLastSentDateSecond = currentDate
+                incrementNotificationCounter()
             } else if (dailyGoalObjective == 0) {
                 //Daily goal not set
-                //println("^^^^^^^^^^^^^^^^^^^^ > daily goal not set")
+                println("^^^^^^^^^^^^^^^^^^^^ > daily goal not set")
             } else if (c.get(Calendar.HOUR_OF_DAY) < hourWhenShow) {
-                //Too early o'clock)
-                //println("^^^^^^^^^^^^^^^^^^^^ > too early")
+                //Too early o'clock (first alert)
+                println("^^^^^^^^^^^^^^^^^^^^ > too early first")
+            } else if (c.get(Calendar.HOUR_OF_DAY) < hourWhenShowSecond) {
+                //Too early o'clock (second alert)
+                println("^^^^^^^^^^^^^^^^^^^^ > too early second")
             } else {
                 //Notification already sent
                 //println("^^^^^^^^^^^^^^^^^^^^ > already sent (or already achieved)")
@@ -156,6 +170,15 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
             .putInt(SettingsPrefManager.Keys.DAILY_GOAL_NOTIFICATIONS_HOUR.name, value)
             .apply()
 
+    var dailyGoalNotificationsHourSecond: Int
+        get() = settingsPreferences.getInt(
+            SettingsPrefManager.Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND.name,
+            17
+        )
+        set(value) = settingsPreferences.edit()
+            .putInt(SettingsPrefManager.Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND.name, value)
+            .apply()
+
     var dailyGoalNotificationsLastSentDate: String
         get() = settingsPreferences.getString(
             SettingsPrefManager.Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name,
@@ -164,6 +187,18 @@ class NotificationsDailyGoalReceiver : BroadcastReceiver() {
         set(value) = settingsPreferences.edit()
             .putString(
                 SettingsPrefManager.Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name,
+                value
+            )
+            .apply()
+
+    var dailyGoalNotificationsLastSentDateSecond: String
+        get() = settingsPreferences.getString(
+            SettingsPrefManager.Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND.name,
+            ""
+        )!! //YYYY-MM-DD
+        set(value) = settingsPreferences.edit()
+            .putString(
+                SettingsPrefManager.Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND.name,
                 value
             )
             .apply()

@@ -163,7 +163,9 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             settingsPrefManager.showInfoIcon = false
                             settingsPrefManager.showContributionCriteriaIcon = true
                             settingsPrefManager.dailyGoalNotificationsHour = 17
+                            settingsPrefManager.dailyGoalNotificationsHourSecond = -1
                             settingsPrefManager.dailyGoalNotificationsLastSentDate = ""
+                            settingsPrefManager.dailyGoalNotificationsLastSentDateSecond = ""
                             settingsPrefManager.dailyGoalNotifications = true
                             settingsPrefManager.notifications = true
                             settingsPrefManager.wifiOnlyUpload = false

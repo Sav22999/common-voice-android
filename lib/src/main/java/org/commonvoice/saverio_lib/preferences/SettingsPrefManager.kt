@@ -70,6 +70,12 @@ class SettingsPrefManager(ctx: Context) {
             .putInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR.name, value)
             .apply()
 
+    var dailyGoalNotificationsHourSecond: Int
+        get() = preferences.getInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND.name, -1)
+        set(value) = preferences.edit()
+            .putInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND.name, value)
+            .apply()
+
     var dailyGoalNotificationsLastSentDate: String
         get() = preferences.getString(
             Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name,
@@ -77,6 +83,15 @@ class SettingsPrefManager(ctx: Context) {
         )!! //YYYY-MM-DD
         set(value) = preferences.edit()
             .putString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name, value)
+            .apply()
+
+    var dailyGoalNotificationsLastSentDateSecond: String
+        get() = preferences.getString(
+            Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND.name,
+            ""
+        )!! //YYYY-MM-DD
+        set(value) = preferences.edit()
+            .putString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND.name, value)
             .apply()
 
     var notificationsCounter: Int
@@ -111,7 +126,9 @@ class SettingsPrefManager(ctx: Context) {
         NOTIFICATIONS,
         DAILY_GOAL_NOTIFICATIONS,
         DAILY_GOAL_NOTIFICATIONS_HOUR,
+        DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND,
         DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE,
+        DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND,
         NOTIFICATIONS_COUNTER,
         WIFI_ONLY_UPLOAD,
         WIFI_ONLY_DOWNLOAD,
