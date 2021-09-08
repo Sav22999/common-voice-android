@@ -14,7 +14,7 @@
     <string name="button_home_logout">Log out</string>
     <string name="button_home_profile">Profile</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Hi, {{username}}!</string>
     <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
@@ -26,7 +26,7 @@
     <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
     <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
-    <string name="textHour">Hour</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
     <string name="txt_top_contributors">Top contributors</string>
     <string name="txt_top_contributors_recorded">Recorded</string>
     <string name="txt_top_contributors_validated">Validated</string>
