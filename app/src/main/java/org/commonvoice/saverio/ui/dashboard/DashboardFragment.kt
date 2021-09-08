@@ -271,13 +271,10 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             it < 0
         } ?: 23).toString()
 
-        binding.labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
+        binding.labelDashboardVoicesNow.text =
+            "${getString(R.string.textHour)} ${localTimeNow.padStart(2, '0')}:00"
         binding.labelDashboardVoicesBefore.text =
-            "${getString(R.string.textHour)} ${
-                localTimeMinusOne.padStart(
-                    2, '0'
-                )
-            }:00"
+            "${getString(R.string.textHour)} ${localTimeMinusOne.padStart(2, '0')}:00"
 
         dashboardViewModel.onlineVoices.observe(viewLifecycleOwner, Observer { list ->
             binding.textDashboardVoicesNow.setText(list.now.toString())
