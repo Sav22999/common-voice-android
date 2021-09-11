@@ -57,7 +57,9 @@ class CustomiseGesturesSpeakDialogFragment : BottomSheetDialogFragment() {
             binding.radioButtonCustomiseGesturesSpeedControl,
             binding.radioButtonCustomiseGesturesSaveRecordings,
             binding.radioButtonCustomiseGesturesSkipConfirmation,
-            binding.radioButtonCustomiseGesturesIndicatorSound
+            binding.radioButtonCustomiseGesturesIndicatorSound,
+            binding.radioButtonCustomiseGesturesStartStopRecording,
+            binding.radioButtonCustomiseGesturesPlayStopRecording
         )
 
         val gesture: Map<String, String> = mapOf(
@@ -134,6 +136,8 @@ class CustomiseGesturesSpeakDialogFragment : BottomSheetDialogFragment() {
                     "save-recordings" -> R.id.radioButtonCustomiseGesturesSaveRecordings
                     "skip-confirmation" -> R.id.radioButtonCustomiseGesturesSkipConfirmation
                     "indicator-sound" -> R.id.radioButtonCustomiseGesturesIndicatorSound
+                    "start-stop-recording" -> R.id.radioButtonCustomiseGesturesStartStopRecording
+                    "play-stop-recording" -> R.id.radioButtonCustomiseGesturesPlayStopRecording
                     else -> R.id.radioButtonCustomiseGesturesNothing
                 }
             )
@@ -150,6 +154,8 @@ class CustomiseGesturesSpeakDialogFragment : BottomSheetDialogFragment() {
                     R.id.radioButtonCustomiseGesturesSaveRecordings -> "save-recordings"
                     R.id.radioButtonCustomiseGesturesSkipConfirmation -> "skip-confirmation"
                     R.id.radioButtonCustomiseGesturesIndicatorSound -> "indicator-sound"
+                    R.id.radioButtonCustomiseGesturesStartStopRecording -> "start-stop-recording"
+                    R.id.radioButtonCustomiseGesturesPlayStopRecording -> "play-stop-recording"
                     else -> ""
                 }
                 save()

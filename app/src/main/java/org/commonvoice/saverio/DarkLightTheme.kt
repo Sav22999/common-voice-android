@@ -33,7 +33,7 @@ class DarkLightTheme(
                 "dark" -> true
                 else -> {
                     val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-                    currentHour !in 8..17
+                    currentHour !in mainPrefManager.hourTurnOnLightTheme..mainPrefManager.hourTurnOffLightTheme
                 }
             }
         }
@@ -390,6 +390,21 @@ class DarkLightTheme(
 
     fun setTitleBar(context: Context, element: TextView, textSize: Float = 20F) {
         element.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize * transformTextSize)
+    }
+
+    fun setSpinner(
+        context: Context,
+        element: Spinner,
+        background_light: Int = R.drawable.spinner_background,
+        background_dark: Int = R.drawable.spinner_background_dark
+    ) {
+        if (isDark) {
+            element.setBackgroundResource(background_dark)
+            element.setPopupBackgroundResource(background_dark)
+        } else {
+            element.setBackgroundResource(background_light)
+            element.setPopupBackgroundResource(background_light)
+        }
     }
 
     companion object {

@@ -7,10 +7,10 @@ android {
 
     defaultConfig {
         applicationId 'org.commonvoice.saverio'
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 30
-        versionCode = 161
-        versionName '2.3.8'
+        versionCode = 173
+        versionName '2.4'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -73,10 +73,6 @@ dependencies {
     implementation Libs.constraintlayout
     implementation Libs.navFragmentKtx
     implementation Libs.navUiKtx
-    implementation Libs.viewModel
-    implementation Libs.viewModelSavedState
-    implementation Libs.liveData
-    implementation Libs.commonJava8
     implementation Libs.legacySupport
     testImplementation Libs.junit4
     androidTestImplementation Libs.junitExt

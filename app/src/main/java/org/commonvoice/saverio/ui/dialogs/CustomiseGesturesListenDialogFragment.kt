@@ -56,7 +56,8 @@ class CustomiseGesturesListenDialogFragment : BottomSheetDialogFragment() {
             binding.radioButtonCustomiseGesturesSpeedControl,
             binding.radioButtonCustomiseGesturesAutoPlay,
             binding.radioButtonCustomiseGesturesValidateYes,
-            binding.radioButtonCustomiseGesturesValidateNo
+            binding.radioButtonCustomiseGesturesValidateNo,
+            binding.radioButtonCustomiseGesturesPlayStopClip
         )
 
         val gesture: Map<String, String> = mapOf(
@@ -124,6 +125,7 @@ class CustomiseGesturesListenDialogFragment : BottomSheetDialogFragment() {
                     "auto-play" -> R.id.radioButtonCustomiseGesturesAutoPlay
                     "validate-yes" -> R.id.radioButtonCustomiseGesturesValidateYes
                     "validate-no" -> R.id.radioButtonCustomiseGesturesValidateNo
+                    "play-stop-clip" -> R.id.radioButtonCustomiseGesturesPlayStopClip
                     else -> R.id.radioButtonCustomiseGesturesNothing
                 }
             )
@@ -140,6 +142,7 @@ class CustomiseGesturesListenDialogFragment : BottomSheetDialogFragment() {
                     R.id.radioButtonCustomiseGesturesAutoPlay -> "auto-play"
                     R.id.radioButtonCustomiseGesturesValidateYes -> "validate-yes"
                     R.id.radioButtonCustomiseGesturesValidateNo -> "validate-no"
+                    R.id.radioButtonCustomiseGesturesPlayStopClip -> "play-stop-clip"
                     else -> ""
                 }
                 save()

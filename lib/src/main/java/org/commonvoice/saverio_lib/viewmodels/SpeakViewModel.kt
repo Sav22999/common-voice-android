@@ -1,5 +1,6 @@
 package org.commonvoice.saverio_lib.viewmodels
 
+import android.os.Build
 import android.os.Parcelable
 import androidx.lifecycle.*
 import androidx.work.WorkManager
@@ -170,7 +171,8 @@ class SpeakViewModel(
                 AppAction.Type.SPEAK_SENT,
                 sentenceId = sentence?.sentenceId.toString(),
                 clipId = "",
-                actionDetails = "sentenceText = ${sentence?.sentenceText}"
+                actionDetails = "sentenceText = ${sentence?.sentenceText}\n" +
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
             )
         }
     }
@@ -214,7 +216,8 @@ class SpeakViewModel(
                 AppAction.Type.SPEAK_REPORTED,
                 sentenceId = sentence?.sentenceId.toString(),
                 clipId = "",
-                actionDetails = "sentenceText = ${sentence?.sentenceText}\nreasons = ${reasons.toString()}"
+                actionDetails = "sentenceText = ${sentence?.sentenceText}\nreasons = ${reasons.toString()}\n" +
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
             )
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipSentence()

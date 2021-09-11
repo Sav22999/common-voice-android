@@ -12,7 +12,7 @@
     <string name="button_home_logout">Disconnetti</string>
     <string name="button_home_profile">Profilo</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Ciao!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Ciao, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Ciao, {{username}}!</string>
     <string name="message_log_in_again">L\'id della sessione è scaduto, è necessario effettuare nuovamente l\'accesso</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistiche</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Devi effettuare l\'accesso per vedere le statistiche</string>
     <string name="toastNoLoginNoDailyGoal">Devi effettuare l\'accesso per poter impostare l\'obiettivo giornaliero</string>
     <string name="textHoursAbbreviation">o</string>
-    <string name="textHour">Ora</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Ora {{hour}}</string>
     <string name="txt_top_contributors">Collaboratori principali</string>
     <string name="txt_top_contributors_recorded">Registrazioni</string>
     <string name="txt_top_contributors_validated">Convalide</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Questa app ha bisogno del permesso \"Microfono\" per registrare la voce.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Puoi segnalare bug su GitHub o Telegram. Per aiutare lo sviluppatore a capire rapidamente il problema, è necessario allegare il file di log dell\'app alla segnalazione. L\'applicazione ha bisogno dell\'autorizzazione \"Archiviazione\" per salvare il file di log.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Puoi anche contribuire mentre sei offline. La \"modalità Offline\" dell\'app sarà attivata automaticamente, e puoi continuare a registrare e ascoltare senza una connessione Internet.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Puoi scegliere il tema chiaro o il tema scuro. Puoi modificarlo successivamente nelle Impostazioni.</string>
+    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Scegli il tuo tema preferito. \"Automatico\" permette di cambiare automaticamente il tema in base all\'attuale ora. Puoi modificarlo successivamente nelle Impostazioni.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tema scuro</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Alcune azioni possono essere fatte attraverso dei gesti. Ad esempio, puoi saltare una frase in Parla scorrendo verso sinistra.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">È possibile personalizzare questi gesti nelle Impostazioni.</string>
@@ -66,12 +66,11 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Altro</string>
     <string name="btn_badges_loggedin" comment="Button">Tutti i distintivi</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Livello {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congratulazioni! Hai appena raggiunto il livello {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Ho già un link di verifica</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Link di verifica</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Il link di verifica non è valido</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Apri nuovamente il tutorial</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Riapri tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Progetto open-source disponibile su GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">sviluppata da</string>
     <string name="toast_language_changed" comment="Message text">Lingua impostata correttamente a {{lang}}</string>
@@ -113,23 +112,24 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Gruppo Telegram dell\'app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Mostra le etichette sotto alle icone del menu</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Leggi i Termini di Servizio di Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Leggi le linee guida per le validazioni</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Leggi le linee guida di contribuzione</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Recensisci su Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Interfaccia utente</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avanzate</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Salva registrazioni sul dispositivo</string>
     <string name="txt_reset_data" comment="Button in Settings">Reimposta dati app</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nessuna funzionalità sperimentale è al momento disponibile</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostra il testo delle frasi quando le clip vengono ascoltate completamente</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostra il testo della frase solo dopo che la registrazione è stata ascoltata del tutto</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Mostra l\'icona del report (in alto a destra) invece del pulsante (in basso)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Dimensione del testo</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Banner annunci</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Attiva banner pubblicitari in {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Barra di avanzamento dell\'obiettivo giornaliero colorata</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} e {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema chiaro anche per la frase da leggere / da convalidare in Parla e Ascolta (quando il tema chiaro è attivo).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema chiaro anche per la frase da leggere / da convalidare in Parla e Ascolta (quando il tema chiaro è attivo).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Mostra la barra di controllo della velocità</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostra icona informazioni</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostra icona informazioni</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Tieni premuto per registrare</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Scegli il numero di frasi e il numero di registrazioni da scaricare e utilizzare quando l\'app è in modalità offline.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Solitamente gli utenti impiegano circa 13 minuti per convalidare 50 registrazioni e 26 minuti per registrare 50 frasi.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Scorri verso l\'alto</string>
@@ -155,8 +155,30 @@
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Segnala la frase</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Mostra informazioni sulla registrazione</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Mostra informazioni sulla frase</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Riproduci/Ferma registrazione</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Avvia/Ferma registrazione</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Riproduci/Ferma registrazione</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Salva</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Scegli un\'azione</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Mostra l\'icona delle linee guida di contribuzione</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Caricamento solo se connessi a Wi-Fi</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download solo se connessi a Wi-Fi</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Notifiche generiche</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Notifiche obiettivo giornaliero</string>
+    <string name="text_title_notifications" comment="Title in Settings">Notifiche</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Non dimenticarti di contribuire a Common Voice oggi, il tuo contributo è prezioso e importante!\nTocca qui per aprire l\'app e raggiungere il tuo obiettivo giornaliero ora.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">Obiettivo giornaliero CV Project non ancora raggiunto!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Scegli quando vuoi essere avvisato nel caso in cui il tuo obiettivo giornaliero non sia stato raggiunto.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Si noti che potrebbe non essere esatto o potrebbe non funzionare per niente a causa di impostazioni di ottimizzazione della batteria.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Primo avviso</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Secondo avviso</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Nessuno</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistiche</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Server API di destinazione</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Ripristina il server API predefinito</string>
+    <string name="button_customise_api_server" comment="Button">Personalizza server API</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Sei proprio sicuro di voler personalizzare il server API? Questo è una potenziale azione pericolosa.\nIn ogni caso, potrai resettare e tornare al server API predefinito in ogni momento.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Server API di destinazione</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Caricamento di una frase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Salta</string>
@@ -248,6 +270,31 @@
         <item quantity="other">Ti mancano solo %d frasi per raggiungere l\'obiettivo giornaliero di {{dailygoal}}!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Velocità impostata correttamente a {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Rifiuta registrazione</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Accetta registrazione</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Riproduci registrazione</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Ferma registrazione</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Avvia registrazione</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Registra nuovamente la frase</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Ferma registrazione</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Riproduci registrazione</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Interrompi l\'ascolto</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Invia registrazione</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Leggi le linee guida di contribuzione</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Vedi dettagli della modalità offline</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">Visualizza informazione sulla registrazione</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Visualizza informazioni sulla frase</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Segnala questa registrazione</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Segnala questa frase</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Apri la sezione Ascolta</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Apri la sezione Parla</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Torna indietro</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Attiva/Disattiva</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Chiudi messaggio</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copia</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Aumenta</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Diminuisci</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Verifica nuovamente</string>
     <string name="txt_noconnection" comment="Message text">Non sei connesso a Internet. Connettiti al Wi-Fi o alla rete dati, poi premi il pulsante sottostante.</string>
@@ -268,14 +315,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Premi su questa icona se vuoi ascoltare la registrazione di nuovo.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Se la registrazione e la frase coincidono, premi questa icona per accettarla.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Se la registrazione e la frasi non coincidono, premi su questa icona per rifiutarla.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Se non sei sicuro se accettare o rifiutare una registrazione, puoi leggere le linee guida ufficiali per la convalida su Mozilla Discourse.\nTrovi questo link anche nelle Impostazioni.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">Se non sei sicuro se accettare o rifiutare una registrazione, o se vuoi migliorare le tue stesse registrazioni, puoi leggere le linee guida di contribuzioni ufficiali.\nTrovi questo link anche successivamente nelle Impostazioni &gt; Link utili.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Leggi ora</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Siamo spiacenti, questa funzione non è stata ancora implementata.\nLavoriamo costantemente per migliorare l\'app. Riprova più tardi per vedere se è stata aggiunta.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Chiudi</string>
     <string name="labelAllBadges" comment="Title for All badge section">Tutti i distintivi</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Evviva! Hai appena ottenuto un nuovo distintivo.\nVai in {{profile}} &gt; {{all_badges}} per vedere tutti i tuoi distintivi.</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">Nuovo badge guadagnato</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">Nuovo livello raggiunto</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Evviva! Hai appena ottenuto un nuovo distintivo.\nVai in {{profile}} &gt; {{all_badges}} per vedere tutti i tuoi distintivi.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Congratulazioni! Hai appena raggiunto un nuovo livello e hai anche guadagnato un nuovo distintivo.\nVai in {{profile}} &gt; {{all_badges}} per vedere tutti i tuoi distintivi.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Hai ottenuto questo distintivo perché hai convalidato almeno {{n_clips}} registrazioni.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Hai ottenuto questo distintivo perché hai convalidato almeno {{n_sentences}} frasi.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Hai ottenuto questo distintivo perché hai convalidato o registrato almeno {{n_total}} registrazioni.</string>
@@ -319,6 +369,7 @@
         <item quantity="other">Ho aperto per %d giorni consecutivi l\'app CV Project! Scaricala anche tu per contribuire al progetto Common Voice tramite il tuo smartphone.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Accedi ora</string>
+    <string name="button_open_profile_now" comment="Button">Apri il Profilo</string>
     <string name="button_translate_on_crowdin" comment="Button">Traduci ora</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Obiettivo giornaliero</string>

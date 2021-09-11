@@ -1,9 +1,18 @@
 package org.commonvoice.saverio.ui.login
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.media.RingtoneManager
+import android.net.Uri
+import android.os.Build
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import org.commonvoice.saverio.R
@@ -18,6 +27,7 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.koin.android.ext.android.inject
+import java.util.*
 import kotlin.math.roundToInt
 
 

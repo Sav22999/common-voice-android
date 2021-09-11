@@ -34,7 +34,7 @@ Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-
 语音是自然的，语音是人类的。 这就是为什么我们对为我们的机器创建可用的语音技术感到兴奋。 但要创建语音系统，开发者需要大量语音数据。
 大公司使用的大部分数据不会提供给大众， 我们认为这抑制了创新。 因此，我们创立了 Common Voice 项目，让所有人都能使用语音识别。
 现在您可以“贡献”您的声音，帮助我们建立一个开放源码语音数据库，以便任何人都可以用来为设备和互联网制开发创新性应用。 在这里贡献的每一句话都能让机器更懂得如何像人类一样说话。 你可以检查其他人贡献的内容以提高数据质量。 就是这么简单 ！
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>为什么你应该使用这个应用，而非在网页上使用 Common Voice？</b>

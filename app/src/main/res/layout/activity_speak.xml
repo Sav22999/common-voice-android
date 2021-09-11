@@ -62,6 +62,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:contentDescription="@string/accessibility_see_offline_mode"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/textSentenceSpeak"
@@ -75,6 +76,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:contentDescription="@string/accessibility_report_sentence"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/textSentenceSpeak"
@@ -88,11 +90,29 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:contentDescription="@string/accessibility_see_info_sentence"
             android:padding="5dp"
             android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/imageReportIconSpeak"
             app:layout_constraintTop_toTopOf="@+id/textSentenceSpeak"
             app:srcCompat="@drawable/ic_info_light"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageContributionCriteriaSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/accessibility_read_contribution_criteria"
+            android:paddingStart="5dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/imageInfoSpeak"
+            app:layout_constraintTop_toTopOf="@+id/textSentenceSpeak"
+            app:srcCompat="@drawable/ic_read_contribution_criteria_light"
             tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -398,13 +418,13 @@
                 android:id="@+id/buttonRecordOrListenAgain"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/listen2_cv"
                 android:textColor="@color/colorWhite"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/buttonStartStopSpeak"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonStartStopSpeak"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
 
             <Button
@@ -421,19 +441,21 @@
 
             <Button
                 android:id="@+id/buttonSendSpeak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btn_rounded"
+
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/ic_send"
+                android:contentDescription="@string/accessibility_send_recording"
                 android:paddingStart="50dp"
                 android:paddingEnd="50dp"
                 android:text="@string/btn_send_sentence"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text_button"
                 android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonStartStopSpeak"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonStartStopSpeak"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

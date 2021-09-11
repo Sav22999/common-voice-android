@@ -3,21 +3,32 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.graphics.BitmapFactory
+import android.media.RingtoneManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.core.view.children
@@ -38,6 +49,8 @@ import org.commonvoice.saverio.ui.dialogs.commonTypes.WarningDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.DailyGoalAchievedDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
+import org.commonvoice.saverio.ui.login.BadgesFragment
+import org.commonvoice.saverio.ui.login.ProfileFragment
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
 import org.commonvoice.saverio.utils.onClick
@@ -49,6 +62,8 @@ import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager.Companion.getLevel
+import org.commonvoice.saverio_lib.utils.AudioConstants
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -154,9 +169,16 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        volumeControlStream = AudioConstants.VolumeControlStream
+    }
+
     private fun onBackPressedCustom() = withBinding {
         textMessageAlertSpeak.setText(R.string.txt_closing)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_start_recording)
         textSentenceSpeak.text = "···"
         textSentenceSpeak.setTextSize(
             TypedValue.COMPLEX_UNIT_PX,
@@ -170,6 +192,9 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
         }
         if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
+        }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaSpeak.isGone) {
+            hideImage(imageContributionCriteriaSpeak)
         }
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
@@ -232,6 +257,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 //achieved
                 setDailyGoalAchievedAndNotShown(it)
                 if (speakViewModel.state.value == SpeakViewModel.Companion.State.STANDBY) showDailyGoalAchievedMessage()
+
+                val c = Calendar.getInstance()
+                val currentDate =
+                    "${c.get(Calendar.YEAR)}-${c.get(Calendar.MONTH + 1)}-${c.get(Calendar.DAY_OF_MONTH)}"
+                settingsPrefManager.dailyGoalNotificationsLastSentDate = currentDate
+                settingsPrefManager.dailyGoalNotificationsLastSentDateSecond = currentDate
             }
 
             animateProgressBar(
@@ -293,7 +324,10 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
     private fun showDailyGoalAchievedMessage() {
         if (dailyGoalAchievedAndNotShownIt != null) {
             //stopAndRefresh()
-            dialogInflater.show(this, DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt!!))
+            dialogInflater.show(
+                this,
+                DailyGoalAchievedDialog(this, dailyGoalAchievedAndNotShownIt!!)
+            )
             dailyGoalAchievedAndNotShown = false
         }
     }
@@ -784,6 +818,12 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
                 speakPrefManager.playRecordingSoundIndicator =
                     !speakPrefManager.playRecordingSoundIndicator
             }
+            "start-stop-recording" -> {
+                startStopRecording()
+            }
+            "play-stop-recording" -> {
+                playStopRecording()
+            }
             else -> {
                 //nothing
             }
@@ -819,6 +859,24 @@ class SpeakActivity : ViewBoundActivity<ActivitySpeakBinding>(
             "indicator-sound" -> {
                 R.drawable.ic_indicator_sound_white
             }
+            "start-stop-recording" -> {
+                if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
+                    R.drawable.ic_stop_recording
+                } else {
+                    R.drawable.ic_start_recording
+                }
+            }
+            "play-stop-recording" -> {
+                if (speakViewModel.state.value == SpeakViewModel.Companion.State.LISTENING) {
+                    R.drawable.ic_stop_clip
+                } else {
+                    if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDED || recorded) {
+                        R.drawable.ic_play_recording
+                    } else {
+                        R.drawable.ic_nothing
+                    }
+                }
+            }
             else -> {
                 R.drawable.ic_nothing
             }
@@ -850,9 +908,31 @@ END | GESTURES
         }
     }
 
+    private fun startStopRecording() {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDING) {
+            //stop
+            stopRecording()
+        } else {
+            //start
+            startRecording()
+        }
+    }
+
+    private fun playStopRecording() {
+        if (speakViewModel.state.value == SpeakViewModel.Companion.State.LISTENING) {
+            //stop
+            speakViewModel.stopListening()
+        } else {
+            if (speakViewModel.state.value == SpeakViewModel.Companion.State.RECORDED || recorded) {
+                //play
+                speakViewModel.startListening()
+            }
+        }
+    }
+
     fun setTheme(view: Context) = withBinding {
         theme.setElement(layoutSpeak)
-        theme.setElement(view, buttonSendSpeak)
+        //theme.setElement(view, buttonSendSpeak)
         theme.setElement(view, 1, speakSectionBottom)
         theme.setElement(
             view,
@@ -887,10 +967,12 @@ END | GESTURES
                 imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode_dark)
                 imageReportIconSpeak.setImageResource(R.drawable.ic_report_dark)
                 imageInfoSpeak.setImageResource(R.drawable.ic_info_dark)
+                imageContributionCriteriaSpeak.setImageResource(R.drawable.ic_read_contribution_criteria_dark)
             } else {
                 imageOfflineModeSpeak.setImageResource(R.drawable.ic_offline_mode)
                 imageReportIconSpeak.setImageResource(R.drawable.ic_report)
                 imageInfoSpeak.setImageResource(R.drawable.ic_info_light)
+                imageContributionCriteriaSpeak.setImageResource(R.drawable.ic_read_contribution_criteria_light)
             }
         }
     }
@@ -943,6 +1025,11 @@ END | GESTURES
         imageInfoSpeak.onClick {
             showInformationAboutSentence()
         }
+        imageContributionCriteriaSpeak.onClick {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/criteria"))
+            startActivity(browserIntent)
+        }
 
         buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
@@ -994,6 +1081,9 @@ END | GESTURES
         }
         if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
+        }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaSpeak.isGone) {
+            hideImage(imageContributionCriteriaSpeak)
         }
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
@@ -1069,6 +1159,9 @@ END | GESTURES
         if (settingsPrefManager.showInfoIcon && !imageInfoSpeak.isGone) {
             hideImage(imageInfoSpeak)
         }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaSpeak.isGone) {
+            hideImage(imageContributionCriteriaSpeak)
+        }
         buttonSendSpeak.isGone = true
         buttonSkipSpeak.isEnabled = false
         buttonStartStopSpeak.isEnabled = false
@@ -1086,11 +1179,15 @@ END | GESTURES
         if (settingsPrefManager.showInfoIcon && imageInfoSpeak.isGone) {
             showImage(imageInfoSpeak)
         }
+        if (settingsPrefManager.showContributionCriteriaIcon && imageContributionCriteriaSpeak.isGone) {
+            showImage(imageContributionCriteriaSpeak)
+        }
 
         buttonSendSpeak.isGone = true
 
         buttonRecordOrListenAgain.isGone = true
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_start_recording)
 
         hideAudioBar()
 
@@ -1102,9 +1199,80 @@ END | GESTURES
 
         resizeSentence()
 
-        buttonStartStopSpeak.onClick {
-            checkPermission()
-            speakViewModel.startRecording()
+        setStartStopButton(buttonStartStopSpeak, 0)
+    }
+
+    private fun startRecording() {
+        checkPermission()
+        speakViewModel.startRecording()
+    }
+
+    private fun stopRecording() {
+        checkPermission()
+        speakViewModel.stopRecording()
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setStartStopButton(buttonStartStopSpeak: Button, status: Int) {
+        //status: {0: start, 1: stop, 2: listen, 3: stop-listen, 4: record-again}
+
+        if (speakPrefManager.pushToTalk) {
+            buttonStartStopSpeak.setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
+            object :
+                OnSwipeTouchListener(this@SpeakActivity) {
+
+                var pushToTalkLongPress = false
+
+                override fun onTouch(v: View, event: MotionEvent): Boolean {
+                    println("status : $status")
+
+                    if (event.action == MotionEvent.ACTION_UP) {
+                        //ACTION_UP
+                        if (status == 0) {
+                            if (!pushToTalkLongPress) {
+                                startRecording()
+                            } else {
+                                stopRecording()
+                            }
+                        } else if (status == 1) {
+                            stopRecording()
+                        } else if (status == 2) {
+                            speakViewModel.startListening()
+                        } else if (status == 3) {
+                            speakViewModel.stopListening()
+                        } else if (status == 4) {
+                            if (!pushToTalkLongPress) {
+                                checkPermission()
+                                speakViewModel.redoRecording()
+                            } else {
+                                stopRecording()
+                            }
+                        }
+                        pushToTalkLongPress = false
+                    } else if (event.action == MotionEvent.ACTION_DOWN) {
+                        if (speakPrefManager.pushToTalk && (status == 0 || status == 4)) {
+                            startRecording()
+                            pushToTalkLongPress = true
+                        }
+                    }
+                    return super.onTouch(v, event)
+                }
+            })
+        } else {
+            buttonStartStopSpeak.setOnClickListener {
+                if (status == 0) {
+                    startRecording()
+                } else if (status == 1) {
+                    stopRecording()
+                } else if (status == 2) {
+                    speakViewModel.startListening()
+                } else if (status == 3) {
+                    speakViewModel.stopListening()
+                } else if (status == 4) {
+                    checkPermission()
+                    speakViewModel.redoRecording()
+                }
+            }
         }
     }
 
@@ -1132,30 +1300,31 @@ END | GESTURES
     private fun loadUIStateRecording() = withBinding {
         recorded = true
         buttonRecordOrListenAgain.isGone = true
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_speak_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_stop_recording)
 
         buttonSendSpeak.isGone = true
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_speak_2)
         speakViewModel.isFirstTimeListening = true
 
-        buttonStartStopSpeak.onClick {
-            checkPermission()
-            speakViewModel.stopRecording()
-        }
+        setStartStopButton(buttonStartStopSpeak, 1)
     }
 
     private fun loadUIStateRecorded() = withBinding {
         recorded = true
         buttonRecordOrListenAgain.isGone = false
+        buttonRecordOrListenAgain.contentDescription =
+            getString(R.string.accessibility_record_again_sentence)
         startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.speak2_cv)
+        buttonRecordOrListenAgain.contentDescription =
+            getString(R.string.accessibility_record_again_sentence)
 
         buttonStartStopSpeak.setBackgroundResource(R.drawable.listen2_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_listen_recording)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_1)
 
-        buttonStartStopSpeak.onClick {
-            speakViewModel.startListening()
-        }
+        setStartStopButton(buttonStartStopSpeak, 2)
 
         buttonRecordOrListenAgain.onClick {
             checkPermission()
@@ -1165,12 +1334,11 @@ END | GESTURES
 
     private fun loadUIStateListening() = withBinding {
         buttonRecordOrListenAgain.isGone = true
-        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopSpeak.setBackgroundResource(R.drawable.stop_listen_cv)
+        buttonStartStopSpeak.contentDescription = getString(R.string.accessibility_stop_listening)
         textMessageAlertSpeak.setText(R.string.txt_press_icon_below_listen_2)
 
-        buttonStartStopSpeak.onClick {
-            speakViewModel.stopListening()
-        }
+        setStartStopButton(buttonStartStopSpeak, 3)
     }
 
     private fun loadUIStateListened() = withBinding {
@@ -1185,13 +1353,13 @@ END | GESTURES
         buttonRecordOrListenAgain.isGone = false
         startAnimation(buttonRecordOrListenAgain, R.anim.zoom_in_speak_listen)
         buttonRecordOrListenAgain.setBackgroundResource(R.drawable.listen2_cv)
+        buttonRecordOrListenAgain.contentDescription =
+            getString(R.string.accessibility_listen_recording)
         buttonStartStopSpeak.setBackgroundResource(R.drawable.speak2_cv)
+        buttonStartStopSpeak.contentDescription =
+            getString(R.string.accessibility_record_again_sentence)
 
-
-        buttonStartStopSpeak.onClick {
-            checkPermission()
-            speakViewModel.redoRecording()
-        }
+        setStartStopButton(buttonStartStopSpeak, 4)
 
         buttonRecordOrListenAgain.onClick {
             speakViewModel.startListening()
@@ -1201,25 +1369,133 @@ END | GESTURES
     private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
-                if (it is BadgeDialogMediator.Speak || it is BadgeDialogMediator.Level) {
-                    dialogInflater.show(
-                        this@SpeakActivity,
-                        StandardDialog(
-                            message = getString(R.string.new_badge_earnt_message)
-                                .replace(
-                                    "{{profile}}",
-                                    getString(R.string.button_home_profile)
-                                )
-                                .replace(
-                                    "{{all_badges}}",
-                                    getString(R.string.btn_badges_loggedin)
-                                )
+                if (it is BadgeDialogMediator.Speak) {
+                    val messageToUse = getString(R.string.message_new_badge_earnt_text)
+                        .replace(
+                            "{{profile}}",
+                            getString(R.string.button_home_profile)
                         )
+                        .replace(
+                            "{{all_badges}}",
+                            getString(R.string.btn_badges_loggedin)
+                        )
+
+                    showPopupAndSendNotification(
+                        messageToUse,
+                        getString(R.string.message_new_badge_title)
+                    )
+                }
+
+                if (it is BadgeDialogMediator.Level) {
+                    val messageToUse = getString(R.string.message_level_up_text)
+                        .replace(
+                            "{{profile}}",
+                            getString(R.string.button_home_profile)
+                        )
+                        .replace(
+                            "{{all_badges}}",
+                            getString(R.string.btn_badges_loggedin)
+                        )
+
+                    showPopupAndSendNotification(
+                        messageToUse,
+                        getString(R.string.message_level_up_title)
                     )
                 }
             }
         }
     } else Unit
+
+    private fun showPopupAndSendNotification(message: String, title: String = "") {
+        dialogInflater.show(
+            this@SpeakActivity,
+            StandardDialog(
+                message = message,
+                title = title,
+                button2TextRes = R.string.button_open_profile_now,
+                onButton2Click = {
+                    startActivity(Intent(applicationContext, LoginActivity::class.java))
+                }
+            )
+        )
+
+        sendNotification(
+            context = applicationContext,
+            title = title,
+            message = message,
+            autoCancel = true
+        )
+    }
+
+    fun sendNotification(
+        context: Context,
+        title: String,
+        message: String,
+        autoCancel: Boolean = true
+    ) {
+        val notificationNumber = getNotificationsCounter()
+        val NOTIFICATION_CHANNEL_ID =
+            "${context.packageName.replace(".", "_")}_notification_${notificationNumber}"
+        val NOTIFICATION_CHANNEL_NAME = "${context.packageName}_notification".replace(".", "_")
+        val notificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val notificationChannel = NotificationChannel(
+                NOTIFICATION_CHANNEL_ID,
+                NOTIFICATION_CHANNEL_NAME,
+                importance
+            )
+            notificationManager?.createNotificationChannel(notificationChannel)
+        }
+
+        val intent = Intent(context, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+
+        val pendingIntent =
+            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val defaultSoundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+        var notificationBuilder =
+            NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_icon_one_color)
+                .setLargeIcon(
+                    BitmapFactory.decodeResource(
+                        this.resources,
+                        R.drawable.icon_without_background
+                    )
+                )
+                .setContentTitle(title)
+                .setContentText(message)
+                .setStyle(
+                    NotificationCompat.BigTextStyle()
+                        .bigText(message)
+                )
+                .setAutoCancel(autoCancel)
+                .setSound(defaultSoundUri)
+                .setContentIntent(pendingIntent)
+
+        if (settingsPrefManager.notifications) {
+            notificationManager!!.notify(
+                notificationNumber,
+                notificationBuilder.build()
+            )
+            incrementNotificationCounter()
+        } else {
+            //Notifications disabled
+        }
+    }
+
+    private fun getNotificationsCounter(): Int {
+        return settingsPrefManager.notificationsCounter
+    }
+
+    fun incrementNotificationCounter() {
+        //increment notifications counter number
+        settingsPrefManager.notificationsCounter = (settingsPrefManager.notificationsCounter + 1)
+    }
 
     private fun checkPermission() {
         var conditions = ContextCompat.checkSelfPermission(

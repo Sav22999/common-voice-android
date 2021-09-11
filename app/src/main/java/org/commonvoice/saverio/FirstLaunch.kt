@@ -1,6 +1,7 @@
 package org.commonvoice.saverio
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Paint
@@ -13,6 +14,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import org.commonvoice.saverio.databinding.FirstLaunchBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
@@ -32,6 +35,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
     private var status = 0
     private val RECORD_REQUEST_CODE = 101
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -69,6 +73,10 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             }
         })
 
+        lifecycleScope.launch {
+            translationHandler.updateLanguages()
+        }
+
         setTheme()
     }
 
@@ -85,7 +93,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
         startActivity(
             Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("https://bit.ly/3clgfkg")
+                Uri.parse("https://t.me/common_voice_android")
             )
         )
     }
@@ -108,7 +116,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             languageListFirstLaunch.isGone = true
             buttonNextFirstLaunch.setText(R.string.btn_tutorial3)
             firstLaunchSectionMiddleBottom.isGone = true
-            switchEnableDarkThemeFirstLaunch.isGone = true
+            firstLaunchSectionTheme.isGone=true
             textTermsFirstLaunch.isGone = true
 
             if (!start) {
@@ -173,17 +181,25 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
                 textDescriptionFirstLaunch.setText(R.string.txt_themes_first_launch)
                 firstLaunchSectionMiddleBottom.isGone = false
-                switchEnableDarkThemeFirstLaunch.isGone = false
+                firstLaunchSectionTheme.isGone = false
 
-                switchEnableDarkThemeFirstLaunch.setOnCheckedChangeListener { _, isChecked ->
-                    if (isChecked) {
-                        theme.themeType = "dark"
-                    } else {
-                        theme.themeType = "light"
+                firstLaunchRadioGroupTheme.check(
+                    when (theme.themeType) {
+                        "dark" -> R.id.buttonThemeDarkFirstLaunch
+                        "auto" -> R.id.buttonThemeAutoFirstLaunch
+                        else -> R.id.buttonThemeLightFirstLaunch
+                    }
+                )
+
+                firstLaunchRadioGroupTheme.setOnCheckedChangeListener { _, checkedId ->
+                    theme.themeType = when (checkedId) {
+                        R.id.buttonThemeDarkFirstLaunch -> "dark"
+                        R.id.buttonThemeAutoFirstLaunch -> "auto"
+                        R.id.buttonThemeLightFirstLaunch -> "light"
+                        else -> ""
                     }
                     setTheme()
                 }
-                switchEnableDarkThemeFirstLaunch.isChecked = theme.isDark
             } else if (status == 4) {
                 //gestures
                 imageFirstLaunch.setImageResource(R.drawable.ic_gestures)
@@ -210,7 +226,13 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
                 textDescriptionFirstLaunch.setText(R.string.txt_choose_language_first_launch)
                 // set languages imported
-                binding.languageListFirstLaunch.adapter = ArrayAdapter(this@FirstLaunch, android.R.layout.simple_list_item_1, translationHandler.availableLanguageNames)
+                val adapter: ArrayAdapter<String> = ArrayAdapter(
+                    this@FirstLaunch,
+                    R.layout.spinner_text,
+                    translationHandler.availableLanguageNames
+                )
+                adapter.setDropDownViewResource(R.layout.spinner_dropdown_text)
+                binding.languageListFirstLaunch.adapter = adapter
                 binding.languageListFirstLaunch.onItemSelectedListener =
                     object : AdapterView.OnItemSelectedListener {
                         override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -223,10 +245,15 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                             position: Int,
                             id: Long
                         ) {
-                            mainPrefManager.language = translationHandler.availableLanguageCodes[position]
+                            mainPrefManager.language =
+                                translationHandler.availableLanguageCodes[position]
                         }
                     }
-                binding.languageListFirstLaunch.setSelection(translationHandler.availableLanguageCodes.indexOf(getString(R.string.language)))
+                binding.languageListFirstLaunch.setSelection(
+                    translationHandler.availableLanguageCodes.indexOf(
+                        getString(R.string.language)
+                    )
+                )
                 languageListFirstLaunch.isGone = false
                 buttonNextFirstLaunch.setText(R.string.btn_tutorial5)
             }
@@ -247,6 +274,11 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
         theme.setElement(this@FirstLaunch, 3, firstLaunchSectionDescription)
         theme.setElement(this@FirstLaunch, 3, firstLaunchSectionMiddleBottom)
         theme.setElement(this@FirstLaunch, 1, firstLaunchSectionBottom)
+        theme.setElement(this@FirstLaunch, 3, firstLaunchSectionTheme)
+
+        theme.setElement(this@FirstLaunch, buttonThemeLightFirstLaunch)
+        theme.setElement(this@FirstLaunch, buttonThemeDarkFirstLaunch)
+        theme.setElement(this@FirstLaunch, buttonThemeAutoFirstLaunch)
 
         theme.setTextView(
             this@FirstLaunch,
@@ -272,6 +304,13 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             textCommonVoiceAndroidFirstLaunch,
             background = false,
             textSize = 30F
+        )
+
+        theme.setSpinner(
+            this@FirstLaunch,
+            languageListFirstLaunch,
+            R.drawable.spinner_background,
+            R.drawable.spinner_background_dark
         )
     }
 

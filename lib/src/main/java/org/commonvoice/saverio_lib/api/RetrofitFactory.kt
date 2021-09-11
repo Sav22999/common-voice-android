@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit
  */
 class RetrofitFactory(mainPrefManager: MainPrefManager) {
 
+    private val genericURL = mainPrefManager.genericAPIUrl
+
     private val langURL = genericURL + mainPrefManager.language + "/"
 
     private val baseRetrofit = Retrofit.Builder()
@@ -79,7 +81,6 @@ class RetrofitFactory(mainPrefManager: MainPrefManager) {
         .create(GithubService::class.java)
 
     companion object {
-        private const val genericURL = "https://commonvoice.mozilla.org/api/v1/"
         private const val statsURL = "https://www.saveriomorelli.com/api/common-voice-android/"
         private const val githubURL = "https://api.github.com/repos/Sav22999/common-voice-android/"
     }

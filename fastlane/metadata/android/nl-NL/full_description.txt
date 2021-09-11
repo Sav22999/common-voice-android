@@ -34,7 +34,7 @@ Common Voice is het initiatief van Mozilla om machines te helpen leren hoe echte
 Stem is natuurlijk, stem is menselijk. Daarom zijn we enthousiast over het creëren van bruikbare spraaktechnologie voor onze machines. Maar om spraaksystemen te creëren hebben ontwikkelaars een zeer grote hoeveelheid spraakgegevens nodig.
 De meeste gegevens die door grote bedrijven worden gebruikt, zijn niet beschikbaar voor de meeste mensen. Wij denken dat dat de innovatie tegenhoudt. Dus we hebben Common Voice gelanceerd, een project om stemherkenning voor iedereen open en toegankelijk te maken.
 Nu kunt u uw stem doneren om ons te helpen een open-source spraakdatabase te bouwen die iedereen kan gebruiken om innovatieve apps te maken voor apparaten en het web. Lees een zin om machines te helpen leren hoe echte mensen spreken. Controleer het werk van andere bijdragers om de kwaliteit te verbeteren. Zo simpel is het!
-U vindt meer details op de officiële website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+U vindt meer details op de officiële website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Waarom zou u de app gebruiken in plaats van de mobiele website?</b>

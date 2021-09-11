@@ -34,7 +34,7 @@ Common Voice ist Mozillas Initiative um Maschinen beizubringen, wie echte Mensch
 Stimme ist natürlich, Stimme ist menschlich. Deshalb brennen wir für die Entwicklung einer nutzbaren Sprachtechnologie für unsere Maschinen. Um jedoch Sprachsysteme zu erstellen, benötigen Entwickler eine sehr große Anzahl an Sprachdaten.
 Die meisten von großen Unternehmen verwendeten Daten stehen der Mehrheit der Menschen nicht zur Verfügung. Wir denken, dass dies die Innovation erstickt. Daher haben wir Common Voice ins Leben gerufen: ein Projekt, das dazu beiträgt, die Spracherkennung für alle zugänglich zu machen.
 Jetzt kannst du deine Stimme spenden, um uns dabei zu helfen, eine Open-Source-Sprachdatenbank zu erstellen, die jeder verwenden kann, um innovative Apps für Geräte und das Web zu erstellen. Lese einen Satz vor, um Maschinen zu helfen, zu lernen, wie echte Menschen sprechen. Überprüfe die Arbeit anderer Beitragender, um die Qualität zu verbessern. Ganz einfach!
-Mehr Details findest Du auf der offiziellen Website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Warum solltest du die App anstelle der Website auf dem Handy verwenden?</b>

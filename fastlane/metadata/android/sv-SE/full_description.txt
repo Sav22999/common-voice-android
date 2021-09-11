@@ -24,22 +24,22 @@ Flerspråksstöd
 
 Gå med i Telegram-gruppen: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
 Du kan se komplett appstatistik här: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">Appstatistik</a>
-You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
+Du kan också se appens användningsstatistik här: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">Appanvändningsstatistik</a>
 Läs mer om denna app på GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project på GitHub</a>
 </p>
 <p>
-<b>What is the Common Voice project?</b>
+<b>Vad är Common Voice-projektet?</b>
 
 Common Voice är Mozillas initiativ för att hjälpa lära maskiner hur riktiga människor talar.
 Röst är naturligt, röst är mänskligt. Därför är vi entusiastiska över att skapa användbar röstteknik för våra maskiner. Men för att skapa röstsystem behöver utvecklare en extremt stor mängd röstdata.
 Det mesta av den data som används av stora företag är inte tillgängligt för majoriteten av människor. Vi anser att detta kväver innovation. Så vi lanserade Common Voice, ett projekt för att göra röstigenkänning öppen och tillgänglig för alla.
 Nu kan du donera din röst för att hjälpa oss att bygga en röstdatabas med öppen källkod som vem som helst kan använda för att skapa innovativa appar för enheter och webben. Läs en mening för att hjälpa maskiner att lära sig hur verkliga människor talar. Kontrollera andra bidragsgivares arbete för att förbättra kvaliteten. Så enkelt är det!
-Du kan hitta mer information på den officiella hemsidan <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+Du kan hitta mer information på den officiella hemsidan <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Varför ska du använda appen istället för den mobila webbplatsen?</b>
 
-The app is developed specifically for smartphones so it's native. Den har många funktioner som webbplatsen inte ger dig, såsom mörkt tema, offline-läge, anpassningar, gester, osv.
+Appen är utvecklad specifikt för smartphones så den har prestanda som om den vore inbyggd. Den har många funktioner som webbplatsen inte ger dig, såsom mörkt tema, offline-läge, anpassningar, gester, osv.
 Appen är lättare än webbplatsen, utan irriterande animationer (och animationer i appen kan också stoppas under Inställningar).
 Dessutom har webbplatsen många buggar, särskilt den mobila versionen, så du kan inte göra allt korrekt.
 </p>

@@ -46,7 +46,74 @@ class SettingsPrefManager(ctx: Context) {
             .putBoolean(Keys.INFO_ICON_SPEAK_LISTEN.name, value)
             .apply()
 
-    private enum class Keys {
+    var showContributionCriteriaIcon: Boolean
+        get() = preferences.getBoolean(Keys.CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN.name, true)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN.name, value)
+            .apply()
+
+    var notifications: Boolean
+        get() = preferences.getBoolean(Keys.NOTIFICATIONS.name, true)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.NOTIFICATIONS.name, value)
+            .apply()
+
+    var dailyGoalNotifications: Boolean
+        get() = preferences.getBoolean(Keys.DAILY_GOAL_NOTIFICATIONS.name, true)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.DAILY_GOAL_NOTIFICATIONS.name, value)
+            .apply()
+
+    var dailyGoalNotificationsHour: Int
+        get() = preferences.getInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR.name, 17)
+        set(value) = preferences.edit()
+            .putInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR.name, value)
+            .apply()
+
+    var dailyGoalNotificationsHourSecond: Int
+        get() = preferences.getInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND.name, -1)
+        set(value) = preferences.edit()
+            .putInt(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND.name, value)
+            .apply()
+
+    var dailyGoalNotificationsLastSentDate: String
+        get() = preferences.getString(
+            Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name,
+            ""
+        )!! //YYYY-MM-DD
+        set(value) = preferences.edit()
+            .putString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE.name, value)
+            .apply()
+
+    var dailyGoalNotificationsLastSentDateSecond: String
+        get() = preferences.getString(
+            Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND.name,
+            ""
+        )!! //YYYY-MM-DD
+        set(value) = preferences.edit()
+            .putString(Keys.DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND.name, value)
+            .apply()
+
+    var notificationsCounter: Int
+        get() = preferences.getInt(Keys.NOTIFICATIONS_COUNTER.name, 0)
+        set(value) = preferences.edit()
+            .putInt(Keys.NOTIFICATIONS_COUNTER.name, value)
+            .apply()
+
+    var wifiOnlyUpload: Boolean
+        get() = preferences.getBoolean(Keys.WIFI_ONLY_UPLOAD.name, false)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.WIFI_ONLY_UPLOAD.name, value)
+            .apply()
+
+    var wifiOnlyDownload: Boolean
+        get() = preferences.getBoolean(Keys.WIFI_ONLY_DOWNLOAD.name, false)
+        set(value) = preferences.edit()
+            .putBoolean(Keys.WIFI_ONLY_DOWNLOAD.name, value)
+            .apply()
+
+
+    enum class Keys {
         AUTOMATICALLY_CHECK_FOR_UPDATES,
         LATEST_VERSION,
         OFFLINE_MODE,
@@ -54,7 +121,17 @@ class SettingsPrefManager(ctx: Context) {
         APP_LANGUAGES,
         DAILYGOAL_PROGRESSBAR_COLOURED,
         LIGHT_THEME_SENTENCE_BOX_SPEAK_LISTEN,
-        INFO_ICON_SPEAK_LISTEN
+        INFO_ICON_SPEAK_LISTEN,
+        CONTRIBUTION_CRITERIA_ICON_SPEAK_LISTEN,
+        NOTIFICATIONS,
+        DAILY_GOAL_NOTIFICATIONS,
+        DAILY_GOAL_NOTIFICATIONS_HOUR,
+        DAILY_GOAL_NOTIFICATIONS_HOUR_SECOND,
+        DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE,
+        DAILY_GOAL_NOTIFICATIONS_HOUR_LAST_SENT_DATE_SECOND,
+        NOTIFICATIONS_COUNTER,
+        WIFI_ONLY_UPLOAD,
+        WIFI_ONLY_DOWNLOAD,
     }
 
 }

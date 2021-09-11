@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/btn_rounded.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_auto_play.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_back_dark.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_github.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_icon_one_color.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_info_dark.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_info_light.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_level.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_notification.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode_20x20.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_offline_mode_dark.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_play_stop_clip.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_play_stop_recording.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_read_contribution_criteria.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_read_contribution_criteria_dark.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_read_contribution_criteria_light.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report_dark.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report_gestures.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_report_settings.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_start_stop_recording.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_stop_clip.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_stop_recording.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_storage.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_telegram.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_telegram_2.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_theme_auto.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/ic_yes_thumb2.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/speak2_cv.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/speak_cv.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/spinner_background.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/spinner_background_dark.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/stop_cv.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/stop_listen_cv.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_border_radius_with_border_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_bottom_border_radius_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_bottom_border_radius_with_border.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/top_bottom_border_radius_with_border_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/txt_rounded_darktheme_dashboard_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/drawable/txt_rounded_dashboard_intern.xml" value="0.2708333333333333" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/activity_listen.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/activity_login.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/activity_main.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/activity_restart.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/activity_speak.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/all_badges.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/background_spinner.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/bottomsheet_gestures.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/bottomsheet_login.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/bottomsheet_report.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_badgeinfo.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_daily_goal.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_daily_goal_achieved.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_identifyme.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_info.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_offline_mode.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_report_bugs.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_standard.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_standard_checkboxed.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/dialog_warning.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/first_launch.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/first_run_listen.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/first_run_speak.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_advanced_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_dashboard.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_experimental_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_gestures_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_home.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_listen_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_login.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_noconnection.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_offline_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_other_settings.xml" value="0.25" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_profile.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_speak_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_ui_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_useful_links_settings.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/fragment_you_have_to_accept_privacy_policy.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/message_dialog_no_clips_sentences_available.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/spinner.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/spinner_dropdown_items.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/spinner_dropdown_text.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/spinner_text.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/splash_screen.xml" value="0.2546875" />
+        <entry key="..\:/Documents/GitHub/common-voice-android/app/src/main/res/layout/viewholder_badge_level.xml" value="0.4" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

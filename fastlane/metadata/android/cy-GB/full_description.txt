@@ -34,7 +34,7 @@ Common Voice yw ymgyrch Mozilla i helpu dysgu peiriannau sut mae pobl go-iawn yn
 Mae llais yn naturiol ac yn ddynol. Ac mae'n gyffroes medru creu technoleg llais i'r teclynnau yn ein bywydau. Ond i allu creu systemau llais, mae ar ddatblygwyr a pheirianyddion angen swmp anferth o ddata llais.
 Mae'r cwmnïau mawrion yn dueddol o gasglu a chadw eu data i'w hunain. Mae hyn yn rwystr i ddatblygiad ac arloesi, yn enwedig yn achos ieithoedd gyda llai o siaradwyr. Lansiodd Mozilla prosiect Common Voice i helpu sicrhau bod technoleg adnabod llais yn agored ac ar gael i bawb.
 Gofynnwn i chi roi clipiau o'ch llais i'n helpu i adeiladu cronfa ddata agored y gall unrhyw un ei ddefnyddio i greu apiau a theclynnau arloesol yn y Gymraeg, fel pob iaith arall. Darllenwch frawddeg i helpu peiriannau dysgu sut mae pobl yn siarad. Gwiriwch gyfraniadau siaradwyr eraill i helpu gwella'r ansawdd. Mae mor syml â hynny!
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Pam defnyddio'r ap hwn yn hytrach na'r gwefan swyddogol ar eich dyfais?</b>

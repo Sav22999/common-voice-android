@@ -49,6 +49,11 @@ class SpeakPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.SHOW_SPEED_CONTROL_SPEAK.name, value)
             .apply()
 
+    var pushToTalk: Boolean
+        get() = preferences.getBoolean(Keys.PUSH_TO_TALK.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.PUSH_TO_TALK.name, value)
+            .apply()
+
     var audioSpeed: Float
         get() = preferences.getFloat(Keys.AUDIO_SPEED_SPEAK.name, 1F)
         set(value) = preferences.edit().putFloat(Keys.AUDIO_SPEED_SPEAK.name, value).apply()
@@ -69,6 +74,9 @@ class SpeakPrefManager(ctx: Context) {
     "save-recordings": [Speak] enable/disable the saving on file of the recordings,
     "skip-confirmation": [Speak] enable/disable the feature "skip recording confirmation",
     "indicator-sound": [Speak] enable/disable recording indicator sound
+    "play-stop-clip": [Listen] play/stop the clip
+    "start-stop-recording": [Speak] start/stop the recording
+    "play-stop-recording": [Speak] play/stop the recording
      */
 
     var gesturesSwipeTop: String
@@ -112,6 +120,8 @@ class SpeakPrefManager(ctx: Context) {
         AUDIO_SPEED_SPEAK,
 
         NO_MORE_SENTENCES_AVAILABLE,
+
+        PUSH_TO_TALK,
 
         GESTURES_SWIPE_TOP,
         GESTURES_SWIPE_BOTTOM,

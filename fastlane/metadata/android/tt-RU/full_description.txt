@@ -34,7 +34,7 @@ Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-
 Тавыш — табигый, кешеләргә хас күренеш. Шул сәбәпле без компьютерларда кулланырга уңайлы тавыш технологияләрен ясарга телибез. Әмма, тавыш технологияләрен ясау өчен, программистларга ифрат күп аудиоязмалар кирәк.
 Зур ширкәтләр ия булган аудиомәгълүматны күпчелек кеше куллана алмый. Безнең уйлавыбызча, мондый хәл инновацияләрне тоткарлый. Нәкъ менә шул сәбәпле без Common Voice («Халык тавышы») проектын башлап җибәрдек.
 Хәзер Сез, безгә үзегезнең тавышыгызны «иганә итеп», ачык чыганаклы тавышлар/аудиоязмалар базасын төзергә ярдәм итә аласыз. Машиналарга чын кешеләрнең ничек сөйләшүен өйрәтү өчен җөмләләр укыгыз. Сыйфатны күтәрү нияте белән, проектка ярдәм итүче башка кешеләрнең эшен дә тикшерегез. Бу бик гади!
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Why should you use the app instead of the website on mobile?</b>

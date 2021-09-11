@@ -209,11 +209,13 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         if (statsPrefManager.dailyGoalObjective <= 0 || !mainPrefManager.isLoggedIn) {
             binding.labelDashboardDailyGoalValue.setText(R.string.daily_goal_is_not_set)
             binding.labelDashboardDailyGoalValue.typeface = Typeface.DEFAULT
+            binding.buttonDashboardSetDailyGoal.setText(R.string.set_daily_goal)
         } else {
             binding.labelDashboardDailyGoalValue.text =
                 statsPrefManager.dailyGoalObjective.toString()
             binding.labelDashboardDailyGoalValue.typeface =
                 ResourcesCompat.getFont(requireContext(), R.font.sourcecodepro)
+            binding.buttonDashboardSetDailyGoal.setText(R.string.edit_daily_goal)
         }
     }
 
@@ -269,13 +271,13 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
             it < 0
         } ?: 23).toString()
 
-        binding.labelDashboardVoicesNow.text = "${getString(R.string.textHour)} $localTimeNow:00"
+        binding.labelDashboardVoicesNow.text =
+            getString(R.string.textHour).replace("{{hour}}", "${localTimeNow.padStart(2, '0')}:00")
         binding.labelDashboardVoicesBefore.text =
-            "${getString(R.string.textHour)} ${
-                localTimeMinusOne.padStart(
-                    2, '0'
-                )
-            }:00"
+            getString(R.string.textHour).replace(
+                "{{hour}}",
+                "${localTimeMinusOne.padStart(2, '0')}:00"
+            )
 
         dashboardViewModel.onlineVoices.observe(viewLifecycleOwner, Observer { list ->
             binding.textDashboardVoicesNow.setText(list.now.toString())

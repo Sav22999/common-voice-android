@@ -34,7 +34,7 @@ Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-
 Balsas yra natūralus, balsas yra žmogiškas. Štai kodėl mes džiaugiamės galėdami sukurti tinkamas balso technologijas savo mašinoms. Tačiau norint sukurti balso sistemas, kūrėjams reikia itin daug balso duomenų.
 Daugumai didelių bendrovių naudojamų duomenų dauguma žmonių negali gauti. Mes manome, kad slopina inovacijas. Taigi mes pradėjome projektą „Common Voice“, padedantį balso atpažinimą padaryti atvirą ir prieinamą visiems.
 Dabar galite pasidalinti savo balsu, kad padėtumėte mums sukurti atviro kodo balso duomenų bazę, kurią visi galėtų naudoti kurdami novatoriškas įrenginių ir žiniatinklio programas. Perskaitykite sakinį, kuris padės mašinoms sužinoti, kaip kalba tikri žmonės. Patikrinkite kitų bendradarbių darbą, kad pagerintumėte kokybę. Tai taip paprasta!
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Kodėl turėtumėte naudoti programėlę, o ne svetainę mobiliajame telefone?</b>

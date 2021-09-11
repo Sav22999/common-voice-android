@@ -1,8 +1,10 @@
 package org.commonvoice.saverio_lib.mediaRecorder
 
 import android.media.MediaRecorder
+import android.os.Build
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Sentence
+import timber.log.Timber
 
 class MediaRecorderRepository(
     private val fileHolder: FileHolder
@@ -20,12 +22,18 @@ class MediaRecorderRepository(
         recorder = null
         fileHolder.reset()
         recorder = MediaRecorder().apply {
-            setAudioSource(MediaRecorder.AudioSource.MIC)
-            setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
-            setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            setAudioSource(MediaRecorder.AudioSource.DEFAULT)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                setOutputFormat(MediaRecorder.OutputFormat.OGG)
+                setAudioEncoder(MediaRecorder.AudioEncoder.OPUS)
+                setAudioSamplingRate(48000)
+            } else {
+                setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+                setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+                setAudioSamplingRate(32000)
+            }
             setMaxDuration(10000)
-            setAudioEncodingBitRate(16 * 44100)
-            setAudioSamplingRate(44100)
+            setAudioEncodingBitRate(48 * 1024)
             setOutputFile(fileHolder.fileDescriptor)
             prepare()
         }
@@ -81,9 +89,16 @@ class MediaRecorderRepository(
             }
             return
         }
-        val array = fileHolder.getByteArray()
+        if (false) {
+            MediaConverter.convertToFormat(fileHolder) {
+                Timber.i("Conversion was successful")
+                Timber.i("Conversion result: ${it.decodeToString()}")
+                onSuccess(sentence.toRecording(it))
+            }
+        } else {
+            onSuccess(sentence.toRecording(fileHolder.getByteArray()))
+        }
         setupRecorder()
-        onSuccess(sentence.toRecording(array))
     }
 
     fun stop(suppressError: Boolean) {

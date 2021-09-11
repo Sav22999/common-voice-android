@@ -9,7 +9,6 @@ import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
-import java.util.concurrent.TimeUnit
 
 class ClipsDownloadWorker(
     appContext: Context,
@@ -70,42 +69,15 @@ class ClipsDownloadWorker(
 
     companion object {
 
-        private const val TAG = "clipsDownloadWorker"
-
-        private val periodicWorkConstraint = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .setRequiresCharging(true)
-            .setRequiresDeviceIdle(true)
-            .build()
-
-        private val periodicWorkRequest = PeriodicWorkRequestBuilder<ClipsDownloadWorker>(
-            1, TimeUnit.DAYS, 8, TimeUnit.HOURS
-        ).setConstraints(periodicWorkConstraint).build()
-
-        private val oneTimeWorkConstraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        private val oneTimeWorkRequest = OneTimeWorkRequestBuilder<ClipsDownloadWorker>()
-            .setConstraints(oneTimeWorkConstraints)
-            .build()
-
         fun attachOneTimeJobToWorkManager(
             wm: WorkManager,
-            workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP
+            workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP,
+            wifiOnly: Boolean = false
         ) {
             wm.enqueueUniqueWork(
                 "oneTimeClipsDownloadWorker",
                 workPolicy,
-                oneTimeWorkRequest
-            )
-        }
-
-        fun attachPeriodicJobToWorkManager(wm: WorkManager) {
-            wm.enqueueUniquePeriodicWork(
-                "periodicClipsDownloadWorker",
-                ExistingPeriodicWorkPolicy.KEEP,
-                periodicWorkRequest
+                WorkerUtil.request<ClipsDownloadWorker>(wifiOnly)
             )
         }
 

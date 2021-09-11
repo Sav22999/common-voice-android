@@ -3,12 +3,14 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import android.widget.Toast
 import androidx.core.content.getSystemService
 import androidx.core.view.isGone
+import androidx.core.widget.addTextChangedListener
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -43,6 +45,8 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     private val loginViewModel by viewModel<LoginViewModel>()
     private val dialogInflater by inject<DialogInflater>()
     private val statsRepository by inject<StatsRepository>()
+
+    private val defaultAPIServer = "https://commonvoice.mozilla.org/api/v1/"
 
     override fun onStart() {
         super.onStart()
@@ -110,6 +114,34 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 }
             }
 
+            buttonResetDefaultAPIServer.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            buttonResetDefaultAPIServer.setOnClickListener {
+                mainPrefManager.genericAPIUrl = defaultAPIServer
+                textDestinationAPIServer.setText(mainPrefManager.genericAPIUrl)
+
+                buttonCustomiseAPIServer.isGone = false
+                advancedSubSectionDestinarioAPIServer.isGone = true
+                buttonResetDefaultAPIServer.isGone = true
+            }
+            textDestinationAPIServer.addTextChangedListener {
+                var valueTemp = textDestinationAPIServer.text.toString()
+                if (valueTemp != "") {
+                    if (valueTemp.get(valueTemp.length - 1).toString() != "/") {
+                        valueTemp = valueTemp + "/"
+                    }
+                    mainPrefManager.genericAPIUrl = valueTemp
+                } else {
+                    mainPrefManager.genericAPIUrl = defaultAPIServer
+                }
+            }
+            textDestinationAPIServer.setText(mainPrefManager.genericAPIUrl)
+
+            if (mainPrefManager.genericAPIUrl != defaultAPIServer) {
+                buttonCustomiseAPIServer.isGone = true
+                advancedSubSectionDestinarioAPIServer.isGone = false
+                buttonResetDefaultAPIServer.isGone = false
+            }
+
             buttonResetData.setOnClickListener {
                 dialogInflater.show(requireContext(),
                     StandardDialog(
@@ -127,6 +159,17 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             settingsPrefManager.automaticallyCheckForUpdates = false
                             settingsPrefManager.latestVersion = ""
                             settingsPrefManager.isProgressBarColouredEnabled = true
+                            settingsPrefManager.isLightThemeSentenceBoxSpeakListen = false
+                            settingsPrefManager.showInfoIcon = false
+                            settingsPrefManager.showContributionCriteriaIcon = true
+                            settingsPrefManager.dailyGoalNotificationsHour = 17
+                            settingsPrefManager.dailyGoalNotificationsHourSecond = -1
+                            settingsPrefManager.dailyGoalNotificationsLastSentDate = ""
+                            settingsPrefManager.dailyGoalNotificationsLastSentDateSecond = ""
+                            settingsPrefManager.dailyGoalNotifications = true
+                            settingsPrefManager.notifications = true
+                            settingsPrefManager.wifiOnlyUpload = false
+                            settingsPrefManager.wifiOnlyDownload = false
 
                             //Reset Stats
                             statsPrefManager.dailyGoalObjective = 0
@@ -149,6 +192,14 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             listenPrefManager.isAutoPlayClipEnabled = true
                             listenPrefManager.isShowTheSentenceAtTheEnd = false
                             listenPrefManager.showAdBanner = true
+                            listenPrefManager.showSpeedControl = false
+                            listenPrefManager.audioSpeed = 1F
+                            listenPrefManager.gesturesSwipeTop = "report"
+                            listenPrefManager.gesturesSwipeBottom = ""
+                            listenPrefManager.gesturesSwipeLeft = "skip"
+                            listenPrefManager.gesturesSwipeRight = "back"
+                            listenPrefManager.gesturesLongPress = ""
+                            listenPrefManager.gesturesDoubleTap = ""
 
                             //Reset Speak
                             speakPrefManager.requiredSentencesCount = 50
@@ -156,9 +207,19 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             speakPrefManager.skipRecordingConfirmation = false
                             speakPrefManager.saveRecordingsOnDevice = false
                             speakPrefManager.showAdBanner = true
+                            speakPrefManager.showSpeedControl = false
+                            speakPrefManager.audioSpeed = 1F
+                            speakPrefManager.gesturesSwipeTop = "report"
+                            speakPrefManager.gesturesSwipeBottom = ""
+                            speakPrefManager.gesturesSwipeLeft = "skip"
+                            speakPrefManager.gesturesSwipeRight = "back"
+                            speakPrefManager.gesturesLongPress = ""
+                            speakPrefManager.gesturesDoubleTap = ""
+                            speakPrefManager.pushToTalk = false
 
                             //Reset Main
                             mainPrefManager.language = "en"
+                            mainPrefManager.genericAPIUrl = defaultAPIServer
                             mainPrefManager.tokenUserId = ""
                             mainPrefManager.tokenAuth = ""
                             mainPrefManager.showOfflineModeMessage = true
@@ -214,6 +275,25 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 })
             )
         }
+
+        binding.buttonCustomiseAPIServer.setOnClickListener {
+            dialogInflater.show(
+                requireContext(),
+                StandardDialog(
+                    messageRes = R.string.message_customisation_api_server_text,
+                    buttonTextRes = R.string.button_yes_sure,
+                    onButtonClick = {
+                        withBinding {
+                            buttonCustomiseAPIServer.isGone = true
+                            advancedSubSectionDestinarioAPIServer.isGone = false
+                            buttonResetDefaultAPIServer.isGone = false
+                        }
+                    },
+                    button2TextRes = R.string.button_cancel,
+                    onButton2Click = {}
+                )
+            )
+        }
     }
 
     private fun setTheme() {
@@ -221,10 +301,34 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             theme.setElement(layoutSettingsAdvanced)
 
             theme.setElements(requireContext(), settingsSectionAdvanced)
+            theme.setElements(requireContext(), settingsSectionAdvancedStatistics)
             theme.setElements(requireContext(), settingsSectionAdvancedAds)
+            theme.setElements(requireContext(), settingsSectionAdvancedDestinationAPIServer)
+            theme.setElements(requireContext(), settingsSectionAdvancedResetAppData)
+            theme.setElements(requireContext(), advancedSubSectionDestinarioAPIServer)
 
             theme.setElement(requireContext(), 3, settingsSectionAdvanced)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedStatistics)
             theme.setElement(requireContext(), 3, settingsSectionAdvancedAds)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedDestinationAPIServer)
+            theme.setElement(requireContext(), 3, settingsSectionAdvancedResetAppData)
+
+            theme.setElement(requireContext(), buttonCustomiseAPIServer)
+
+            theme.setElement(
+                requireContext(),
+                3,
+                advancedSubSectionDestinarioAPIServer,
+                R.color.colorTabBackgroundInactive,
+                R.color.colorTabBackgroundInactiveDT
+            )
+
+            theme.setTextView(
+                requireContext(),
+                textDestinationAPIServer,
+                border = false,
+                intern = true
+            )
 
             theme.setTitleBar(requireContext(), titleSettingsSubSectionAdvanced, textSize = 20F)
         }

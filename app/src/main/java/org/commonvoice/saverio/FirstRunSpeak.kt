@@ -3,6 +3,7 @@ package org.commonvoice.saverio
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -57,6 +58,9 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
         theme.setElements(this@FirstRunSpeak, firstRunSpeakSectionBottom)
         theme.setElement(this@FirstRunSpeak, 1, firstRunSpeakSectionBottom)
         theme.setElement(layoutFirstRunSpeak)
+        theme.setElements(this@FirstRunSpeak, layoutFirstRunSpeakNoSmartphone)
+        theme.setElement(layoutFirstRunSpeakNoSmartphone)
+        theme.setElement(this@FirstRunSpeak, btnReadNowContributionCriteriaSpeak)
         theme.setElement(this@FirstRunSpeak, btnNextSpeak)
         theme.setElement(
             this@FirstRunSpeak,
@@ -71,7 +75,7 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
     }
 
     fun goNextOrBack(next: Boolean = true) = withBinding {
-        if (status in 0..8) {
+        if (status in 0..(binding.seekBarFirstRunSpeak.max)) {
             btnNumberBottomSpeak.isGone = true
             txtTutorialMessageBottomSpeak.isGone = true
             btnNumberTopSpeak.isGone = true
@@ -85,7 +89,6 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             imgBtnRecordSpeak.setImageResource(R.drawable.speak_cv)
             imgBtnListenAgainSpeak.isGone = true
             imgBtnSendSpeak.isGone = true
-            imgTxt4Speak.isGone = true
         }
 
         if (next) seekBarFirstRunSpeak.progress = status
@@ -144,7 +147,7 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             txtTutorialMessageTopSpeak.isGone = false
             btnFourSpeak.isGone = false
             btnFourSpeak.text = "5"
-            imgBtnRecordSpeak.setImageResource(R.drawable.stop_cv)
+            imgBtnRecordSpeak.setImageResource(R.drawable.stop_speak_cv)
             stopAnimation(btnFourSpeak)
             startAnimation(btnFourSpeak, R.anim.zoom_in)
         } else if (status == 5 || status == 7 && !next) {
@@ -170,7 +173,6 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             btnFourSpeak.text = "7"
             imgBtnListenAgainSpeak.isGone = false
             imgBtnSendSpeak.isGone = false
-            imgTxt4Speak.isGone = false
             imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
             stopAnimation(btnFourSpeak)
             stopAnimation(btnEightSpeak)
@@ -179,23 +181,23 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             status = 8
             btnNextSpeak.setText(R.string.btn_tutorial3)
             btnNumberBottomSpeak.text = "8"
-            txtTutorialMessageBottomSpeak.setText(R.string.txt8_tutorial_speak)
-            btnNumberTopSpeak.isGone = true
-            txtTutorialMessageTopSpeak.isGone = true
-            btnNumberBottomSpeak.isGone = false
-            txtTutorialMessageBottomSpeak.isGone = false
+            btnNumberTopSpeak.text = "9"
+            txtTutorialMessageTopSpeak.setText(R.string.txt8_tutorial_speak)
+            btnNumberTopSpeak.isGone = false
+            txtTutorialMessageTopSpeak.isGone = false
+            btnNumberBottomSpeak.isGone = true
+            txtTutorialMessageBottomSpeak.isGone = true
             btnEightSpeak.isGone = false
             btnNineSpeak.isGone = true
             imgBtnListenAgainSpeak.isGone = false
             imgBtnSendSpeak.isGone = false
-            imgTxt4Speak.isGone = false
             imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
             stopAnimation(btnFourSpeak)
             stopAnimation(btnNineSpeak)
             startAnimation(btnEightSpeak, R.anim.zoom_in)
         } else if (status == 8 || status == 10 && !next) {
             status = 9
-            btnNextSpeak.setText(R.string.btn_tutorial5)
+            btnNextSpeak.setText(R.string.btn_tutorial3)
             btnNumberTopSpeak.text = "9"
             txtTutorialMessageTopSpeak.setText(R.string.txt9_tutorial_speak)
             btnNumberTopSpeak.isGone = false
@@ -205,13 +207,31 @@ class FirstRunSpeak : ViewBoundActivity<FirstRunSpeakBinding>(
             btnNineSpeak.isGone = false
             imgBtnListenAgainSpeak.isGone = false
             imgBtnRecordSpeak.setImageResource(R.drawable.speak2_cv)
+            layoutFirstRunSpeakNoSmartphone.isGone = true
             imgBtnSendSpeak.isGone = false
-            imgTxt4Speak.isGone = false
             stopAnimation(btnEightSpeak)
+            stopAnimation(btnReadNowContributionCriteriaSpeak)
             startAnimation(btnNineSpeak, R.anim.zoom_in)
-        } else if (status == 9) {
+        } else if (status == 9 || status == 11 && !next) {
+            status = 10
+            btnNextSpeak.setText(R.string.btn_tutorial5)
+            layoutFirstRunSpeakNoSmartphone.isGone = false
+            stopAnimation(btnNineSpeak)
+            startAnimation(btnReadNowContributionCriteriaSpeak, R.anim.zoom_in_first_launch)
+            btnReadNowContributionCriteriaSpeak.setOnClickListener {
+                val browserIntent =
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://commonvoice.mozilla.org/criteria")
+                    )
+                startActivity(browserIntent)
+            }
+        } else if (status == 10) {
             firstRunPrefManager.speak = false
-            if (ContextCompat.checkSelfPermission(this@FirstRunSpeak, Manifest.permission.RECORD_AUDIO)
+            if (ContextCompat.checkSelfPermission(
+                    this@FirstRunSpeak,
+                    Manifest.permission.RECORD_AUDIO
+                )
                 != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(

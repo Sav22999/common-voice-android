@@ -84,19 +84,26 @@ class RecordingsUploadWorker(
             .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30, TimeUnit.SECONDS)
             .build()
 
-        fun attachToWorkManager(wm: WorkManager) {
+        fun attachToWorkManager(
+            wm: WorkManager,
+            wifiOnly: Boolean = false,
+        ) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 wm.beginUniqueWork(
                     TAG,
                     ExistingWorkPolicy.KEEP,
-                    RecordingsExportWorker.request
-                ).then(request).enqueue()
+                    WorkerUtil.request<RecordingsExportWorker>(wifiOnly)
+                ).then(
+                    WorkerUtil.request<RecordingsUploadWorker>(wifiOnly)
+                ).enqueue()
             } else {
                 wm.beginUniqueWork(
                     TAG,
                     ExistingWorkPolicy.KEEP,
-                    RecordingsExportWorkerAPI28.request
-                ).then(request).enqueue()
+                    WorkerUtil.request<RecordingsExportWorkerAPI28>(wifiOnly)
+                ).then(
+                    WorkerUtil.request<RecordingsUploadWorker>(wifiOnly)
+                ).enqueue()
             }
         }
 

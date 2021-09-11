@@ -18,7 +18,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionSpeakAndListen" />
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionSpeakExperimental" />
 
         <include
             android:id="@+id/toolbarSettingsSubSectionExperimental"
@@ -31,9 +31,10 @@
             android:id="@+id/buttonBackSettingsSubSectionExperimental"
             android:layout_width="60sp"
             android:layout_height="60sp"
+            android:contentDescription="@string/accessibility_go_back"
             android:elevation="5dp"
             android:padding="18dp"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionExperimental"
             app:srcCompat="@drawable/ic_back_dark" />
@@ -85,7 +86,7 @@
                 android:showText="false"
                 android:stateListAnimator="@null"
                 android:switchPadding="4dp"
-                android:text="@string/experimental_txt_light_also_for_sentence_box_in_speak_listen"
+                android:text="@string/txt_light_also_for_sentence_box_in_speak_listen"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_normal"
@@ -120,7 +121,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/settingsSectionSpeakAndListen"
+            android:id="@+id/settingsSectionSpeakAndListenExperimental"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -164,7 +165,7 @@
                 android:showText="false"
                 android:stateListAnimator="@null"
                 android:switchPadding="4dp"
-                android:text="@string/experimental_txt_show_info_icon_speak_listen"
+                android:text="@string/txt_show_info_icon_speak_listen"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_normal"
@@ -173,6 +174,99 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textSettingsExperimentalFeaturesSpeakAndListen" />
+
+
+            <View
+                android:id="@+id/separator100"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchShowInfoIconSpeakListen" />
+
+            <Switch
+                android:id="@+id/switchShowContributionCriteriaIconSpeakListen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_read_contribution_criteria"
+                android:drawablePadding="10dp"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:showText="false"
+                android:stateListAnimator="@null"
+                android:switchPadding="4dp"
+                android:text="@string/text_show_contribution_criteria_icon_speak_listen"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator100" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsSectionSpeakExperimental"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius_with_border"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionSpeakAndListenExperimental">
+
+            <TextView
+                android:id="@+id/textSettingsExperimentalFeaturesSpeak"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/settingsSpeak"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/switchPushToTalkSpeak"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_microphone_20x20"
+                android:drawablePadding="10dp"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:showText="false"
+                android:stateListAnimator="@null"
+                android:switchPadding="4dp"
+                android:text="@string/txt_push_to_talk_speak"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSettingsExperimentalFeaturesSpeak" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

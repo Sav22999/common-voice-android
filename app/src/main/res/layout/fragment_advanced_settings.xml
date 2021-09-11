@@ -23,9 +23,10 @@
             android:id="@+id/buttonBackSettingsSubSectionAdvanced"
             android:layout_width="60sp"
             android:layout_height="60sp"
+            android:contentDescription="@string/accessibility_go_back"
             android:elevation="5dp"
             android:padding="18dp"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionAdvanced"
             app:srcCompat="@drawable/ic_back_dark" />
@@ -65,78 +66,6 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbarSettingsSubSectionAdvanced">
 
             <Switch
-                android:id="@+id/switchGenericStatistics"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_statistics"
-                android:drawablePadding="10dp"
-                android:drawableTint="@color/colorGray"
-                android:foreground="@drawable/ripple"
-                android:gravity="center|clip_vertical|start"
-                android:padding="20dp"
-                android:showText="false"
-                android:stateListAnimator="@null"
-                android:switchPadding="4dp"
-                android:text="@string/txt_generic_statistics"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_normal"
-                android:thumbTint="@drawable/thumb_switch"
-                android:trackTint="@drawable/track_switch"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/separator38"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@color/colorSeparator"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switchGenericStatistics" />
-
-            <Switch
-                android:id="@+id/switchAppUsageStatistics"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_statistics"
-                android:drawablePadding="10dp"
-                android:drawableTint="@color/colorGray"
-                android:foreground="@drawable/ripple"
-                android:gravity="center|clip_vertical|start"
-                android:padding="20dp"
-                android:showText="false"
-                android:stateListAnimator="@null"
-                android:switchPadding="4dp"
-                android:text="@string/txt_app_usage_statistics"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_normal"
-                android:thumbTint="@drawable/thumb_switch"
-                android:trackTint="@drawable/track_switch"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separator38" />
-
-            <View
-                android:id="@+id/separator39"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@color/colorSeparator"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switchAppUsageStatistics" />
-
-            <Switch
                 android:id="@+id/switchSaveLogToFile"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -157,7 +86,7 @@
                 android:trackTint="@drawable/track_switch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separator39" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/separator40"
@@ -230,8 +159,67 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/separator41" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsSectionAdvancedStatistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvanced">
+
+            <TextView
+                android:id="@+id/title_statisticsSubSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/title_sub_section_statistics"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/switchGenericStatistics"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/ic_statistics"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:showText="false"
+                android:stateListAnimator="@null"
+                android:switchPadding="4dp"
+                android:text="@string/txt_generic_statistics"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_statisticsSubSettings" />
+
             <View
-                android:id="@+id/separator42"
+                android:id="@+id/separator38"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
 
@@ -239,31 +227,32 @@
                 android:layout_marginEnd="20dp"
                 android:background="@color/colorSeparator"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonOpenTutorialAgain" />
+                app:layout_constraintTop_toBottomOf="@+id/switchGenericStatistics" />
 
-            <Button
-                android:id="@+id/buttonResetData"
+            <Switch
+                android:id="@+id/switchAppUsageStatistics"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
-                android:drawableStart="@drawable/ic_warning"
+                android:drawableStart="@drawable/ic_statistics"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorGray"
                 android:foreground="@drawable/ripple"
                 android:gravity="center|clip_vertical|start"
                 android:padding="20dp"
+                android:showText="false"
                 android:stateListAnimator="@null"
-                android:text="@string/txt_reset_data"
-                android:textAllCaps="false"
+                android:switchPadding="4dp"
+                android:text="@string/txt_app_usage_statistics"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/text_normal"
-                android:textStyle="normal"
+                android:thumbTint="@drawable/thumb_switch"
+                android:trackTint="@drawable/track_switch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separator42" />
+                app:layout_constraintTop_toBottomOf="@+id/separator38" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -282,8 +271,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvanced"
-            tools:visibility="visible">
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvancedStatistics">
 
             <TextView
                 android:id="@+id/title_adsBannerSettings"
@@ -402,6 +390,167 @@
                 app:layout_constraintTop_toBottomOf="@+id/separator45" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsSectionAdvancedDestinationAPIServer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvancedAds">
+
+            <TextView
+                android:id="@+id/title_destinationAPIServerSubSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/title_sub_section_destination_api_server"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/title_very_small"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonCustomiseAPIServer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_rounded"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="@string/button_customise_api_server"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_button"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_destinationAPIServerSubSettings"
+                tools:visibility="visible" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/advancedSubSectionDestinarioAPIServer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/top_bottom_border_radius"
+                android:backgroundTint="@color/colorDarkWhite"
+                android:padding="0dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_destinationAPIServerSubSettings"
+                tools:visibility="gone">
+
+                <EditText
+                    android:id="@+id/textDestinationAPIServer"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/txt_rounded_dashboard_intern"
+                    android:clickable="true"
+                    android:editable="true"
+                    android:ems="10"
+                    android:enabled="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center|center_horizontal|center_vertical"
+                    android:hint="@string/label_destination_api_server"
+                    android:inputType="textUri"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/text_normal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/buttonResetDefaultAPIServer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:foregroundTint="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:padding="6dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/button_reset_default_api_server"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_button"
+                android:textStyle="normal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/advancedSubSectionDestinarioAPIServer"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsSectionAdvancedResetAppData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/top_bottom_border_radius"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvancedDestinationAPIServer">
+
+            <Button
+                android:id="@+id/buttonResetData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/ic_warning"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/colorGray"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:padding="20dp"
+                android:stateListAnimator="@null"
+                android:text="@string/txt_reset_data"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <View
             android:id="@+id/view"
             android:layout_width="wrap_content"
@@ -409,6 +558,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvancedAds" />
+            app:layout_constraintTop_toBottomOf="@+id/settingsSectionAdvancedResetAppData" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

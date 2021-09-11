@@ -12,7 +12,6 @@ import org.commonvoice.saverio_lib.repositories.ValidationsRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 import org.koin.core.KoinComponent
 import org.koin.core.inject
-import java.util.concurrent.TimeUnit
 
 class ValidationsUploadWorker(
     appContext: Context,
@@ -74,20 +73,14 @@ class ValidationsUploadWorker(
 
         private const val TAG = "validationsUploadWorker"
 
-        private val constraint = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        private val request = OneTimeWorkRequestBuilder<ValidationsUploadWorker>()
-            .setConstraints(constraint)
-            .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30, TimeUnit.SECONDS)
-            .build()
-
-        fun attachToWorkManager(wm: WorkManager) {
+        fun attachToWorkManager(
+            wm: WorkManager,
+            wifiOnly: Boolean = false
+        ) {
             wm.enqueueUniqueWork(
                 TAG,
                 ExistingWorkPolicy.KEEP,
-                request
+                WorkerUtil.request<ValidationsUploadWorker>(wifiOnly)
             )
         }
 

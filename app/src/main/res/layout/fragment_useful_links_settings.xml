@@ -31,9 +31,10 @@
             android:id="@+id/buttonBackSettingsSubSectionUsefulLinks"
             android:layout_width="60sp"
             android:layout_height="60sp"
+            android:contentDescription="@string/accessibility_go_back"
             android:elevation="5dp"
             android:padding="18dp"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbarSettingsSubSectionUsefulLinks"
             app:srcCompat="@drawable/ic_back_dark" />
@@ -247,11 +248,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/buttonTermsOfService" />
 
             <Button
-                android:id="@+id/buttonGuidelinesForValidations"
+                android:id="@+id/buttonReadContributionCriteria"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@color/colorWhite"
-                android:drawableStart="@drawable/ic_external_link"
+                android:drawableStart="@drawable/ic_read_contribution_criteria"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorGray"
                 android:foreground="@drawable/ripple"
@@ -279,7 +280,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonGuidelinesForValidations" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonReadContributionCriteria" />
 
             <Button
                 android:id="@+id/buttonSeeAppStatistics"

@@ -393,6 +393,78 @@
                 android:textStyle="normal"
                 android:visibility="gone" />
 
+            <RadioButton
+                android:id="@+id/radioButtonCustomiseGesturesPlayStopClip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlack"
+                android:button="@drawable/radio_button_material_anim"
+                android:buttonTint="@color/colorWhite"
+                android:drawableEnd="@drawable/ic_play_clip"
+                android:drawablePadding="0dp"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
+                android:stateListAnimator="@null"
+                android:text="@string/text_customise_gestures_settings_play_stop_clip"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/radioButtonCustomiseGesturesStartStopRecording"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlack"
+                android:button="@drawable/radio_button_material_anim"
+                android:buttonTint="@color/colorWhite"
+                android:drawableEnd="@drawable/ic_start_recording"
+                android:drawablePadding="0dp"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
+                android:stateListAnimator="@null"
+                android:text="@string/text_customise_gestures_settings_start_stop_recording"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/radioButtonCustomiseGesturesPlayStopRecording"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlack"
+                android:button="@drawable/radio_button_material_anim"
+                android:buttonTint="@color/colorWhite"
+                android:drawableEnd="@drawable/ic_play_recording"
+                android:drawablePadding="0dp"
+                android:foreground="@drawable/ripple"
+                android:gravity="center|clip_vertical|start"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
+                android:stateListAnimator="@null"
+                android:text="@string/text_customise_gestures_settings_play_stop_recording"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="normal"
+                android:visibility="gone" />
+
 
         </RadioGroup>
 

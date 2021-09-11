@@ -12,7 +12,7 @@
     <string name="button_home_logout">Wyloguj się</string>
     <string name="button_home_profile">Profil</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Witaj!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Witaj, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Witaj, {{username}}!</string>
     <string name="message_log_in_again">Identyfikator sesji wygasł, musisz zalogować się ponownie</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statystyki</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Musisz się zalogować, aby zobaczyć swoje statystyki</string>
     <string name="toastNoLoginNoDailyGoal">Musisz się zalogować, aby ustawić cel dzienny</string>
     <string name="textHoursAbbreviation">g</string>
-    <string name="textHour">Godzina</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Godzina {{hour}}</string>
     <string name="txt_top_contributors">Najaktywniejsi</string>
     <string name="txt_top_contributors_recorded">Nagrane</string>
     <string name="txt_top_contributors_validated">Sprawdzone</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Ta aplikacja potrzebuje uprawnienia \"Mikrofon\", aby nagrywać Twój głos.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Możesz zgłaszać błędy na GitHub lub Telegram. Aby pomóc deweloperowi w szybkim zrozumieniu problemu, powinieneś dołączyć do raportu plik dziennika aplikacji. Aplikacja potrzebuje uprawnienia \"Pamięć\", aby zapisać plik dziennika.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Możesz pomóc nawet, gdy jesteś offline. \"Tryb offline\" aplikacji zostanie włączony automatycznie, a Ty będziesz mógł dalej nagrywać i odsłuchiwać bez połączenia z Internetem.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Możesz wybrać jasny lub ciemny motyw. Możesz to zmienić później w Ustawieniach.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Ciemny motyw</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Niektóre akcje mają przypisane im gesty. Możesz na przykład pominąć zdanie w sekcji Nagrywaj, przeciągając palcem w lewo.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Możesz dostosować te gesty w Ustawieniach.</string>
@@ -66,12 +66,11 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Inna</string>
     <string name="btn_badges_loggedin" comment="Button">Wszystkie odznaki</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Poziom {{level}}</string>
-    <string name="level_up_message" comment="Message text">Gratulacje! Osiągasz poziom {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Mam już link weryfikacyjny</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Link weryfikacyjny</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Link weryfikacyjny jest nieprawidłowy</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Otwórz samouczek ponownie</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Powtórz samouczek</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Kod źródłowy projektu na GitHubie</string>
     <string name="txt_developed_by" comment="Label in Settings">stworzona przez</string>
     <string name="toast_language_changed" comment="Message text">Pomyślnie ustawiono język na {{lang}}</string>
@@ -113,23 +112,24 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Grupa Telegram aplikacji</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Pokaż etykiety pod ikonami menu</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Przeczytaj warunki korzystania z Common Voice Mozilli</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Przeczytaj wytyczne dotyczące walidacji</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Przeczytaj kryteria udziału</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Oceń aplikację w Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Interfejs</string>
     <string name="title_advanced_settings" comment="Option in Settings">Zaawansowane</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Zapisuj nagrania na urządzeniu</string>
     <string name="txt_reset_data" comment="Button in Settings">Wyczyść dane aplikacji</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Brak dostępnych funkcji eksperymentalnych</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Pokazuj zdanie dopiero po wysłuchaniu klipu</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Pokaż tekst zdania tylko wtedy, gdy klip zakończy odtwarzanie</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Pokazuj ikonę zgłaszania (na górze) zamiast przycisku (na dole)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Rozmiar tekstu</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Baner reklamowy</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Włącz baner reklamowy w {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Kolorowy pasek postępu celu dziennego</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} i {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Jasny motyw również dla zdania do odczytu/sprawdzenia w trybach Nagrywaj i Odsłuchaj (gdy jasny motyw jest włączony).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Jasny motyw również dla zdania do odczytu/sprawdzenia w trybach Nagrywaj i Odsłuchaj (gdy jasny motyw jest włączony).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Pokazuj pasek prędkości</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Pokazuj ikonę informacji</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Pokazuj ikonę informacji</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Naciśnij i mów</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Wybierz ilość zdań i ilość klipów do pobrania i użycia, gdy aplikacja jest w trybie offline.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Użytkownicy zwykle zajmują około 13 minut, aby zatwierdzić 50 klipów, i 26 minut, aby nagrać 50 zdań.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Przesunięcie w górę</string>
@@ -150,13 +150,35 @@
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Pomiń zdanie</string>
     <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Akceptuj klip (oznacz jako poprawny)</string>
     <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Odrzuć klip (oznacz jako nieprawidłowy)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Włącz/Wyłącz \"{{feature}}\"</string>
     <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Zgłoś klip</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Zgłoś zdanie</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Pokaż informacje o klipie</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Pokaż informacje o zdaniu</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Odtwórz/Zatrzymaj klip</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Rozpocznij/Zatrzymaj nagrywanie</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Odtwórz/Zatrzymaj nagranie</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Zapisz</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Wybierz akcję</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Pokazuj ikonę kryteriów udziału</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Przesyłaj tylko przez Wi-Fi</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Pobieraj tylko przez Wi-Fi</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Powiadomienia ogólne</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Powiadomienia o celu dziennym</string>
+    <string name="text_title_notifications" comment="Title in Settings">Powiadomienia</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Proszę, nie zapomnij przyczynić się dziś do Common Voice, twój wkład jest cenny i ważny!\nDotknij tutaj, aby otworzyć aplikację i pracować nad swoim celem dziennym.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">Cel dzienny CV Project nie został jeszcze osiągnięty!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Wybierz, kiedy chcesz otrzymywać powiadomienia, jeśli Twój cel dzienny nie został osiągnięty.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Pamiętaj, że może to nie być dokładne lub może nie działać wcale ze względu na ustawienia optymalizacji baterii.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Pierwszy alert</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Drugi alert</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Brak</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statystyki</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Docelowy serwer API</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Przywróć domyślny serwer API</string>
+    <string name="button_customise_api_server" comment="Button">Dostosuj serwer API</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Czy na pewno chcesz dostosować serwer API? To potencjalnie niebezpieczne działanie.\nMożesz zresetować do domyślnego serwera API w każdej chwili.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Docelowy serwer API</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Ładowanie zdania…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Pomiń</string>
@@ -268,6 +290,31 @@
         <item quantity="other">Brakuje Ci tylko %d zdań, aby osiągnąć swój cel dzienny {{dailygoal}}!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Pomyślnie ustawiono prędkość na {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Odrzuć klip</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Akceptuj klip</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Odtwórz klip</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Zatrzymaj klip</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Rozpocznij nagrywanie</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Nagraj ponownie zdanie</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Zatrzymaj nagrywanie</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Odtwórz nagranie</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Zatrzymaj słuchanie</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Wyślij nagranie</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Przeczytaj kryteria udziału</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Zobacz szczegóły trybu offline</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">Zobacz informacje o obecnym klipie</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Zobacz informacje o obecnym zdaniu</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Zgłoś obecny klip</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Zgłoś obecne zdanie</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Otwórz sekcję Odsłuchaj</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Otwórz sekcję Nagrywaj</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Wstecz</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Włącz/Wyłącz </string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Zamknij wiadomość</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Kopiuj</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Zwiększ</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Zmniejsz</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Sprawdź ponownie</string>
     <string name="txt_noconnection" comment="Message text">Nie jesteś połączony z Internetem. Połącz się z Wi-Fi lub włącz dane komórkowe, a następnie naciśnij przycisk poniżej.</string>
@@ -288,14 +335,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Dotknij tę ikonę, jeśli chcesz ponownie odsłuchać klip.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Jeśli klip pasuje do zdania, dotknij tę ikonę, aby go zaakceptować.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Jeśli klip nie pasuje do zdania, dotknij tę ikonę, aby go odrzucić.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Jeśli nie masz pewności, czy zaakceptować nagranie, czy je odrzucić, możesz przeczytać oficjalne wytyczne dotyczące sprawdzania na Mozilla Discourse.\nMożesz też znaleźć ten link później w Ustawieniach.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">Jeśli nie jesteś pewien, czy zaakceptować czy odrzucić nagranie, czy też chcesz poprawić swoje nagrania, możesz przeczytać oficjalne kryteria udziału.\nMożesz również znaleźć ten link później w sekcji Ustawienia &gt; Przydatne linki.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Czytaj teraz</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Przepraszamy, ta funkcja jeszcze nie istnieje.\nPracujemy nieustannie nad ulepszeniem aplikacji, więc wróć później, aby sprawdzić, czy została dodana.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Zamknij</string>
     <string name="labelAllBadges" comment="Title for All badge section">Wszystkie odznaki</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hura! Zdobywasz nową odznakę.\nPrzejdź do sekcji {{profile}} &gt; {{all_badges}}, aby zobaczyć wszystkie odznaki.</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">Nowa odznaka otrzymana</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">Nowy poziom osiągnięty</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Hura! Zdobywasz nową odznakę.\nPrzejdź do sekcji {{profile}} &gt; {{all_badges}}, aby zobaczyć wszystkie odznaki.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Hura! Osiągasz nowy poziom, jak i zdobywasz nową odznakę.\nPrzejdź do sekcji {{profile}} &gt; {{all_badges}}, aby zobaczyć wszystkie odznaki.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Otrzymano tę odznakę za sprawdzenie co najmniej {{n_clips}} klipów.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Otrzymano tę odznakę za nagranie co najmniej {{n_sentences}} zdań.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Otrzymano tę odznakę za sprawdzenie lub nagranie co najmniej {{n_total}} klipów.</string>
@@ -343,6 +393,7 @@
         <item quantity="other">Otworzyłem/am aplikację CV Project %d dni pod rząd! Pobierz ją i ty, aby przyczynić się do projektu Common Voice ze smartfona.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Zaloguj się teraz</string>
+    <string name="button_open_profile_now" comment="Button">Otwórz Profil teraz</string>
     <string name="button_translate_on_crowdin" comment="Button">Tłumacz teraz</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Cel dzienny</string>

@@ -148,7 +148,7 @@ class StatsPrefManager(ctx: Context) {
         }
     }
 
-    private enum class Keys {
+    enum class Keys {
         DAILY_GOAL_OBJECTIVE,
 
         REVIEW_ON_PLAYSTORE_COUNTER,
@@ -193,22 +193,21 @@ class StatsPrefManager(ctx: Context) {
             else -> 0
         }
 
-        fun getLevel(number: Int) = when (number) {
-            in 0..9 -> 1
-            in 10..49 -> 2
-            in 50..99 -> 3
-            in 100..499 -> 4
-            in 500..999 -> 5
-            in 1000..4999 -> 6
-            in 5000..9999 -> 7
-            in 10000..49999 -> 8
-            in 50000..99999 -> 9
-            in 100000..199999 -> 10
-            in 200000..399999 -> 11
-            in 400000..999999 -> 12
-            in 1000000..1999999 -> 13
-            in 2000000..3999999 -> 14
-            in 4000000..99999990000 -> 15
+        fun getLevel(number: Int) = when {
+            number > 4000000 -> 15
+            number > 2000000 -> 14
+            number > 1000000 -> 13
+            number > 500000 -> 12
+            number > 200000 -> 11
+            number > 100000 -> 10
+            number > 50000 -> 9
+            number > 10000 -> 8
+            number > 5000 -> 7
+            number > 1000 -> 6
+            number > 500 -> 5
+            number > 100 -> 4
+            number > 50 -> 3
+            number > 10 -> 2
             else -> 1
         }
 

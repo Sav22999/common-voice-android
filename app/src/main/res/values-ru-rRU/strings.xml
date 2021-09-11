@@ -12,7 +12,7 @@
     <string name="button_home_logout">Выйти</string>
     <string name="button_home_profile">Профиль</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Здравствуй!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Привет, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Привет, {{username}}!</string>
     <string name="message_log_in_again">Истек срок действия идентификатора сеанса, необходимо войти снова</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Статистика</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Войдите, чтобы просмотреть свою статистику</string>
     <string name="toastNoLoginNoDailyGoal">Вы должны войти, чтобы установить дневную цель</string>
     <string name="textHoursAbbreviation">ч</string>
-    <string name="textHour">Время</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
     <string name="txt_top_contributors">Лучшие участники</string>
     <string name="txt_top_contributors_recorded">Записи</string>
     <string name="txt_top_contributors_validated">Проверенные</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Для записи голоса приложению требуется разрешение \"Микрофон\".</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Вы можете сообщать об ошибках на GitHub или Telegram. Чтобы помочь разработчику быстро понять проблему, вы должны прикрепить лог файл приложения к отчету. Приложению требуется разрешение \"Хранилище\", чтобы сохранить лог файл.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Вы даже можете внести свой вклад, пока вы не в сети. Приложение \"Offline mode\" будет включено автоматически, вы можете продолжить запись и прослушивать без подключения к Интернету.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Вы можете выбрать светлую тему или темную тему. Вы можете изменить это позже в настройках.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Темная тема</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Некоторые действия имеют соответствующие жесты. Например, вы можете пропустить предложение в Speak, проведя пальцем влево.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Вы можете настроить эти жесты в настройках.</string>
@@ -66,12 +66,11 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Другой</string>
     <string name="btn_badges_loggedin" comment="Button">Все бейджи</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Уровень {{level}}</string>
-    <string name="level_up_message" comment="Message text">Поздравляем! Вы только что достигли {{n_level}} уровень.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">У меня уже есть проверочная ссылка</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Ссылка для подтверждения</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Ссылка верификации недействительна</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Открыть учебник еще раз</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Исходный код проекта доступен на GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">разработано</string>
     <string name="toast_language_changed" comment="Message text">Язык успешно изменен на {{lang}}</string>
@@ -113,50 +112,73 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram группа приложения</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Показывать метки под значками меню</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Прочтите условия использования Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Ознакомьтесь с руководством по валидации</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Прочитать критерии взноса</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Оцените нас на Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Интерфейс пользователя</string>
     <string name="title_advanced_settings" comment="Option in Settings">Дополнительно</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Сохранить записи на устройстве</string>
     <string name="txt_reset_data" comment="Button in Settings">Сброс данных приложения</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">В настоящее время экспериментальные функции недоступны</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Показывать текст предложений, когда клипы прослушиваются полностью</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Показывать значок отчета (вверху справа) вместо кнопки (внизу)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Размер текста</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Рекламный баннер</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Включить рекламный баннер в {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Цветной индикатор выполнения ежедневных целей</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} и {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Световая тема также для предложения, которое нужно прочитать/проверить в Speak and Listen (когда включена световая тема).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Световая тема также для предложения, которое нужно прочитать/проверить в Speak and Listen (когда включена световая тема).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Показывать панель управления скоростью</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показать значок с информацией</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Показать значок с информацией</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Нажать и говорить</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Выберите количество предложений и количество записей для загрузки и использования в автономном режиме.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Обычно пользователям требуется около 13 минут для проверки 50 клипов и 26 минут для записи 50 предложений.</string>
-    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
-    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
-    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
-    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Свайп вверх</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Свайп вниз</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Свайп влево</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Свайп вправо</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Долгое нажатие</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Двойное нажатие</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Свайп вверх: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Свайп вниз: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Свайп влево: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Свайп вправо: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Долгое нажатие: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Двойное нажатие: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Ничего</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Вернуться назад</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Пропустить клип</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Пропустить предложение</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Принять клип (пометить как правильный)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Отклонить клип (пометить как некорректный)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Включить/выключить \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Пожаловаться на клип</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
-    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
-    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
-    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Показать информацию о клипе</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Показать информацию о предложении</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Играть/Стоп клип</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Начать/остановить запись</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Начать/остановить запись</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Сохранить</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Выберите действие</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Показать значок критериев вклада</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Загрузка только по Wi-Fi</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Загрузка только по Wi-Fi</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Общие уведомления</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
+    <string name="text_title_notifications" comment="Title in Settings">Уведомления</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Статистика</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
+    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Загрузка предложения…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропустить</string>
@@ -268,6 +290,31 @@
         <item quantity="other">Вам не хватает всего %d предложений для достижения ежедневной цели в {{dailygoal}} предложений!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Скорость успешно установлена на {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Отклонить клип</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Принять клип</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Играть клип</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Остановить клип</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Начать запись</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Записать предложение снова</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Остановить запись</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Воспроизвести запись</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Остановить прослушивание</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Отправить запись</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Подробности о автономном режиме</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">Посмотреть информацию о текущем клипе</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Посмотреть информацию о текущем предложении</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Сообщить о текущем клипе</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Сообщить о текущем предложении</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Вернуться назад</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Enable/Disable</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Close message</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copy</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Increase</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Decrease</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Проверить снова</string>
     <string name="txt_noconnection" comment="Message text">Вы не подключены к Интернету. Подключитесь к Wi-Fi или мобильной сети, затем нажмите кнопку ниже.</string>
@@ -288,14 +335,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Нажмите на этот значок, если вы хотите прослушать клип снова.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Если клип соответствует предложению, нажмите на этот значок, чтобы принять его.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Если клип не соответствует предложению, нажмите на этот значок, чтобы отклонить его.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Если вы не уверены, принять или отклонить запись, вы можете прочитать официальное руководство по проверке на Mozilla Discourse.\nВы также можете найти эту ссылку позже в настройках.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Прочитать сейчас</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">К сожалению, эта функция пока не существует.\nМы постоянно работаем над улучшением приложения, поэтому проверьте позже, чтобы убедиться, что она была добавлена.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Закрыть</string>
     <string name="labelAllBadges" comment="Title for All badge section">Все бейджи</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Ура! Вы только что заработали новый значок.\nПерейдите в {{profile}} &gt; {{all_badges}}, чтобы увидеть все свои значки.</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">New badge earnt</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">New level achieved</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Ура! Вы только что заработали новый значок.\nПерейдите в {{profile}} &gt; {{all_badges}}, чтобы увидеть все свои значки.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Congrats! You have just achieved a new level and you earnt a new badge as well.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Вы получили этот значок, потому что подтвердили как минимум {{n_clips}} записей.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Вы получили этот значок, потому что записали не менее {{n_sentences}} предложений.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Вы получили этот значок, потому что подтвердили или записали не менее {{n_total}} записей.</string>
@@ -343,6 +393,7 @@
         <item quantity="other">Я открывал приложение CV Project %d день подряд! Скачайте его и вы, чтобы внести свой вклад в проект \"Common Voice\" с помощью смартфона.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Войти</string>
+    <string name="button_open_profile_now" comment="Button">Open Profile now</string>
     <string name="button_translate_on_crowdin" comment="Button">Перевести</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Дневная цель</string>

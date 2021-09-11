@@ -34,7 +34,7 @@ Le projet Common Voice est une initiative de Mozilla pour aider à apprendre aux
 La voix est naturelle, la voix est humaine. C’est pourquoi nous sommes impatients de créer une technologie vocale pour nos appareils. Mais pour élaborer de tels systèmes vocaux, les développeurs ont besoin de vastes échantillons de données vocales.
 La plupart des données utilisées par les grandes entreprises ne sont pas disponibles pour le grand public. Nous estimons que cela entrave l’innovation. C’est pourquoi nous avons lancé le projet Common Voice, destiné à rendre la reconnaissance vocale ouverte et accessible à tout le monde.
 Vous pouvez donner un peu de votre voix pour nous aider à créer une base de données libre, utilisable par n’importe qui pour réaliser des applications innovantes, y compris sur le Web. Lisez une phrase pour aider les machines à apprendre la façon de parler des êtres humains. Écoutez les enregistrements que d’autres ont réalisés pour les valider et ainsi améliorer la qualité des données. C’est aussi simple que ça !
-Vous pouvez trouver plus de détails sur le site officiel <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+Vous pouvez trouver plus de détails sur le site Web officiel <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Pourquoi devriez-vous utiliser l'application plutôt que le site Web sur mobile ?</b>

@@ -1,11 +1,10 @@
 package org.commonvoice.saverio_lib.mediaPlayer
 
-import android.content.Context
 import android.media.MediaPlayer
-import android.util.Log
-import org.commonvoice.saverio_lib.R
 import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.models.Recording
+import org.commonvoice.saverio_lib.utils.AudioConstants
+import timber.log.Timber
 
 class MediaPlayerRepository {
 
@@ -22,6 +21,7 @@ class MediaPlayerRepository {
 
     fun playRecording(recording: Recording, speed: Float = 1.0F) {
         mediaPlayer?.apply {
+            setAudioAttributes(AudioConstants.AudioAttribute)
             setDataSource(ByteArrayDataSource(recording))
             prepare()
             playbackParams = playbackParams.setSpeed(speed)
@@ -31,12 +31,13 @@ class MediaPlayerRepository {
 
     fun playClip(clip: Clip, speed: Float = 1.0F): Boolean {
         mediaPlayer?.apply {
+            setAudioAttributes(AudioConstants.AudioAttribute)
             setDataSource(ByteArrayDataSource(clip))
             try {
                 prepare()
             } catch (e: Exception) {
                 //TODO
-                Log.e("Exception", e.toString())
+                Timber.e(e)
                 return false
             }
             playbackParams = playbackParams.setSpeed(speed)

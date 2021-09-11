@@ -2,10 +2,20 @@ package org.commonvoice.saverio
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ClipData
+import android.content.Intent
+import android.net.Uri
+import org.commonvoice.saverio.utils.onClick
+import androidx.core.content.ContextCompat
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.res.Configuration
+import android.graphics.BitmapFactory
+import android.media.RingtoneManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -16,7 +26,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.animation.doOnEnd
-import androidx.core.content.ContextCompat
+import androidx.core.app.NotificationCompat
 import androidx.core.content.getSystemService
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -37,7 +47,6 @@ import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.OfflineModeDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundActivity
 import org.commonvoice.saverio.utils.OnSwipeTouchListener
-import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_ads.AdLoader
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.dataClasses.BadgeDialogMediator
@@ -46,6 +55,8 @@ import org.commonvoice.saverio_lib.models.Clip
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager.Companion.getLevel
+import org.commonvoice.saverio_lib.utils.AudioConstants
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -108,6 +119,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         binding.viewListenAnimateButton2.layoutParams.width = minHeightButtons
         binding.viewListenAnimateButton1.requestLayout()
         binding.viewListenAnimateButton2.requestLayout()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        volumeControlStream = AudioConstants.VolumeControlStream
     }
 
     private fun checkOfflineMode(available: Boolean) {
@@ -219,6 +236,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 //achieved
                 setDailyGoalAchievedAndNotShown(it)
                 if (listenViewModel.state.value == ListenViewModel.Companion.State.STANDBY) showDailyGoalAchievedMessage()
+
+                val c = Calendar.getInstance()
+                val currentDate =
+                    "${c.get(Calendar.YEAR)}-${c.get(Calendar.MONTH + 1)}-${c.get(Calendar.DAY_OF_MONTH)}"
+                settingsPrefManager.dailyGoalNotificationsLastSentDate = currentDate
+                settingsPrefManager.dailyGoalNotificationsLastSentDateSecond = currentDate
             }
 
             animateProgressBar(
@@ -706,6 +729,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             "validate-no" -> {
                 validateNo()
             }
+            "play-stop-clip" -> {
+                playStopClip()
+            }
             else -> {
                 //nothing
             }
@@ -741,6 +767,13 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             "validate-no" -> {
                 R.drawable.ic_no_thumb2
             }
+            "play-stop-clip" -> {
+                if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) {
+                    R.drawable.ic_stop_clip
+                } else {
+                    R.drawable.ic_play_clip
+                }
+            }
             else -> {
                 R.drawable.ic_nothing
             }
@@ -755,6 +788,16 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         listenViewModel.skipClip()
         if (dailyGoalAchievedAndNotShown) {
             showDailyGoalAchievedMessage()
+        }
+    }
+
+    private fun playStopClip() {
+        if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) {
+            //stop
+            listenViewModel.stopListening()
+        } else {
+            //play
+            listenViewModel.startListening()
         }
     }
 
@@ -887,10 +930,12 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode_dark)
                 imageReportIconListen.setImageResource(R.drawable.ic_report_dark)
                 imageInfoListen.setImageResource(R.drawable.ic_info_dark)
+                imageContributionCriteriaListen.setImageResource(R.drawable.ic_read_contribution_criteria_dark)
             } else {
                 imageOfflineModeListen.setImageResource(R.drawable.ic_offline_mode)
                 imageReportIconListen.setImageResource(R.drawable.ic_report)
                 imageInfoListen.setImageResource(R.drawable.ic_info_light)
+                imageContributionCriteriaListen.setImageResource(R.drawable.ic_read_contribution_criteria_light)
             }
         }
         resizeSentence()
@@ -928,6 +973,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
+            if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
+                hideImage(imageContributionCriteriaListen)
+            }
             if (!buttonYesClip.isGone) {
                 hideButton(buttonYesClip)
             }
@@ -935,6 +983,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideButton(buttonNoClip)
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
             hideListenAnimateButtons()
 
             val motivationSentences = arrayOf(
@@ -1014,6 +1063,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
                 hideImage(imageInfoListen)
             }
+            if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
+                hideImage(imageContributionCriteriaListen)
+            }
             if (!buttonYesClip.isGone) {
                 hideButton(buttonYesClip)
             }
@@ -1021,6 +1073,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 hideButton(buttonNoClip)
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+            buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
             hideListenAnimateButtons()
         }
         //buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
@@ -1045,6 +1098,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             listenViewModel.listenedOnce = false
             listenViewModel.startedOnce = false
         }
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
 
         if (listenViewModel.showSentencesTextAtTheEnd() && !listenViewModel.listenedOnce) {
             textMessageAlertListen.text = getString(R.string.txt_sentence_feature_enabled).replace(
@@ -1081,6 +1135,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         if (settingsPrefManager.showInfoIcon && imageInfoListen.isGone) {
             showImage(imageInfoListen)
         }
+        if (settingsPrefManager.showContributionCriteriaIcon && imageContributionCriteriaListen.isGone) {
+            showImage(imageContributionCriteriaListen)
+        }
 
         buttonStartStopListen.isEnabled = true
         buttonStartStopListen.onClick {
@@ -1110,6 +1167,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
         imageInfoListen.onClick {
             showInformationAboutClip()
+        }
+        imageContributionCriteriaListen.onClick {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://commonvoice.mozilla.org/criteria"))
+            startActivity(browserIntent)
         }
     }
 
@@ -1187,7 +1249,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         listenViewModel.startedOnce = true
         buttonSkipListen.isEnabled = true
 
-        buttonStartStopListen.setBackgroundResource(R.drawable.stop_cv)
+        buttonStartStopListen.setBackgroundResource(R.drawable.stop_listen_cv)
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_stop_clip)
 
         buttonNoClip.onClick {
             validateNo()
@@ -1212,6 +1275,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         textMessageAlertListen.setText(R.string.txt_clip_correct_or_wrong)
 
         buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
 
         buttonYesClip.onClick {
             validateYes()
@@ -1260,6 +1324,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     override fun onBackPressed() = withBinding {
         textMessageAlertListen.setText(R.string.txt_closing)
         buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
+        buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
         textSentenceListen.text = "···"
         resizeSentence()
         setTextSentenceListen(this@ListenActivity)
@@ -1270,6 +1335,9 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
         if (settingsPrefManager.showInfoIcon && !imageInfoListen.isGone) {
             hideImage(imageInfoListen)
+        }
+        if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
+            hideImage(imageContributionCriteriaListen)
         }
         buttonStartStopListen.isEnabled = false
         buttonSkipListen.isEnabled = false
@@ -1292,24 +1360,134 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     private fun setupBadgeDialog(): Any = if (mainPrefManager.isLoggedIn) {
         lifecycleScope.launch {
             statsPrefManager.badgeLiveData.collect {
-                if (it is BadgeDialogMediator.Listen || it is BadgeDialogMediator.Level) {
-                    dialogInflater.show(
-                        this@ListenActivity, StandardDialog(
-                            message = getString(R.string.new_badge_earnt_message)
-                                .replace(
-                                    "{{profile}}",
-                                    getString(R.string.button_home_profile)
-                                )
-                                .replace(
-                                    "{{all_badges}}",
-                                    getString(R.string.btn_badges_loggedin)
-                                )
+                if (it is BadgeDialogMediator.Listen) {
+                    val messageToUse = getString(R.string.message_new_badge_earnt_text)
+                        .replace(
+                            "{{profile}}",
+                            getString(R.string.button_home_profile)
                         )
+                        .replace(
+                            "{{all_badges}}",
+                            getString(R.string.btn_badges_loggedin)
+                        )
+
+                    showPopupAndSendNotification(
+                        messageToUse,
+                        getString(R.string.message_new_badge_title)
                     )
+                }
+
+                if (it is BadgeDialogMediator.Level) {
+                    Handler().postDelayed({
+                        val messageToUse = getString(R.string.message_level_up_text)
+                            .replace(
+                                "{{profile}}",
+                                getString(R.string.button_home_profile)
+                            )
+                            .replace(
+                                "{{all_badges}}",
+                                getString(R.string.btn_badges_loggedin)
+                            )
+
+                        showPopupAndSendNotification(
+                            messageToUse,
+                            getString(R.string.message_level_up_title)
+                        )
+                    }, 400)
                 }
             }
         }
     } else Unit
+
+    private fun showPopupAndSendNotification(message: String, title: String = "") {
+        dialogInflater.show(
+            this@ListenActivity, StandardDialog(
+                message = message,
+                title = title,
+                button2TextRes = R.string.button_open_profile_now,
+                onButton2Click = {
+                    startActivity(Intent(applicationContext, LoginActivity::class.java))
+                }
+            )
+        )
+
+        sendNotification(
+            context = applicationContext,
+            title = title,
+            message = message,
+            autoCancel = true
+        )
+    }
+
+    fun sendNotification(
+        context: Context,
+        title: String,
+        message: String,
+        autoCancel: Boolean = true
+    ) {
+        val notificationNumber = getNotificationsCounter()
+        val NOTIFICATION_CHANNEL_ID =
+            "${context.packageName.replace(".", "_")}_notification_${notificationNumber}"
+        val NOTIFICATION_CHANNEL_NAME = "${context.packageName}_notification".replace(".", "_")
+        val notificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val notificationChannel = NotificationChannel(
+                NOTIFICATION_CHANNEL_ID,
+                NOTIFICATION_CHANNEL_NAME,
+                importance
+            )
+            notificationManager?.createNotificationChannel(notificationChannel)
+        }
+
+        val intent = Intent(context, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+
+        val pendingIntent =
+            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val defaultSoundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+        var notificationBuilder =
+            NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_icon_one_color)
+                .setLargeIcon(
+                    BitmapFactory.decodeResource(
+                        this.resources,
+                        R.drawable.icon_without_background
+                    )
+                )
+                .setContentTitle(title)
+                .setContentText(message)
+                .setStyle(
+                    NotificationCompat.BigTextStyle()
+                        .bigText(message)
+                )
+                .setAutoCancel(autoCancel)
+                .setSound(defaultSoundUri)
+                .setContentIntent(pendingIntent)
+
+        if (settingsPrefManager.notifications) {
+            notificationManager!!.notify(
+                notificationNumber,
+                notificationBuilder.build()
+            )
+            incrementNotificationCounter()
+        } else {
+            //Notifications disabled
+        }
+    }
+
+    private fun getNotificationsCounter(): Int {
+        return settingsPrefManager.notificationsCounter
+    }
+
+    fun incrementNotificationCounter() {
+        //increment notifications counter number
+        settingsPrefManager.notificationsCounter = (settingsPrefManager.notificationsCounter + 1)
+    }
 
     private fun hideButtons() {
         stopButtons()

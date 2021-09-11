@@ -38,6 +38,9 @@
     <color name="colorWhiteTransparent">#88EEEEEE</color>
     <color name="colorBackgroundDarkTransparent">#AA000000</color>
 
+    <color name="colorSpinnerLight">#999999</color>
+    <color name="colorSpinnerDark">#444444</color>
+
     <color name="colorTabBackgroundInactive">#EEEEEE</color>
     <color name="colorTabBackgroundInactiveDT">#222222</color>
 

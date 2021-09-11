@@ -9,7 +9,6 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
-import java.util.concurrent.TimeUnit
 
 class SentencesDownloadWorker(
     appContext: Context,
@@ -76,42 +75,15 @@ class SentencesDownloadWorker(
 
     companion object {
 
-        private const val TAG = "sentencesDownloadWorker"
-
-        private val periodicWorkConstraint = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .setRequiresCharging(true)
-            .setRequiresDeviceIdle(true)
-            .build()
-
-        private val periodicWorkRequest = PeriodicWorkRequestBuilder<SentencesDownloadWorker>(
-            1, TimeUnit.DAYS, 8, TimeUnit.HOURS
-        ).setConstraints(periodicWorkConstraint).build()
-
-        private val oneTimeWorkConstraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        private val oneTimeWorkRequest = OneTimeWorkRequestBuilder<SentencesDownloadWorker>()
-            .setConstraints(oneTimeWorkConstraints)
-            .build()
-
         fun attachOneTimeJobToWorkManager(
             wm: WorkManager,
-            workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP
+            workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.KEEP,
+            wifiOnly: Boolean = false
         ) {
             wm.enqueueUniqueWork(
                 "oneTimeSentencesDownloadWorker",
                 workPolicy,
-                oneTimeWorkRequest
-            )
-        }
-
-        fun attachPeriodicJobToWorkManager(wm: WorkManager) {
-            wm.enqueueUniquePeriodicWork(
-                "periodicSentencesDownloadWorker",
-                ExistingPeriodicWorkPolicy.KEEP,
-                periodicWorkRequest
+                WorkerUtil.request<SentencesDownloadWorker>(wifiOnly)
             )
         }
 

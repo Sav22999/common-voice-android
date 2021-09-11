@@ -1,6 +1,8 @@
 package org.commonvoice.saverio
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
@@ -8,6 +10,7 @@ import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -21,6 +24,7 @@ import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.commonTypes.CheckboxedStandardDialog
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.ReportBugsDialog
+import org.commonvoice.saverio.utils.NotificationsDailyGoalReceiver
 import org.commonvoice.saverio.utils.TranslationHandler
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
@@ -112,6 +116,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         reviewOnPlayStore()
         showBuyMeACoffeeDialog()
         checkAdsDisabledGPSVersion()
+
+        checkNotification(0, 0, 1)
 
         if (mainPrefManager.showReportWebsiteBugs) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
@@ -230,7 +236,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if (SOURCE_STORE == "GPS" && !BuildConfig.DEBUG) {
             val counter = statsPrefManager.reviewOnPlayStoreCounter
             val times = 100 //after this times it will show the message
-            if ((((counter % times) == 0 || (counter % times) == 1 || (counter % times) == 2 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog) {
+            if ((((counter % times) == 0 || (counter % times) == 1 || (counter % times) == 2 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog && counter > 3) {
                 dialogInflater.show(
                     this, CheckboxedStandardDialog(
                         messageRes = R.string.message_review_app_on_play_store,
@@ -360,7 +366,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                                 startActivity(
                                     Intent(
                                         Intent.ACTION_VIEW,
-                                        Uri.parse("https://bit.ly/3bNBoUU")
+                                        Uri.parse("https://crowdin.com/project/common-voice-android")
                                     )
                                 )
                             }
@@ -378,6 +384,34 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                 }
                 resetData()
             }
+        }
+    }
+
+    fun checkNotification(hour: Int, minute: Int, second: Int) {
+        try {
+            val calendar = Calendar.getInstance()
+            calendar.set(Calendar.HOUR_OF_DAY, hour)
+            calendar.set(Calendar.MINUTE, minute)
+            calendar.set(Calendar.SECOND, second)
+
+            val notificationIntent = Intent(this, NotificationsDailyGoalReceiver::class.java)
+
+            val pendingIntent = PendingIntent.getBroadcast(
+                applicationContext,
+                100,
+                notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+            val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+            alarmManager.setRepeating(
+                AlarmManager.RTC_WAKEUP,
+                calendar.timeInMillis,
+                10000,
+                pendingIntent
+            )
+        } catch (e: Exception) {
+            //Exception
+            Log.e("Error", e.toString())
         }
     }
 

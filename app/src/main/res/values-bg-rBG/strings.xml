@@ -12,7 +12,7 @@
     <string name="button_home_logout">Изход</string>
     <string name="button_home_profile">Профил</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Здравейте!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Здравейте, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Здравейте, {{username}}!</string>
     <string name="message_log_in_again">Сесията Ви е изтекла, нужно е да влезете отново</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Статистика</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Трябва да влезете, за да видите статистиката си</string>
     <string name="toastNoLoginNoDailyGoal">Трябва да влезете, за да поставите дневна цел</string>
     <string name="textHoursAbbreviation">ч</string>
-    <string name="textHour">Час</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
     <string name="txt_top_contributors">Водещи сътрудници</string>
     <string name="txt_top_contributors_recorded">Записани</string>
     <string name="txt_top_contributors_validated">Проверени</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Това приложение се нуждае от разрешението „Микрофон“ да записва гласа Ви.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Можете да докладвате за неизправности в GitHub или Telegram. За да помогнете на разработчика да разбере проблема бързо, трябва да прикачите файла с логовете на приложението към вашия доклад. Приложението се нуждае от разрешението „Хранилище“ да запазва файла с логовете.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Можете да допринасяте докато сте офлайн. Офлайн режимът на приложението ви ще бъде включен автоматично и ще можете да продължите да записвате и прослушвате без интернет връзка.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Можете да избере светла или тъмна тема. Можете да промените това по-късно в Настройки.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Тъмна тема</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Някои действия имат съответстващи жестове. Например можете да пропуснете изречение в Говорене, плъзгайки наляво.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Можете да персонализирате тези жестове в Настройки.</string>
@@ -66,12 +66,11 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Друг</string>
     <string name="btn_badges_loggedin" comment="Button">Всички значки</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Ниво {{level}}</string>
-    <string name="level_up_message" comment="Message text">Поздравления! Вие току що достигнахте ниво {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Вече имам връзка за потвърждение</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Връзка за потвърждение</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Връзката за потвърждение не е валидна</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Повторно отваряне на ръководството</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Проект с отворен код в GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">разработено от</string>
     <string name="toast_language_changed" comment="Message text">Езикът е успешно зададен на {{lang}}</string>
@@ -113,23 +112,24 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Група на приложението в Telegram</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Показване на етикети под иконите в менютата</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Прочит на условията за ползване на Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Прочит на насоки за потвърждение</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Прочетете критериите за принос</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Оценете в Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Потребителски интерфейс</string>
     <string name="title_advanced_settings" comment="Option in Settings">Разширени</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Запазване на записите в устройството</string>
     <string name="txt_reset_data" comment="Button in Settings">Нулиране на данните на приложението</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Няма налични експериментални функции в момента</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Показване на текста на изреченията след пълно прослушване на клиповете</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Показ на икона за докладване (отгоре вдясно) вместо бутон (отдолу)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Големина на текста</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Рекламен банер</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Включване на рекламни банери в {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Цветна лента за прогрес за дневна цел</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} и {{listen_name}}</string>
-    <string name="experimental_txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Светла тема също за изречение за прочит/проверка в Говорене и Прослушване (при пусната светла тема).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Светла тема също за изречение за прочит/проверка в Говорене и Прослушване (при пусната светла тема).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Покажи лента за контрол на скоростта</string>
-    <string name="experimental_txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Покажи икона с информация</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Покажи икона с информация</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Натиснете, за да говорите</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Изберете броя изречения и клипове за сваляне и употреба, когато приложението е в офлайн режим.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Обикновено потребителите отнемат около 13 минути, за да валидират 50 клипове и 26 минути, за да запишете 50 изречения.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Плъзгане нагоре</string>
@@ -155,8 +155,30 @@
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Докладване на изречението</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Даване на сведения за клипа</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Даване на сведения за изречението</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Прослушване/Спиране на клип</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Започване/Приключване на запис</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Прослушване/Спиране на запис</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Запази</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Избиране на действие</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Покажи икона с критерии за принос</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Качване само през Wi-Fi</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Сваляне само през Wi-Fi</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Общие уведомления</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
+    <string name="text_title_notifications" comment="Title in Settings">Известия</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Статистика</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
+    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Зареждане на изречение…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропусни</string>
@@ -248,6 +270,31 @@
         <item quantity="other">Липсват Ви само %d изречения до постигане на дневната ви цел от {{dailygoal}}!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Скоростта е успешно зададена на {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Отхвърляне на клип</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Приемане на клип</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Прослушване на клип</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Спиране на клип</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Започване на запис</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Повторен запис на изречението</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Приключване на запис</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Прослушване на запис</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Спиране на прослушване</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Изпрати запис</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Прочит на критерии за принос</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Преглед на подробности за офлайн режим</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">Преглед на сведения за текущия клип</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Преглед на сведения за текущото изречение</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Докладване на текущия клип</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Докладване на текущото изречение</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Отваряне на секцията Прослушване</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Отваряне на секцията Говорене</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Връщане назад</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Включване/Изключване</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Затваряне на съобщение</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Копирай</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Увеличи</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Намали</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Провери отново</string>
     <string name="txt_noconnection" comment="Message text">Не сте свързан към интернет. Свържете се с Wi-Fi или мобилни данни, после натиснете бутона по-долу.</string>
@@ -268,14 +315,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Докоснете тази икона за повторно прослушване на клипа.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Ако клипа съвпада с изречението, докоснете тази икона, за да го приемете.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Ако клипа не съвпада с изречението, докоснете тази икона, за да го отхвърлите.</string>
-    <string name="txt_guidelines_review_listen" comment="Message text | First-run Listen">Ако не сте сигурни дали да приемете или отхвърлите запис, можете да прочетете официалните насоки за потвърждение в Mozilla Discourse.\nМожете също да намерите тази връзка по-късно в Настройки.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">Ако не сте сигурни дали да приемете или отхвърлите запис, или искате да подобрите записите си, можете да прочетете официалните критерии за принос.\nСъщо така, можете да намерите тази връзка по-късно в Настройки &gt; Полезни връзки.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Прочетете сега</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">За съжаление, тази функция все още не съществува.\nПостоянно работим по подобряване на приложението, затова проверете отново по-късно да видите дали тя е била добавена.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Затвори</string>
     <string name="labelAllBadges" comment="Title for All badge section">Всички значки</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Ура! Вие току що спечелихте нова значка.\nОтидете в {{profile}} &gt; {{all_badges}} да видите всичките си значки.</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">Спечелена е нова значка</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">Достигнато е друго ниво</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Ура! Вие току що спечелихте нова значка.\nОтидете в {{profile}} &gt; {{all_badges}} да видите всичките си значки.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Поздравления! Вие току що достигнахте друго ниво и също спечелихте нова значка.\nОтидете в {{profile}} &gt; {{all_badges}} да видите всичките си значки.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Имате тази значка, защото сте проверили поне {{n_clips}} клипа.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Имате тази значка, защото сте записали поне {{n_sentences}} изречения.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Имате тази значка, защото сте проверили или записали поне {{n_total}} клипа.</string>
@@ -319,6 +369,7 @@
         <item quantity="other">Отворих приложението CV Project %d дни подред! Свалете го и вие, за да допринесете към проекта Common Voice с вашия телефон.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Влез сега</string>
+    <string name="button_open_profile_now" comment="Button">Отворете Профил сега</string>
     <string name="button_translate_on_crowdin" comment="Button">Преведи сега</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Дневна цел</string>

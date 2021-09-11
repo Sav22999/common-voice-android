@@ -34,7 +34,7 @@ Common Voice je iniciatíva spoločnosti Mozilla pomôcť naučiť stroje, hovor
 Hlas je prirodzený, hlas je ľudský. To je dôvod, prečo s nadšením vytvárame použiteľnú hlasovú technológiu pre naše stroje. Avšak k tomu, aby sme vytvorili hlasové systémy, potrebujú vývojári extrémne veľké množstvo hlasových dát.
 Väčšina dát, ktoré používajú veľké spoločnosti, nie sú pre väčšinu ľudí dostupné. My si myslíme, že to potlačuje inováciu. Takže sme spustili Common Voice, projekt, ktorý pomôže spraviť rozpoznávanie hlasu otvorené a prístupné všetkým.
 Teraz môžete prispieť svojím hlasom a pomôcť nám vybudovať open-source databázu, ktorú môže použiť ktokoľvek pre vytváranie inovatívnych aplikácií pre zariadenia a web. Prečítajte vetu, aby ste pomohli strojom učiť sa, ako hovoria skutoční ľudia. Kontrolujte prácu ostatných prispievateľov a zlepšujte kvalitu. Je to tak jednoduché!
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Prečo by ste mali používať aplikáciu na telefóne namiesto webovej stránky?</b>

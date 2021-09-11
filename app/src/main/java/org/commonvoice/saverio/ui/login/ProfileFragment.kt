@@ -18,6 +18,7 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.preferences.StatsPrefManager.Companion.getLevel
 import org.commonvoice.saverio_lib.utils.ImageDownloader
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
@@ -115,7 +116,7 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
 
                     binding.textLevel.text = getString(R.string.txt_your_level).replace(
                         "{{level}}",
-                        getLevel(statsPrefManager.allTimeLevel)
+                        getLevel(statsPrefManager.allTimeLevel).toString()
                     )
 
                     statsPrefManager.localLevel = 0
@@ -159,12 +160,51 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
     }
 
     private fun setTheme() = withBinding {
+        theme.setElements(requireContext(), profileSubSectionEmail)
+        theme.setElements(requireContext(), profileSubSectionUsername)
+        theme.setElements(requireContext(), profileSubSectionAge)
+        theme.setElements(requireContext(), profileSubSectionGender)
         theme.setElement(layoutLogin)
         theme.setElement(requireContext(), 3, loginSectionData)
         theme.setElement(requireContext(), 3, loginSectionInformation)
         theme.setElement(requireContext(), 1, loginSectionLogout)
         theme.setElement(requireContext(), btnBadges)
         theme.setElement(requireContext(), btnLogout)
+
+        theme.setTextView(requireContext(), textProfileEmail, border = false, intern = true)
+        theme.setTextView(requireContext(), textProfileUsername, border = false, intern = true)
+        theme.setTextView(requireContext(), textProfileAge, border = false, intern = true)
+        theme.setTextView(requireContext(), textProfileGender, border = false, intern = true)
+
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionEmail,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionUsername,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionAge,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+        theme.setElement(
+            requireContext(),
+            3,
+            profileSubSectionGender,
+            R.color.colorTabBackgroundInactive,
+            R.color.colorTabBackgroundInactiveDT
+        )
+
         theme.setElement(
             requireContext(),
             labelToModifyInformation,
@@ -172,47 +212,7 @@ class ProfileFragment : ViewBoundFragment<FragmentProfileBinding>() {
             R.color.colorAlertMessageDT,
             textSize = 15F
         )
-        theme.setTextView(
-            requireContext(),
-            textProfileUsername
-        )
-        theme.setTextView(
-            requireContext(),
-            textProfileEmail
-        )
-        theme.setTextView(
-            requireContext(),
-            textProfileAge
-        )
-        theme.setTextView(
-            requireContext(),
-            textProfileGender
-        )
-        theme.setElement(requireContext(), labelProfileUsername)
-        theme.setElement(requireContext(), labelProfileEmail)
-        theme.setElement(requireContext(), labelProfileAge)
-        theme.setElement(requireContext(), labelProfileGender)
         theme.setTextView(requireContext(), textLevel, border = false, textSize = 30F)
-    }
-
-    private fun getLevel(contributions: Int): String {
-        return when {
-            contributions > 4000000 -> "15"
-            contributions > 2000000 -> "14"
-            contributions > 1000000 -> "13"
-            contributions > 500000 -> "12"
-            contributions > 200000 -> "11"
-            contributions > 100000 -> "10"
-            contributions > 50000 -> "9"
-            contributions > 10000 -> "8"
-            contributions > 5000 -> "7"
-            contributions > 1000 -> "6"
-            contributions > 500 -> "5"
-            contributions > 100 -> "4"
-            contributions > 50 -> "3"
-            contributions > 10 -> "2"
-            else -> "1"
-        }
     }
 
     private fun logoutAndExit() {

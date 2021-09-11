@@ -36,7 +36,7 @@ class DailyGoalAchievedDialog(
                 shareIntent.type = "type/palin"
                 val textToShare = context.getString(R.string.share_daily_goal_text_on_social).replace(
                     "{{link}}",
-                    "https://bit.ly/2XhnO7h"
+                    "https://www.saveriomorelli.com/commonvoice/"
                 )
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, textToShare)
                 context.startActivity(Intent.createChooser(shareIntent, context.getString(R.string.share_daily_goal_title)))

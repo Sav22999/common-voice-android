@@ -153,32 +153,103 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Switch
-                android:id="@+id/switchEnableDarkThemeFirstLaunch"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/firstLaunchSectionTheme"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:foreground="@drawable/ripple"
-                android:gravity="center|clip_vertical|start"
-                android:padding="20dp"
-                android:showText="false"
-                android:stateListAnimator="@null"
-                android:switchPadding="4dp"
-                android:text="@string/txt_turn_on_dark_theme_first_launch"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/text_normal"
-                android:thumbTint="@drawable/thumb_switch"
-                android:trackTint="@drawable/track_switch"
+                android:background="@drawable/top_bottom_border_radius_with_border"
+                android:backgroundTint="@color/colorWhite"
+                android:padding="0dp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTermsFirstLaunch"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioGroup
+                    android:id="@+id/firstLaunchRadioGroupTheme"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/buttonThemeLightFirstLaunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:button="@drawable/radio_button_material_anim"
+                        android:buttonTint="@color/colorGray"
+                        android:drawableEnd="@drawable/ic_theme_light"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/colorGray"
+                        android:foreground="@drawable/ripple"
+                        android:gravity="center|clip_vertical|start"
+                        android:paddingStart="10dp"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/radioThemeLight"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="normal" />
+
+                    <RadioButton
+                        android:id="@+id/buttonThemeDarkFirstLaunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:button="@drawable/radio_button_material_anim"
+                        android:buttonTint="@color/colorGray"
+                        android:drawableEnd="@drawable/ic_theme_dark"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/colorGray"
+                        android:foreground="@drawable/ripple"
+                        android:gravity="center|clip_vertical|start"
+                        android:paddingStart="10dp"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/radioThemeDark"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="normal" />
+
+                    <RadioButton
+                        android:id="@+id/buttonThemeAutoFirstLaunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:button="@drawable/radio_button_material_anim"
+                        android:buttonTint="@color/colorGray"
+                        android:drawableEnd="@drawable/ic_theme_auto"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/colorGray"
+                        android:foreground="@drawable/ripple"
+                        android:gravity="center|clip_vertical|start"
+                        android:paddingStart="10dp"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/radioThemeAuto"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_normal"
+                        android:textStyle="normal" />
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -208,11 +279,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/txt_rounded"
+            android:background="@drawable/spinner_background"
             android:gravity="center|center_horizontal|center_vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:popupBackground="@drawable/txt_rounded"
+            android:popupBackground="@drawable/spinner_background"
             android:textAlignment="textStart"
             android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/firstLaunchSectionBottom"
