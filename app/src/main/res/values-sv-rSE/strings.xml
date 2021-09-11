@@ -12,7 +12,7 @@
     <string name="button_home_logout">Logga ut</string>
     <string name="button_home_profile">Profil</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Hej!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hej, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Hej, {{username}}!</string>
     <string name="message_log_in_again">Session-id har löpt ut, du måste logga in igen</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistik</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Du måste logga in för att se din statistik</string>
     <string name="toastNoLoginNoDailyGoal">Du måste logga in för att ställa in det dagliga målet</string>
     <string name="textHoursAbbreviation">h</string>
-    <string name="textHour">Timme</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
     <string name="txt_top_contributors">De som bidragit mest
 
 De främsta deltagarna</string>
@@ -48,7 +48,7 @@ De främsta deltagarna</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Denna app behöver behörigheten \"Mikrofon\" för att spela in din röst.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Du kan rapportera fel på GitHub eller Telegram. För att hjälpa utvecklaren att förstå problemet snabbt bör du bifoga appens loggfil till din rapport. Appen behöver behörigheten \"Lagring\" för att spara loggfilen.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Du kan även bidra medan du är offline. Appens \"Offline-läge\" kommer att aktiveras automatiskt, och du kan fortsätta spela in och lyssna utan internetanslutning.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Du kan välja antingen ljust tema eller mörkt tema. Du kan ändra detta senare i Inställningar.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Mörkt tema</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Vissa åtgärder har motsvarande gester. Du kan till exempel hoppa över en mening i Tala genom att svepa vänster.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Du kan anpassa dessa gester i inställningar.</string>
@@ -68,12 +68,11 @@ De främsta deltagarna</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Annat</string>
     <string name="btn_badges_loggedin" comment="Button">Alla märken</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Nivå {{level}}</string>
-    <string name="level_up_message" comment="Message text">Grattis! Du har precis uppnått nivå {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Jag har redan en verifieringslänk</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verifieringslänk</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Verifieringslänken är inte giltig</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Öppna handledningen igen</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projekt öppen kod på GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">utvecklad av</string>
     <string name="toast_language_changed" comment="Message text">Språket har ändrats till {{lang}}</string>
@@ -115,14 +114,14 @@ De främsta deltagarna</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram grupp av appen</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Visa etiketter under menyikonerna</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Läs användarvillkoren för Mozilla Common Voice</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Läs bidragskriterierna</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Betygsätt oss på Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Användargränssnitt</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avancerat</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Spara inspelningar på enheten</string>
     <string name="txt_reset_data" comment="Button in Settings">Återställ appdata</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Inga experimentella funktioner finns tillgängliga</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Visa meningstexten när klippet har lyssnats klart</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Visa en rapporteringsikon (övre högra hörnet) istället för en knapp (botten)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Textstorlek</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Annonsrad</string>
@@ -132,7 +131,7 @@ De främsta deltagarna</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Visa fält för hastighetskontroll</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Visa info-ikon</string>
-    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Tryck för att tala (PTT)</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Välj antal meningar och antal klipp att ladda ner och använda när appen är i offlineläge.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Det tar vanligtvis en användare ca 13 minuter att validera 50 klipp och 26 minuter att spela in 50 meningar.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Svep uppåt</string>
@@ -158,9 +157,30 @@ De främsta deltagarna</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Rapportera meningen</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Visa information om klippet</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Visa information om meningen</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Spela/Stoppa klipp</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Starta/stoppa inspelning</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Starta/stoppa inspelning</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Spara</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Välj en åtgärd</string>
-    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Visa ikonen för bidragskriterier</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Ladda upp endast via Wi-Fi</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Ladda ner endast via Wi-Fi</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Allmänna aviseringar</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
+    <string name="text_title_notifications" comment="Title in Settings">Aviseringar</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistik</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
+    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
@@ -252,6 +272,31 @@ De främsta deltagarna</string>
         <item quantity="other">Du saknar endast %d meningar för att uppnå ditt dagliga mål av {{dailygoal}}!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Hastighet är inställd till {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Avvisa klipp</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Godkänn klipp</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Spela upp klipp</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Stoppa klipp</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Starta inspelning</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Spela in meningen igen</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stoppa inspelning</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Spela upp inspelning</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Sluta lyssna</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Skicka inspelning</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Läs bidragskriterierna</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Visa detaljer om offline-läge</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">Visa information om det aktuella klippet</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Visa information om den aktuella meningen</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Rapportera det aktuella klippet</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Rapportera den aktuella meningen</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Öppna Lyssna-sektionen</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Öppna Tala-sektionen</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Gå tillbaka</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Aktivera/inaktivera</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Stäng meddelande</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Kopiera</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Öka</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Minska</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Kontrollera igen</string>
     <string name="txt_noconnection" comment="Message text">Du är inte ansluten till internet. Anslut till Wi-Fi eller mobildata, tryck sedan på knappen nedan.</string>
@@ -272,14 +317,17 @@ De främsta deltagarna</string>
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tryck på ikonen om du vill lyssna på klippet igen.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Om klippet matchar meningen, tryck på ikonen för att acceptera det.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Om klippet inte matchar meningen, tryck på ikonen för att avvisa den.</string>
-    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">Om du är osäker på att acceptera eller avvisa en inspelning, eller om du vill förbättra dina inspelningar, så kan du läsa de officiella bidragskriterierna.\nDu kan också hitta denna länk senare under Inställningar &gt; Användbara länkar.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Läs nu</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Tyvärr, den här funktionen finns inte ännu.\nVi arbetar ständigt med att förbättra appen, så kom tillbaka senare för att se om den har lagts till.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Stäng</string>
     <string name="labelAllBadges" comment="Title for All badge section">Alla märken</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hurra! Du har precis förtjänat ett nytt märke.\nGå till {{profile}} &gt; {{all_badges}} för att se alla dina märken.</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">Nytt märke intjänat</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">Ny nivå uppnådd</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Hurra! Du har precis förtjänat ett nytt märke.\nGå till {{profile}} &gt; {{all_badges}} för att se alla dina märken.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Grattis! Du har precis uppnått en ny nivå och du har tjänat in ett nytt märke.\nGå till {{profile}} &gt; {{all_badges}} för att se alla dina märken.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Du fick detta märke eftersom du validerade åtminstone {{n_clips}} klipp.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Du fick detta märke eftersom du spelade in åtminstone {{n_sentences}} meningar.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Du fick detta märke eftersom du validerade eller spelade in minst {{n_total}} klipp.</string>
@@ -323,6 +371,7 @@ De främsta deltagarna</string>
         <item quantity="other">Jag har öppnat appen CV Project %d dagar i rad! Ladda ner den du också för att bidra till projektet Common Voice via din smartphone.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Logga in nu</string>
+    <string name="button_open_profile_now" comment="Button">Öppna profil nu</string>
     <string name="button_translate_on_crowdin" comment="Button">Översätt nu</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Dagligt mål</string>

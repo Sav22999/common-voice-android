@@ -11,7 +11,10 @@ class MainPrefManager(ctx: Context) {
         set(value) = preferences.edit().putString(Keys.LANGUAGE.name, value).apply()
 
     var genericAPIUrl: String
-        get() = preferences.getString(Keys.GENERIC_API_URL.name, "https://commonvoice.mozilla.org/api/v1/") ?: "https://commonvoice.mozilla.org/api/v1/"
+        get() = preferences.getString(
+            Keys.GENERIC_API_URL.name,
+            "https://commonvoice.mozilla.org/api/v1/"
+        ) ?: "https://commonvoice.mozilla.org/api/v1/"
         set(value) = preferences.edit().putString(Keys.GENERIC_API_URL.name, value).apply()
 
     var tokenUserId: String
@@ -88,6 +91,17 @@ class MainPrefManager(ctx: Context) {
         get() = preferences.getFloat(Keys.TEXT_SIZE.name, 1.0F)
         set(value) = preferences.edit().putFloat(Keys.TEXT_SIZE.name, value).apply()
 
+    var hourTurnOnLightTheme: Int
+        get() = preferences.getInt(Keys.HOUR_TURN_ON_LIGHT_THEME.name, 8) //light theme from 8:00
+        set(value) = preferences.edit().putInt(Keys.HOUR_TURN_ON_LIGHT_THEME.name, value).apply()
+
+    var hourTurnOffLightTheme: Int
+        get() = preferences.getInt(
+            Keys.HOUR_TURN_OFF_LIGHT_THEME.name,
+            17
+        ) //light theme until 17:59
+        set(value) = preferences.edit().putInt(Keys.HOUR_TURN_OFF_LIGHT_THEME.name, value).apply()
+
     var appVersionCode: Int
         get() = preferences.getInt(Keys.APP_VERSION_CODE.name, 0)
         set(value) = preferences.edit().putInt(Keys.APP_VERSION_CODE.name, value).apply()
@@ -131,6 +145,8 @@ class MainPrefManager(ctx: Context) {
         LANGUAGE,
         GENERIC_API_URL,
         SESSID_COOKIE,
+        HOUR_TURN_ON_LIGHT_THEME,
+        HOUR_TURN_OFF_LIGHT_THEME,
         TOKEN_USERID,
         TOKEN_AUTH,
         IS_LOGGED_IN,

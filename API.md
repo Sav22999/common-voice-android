@@ -93,18 +93,18 @@ You can specify these parameters:
 
 #### Response
 
-The system returns a `JSON` file, which has a counter from `1` , and it contains are two big section: `general` and `log`.
+The system returns a `JSON` document, which has a counter from `1` , and it contains two big sections: `general` and `log`.
 
 `general`:
 
 | Key        | Value      | Explanation                                                  |
 | ---------- | ---------- | ------------------------------------------------------------ |
-| `id`       | *Integer*  | It's the id of the log in the database                       |
-| `logDate`  | *DateTime* | It's the data when the log was verified.                     |
-| `date`     | *DateTime* | It's the date when the log was added in the system           |
+| `id`       | *Integer*  | The id of the log entry in the database                      |
+| `logDate`  | *DateTime* | The date when the log happened.                              |
+| `date`     | *DateTime* | The log entry creation date                                  |
 | `language` | *String*   | It's the language code you are using the app (`en`, `it`, ...) |
-| `version`  | *Integer*  | It's the version code of the app (`90`, `91`, ...)           |
-| `source`   | *String*   | It indicates the source from you installed the app (GPS: Google Play Store, FD-GH: F-Droid/GitHub) |
+| `version`  | *Integer*  | The version code of the app (`90`, `91`, ...)                |
+| `source`   | *String*   | It indicates the source from which you installed the app (`GPS`: Google Play Store, `FD-GH`: F-Droid/GitHub) |
 | `logged`   | `0` or `1` | It's an integer value `0` if you use the app "anonymously" (without log-in), `1` if you are logged in |
 
 `log`:

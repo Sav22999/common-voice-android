@@ -33,7 +33,7 @@ class DarkLightTheme(
                 "dark" -> true
                 else -> {
                     val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-                    currentHour !in 8..17
+                    currentHour !in mainPrefManager.hourTurnOnLightTheme..mainPrefManager.hourTurnOffLightTheme
                 }
             }
         }

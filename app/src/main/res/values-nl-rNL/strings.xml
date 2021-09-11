@@ -12,7 +12,7 @@
     <string name="button_home_logout">Afmelden</string>
     <string name="button_home_profile">Profiel</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Hallo!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hallo, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Hallo, {{username}}!</string>
     <string name="message_log_in_again">De sessie-id is verlopen, u moet opnieuw aanmelden</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistieken</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">U moet aanmelden om uw statistieken te kunnen bekijken</string>
     <string name="toastNoLoginNoDailyGoal">U moet aanmelden om het dagelijkse doel in te stellen</string>
     <string name="textHoursAbbreviation">u</string>
-    <string name="textHour">Uur</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Tijdstip {{hour}}</string>
     <string name="txt_top_contributors">Topmedewerkers</string>
     <string name="txt_top_contributors_recorded">Opgenomen</string>
     <string name="txt_top_contributors_validated">Gevalideerd</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Deze app heeft toestemming van de ‘Microfoon’ nodig om uw stem op te nemen.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">U kunt bugs melden op GitHub of Telegram. Om de ontwikkelaar te helpen het probleem snel te begrijpen, moet u het logbestand van de app aan uw rapport koppelen. De app heeft de toestemming ‘Opslag’ nodig om het logbestand op te slaan.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">U kunt zelfs bijdragen als u offline bent. De ‘Offlinemodus’ van de app wordt automatisch ingeschakeld en u kunt doorgaan met opnemen en luisteren zonder een internetverbinding.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">U kunt kiezen uit het lichte of donkere thema. U kunt dit later wijzigen in Instellingen.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Donker thema</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Sommige acties hebben overeenkomstige gebaren. U kunt bijvoorbeeld een zin overslaan in Spreken door naar links te vegen.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">U kunt deze gebaren aanpassen in Instellingen.</string>
@@ -66,7 +66,6 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Anders</string>
     <string name="btn_badges_loggedin" comment="Button">Alle badges</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Niveau {{level}}</string>
-    <string name="level_up_message" comment="Message text">Gefeliciteerd! U hebt zojuist niveau {{n_level}} bereikt.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">Ik heb al een verificatiekoppeling</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verificatiekoppeling</string>
     <string name="txt_verification_link_not_valid" comment="Message text">De verificatiekoppeling is ongeldig</string>
@@ -113,24 +112,24 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram-groep van de app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Labels onder de menupictogrammen tonen</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">De servicevoorwaarden van Mozilla Common Voice lezen</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Bijdragecriteria lezen</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Op Google Play beoordelen</string>
     <string name="title_ui_settings" comment="Option in Settings">Gebruikersinterface</string>
     <string name="title_advanced_settings" comment="Option in Settings">Geavanceerd</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Opnames op apparaat opslaan</string>
     <string name="txt_reset_data" comment="Button in Settings">Appgegevens herinitialiseren</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Er zijn momenteel geen experimentele functies beschikbaar</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Tekst van zinnen tonen als fragmenten volledig zijn beluisterd</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Zintekst pas tonen als het fragment volledig is afgespeeld</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Rapportpictogram (rechtsboven) tonen in plaats van een knop (onderaan)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Tekstgrootte</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Advertentiebanner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Advertentiebanner in {{section_name}} toestaan</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Gekleurde voortgangsbalk dagdoel</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} en {{listen_name}}</string>
-    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Licht thema ook voor de te lezen/valideren zin in Spreken en Luisteren (wanneer het lichte thema is ingeschakeld).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Snelheidscontrolebalk tonen</string>
-    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
-    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Infopictogram tonen</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Druk om te spreken</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Kies het aantal te downloaden zinnen en fragmenten dat u in de app in de offline-modus wilt gebruiken.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Normaal hebben gebruikers ongeveer 15 minuten nodig om 50 clips te valideren en 30 minuten om 50 zinnen op te nemen.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Omhoog vegen</string>
@@ -156,9 +155,30 @@
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Zin rapporteren</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Informatie over het fragment tonen</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Informatie over de zin tonen</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Fragment afspelen/stoppen</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Opname starten/stoppen</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Opname afspelen/stoppen</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Opslaan</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Selecteer een actie</string>
-    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Bijdragecriteriapictogram tonen</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Alleen via wifi uploaden</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Alleen via wifi downloaden</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Algemene notificaties</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Dagelijkse doelnotificaties</string>
+    <string name="text_title_notifications" comment="Title in Settings">Notificaties</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Vergeet niet vandaag bij te dragen aan Common Voice, uw bijdrage is waardevol en belangrijk!\nTik hier om de app te openen en direct aan uw dagelijkse doelstelling te werken.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">Dagelijkse doelstelling CV Project nog niet bereikt!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Kies wanneer u een notificatie wilt ontvangen als uw dagelijkse doelstelling nog niet is bereikt.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Houd er rekening mee dat niet exact kan zijn of helemaal niet zou kunnen werken vanwege instellingen voor batterijoptimalisatie.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Eerste waarschuwing</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Tweede waarschuwing</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Geen</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistieken</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Doel-API-server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Terugzetten naar de standaard API-server</string>
+    <string name="button_customise_api_server" comment="Button">API-server aanpassen</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Weet u zeker dat u de API-server wilt aanpassen? Dit kan een gevaarlijke actie zijn.\nU kunt op elk gewenst moment naar de standaard API-server terugzetten.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Doel-API-server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Zin laden…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
@@ -250,6 +270,31 @@
         <item quantity="other">U hoeft nog maar %d zinnen om uw dagdoel van {{dailygoal}} te bereiken!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Snelheid met succes ingesteld op {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Fragment afwijzen</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Fragment accepteren</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Fragment afspelen</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Fragment stoppen</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Opname starten</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">De zin opnieuw opnemen</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Opname stoppen</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Opname afspelen</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stoppen met luisteren</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Verzend opname</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Bijdragecriteria lezen</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Offlinemodusdetails bekijken</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">Gegevens over het huidige fragment bekijken</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Gegevens over de huidige zin bekijken</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Het huidige fragment rapporteren</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">De huidige zin rapporteren</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Sectie Luisteren openen</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Sectie Spreken openen</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Terug</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">In-/uitschakelen</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Bericht sluiten</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Kopiëren</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Verhogen</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Verlagen</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Opnieuw controleren</string>
     <string name="txt_noconnection" comment="Message text">U bent niet verbonden met het internet. Maak verbinding met wifi of mobiele data en druk vervolgens op de knop hieronder.</string>
@@ -270,14 +315,17 @@
     <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tik op dit pictogram als u het fragment opnieuw wilt beluisteren.</string>
     <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Als het fragment en de zin met elkaar overeenkomen, tikt u op dit pictogram om het te accepteren.</string>
     <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Als het fragment niet met de zin overeenkomt, tik dan op dit pictogram om het te verwerpen.</string>
-    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">Als u niet zeker weet of u een opname accepteert of afwijst, of dat u uw opnames wilt verbeteren, kunt u de officiële bijdragecriteria lezen.\nU kunt deze koppeling ook vinden in Instellingen &gt; Nuttige koppelingen.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Nu lezen</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, deze functie bestaat nog niet.\nWe werken constant aan het verbeteren van de app, dus kijk later nog eens om te zien of deze is toegevoegd.</string>
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Sluiten</string>
     <string name="labelAllBadges" comment="Title for All badge section">Alle badges</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hoera! U hebt zojuist een nieuwe badge verdiend.\nGa naar {{profile}} &gt; {{all_badges}} om al uw badges te zien.</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">Nieuwe badge verdiend</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">Nieuw niveau bereikt</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Hoera! U hebt zojuist een nieuwe badge verdiend.\nGa naar {{profile}} &gt; {{all_badges}} om al uw badges te zien.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Gefeliciteerd! U hebt zojuist een nieuw level bereikt en u verdient ook een nieuwe badge\nGa naar {{profile}} &gt; {{all_badges}} om al uw badges te zien.</string>
     <string name="message_got_badge_because_clips" comment="Message text">U heeft deze badge, omdat u ten minste {{n_clips}} fragmenten hebt gevalideerd.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">U heeft deze badge ontvangen omdat u ten minste {{n_sentences}} zinnen hebt opgenomen.</string>
     <string name="message_got_badge_because_levels" comment="Message text">U hebt deze badge ontvangen, omdat u ten minste {{n_total}} fragmenten hebt gevalideerd of opgenomen.</string>
@@ -321,6 +369,7 @@
         <item quantity="other">Ik heb de CV Project-app op %d opeenvolgende dagen geopend! Download de app ook als u via uw smartphone aan het Common Voice-project wilt bijdragen.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Nu aanmelden</string>
+    <string name="button_open_profile_now" comment="Button">Profiel nu openen</string>
     <string name="button_translate_on_crowdin" comment="Button">Nu vertalen</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Dagelijks doel</string>

@@ -12,7 +12,7 @@
     <string name="button_home_logout">வெளியேறு</string>
     <string name="button_home_profile">சுயவிவரம்</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username">Hi, {{username}}!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Hi, {{username}}!</string>
     <string name="message_log_in_again">தங்கள் session-id காலாவதியானது, நீங்கள் மீண்டும் உள்நுழைய வேண்டும்</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">புள்ளிவிவரம்</string>
@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">உங்கள் புள்ளிவிவரங்களைக் காண நீங்கள் உள்நுழைய வேண்டும்</string>
     <string name="toastNoLoginNoDailyGoal">தினசரி இலக்கை நிர்ணயிக்க நீங்கள் உள்நுழைய வேண்டும்</string>
     <string name="textHoursAbbreviation">ம. நே</string>
-    <string name="textHour">மணி நேரம்</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
     <string name="txt_top_contributors">சிறந்த பங்களிப்பாளர்கள்</string>
     <string name="txt_top_contributors_recorded">பதிவு செய்யப்பட்டது</string>
     <string name="txt_top_contributors_validated">Validated</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">You can choose either light theme or dark theme. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">இருண்ட தீம்</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
@@ -66,12 +66,11 @@
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">மற்றவை</string>
     <string name="btn_badges_loggedin" comment="Button">அனைத்து பேட்ஜ்கள்</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
-    <string name="level_up_message" comment="Message text">Congrats! You have just achieved level {{n_level}}.</string>
     <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
     <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">பயிற்சிகளை மீண்டும் திறக்கவும்</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">திட்டத்தின் திறந்த மூலத்தை Githubல் கான</string>
     <string name="txt_developed_by" comment="Label in Settings">உருவாக்கியவர்</string>
     <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
@@ -120,7 +119,7 @@
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Show sentences text when clips are listened completely</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
@@ -156,9 +155,30 @@
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Play/Stop clip</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Start/Stop recording</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Play/Stop recording</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">சேமி</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
     <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Upload using Wi-Fi only</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download using Wi-Fi only</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Generic notifications</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
+    <string name="text_title_notifications" comment="Title in Settings">Notifications</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistics</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
+    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">தவிர்</string>
@@ -250,6 +270,31 @@
         <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Reject clip</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Accept clip</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Play clip</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Stop clip</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Start recording</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Record again the sentence</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Send recording</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">See offline mode details</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">See information about the current clip</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">See information about the current sentence</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Report the current clip</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Report the current sentence</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Go back</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Enable/Disable</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Close message</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copy</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Increase</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Decrease</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">மீண்டும் சரிபார்க்கவும்</string>
     <string name="txt_noconnection" comment="Message text">நீங்கள் இணையத்துடன் இணைக்கப்படவில்லை. வைஃபை அல்லது மொபைல் தரவுடன் இணைக்கவும், பின்னர் கீழே உள்ள பொத்தானை அழுத்தவும்.</string>
@@ -277,7 +322,10 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">மூடு</string>
     <string name="labelAllBadges" comment="Title for All badge section">அனைத்து பேட்ஜ்கள்</string>
-    <string name="new_badge_earnt_message" comment="Message text when you got a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">New badge earnt</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">New level achieved</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Congrats! You have just achieved a new level and you earnt a new badge as well.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
@@ -321,6 +369,7 @@
         <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
     </plurals>
     <string name="button_log_in_now" comment="Button">Log in now</string>
+    <string name="button_open_profile_now" comment="Button">Open Profile now</string>
     <string name="button_translate_on_crowdin" comment="Button">Translate now</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">தினசரி இலக்கு</string>

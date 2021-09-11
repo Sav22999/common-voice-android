@@ -236,7 +236,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         if (SOURCE_STORE == "GPS" && !BuildConfig.DEBUG) {
             val counter = statsPrefManager.reviewOnPlayStoreCounter
             val times = 100 //after this times it will show the message
-            if ((((counter % times) == 0 || (counter % times) == 1 || (counter % times) == 2 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog) {
+            if ((((counter % times) == 0 || (counter % times) == 1 || (counter % times) == 2 || (counter % times) == times)) && mainPrefManager.showReviewAppDialog && counter > 3) {
                 dialogInflater.show(
                     this, CheckboxedStandardDialog(
                         messageRes = R.string.message_review_app_on_play_store,

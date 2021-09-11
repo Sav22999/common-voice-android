@@ -116,7 +116,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             languageListFirstLaunch.isGone = true
             buttonNextFirstLaunch.setText(R.string.btn_tutorial3)
             firstLaunchSectionMiddleBottom.isGone = true
-            switchEnableDarkThemeFirstLaunch.isGone = true
+            firstLaunchSectionTheme.isGone=true
             textTermsFirstLaunch.isGone = true
 
             if (!start) {
@@ -181,17 +181,25 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                 startAnimation(imageFirstLaunch, animationFirstLaunch)
                 textDescriptionFirstLaunch.setText(R.string.txt_themes_first_launch)
                 firstLaunchSectionMiddleBottom.isGone = false
-                switchEnableDarkThemeFirstLaunch.isGone = false
+                firstLaunchSectionTheme.isGone = false
 
-                switchEnableDarkThemeFirstLaunch.setOnCheckedChangeListener { _, isChecked ->
-                    if (isChecked) {
-                        theme.themeType = "dark"
-                    } else {
-                        theme.themeType = "light"
+                firstLaunchRadioGroupTheme.check(
+                    when (theme.themeType) {
+                        "dark" -> R.id.buttonThemeDarkFirstLaunch
+                        "auto" -> R.id.buttonThemeAutoFirstLaunch
+                        else -> R.id.buttonThemeLightFirstLaunch
+                    }
+                )
+
+                firstLaunchRadioGroupTheme.setOnCheckedChangeListener { _, checkedId ->
+                    theme.themeType = when (checkedId) {
+                        R.id.buttonThemeDarkFirstLaunch -> "dark"
+                        R.id.buttonThemeAutoFirstLaunch -> "auto"
+                        R.id.buttonThemeLightFirstLaunch -> "light"
+                        else -> ""
                     }
                     setTheme()
                 }
-                switchEnableDarkThemeFirstLaunch.isChecked = theme.isDark
             } else if (status == 4) {
                 //gestures
                 imageFirstLaunch.setImageResource(R.drawable.ic_gestures)
@@ -266,6 +274,11 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
         theme.setElement(this@FirstLaunch, 3, firstLaunchSectionDescription)
         theme.setElement(this@FirstLaunch, 3, firstLaunchSectionMiddleBottom)
         theme.setElement(this@FirstLaunch, 1, firstLaunchSectionBottom)
+        theme.setElement(this@FirstLaunch, 3, firstLaunchSectionTheme)
+
+        theme.setElement(this@FirstLaunch, buttonThemeLightFirstLaunch)
+        theme.setElement(this@FirstLaunch, buttonThemeDarkFirstLaunch)
+        theme.setElement(this@FirstLaunch, buttonThemeAutoFirstLaunch)
 
         theme.setTextView(
             this@FirstLaunch,
