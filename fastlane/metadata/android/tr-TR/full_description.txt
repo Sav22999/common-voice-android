@@ -34,7 +34,7 @@ Common Voice, Mozilla'nın makinelere gerçek insanların nasıl konuştuğunu �
 Ses doğaldır, ses insandır. Bu nedenle makinelerimiz için kullanılabilir ses teknolojisi yaratma konusunda heyecanlıyız. Ancak ses sistemleri oluşturmak için geliştiricilerin son derece büyük miktarda ses verisine ihtiyacı vardır.
 Büyük şirketler tarafından kullanılan verilerin çoğu, insanların kullanımı için uygun değildir. Bunun yeniliği engellediğini düşünüyoruz. Bu nedenle, ses tanımayı herkese açık ve erişilebilir hale getirmeye yardımcı olacak bir proje olan Common Voice'u başlattık.
 Artık herkesin cihazlar ve web için yenilikçi uygulamalar yapmak üzere kullanabileceği açık kaynaklı bir ses veritabanı oluşturmamıza yardımcı olması için sesinizi bağışlayabilirsiniz. Makinelerin gerçek insanların nasıl konuştuğunu öğrenmesine yardımcı olmak için bir cümle okuyun. Kaliteyi arttırmak için diğer katkıda bulunanların çalışmalarını kontrol edin. Bu kadar basit!
-Resmi website üzerinden daha fazla detaya erişebilirsiniz <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Neden mobil web sitesi yerine uygulamayı kullanmalısınız?</b>

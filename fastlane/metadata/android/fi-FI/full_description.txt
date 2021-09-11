@@ -22,24 +22,24 @@ Tämä ei ole Common Voicen virallinen sovellus. Sen on kehittänyt Saverio More
 - Monia muita ominaisuuksia
 - Sovelluskokemus on täysin muokattavissa asetuksissa
 
-Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Liity Telegram-ryhmään: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
 You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
 You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
-Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
+Lue lisää tästä sovelluksesta GitHubissa: <a href="https://github.com/Sav22999/common-voice-android/">CV Project GitHubissa</a>
 </p>
 <p>
-<b>What is the Common Voice project?</b>
+<b>Mikä Common Voice-projekti on?</b>
 
 Common Voice on Mozilla-projekti, jonka tavoitteena on opettaa koneet puhumaan kuin oikeat ihmiset.
 Ääni on luonnollista ja inhimillistä. Siksi olemme kiinnostuneita luomaan käyttökelpoista puheteknologiaa koneille. Puheteknologiaa varten tarvitaan kuitenkin laaja ääniaineisto.
 Suurin osa suuryritysten käyttämästä aineistosta ei ole laajasti käytettävissä. Meistä se tukahduttaa innovaation. Siitä syystä käynnistimme Common Voice -projektin, joka auttaa avaamaan puheentunnistuksen kaikille.
 Voit lahjoittaa äänesi auttaaksesi meitä rakentamaan avoimen lähdekoodin äänitietokantaa, jota kuka tahansa voi hyödyntää innovatiivisissa sovelluksissa ja internetissä. Lue virke ja auta koneita oppimaan kuinka ihmiset puhuvat. Tarkasta muiden puhujien ääninäytteitä laadun parantamiseksi. Niin helppoa se on!
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+Löydät lisätietoa viralliselta verkkosivustolta <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Miksi sinun pitäisi käyttää sovellusta verkkosivun sijaan mobiililaitteilla?</b>
 
-The app is developed specifically for smartphones so it's native. Siinä on monia ominaisuuksia, joita sivustossa ei ole, kuten tumma teema, offline-tila, mukautus, eleet, jne.
-The app is lighter than website, without annoying animations (and animations in the app can also be stopped in Settings).
-In addition, the website has many bugs, especially for mobile-version, so you cannot do everything correctly.
+Sovellus on kehitetty erityisesti älypuhelimille, joten se on natiivi. Siinä on monia ominaisuuksia, joita sivustossa ei ole, kuten tumma teema, offline-tila, mukautus, eleet, jne.
+Sovellus on sivustoa kevyempi, ilman ärsyttäviä animaatioita (ja sovelluksen animaatiot voidaan myös pysäyttää asetuksissa).
+Lisäksi sivustolla on monia bugeja, erityisesti mobiiliversiossa, joten et voi tehdä kaikkea oikein.
 </p>

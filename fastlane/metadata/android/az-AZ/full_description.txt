@@ -1,0 +1,45 @@
+<p>
+Bu, Common Voice-in rəsmi tətbiqi deyil. Saverio Morelli tərəfindən təkmilləşdirilib
+</p>
+<p>
+<b>Tətbiq özəllikləri:</b>
+
+- İstifadəçi interfeysi (UI) ağıllı, dəqiq və müasirdir
+- Common Voice hesabınıza giriş edin
+- Klipləri təsdiqləmə
+- Cümlələrin səsini yazma
+- Əlaqədar bölmələrdəki cümlələri/klipləri bildirmə
+- Çoxlu dil dəstəklənir
+- Xətdən kənar rejimi (internetə bağlanmadığınız müddətdə töhfə verməyə davam edin!)
+- Common Voice statistikaları (seçilən dil)
+- Başlıca töhfə verənlər (seçilən dil)
+- Tətbiq statistikaları (anonim)
+- Onlayn səslər (seçilən dil)
+- Tünd tema dəstəklənir
+- Gündəlik hədəf
+- Jestlər
+- Səsyazmalarınızı cihazınızda saxlayın
+- Digər bir neçə özəllik
+- Tənzimləmələrdə tamamilə özəlləşdirilə bilən tətbiq təcrübəsi
+
+Telegram qrupuna qoşulun: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Tətbiq statistikalarının tamamına <a href="https://www.saveriomorelli.com/commonvoice/statistics/">buradan</a> baxa bilərsiniz
+Həmçinin tətbiq istifadə statistikalarına <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">buradan</a> baxa bilərsiniz
+Bu tətbiq haqqında daha çoxunu GitHub-da oxuyun: <a href="https://github.com/Sav22999/common-voice-android/">GitHub-da CV Project</a>
+</p>
+<p>
+<b>Common Voice layihəsi nədir?</b>
+
+Common Voice, Mozilla-nın maşınlara gerçək insanların necə danışdığını öyrətməyə kömək edən təşəbbüsdür.
+Səs təbiidir, səs insandır. Buna görə də maşınlarımız üçün istifadəyə yararlı səs texnologiyasını yaratma mövzusunda həyəcanlıyıq. Ancaq səs sistemlərini yaratmaq üçün, tərtibatçıların, böyük miqdarda səs verilənlərinə ehtiyacı var.
+Böyük şirkətlər tərəfindən istifadə olunan verilənlərin əksəriyyəti, insanların istifadəsi üçün uyğun deyil. Bunun innovasiyanı əngəllədiyini düşünürük. Buna görə də, səs tanınmasını hər kəs üçün açıq və əlçatan etməyə kömək edəcək bir layihəni, Common Voice-u başlatdıq.
+Artıq hər kəsin cihazlar və veb üçün innovativ tətbiqləri hazırlamaq üzrə istifadə edə biləcəyi açıq mənbəli səs verilənlər bazasını qurmaqda bizə kömək etməyiniz üçün səsinizi hədiyyə edə bilərsiniz. Maşınların, gerçək insanların necə danışdığını öyrənməsinə kömək etmək üçün bir cümlə oxuyun. Keyfiyyəti artırmaq üçün digər töhfə verənlərin işlərini yoxlayın. Bu qədər sadədir!
+Daha çox məlumatı rəsmi <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a> saytından əldə edə bilərsiniz
+</p>
+<p>
+<b>Niyə mobildəki veb sayt əvəzinə tətbiqi istifadə etməlisiniz?</b>
+
+Bu tətbiq, xüsusilə ağıllı telefonlar üçün hazırlanıb. Tünd tema, xətdən kənar rejimi, özəlləşdirmə, jestlər kimi veb saytın sizə təqdim etmədiyi özəlliklərə sahibdir.
+Tətbiq, əsəbedici animasiyalar olmadan veb saytdan daha yüngüldür (və tətbiqdəki animasiyalar Tənzimləmələrdən dayandırıla bilər).
+Əlavə olaraq, veb saytda, xüsusilə mobil versiya üçün daha çox xəta var, ona görə də hər şeyi doğru şəkildə edə bilməzsiniz.
+</p>

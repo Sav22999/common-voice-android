@@ -34,7 +34,7 @@ A Common Voice a Mozilla kezdeményezése, hogy segítsünk megtanítani a gépe
 A beszéd természetes, a beszéd emberi. Ezért lelkesedünk egy gépeink számára használható beszédtechnológia létrehozásáért. De a hangalapú rendszerek elkészítéséhez a fejlesztőknek hatalmas mennyiségű beszédmintára van szükségük.
 A nagyvállalatok által használt hangminták a legtöbb ember számára nem érhetőek el. Szerintünk ez elfojtja az innovációt. Ezért létrehoztuk a Common Voice projektet, hogy segítsük a hangfelismerési technológiát mindenki számára hozzáférhetővé tenni.
 Most adhatja a hangját, hogy segítsen nekünk egy nyílt forrású hang adatbázist építeni, amit bárki szabadon használhat arra, hogy innovatív alkalmazásokat készítsen eszközökre és a webre. Olvasson fel egy mondatot, hogy segítse a gépeket megtanulni, hogyan beszélnek az emberek. Ellenőrizze mások hozzájárulásait, javítva a minőséget. Ilyen egyszerű!
-További részleteket a hivatalos weboldalon talál: <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+További részleteket a hivatalos weboldalon talál: <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Miért használja az alkalmazást a mobilos weboldal helyett?</b>

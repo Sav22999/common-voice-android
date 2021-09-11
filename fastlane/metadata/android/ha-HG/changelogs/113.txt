@@ -1,0 +1,11 @@
+The app was developed from zero.
+News:
+- New UI
+- Offline mode
+- Top contributors (of Common Voice)
+- App statistics
+- New options in Settings
+- Sending of recordings/validations in background
+- Fixed many bugs
+- Telegram group: @common_voice_android
+- New animations

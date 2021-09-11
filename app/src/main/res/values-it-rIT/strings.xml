@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Devi effettuare l\'accesso per vedere le statistiche</string>
     <string name="toastNoLoginNoDailyGoal">Devi effettuare l\'accesso per poter impostare l\'obiettivo giornaliero</string>
     <string name="textHoursAbbreviation">o</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Ora {{hour}}</string>
     <string name="txt_top_contributors">Collaboratori principali</string>
     <string name="txt_top_contributors_recorded">Registrazioni</string>
     <string name="txt_top_contributors_validated">Convalide</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Questa app ha bisogno del permesso \"Microfono\" per registrare la voce.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Puoi segnalare bug su GitHub o Telegram. Per aiutare lo sviluppatore a capire rapidamente il problema, è necessario allegare il file di log dell\'app alla segnalazione. L\'applicazione ha bisogno dell\'autorizzazione \"Archiviazione\" per salvare il file di log.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Puoi anche contribuire mentre sei offline. La \"modalità Offline\" dell\'app sarà attivata automaticamente, e puoi continuare a registrare e ascoltare senza una connessione Internet.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Scegli il tuo tema preferito. \"Automatico\" permette di cambiare automaticamente il tema in base all\'attuale ora. Puoi modificarlo successivamente nelle Impostazioni.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tema scuro</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Alcune azioni possono essere fatte attraverso dei gesti. Ad esempio, puoi saltare una frase in Parla scorrendo verso sinistra.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">È possibile personalizzare questi gesti nelle Impostazioni.</string>

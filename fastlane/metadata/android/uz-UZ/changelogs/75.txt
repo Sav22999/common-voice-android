@@ -1,0 +1,2 @@
+- Fixed bug in Login/Signup
+- Added partial translation in Estonian

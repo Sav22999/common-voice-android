@@ -1,0 +1,21 @@
+★ Changelogs ★
+- Added "daily goal progress bar", in Listen and Speak
+- Added the option which able to share a message when you achieve the daily goal
+- Updated "Top contributors"
+- Show the sentence of the clip just when you finish to listen to it
+- Reorganised Settings
+- Now you can show an icon instead of the Report button, in Speak and Listen
+- Android 11 (API 30) are now natively supported
+- Updated Georgian code and added FI (Finnish), LG (Luganda) and LT (Lithuanian)
+- Daily goal increased to 500 (before was 200)
+- Added the "app usage" (anonymously)
+- You can now disable Offline mode
+- Added "Auto" theme (based on hours), Light and Dark continue to be available
+- You can now reset app data in the app
+- Added animation in Listen and improved that in Speak
+- App now available also on Huawei AppGallery
+- Added log feature, so you can attach the log file
+- You can see your the app string which identify you
+- General improvements and fixed many bugs
+
+You can see more details here: https://www.saveriomorelli.com/commonvoice/release/2-2/

@@ -22,24 +22,24 @@ Asnas-a mačči d asnas unṣib n Common Voice. Infel-it-id Saverio Morelli
 - Aṭas n tmahilin-nniḍen
 - Tarmit n usnas d tudmawant s umata deg yiɣewwaren
 
-Join the Telegram group: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
-You can see complete app statistics here: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">App statistics</a>
-You can also see the app usage statistics here: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">App usage statistics</a>
-Read more about this app on GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project on GitHub</a>
+Rnu ɣer ugraw n Telegram: <a href="https://t.me/common_voice_android">(@common_voice_android)</a>
+Tzemreḍ ad twaliḍ akk tiddadanin n usnas da: <a href="https://www.saveriomorelli.com/commonvoice/statistics/">tiddadanin n usnas</a>
+Tzemreḍ daɣen ad twaliḍ tiddadanin n useqdec n usnas da: <a href="https://www.saveriomorelli.com/commonvoice/app-usage/">aseqdec n usnas</a>
+Ɣeṛ ugar ɣef usnas-a deg GitHub: <a href="https://github.com/Sav22999/common-voice-android/">CV Project deg GitHub</a>
 </p>
 <p>
-<b>What is the Common Voice project?</b>
+<b>D acu-t usenfar n Common Voice?</b>
 
 Common Voice d assumer n Mozilla i tallalt n uselmed n tmacinin ɣef wamek i ttmeslayen yimdanen n tidet.
 Taɣect d tagmawit, taɣect n umdan. Ɣef waya i nḥar ad d-nesnulfu tatiknulujit n taɣect i zemrent ad sqedcent tmacinin-nneɣ. Maca i usnulfu n yinagrawen n taɣect, ineflayen sran tasmekta meqqren n yisefka n taɣect.
 Amur ameqqran n yisefka i seqdacent tkebbaniyin timeqqranin ur yewjid ara i tugget n medden. Nettwali aya yettarez asnulfu. Ihi nsekker-d Common Voice, asenfar ara yerren aɛqal n taɣect yeldi i yal yiwen akken ad ikcem ɣur-s.
 Tura tzemreḍ ad d-tefkeḍ taɣect-ik•im akken ad aɣ-tɛawneḍ ad d-nebnu taffa n yisefka n taɣect n uɣbalu yeldin i yezmer ad isseqdec yal yiwen deg usnulfu n yisnasen i yibenken akked uẓeṭṭa web. Ɣeṛ tafyirt akken ad tɛawneḍ timacinin ad lemdent amek i ttmeslayen yimdanen n tidet. Senqed amahil n yimettekkiyen-nniḍen i usnerni n tɣara. Ishel maḍi!
-You can find more details on the official website <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a>
+You can find more details on the official website <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a>
 </p>
 <p>
 <b>Ayɣer i ilaq ad tesqedceḍ asnas deg wadeg n usmel web ɣef uziraz?</b>
 
-The app is developed specifically for smartphones so it's native. Llant ddeqs n tmahilin ur d-yettak ara usmel web, am usentel aberkan, askar aruqqin, aggan, iwehhiyen, atg.
+Asnas yettusnefli ladɣa i tiliɣriyin tuḥricin ihi d anaṣli. Llant ddeqs n tmahilin ur d-yettak ara usmel web, am usentel aberkan, askar aruqqin, aggan, iwehhiyen, atg.
 Asnas fessus ugar n usmel web, war imrayen ur nemɛin (imrayen deg usnas tzemreḍ ad ten-tesḥebseḍ deg yiɣewwaṛen).
 Rnu ɣer-s, asmel web yesɛa ddeqs n yibugen, ladɣa deg usmel aziraz, ihi ur tzemmreḍ ara ad tgeḍ ula d kra akken iwata.
 </p>

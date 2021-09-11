@@ -34,7 +34,7 @@ Common Voice Мозиланың машиналарҙы кеше кеүек аң�
 Кеше тауышы. That’s why we’re excited about creating usable voice technology for our machines. But to create voice systems, developers need an extremely large amount of voice data.
 Most of the data used by large companies isn’t available to the majority of people. We think that stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open and accessible to everyone.
 Now you can donate your voice to help us build an open-source voice database that anyone can use to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other contributors to improve the quality. It’s that simple!
-Һеҙ тулыраҡ мәғлүмәтте рәсми сайтта <a href="https://commonvoice.mozilla.org/">https://commonvoice.mozilla.org/</a> таба алаһығыҙ
+Һеҙ тулыраҡ мәғлүмәтте рәсми сайтта <a href="https://commonvoice.mozilla.org">https://commonvoice.mozilla.org</a> таба алаһығыҙ
 </p>
 <p>
 <b>Ни өсөн сайтҡа ҡарағанда программа уңайлыраҡ?</b>

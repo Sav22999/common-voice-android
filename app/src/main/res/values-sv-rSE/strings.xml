@@ -48,7 +48,7 @@ De främsta deltagarna</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Denna app behöver behörigheten \"Mikrofon\" för att spela in din röst.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Du kan rapportera fel på GitHub eller Telegram. För att hjälpa utvecklaren att förstå problemet snabbt bör du bifoga appens loggfil till din rapport. Appen behöver behörigheten \"Lagring\" för att spara loggfilen.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Du kan även bidra medan du är offline. Appens \"Offline-läge\" kommer att aktiveras automatiskt, och du kan fortsätta spela in och lyssna utan internetanslutning.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Mörkt tema</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Vissa åtgärder har motsvarande gester. Du kan till exempel hoppa över en mening i Tala genom att svepa vänster.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Du kan anpassa dessa gester i inställningar.</string>
@@ -176,11 +176,11 @@ De främsta deltagarna</string>
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
     <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistik</string>
-    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API-server</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
-    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="button_customise_api_server" comment="Button">Anpassa API-server</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
-    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Destination API-server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
