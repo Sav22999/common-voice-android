@@ -190,7 +190,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                     startActivity(
                         Intent(
                             Intent.ACTION_VIEW,
-                            Uri.parse("https://www.paypal.com/pools/c/8yl6auiU6e")
+                            Uri.parse("https://www.paypal.me/saveriomorelli")
                         )
                     )
                 }, overrideItalicStyle = true,
