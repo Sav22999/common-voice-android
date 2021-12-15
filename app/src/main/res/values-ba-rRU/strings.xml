@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Һеҙ үҙ статистикағыҙҙы күреү өсөн системаға инергә тейешһегеҙ</string>
     <string name="toastNoLoginNoDailyGoal">Көндәлек маҡсат ҡуйыу өсөн системаға инергә тейешһегеҙ</string>
     <string name="textHoursAbbreviation">сәғ</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Сәғәт{{hour}}</string>
     <string name="txt_top_contributors">Иң яҡшы ҡатнашыусылар</string>
     <string name="txt_top_contributors_recorded">Яҙылған</string>
     <string name="txt_top_contributors_validated">Тикшерелгән</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Тыңлайбыҙ…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" тоҡанды. Уны һүндереү өсөн Көйләүҙәргә инегеҙ.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Был текст йәшертелгән</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice серверында һөйләмдәр юҡ. Ҡабатлап ҡарағыҙ йәки Mozilla менән бәйләнешкә инегеҙ.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice серверында клиптар юҡ. Ҡабатлап ҡарағыҙ йәки Mozilla менән бәйләнешкә инегеҙ.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="other">Һеҙ %d клипты тикшерҙегеҙ, ошо иҫ киткес эште дауам итегеҙ!</item>
     </plurals>

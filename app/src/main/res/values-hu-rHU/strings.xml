@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Be kell lépnie a statisztikák megtekintéséhez</string>
     <string name="toastNoLoginNoDailyGoal">Be kell lépnie a napi cél beállításához</string>
     <string name="textHoursAbbreviation">ó</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">{{hour}} óra</string>
     <string name="txt_top_contributors">Legtöbbet közreműködők</string>
     <string name="txt_top_contributors_recorded">Felvett</string>
     <string name="txt_top_contributors_validated">Hitelesített</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Szükség van \"Mikrofon\" jogosultságra, hogy felvegyük a hangját.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Bugokat jelenteni GitHubon vagy Telegramon lehet. Hogy a fejlesztő gyorsan megértse a problémát csatolja a log fájlt a jelentéshez. Szükség van \"Tárhely\" jogosultságra, hogy elmentse az app a log fájlt.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Akkor is hozzájárulhat, amikor offline. Az offline mód automatikusan be lesz kapcsolva, és folytathatja a felvételt és hallgatást internetkapcsolat nélkül.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Válassza ki az előnyben részesített témát. Az „Automata” beállítás az idő alapján vált a témák között. Ezt módosíthatja később a Beállításokban.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Sötét téma</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Egyes műveletekhez gesztusok tartoznak. Például balra húzással kihagyhatja a mondatot Beszéljen módban.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Testreszabhatja ezeket a gesztusok a Beállításokban.</string>
@@ -70,7 +70,7 @@
     <string name="txt_verification_link" comment="Label (Placeholder)">Ellenőrző hivatkozással</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Az ellenőrző hivatkozás nem érvényes</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Oktatás újbóli megnyitása</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Nyílt forráskódú projekt a GitHubon</string>
     <string name="txt_developed_by" comment="Label in Settings">fejlesztette:</string>
     <string name="toast_language_changed" comment="Message text">Nyelv sikeresen beállítva erre: {{lang}}</string>
@@ -168,17 +168,17 @@
     <string name="text_title_notifications" comment="Title in Settings">Értesítések</string>
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Ne feledjen ma is közreműködni a Common Voice-ban, a közreműködése értékes és fontos!\nKoppintson ide, hogy megnyissa az alkalmazást, és elérje a napi célját.</string>
     <string name="message_dailygoal_notification_title" comment="Title of the notification">A CV Project napi célját még nem érte el!</string>
-    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
-    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
-    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
-    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
-    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Válasszon, hogy mikor akar értesülni arról, ha nem érte el a napi célját.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Vegye figyelembe, hogy az akkumulátor optimalizálás miatt ez nem biztos, hogy egyáltalán működni fog.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Első riasztás</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Második riasztás</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Nincs</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statisztikák</string>
-    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
-    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
-    <string name="button_customise_api_server" comment="Button">Customise API server</string>
-    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
-    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Cél API kiszolgáló</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Visszaállítás az alapértelmezett API kiszolgálóra</string>
+    <string name="button_customise_api_server" comment="Button">API kiszolgáló testreszabása</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Biztos, hogy testreszabja az API kiszolgálót? Lehetséges, hogy ez veszélyes művelet.\nBármikor visszaállíthatja az alapértelmezett API kiszolgálót.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Cél API kiszolgáló</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Mondat betöltése…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Átugrás</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Hallgatás…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">A(z) „{{feature_name}}” engedélyezett. A kikapcsolásához ugorjon a Beállításokhoz.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">A mondat szövege rejtett</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nincs több mondat a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nincs több klip a Common Voice kiszolgálón. Próbálja újra később, vagy lépjen kapcsolatba a Mozillával.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">A Common Voice API-kiszolgáló nem adott további mondatokat. Próbálja meg később, vagy lépjen kapcsolatba a Mozillával.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">A Common Voice API-kiszolgáló nem adott további klipeket. Próbálja meg később, vagy lépjen kapcsolatba a Mozillával.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Már %d klipet ellenőrzött egymás után, folytassa a nagyszerű munkát!</item>
         <item quantity="other">Már %d klipet ellenőrzött egymás után, folytassa a nagyszerű munkát!</item>

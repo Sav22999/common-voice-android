@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Du måste logga in för att se din statistik</string>
     <string name="toastNoLoginNoDailyGoal">Du måste logga in för att ställa in det dagliga målet</string>
     <string name="textHoursAbbreviation">h</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Timme {{hour}}</string>
     <string name="txt_top_contributors">De som bidragit mest
 
 De främsta deltagarna</string>
@@ -48,7 +48,7 @@ De främsta deltagarna</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Denna app behöver behörigheten \"Mikrofon\" för att spela in din röst.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Du kan rapportera fel på GitHub eller Telegram. För att hjälpa utvecklaren att förstå problemet snabbt bör du bifoga appens loggfil till din rapport. Appen behöver behörigheten \"Lagring\" för att spara loggfilen.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Du kan även bidra medan du är offline. Appens \"Offline-läge\" kommer att aktiveras automatiskt, och du kan fortsätta spela in och lyssna utan internetanslutning.</string>
-    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Välj ditt föredragna tema. \"Auto\" växlar tema baserat på den aktuella tiden. Du kan ändra detta senare under Inställningar.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Mörkt tema</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Vissa åtgärder har motsvarande gester. Du kan till exempel hoppa över en mening i Tala genom att svepa vänster.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Du kan anpassa dessa gester i inställningar.</string>
@@ -72,7 +72,7 @@ De främsta deltagarna</string>
     <string name="txt_verification_link" comment="Label (Placeholder)">Verifieringslänk</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Verifieringslänken är inte giltig</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Öppna handledningen igen</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projekt öppen kod på GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">utvecklad av</string>
     <string name="toast_language_changed" comment="Message text">Språket har ändrats till {{lang}}</string>
@@ -121,7 +121,7 @@ De främsta deltagarna</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Spara inspelningar på enheten</string>
     <string name="txt_reset_data" comment="Button in Settings">Återställ appdata</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Inga experimentella funktioner finns tillgängliga</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Visa meningstexten endast när klippet har spelat färdigt</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Visa en rapporteringsikon (övre högra hörnet) istället för en knapp (botten)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Textstorlek</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Annonsrad</string>
@@ -166,20 +166,20 @@ De främsta deltagarna</string>
     <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Ladda upp endast via Wi-Fi</string>
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Ladda ner endast via Wi-Fi</string>
     <string name="text_general_notifications" comment="Switch-Button in Settings">Allmänna aviseringar</string>
-    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Dagliga målaviseringar</string>
     <string name="text_title_notifications" comment="Title in Settings">Aviseringar</string>
-    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
-    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
-    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
-    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
-    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
-    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
-    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Glöm inte att bidra till Common Voice idag, ditt bidrag är värdefullt och viktigt!\nTryck här för att öppna appen och arbeta mot ditt dagliga mål nu.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Projektets dagliga mål har inte uppnåtts ännu!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Välj när du vill bli meddelad ifall ditt dagliga mål inte har uppnåtts.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Observera att detta kanske inte är exakt eller inte fungerar alls på grund av batterioptimeringsinställningar.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Första påminnelsen</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Andra påminnelsen</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Ingen</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistik</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API-server</string>
-    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Återställ till standard API-server</string>
     <string name="button_customise_api_server" comment="Button">Anpassa API-server</string>
-    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Är du säker på att du vill anpassa API-servern? Detta är en potentiellt farlig åtgärd.\nDu kan återställa till standard API-servern när som helst.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API-server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening…</string>
@@ -229,8 +229,8 @@ De främsta deltagarna</string>
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Lyssnar…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">Funktionen \"{{feature_name}}\" är aktiverad. Gå till Inställningar för att inaktivera den.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Meningstexten är dold</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Det finns inga fler meningar på Common Voice servern. Försök igen senare eller kontakta Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Det finns inga fler klipp på Common Voice servern. Försök igen senare eller kontakta Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Du har redan validerat %d klipp i rad, fortsätt så!</item>
         <item quantity="other">Du har redan validerat %d klipp i rad, fortsätt så!</item>

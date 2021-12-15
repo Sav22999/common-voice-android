@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Esta aplicación necesita el permiso \"Micrófono\" para grabar tu voz.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Puede reportar errores en GitHub o Telegram. Para ayudar al desarrollador a entender el problema rápidamente, debes adjuntar el archivo de registro de la aplicación a tu informe. La aplicación necesita el permiso \"Almacenar\" para guardar el archivo de registro.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Incluso puedes contribuir mientras estás fuera de línea. El \"modo sin conexión\" de la aplicación se habilitará automáticamente, y puede continuar grabando y escuchando sin conexión a Internet.</string>
-    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Elige tu tema preferido. \"Automático\" activa el tema basado en la hora actual. Puedes cambiar esto más tarde en Ajustes.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Elige tu tema preferido. \"Automático\" activa el tema basado en la hora actual. Puedes cambiar esto más tarde en Ajustes.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tema oscuro</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Algunas acciones tienen gestos correspondientes. Por ejemplo, puedes omitir una frase en Hablar deslizando hacia la izquierda.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Puede personalizar estos gestos en Configuración.</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Escuchando…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" está activado. Vaya a Ajustes para desactivarlo.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">El texto de la oración está oculto</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">No hay más frases en el servidor de Common Voice. Intenta más tarde o intenta contactar a Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">No hay más audios en el servidor de Common Voice. Intenta más tarde o intenta contactar a Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">El servidor API de Common Voice no proporcionó más oraciones. Inténtalo más tarde o contacta a Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">El servidor API de Common Voice no proporcionó más clips. Inténtalo más tarde o contacta a Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Ya has validado %d clip seguido, ¡continúa este asombroso trabajo!</item>
         <item quantity="other">Ya has validado %d clips seguidos, ¡continúa este asombroso trabajo!</item>

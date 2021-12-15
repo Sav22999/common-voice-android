@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Questa app ha bisogno del permesso \"Microfono\" per registrare la voce.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Puoi segnalare bug su GitHub o Telegram. Per aiutare lo sviluppatore a capire rapidamente il problema, è necessario allegare il file di log dell\'app alla segnalazione. L\'applicazione ha bisogno dell\'autorizzazione \"Archiviazione\" per salvare il file di log.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Puoi anche contribuire mentre sei offline. La \"modalità Offline\" dell\'app sarà attivata automaticamente, e puoi continuare a registrare e ascoltare senza una connessione Internet.</string>
-    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Scegli il tuo tema preferito. \"Automatico\" permette di cambiare automaticamente il tema in base all\'attuale ora. Puoi modificarlo successivamente nelle Impostazioni.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Scegli il tuo tema preferito. \"Automatico\" permette di cambiare automaticamente il tema in base all\'attuale ora. Puoi modificarlo successivamente nelle Impostazioni.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tema scuro</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Alcune azioni possono essere fatte attraverso dei gesti. Ad esempio, puoi saltare una frase in Parla scorrendo verso sinistra.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">È possibile personalizzare questi gesti nelle Impostazioni.</string>
@@ -177,7 +177,7 @@
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Server API di destinazione</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Ripristina il server API predefinito</string>
     <string name="button_customise_api_server" comment="Button">Personalizza server API</string>
-    <string name="message_customisation_api_server_text" comment="Message dialog">Sei proprio sicuro di voler personalizzare il server API? Questo è una potenziale azione pericolosa.\nIn ogni caso, potrai resettare e tornare al server API predefinito in ogni momento.</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Sei proprio sicuro di voler personalizzare il server API? Questa azione potrebbe essere pericolosa.\nIn ogni caso, potrai resettare e tornare al server API predefinito in ogni momento.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Server API di destinazione</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Caricamento di una frase…</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">In ascolto…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" è abilitata. Vai nelle Impostazioni per disabilitarla.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Il testo della frase è nascosto</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Non ci sono altre frasi nel server di Common Voice. Riprova più tardi o prova a contattare Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Non ci sono altre registrazioni nel server di Common Voice. Riprova più tardi o prova a contattare Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Il server API Common Voice non ha fornito altre frasi. Prova più tardi o contatta Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Il server API Common Voice non ha fornito altri clip. Prova più tardi o contatta Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Hai già convalidato %d registrazione di fila, continua questo fantastico lavoro!</item>
         <item quantity="other">Hai già convalidato %d registrazioni di fila, continua questo fantastico lavoro!</item>

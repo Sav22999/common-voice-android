@@ -5,13 +5,13 @@
     "kind": "Directory"
   },
   "applicationId": "org.commonvoice.saverio",
-  "variantName": "processAASReleaseResources",
+  "variantName": "AASRelease",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 161,
-      "versionName": "2.3.8",
+      "versionCode": 174,
+      "versionName": "2.4.0.1",
       "outputFile": "app-AAS-release.apk"
     }
   ]
