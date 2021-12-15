@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Heu d\'iniciar sessió per consultar les vostres estadístiques</string>
     <string name="toastNoLoginNoDailyGoal">Heu d\'iniciar sessió per fixar un objectiu diari</string>
     <string name="textHoursAbbreviation">h</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hora {{hour}}</string>
     <string name="txt_top_contributors">Contribuïdors principals</string>
     <string name="txt_top_contributors_recorded">Gravat</string>
     <string name="txt_top_contributors_validated">Validat</string>
@@ -70,7 +70,7 @@
     <string name="txt_verification_link" comment="Label (Placeholder)">Enllaç de verificació</string>
     <string name="txt_verification_link_not_valid" comment="Message text">L\'enllaç de verificació no és vàlid</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Torna a obrir el tutorial</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projecte de codi obert a GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">desenvolupat per</string>
     <string name="toast_language_changed" comment="Message text">L\'idioma s\'ha establert a {{lang}}</string>
@@ -129,7 +129,7 @@
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">El tema clar també per a la frase a llegir o validar en Parla i Escola (si el tema clar és actiu).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Mostra la barra de control de velocitat</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostra icona d\'informació</string>
-    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Premeu per a parlar</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Trieu el nombre d\'oracions i el nombre de talls que descarregar i usar quan l\'aplicació es troba en mode fora de línia.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Normalment els usuaris dediquen 13 minuts a validar 50 talls i 26 minuts a enregistrar 50 frases.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Feu lliscar cap amunt</string>
@@ -150,14 +150,14 @@
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
     <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accepta el tall (marca\'l com a correcte)</string>
     <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Rebutja el tall (marca\'l com a incorrecte)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Activa/desactiva \'{{feature}}\'</string>
     <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Informeu del tall</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Mostra la informació del tall</string>
-    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Play/Stop clip</string>
-    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Start/Stop recording</string>
-    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Play/Stop recording</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Mostra la informació del tall</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Reprodueix/atura el clip</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Inicia/atura la gravació</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Inicia/atura la gravació</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Desa</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Trieu una acció</string>
     <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
@@ -165,14 +165,14 @@
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download using Wi-Fi only</string>
     <string name="text_general_notifications" comment="Switch-Button in Settings">Generic notifications</string>
     <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
-    <string name="text_title_notifications" comment="Title in Settings">Notifications</string>
+    <string name="text_title_notifications" comment="Title in Settings">Notificacions</string>
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
     <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
     <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
     <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
-    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
-    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
-    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Primera alerta</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Segona alerta</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Cap</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Estadístiques</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">S\'està escoltant…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" està activat. Ves a Configuració per desactivar-ho.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">El text de l\'oració està ocult</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">No hi ha més frases al servidor de Common Voice. Intenteu-ho després o mireu de contactar amb Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">No hi ha més talls de veu (clips) al servidor de Common Voice. Intenteu-ho després o mireu de contactar amb Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Heu validat ja %d tall d\'una tongada, continueu així!</item>
         <item quantity="other">Heu validat ja m %d talls d\'una tongada, continueu així!</item>
@@ -271,14 +271,14 @@
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">La velocitat s\'ha establert a {{speed_value}}.</string>
     <!--Accessibility-->
-    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Reject clip</string>
-    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Accept clip</string>
-    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Play clip</string>
-    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Stop clip</string>
-    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Start recording</string>
-    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Record again the sentence</string>
-    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
-    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Rebutja el clip</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Accepta el clip</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Reprodueix el clip</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Atura el clip</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Comença a enregistrar</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Torna a gravar la frase</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Atura la gravació</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Reprodueix gravació</string>
     <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
     <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Enviar enregistrament</string>
     <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
@@ -290,11 +290,11 @@
     <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
     <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
     <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Enrere</string>
-    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Enable/Disable</string>
-    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Close message</string>
-    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copy</string>
-    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Increase</string>
-    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Decrease</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Activa/Desactiva</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Tanca el missatge</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copia</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Augmenta</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Redueix</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Torna-ho a provar</string>
     <string name="txt_noconnection" comment="Message text">No tens connexió a Internet. Connecta\'t a una Wi-Fi o a les dades mòbils, i pressiona el botó davall.</string>

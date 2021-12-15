@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Common Voice Android অ্যাপের \"মাইক্রোফোন\" অনুমতি লাগবে সঠিকভাবে কাজ করার জন্য।</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">তুমি গিটহাব(GitHub) বা টেলিগ্রামে(Telegram) বাগগুলি প্রতিবেদন করতে পারবে। ডেভেলপারকে সমস্যাটি দ্রুত বুঝতে সহায়তা করার জন্য অ্যাপ্লিকেশনটির লগ ফাইলটি তোমার প্রতিবেদনের সাথে সংযুক্ত করা উচিত। অ্যাপ্লিকেশনটির লগ ফাইলটি সংরক্ষণের জন্য \"স্টোরেজ\" অনুমতি প্রয়োজন।</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">এমনকি তুমি অফলাইনে থাকাকালীনও অবদান রাখতে পারেন। অ্যাপ্লিকেশনটির \"অফলাইন মোড\" স্বয়ংক্রিয়ভাবে সক্ষম হবে এবং তুমি কোনও ইন্টারনেট সংযোগ ছাড়াই রেকর্ড করতে এবং শুনতে শুনতে পারেন।</string>
-    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">অন্ধকার ভাব(থিম)</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">কিছু কাজের সংকেত রয়েছে। উদাহরণস্বরূপ, তুমি বাক্যে বামদিকে সোয়াইপ করে একটি বাক্যটি এড়িয়ে যেতে পারো।</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">তুমি সেটিংসে এই সংকেতগুলো পরিবর্তন করতে পারো।</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">There aren\'t any more sentences in the Common Voice server. Try later or try to contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">There aren\'t any more clips in the Common Voice server. Try later or try to contact Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
         <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>

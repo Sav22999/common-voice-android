@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Dinleniyor…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" etkinleştirildi. Devre dışı bırakmak için Ayarlara gidin.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Cümle metni gizli</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice sunucusunda başka cümle yok. Daha sonra deneyin veya Mozilla ile iletişime geçmeyi deneyin.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice sunucusunda başka kayıt kalmadı. Daha sonra tekrar deneyin veya Mozilla ile iletişime geçin.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
         <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>

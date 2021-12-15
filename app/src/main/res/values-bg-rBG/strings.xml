@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">Трябва да влезете, за да видите статистиката си</string>
     <string name="toastNoLoginNoDailyGoal">Трябва да влезете, за да поставите дневна цел</string>
     <string name="textHoursAbbreviation">ч</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">{{hour}} часа</string>
     <string name="txt_top_contributors">Водещи сътрудници</string>
     <string name="txt_top_contributors_recorded">Записани</string>
     <string name="txt_top_contributors_validated">Проверени</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Това приложение се нуждае от разрешението „Микрофон“ да записва гласа Ви.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Можете да докладвате за неизправности в GitHub или Telegram. За да помогнете на разработчика да разбере проблема бързо, трябва да прикачите файла с логовете на приложението към вашия доклад. Приложението се нуждае от разрешението „Хранилище“ да запазва файла с логовете.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Можете да допринасяте докато сте офлайн. Офлайн режимът на приложението ви ще бъде включен автоматично и ще можете да продължите да записвате и прослушвате без интернет връзка.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Изберете предпочитаната от вас тема. \"Автоматично\" превключва темата спрямо текущото време. Можете да промените това по-късно в Настройки.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Тъмна тема</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Някои действия имат съответстващи жестове. Например можете да пропуснете изречение в Говорене, плъзгайки наляво.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Можете да персонализирате тези жестове в Настройки.</string>
@@ -70,7 +70,7 @@
     <string name="txt_verification_link" comment="Label (Placeholder)">Връзка за потвърждение</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Връзката за потвърждение не е валидна</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Отвори ръководството отново</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Проект с отворен код в GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">разработено от</string>
     <string name="toast_language_changed" comment="Message text">Езикът е успешно зададен на {{lang}}</string>
@@ -119,7 +119,7 @@
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Запазване на записите в устройството</string>
     <string name="txt_reset_data" comment="Button in Settings">Нулиране на данните на приложението</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Няма налични експериментални функции в момента</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Показване на текста на изречението единствено след завършване на прослушването</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Показ на икона за докладване (отгоре вдясно) вместо бутон (отдолу)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Големина на текста</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Рекламен банер</string>
@@ -164,21 +164,21 @@
     <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Качване само през Wi-Fi</string>
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Сваляне само през Wi-Fi</string>
     <string name="text_general_notifications" comment="Switch-Button in Settings">Общие уведомления</string>
-    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Известия за дневна цел</string>
     <string name="text_title_notifications" comment="Title in Settings">Известия</string>
-    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
-    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
-    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
-    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
-    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
-    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
-    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Моля, не забравяйте да допринесете към Common Voice днес, вашият принос е ценен и важен.\nДокоснете тук, за да отворите приложението и да се устремите към дневната ви цел сега.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">Дневната цел на CV Project все още не е достигната!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Изберете кога желаете да бъдете известен, в случай че вашата дневна цел не е достигната.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Моля, забележете, че това може да не е точно или да не работи въобще поради настройки за оптимизация на батерията.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Първо известие</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Второ известие</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Няма</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Статистика</string>
-    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
-    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
-    <string name="button_customise_api_server" comment="Button">Customise API server</string>
-    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
-    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">API сървър дестинация</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Върни началния API сървър</string>
+    <string name="button_customise_api_server" comment="Button">Промени API сървър</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Сигурни ли сте, че искате да промените API сървърът? Това е потенциално опасно действие.\nМожете да се върнете към началния API сървър във всеки момент.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">API сървър дестинация</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Зареждане на изречение…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Пропусни</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Слушане…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" е включено. Отидете в Настройки за да го изключите.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Текста на изречението е скрит</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Няма повече изречения на Common Voice сървъра. Опитайте по-късно или опитайте да се свържете с Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Няма повече клипове на Common Voice сървъра. Опитайте по-късно или опитайте да се свържете с Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">API сървърът на Common Voice не предостави повече изречения. Опитайте по-късно или се свържете с Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">API сървърът на Common Voice не предостави повече клипове. Опитайте по-късно или се свържете с Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Вече проверихте %d клип подред, продължавайте страхотната си работа!</item>
         <item quantity="other">Вече проверихте %d клипа подред, продължавайте страхотната си работа!</item>

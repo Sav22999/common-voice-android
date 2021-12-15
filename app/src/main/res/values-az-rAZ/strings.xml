@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Bu tətbiqin səsinizi yazmaq üçün Mikrofon icazəsinə ehtiyacı var.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Xətaları GitHub və ya Telegram-da bildirə bilərsiniz. Tərtibatçının problemi daha tez anlamasına kömək etmək üçün, tətbiqin jurnal faylını hesabata əlavə etməlisiniz. Jurnal faylını saxlamaq üçün tətbiqin \"Anbar\" icazəsinə ehtiyacı var.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Hətta xətdən kənarda olarkən belə töhfə verə bilərsiniz. Tətbiqin \"Xətdən kənarda rejimi\" avtomatik olaraq fəallaşdırılır və internet bağlantısı olmadan səs yaza və dinləyə bilərsiniz.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Tərcih etdiyiniz temanı seçin. \"Avto\", hazırkı vaxta əsasən temanı dəyişdirir. Bunu daha sonra tənzimləmələrdən dəyişdirə bilərsiniz.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tünd tema</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Bəzi hərəkətlərə uyğun gələn jestlər vardır. Misal üçün, sola sürüşdürərək Danışıqda bir cümləni ötürə bilərsiniz.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Bu jestləri tənzimləmələrdən özəlləşdirə bilərsiniz.</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Dinlənilir…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" fəaldır. Sıradan çıxartmaq üçün tənzimləmələrə gedin.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Cümlə mətni gizlidir</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice serverində başqa cümlə yoxdur. Daha sonra sınayın və ya Mozilla ilə əlaqə saxlayın.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice serverində başqa klip yoxdur. Daha sonra sınayın və ya Mozilla ilə əlaqə saxlayın.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice API serveri daha çox cümlə təmin etmədi. Daha sonra sınayın və ya Mozilla ilə bağlantı qurun.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice API serveri daha çox klip təmin etmədi. Daha sonra sınayın və ya Mozilla ilə bağlantı qurun.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Ardıcıl %d klipi təsdiqlədiniz, sükanı belə saxlayın!</item>
         <item quantity="other">Ardıcıl %d klipi təsdiqlədiniz, sükanı belə saxlayın!</item>

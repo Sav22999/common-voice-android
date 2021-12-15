@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Ta aplikacja potrzebuje uprawnienia \"Mikrofon\", aby nagrywać Twój głos.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Możesz zgłaszać błędy na GitHub lub Telegram. Aby pomóc deweloperowi w szybkim zrozumieniu problemu, powinieneś dołączyć do raportu plik dziennika aplikacji. Aplikacja potrzebuje uprawnienia \"Pamięć\", aby zapisać plik dziennika.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Możesz pomóc nawet, gdy jesteś offline. \"Tryb offline\" aplikacji zostanie włączony automatycznie, a Ty będziesz mógł dalej nagrywać i odsłuchiwać bez połączenia z Internetem.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Wybierz ulubiony motyw. \"Auto\" przełącza motyw na podstawie obecnego czasu. Możesz to później zmienić w Ustawieniach.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Ciemny motyw</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Niektóre akcje mają przypisane im gesty. Możesz na przykład pominąć zdanie w sekcji Nagrywaj, przeciągając palcem w lewo.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Możesz dostosować te gesty w Ustawieniach.</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Słuchanie…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">Funkcja \"{{feature_name}}\" jest włączona. Przejdź do Ustawień, aby ją wyłączyć.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Tekst zdania jest ukryty</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Nie ma więcej zdań na serwerze Common Voice. Spróbuj później lub skontaktuj się z Mozillą.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Nie ma więcej klipów na serwerze Common Voice. Spróbuj później lub skontaktuj się z Mozillą.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Serwer API Common Voice nie dostarczył żadnych zdań. Spróbuj później lub skontaktuj się z Mozillą.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Serwer API Common Voice nie dostarczył żadnych klipów. Spróbuj później lub skontaktuj się z Mozillą.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Sprawdzono już %d klip pod rząd, kontynuuj tę niesamowitą pracę!</item>
         <item quantity="few">Sprawdzono już %d klipy pod rząd, kontynuuj tę niesamowitą pracę!</item>

@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Timesliwt…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" termed. Ddu ɣer yiɣewwaren iwakken ad tt-tsenseḍ.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Aḍris n tefyirt yettwaffar</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Ulac ula d yiwet n tefyirt deg uqeddac n Commn Voice. Ɛreḍ tikkelt-niḍen ticki neɣ nermes Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Ulac ula d yiwen uklip deg uqeddac n Commn Voice. Ɛreḍ tikkelt-niḍen ticki neɣ nermes Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Tesnetmeḍ yakan %d n tuṭṭfa ɣef tikkelt, kemmel deg umahil-a igerrzen!</item>
         <item quantity="other">Tesnetmeḍ yakan %d n tuṭṭfiwin ɣef tikkelt, kemmel deg umahil-a igerrzen!</item>

@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Cette application a besoin de la permission \"Microphone\" pour enregistrer votre voix.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">Vous pouvez rapporter des bugs sur GitHub ou Telegram. Pour aider le développeur à comprendre le problème rapidement, vous devez joindre le fichier journal de l\'application à votre rapport. L\'application a besoin de la permission \"Stockage\" pour enregistrer le fichier journal.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Vous pouvez même contribuer pendant que vous êtes hors ligne. Le mode hors-ligne de l\'application sera activé automatiquement et vous pouvez continuer à enregistrer et à écouter sans connexion Internet.</string>
-    <string name="txt_themes_first_launch" comment="txt_themes_first_launch&#10;Text | First-run. &quot;Auto&quot; is the label used in the radioButton (&quot;Light&quot;, &quot;Dark&quot; and &quot;Auto&quot;)">Choisissez votre thème préféré. « Auto » active le thème en fonction de l\'heure actuelle. Vous pourrez le modifier plus tard dans les paramètres.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Choisissez votre thème préféré. « Auto » active le thème en fonction de l\'heure actuelle. Vous pourrez le modifier plus tard dans les paramètres.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Thème sombre</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Certaines actions ont des gestes correspondants. Par exemple, vous pouvez sauter une phrase dans Speak en faisant glisser vers la gauche.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Vous pouvez personnaliser ces gestes dans les paramètres.</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">À l\'écoute…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">Le « {{feature_name}} » est activé. Allez dans Paramètres pour le désactiver.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Le texte de la phrase est caché</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Le serveur Common Voice est à court de phrases. Essayez plus tard ou contactez Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Le serveur Common Voice est à court de clips. Essayez plus tard ou contactez Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Le serveur API de Common Voice n\'a pas fourni d\'autres phrases. Essayez plus tard ou contactez Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Le serveur API de Common Voice n\'a pas fourni d\'autres clips. Essayez plus tard ou contactez Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Vous avez déjà validé %d clip d\'affilée, continuez ce travail incroyable !</item>
         <item quantity="other">Vous avez déjà validé %d clips d\'affilée, continuez ce travail incroyable !</item>

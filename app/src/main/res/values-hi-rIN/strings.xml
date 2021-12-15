@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">रिकॉर्ड हो रहा है…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" सक्षम है। इसे अक्षम करने के लिए सेटिंग में जायें।</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">वाक्य के शब्द छुपे हुए हैं</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">कॉमन वॉइस सर्वर में अब और वाक्य नहीं हैं। बाद में करें या मोजिला सम्पर्क करें।</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">कॉमन वॉइस सर्वर में अब और क्लिप नहीं हैं। बाद में करें या मोजिला सम्पर्क करें।</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">आपने लगातार %d क्लिप सत्यापित कर दी हैं, इस उत्कृष्ट कार्य को जारी रखें!</item>
         <item quantity="other">आपने लगातार %d क्लिपें सत्यापित कर दी हैं, इस उत्कृष्ट कार्य को जारी रखें!</item>
