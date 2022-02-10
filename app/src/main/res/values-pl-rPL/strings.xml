@@ -77,7 +77,7 @@
     <string name="settingsLanguage" comment="Title in Settings">Język</string>
     <string name="settingsListen" comment="Title in Settings">Odsłuchaj</string>
     <string name="settingsSpeak" comment="Title in Settings">Nagrywaj</string>
-    <string name="settingsOther" comment="Title in Settings">Inna</string>
+    <string name="settingsOther" comment="Title in Settings">Inne</string>
     <string name="settingsGeneral" comment="Title in Settings">Ogólne</string>
     <string name="settingsUsefulLinks" comment="Title in Settings">Przydatne linki</string>
     <string name="settingsLearnMore" comment="Button in Settings">Dowiedz się więcej</string>
@@ -149,7 +149,7 @@
     <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Pomiń klip</string>
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Pomiń zdanie</string>
     <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Akceptuj klip (oznacz jako poprawny)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Odrzuć klip (oznacz jako nieprawidłowy)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Odrzuć klip (oznacz jako niepoprawny)</string>
     <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Włącz/Wyłącz \"{{feature}}\"</string>
     <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Zgłoś klip</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Zgłoś zdanie</string>
@@ -218,7 +218,7 @@
     <string name="checkbox_reason2_report" comment="Checkbox">Błąd gramatyczny/ortograficzny</string>
     <string name="checkbox_reason3_report" comment="Checkbox">Inny język</string>
     <string name="checkbox_reason4_report" comment="Checkbox">Trudne do wymówienia</string>
-    <string name="checkbox_reason5_report" comment="Checkbox">Inna</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Inne</string>
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Komentarz</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">Skończyły się zdania offline. Połącz się z Internetem, aby pobrać więcej zdań do nagrania.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">Skończyły się klipy offline. Połącz się z Internetem, aby pobrać więcej klipów do sprawdzenia.</string>
