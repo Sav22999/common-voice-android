@@ -125,10 +125,11 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                 buttonCustomiseAPIServer.isGone = false
                 advancedSubSectionDestinarioAPIServer.isGone = true
                 buttonResetDefaultAPIServer.isGone = true
+                mainViewModel.clearDB()
             }
             textDestinationAPIServer.addTextChangedListener {
                 var valueTemp = textDestinationAPIServer.text.toString()
-                if (valueTemp != "") {
+                if (valueTemp != "" && valueTemp != mainPrefManager.genericAPIUrl) {
                     if (valueTemp.get(valueTemp.length - 1).toString() != "/") {
                         valueTemp = valueTemp + "/"
                     }
@@ -136,6 +137,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                     mainViewModel.clearDB()
                 } else {
                     mainPrefManager.genericAPIUrl = defaultAPIServer
+                    mainViewModel.clearDB()
                 }
             }
             textDestinationAPIServer.setText(mainPrefManager.genericAPIUrl)
@@ -292,7 +294,6 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             buttonCustomiseAPIServer.isGone = true
                             advancedSubSectionDestinarioAPIServer.isGone = false
                             buttonResetDefaultAPIServer.isGone = false
-                            mainViewModel.clearDB()
                         }
                     },
                     button2TextRes = R.string.button_cancel,
