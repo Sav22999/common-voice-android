@@ -129,14 +129,15 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             }
             textDestinationAPIServer.addTextChangedListener {
                 var valueTemp = textDestinationAPIServer.text.toString()
-                if (valueTemp != "" && valueTemp != mainPrefManager.genericAPIUrl) {
-                    if (valueTemp.get(valueTemp.length - 1).toString() != "/") {
-                        valueTemp = valueTemp + "/"
+                if (valueTemp != mainPrefManager.genericAPIUrl) {
+                    if (valueTemp != "") {
+                        if (valueTemp.get(valueTemp.length - 1).toString() != "/") {
+                            valueTemp = valueTemp + "/"
+                        }
+                        mainPrefManager.genericAPIUrl = valueTemp
+                    } else {
+                        mainPrefManager.genericAPIUrl = defaultAPIServer
                     }
-                    mainPrefManager.genericAPIUrl = valueTemp
-                    mainViewModel.clearDB()
-                } else {
-                    mainPrefManager.genericAPIUrl = defaultAPIServer
                     mainViewModel.clearDB()
                 }
             }
