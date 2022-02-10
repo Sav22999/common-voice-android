@@ -115,7 +115,8 @@ class ListenViewModel(
                 sentenceId = sentence.sentenceId,
                 clipId = clipId,
                 actionDetails = "sentenceText = ${sentence.sentenceText}\n" +
-                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})\n" +
+                        "Server API = ${mainPrefManager.genericAPIUrl}"
             )
         }
         stopped = false
@@ -141,7 +142,8 @@ class ListenViewModel(
                 sentenceId = sentence.sentenceId,
                 clipId = clipId,
                 actionDetails = "sentenceText = ${sentence.sentenceText}\nreasons = ${reasons.toString()}\n" +
-                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})\n" +
+                        "Server API = ${mainPrefManager.genericAPIUrl}"
             )
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipClip()
