@@ -89,6 +89,7 @@ class CommonVoice : Application() {
                 get<ReportsRepository>(),
                 get<WorkManager>(),
                 get<SpeakPrefManager>(),
+                get<MainPrefManager>(),
                 get<AppActionsRepository>(),
             )
         }
