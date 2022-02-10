@@ -19,6 +19,7 @@ import org.commonvoice.saverio_lib.models.AppAction
 import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Report
 import org.commonvoice.saverio_lib.models.Sentence
+import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.repositories.AppActionsRepository
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
@@ -35,6 +36,7 @@ class SpeakViewModel(
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
     private val speakPrefManager: SpeakPrefManager,
+    private val mainPrefManager: MainPrefManager,
     private val appActionsRepository: AppActionsRepository,
 ) : ViewModel() {
 
@@ -172,7 +174,8 @@ class SpeakViewModel(
                 sentenceId = sentence?.sentenceId.toString(),
                 clipId = "",
                 actionDetails = "sentenceText = ${sentence?.sentenceText}\n" +
-                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})\n" +
+                        "Server API = ${mainPrefManager.genericAPIUrl}"
             )
         }
     }
@@ -217,7 +220,8 @@ class SpeakViewModel(
                 sentenceId = sentence?.sentenceId.toString(),
                 clipId = "",
                 actionDetails = "sentenceText = ${sentence?.sentenceText}\nreasons = ${reasons.toString()}\n" +
-                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})"
+                        "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})\n" +
+                        "Server API = ${mainPrefManager.genericAPIUrl}"
             )
             ReportsUploadWorker.attachToWorkManager(workManager)
             skipSentence()

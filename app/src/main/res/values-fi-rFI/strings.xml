@@ -133,31 +133,31 @@
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Pyyhkäisy ylös</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Pyyhkäisy alas</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Pyyhkäisy vasemmalle</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Pyyhkäisy oikealle</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Pitkä painallus</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Kaksoisnapautus</string>
     <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Pyyhkäisy ylös: {{feature_enabled}}</string>
     <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Pyyhkäisy alas: {{feature_enabled}}</string>
     <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Pyyhkäisy vasemmalle: {{feature_enabled}}</string>
     <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Pyyhkäisy oikealle: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Pitkä painallus: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Kaksoisnapautus: {{feature_enabled}}</string>
     <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Ei mitään</string>
     <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Takaisin</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Ohita klippi</string>
     <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Ohita lause</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Hyväksy klippi (merkitse oikeaksi)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Hylkää klippi (merkitse vääräksi)</string>
     <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Ota käyttöön/Poista käytöstä ”{{feature}}”</string>
     <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Ilmoita klipistä</string>
     <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Ilmoita virkkeestä</string>
     <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
     <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Näytä lauseen tiedot</string>
-    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Play/Stop clip</string>
-    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Start/Stop recording</string>
-    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Play/Stop recording</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Toista/Pysäytä klippi</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Aloita/lopeta nauhoittaminen</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Toista/Pysäytä nauhoitus</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Tallenna</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Valitse toiminto</string>
     <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Näytä osallistumiskriteerien kuvake</string>
@@ -174,11 +174,11 @@
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Toinen hälytys</string>
     <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Ei mikään</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Tilastot</string>
-    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Kohde-API-palvelin</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
-    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="button_customise_api_server" comment="Button">Mukauta API-palvelinta</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
-    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Kohde-API-palvelin</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Ladataan virkettä…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ohita</string>
@@ -271,15 +271,15 @@
     </plurals>
     <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Nopeus asetettu onnistuneesti nopeudeksi {{speed_value}}.</string>
     <!--Accessibility-->
-    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Reject clip</string>
-    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Accept clip</string>
-    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Play clip</string>
-    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Stop clip</string>
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Hylkää klippi</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Hyväksy klippi</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Toista klipppi</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Pysäytä klippi</string>
     <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Start recording</string>
     <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Record again the sentence</string>
-    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
-    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
-    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Lopeta nauhoitus</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Toista nauhoitus</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Lopeta kuuntelu</string>
     <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Lähetä nauhoitus</string>
     <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
     <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">See offline mode details</string>

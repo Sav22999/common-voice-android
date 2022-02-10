@@ -4,13 +4,13 @@
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">or</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_home">ଗୃହ</string>
+    <string name="title_dashboard">ଡ୍ୟାସବୋର୍ଡ</string>
+    <string name="title_settings">ସେଟିଂସମୂହ</string>
     <!-- Home (main) -->
     <string name="button_home_login">Log in / Sign up</string>
     <string name="button_home_logout">Log out</string>
-    <string name="button_home_profile">Profile</string>
+    <string name="button_home_profile">ପ୍ରୋଫାଇଲ୍</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
     <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Hi, {{username}}!</string>
     <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
@@ -19,7 +19,7 @@
     <string name="dashboardVoicesOnline">Voices online</string>
     <string name="dashboardTabYou">You</string>
     <string name="dashboardTabEveryone">Everyone</string>
-    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Today</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">ଆଜି</string>
     <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
     <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
     <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
@@ -28,17 +28,17 @@
     <string name="txt_top_contributors">Top contributors</string>
     <string name="txt_top_contributors_recorded">Recorded</string>
     <string name="txt_top_contributors_validated">Validated</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">ଆପ୍ ପରିସଂଖ୍ୟାନ</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">ସାମ୍ପ୍ରତିକ ଭାଷା</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
     <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
     <!-- First launch -->
     <string name="btn_tutorial1" comment="Button">Start</string>
     <string name="btn_tutorial2" comment="Button">Permit</string>
     <string name="btn_tutorial3" comment="Button">Next</string>
-    <string name="btn_tutorial4" comment="Button">Try again</string>
+    <string name="btn_tutorial4" comment="Button">ପୁଣିଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
     <string name="btn_tutorial5" comment="Button">Finish</string>
-    <string name="btn_skip" comment="Button">Skip</string>
+    <string name="btn_skip" comment="Button">ବାଦ୍ ଦିଅ</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
     <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
@@ -46,8 +46,8 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
-    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Dark theme</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">ଆପଣଙ୍କ ପସନ୍ଦର ଥିମ୍ ବାଛନ୍ତୁ। ସାମ୍ପ୍ରତିକ ସମୟ ଉପରେ ଆଧାର କରି ଥିମ୍ ସ୍ଵତଃ ଟୋଗଲ୍ କରେ। ଆପଣ ଚାହିଁଲେ ଏହାକୁ ପରେ ସେଟିଂସରେ ପରିବର୍ତ୍ତନ କରିପାରିବେ।</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">ଗାଢ଼ ଥିମ୍</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
     <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
@@ -57,13 +57,13 @@
     <string name="txt_loading_page" comment="Label">Loading…</string>
     <string name="txt_profile_username" comment="Label in Profile">Username</string>
     <string name="txt_profile_email" comment="Label in Profile">Email</string>
-    <string name="txt_profile_age" comment="Label in Profile">Age</string>
-    <string name="txt_profile_gender" comment="Label in Profile">Gender</string>
+    <string name="txt_profile_age" comment="Label in Profile">ବୟସ</string>
+    <string name="txt_profile_gender" comment="Label in Profile">ଲିଙ୍ଗ</string>
     <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">To modify your profile information, go to the Common Voice website.</string>
     <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
-    <string name="txt_gender_male" comment="Label in Profile">Male</string>
-    <string name="txt_gender_female" comment="Label in Profile">Female</string>
-    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Other</string>
+    <string name="txt_gender_male" comment="Label in Profile">ପୁରୁଷ</string>
+    <string name="txt_gender_female" comment="Label in Profile">ମହିଳା</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">ଅନ୍ୟ</string>
     <string name="btn_badges_loggedin" comment="Button">All badges</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Level {{level}}</string>
     <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
@@ -80,7 +80,7 @@
     <string name="settingsOther" comment="Title in Settings">Other</string>
     <string name="settingsGeneral" comment="Title in Settings">ସାଧାରଣ</string>
     <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
-    <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
+    <string name="settingsLearnMore" comment="Button in Settings">ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="radioThemeLight" comment="Radio-Button in Settings">ହାଲୁକା</string>
     <string name="radioThemeDark" comment="Radio-Button in Settings">ଗାଢ଼</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">ସ୍ଵତଃ</string>
@@ -102,7 +102,7 @@
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Recording indicator sound</string>
     <string name="toast_recording_indicator_sound_on" comment="Message text">Recording indicator sound is now turned on.\nA sound will play when you start and stop recording.</string>
     <string name="txt_check_for_updates" comment="Switch-Button in Settings">Check for updates</string>
-    <string name="txt_gestures" comment="Switch-Button in Settings">Gestures</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">ଅଙ୍ଗଭଙ୍ଗୀ</string>
     <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
     <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
@@ -115,16 +115,16 @@
     <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="title_advanced_settings" comment="Option in Settings">ବିକଶିତ</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
-    <string name="title_textsize_settings" comment="Title in Settings">Text size</string>
+    <string name="title_textsize_settings" comment="Title in Settings">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
-    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">ରଙ୍ଗୀନ ଦୈନିକ ଲକ୍ଷ୍ୟ ପ୍ରଗତି ଦଣ୍ଡିକା</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
@@ -173,7 +173,7 @@
     <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
     <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
-    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistics</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">ପରିସଂଖ୍ୟାନ</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
     <string name="button_customise_api_server" comment="Button">Customise API server</string>
@@ -181,7 +181,7 @@
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
-    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Skip</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">ବାଦ୍ ଦିଅ</string>
     <string name="btn_send_sentence" comment="Button in Speak">Send recording</string>
     <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
@@ -212,14 +212,14 @@
     <string name="button_report" comment="Button">Report</string>
     <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
     <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
-    <string name="button_send_report" comment="Button">Send report</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensive speech</string>
+    <string name="button_send_report" comment="Button">ରିପୋର୍ଟ ପଠାନ୍ତୁ</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">ଆପତ୍ତିଜନକ ଭାଷା</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">ଆପତ୍ତିଜନକ କଥନ</string>
     <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report" comment="Checkbox">Different language</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">ଭିନ୍ନ ଭାଷା</string>
     <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
     <string name="checkbox_reason5_report" comment="Checkbox">Other</string>
-    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">ମନ୍ତବ୍ୟ</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
@@ -227,8 +227,8 @@
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Listening…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">The sentence text is hidden</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice API ସର୍ଭର୍ ଆଉ କୌଣସି ବାକ୍ୟ ପ୍ରଦାନ କରିନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ କିମ୍ୱା Mozilla ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice API ସର୍ଭର୍ ଆଉ କୌଣସି କ୍ଲିପ୍ ପ୍ରଦାନ କରିନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ କିମ୍ୱା Mozilla ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">You have already validated %d clip in a row, continue this amazing work!</item>
         <item quantity="other">You have already validated %d clips in a row, continue this amazing work!</item>
@@ -293,10 +293,10 @@
     <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Enable/Disable</string>
     <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Close message</string>
     <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copy</string>
-    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Increase</string>
-    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Decrease</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">ବୃଦ୍ଧି</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">ହ୍ରାସ</string>
     <!-- NoConnection -->
-    <string name="btn_check_again_noconnection" comment="Button">Check again</string>
+    <string name="btn_check_again_noconnection" comment="Button">ପୁଣି ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
     <!-- First-run Speak & Listen -->
     <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">This is the sentence you must record.</string>
@@ -320,7 +320,7 @@
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
     <!-- Badges -->
-    <string name="btnCloseBadges" comment="Button">Close</string>
+    <string name="btnCloseBadges" comment="Button">ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
     <string name="message_new_badge_title" comment="Title for the message dialog">New badge earnt</string>
     <string name="message_level_up_title" comment="Title for the message dialog">New level achieved</string>
@@ -330,18 +330,18 @@
     <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
     <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
     <!-- Message dialog -->
-    <string name="btnOk" comment="Button">OK</string>
-    <string name="messageDialogErrorTitle" comment="Title for Message text">Error</string>
+    <string name="btnOk" comment="Button">ଠିକ୍‌ ଅଛି</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">ତ୍ରୁଟି</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
     <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
     <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Open Common Voice</string>
-    <string name="text_warning" comment="Title for Message text">Warning</string>
-    <string name="text_tip" comment="Title for Message text">Tip</string>
-    <string name="text_changelog" comment="Title for Message text">Changelog</string>
-    <string name="text_help" comment="Title for Message text">Help</string>
-    <string name="text_info" comment="Title for Message text">Info</string>
+    <string name="text_warning" comment="Title for Message text">ଚେତାବନୀ</string>
+    <string name="text_tip" comment="Title for Message text">ପରାମର୍ଶ</string>
+    <string name="text_changelog" comment="Title for Message text">ପରିବର୍ତ୍ତନ ଲଗ୍</string>
+    <string name="text_help" comment="Title for Message text">ସହାୟତା</string>
+    <string name="text_info" comment="Title for Message text">ସୂଚନା</string>
     <string name="check_box_message_dialog" comment="Checkbox (for Message text)">Do not show anymore</string>
     <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
     <string name="text_review_now" comment="Button" translatable="true">Review now</string>
@@ -358,8 +358,8 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
-    <string name="button_yes_sure" comment="Button">Yes</string>
-    <string name="button_cancel" comment="Button">Cancel</string>
+    <string name="button_yes_sure" comment="Button">ହଁ</string>
+    <string name="button_cancel" comment="Button">ବାତିଲ୍‌ କର</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
         <item quantity="one">Well done! You opened the app %d day in a row.</item>
         <item quantity="other">Well done! You opened the app %d days in a row.</item>

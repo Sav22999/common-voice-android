@@ -23,6 +23,7 @@ import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.StatsRepository
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -43,6 +44,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     private val firstRunPrefManager by inject<FirstRunPrefManager>()
     private val logPrefManager by inject<LogPrefManager>()
     private val loginViewModel by viewModel<LoginViewModel>()
+    private val mainViewModel by viewModel<MainActivityViewModel>()
     private val dialogInflater by inject<DialogInflater>()
     private val statsRepository by inject<StatsRepository>()
 
@@ -118,18 +120,21 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
             buttonResetDefaultAPIServer.setOnClickListener {
                 mainPrefManager.genericAPIUrl = defaultAPIServer
                 textDestinationAPIServer.setText(mainPrefManager.genericAPIUrl)
+                mainViewModel.clearDB()
 
                 buttonCustomiseAPIServer.isGone = false
                 advancedSubSectionDestinarioAPIServer.isGone = true
                 buttonResetDefaultAPIServer.isGone = true
+                mainViewModel.clearDB()
             }
             textDestinationAPIServer.addTextChangedListener {
                 var valueTemp = textDestinationAPIServer.text.toString()
-                if (valueTemp != "") {
+                if (valueTemp != "" && valueTemp != mainPrefManager.genericAPIUrl) {
                     if (valueTemp.get(valueTemp.length - 1).toString() != "/") {
                         valueTemp = valueTemp + "/"
                     }
                     mainPrefManager.genericAPIUrl = valueTemp
+                    mainViewModel.clearDB()
                 } else {
                     mainPrefManager.genericAPIUrl = defaultAPIServer
                 }
@@ -245,6 +250,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             CookieManager.getInstance().flush()
                             CookieManager.getInstance().removeAllCookies(null)
                             loginViewModel.clearDB()
+                            mainViewModel.clearDB()
 
                             startActivity(Intent(requireContext(), MainActivity::class.java))
                         },
