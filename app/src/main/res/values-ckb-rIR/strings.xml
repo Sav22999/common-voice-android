@@ -4,16 +4,16 @@
     <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
     <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">ckb</string>
     <!-- Buttons (nav) -->
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">ماڵەوە</string>
+    <string name="title_dashboard">داشبۆرد</string>
     <string name="title_settings">ڕێکخستنەکان</string>
     <!-- Home (main) -->
     <string name="button_home_login">Log in / Sign up</string>
-    <string name="button_home_logout">Log out</string>
+    <string name="button_home_logout">دەرچوون لە هەژمار</string>
     <string name="button_home_profile">Profile</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">سڵاو!</string>
     <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">سڵاو، {{username}}!</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="message_log_in_again">کاتی پێناسەی دانیشتن بەسەرچووە، پێویستە دیسان بچیتە ناو هەژمارەکەت</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">ئامار</string>
     <string name="dashboardVoicesOnline">دەنگی سەرهێڵ</string>
@@ -22,14 +22,14 @@
     <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">ئەمڕۆ</string>
     <string name="dashboardEver" comment="Sub-title in Dashboard">هەمیشە</string>
     <string name="toastNoLoginNoStatistics">پێویستە بچییە هەژماری خۆت بۆ بینینی ئامار</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
+    <string name="toastNoLoginNoDailyGoal">پێویستە بچیتە ناو هەژمارەکەت بۆ ئەوەی ئامانجی ڕۆژانە دیاری بکەی</string>
     <string name="textHoursAbbreviation">ک</string>
     <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">{{hour}} کاژێر</string>
     <string name="txt_top_contributors">Top contributors</string>
     <string name="txt_top_contributors_recorded">تۆمارکراو</string>
     <string name="txt_top_contributors_validated">سەلمێندراو</string>
     <string name="txt_app_statistics" comment="Title in Dashboard">ئاماری بەرنامە</string>
-    <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">زمانی ئێستا</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">تەواوی زمانەکان</string>
     <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
     <!-- First launch -->

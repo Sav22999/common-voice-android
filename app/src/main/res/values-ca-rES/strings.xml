@@ -174,11 +174,11 @@
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Segona alerta</string>
     <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Cap</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Estadístiques</string>
-    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
-    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
-    <string name="button_customise_api_server" comment="Button">Customise API server</string>
-    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
-    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Servidor API de destinació</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Torna a establir el servidor API per defecte</string>
+    <string name="button_customise_api_server" comment="Button">Personalitza el servidor API</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Segur que voleu personalitzar el servidor API? És una acció potencialment perillosa.\nPodeu restablir el servidor API per defecte en qualsevol moment.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Servidor API de destinació</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Es carrega la frase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -279,7 +279,7 @@
     <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Torna a gravar la frase</string>
     <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Atura la gravació</string>
     <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Reprodueix gravació</string>
-    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Deixa d\'escoltar</string>
     <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Enviar enregistrament</string>
     <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Llegiu els criteris de col·laboració</string>
     <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Mostra els detalls del mode fora de línia</string>
@@ -287,8 +287,8 @@
     <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Mostra informació de la frase actual</string>
     <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Informa d\'aquest tall</string>
     <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Informeu d\'aquesta frase</string>
-    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
-    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Secció d\'escolta</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Secció de parla</string>
     <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Enrere</string>
     <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Activa/Desactiva</string>
     <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Tanca el missatge</string>

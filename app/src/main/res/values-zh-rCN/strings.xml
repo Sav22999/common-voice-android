@@ -129,53 +129,53 @@
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">对听与读中需要读取/验证的句子也开启浅色主题(当浅色主题开启时)。</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">显示速度控制栏</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
-    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">按住讲话</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
-    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
-    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
-    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
-    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
-    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
-    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
-    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Play/Stop clip</string>
-    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Start/Stop recording</string>
-    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Play/Stop recording</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">向上滑动</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">向下滑动</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">向左滑动</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">向右滑动</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">长按</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">双击</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">向上滑动： {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">向下滑动： {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">向左滑动： {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">向右滑动： {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">长按: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">双击： {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">不做任何事</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">返回</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">跳过片段</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">跳过句子</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">接受片段 (标记为正确)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">拒绝片段 (标记为不正确)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">启用/禁用 \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">报告片段</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">报告句子</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">显示有关片段的信息</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">显示有关句子的信息</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">播放/停止播放片段</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">开始/停止录制</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">播放/停止播放已录制内容</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">保存</string>
-    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
-    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
-    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Upload using Wi-Fi only</string>
-    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download using Wi-Fi only</string>
-    <string name="text_general_notifications" comment="Switch-Button in Settings">Generic notifications</string>
-    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
-    <string name="text_title_notifications" comment="Title in Settings">Notifications</string>
-    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
-    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
-    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
-    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
-    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
-    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
-    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
-    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistics</string>
-    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
-    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">选择操作：</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">显示“贡献标准”图标</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">仅使用无线网络上传</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">仅使用无线网络下载</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">常规通知</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">每日目标通知</string>
+    <string name="text_title_notifications" comment="Title in Settings">通知</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">您的贡献重要且宝贵，请不要忘记今天为Common Voice做出贡献！\n点击这里打开应用，现在就努力实现您的每日目标！</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project的每日目标还没有达成！</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">如果您的每日目标尚未达到，请选择您想收到通知的时间。</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">注意：由于电池优化设置，通知可能会延迟或不会送达。</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">第一次提醒</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">第二次提醒</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">无</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">统计</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">目标API Server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">重置为默认 API Server</string>
     <string name="button_customise_api_server" comment="Button">Customise API server</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
@@ -183,7 +183,7 @@
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>
     <string name="btn_send_sentence" comment="Button in Speak">发送录音</string>
-    <string name="txt_loading_clip" comment="Label in Listen">Loading clip…</string>
+    <string name="txt_loading_clip" comment="Label in Listen">正在加载片段……</string>
     <string name="txt_press_icon_below_speak_1" comment="Label in Speak">按下面的图标开始录制。</string>
     <string name="txt_press_icon_below_speak_2" comment="Label in Speak">按下面的图标停止录制。</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">已记录句子。聆听录音。</string>
@@ -270,16 +270,16 @@
     <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
     <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
     <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
-    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Send recording</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">发送录音</string>
     <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
     <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">See offline mode details</string>
     <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">See information about the current clip</string>
     <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">See information about the current sentence</string>
-    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Report the current clip</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">报告当前片段</string>
     <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Report the current sentence</string>
     <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
     <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
-    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Go back</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">返回</string>
     <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Enable/Disable</string>
     <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Close message</string>
     <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copy</string>
@@ -339,8 +339,8 @@
     <string name="text_log_in_again" comment="Button" translatable="true">重新登录</string>
     <string name="text_offline_mode" comment="Title">离线模式</string>
     <string name="text_offline_mode_enabled" comment="Message text">您现在处于离线状态，应用程序已自动切换到离线模式。\n这意味着您可以继续记录和验证，但请求将在以后发送。</string>
-    <string name="text_offline_mode_enabled_2" comment="Message text">您可以通过在屏幕上查找此图标来告诉何时处于离线模式：</string>
-    <string name="text_offline_mode_enabled_3" comment="Message text">您可以点击该图标来查看已下载的剪辑和句子。</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">您可以通过在屏幕上查找此图标来查看是否处于离线模式：</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">您可以点击该图标来查看已下载的片段和句子。</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">离线模式未启用，您无法在没有互联网连接的情况下使用该应用。\n要使用离线模式功能，可在设置中打开。</string>
     <string name="text_ads_are_disable_would_you_like_able" comment="Message text">你知道你可以免费支持我的工作吗？如果你喜欢这个应用，请考虑在设置中打开广告横条。</string>
     <string name="text_open_settings_now">打开设置</string>
@@ -367,7 +367,7 @@
     <string name="save_daily_goal" comment="Button">保存</string>
     <string name="delete_daily_goal" comment="Button">删除</string>
     <string name="cancel_daily_goal" comment="Button">取消</string>
-    <string name="description_setting_daily_goal" comment="Message text">选择您想要每天记录多少句子和片断(他们的总和)。</string>
+    <string name="description_setting_daily_goal" comment="Message text">选择您每天总共想要记录多少句子和片断。</string>
     <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">今天实现</string>
     <string name="daily_goal_not_achieved_today">今天没有实现</string>
     <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>

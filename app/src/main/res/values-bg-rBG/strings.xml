@@ -163,7 +163,7 @@
     <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Покажи икона с критерии за принос</string>
     <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Качване само през Wi-Fi</string>
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Сваляне само през Wi-Fi</string>
-    <string name="text_general_notifications" comment="Switch-Button in Settings">Общие уведомления</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Общи известия</string>
     <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Известия за дневна цел</string>
     <string name="text_title_notifications" comment="Title in Settings">Известия</string>
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Моля, не забравяйте да допринесете към Common Voice днес, вашият принос е ценен и важен.\nДокоснете тук, за да отворите приложението и да се устремите към дневната ви цел сега.</string>

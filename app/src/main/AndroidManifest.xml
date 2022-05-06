@@ -26,6 +26,7 @@
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
@@ -38,11 +39,13 @@
         <activity
             android:name=".FirstLaunch"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.FullScreen" />
         <!-- The actual app (MainActivity) -->
         <activity
             android:name=".MainActivity"
+            android:exported="false"
             android:hardwareAccelerated="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -54,6 +57,7 @@
         <activity
             android:name=".SpeakActivity"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
@@ -61,6 +65,7 @@
         <activity
             android:name=".ListenActivity"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
@@ -68,6 +73,7 @@
         <activity
             android:name=".LoginActivity"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.TitleBar">
@@ -77,6 +83,7 @@
         <activity
             android:name=".FirstRunListen"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
@@ -84,21 +91,26 @@
         <activity
             android:name=".FirstRunSpeak"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <!-- Restart -->
         <activity
             android:name=".RestartActivity"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
         <!-- NotAvailableNow -->
         <activity
             android:name=".NotAvailableNow"
+            android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
         <!-- NotificationReceiver -->
-        <receiver android:name=".utils.NotificationsDailyGoalReceiver" />
+        <receiver
+            android:name=".utils.NotificationsDailyGoalReceiver"
+            android:exported="true" />
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"

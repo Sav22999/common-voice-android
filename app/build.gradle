@@ -3,14 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 
 android {
-    compileSdkVersion 30
+    compileSdk 31
 
     defaultConfig {
         applicationId 'org.commonvoice.saverio'
         minSdkVersion 26
-        targetSdkVersion 30
-        versionCode = 175
-        versionName '2.4.0.2'
+        targetSdk 31
+        versionCode = 176
+        versionName '2.4.0.3'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -74,6 +74,8 @@ dependencies {
     implementation Libs.navFragmentKtx
     implementation Libs.navUiKtx
     implementation Libs.legacySupport
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     testImplementation Libs.junit4
     androidTestImplementation Libs.junitExt
     androidTestImplementation Libs.espressoCore

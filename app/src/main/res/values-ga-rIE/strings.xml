@@ -8,30 +8,30 @@
     <string name="title_dashboard">Gléaschlár</string>
     <string name="title_settings">Socruithe</string>
     <!-- Home (main) -->
-    <string name="button_home_login">Log in / Sign up</string>
+    <string name="button_home_login">Sínigh isteach / Cláraigh</string>
     <string name="button_home_logout">Scoir</string>
-    <string name="button_home_profile">Profile</string>
+    <string name="button_home_profile">Próifíl</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Hóra!</string>
     <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Hóra a {{username}}!</string>
-    <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
+    <string name="message_log_in_again">D\'éag an t-aitheantas seisiúin. Ní mór duit síniú isteach arís</string>
     <!-- Dashboard -->
-    <string name="dashboardStatistics">Statistics</string>
-    <string name="dashboardVoicesOnline">Voices online</string>
+    <string name="dashboardStatistics">Staidreamh</string>
+    <string name="dashboardVoicesOnline">Guthanna ar an ngréasán</string>
     <string name="dashboardTabYou">Tusa</string>
     <string name="dashboardTabEveryone">Gach duine</string>
     <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Inniu</string>
     <string name="dashboardEver" comment="Sub-title in Dashboard">Riamh</string>
-    <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
-    <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
+    <string name="toastNoLoginNoStatistics">Ní mór duit síniú isteach chun do chuid staidreamh a fheiceáil</string>
+    <string name="toastNoLoginNoDailyGoal">Ní mór duit síniú isteach chun an sprioc laethúil a shocrú</string>
     <string name="textHoursAbbreviation">u</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
-    <string name="txt_top_contributors">Top contributors</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Uair an chloig: {{hour}}</string>
+    <string name="txt_top_contributors">Iad siúd a rinne an méid is mó</string>
     <string name="txt_top_contributors_recorded">Taifeadta</string>
     <string name="txt_top_contributors_validated">Bailíochtaithe</string>
-    <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Staidreamh an fheidhmchláir</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">An teanga reatha</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Gach teanga</string>
-    <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
+    <string name="txt_not_available_offline" comment="Message text">Níl sé ar fáil nuair nach mbíonn sé ceangailte leis an idirlíon</string>
     <!-- First launch -->
     <string name="btn_tutorial1" comment="Button">Tosaigh</string>
     <string name="btn_tutorial2" comment="Button">Ceadaigh í</string>
@@ -39,17 +39,17 @@
     <string name="btn_tutorial4" comment="Button">Féach arís é</string>
     <string name="btn_tutorial5" comment="Button">Críochnaigh</string>
     <string name="btn_skip" comment="Button">Léim thar seo</string>
-    <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
-    <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Tá cead faighte</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Botún: níor tugadh cead</string>
     <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">This app needs the \"Microphone\" permission to record your voice.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Caithfear cead \"Micreafón\" a thabhairt don bhfeidhmchlár seo chun gur féidir leis do ghuth a thaifeadadh.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Téama dorcha</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Some actions have corresponding gestures. For example, you can skip a sentence in Speak by swiping left.</string>
-    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">You can customise these gestures in Settings.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Tig leat na gothaí sin a shaincheapadh sna Socruithe.</string>
     <string name="txt_telegram_group_first_launch" comment="Text | First-run">You can join the Telegram group to get news and support.</string>
     <string name="btn_join_telegram_first_launch" comment="Button">Join group</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Let\'s go! Choose which language you\'d like to speak or listen in. The app will also be shown in that language if a translation is available.</string>
@@ -60,20 +60,20 @@
     <string name="txt_profile_age" comment="Label in Profile">Aois</string>
     <string name="txt_profile_gender" comment="Label in Profile">Gnéas</string>
     <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">To modify your profile information, go to the Common Voice website.</string>
-    <string name="txt_login_successful_alert" comment="Message text">Login successful!</string>
+    <string name="txt_login_successful_alert" comment="Message text">D\'éirigh leat síniú isteach!</string>
     <string name="txt_gender_male" comment="Label in Profile">Fireann</string>
     <string name="txt_gender_female" comment="Label in Profile">Baineann</string>
     <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Eile</string>
     <string name="btn_badges_loggedin" comment="Button">Gach suaitheantas</string>
     <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Leibhéal {{level}}</string>
-    <string name="btn_use_a_verification_link_login" comment="Button">I have already a verification link</string>
-    <string name="txt_verification_link" comment="Label (Placeholder)">Verification link</string>
-    <string name="txt_verification_link_not_valid" comment="Message text">The verification link is not valid</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Tá nasc fíordheimhnithe agam cheana</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Nasc fíordheimhnithe</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Níl an nasc fíordheimhnithe bailí</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
-    <string name="txt_project_github_settings" comment="Button in Settings">Project open-source on GitHub</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Athoscail na ceachtanna</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Tionscnamh foinse-oscailte ar GitHub</string>
     <string name="txt_developed_by" comment="Label in Settings">forbartha ag</string>
-    <string name="toast_language_changed" comment="Message text">Language successfully set to {{lang}}</string>
+    <string name="toast_language_changed" comment="Message text">Socraíodh an teanga go rathúil go {{lang}}</string>
     <string name="settingsLanguage" comment="Title in Settings">Teanga</string>
     <string name="settingsListen" comment="Title in Settings">Éist</string>
     <string name="settingsSpeak" comment="Title in Settings">Labhair</string>
@@ -84,11 +84,11 @@
     <string name="radioThemeLight" comment="Radio-Button in Settings">Geal</string>
     <string name="radioThemeDark" comment="Radio-Button in Settings">Dorcha</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">Uathoibríoch</string>
-    <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
-    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Tacaigh le mo chuid oibre. Ceannaigh caifé dom 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Seinn mír go huathoibríoch nuair a luchtaítear í</string>
     <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Téama dorcha</string>
     <string name="contact_developer_on_telegram" comment="Button in Settings">Déan teagmháil leis an bhforbróir ar Telegram</string>
-    <string name="txt_experimental_features" comment="Switch-Button in Settings">Experimental features</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Gnéithe turgnamhacha</string>
     <string name="toast_experimental_features_on" comment="Message text">Experimental features turned on.\nNew features could be unstable and unsafe.</string>
     <string name="txt_log_on_file" comment="Switch-Button in Settings">Save logs to a file</string>
     <string name="toast_log_on_file_on" comment="Message text">Saving logs to a file turned on.\nYou can attach the log.txt file when you report an issue.\nRead more on GitHub.</string>
@@ -105,78 +105,78 @@
     <string name="txt_gestures" comment="Switch-Button in Settings">Gothaí</string>
     <string name="message_review_app_on_play_store" comment="Message text">Please, if you like this app, remember to review it on Google Play Store.</string>
     <string name="message_app_not_completely_translated" comment="Message text">The app is not (completely) translated in this language.\nYou can contribute to translate the app on Crowdin.</string>
-    <string name="txt_animations" comment="Switch-Button in Settings">Animations</string>
-    <string name="txt_customise_the_font_size" comment="Button in Settings">Customise the font size</string>
-    <string name="txt_customise_gestures" comment="Button in Settings">Customise gestures</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Beochain</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Saincheap méid na clófhoirne</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Saincheap na gothaí</string>
     <string name="title_theme_settings" comment="Title in Settings">Cuma</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram group of the app</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Taispeáin lipéid faoi na deilbhíní ar an roghchlár</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Read the Mozilla Common Voice Terms of Service</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
-    <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Déan léirmheas ar Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">Comhéadan úsáideora</string>
     <string name="title_advanced_settings" comment="Option in Settings">Ardroghanna</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
-    <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
+    <string name="txt_reset_data" comment="Button in Settings">Athshocraigh sonraí an fheidhmchláir</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Show report icon (top-right) instead of button (bottom)</string>
     <string name="title_textsize_settings" comment="Title in Settings">Méid an téacs</string>
-    <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Meirge fógraí</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} agus {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
-    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
-    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Taispeáin an deilbhín faisnéise</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Brúigh chun labhairt</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
-    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Swipe up</string>
-    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Swipe down</string>
-    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Swipe left</string>
-    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Swipe right</string>
-    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Long press</string>
-    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Double tap</string>
-    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Swipe up: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Swipe down: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Swipe left: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Swipe right: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Sleamhnaigh suas é</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Sleamhnaigh síos é</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Sleamhnaigh ar chlé é</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Sleamhnaigh ar dheis é</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Brúigh ar feadh achar fada é</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Cnag faoi dhó air</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Sleamhnaigh suas é: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Sleamhnaigh síos é: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Sleamhnaigh ar chlé é: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Sleamhnaigh ar dheis é: {{feature_enabled}}</string>
     <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Long press: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Double tap: {{feature_enabled}}</string>
-    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nothing</string>
-    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Go back</string>
-    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Skip the clip</string>
-    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Skip the sentence</string>
-    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Accept the clip (mark as correct)</string>
-    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Reject the clip (mark as incorrect)</string>
-    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Enable/Disable \"{{feature}}\"</string>
-    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Report the clip</string>
-    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Report the sentence</string>
-    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Show information about the clip</string>
-    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Show information about the sentence</string>
-    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Play/Stop clip</string>
-    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Start/Stop recording</string>
-    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Play/Stop recording</string>
-    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Save</string>
-    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Choose an action</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Cnag faoi dhó: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Dada</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Téigh siar</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Léim thar an mhír</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Léim thar an abairt</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Glac leis an mír (rianaigh go bhfuil sí ceart)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Diúltaigh don mhír (rianaigh go bhfuil sí mícheart)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Cumasaigh/Díchumasaigh \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Tuairiscigh an mhír sin</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Tuairiscigh an abairt sin</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Taispeáin faisnéis faoin mír</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Taispeáin faisnéis faoin abairt</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Seinn/Stad an mhír</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Tosaigh/Stad an taifeadadh</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Seinn/Stad an taifeadadh</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Taisc é</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Roghnaigh gníomh</string>
     <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Show contribution criteria icon</string>
     <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Upload using Wi-Fi only</string>
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Download using Wi-Fi only</string>
-    <string name="text_general_notifications" comment="Switch-Button in Settings">Generic notifications</string>
-    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Daily goal notifications</string>
-    <string name="text_title_notifications" comment="Title in Settings">Notifications</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Fógraí coitianta</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Fógraí maidir leis an sprioc laethúil</string>
+    <string name="text_title_notifications" comment="Title in Settings">Fógraí</string>
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
     <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
     <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
     <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
-    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
-    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
-    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
-    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistics</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">An chéad foláireamh</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">An dara foláireamh</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Dada</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Staidreamh</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
-    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="button_customise_api_server" comment="Button">Saincheap freastalaí an API</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
     <!-- Speak & Listen-->
@@ -184,48 +184,48 @@
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Léim thar seo</string>
     <string name="btn_send_sentence" comment="Button in Speak">Seol an taifeadadh</string>
     <string name="txt_loading_clip" comment="Label in Listen">Tá an ghearrthóg á luchtú…</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Press the icon below to start recording.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Press the icon below to stop recording.</string>
-    <string name="txt_sentence_recorded" comment="Label in Speak">Sentence recorded. Listen to the recording.</string>
-    <string name="txt_sentence_record_failed" comment="Label in Speak">Recording failed. Please try again.</string>
-    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">If you spoke correctly, send the recording.\nIf you misspoke, you can record the sentence again.</string>
-    <string name="txt_listening_stopped" comment="Label in Speak">Listen to the whole recording to make sure it\'s correct.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Press the icon below to stop listening.</string>
-    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Recording is too long. Max duration is 10 seconds.</string>
-    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Recording is too short. Please, try again.</string>
-    <string name="txt_sending_recording" comment="Label in Speak">Sending the recording…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Brúigh an deilbhín thíos chun tús a chur leis an taifeadadh.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Brúigh an deilbhín thíos chun an taifeadadh a chríochnú.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Rinneadh an abairt a thaifeadadh. Éist leis an taifeadadh.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Theip ar an taifeadadh. Féach arís é.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Má labhair tú i gceart, seol an taifeadadh.\nMura labhair tú i gceart, is féidir leat an abairt a thaifeadadh arís.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Éist leis an taifeadadh ar fad chun a chinntiú go bhfuil sé ceart.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Brúigh an deilbhín thíos chun éirí as bheith ag éisteacht léi.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Tá an taifeadadh rófhada. Is é 10 soicind an t-aga uasta.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Tá an taifeadadh ró-ghearr. Déan arís é.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Ag seoladh an taifeadadh…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Seoladh an taifeadadh!</string>
-    <string name="txt_sending_recording_failed" comment="Message text">Failed to send recording!</string>
-    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Failed to send recording! You can either try again, or press the {{skip_button}} button.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Press the icon below to start the clip.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Press the icon below to stop the clip.</string>
-    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">If the clip is correct, press the thumbs up.\nIf the clip is wrong, press the thumbs down.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Press the icon below to play the clip again.</string>
-    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Clip marked as correct!</string>
-    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Clip marked as incorrect!</string>
-    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Error. Press the {{skip_button}} button to continue.</string>
-    <string name="txt_error_2_sending_failed" comment="Label in Listen">Failed to send the recording.</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Theip ar sheoladh an taifeadadh!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Theip ar an seoladh taifeadadh! Is féidir é a dhéanamh arís, nó brúigh an cnaipe {{skip_button}}.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Brúigh an deilbhín thíos chun an mhír a sheinm.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Brúigh an deilbhín thíos chun an mhír a stadadh.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Má tá an mhír ceart, brúigh an ordóg suas.\nMá tá an mhír mícheart, brúigh an ordóg síos.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Brúigh an deilbhín thíos chun an mhír a sheinm arís.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Rianaíodh go bhfuil an mhír ceart!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Rianaíodh go bhfuil an mhír mícheart!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Botún. Brúigh an cnaipe {{skip_button}} chun leanúint ar aghaidh.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Theip ar sheoladh an taifeadadh.</string>
     <string name="txt_sending_validation" comment="Label in Listen">Ag seoladh…</string>
     <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Failed to send the result. You can either try again, or press the {{skip_button}} button.</string>
     <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Ag dúnadh…</string>
     <string name="txt_error_4_clips_no_available" comment="Label in Listen">Error. There are no more available clips for this language.</string>
-    <string name="button_report" comment="Button">Report</string>
-    <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
-    <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
+    <string name="button_report" comment="Button">Tuairiscigh í</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Tuairiscigh an mhír:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Tuairiscigh an abairt:</string>
     <string name="button_send_report" comment="Button">Seol an tuairisc</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensive speech</string>
-    <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Caint mhaslach</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Caint mhaslach</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Botún gramadúil/litrithe</string>
     <string name="checkbox_reason3_report" comment="Checkbox">Teanga eile</string>
     <string name="checkbox_reason4_report" comment="Checkbox">Tá sé deacair le rá</string>
     <string name="checkbox_reason5_report" comment="Checkbox">Eile</string>
-    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Trácht</string>
     <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
     <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
     <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
     <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Ag éisteacht…</string>
-    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" is enabled. Go to Settings to disable it.</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">Tá \"{{feature_name}}\" cumasaithe. Téigh chuig na Socruithe chun é a dhíchumasú.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Tá an abairt i bhfolach</string>
     <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
     <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
@@ -258,18 +258,18 @@
         <item quantity="other">Wow, you have superhuman powers! You validated %d clips in a row!</item>
     </plurals>
     <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
-        <item quantity="one">You sent %d recording in a row.</item>
-        <item quantity="two">You sent %d recordings in a row.</item>
-        <item quantity="few">You sent %d recordings in a row.</item>
-        <item quantity="many">You sent %d recordings in a row.</item>
-        <item quantity="other">You sent %d recordings in a row.</item>
+        <item quantity="one">Tá %d taifeadadh as a chéile seolta isteach agat.</item>
+        <item quantity="two">Tá %d taifeadadh as a chéile seolta isteach agat.</item>
+        <item quantity="few">Tá %d thaifeadadh as a chéile seolta isteach agat.</item>
+        <item quantity="many">Tá %d dtaifeadadh as a chéile seolta isteach agat.</item>
+        <item quantity="other">Tá %d dtaifeadadh as a chéile seolta isteach agat.</item>
     </plurals>
     <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
-        <item quantity="one">Good job! You sent %d recording in a row.</item>
-        <item quantity="two">Good job! You sent %d recordings in a row.</item>
-        <item quantity="few">Good job! You sent %d recordings in a row.</item>
-        <item quantity="many">Good job! You sent %d recordings in a row.</item>
-        <item quantity="other">Good job! You sent %d recordings in a row.</item>
+        <item quantity="one">Dearna leat! Sheol tú %d taifeadadh as a chéile.</item>
+        <item quantity="two">Dearna leat! Sheol tú %d thaifeadadh as a chéile.</item>
+        <item quantity="few">Dearna leat! Sheol tú %d thaifeadadh as a chéile.</item>
+        <item quantity="many">Dearna leat! Sheol tú %d dtaifeadadh as a chéile.</item>
+        <item quantity="other">Dearna leat! Sheol tú %d taifeadadh as a chéile.</item>
     </plurals>
     <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
         <item quantity="one">Congratulations! You achieved the milestone of %d recorded sentence. Keep going.</item>
@@ -299,52 +299,52 @@
         <item quantity="many">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
         <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
     </plurals>
-    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Speed successfully set to {{speed_value}}.</string>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Socraíodh an luas go rathúil ag {{speed_value}}.</string>
     <!--Accessibility-->
-    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Reject clip</string>
-    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Accept clip</string>
-    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Play clip</string>
-    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Stop clip</string>
-    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Start recording</string>
-    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Record again the sentence</string>
-    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
-    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
-    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
-    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Send recording</string>
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Diúltaigh don mhír</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Glac leis an mír</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Seinn an mhír</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Stad an mhír</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Tosaigh ag taifeadadh</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Déan an abairt a thaifeadadh arís</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stad an taifeadadh</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Seinn an taifeadadh</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stad bheith ag éisteacht léi</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Seol an taifeadadh</string>
     <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
     <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">See offline mode details</string>
     <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">See information about the current clip</string>
     <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">See information about the current sentence</string>
-    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Report the current clip</string>
-    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Report the current sentence</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Tuairiscigh an mhír reatha</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Tuairiscigh an abairt reatha</string>
     <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
     <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
-    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Go back</string>
-    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Enable/Disable</string>
-    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Close message</string>
-    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Copy</string>
-    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Increase</string>
-    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Decrease</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Téigh siar</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Cumasaigh/díchumasaigh</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Dún an teachtaireacht</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Cóipeil</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Méadaigh</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Laghdaigh</string>
     <!-- NoConnection -->
     <string name="btn_check_again_noconnection" comment="Button">Dearbháil arís</string>
-    <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <string name="txt_noconnection" comment="Message text">Níl tú ceangailte leis an idirlíon. Ceangail le Wi-Fi nó le sonraí móibíleacha, agus ina dhiaidh sin, brúigh an cnaipe thíos.</string>
     <!-- First-run Speak & Listen -->
     <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Seo í an abairt nach mór duit a thaifeadadh.</string>
-    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">A message to guide you will appear here.</string>
-    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">If you don\'t like the sentence, you can tap here to skip and get another one.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Taispeánfar anseo teachtaireacht chun treoir a thabhairt duit.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Mura dtaitníonn an abairt leat, is féidir leat cnagadh anseo chun léim thairsti agus ceann eile a fháil.</string>
     <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Cnag ar an deilbhín seo chun tús a chur leis an taifeadadh.</string>
     <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Cnag ar an deilbhín seo chun críoch a chur leis an taifeadadh.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Cnag ar an deilbhín seo chun do thaifeadadh a sheinm arís.</string>
     <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Cnag ar an deilbhín seo chun í a thaifeadadh arís más tá botún déanta agat.</string>
     <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Cnag ar an deilbhín seo chun do thaifeadadh a sheinm arís.</string>
     <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Cnag ar an gcnaipe seo chun do thaifeadadh a sheoladh.</string>
-    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">This is the sentence/clip you must validate.</string>
-    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">If you don\'t like the clip, you can tap on this button to skip and get another one.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Seo í an abairt/mhír nach mór duit a bhailíochtú.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Mura dtaitníonn an mhír leat, is féidir leat cnagadh anseo chun léim thairsti agus ceann eile a fháil.</string>
     <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Cnag ar an deilbhín seo chun an mhír a sheinm.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon to stop playing the clip.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Tap on this icon if you want to listen to the clip again.</string>
-    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">If the clip matches the sentence, tap on this icon to accept it.</string>
-    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">If the clip doesn\'t match the sentence, tap on this icon to reject it.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Cnag ar an deilbhín seo chun deireadh a chur le seinm na míre.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Cnag ar an deilbhín seo más mian leat éisteacht leis an mír arís.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Má tá an mhír agus abairt ag teacht le chéile, cnag ar an deilbhín seo chun glacadh léi.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Mura bhfuil an mhír agus an abairt ag teacht le chéile, cnag ar an deilbhín seo chun diúltú di.</string>
     <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Léigh anois iad</string>
     <!-- NotAvailableNow -->
@@ -352,8 +352,8 @@
     <!-- Badges -->
     <string name="btnCloseBadges" comment="Button">Dún é</string>
     <string name="labelAllBadges" comment="Title for All badge section">Gach suaitheantas</string>
-    <string name="message_new_badge_title" comment="Title for the message dialog">New badge earnt</string>
-    <string name="message_level_up_title" comment="Title for the message dialog">New level achieved</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">Tá suaitheantas nua tuillte agat</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">Tá leibhéal nua bainte amach agat</string>
     <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
     <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Congrats! You have just achieved a new level and you earnt a new badge as well.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
     <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
@@ -364,7 +364,7 @@
     <string name="messageDialogErrorTitle" comment="Title for Message text">Earráid</string>
     <string name="messageDialogGenericError" comment="Message text | Generic error">That didn\'t work.\nPlease try again, or contact the developer.</string>
     <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">That didn\'t work. Please try again, or contact the developer.\nError code: EX-{{error_code}}</string>
-    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Login failed</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Theip ar an síniú isteach</string>
     <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">You must first log in on the Common Voice website and accept the Common Voice privacy policy.</string>
     <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Oscail Common Voice</string>
     <string name="text_warning" comment="Title for Message text">Rabhadh</string>
@@ -391,11 +391,11 @@
     <string name="button_yes_sure" comment="Button">Is ea</string>
     <string name="button_cancel" comment="Button">Cealaigh</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
-        <item quantity="one">Well done! You opened the app %d day in a row.</item>
-        <item quantity="two">Well done! You opened the app %d days in a row.</item>
-        <item quantity="few">Well done! You opened the app %d days in a row.</item>
-        <item quantity="many">Well done! You opened the app %d days in a row.</item>
-        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+        <item quantity="one">Maith thú! Tá an feidhmchlár oscailte %d lá as a chéile agat.</item>
+        <item quantity="two">Maith thú! Tá an feidhmchlár oscailte %d lá as a chéile agat.</item>
+        <item quantity="few">Maith thú! Tá an feidhmchlár oscailte %d lá as a chéile agat.</item>
+        <item quantity="many">Maith thú! Tá an feidhmchlár oscailte %d lá as a chéile agat.</item>
+        <item quantity="other">Maith thú! Tá an feidhmchlár oscailte %d lá as a chéile agat.</item>
     </plurals>
     <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
         <item quantity="one">I\'ve opened the CV Project app %d day in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
@@ -404,8 +404,8 @@
         <item quantity="many">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
         <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
     </plurals>
-    <string name="button_log_in_now" comment="Button">Log in now</string>
-    <string name="button_open_profile_now" comment="Button">Open Profile now</string>
+    <string name="button_log_in_now" comment="Button">Sínigh isteach anois</string>
+    <string name="button_open_profile_now" comment="Button">Oscail an Próifíl anois</string>
     <string name="button_translate_on_crowdin" comment="Button">Aistrigh anois</string>
     <!-- Daily goal -->
     <string name="daily_goal_title" comment="Title in Dashboard">Cuspóir laethúil</string>
@@ -427,5 +427,5 @@
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
     <string name="copied_string" comment="Toast message">Cóipeáilte</string>
     <!-- Message dialog (unspecified category) -->
-    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">Tá leagan nua den bhfeidhmchlr le fáil (leagan {{n_version}}). Tig leat é a nuashonrú ón siopa is fearr leat (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) nó go díreach ó GitHub.</string>
 </resources>
