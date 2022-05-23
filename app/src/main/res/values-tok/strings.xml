@@ -11,16 +11,16 @@
     <string name="button_home_login">Log in / Sign up</string>
     <string name="button_home_logout">Log out</string>
     <string name="button_home_profile">Profile</string>
-    <string name="text_hi_without_username" comment="Text | If it's not set a username">Hi!</string>
-    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Hi, {{username}}!</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">toki!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">{{username}} o, toki!</string>
     <string name="message_log_in_again">The session-id is expired, you need to log in again</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistics</string>
     <string name="dashboardVoicesOnline">Voices online</string>
-    <string name="dashboardTabYou">You</string>
-    <string name="dashboardTabEveryone">Everyone</string>
-    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Today</string>
-    <string name="dashboardEver" comment="Sub-title in Dashboard">Ever</string>
+    <string name="dashboardTabYou">sina</string>
+    <string name="dashboardTabEveryone">jan ale</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">tenpo suno ni</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">tenpo ale</string>
     <string name="toastNoLoginNoStatistics">You have to log in to see your statistics</string>
     <string name="toastNoLoginNoDailyGoal">You have to log in to set the daily goal</string>
     <string name="textHoursAbbreviation">h</string>
@@ -30,14 +30,14 @@
     <string name="txt_top_contributors_validated">Validated</string>
     <string name="txt_app_statistics" comment="Title in Dashboard">App statistics</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Current language</string>
-    <string name="txt_all_languages" comment="Sub-title in Dashboard">All languages</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">toki ali</string>
     <string name="txt_not_available_offline" comment="Message text">Not available in offline mode</string>
     <!-- First launch -->
-    <string name="btn_tutorial1" comment="Button">Start</string>
+    <string name="btn_tutorial1" comment="Button">open</string>
     <string name="btn_tutorial2" comment="Button">Permit</string>
     <string name="btn_tutorial3" comment="Button">Next</string>
     <string name="btn_tutorial4" comment="Button">Try again</string>
-    <string name="btn_tutorial5" comment="Button">Finish</string>
+    <string name="btn_tutorial5" comment="Button">pini</string>
     <string name="btn_skip" comment="Button">Skip</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permission obtained</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permission denied</string>
@@ -81,8 +81,8 @@
     <string name="settingsGeneral" comment="Title in Settings">General</string>
     <string name="settingsUsefulLinks" comment="Title in Settings">Useful links</string>
     <string name="settingsLearnMore" comment="Button in Settings">Learn more</string>
-    <string name="radioThemeLight" comment="Radio-Button in Settings">Light</string>
-    <string name="radioThemeDark" comment="Radio-Button in Settings">Dark</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">walo</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">pimeja</string>
     <string name="radioThemeAuto" comment="Radio-Button in Settings">Auto</string>
     <string name="txt_donate_paypal_settings" comment="Button in Settings">Support my work. Buy me a coffee 😄</string>
     <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Auto-play clip when it\'s loaded</string>
@@ -115,7 +115,7 @@
     <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Review on Google Play</string>
     <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
-    <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
+    <string name="title_advanced_settings" comment="Option in Settings">mute</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
@@ -125,7 +125,7 @@
     <string name="title_ads_banner_settings" comment="Title in Settings">Ad banner</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Enable ads-banner in {{section_name}}</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Coloured dailygoal progress bar</string>
-    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} and {{listen_name}}</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} en {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Show speed control bar</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
@@ -172,7 +172,7 @@
     <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
     <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
-    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">ala</string>
     <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistics</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
@@ -213,10 +213,10 @@
     <string name="title_report_clip" comment="Title in Report a clip">Report clip:</string>
     <string name="title_report_sentence" comment="Title in Report a sentence">Report sentence:</string>
     <string name="button_send_report" comment="Button">Send report</string>
-    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Offensive language</string>
-    <string name="checkbox_reason1_report_clip" comment="Checkbox">Offensive speech</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">toki ike</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">toki ike</string>
     <string name="checkbox_reason2_report" comment="Checkbox">Grammatical / spelling error</string>
-    <string name="checkbox_reason3_report" comment="Checkbox">Different language</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">toki ante</string>
     <string name="checkbox_reason4_report" comment="Checkbox">Difficult to pronounce</string>
     <string name="checkbox_reason5_report" comment="Checkbox">Other</string>
     <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Comment</string>
@@ -375,7 +375,7 @@
     <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
     <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
     <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
-    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">sina sona ala sona e ni?:</string>
     <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
     <string name="copied_string" comment="Toast message">Copied</string>
     <!-- Message dialog (unspecified category) -->

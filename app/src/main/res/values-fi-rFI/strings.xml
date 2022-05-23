@@ -287,8 +287,8 @@
     <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">See information about the current sentence</string>
     <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Report the current clip</string>
     <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Report the current sentence</string>
-    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
-    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Avaa kuunteluosio</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Avaa puheosio</string>
     <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Takaisin</string>
     <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Käytössä/Poissa</string>
     <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Sulje viesti</string>
