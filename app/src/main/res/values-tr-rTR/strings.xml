@@ -70,7 +70,7 @@
     <string name="txt_verification_link" comment="Label (Placeholder)">Doğrulama bağlantısı</string>
     <string name="txt_verification_link_not_valid" comment="Message text">Doğrulama bağlantısı geçerli değil</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Eğitimi yeniden aç</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Projenin Github sayfası</string>
     <string name="txt_developed_by" comment="Label in Settings">geliştiren</string>
     <string name="toast_language_changed" comment="Message text">Dil başarıyla {{lang}} olarak ayarlandı</string>
@@ -166,10 +166,10 @@
     <string name="text_general_notifications" comment="Switch-Button in Settings">Genel bildirimler</string>
     <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Günlük hedef bildirimleri</string>
     <string name="text_title_notifications" comment="Title in Settings">Bildirimler</string>
-    <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Lütfen bugün Common Voice\'a katkıda bulunmayı unutmayın, katkınız değerli ve önemlidir!\nUygulamayı açmak ve günlük hedefinize ulaşmak için buraya dokunun.</string>
     <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project günlük hedefine henüz ulaşılmadı!</string>
-    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
-    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Günlük hedefinize ulaşılmaması durumunda ne zaman bilgilendirilmek istediğinizi seçin.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Pil optimizasyon ayarları nedeniyle bunun kesin olmayabileceğini veya hiç çalışmayabileceğini lütfen unutmayın.</string>
     <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">İlk bildirim</string>
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">İkinci bildirim</string>
     <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Yok</string>
