@@ -10,7 +10,7 @@ object Versions {
     const val coreKtxVersion = "1.6.0"
     const val legacySupportVersion = "1.0.0"
 
-    const val workVersion = "2.5.0"
+    const val workVersion = "2.7.1"
     const val lifeCycleVersion = "2.3.1"
     const val roomVersion = "2.3.0"
     const val navigationVersion = "2.3.5"
