@@ -1,13 +1,20 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.net.Uri
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.core.view.isGone
+import androidx.lifecycle.lifecycleScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
@@ -18,8 +25,11 @@ import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
+import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBinding>() {
@@ -37,6 +47,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     private val listenPrefManager by inject<ListenPrefManager>()
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
+    private val listenViewModel: ListenViewModel by stateViewModel()
+    private val speakViewModel: SpeakViewModel by stateViewModel()
 
     private var changedNumber = false
 
@@ -85,8 +97,27 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
 
             buttonOfflineModeLearnMore.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/offline-mode/")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://www.saveriomorelli.com/commonvoice/offline-mode/")
+                    )
+                )
             }
+
+            //TODO
+            /*
+            animateProgressBar(
+                progressBarOfflineModeListen,
+                <current_downloaded_listen>,
+                listenPrefManager.requiredClipsCount
+            )
+            animateProgressBar(
+                progressBarOfflineModeSpeak,
+                <current_downloaded_speak>,
+                speakPrefManager.requiredSentencesCount
+            )
+            */
         }
 
         setTheme()
@@ -146,6 +177,39 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 )
             }
         }
+    }
+
+    private fun animateProgressBar(
+        progressBar: View,
+        downloaded: Int,
+        total: Int
+    ) {
+        val view: View = progressBar
+        val metrics = DisplayMetrics()
+        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+        val width = metrics.widthPixels
+        //val height = metrics.heightPixels
+
+        if (!settingsPrefManager.isOfflineMode || downloaded == 0 || total == 0) {
+            view.isGone = true
+        } else {
+            val widthToUse = (downloaded * width) / total
+            animationProgressBar(view, view.x.toInt(), widthToUse)
+            progressBar.isGone = false
+        }
+    }
+
+    private fun animationProgressBar(progressBar: View, min: Int, max: Int) {
+        val view: View = progressBar
+        val animation: ValueAnimator =
+            ValueAnimator.ofInt(min, max)
+        animation.duration = 1000
+        animation.addUpdateListener { anim ->
+            val value = anim.animatedValue as Int
+            view.layoutParams.width = value
+            view.requestLayout()
+        }
+        animation.start()
     }
 
     fun setTheme() {

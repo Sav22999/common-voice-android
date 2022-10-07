@@ -6,11 +6,11 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId 'org.commonvoice.saverio'
+        applicationId 'org.commonvoice.saverio.beta'
         minSdkVersion 26
         targetSdk 31
-        versionCode = 179
-        versionName '2.4.0.5'
+        versionCode = 180
+        versionName '2.4.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -43,8 +43,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = 11
+        targetCompatibility = 11
     }
     kotlinOptions {
         jvmTarget = "1.8"
