@@ -14,6 +14,8 @@ import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import org.commonvoice.saverio.GenericViewModel
 import org.commonvoice.saverio.LoginActivity
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
@@ -27,8 +29,10 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
@@ -46,6 +50,8 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
     private val statsPrefManager: StatsPrefManager by inject()
     private val mainPrefManager: MainPrefManager by inject()
+    private val mainViewModel by viewModel<MainActivityViewModel>()
+    private lateinit var viewModel: GenericViewModel
 
     private val dialogInflater by inject<DialogInflater>()
 
@@ -87,6 +93,11 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel = activity?.run {
+            ViewModelProviders.of(this).get(GenericViewModel::class.java)
+        } ?: throw Exception("?? Invalid Activity ??")
+        viewModel.updateFromFragment("dashboard")
 
         voicesOnlineSection()
 

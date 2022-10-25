@@ -2,6 +2,8 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
+import org.commonvoice.saverio.GenericViewModel
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentExperimentalSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
@@ -9,7 +11,9 @@ import org.commonvoice.saverio.utils.setupOnSwipeRight
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSettingsBinding>() {
 
@@ -26,6 +30,11 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
 
     override fun onStart() {
         super.onStart()
+
+        val viewModel = activity?.run {
+            ViewModelProviders.of(this).get(GenericViewModel::class.java)
+        } ?: throw Exception("?? Invalid Activity ??")
+        if (viewModel.fromFragment.value != "settings") activity?.onBackPressed()
 
         binding.buttonBackSettingsSubSectionExperimental.setOnClickListener {
             activity?.onBackPressed()

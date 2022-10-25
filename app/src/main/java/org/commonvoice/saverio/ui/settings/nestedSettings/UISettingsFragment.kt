@@ -3,8 +3,10 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.SeekBar
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import org.commonvoice.saverio.GenericViewModel
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentUiSettingsBinding
@@ -30,6 +32,11 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
         super.onStart()
 
         withBinding {
+            val viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            if (viewModel.fromFragment.value != "settings") activity?.onBackPressed()
+
             buttonBackSettingsSubSectionUI.setOnClickListener {
                 activity?.onBackPressed()
             }

@@ -9,6 +9,7 @@ import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import org.commonvoice.saverio.GenericViewModel
 import org.commonvoice.saverio.databinding.FragmentGesturesSettingsBinding
 import org.commonvoice.saverio.ui.dialogs.CustomiseGesturesListenDialogFragment
 import org.commonvoice.saverio.ui.dialogs.CustomiseGesturesSpeakDialogFragment
@@ -20,6 +21,8 @@ import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.koin.android.ext.android.inject
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio_lib.viewmodels.CustomiseGesturesViewModel
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.stream.Collector.of
 
 class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBinding>() {
@@ -40,6 +43,11 @@ class GesturesSettingsFragment : ViewBoundFragment<FragmentGesturesSettingsBindi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val viewModel = activity?.run {
+            ViewModelProviders.of(this).get(GenericViewModel::class.java)
+        } ?: throw Exception("?? Invalid Activity ??")
+        if (viewModel.fromFragment.value != "settings") activity?.onBackPressed()
 
         actionViewModel.action.observe(this, Observer { action ->
             updateAllGestures()

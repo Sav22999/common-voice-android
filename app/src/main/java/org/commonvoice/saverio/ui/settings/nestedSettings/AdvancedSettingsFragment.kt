@@ -11,7 +11,9 @@ import android.widget.Toast
 import androidx.core.content.getSystemService
 import androidx.core.view.isGone
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.FirstLaunch
+import org.commonvoice.saverio.GenericViewModel
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
@@ -54,6 +56,11 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
         super.onStart()
 
         withBinding {
+            val viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            if (viewModel.fromFragment.value != "settings") activity?.onBackPressed()
+
             buttonBackSettingsSubSectionAdvanced.setOnClickListener {
                 activity?.onBackPressed()
             }

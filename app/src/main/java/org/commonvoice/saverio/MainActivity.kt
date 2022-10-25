@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -60,6 +61,8 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     private val translationHandler: TranslationHandler by inject()
 
     private val dialogInflater by inject<DialogInflater>()
+    private val mainViewModel by viewModel<MainActivityViewModel>()
+    private lateinit var viewModel: GenericViewModel
 
     companion object {
         val SOURCE_STORE: String = BuildConfig.SOURCE_STORE

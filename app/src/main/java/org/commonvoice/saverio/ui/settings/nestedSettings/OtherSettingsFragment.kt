@@ -14,6 +14,8 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
 import android.widget.ArrayAdapter
+import androidx.lifecycle.ViewModelProviders
+import org.commonvoice.saverio.GenericViewModel
 
 
 class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() {
@@ -32,6 +34,11 @@ class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() 
         super.onStart()
 
         withBinding {
+            val viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            if (viewModel.fromFragment.value != "settings") activity?.onBackPressed()
+
             buttonBackSettingsSubSectionOther.setOnClickListener {
                 activity?.onBackPressed()
             }

@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.view.isGone
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import org.commonvoice.saverio.BuildConfig
+import org.commonvoice.saverio.GenericViewModel
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentSettingsBinding
@@ -28,6 +31,7 @@ import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.logging.Handler
 
 class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
@@ -44,6 +48,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
     private val workManager by inject<WorkManager>()
     private val dashboardViewModel by sharedViewModel<DashboardViewModel>()
     private val translationHandler by inject<TranslationHandler>()
+    private lateinit var viewModel: GenericViewModel
 
     private var SOURCE_STORE: String = ""
 
@@ -51,6 +56,11 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         super.onStart()
 
         withBinding {
+            viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            viewModel.updateFromFragment("settings")
+
             buttonSettingsGoToAdvanced.onClick {
                 findNavController().navigate(R.id.advancedSettingsFragment)
             }
@@ -159,7 +169,12 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             inAppPurchase()
         } else {*/
         buttonBuyMeACoffee.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/donate/")))
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.saveriomorelli.com/commonvoice/donate/")
+                )
+            )
         }
         /*}*/
     }
