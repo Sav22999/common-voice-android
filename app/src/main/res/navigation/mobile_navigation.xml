@@ -92,5 +92,9 @@
         android:id="@+id/usefulLinksFragment"
         android:name="org.commonvoice.saverio.ui.settings.nestedSettings.UsefulLinksFragment"
         android:label="UsefulLinks"
-        tools:layout="@layout/fragment_useful_links_settings" />
+        tools:layout="@layout/fragment_useful_links_settings" >
+        <action
+            android:id="@+id/action_usefulLinksFragment_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
 </navigation>

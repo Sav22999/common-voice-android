@@ -45,6 +45,8 @@ class ClipsDownloadWorker(
 
                     listenPrefManager.noMoreClipsAvailable = false
 
+                    //var numberDifferenceToUse = numberDifference
+                    //if (numberDifferenceToUse > 50) numberDifferenceToUse = 50
                     clipsRepository.loadNewClips(numberDifference, forEachClip = { clip ->
                         clipsRepository.insertClip(clip.also {
                             it.sentence.setLanguage(currentLanguage)
