@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import org.commonvoice.saverio.BuildConfig
-import org.commonvoice.saverio.GenericViewModel
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentSettingsBinding

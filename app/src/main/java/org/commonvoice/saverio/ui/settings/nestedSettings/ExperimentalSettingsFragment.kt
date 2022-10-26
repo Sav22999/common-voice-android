@@ -3,7 +3,7 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
-import org.commonvoice.saverio.GenericViewModel
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentExperimentalSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment

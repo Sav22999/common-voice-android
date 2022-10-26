@@ -9,7 +9,7 @@ import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import org.commonvoice.saverio.GenericViewModel
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.databinding.FragmentGesturesSettingsBinding
 import org.commonvoice.saverio.ui.dialogs.CustomiseGesturesListenDialogFragment
 import org.commonvoice.saverio.ui.dialogs.CustomiseGesturesSpeakDialogFragment

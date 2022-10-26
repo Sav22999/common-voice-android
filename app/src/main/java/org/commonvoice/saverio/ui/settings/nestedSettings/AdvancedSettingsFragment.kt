@@ -13,7 +13,7 @@ import androidx.core.view.isGone
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProviders
 import org.commonvoice.saverio.FirstLaunch
-import org.commonvoice.saverio.GenericViewModel
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding

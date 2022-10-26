@@ -15,7 +15,7 @@ import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.koin.android.ext.android.inject
 import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModelProviders
-import org.commonvoice.saverio.GenericViewModel
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 
 
 class OtherSettingsFragment : ViewBoundFragment<FragmentOtherSettingsBinding>() {
