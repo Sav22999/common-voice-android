@@ -26,6 +26,7 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
 import org.koin.android.ext.android.inject
@@ -38,6 +39,7 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
     private val workManager by inject<WorkManager>()
     private val connectionManager by inject<ConnectionManager>()
     private val statsPrefManager by inject<StatsPrefManager>()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     private val loginViewModel by viewModel<LoginViewModel>()
 
@@ -173,8 +175,14 @@ class LoginFragment : ViewBoundFragment<FragmentLoginBinding>() {
 
                         loginViewModel.clearDB()
 
-                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                        SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                            workManager,
+                            wifiOnly = settingsPrefManager.wifiOnlyDownload
+                        )
+                        ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                            workManager,
+                            wifiOnly = settingsPrefManager.wifiOnlyDownload
+                        )
 
                         statsPrefManager.dailyGoalObjective = 0
                         statsPrefManager.todayValidated = 0

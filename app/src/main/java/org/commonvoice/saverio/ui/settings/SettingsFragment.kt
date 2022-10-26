@@ -23,6 +23,7 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
@@ -41,6 +42,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
     private val mainPrefManager: MainPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
     private val dashboardViewModel by sharedViewModel<DashboardViewModel>()
@@ -215,11 +217,13 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
                     mainViewModel.clearDB().invokeOnCompletion {
                         SentencesDownloadWorker.attachOneTimeJobToWorkManager(
                             workManager,
-                            ExistingWorkPolicy.REPLACE
+                            ExistingWorkPolicy.REPLACE,
+                            wifiOnly = settingsPrefManager.wifiOnlyDownload
                         )
                         ClipsDownloadWorker.attachOneTimeJobToWorkManager(
                             workManager,
-                            ExistingWorkPolicy.REPLACE
+                            ExistingWorkPolicy.REPLACE,
+                            wifiOnly = settingsPrefManager.wifiOnlyDownload
                         )
 
                         mainPrefManager.hasLanguageChanged = false

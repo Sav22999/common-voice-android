@@ -225,10 +225,12 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         if (changedNumber) {
             mainViewModel.clearDB().invokeOnCompletion {
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE
+                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
                 )
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE
+                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
                 )
             }
         }

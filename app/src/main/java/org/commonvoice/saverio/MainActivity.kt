@@ -31,10 +31,7 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
-import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
-import org.commonvoice.saverio_lib.preferences.ListenPrefManager
-import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
-import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.viewmodels.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -53,6 +50,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     private val speakPrefManager: SpeakPrefManager by inject()
     private val listenPrefManager: ListenPrefManager by inject()
@@ -105,7 +103,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             setLanguageUI("start")
             //checkPermissions()
 
-            RecordingsUploadWorker.attachToWorkManager(workManager)
+            RecordingsUploadWorker.attachToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyUpload
+            )
             checkSentencesOfflineMode()
             checkClipsOfflineMode()
 
@@ -136,7 +137,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         lifecycleScope.launch {
             //println(speakPrefManager.requiredSentencesCount.toString() + " =S= " + speakViewModel.getSentencesCount())
             if (speakPrefManager.requiredSentencesCount != speakViewModel.getSentencesCount())
-                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager).apply {
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
+                ).apply {
                     Handler().postDelayed({
                         checkSentencesOfflineMode()
                     }, 15000)
@@ -148,7 +152,10 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         lifecycleScope.launch {
             //println(listenPrefManager.requiredClipsCount.toString() + " =C= " + listenViewModel.getClipsCount())
             if (listenPrefManager.requiredClipsCount != listenViewModel.getClipsCount())
-                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager).apply {
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
+                ).apply {
                     Handler().postDelayed({
                         checkClipsOfflineMode()
                     }, 15000)

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">sc</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">Pàgina printzipale</string>
+    <string name="title_dashboard">Pannellu de controllu</string>
+    <string name="title_settings">Cunfiguratziones</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">Intra /Registra·ti</string>
+    <string name="button_home_logout">Essi</string>
+    <string name="button_home_profile">Profilu</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">Salude!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Salude, {{username}}!</string>
+    <string name="message_log_in_again">S\'id de sa sessione est iscadidu, depes torrare a intrare</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">Istatìsticas</string>
+    <string name="dashboardVoicesOnline">Boghes in lìnia</string>
+    <string name="dashboardTabYou">Tue</string>
+    <string name="dashboardTabEveryone">Totus</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">Oe</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">Totale</string>
+    <string name="toastNoLoginNoStatistics">Depes intrare pro bìdere sas istatìsticas tuas</string>
+    <string name="toastNoLoginNoDailyGoal">Depes intrare pro impostare s\'obietivu pro sa die</string>
+    <string name="textHoursAbbreviation">o</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Ora {{hour}}</string>
+    <string name="txt_top_contributors">Contribuidores prus mannos</string>
+    <string name="txt_top_contributors_recorded">Registradu</string>
+    <string name="txt_top_contributors_validated">Cunvalidadas</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">Istatìsticas de s\'aplicatzione</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">Limba atuale</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">Totu sas limbas</string>
+    <string name="txt_not_available_offline" comment="Message text">No a disponimentu in sa modalidade chene lìnia</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1" comment="Button">Incumintza</string>
+    <string name="btn_tutorial2" comment="Button">Permite</string>
+    <string name="btn_tutorial3" comment="Button">Imbeniente</string>
+    <string name="btn_tutorial4" comment="Button">Torra a proare</string>
+    <string name="btn_tutorial5" comment="Button">Agabba</string>
+    <string name="btn_skip" comment="Button">Brinca</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">Permissu otènnidu</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">Errore: permissu dennegadu</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project est un\'aplicatzione no ufitziale pro Mozilla Common Voice. Est isvilupada dae Saverio Morelli chene perunu suportu o partenariadu cun Mozilla.</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">Sighende atzetas sos Tèrmines de Impreu de Common Voice de Mozilla.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Custa aplicatzione tenent bisòngiu de su permissu \"micròfonu\" pro registrare sa boghe tua.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Podes sinnalare faddinas in su còdighe in GitHub o Telegram. Pro agiudare a s\'isvilupadore a cumprèndere su problema prus in presse dias dèpere alligare su documentu de su registru de s\'aplicatzione a s\'informe tuo. S\'aplicatzione tenet bisòngiu de su permissu \"Archiviatzione\" pro sarvare su documentu de registru.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Podes fintzas contribuire cando non ses in lìnia. Sa \"modalidade non in lìnia\" s\'at a abilitare in automàticu, e as a pòdere sighire a registrare e ascurtare chene una connessione a ìnternet.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">Issèbera su tema preferidu tuo. \"Automàticu\" mudat su tema cunforma a s\'ora de su momentu. Podes mudare custu issèberu a pustis in sas Cunfiguratziones.</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Tema iscuru</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">Unas cantas optziones tenent gestos chi li currispondent. A esèmpiu, podes brincare una frase in Chistiona trisinende cara a manca.</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Podes personalizare custos gestos in sas Cunfiguratziones.</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">Ti podes aunire a su grupu de Telegram pro retzire novas e suportu.</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Auni·ti a su grupu</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">Ajò! Issèbera in ite limba dias bòlere chistionare o ascurtare. S\'aplicatzione at a èssere fintzas ammustrada in cussa limba si b\'at una tradutzione a disponimentu.</string>
+    <!-- Login -->
+    <string name="txt_loading_page" comment="Label">Carrighende…</string>
+    <string name="txt_profile_username" comment="Label in Profile">Nùmene de utente</string>
+    <string name="txt_profile_email" comment="Label in Profile">Posta eletrònica</string>
+    <string name="txt_profile_age" comment="Label in Profile">Edade</string>
+    <string name="txt_profile_gender" comment="Label in Profile">Gènere</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">Pro mudare sas informatziones tuas de profilu bae a su situ de Common Voice.</string>
+    <string name="txt_login_successful_alert" comment="Message text">Ses intradu!</string>
+    <string name="txt_gender_male" comment="Label in Profile">Òmine</string>
+    <string name="txt_gender_female" comment="Label in Profile">Fèmina</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">Àteru</string>
+    <string name="btn_badges_loggedin" comment="Button">Totu sos distintivos</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">Livellu {{level}}</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">Tèngio giai unu ligàmene de verìfica</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">Ligàmene de verìfica</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">Su ligàmene de verìfica no est vàlidu</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">Torra a abèrrere sa ghia</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">Progetu a còdighe abertu in GitHub</string>
+    <string name="txt_developed_by" comment="Label in Settings">isvilupadu dae</string>
+    <string name="toast_language_changed" comment="Message text">Limba impostada in {{lang}}</string>
+    <string name="settingsLanguage" comment="Title in Settings">Limba</string>
+    <string name="settingsListen" comment="Title in Settings">Ascurta</string>
+    <string name="settingsSpeak" comment="Title in Settings">Chistiona</string>
+    <string name="settingsOther" comment="Title in Settings">Àteru</string>
+    <string name="settingsGeneral" comment="Title in Settings">Generale</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">Ligàmenes ùtiles</string>
+    <string name="settingsLearnMore" comment="Button in Settings">Àteras informatziones</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">Craru</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">Iscuru</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">Automàticu</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">Suporta su traballu meu. Cumbida·mi unu cafè 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">Reprodue in automàticu cando est carrigada</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">Tema iscuru</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">Cuntata s\'isvilupadore in Telegram</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">Funtzionalidades isperimentales</string>
+    <string name="toast_experimental_features_on" comment="Message text">Funtzionalidades isperimentales allutas.\nSas funtzionalidades noas diant pòdere no èssere istàbiles o seguras.</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">Sarva sos registros in un\'archìviu</string>
+    <string name="toast_log_on_file_on" comment="Message text">Su sarvamentu de sos registros a intro de un\'archìviu est allutu.\nPodes alligare su documentu log.txt cando sinnalas unu problema.\nAgata àteras informatziones in GitHub.</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">Istatìsticas generales</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">Ammustra s\'istringa chi m\'identìficat a intro de s\'aplicatzione</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Istatìsticas de impreu de s\'aplicatzione</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Brinca sa cunfirma de registratzione</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Su brincu de sa cunfirma de sa registratzione est allutu.\nComo as a pòdere imbiare registratziones chene las dèpere ascurtare in antis.</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Borta s\'aplicatzione in Crowdin</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Pòmpia·ti sas istatìsticas de s\'aplicatzione</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Indicadore sonoru de registratzione</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">So sonu de s\'indicadore de registratzione como est allutu.\nCando faghes incumintzare o firmas una registratzione s\'at a intèndere unu sonu.</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">Chirca atualizatziones</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">Gestos</string>
+    <string name="message_review_app_on_play_store" comment="Message text">Si t\'agradat custa aplicatzione ammenta·ti de li dare una valutatzione in su Google Play Store.</string>
+    <string name="message_app_not_completely_translated" comment="Message text">S\'aplicatzione no est bortada (de su totu) in custa limba.\nPodes contribuire a bortare custa aplicatzione in Crowdin.</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">Animatziones</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">Personaliza sa mannària de su caràtere</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">Personaliza sos gestos</string>
+    <string name="title_theme_settings" comment="Title in Settings">Tema</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">Grupu de Telegram de s\'aplicatzione</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Ammustra sas etichetas in suta de sas iconas de su menù</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Leghe sos Tèrmines de Impreu de Common Voice de Mozilla</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">Leghe sos critèrios de contributzione</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">Vàluta in Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">Interfache de s\'utente</string>
+    <string name="title_advanced_settings" comment="Option in Settings">Avantzadas</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Sarva sas registratziones in su dispositivu</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data" comment="Button in Settings">Reseta sos datos de s\'aplicatzione</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Non b\'at peruna funtzionalidade isperimentale a disponimentu</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Ammustra su testu de sa frase petzi a pustis chi sa riprodutzione de sa registratzione siat agabbada</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Ammustra s\'icona de sinnalatzione (a pitzos a dereta) in càmbiu de su butone (in bassu)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">Mannària de su testu</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">Insigna de sa publitzidade</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">Abìlita s\'insigna de sa publitzidade in {{section_name}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Istanga colorada de progressu conca a s\'obietivu</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} e {{listen_name}}</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Tema craru fintzas pro sa frase de lèghere/de cunvalidare in Chistiona e Ascurta (cando su tema craru est allutu).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Ammustra s\'istanga de controllu de sa velotzidade</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ammustra s\'icona de sas informatziones</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Incarca pro chistionare</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Issèbera su nùmeru de frases e su nùmeru de registratziones de iscarrigare e impreare cando s\'aplicatzione est in modalidade non in lìnia.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">A su sòlitu sos utentes impreant pagu prus o mancu 13 minutos pro cunvalidare 50 registratziones e 26 minutos pro registrare 50 frases.</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Trìsina cara a artu</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Trìsina cara a bassu</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">Trìsina cara a manca</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">Trìsina cara a dereta</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">Incarca a longu</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">Tocu dòpiu</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">Trisinada cara a artu: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">Trisinada cara a bassu: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">Trisinada cara a manca: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">Trisinada cara a dereta: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">Incarcada longa: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">Tocu dòpiu: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">Nudda</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">Torra a segus</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">Brinca sa registratzione</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">Brinca sa frase</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">Atzeta sa registratzione (marca che a curreta)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">Refuda sa registratzione (marca che a non curreta)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">Abìlita/Inabìlita \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">Sinnala sa registratzione</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">Sinnala sa frase</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">Ammustra informatziones subra de sa registratzione</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">Ammustra informatziones subra de sa frase</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">Reprodue/Firma sa registratzione</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Incumintza/Firma sa registratzione</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Reprodue/Firma sa registratzione</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Sarva</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Issèbera un\'atzione</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Ammustra s\'icona de sos critèrios de contributzione</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Càrriga impreende petzi su Wi-Fi</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">Iscàrriga impreende petzi su Wi-Fi</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">Notìficas genèricas</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Notìficas de obietivu diàriu</string>
+    <string name="text_title_notifications" comment="Title in Settings">Notìficas</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">Non t\'ismèntighes de contribuire a Common Voice oe, sa contributzione tua est pretziada e de importu!\nToca inoghe pro abèrrere s\'aplicatzione e traballare como cara a s\'obietivu diàriu tuo.</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">Obietivu diàriu de CV Project galu non retzidu!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Issèbera cando boles retzire notìficas s\'in casu chi non nche sias cròmpidu a s\'obietivu diàriu tuo.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Tene in contu chi custu diat pòdere no èssere esatu o diat pòdere non funtzionare pro neghe de sas impostatziones de otimizatzione de sa bateria.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Primu avisu</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Segundu avisu</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Perunu</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Istatìsticas</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Serbidore API de destinatzione</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Torra a su serbidore API predefinidu</string>
+    <string name="button_customise_api_server" comment="Button">Personaliza su serbidore API</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Ses seguru chi cheres personalizare su serbidore API? Custa atzione diat pòdere èssere perigulosa.\nPodes torrare a su serbidore API predefinidu in cale si siat momentu.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Serbidore API de destinatzione</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence" comment="Label in Speak">Carrighende sa frase…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">Brinca</string>
+    <string name="btn_send_sentence" comment="Button in Speak">Imbia sa registratzione</string>
+    <string name="txt_loading_clip" comment="Label in Listen">Carrighende una registratzione…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Incarca s\'icona inoghe in suta pro incumintzare a registrare.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Incarca s\'icona inoghe in suta pro agabbare de registrare.</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">Frase registrada. Ascurta·ti sa registratzione.</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">Registratzione fallida. Torra a proare.</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Si as chistionadu chene errores imbia sa registratzione.\nSi as faddidu, podes torrare a registrare sa frase.</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">Ascurta sa registratzione intrea pro t\'assegurare chi siat curreta.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Incarca s\'icona inoghe in suta pro agabbare de ascurtare.</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Sa registratzione est tropu longa. Sa longària màssima est de 10 segundos.</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Sa registratzione est tropu curtza. Torra a proare.</string>
+    <string name="txt_sending_recording" comment="Label in Speak">Imbiende sa registratzione…</string>
+    <string name="txt_recording_sent" comment="Label in Speak">Registratzione imbiada!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">Imbiu de sa registratzione fallidu!</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">Imbiu de sa registratzione fallidu! Podes torrare a proare o incarcare su butone {{skip_button}}.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Incarca s\'icona inoghe in suta pro incumintzare a reproduere sa registratzione.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Incarca s\'icona inoghe in suta pro firmare sa riprodutzione de sa registratzione.</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Si sa registratzione est curreta incarca su pòddighe a susu.\nSi est isballiada incarca su pòddighe a giosso.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Incarca s\'icona inoghe in suta pro reproduere torra sa registratzione.</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Registratzione marcada che a curreta!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Registratzione marcada che a non curreta!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Errore. Incarca su butone {{skip_button}} pro sighire.</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">Imbiu de sa registratzione fallidu.</string>
+    <string name="txt_sending_validation" comment="Label in Listen">Imbiende…</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">Imbiu de su resurtu fallidu. Podes torrare a proare o incarcare su butone {{skip_button}}.</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">Serrende…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">Errore. Non bi sunt prus registratziones a disponimentu pro custa limba.</string>
+    <string name="button_report" comment="Button">Sinnala</string>
+    <string name="title_report_clip" comment="Title in Report a clip">Sinnala sa registratzione:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">Sinnala sa frase:</string>
+    <string name="button_send_report" comment="Button">Imbia un\'informe</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">Limbàgiu ofensivu</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">Cuntenutu ofensivu</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">Faddina grammaticale/ortogràfica</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">Limba diferente</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">Difìtzile de pronuntziare</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">Àteru</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">Cummentu</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">As agabbadu sas frases non in lìnia. Collega·ti a ìnternet pro iscarrigare àteras frases de registrare.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">As agabbadu sas registratziones non in lìnia. Collega·ti a ìnternet pro iscarrigare àteras registratziones de cunvalidare.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">Podes registrare àteras {{n_sentences}} frases in antis de ti dèpere connètere a ìnternet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">Podes cunvalidare àteras {{n_clips}} registratziones in antis de ti dèpere connètere a ìnternet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Ascurtende…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" est abilitadu. Bae a sas Cunfiguratziones pro lu disabilitare.</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">Su testu de sa frase est cuadu</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Su serbidore API de Common Voice no at frunidu àteras frases. Torra a proare prus a tardu o cuntata a Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Su serbidore API de Common Voice no at frunidu àteras registratziones. Torra a proare prus a tardu o cuntata a Mozilla.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="one">As giai cunvalidadu %d registratzione, sighi cun custu traballu de primore!</item>
+        <item quantity="other">As giai cunvalidadu %d registratziones una in fatu a s\'àtera, sighi cun custu traballu de primore!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="one">Sighi a cunvalidare registratziones, nd\'as giai cunvalidada %d.</item>
+        <item quantity="other">Sighi a cunvalidare registratziones, nd\'as giai cunvalidadas %d una in fatu a s\'àtera.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="one">Ite traballu de primore! As giai cunvalidadu %d registratzione.</item>
+        <item quantity="other">Ite traballu de primore! As giai cunvalidadu %d registratziones una in fatu a s\'àtera.</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="one">Raju, tenes superpoderes! As cunvalidadu %d registratzione!</item>
+        <item quantity="other">Raju, tenes superpoderes! As cunvalidadu %d registratziones una in fatu a s\'àtera!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="one">As imbiadu %d registratzione.</item>
+        <item quantity="other">As imbiadu %d registratziones una in fatu a s\'àtera.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="one">Bene fatu! As imbiadu %d registratzione.</item>
+        <item quantity="other">Bene fatu! As imbiadu %d registratziones una in fatu a s\'àtera.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="one">Bene meda! Ses arribbadu a s\'obietivu de %d frase registrada. Sighi a andare.</item>
+        <item quantity="other">Bene meda! Ses arribbadu a s\'obietivu de %d frases registradas. Sighi a andare.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="one">Raju, tenes superpoderes! As registradu %d frase!</item>
+        <item quantity="other">Raju, tenes superpoderes! As registradu %d frases una in fatu a s\'àtera!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="one">Ti mancat petzi %d registratzione pro arribbare a s\'obietivu diàriu tuo de {{dailygoal}}!</item>
+        <item quantity="other">Ti mancant petzi %d registratziones pro arribbare a s\'obietivu diàriu tuo de {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="one">Ti mancat petzi %d frase pro arribbare a s\'obietivu diàriu tuo de {{dailygoal}}!</item>
+        <item quantity="other">Ti mancant petzi %d registratziones pro arribbare a s\'obietivu diàriu tuo de {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">Velotzidade impostada a {{speed_value}}.</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">Refuda sa registratzione</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">Atzeta sa registratzione</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">Reprodue sa registratzione</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">Firma sa registratzione</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Cumintza sa registratzione</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Torra a registrare sa frase</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Firma sa registratzione</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Reprodue sa registratzione</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Agabba·la de ascurtare</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Imbia sa registratzione</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Leghe sos critèrios de contributzione</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">Ammustra sos detàllios de sa modalidade non in lìnia</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">Pòmpia sas informatziones subra de sa registratzione atuale</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">Pòmpia sas informatziones subra de sa frase atuale</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Sinnala sa registratzione atuale</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Sinnala sa frase atuale</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Aberi sa setzione Ascurta</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Aberi sa setzione Chistiona</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Torra a segus</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Abìlita/Disabìlita</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Serra su messàgiu</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">Còpia</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">Ismànnia</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">Mìnima</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection" comment="Button">Torra a verificare</string>
+    <string name="txt_noconnection" comment="Message text">Non ses connessu a ìnternet. Collega·ti a su Wi-Fi o a sos datos mòbiles e a pustis incarca su butone inoghe in suta.</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Custa est sa frase chi depes registrare.</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Unu messàgiu pro ti ghiare at a apàrrere inoghe.</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Si non t\'agradat sa frase podes tocare inoghe pro la brincare e nde retzire un\'àtera.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Toca in custa icona pro incumintzare a registrare.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Toca in custa icona pro firmare sa registratzione.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Toca in custa icona pro reprodùere sa registratzione.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Toca in custa icona pro torrare a registrare si as fatu una faddina.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Toca in custa icona pro torrare a ascurtare sa registratzione tua.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Toca in custu butone pro imbiare sa registratzione tua.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Custa est sa frase/registratzione chi depes cunvalidare.</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Si non t\'agradat sa registratzione podes tocare inoghe pro la brincare e nde retzire un\'àtera.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Toca in custa icona pro reprodùere sa registratzione.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Toca in custa icona pro firmare sa riprodutzione de sa registratzione.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Toca in custa icona si cheres torrare a ascurtare sa registratzione.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Si sa registratzione e sa frase currispondent toca in custa icona pro l\'atzetare.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Si sa registratzione e sa frase non currispondent toca in custa icona pro la refudare.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">Si non ses seguru si siat su casu de atzetare o refudare una registratzione, o cheres megiorare sas registratziones tuas, podes lèghere sos critèrios ufitziales de contributzione.\nPodes fintzas agatare custu ligàmene a pustis in sas Cunfiguratziones &gt; Ligàmenes ùtiles.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Leghe como</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow" comment="Message text">A dolu mannu custa funtzionalidade galu no esistit.\nSemus traballende totora pro megiorare s\'aplicatzione, duncas torra a verificare prus a tardu pro bìdere si est istada annanta.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges" comment="Button">Serra</string>
+    <string name="labelAllBadges" comment="Title for All badge section">Totu sos distintivos</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">Distintivu nou balangiadu</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">Livellu nou cunsighidu</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Bene meda! As otènnidu como como unu distintivu nou.\nBae a {{profile}} &gt; {{all_badges}} pro bìdere totu sos distintivos tuos.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Bene meda! Como ses arribbadu a unu livellu nou e as fintzas otènnidu unu distintivu nou.\nBae a {{profile}} &gt; {{all_badges}} pro bìdere totu sos distintivos tuos.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">As otènnidu custu distintivu ca as cunvalidadu a su nessi {{n_clips}} registratziones.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">As otènnidu custu distintivu ca as registradu a su nessi {{n_sentences}} frases.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">As otènnidu custu distintivu ca as cunvalidadu o registradu a su nessi {{n_total}} registratziones.</string>
+    <!-- Message dialog -->
+    <string name="btnOk" comment="Button">Ab</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">Errore</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">Cussu no at funtzionadu.\nTorra a proare o cuntata s\'isvilupadore.</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">Cussu no at funtzionadu.\nTorra a proare o cuntata s\'isvilupadore.\nCòdighe de errore: EX-{{error_code}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">Intrada fallida</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">In antis ti depes autenticare in su situ de Common Voice e depes atzetare sa normativa de riservadesa de Common Voice.</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">Aberi Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">Avisu</string>
+    <string name="text_tip" comment="Title for Message text">Impòsitu</string>
+    <string name="text_changelog" comment="Title for Message text">Registru de sas modìficas</string>
+    <string name="text_help" comment="Title for Message text">Agiudu</string>
+    <string name="text_info" comment="Title for Message text">Informatziones</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">No ammustres prus</string>
+    <string name="text_report_website_bug" comment="Message text">Si tenes problemas cun su situ ufitziale de Common Voice sinnala·los in sos forums de Discourse o in su depòsitu de GitHub de Mozilla in manera chi Mozilla los potzat risòlvere.</string>
+    <string name="text_review_now" comment="Button" translatable="true">Vàluta como</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">T\'agradat s\'aplicatzione? Podes dare su suportu tuo a su traballu meu. Cumbida·mi unu cafè in PayPal o LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">Torra a intrare</string>
+    <string name="text_offline_mode" comment="Title">Modalidade chene lìnia</string>
+    <string name="text_offline_mode_enabled" comment="Message text">Como non ses in lìnia e s\'aplicatzione est colada a sa modalidade chene lìnia in automàticu.\nCustu cheret nàrrere chi podes sighire a registrare e cunvalidare ma sas rechesta ant a èssere imbiadas prus a tardu.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Podes ischire cando ses in sa modalidade chene lìnia cando b\'est custa icona in s\'ischermu:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Podes tocare cussa icona pro bìdere sas registratziones e sas frases iscarrigadas.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">Sa modalidade chene lìnia no est abilitada, duncas non podes impreare s\'aplicatzione chene una connessione a ìnternet.\nPro impreare sa funtzionalidade de modalidade chene lìnia allughe·la in sas Cunfiguratziones.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">A l\'ischis chi podes agiudare su traballu meu chene pagare nudda? Si t\'agradat s\'aplicatzione piga in cunsideru s\'idea de allùghere sas istangas de sa publitzidade in sas Cunfiguratziones.</string>
+    <string name="text_open_settings_now">Aberi sas cunfiguratziones como</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Ses seguru de chèrrere torrare in segus e pèrdere sa registratzione?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Ses seguru de chèrrere brincare e pèrdere sa registratzione?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Ses seguru de chèrrere sighire e pèrdere sa registratzione?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Ses seguru de chèrrere resetare totu sos datos de s\'aplicatzione?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="button_yes_sure" comment="Button">Eja</string>
+    <string name="button_cancel" comment="Button">Annulla</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="one">Bene fatu! As abertu s\'aplicatzione pro %d die consecutiva.</item>
+        <item quantity="other">Bene fatu! As abertu s\'aplicatzione pro %d dies consecutivas.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="one">Apo abertu s\'aplicatzione CV Project pro %d die consecutiva! Iscàrriga·la tue puru, in manera de pòdere contribuire a su progetu de Common Voice cun su telefoneddu tuo.</item>
+        <item quantity="other">Apo abertu s\'aplicatzione CV Project pro %d dies consecutivas! Iscàrriga·la tue puru, in manera de pòdere contribuire a su progetu de Common Voice cun su telefoneddu tuo.</item>
+    </plurals>
+    <string name="button_log_in_now" comment="Button">Intra como</string>
+    <string name="button_open_profile_now" comment="Button">Aberi su profilu como</string>
+    <string name="button_translate_on_crowdin" comment="Button">Borta como</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title" comment="Title in Dashboard">Obietivu diàriu</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">Perunu obietivu impostadu</string>
+    <string name="set_daily_goal" comment="Button">Imposta un\'obietivu</string>
+    <string name="edit_daily_goal" comment="Button">Modìfica s\'obietivu</string>
+    <string name="save_daily_goal" comment="Button">Sarva</string>
+    <string name="delete_daily_goal" comment="Button">Iscantzella</string>
+    <string name="cancel_daily_goal" comment="Button">Annulla</string>
+    <string name="description_setting_daily_goal" comment="Message text">Issèbera cantas frases cheres registrare e cantas nde cheres cunvalidare (summa totale) a sa die.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Cunsighidu oe</string>
+    <string name="daily_goal_not_achieved_today">Non cunsighidu oe</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Bene fatu! Ses arribbadu a s\'obietivu diàriu tuo.\nAs cunvalidadu {{n_clips}} registratzione(s) e registradu {{n_sentences}} frase(s).\nIntende·ti lìberu de sighire a contribuire a Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Cumpartzi</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Cumpartzi in</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">Apo cunsighidu s\'obiettivu diàriu meu pro @mozilla #CommonVoice impreende #CVProject.\nAuni·ti a nois e contribui tue puru! Installa CV Project dae Google Play, F-Droid o Huawei AppGallery como {{link}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Custu obietivu diàriu no est una funtzionalidade ufitziale de Mozilla. Est una funtzionalidade de s\'aplicatzione ebbia.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">A l\'ischis chi … ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10\'000 oras si podent otènnere in petzi 6 meses si 1\'000 persones registrant 45 registratziones a sa die.</string>
+    <string name="copied_string" comment="Toast message">Copiadu</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">B\'at una versione noa de s\'aplicatzione a disponimentu (versione {{n_version}}). La podes atualizare dae sa butega de aplicatziones preferida tua (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) o in manera direta dae GitHub.</string>
+</resources>

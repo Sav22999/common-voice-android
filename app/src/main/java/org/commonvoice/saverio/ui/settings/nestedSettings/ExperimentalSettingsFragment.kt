@@ -57,6 +57,16 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
                 speakPrefManager.pushToTalk = isChecked
             }
             switchPushToTalkSpeak.isChecked = speakPrefManager.pushToTalk
+
+            switchDownloadWifiOnlyMode.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.wifiOnlyDownload = isChecked
+            }
+            switchDownloadWifiOnlyMode.isChecked = settingsPrefManager.wifiOnlyDownload
+
+            switchUploadWifiOnlyMode.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.wifiOnlyUpload = isChecked
+            }
+            switchUploadWifiOnlyMode.isChecked = settingsPrefManager.wifiOnlyUpload
         }
 
         if (mainPrefManager.areGesturesEnabled)

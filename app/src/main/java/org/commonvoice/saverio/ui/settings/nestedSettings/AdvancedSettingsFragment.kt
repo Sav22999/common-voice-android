@@ -21,6 +21,7 @@ import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentAdvancedSettingsBinding
 import org.commonvoice.saverio.ui.dialogs.DialogInflater
 import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
+import org.commonvoice.saverio.ui.dialogs.commonTypes.WarningDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
@@ -161,7 +162,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
             buttonResetData.setOnClickListener {
                 dialogInflater.show(requireContext(),
-                    StandardDialog(
+                    WarningDialog(
                         messageRes = R.string.text_are_you_sure_reset_app_data,
                         buttonTextRes = R.string.button_yes_sure,
                         onButtonClick = {
@@ -286,10 +287,12 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
 
                             mainViewModel.clearDB().invokeOnCompletion {
                                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                                    workManager, ExistingWorkPolicy.REPLACE
+                                    workManager, ExistingWorkPolicy.REPLACE,
+                                    wifiOnly = settingsPrefManager.wifiOnlyDownload
                                 )
                                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                                    workManager, ExistingWorkPolicy.REPLACE
+                                    workManager, ExistingWorkPolicy.REPLACE,
+                                    wifiOnly = settingsPrefManager.wifiOnlyDownload
                                 )
                             }
                         },
