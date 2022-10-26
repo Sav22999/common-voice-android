@@ -94,6 +94,18 @@ class UISettingsFragment : ViewBoundFragment<FragmentUiSettingsBinding>() {
             switchDailygoalProgressbarColoured.isChecked =
                 settingsPrefManager.isProgressBarColouredEnabled
 
+            switchShowInfoIconSpeakListen.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.showInfoIcon = isChecked
+            }
+            switchShowInfoIconSpeakListen.isChecked =
+                settingsPrefManager.showInfoIcon
+
+            switchShowContributionCriteriaIconSpeakListen.setOnCheckedChangeListener { _, isChecked ->
+                settingsPrefManager.showContributionCriteriaIcon = isChecked
+            }
+            switchShowContributionCriteriaIconSpeakListen.isChecked =
+                settingsPrefManager.showContributionCriteriaIcon
+
             seekTextSizeSettings.progress = ((10 * mainPrefManager.textSize) - 5).toInt()
             setSeekBar(seekTextSizeSettings.progress.toFloat())
             seekTextSizeSettings.setOnSeekBarChangeListener(object :

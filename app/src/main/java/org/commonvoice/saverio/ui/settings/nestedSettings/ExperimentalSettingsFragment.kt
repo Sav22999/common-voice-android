@@ -53,18 +53,6 @@ class ExperimentalSettingsFragment : ViewBoundFragment<FragmentExperimentalSetti
             switchThemeLightAlsoForSentenceBox.isChecked =
                 settingsPrefManager.isLightThemeSentenceBoxSpeakListen
 
-            switchShowInfoIconSpeakListen.setOnCheckedChangeListener { _, isChecked ->
-                settingsPrefManager.showInfoIcon = isChecked
-            }
-            switchShowInfoIconSpeakListen.isChecked =
-                settingsPrefManager.showInfoIcon
-
-            switchShowContributionCriteriaIconSpeakListen.setOnCheckedChangeListener { _, isChecked ->
-                settingsPrefManager.showContributionCriteriaIcon = isChecked
-            }
-            switchShowContributionCriteriaIconSpeakListen.isChecked =
-                settingsPrefManager.showContributionCriteriaIcon
-
             switchPushToTalkSpeak.setOnCheckedChangeListener { _, isChecked ->
                 speakPrefManager.pushToTalk = isChecked
             }

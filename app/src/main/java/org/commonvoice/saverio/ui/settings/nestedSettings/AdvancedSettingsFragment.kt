@@ -12,6 +12,8 @@ import androidx.core.content.getSystemService
 import androidx.core.view.isGone
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProviders
+import androidx.work.ExistingWorkPolicy
+import androidx.work.WorkManager
 import org.commonvoice.saverio.FirstLaunch
 import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.MainActivity
@@ -22,6 +24,8 @@ import org.commonvoice.saverio.ui.dialogs.commonTypes.StandardDialog
 import org.commonvoice.saverio.ui.dialogs.specificDialogs.IdentifyMeDialog
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
+import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
+import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.*
 import org.commonvoice.saverio_lib.repositories.StatsRepository
 import org.commonvoice.saverio_lib.viewmodels.LoginViewModel
@@ -49,6 +53,7 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val dialogInflater by inject<DialogInflater>()
     private val statsRepository by inject<StatsRepository>()
+    private val workManager by inject<WorkManager>()
 
     private val defaultAPIServer = "https://commonvoice.mozilla.org/api/v1/"
 
@@ -251,6 +256,10 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             mainPrefManager.textSize = 1.0F
                             mainPrefManager.showAdBanner = true
 
+
+                            listenPrefManager.requiredClipsCount = 3
+                            speakPrefManager.requiredSentencesCount = 3
+
                             //Reset Log
                             logPrefManager.saveLogFile = false
 
@@ -260,6 +269,29 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                             mainViewModel.clearDB()
 
                             startActivity(Intent(requireContext(), MainActivity::class.java))
+                        },
+                        button2TextRes = R.string.button_cancel,
+                        onButton2Click = {}
+                    ))
+            }
+
+            buttonClearDataOffline.setOnClickListener {
+                dialogInflater.show(requireContext(),
+                    StandardDialog(
+                        messageRes = R.string.text_are_you_sure_clear_offline_data,
+                        buttonTextRes = R.string.button_yes_sure,
+                        onButtonClick = {
+                            listenPrefManager.requiredClipsCount = 3
+                            speakPrefManager.requiredSentencesCount = 3
+
+                            mainViewModel.clearDB().invokeOnCompletion {
+                                SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                                    workManager, ExistingWorkPolicy.REPLACE
+                                )
+                                ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                                    workManager, ExistingWorkPolicy.REPLACE
+                                )
+                            }
                         },
                         button2TextRes = R.string.button_cancel,
                         onButton2Click = {}
