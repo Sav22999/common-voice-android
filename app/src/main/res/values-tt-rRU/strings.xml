@@ -31,7 +31,7 @@
     <string name="txt_app_statistics" comment="Title in Dashboard">Кушымта статистикасы</string>
     <string name="txt_current_language" comment="Sub-title in Dashboard">Хәзерге тел</string>
     <string name="txt_all_languages" comment="Sub-title in Dashboard">Бөтен телләр</string>
-    <string name="txt_not_available_offline" comment="Message text">Автоном эш режимда кереп булмый</string>
+    <string name="txt_not_available_offline" comment="Message text">Автоном эш режимында кереп булмый</string>
     <!-- First launch -->
     <string name="btn_tutorial1" comment="Button">Башлау</string>
     <string name="btn_tutorial2" comment="Button">Рөхсәт итү</string>
@@ -44,8 +44,8 @@
     <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project - Mozilla Common Voice өчен рәсми булмаган кушымта. Бу Мозилла белән бернинди ярдәм яки партнерлыксыз Saverio Morelli тарафыннан эшләнгән.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Дәвам итү нәтиҗәсендә Сез Mozilla-ның Common Voice Куллану Шартлары белән килешәчәксез.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Бу кушымтага тавышыңны яздыру өчен \"Микрофон\" рөхсәте кирәк.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
-    <string name="txt_offline_mode_first_launch" comment="Text | First-run">You can even contribute while you are offline. The app\'s \"Offline mode\" will be enabled automatically, and you can continue to record and listen without an Internet connection.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Сез GitHub яки Telegram аша хаталар турында хәбәр итә аласыз. Җитештерүчегә проблеманы тиз арада аңларга ярдәм итү өчен, сез кушымтаның журнал файлын шикаятегезгә беркетергә тиеш. Кушымта журнал файлын саклау өчен \"Саклау\" рөхсәтенә мохтаҗ.</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">Сез оффлайнда булганда да өлеш кертә аласыз. Кушымтаның \"Автоном эш режимы\" автоматик рәвештә эшләтеләчәк, һәм Сез Интернетка тоташмыйча яздыра һәм тыңлый аласыз.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">Cезнең тәкъдим иткән теманы сайлагыз. \"Авто\" хәзерге вакытка нигезләнеп теманы алыштыра. Моны соңрак Көйләүләрдә үзгәртә аласыз.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Караңгы тема</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Кайбер гамәлләрдә тиешле ишарәләр бар. Мәсәлән, сулга әйләндереп, Сөйләүдә җөмләне калдыра аласыз.</string>
@@ -73,7 +73,7 @@
     <string name="btn_open_tutorial_settings" comment="Button in Settings">Ярдәмлекне яңадан ачу</string>
     <string name="txt_project_github_settings" comment="Button in Settings">Проектның GitHub бите</string>
     <string name="txt_developed_by" comment="Label in Settings">тарафыннан эшләнгән</string>
-    <string name="toast_language_changed" comment="Message text">Тел {{lang}}-га уңышлы үзгәртелде</string>
+    <string name="toast_language_changed" comment="Message text">Тел уңышлы {{lang}} телгә күчә</string>
     <string name="settingsLanguage" comment="Title in Settings">Тел</string>
     <string name="settingsListen" comment="Title in Settings">Тыңлау</string>
     <string name="settingsSpeak" comment="Title in Settings">Сөйләү</string>
@@ -96,7 +96,7 @@
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Кушымта эчендә мине ачыклаучы сызыкны күрсәтү</string>
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">Кушымта куллану статистикасы</string>
     <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Аудиоязмаларны тикшерүдән баш тарту</string>
-    <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">Язуны тикшерү сүндерелде.\nХәзер сез язуларны башта тыңламыйча җибәрә аласыз.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Кушымтаны Crowdin-да тәрҗемә итү</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">Кушымта статистикасын карау</string>
     <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">Аудиоязма күрсәткече тавышы</string>
@@ -110,27 +110,28 @@
     <string name="txt_customise_gestures" comment="Button in Settings">Ишарәләрне көйләү</string>
     <string name="title_theme_settings" comment="Title in Settings">Тема</string>
     <string name="txt_telegram_group_settings" comment="Button in Settings">Кушымтаның Telegram төркөме</string>
-    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Меню иконалары астындагы этикеткаларны күрсәтү</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">Меню тамгалары астындагы этикеткаларны күрсәтү</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">Mozilla Common Voice Куллану Шартларын уку</string>
     <string name="txt_read_guidelines" comment="Button in Settings">Катнашу критерийларын укыгыз</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">Google Play-та бәяләгез</string>
     <string name="title_ui_settings" comment="Option in Settings">Кулланучы интерфейсы</string>
     <string name="title_advanced_settings" comment="Option in Settings">Киңәйтелгән</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Язмаларны җиһазда саклау</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
     <string name="txt_reset_data" comment="Button in Settings">Кушымта мәгълүматларын алыштыру</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Хәзер бернинди эксперименталь мөмкинлекләр дә юк</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Клип уйнауны тәмамлагач, җөмлә текстын гына күрсәтү</string>
-    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Төймә (аста) урынына \"Шикаять итү\" иконасын (өстән-уңда) күрсәтү</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Төймә (аста) урынына \"Шикаять итү\" тамгасын (өстән-уңда) күрсәтү</string>
     <string name="title_textsize_settings" comment="Title in Settings">Текст үлчәме</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Реклама баннеры</string>
     <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">{{section_name}} бүлектә реклам баннерны кабызу</string>
     <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">Көндәлек максат өчен төсле башкарылыш индикаторы</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} һәм {{listen_name}}</string>
-    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ачык тема шулай ук ​​җөмләләрне уку/тикшерү өчен Сөйләү һәм Тыңлау бүлекләрендә (ачык тема кабызылганда).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Тизлек белән идарә аслыгын күрсәтү</string>
-    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Мәгълүмат иконасын күрсәтү</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Мәгълүмат тамгасын күрсәтү</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Сөйләү өчен басыгыз</string>
-    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Кушымта автоном эш режимда булганда, йөкләү һәм куллану өчен җөмләләр санын һәм клиплар санын сайлагыз.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Кушымта автоном эш режимында булганда, йөкләү һәм куллану өчен җөмләләр санын һәм клиплар санын сайлагыз.</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Гадәттә кулланучыларга 50 клипны тикшерү өчен 13 минут һәм 50 җөмлә яздыру өчен 26 минут вакыт кирәк.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">Өскә сөйрәгез</string>
     <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">Аска сөйрәгез</string>
@@ -160,7 +161,7 @@
     <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">Аудиоязмаларны уйнату/туктату</string>
     <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">Саклау</string>
     <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">Гамәлне сайлау</string>
-    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Катнашу критерийлары рәсемен күрсәтү</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">Катнашу критерийлары тамгасын күрсәтү</string>
     <string name="text_upload_wifi_only" comment="Switch-Button in Settings">Wi-Fi ярдәмендә генә йөкләү</string>
     <string name="text_download_wifi_only" comment="Switch-Button in Settings">Wi-Fi ярдәмендә генә йөкләп алу</string>
     <string name="text_general_notifications" comment="Switch-Button in Settings">Гомуми искәртүләр</string>
@@ -168,8 +169,8 @@
     <string name="text_title_notifications" comment="Title in Settings">Искәртүләр</string>
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Зинһар, бүген Common Voice-ка өлеш кертергә онытмагыз, сезнең өлешегез кыйммәтле һәм мөһим!\nКушымтаны ачу һәм көндәлек максатка ирешү өчен монда басыгыз.</string>
     <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project көндәлек максаты әлегә ирешелмәгән!</string>
-    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
-    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Көндәлек максатка ирешмәгән очракта, сезгә хәбәр итәргә теләгәндә сайлагыз.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Зинһар искә алыгыз, бу сезнең батареяны оптимизацияләү көйләүләре аркасында төгәл булмаска яки бөтенләй эшләмәскә мөмкин.</string>
     <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">Беренче белдерү</string>
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Икенче искәртү</string>
     <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">Юк</string>
@@ -179,28 +180,30 @@
     <string name="button_customise_api_server" comment="Button">API серверын көйләү</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">API серверын көйләүне раслыйсызмы? Бу куркыныч булырга мөмкин гамәле.\nСез теләсә кайчан килешенгәнчә API серверына кире кайтара аласыз.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Максатлы API серверы</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Җөмлә йөкләнә…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Калдырып тору</string>
     <string name="btn_send_sentence" comment="Button in Speak">Язуны җибәрү</string>
     <string name="txt_loading_clip" comment="Label in Listen">Клип йөкләнә…</string>
-    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Яздыруны башлау өчен астагы иконага басыгыз.</string>
-    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Яздыруны туктату өчен астагы иконкага басыгыз.</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">Яздыруны башлау өчен астагы тамгага басыгыз.</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">Яздыруны туктату өчен астагы тамгага басыгыз.</string>
     <string name="txt_sentence_recorded" comment="Label in Speak">Җөмлә язылды. Аудиоязмаларны тыңлагыз.</string>
     <string name="txt_sentence_record_failed" comment="Label in Speak">Яздыру уңышсыз. Зинһар янәдән тырышып карагыз.</string>
     <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">Әгәр дә дөрес әйтсәгез, аудиоязманы җибәрегез.\nӘгәр аны ялгыш дип әйтсәгез, җөмләне яңадан яздыра аласыз.</string>
     <string name="txt_listening_stopped" comment="Label in Speak">Аның дөреслеген тикшерү өчен бөтен язуны тыңлагыз.</string>
-    <string name="txt_listening_again_recording" comment="Label in Speak">Тыңлауны туктату өчен астагы иконкага басыгыз.</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">Тыңлауны туктату өчен астагы тамгага басыгыз.</string>
     <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">Аудиоязма артык озын. Max duration is 10 seconds.</string>
     <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">Аудиоязма артык кыска. Зинһар янәдән тырышып карагыз.</string>
     <string name="txt_sending_recording" comment="Label in Speak">Аудиоязма җибәрелә…</string>
     <string name="txt_recording_sent" comment="Label in Speak">Язма җибәрелде!</string>
     <string name="txt_sending_recording_failed" comment="Message text">Аудиоязма җибәреп булмады!</string>
     <string name="txt_sending_recording_failed_and_skip" comment="Message text">Аудиоязма җибәреп булмады! You can either try again, or press the {{skip_button}} button.</string>
-    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Клипны башлау өчен астагы иконкага басыгыз.</string>
-    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Клипны туктату өчен астагы иконкага басыгыз.</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">Клипны башлау өчен астагы тамгага басыгыз.</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">Клипны туктату өчен астагы тамгага басыгыз.</string>
     <string name="txt_clip_correct_or_wrong" comment="Label in Listen">Клип дөрес булса, өскә караган зур бармакка басыгыз.\nӘгәр дә клип дөрес булмаса, аска караган зур бармакка басыгыз.</string>
-    <string name="txt_clip_again" comment="Label in Listen">Клипны яңадан уйнау өчен астагы иконкага басыгыз.</string>
+    <string name="txt_clip_again" comment="Label in Listen">Клипны яңадан уйнау өчен астагы тамгага басыгыз.</string>
     <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">Клип дөрес дип тамгаланды!</string>
     <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">Клип дөрес түгел дип билгеләнде!</string>
     <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">Хата. Дәвам итү өчен {{skip_button}} төймәсенә басыгыз.</string>
@@ -292,20 +295,20 @@
     <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">Бу сез язарга тиеш җөмлә.</string>
     <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">Сезгә юл күрсәтүче хәбәр монда барлыкка киләчәк.</string>
     <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">Әгәр дә сезгә җөмлә ошамаса, калдырып тору һәм башка бир җөмләгә күчү өчен монда басыгыз.</string>
-    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Яздыруны башлау өчен бу иконага басыгыз.</string>
-    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Яздыруны туктату өчен, бу рәсемгә басыгыз.</string>
-    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Аудиоязмагызны уйнау өчен бу иконага басыгыз.</string>
-    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Хата ясаган булсагыз, яңадан яздыру өчен бу иконага басыгыз.</string>
-    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Аудиоязмагызны яңадан уйнау өчен бу иконага басыгыз.</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">Яздыруны башлау өчен бу тамгага басыгыз.</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">Яздыруны туктату өчен, бу тамгага басыгыз.</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Аудиоязмагызны уйнау өчен бу тамгага басыгыз.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Хата ясаган булсагыз, яңадан яздыру өчен бу тамгага басыгыз.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Аудиоязмагызны яңадан уйнау өчен бу тамгага басыгыз.</string>
     <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Аудиоязманы җибәрү өчен бу төймәгә басыгыз.</string>
     <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">Бу сез тикшерергә тиеш җөмлә/клип.</string>
     <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">Әгәр дә сезгә клип ошамаса, калдырып тору һәм башка бир клипка күчү өчен бу төймәгә басыгыз.</string>
-    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Клипны уйнау өчен бу рәсемгә басыгыз.</string>
-    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Клип уйнауны туктату өчен бу иконага басыгыз.</string>
-    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Клипны яңадан тыңларга теләсәгез, бу иконага басыгыз.</string>
-    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Әгәр клип җөмләгә туры килсә, аны кабул итү өчен бу иконага басыгыз.</string>
-    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Әгәр клип җөмләгә туры килмәсә, аны кире кагу өчен бу иконага басыгыз.</string>
-    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">Клипны уйнау өчен бу тамгага басыгыз.</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">Клип уйнауны туктату өчен бу тамгага басыгыз.</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">Клипны яңадан тыңларга теләсәгез, бу тамгага басыгыз.</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">Әгәр клип җөмләгә туры килсә, аны кабул итү өчен бу тамгага басыгыз.</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">Әгәр клип җөмләгә туры килмәсә, аны кире кагу өчен бу тамгага басыгыз.</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">Әгәр дә сез аудиоязмаларны тикшерергә яки кире кагарга белмисез икән, яисә язмаларыгызны яхшыртырга теләсәгез, сез рәсми катнашу критерийларын укый аласыз.\nСез бу сылтаманы соңрак Көйләүләр &gt; Файдалы сылтамалар бүлегендә таба аласыз.</string>
     <string name="btn_read_now_guidelines_listen" comment="Button">Хәзер уку</string>
     <!-- NotAvailableNow -->
     <string name="txtNotAvailableNow" comment="Message text">Кызганычка каршы, бу үзенчәлек әлегә юк.\nБез кушымтаны яхшырту өстендә даими эшлибез, шуңа күрә соңрак аның өстәлгәнен күрер өчен яңадан тикшереп карагыз.</string>
@@ -339,8 +342,8 @@
     <string name="text_log_in_again" comment="Button" translatable="true">Янәдән керү</string>
     <string name="text_offline_mode" comment="Title">Автоном эш режимы</string>
     <string name="text_offline_mode_enabled" comment="Message text">Сез хәзер оффлайн һәм кушымта автоматик рәвештә автоном эш режимына күчә.\nДимәк, сез яздыруны һәм тикшерүне дәвам итә аласыз, ләкин сораулар соңрак җибәреләчәк.</string>
-    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
-    <string name="text_offline_mode_enabled_3" comment="Message text">Йөкләнгән клипларны һәм җөмләләрне карау өчен сез бу иконага басыгыз.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">Экрандагы бу тамганы карап, сез автоном эш режимында икәнегезне әйтә аласыз:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">Йөкләнгән клипларны һәм җөмләләрне карау өчен сез бу тамгага басыгыз.</string>
     <string name="offline_mode_is_not_enabled" comment="Message text">Автоном эш режимы кабызылмаган, шуңа күрә сез кушымтаны Интернетка тоташмыйча куллана алмыйсыз.\nАвтоном эш режимы үзенчәлеген куллану өчен, аны Көйләүләрдә кабызыгыз.</string>
     <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Минем эшемә җиңел ярдәм итә алуыгызны беләсезме? Зинһар, сезгә кушымта ошаса, Көйләүләрдә реклама баннерларын кабызырга уйлагыз.</string>
     <string name="text_open_settings_now">Хәзер көйләүләрне ачу</string>
@@ -348,6 +351,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Сез калдырып торып язуны югалтырга телисезме?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Сез дәвам итеп язуны югалтырга телисезме?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Барлык кушымта мәгълүматларын алыштыруны раслыйсызмы?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
     <string name="button_yes_sure" comment="Button">Әйе</string>
     <string name="button_cancel" comment="Button">Баш тарту</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

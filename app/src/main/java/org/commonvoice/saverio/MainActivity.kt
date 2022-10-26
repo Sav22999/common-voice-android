@@ -10,6 +10,7 @@ import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -30,13 +31,10 @@ import org.commonvoice.saverio_lib.api.network.ConnectionManager
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.RecordingsUploadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
-import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
-import org.commonvoice.saverio_lib.preferences.ListenPrefManager
-import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
-import org.commonvoice.saverio_lib.preferences.StatsPrefManager
-import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
-import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
+import org.commonvoice.saverio_lib.preferences.*
+import org.commonvoice.saverio_lib.viewmodels.*
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 import java.text.SimpleDateFormat
@@ -52,14 +50,20 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
     private val firstRunPrefManager: FirstRunPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
 
     private val speakPrefManager: SpeakPrefManager by inject()
     private val listenPrefManager: ListenPrefManager by inject()
+
+    private val listenViewModel: ListenViewModel by stateViewModel()
+    private val speakViewModel: SpeakViewModel by stateViewModel()
 
     private val connectionManager: ConnectionManager by inject()
     private val translationHandler: TranslationHandler by inject()
 
     private val dialogInflater by inject<DialogInflater>()
+    private val mainViewModel by viewModel<MainActivityViewModel>()
+    private lateinit var viewModel: GenericViewModel
 
     companion object {
         val SOURCE_STORE: String = BuildConfig.SOURCE_STORE
@@ -99,9 +103,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             setLanguageUI("start")
             //checkPermissions()
 
-            RecordingsUploadWorker.attachToWorkManager(workManager)
-            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-            ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            RecordingsUploadWorker.attachToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyUpload
+            )
+            checkSentencesOfflineMode()
+            checkClipsOfflineMode()
 
             mainActivityViewModel.postStats(
                 BuildConfig.VERSION_NAME,
@@ -123,6 +130,36 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
                 dialogInflater.show(this, ReportBugsDialog(this, mainPrefManager))
             }
+        }
+    }
+
+    fun checkSentencesOfflineMode() {
+        lifecycleScope.launch {
+            //println(speakPrefManager.requiredSentencesCount.toString() + " =S= " + speakViewModel.getSentencesCount())
+            if (speakPrefManager.requiredSentencesCount != speakViewModel.getSentencesCount())
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
+                ).apply {
+                    Handler().postDelayed({
+                        checkSentencesOfflineMode()
+                    }, 15000)
+                }
+        }
+    }
+
+    fun checkClipsOfflineMode() {
+        lifecycleScope.launch {
+            //println(listenPrefManager.requiredClipsCount.toString() + " =C= " + listenViewModel.getClipsCount())
+            if (listenPrefManager.requiredClipsCount != listenViewModel.getClipsCount())
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
+                ).apply {
+                    Handler().postDelayed({
+                        checkClipsOfflineMode()
+                    }, 15000)
+                }
         }
     }
 

@@ -19,20 +19,23 @@ import org.commonvoice.saverio_lib.models.Report
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.repositories.AppActionsRepository
 import org.commonvoice.saverio_lib.repositories.ClipsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.repositories.ValidationsRepository
+import org.koin.android.ext.android.inject
 
 class ListenViewModel(
     handle: SavedStateHandle,
-    private val clipsRepository: ClipsRepository,
+    public val clipsRepository: ClipsRepository,
     private val validationsRepository: ValidationsRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,
     private val reportsRepository: ReportsRepository,
     private val workManager: WorkManager,
     private val mainPrefManager: MainPrefManager,
     private val listenPrefManager: ListenPrefManager,
+    private val settingsPrefManager: SettingsPrefManager,
     private val appActionsRepository: AppActionsRepository,
 ) : ViewModel() {
 
@@ -58,7 +61,10 @@ class ListenViewModel(
         } else {
             delay(500)
             _state.postValue(if (listenPrefManager.noMoreClipsAvailable) State.NO_MORE_CLIPS else State.STANDBY)
-            ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyDownload
+            )
         }
     }
 
@@ -70,7 +76,10 @@ class ListenViewModel(
         }
         withContext(Dispatchers.Main) {
             _state.postValue(State.STANDBY)
-            ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyDownload
+            )
         }
     }
 
@@ -106,8 +115,14 @@ class ListenViewModel(
 
             withContext(Dispatchers.Main) {
                 _state.postValue(State.STANDBY)
-                ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
-                ValidationsUploadWorker.attachToWorkManager(workManager)
+                ClipsDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
+                )
+                ValidationsUploadWorker.attachToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyUpload
+                )
             }
 
             appActionsRepository.insertAction(
@@ -145,7 +160,10 @@ class ListenViewModel(
                         "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})\n" +
                         "Server API = ${mainPrefManager.genericAPIUrl}"
             )
-            ReportsUploadWorker.attachToWorkManager(workManager)
+            ReportsUploadWorker.attachToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyUpload
+            )
             skipClip()
         }
     }

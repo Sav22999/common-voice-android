@@ -41,7 +41,7 @@
     <string name="btn_skip" comment="Button">Léim thar seo</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Tá cead faighte</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Botún: níor tugadh cead</string>
-    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project is an unofficial app for Mozilla Common Voice. It\'s developed by Saverio Morelli without any support or partnership with Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">Is feidhmchláirín neamhoifigiúil i gcomhair Mozilla Common Voice é CV Project. Rinne Saverio Morelli é a fhorbairt gan aon tacaíocht a fháil ó Mozilla nó gan bheith i gcomhar le Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">By proceeding, you agree to Mozilla\'s Common Voice Terms of Service.</string>
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Caithfear cead \"Micreafón\" a thabhairt don bhfeidhmchlár seo chun gur féidir leis do ghuth a thaifeadadh.</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">You can report bugs on GitHub or Telegram. To help the developer understand the issue quickly, you should attach the app\'s log file to your report. The app needs the \"Storage\" permission to save the log file.</string>
@@ -95,7 +95,7 @@
     <string name="txt_generic_statistics" comment="Switch-Button in Settings">Generic statistics</string>
     <string name="txt_show_string_which_identify_me" comment="Button in Settings">Show the string which identifies me inside the app</string>
     <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">App usage statistics</string>
-    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Skip recording confirmation</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">Léim thar an deimhniú taifeadta</string>
     <string name="toast_skip_recording_confirmation_on" comment="Message text">Skip recording confirmation turned on.\nYou will now be able to send recordings without having to listen to them first.</string>
     <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">Aistrigh an feidhmchláirín ar Crowdin</string>
     <string name="txt_see_statistics_of_the_app" comment="Button in Settings">See app statistics</string>
@@ -117,6 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">Comhéadan úsáideora</string>
     <string name="title_advanced_settings" comment="Option in Settings">Ardroghanna</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
     <string name="txt_reset_data" comment="Button in Settings">Athshocraigh sonraí an fheidhmchláir</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
@@ -167,7 +168,7 @@
     <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">Fógraí maidir leis an sprioc laethúil</string>
     <string name="text_title_notifications" comment="Title in Settings">Fógraí</string>
     <string name="message_dailygoal_notification_text" comment="Content of the notification">Please don\'t forget to contribute to Common Voice today, your contribution is valuable and important!\nTap here to open the app and work towards your daily goal now.</string>
-    <string name="message_dailygoal_notification_title" comment="Title of the notification">CV Project daily goal not reached yet!</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">Níor baineadh sprioc laethúil CV Project amach fós!</string>
     <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
     <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
     <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">An chéad foláireamh</string>
@@ -179,6 +180,8 @@
     <string name="button_customise_api_server" comment="Button">Saincheap freastalaí an API</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Tá an abairt á luchtú…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Léim thar seo</string>
@@ -317,8 +320,8 @@
     <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">See information about the current sentence</string>
     <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Tuairiscigh an mhír reatha</string>
     <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Tuairiscigh an abairt reatha</string>
-    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
-    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Oscail an chuid Éisteachta</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Oscail an chuid Labhartha</string>
     <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">Téigh siar</string>
     <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">Cumasaigh/díchumasaigh</string>
     <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">Dún an teachtaireacht</string>
@@ -388,6 +391,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
     <string name="button_yes_sure" comment="Button">Is ea</string>
     <string name="button_cancel" comment="Button">Cealaigh</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
@@ -422,9 +426,9 @@
     <string name="share_daily_goal" comment="Button when you achieve a daily goal">Comhroinn</string>
     <string name="share_daily_goal_title" comment="Title of panel">Comhroinn ar</string>
     <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
-    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">Ní gné oifigiúil de chuid Mozilla é an sprioc laethúil sin. Is gné í a bhaineann leis an bhfeidhmchláirín seo amháin.</string>
     <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">An eol duit … ?</string>
-    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">Is féidir 10,000 uair an chloig a bhaint amach i gceann corradh le 6 mhí dá ndéanfadh 1,000 duine 45 ghearrthóg a thaifeadadh gach lá.</string>
     <string name="copied_string" comment="Toast message">Cóipeáilte</string>
     <!-- Message dialog (unspecified category) -->
     <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">Tá leagan nua den bhfeidhmchlr le fáil (leagan {{n_version}}). Tig leat é a nuashonrú ón siopa is fearr leat (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) nó go díreach ó GitHub.</string>

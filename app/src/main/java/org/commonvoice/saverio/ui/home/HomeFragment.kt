@@ -5,13 +5,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.work.WorkManager
 import kotlinx.coroutines.delay
@@ -31,7 +31,9 @@ import org.commonvoice.saverio_lib.preferences.FirstRunPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio_lib.viewmodels.HomeViewModel
+import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -52,9 +54,16 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
     private val settingsPrefManager: SettingsPrefManager by inject()
     private val workManager: WorkManager by inject()
     private val dialogInflater by inject<DialogInflater>()
+    private val mainViewModel by viewModel<MainActivityViewModel>()
+    private lateinit var viewModel: GenericViewModel
 
     override fun onStart() {
         super.onStart()
+
+        viewModel = activity?.run {
+            ViewModelProviders.of(this).get(GenericViewModel::class.java)
+        } ?: throw Exception("?? Invalid Activity ??")
+        viewModel.setFromFragment("home")
 
         //TODO fix this mess once MainActivity is fixed
 

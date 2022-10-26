@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.view.isGone
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import org.commonvoice.saverio.BuildConfig
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.MainActivity
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentSettingsBinding
@@ -40,10 +42,12 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
     private val mainPrefManager: MainPrefManager by inject()
     private val statsPrefManager: StatsPrefManager by inject()
+    private val settingsPrefManager by inject<SettingsPrefManager>()
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
     private val dashboardViewModel by sharedViewModel<DashboardViewModel>()
     private val translationHandler by inject<TranslationHandler>()
+    private lateinit var viewModel: GenericViewModel
 
     private var SOURCE_STORE: String = ""
 
@@ -51,6 +55,12 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
         super.onStart()
 
         withBinding {
+            viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            viewModel.setFromFragment("settings")
+            viewModel.setNestedFragment("")
+
             buttonSettingsGoToAdvanced.onClick {
                 findNavController().navigate(R.id.advancedSettingsFragment)
             }
@@ -159,7 +169,12 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             inAppPurchase()
         } else {*/
         buttonBuyMeACoffee.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/donate/")))
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.saveriomorelli.com/commonvoice/donate/")
+                )
+            )
         }
         /*}*/
     }
@@ -202,11 +217,13 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
                     mainViewModel.clearDB().invokeOnCompletion {
                         SentencesDownloadWorker.attachOneTimeJobToWorkManager(
                             workManager,
-                            ExistingWorkPolicy.REPLACE
+                            ExistingWorkPolicy.REPLACE,
+                            wifiOnly = settingsPrefManager.wifiOnlyDownload
                         )
                         ClipsDownloadWorker.attachOneTimeJobToWorkManager(
                             workManager,
-                            ExistingWorkPolicy.REPLACE
+                            ExistingWorkPolicy.REPLACE,
+                            wifiOnly = settingsPrefManager.wifiOnlyDownload
                         )
 
                         mainPrefManager.hasLanguageChanged = false

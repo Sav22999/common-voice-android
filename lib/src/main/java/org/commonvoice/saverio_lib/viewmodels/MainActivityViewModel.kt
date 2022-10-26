@@ -1,10 +1,7 @@
 package org.commonvoice.saverio_lib.viewmodels
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio_lib.db.AppDB
@@ -17,7 +14,6 @@ class MainActivityViewModel(
     private val userRepository: CVStatsRepository,
     private val database: AppDB,
 ) : ViewModel() {
-
     fun postStats(
         appVersion: String,
         versionCode: Int,

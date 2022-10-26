@@ -117,6 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">User Interface</string>
     <string name="title_advanced_settings" comment="Option in Settings">Advanced</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Save recordings on device</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
     <string name="txt_reset_data" comment="Button in Settings">Reset app data</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">No experimental features are now available</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
@@ -173,12 +174,14 @@
     <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
     <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
     <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">None</string>
-    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">Statistics</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">புள்ளிவிவரம்</string>
     <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
     <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
     <string name="button_customise_api_server" comment="Button">Customise API server</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">தவிர்</string>
@@ -280,7 +283,7 @@
     <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
     <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
     <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
-    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Send recording</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">பதிவு அனுப்பபடுகிறது</string>
     <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
     <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">See offline mode details</string>
     <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">See information about the current clip</string>
@@ -358,6 +361,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
     <string name="button_yes_sure" comment="Button">Yes</string>
     <string name="button_cancel" comment="Button">ரத்துசெய்</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

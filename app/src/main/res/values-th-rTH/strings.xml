@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DO NOT TRANSLATE OR CHANGE THIS -->
+    <!-- Use the abbreviation of Common Voice (e.g. Italian -> it, Swedish -> sv-SE, ect.) -->
+    <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">th</string>
+    <!-- Buttons (nav) -->
+    <string name="title_home">หน้าหลัก</string>
+    <string name="title_dashboard">แดชบอร์ด</string>
+    <string name="title_settings">การตั้งค่า</string>
+    <!-- Home (main) -->
+    <string name="button_home_login">เข้าสู่ระบบ / ลงทะเบียน</string>
+    <string name="button_home_logout">ออกจากระบบ</string>
+    <string name="button_home_profile">โปรไฟล์</string>
+    <string name="text_hi_without_username" comment="Text | If it's not set a username">สวัสดี!</string>
+    <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">สวัสดี {{username}}!</string>
+    <string name="message_log_in_again">session-id หมดอายุ คุณต้องเข้าสู่ระบบใหม่</string>
+    <!-- Dashboard -->
+    <string name="dashboardStatistics">สถิติ</string>
+    <string name="dashboardVoicesOnline">เสียงที่ออนไลน์</string>
+    <string name="dashboardTabYou">คุณ</string>
+    <string name="dashboardTabEveryone">ทุกคน</string>
+    <string name="dashboardToday" comment="Sub-title in Dashboard" maxLength="30">วันนี้</string>
+    <string name="dashboardEver" comment="Sub-title in Dashboard">ทั้งหมด</string>
+    <string name="toastNoLoginNoStatistics">คุณต้องเข้าสู่ระบบเพื่อดูสถิติ</string>
+    <string name="toastNoLoginNoDailyGoal">คุณต้องเข้าสู่ระบบเพื่อตั้งเป้าหมายรายวัน</string>
+    <string name="textHoursAbbreviation">ชม.</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">ชั่วโมง {{hour}}</string>
+    <string name="txt_top_contributors">ผู้สนับสนุนสูงสุด</string>
+    <string name="txt_top_contributors_recorded">บันทึกเสียง</string>
+    <string name="txt_top_contributors_validated">ตรวจสอบเสียง</string>
+    <string name="txt_app_statistics" comment="Title in Dashboard">สถิติแอป</string>
+    <string name="txt_current_language" comment="Sub-title in Dashboard">ภาษาปัจจุบัน</string>
+    <string name="txt_all_languages" comment="Sub-title in Dashboard">ทุกภาษา</string>
+    <string name="txt_not_available_offline" comment="Message text">ไม่สามารถใช้งานในโหมดออฟไลน์</string>
+    <!-- First launch -->
+    <string name="btn_tutorial1" comment="Button">เริ่มเลย</string>
+    <string name="btn_tutorial2" comment="Button">อนุญาต</string>
+    <string name="btn_tutorial3" comment="Button">ต่อไป</string>
+    <string name="btn_tutorial4" comment="Button">ลองอีกครั้ง</string>
+    <string name="btn_tutorial5" comment="Button">เสร็จสิ้น</string>
+    <string name="btn_skip" comment="Button">ข้าม</string>
+    <string name="txt_permission_obtained_first_launch" comment="Message text">อนุญาตสิทธิ์แล้ว</string>
+    <string name="txt_permission_denied_first_launch" comment="Message text">เกิดข้อผิดพลาด: สิทธิ์ถูกปฏิเสธ</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project เป็นแอปไม่เป็นทางการสำหรับ Mozilla Common Voice ที่พัฒนาโดย Saverio Morelli โดยไม่ได้รับการสนับสนุนใด ๆ จาก Mozilla</string>
+    <string name="txt_accept_terms_first_launch" comment="Text | First-run">การไปต่อแสดงว่าคุณยอมรับเงื่อนไขการให้บริการของ Mozilla Common Voice</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">แอปนี้ต้องมีสิทธิ์เข้าถึง \"ไมโครโฟน\" เพื่อบันทึกเสียงของคุณ</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">คุณสามารถรายงานปัญหาบน GitHub และ Telegram โดยคุณควรแนบไฟล์บันทึก (log) ลงในรายงานของคุณเพื่อให้ผู้พัฒนาเข้าใจปัญหาได้รวดเร็ว แอปนี้ต้องการสิทธิ์เข้าถึง \"พื้นที่จัดเก็บข้อมูล\" เพื่อบันทึกไฟล์บันทึกนี้</string>
+    <string name="txt_offline_mode_first_launch" comment="Text | First-run">คุณยังสามารถสมทบข้อมูลขณะไม่มีอินเทอร์เน็ต โดย \"โหมดออฟไลน์\" ของแอปจะถูกเปิดอัตโนมัติ และคุณสามารถบันทึกและตรวจสอบเสียงได้โดยไม่มีอินเทอร์เน็ต</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">เลือกธีมสีที่ต้องการ โดย \"อัตโนมัติ\" จะเปลี่ยนธีมสีตามเวลาปัจจุบัน คุณสามารถเปลี่ยนการตั้งค่านี้ภายหลังได้ในการตั้งค่า</string>
+    <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">ธีมสีมืด</string>
+    <string name="txt_gestures_first_launch" comment="Text | First-run">บางการกระทำมีท่าทางนิ้วต่าง ๆ ที่สอดคล้องกัน เช่น คุณสามารถข้ามประโยคในเมนู \"พูด\" ได้โดยการปัดไปทางซ้าย</string>
+    <string name="txt_customise_gestures_first_launch" comment="Text | First-run">คุณสามารถปรับเปลี่ยนท่าทางนิ้วเหล่านี้ในการตั้งค่า</string>
+    <string name="txt_telegram_group_first_launch" comment="Text | First-run">คุณสามารถเข้ากลุ่ม Telegram เพื่อรับข่าวสารและความช่วยเหลือ (กรุณาใช้ภาษาอังกฤษในการสื่อสารในกลุ่ม)</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">เข้าร่วมกลุ่ม</string>
+    <string name="txt_choose_language_first_launch" comment="Text | First-run">มาเริ่มกันเลย! เลือกภาษาที่คุณต้องการพูดหรือฟัง แอปจะแสดงผลในภาษาที่คุณเลือกหากภาษานั้นมีการแปลภาษาแล้ว</string>
+    <!-- Login -->
+    <string name="txt_loading_page" comment="Label">กำลังโหลด...</string>
+    <string name="txt_profile_username" comment="Label in Profile">ชื่อผู้ใช้</string>
+    <string name="txt_profile_email" comment="Label in Profile">อีเมล</string>
+    <string name="txt_profile_age" comment="Label in Profile">อายุ</string>
+    <string name="txt_profile_gender" comment="Label in Profile">เพศ</string>
+    <string name="txt_profile_edit_data_alert" comment="Text in Profile | Don't translate Common Voice">ไปที่เว็บไซต์ของ Common Voice เพื่อแก้ไขข้อมูลส่วนตัวของคุณ</string>
+    <string name="txt_login_successful_alert" comment="Message text">เข้าสู่ระบบสำเร็จ!</string>
+    <string name="txt_gender_male" comment="Label in Profile">ชาย</string>
+    <string name="txt_gender_female" comment="Label in Profile">หญิง</string>
+    <string name="txt_gender_other" comment="Label in Profile | Other gender, so not specified">อื่น ๆ</string>
+    <string name="btn_badges_loggedin" comment="Button">เหรียญตราทั้งหมด</string>
+    <string name="txt_your_level" comment="Label in Profile | (e.g. Level 1)">เลเวล {{level}}</string>
+    <string name="btn_use_a_verification_link_login" comment="Button">ฉันมีลิงก์ยืนยันแล้ว</string>
+    <string name="txt_verification_link" comment="Label (Placeholder)">ลิงก์ยืนยัน</string>
+    <string name="txt_verification_link_not_valid" comment="Message text">ลิงก์ยืนยันไม่ถูกต้อง</string>
+    <!-- Settings -->
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">เปิดบทช่วยสอนซ้ำ</string>
+    <string name="txt_project_github_settings" comment="Button in Settings">โครงการมีการเปิดต้นฉบับบน GitHub</string>
+    <string name="txt_developed_by" comment="Label in Settings">พัฒนาโดย</string>
+    <string name="toast_language_changed" comment="Message text">ตั้งค่าภาษาเป็น {{lang}} เรียบร้อยแล้ว</string>
+    <string name="settingsLanguage" comment="Title in Settings">ภาษา</string>
+    <string name="settingsListen" comment="Title in Settings">ฟัง</string>
+    <string name="settingsSpeak" comment="Title in Settings">พูด</string>
+    <string name="settingsOther" comment="Title in Settings">อื่น ๆ</string>
+    <string name="settingsGeneral" comment="Title in Settings">ทั่วไป</string>
+    <string name="settingsUsefulLinks" comment="Title in Settings">ลิงก์ที่เป็นประโยชน์</string>
+    <string name="settingsLearnMore" comment="Button in Settings">เรียนรู้เพิ่มเติม</string>
+    <string name="radioThemeLight" comment="Radio-Button in Settings">สว่าง</string>
+    <string name="radioThemeDark" comment="Radio-Button in Settings">มืด</string>
+    <string name="radioThemeAuto" comment="Radio-Button in Settings">อัตโนมัติ</string>
+    <string name="txt_donate_paypal_settings" comment="Button in Settings">สนับสนุนงานของผม ซื้อกาแฟให้ผมได้นะ 😄</string>
+    <string name="txt_autoplay_clips_after_loading_settings" comment="Switch-Button in Settings">เล่นคลิปเสียงอัตโนมัติหลังจากโหลดเสร็จ</string>
+    <string name="txt_dark_theme_settings" comment="Switch-Button in Settings">ธีมสีมืด</string>
+    <string name="contact_developer_on_telegram" comment="Button in Settings">ติดต่อผู้พัฒนาบน Telegram</string>
+    <string name="txt_experimental_features" comment="Switch-Button in Settings">คุณสมบัติทดลอง</string>
+    <string name="toast_experimental_features_on" comment="Message text">เปิดใช้คุณสมบัติทดลองแล้ว\nคุณสมบัติใหม่ ๆ อาจไม่เสถียรและไม่ปลอดภัย</string>
+    <string name="txt_log_on_file" comment="Switch-Button in Settings">เก็บไฟล์บันทึกเป็นไฟล์</string>
+    <string name="toast_log_on_file_on" comment="Message text">เปิดใช้การจัดเก็บไฟล์บันทึกเป็นไฟล์แล้ว\nคุณสามารถแนบไฟล์ log.txt ขณะรายงานปัญหา\nอ่านเพิ่มเติมที่ GitHub</string>
+    <string name="txt_generic_statistics" comment="Switch-Button in Settings">สถิติทั่วไป</string>
+    <string name="txt_show_string_which_identify_me" comment="Button in Settings">แสดงสตริงที่ระบุตัวตนของผมเองภายในแอป</string>
+    <string name="txt_app_usage_statistics" comment="Switch-Button in Settings">สถิติการใช้งานแอป</string>
+    <string name="txt_skip_recording_confirmation" comment="Switch-Button in Settings">ข้ามการยืนยันการบันทึกเสียง</string>
+    <string name="toast_skip_recording_confirmation_on" comment="Message text">เปิดใช้ \"ข้ามการยืนยันการบันทึกเสียง\" แล้ว\nคุณจะสามารถส่งคลิปเสียงบันทึกได้โดยไม่ต้องฟังก่อนส่ง</string>
+    <string name="txt_translate_the_app_on_crowdin" comment="Button in Settings">แปลแอปบน Crowdin</string>
+    <string name="txt_see_statistics_of_the_app" comment="Button in Settings">ดูสถิติแอป</string>
+    <string name="txt_recording_indicator_sound" comment="Switch-Button in Settings">เสียงขณะเริ่ม-หยุดอัด</string>
+    <string name="toast_recording_indicator_sound_on" comment="Message text">เปิดเสียงขณะเริ่ม-หยุดอัดแล้ว\nเสียงจะถูกเล่นเมื่อคุณเริ่มต้นและหยุดการบันทึก</string>
+    <string name="txt_check_for_updates" comment="Switch-Button in Settings">ตรวจสอบการอัปเดต</string>
+    <string name="txt_gestures" comment="Switch-Button in Settings">ท่าทาง</string>
+    <string name="message_review_app_on_play_store" comment="Message text">หากคุณชอบแอปนี้ อย่าลืมเขียนรีวิวบน Google Play Store</string>
+    <string name="message_app_not_completely_translated" comment="Message text">แอปนี้ยังไม่ถูกแปล (หรือแปลไม่สมบูรณ์) ในภาษานี้\nคุณสามารถช่วยแปลแอปนี้ได้บน Crowdin</string>
+    <string name="txt_animations" comment="Switch-Button in Settings">แอนิเมชัน</string>
+    <string name="txt_customise_the_font_size" comment="Button in Settings">ปรับขนาดตัวอักษร</string>
+    <string name="txt_customise_gestures" comment="Button in Settings">ปรับแต่งท่าทาง</string>
+    <string name="title_theme_settings" comment="Title in Settings">ธีม</string>
+    <string name="txt_telegram_group_settings" comment="Button in Settings">กลุ่ม Telegram สำหรับแอป</string>
+    <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">แสดงข้อความกำกับใต้ไอคอนเมนู</string>
+    <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">อ่านเงื่อนไขการให้บริการของ Mozilla Common Voice</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">อ่านเกณฑ์การมีส่วนร่วม</string>
+    <string name="txt_review_on_google_play" comment="Button in Settings">รีวิวบน Google Play</string>
+    <string name="title_ui_settings" comment="Option in Settings">ส่วนติดต่อผู้ใช้</string>
+    <string name="title_advanced_settings" comment="Option in Settings">ขั้นสูง</string>
+    <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">บันทึกคลิปเสียงลงบนเครื่อง</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data" comment="Button in Settings">รีเซ็ตข้อมูลแอป</string>
+    <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">ไม่มีคุณสมบัติทดลองที่ใช้งานได้</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">แสดงข้อความประโยคหลังจากจบคลิปเสียงเท่านั้น</string>
+    <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">แสดงไอคอนรายงาน (มุมขวาบน) แทนปุ่ม (ด้านล่าง)</string>
+    <string name="title_textsize_settings" comment="Title in Settings">ขนาดข้อความ</string>
+    <string name="title_ads_banner_settings" comment="Title in Settings">แบนเนอร์โฆษณา</string>
+    <string name="enable_ads_google_play_in_section" comment="Switch-Button in Settings | Do not translate {{section_name}} -&gt; it indicates 'Home', 'Speak' and 'Listen'">เปิดแบนเนอร์โฆษณาในหน้า {{section_name}}</string>
+    <string name="txt_dailygoal_progressbar_coloured" comment="Switch-Button in Settings">แถบแสดงเป้าหมายรายวันแบบมีสีสัน</string>
+    <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}}และ{{listen_name}}</string>
+    <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Light theme also for the sentence to read/to validate in Speak and Listen (when the light theme is turned on).</string>
+    <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">แสดงแถบควบคุมความเร็ว</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">แสดงไอคอนข้อมูล</string>
+    <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">กดเพื่อพูด</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">เลือกจำนวนประโยคและคลิปเสียงที่จะดาวน์โหลดและใช้งานขณะอยู่ในโหมดออฟไลน์</string>
+    <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">โดยปกติ ผู้ใช้งานจะใช้เวลาประมาณ 13 นาทีเพื่อตรวจสอบ 50 คลิปเสียง และ 26 นาทีเพื่อบันทึกเสียง 50 ประโยค</string>
+    <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">ปัดขึ้น</string>
+    <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">ปัดลง</string>
+    <string name="text_customise_gestures_settings_swipe_left" comment="Button in Settings &gt; Gestures">ปัดซ้าย</string>
+    <string name="text_customise_gestures_settings_swipe_right" comment="Button in Settings &gt; Gestures">ปัดขวา</string>
+    <string name="text_customise_gestures_settings_long_press" comment="Button in Settings &gt; Gestures">กดค้างไว้</string>
+    <string name="text_customise_gestures_settings_double_tap" comment="Button in Settings &gt; Gestures">แตะสองครั้ง</string>
+    <string name="text_customise_gestures_settings_swipe_up_enabled" comment="Button in Settings &gt; Gestures">ปัดขึ้น: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_down_enabled" comment="Button in Settings &gt; Gestures">ปัดลง: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_left_enabled" comment="Button in Settings &gt; Gestures">ปัดซ้าย: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_swipe_right_enabled" comment="Button in Settings &gt; Gestures">ปัดขวา: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_long_press_enabled" comment="Button in Settings &gt; Gestures">กดค้างไว้: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_double_tap_enabled" comment="Button in Settings &gt; Gestures">แตะสองครั้ง: {{feature_enabled}}</string>
+    <string name="text_customise_gestures_settings_nothing" comment="Radio-Button in Settings &gt; Gestures">ไม่มี</string>
+    <string name="text_customise_gestures_settings_go_back" comment="Radio-Button in Settings &gt; Gestures">ย้อนกลับไป</string>
+    <string name="text_customise_gestures_settings_skip_clip" comment="Radio-Button in Settings &gt; Gestures">ข้ามคลิปเสียง</string>
+    <string name="text_customise_gestures_settings_skip_sentence" comment="Radio-Button in Settings &gt; Gestures">ข้ามประโยค</string>
+    <string name="text_customise_gestures_settings_accept_clip" comment="Radio-Button in Settings &gt; Gestures">ยอมรับคลิปเสียง (ถูกต้อง)</string>
+    <string name="text_customise_gestures_settings_reject_clip" comment="Radio-Button in Settings &gt; Gestures">ปฏิเสธคลิปเสียง (ไม่ถูกต้อง)</string>
+    <string name="text_customise_gestures_settings_enable_disable_feature" comment="Radio-Button in Settings &gt; Gestures || {{feature}} is the feature name">เปิด/ปิด \"{{feature}}\"</string>
+    <string name="text_customise_gestures_settings_report_clip" comment="Radio-Button in Settings &gt; Gestures">รายงานคลิปเสียง</string>
+    <string name="text_customise_gestures_settings_report_sentence" comment="Radio-Button in Settings &gt; Gestures">รายงานประโยค</string>
+    <string name="text_customise_gestures_settings_show_info_clip" comment="Radio-Button in Settings &gt; Gestures">แสดงข้อมูลเกี่ยวกับคลิปเสียง</string>
+    <string name="text_customise_gestures_settings_show_info_sentence" comment="Radio-Button in Settings &gt; Gestures">แสดงข้อมูลเกี่ยวกับประโยค</string>
+    <string name="text_customise_gestures_settings_play_stop_clip" comment="Radio-Button in Settings &gt; Gestures">เล่น/หยุดเล่นคลิป</string>
+    <string name="text_customise_gestures_settings_start_stop_recording" comment="Radio-Button in Settings &gt; Gestures">เริ่ม/หยุดการบันทึก</string>
+    <string name="text_customise_gestures_settings_play_stop_recording" comment="Radio-Button in Settings &gt; Gestures">เล่น/หยุดเล่นการบันทึก</string>
+    <string name="text_customise_gestures_settings_save" comment="Button in Settings &gt; Gestures">บันทึก</string>
+    <string name="text_customise_gestures_settings_choose_an_action" comment="Title of the BottomSheet in Settings &gt; Gestures">เลือกการกระทำ</string>
+    <string name="text_show_contribution_criteria_icon_speak_listen" comment="Switch-Button in Settings ">แสดงไอคอนเกณฑ์การมีส่วนร่วม</string>
+    <string name="text_upload_wifi_only" comment="Switch-Button in Settings">อัปโหลดผ่าน Wi-Fi เท่านั้น</string>
+    <string name="text_download_wifi_only" comment="Switch-Button in Settings">ดาวน์โหลดผ่าน Wi-Fi เท่านั้น</string>
+    <string name="text_general_notifications" comment="Switch-Button in Settings">การแจ้งเตือนทั่วไป</string>
+    <string name="text_dailygoal_notifications" comment="Switch-Button in Settings">การแจ้งเตือนเป้าหมายรายวัน</string>
+    <string name="text_title_notifications" comment="Title in Settings">การแจ้งเตือน</string>
+    <string name="message_dailygoal_notification_text" comment="Content of the notification">วันนี้อย่าลืมเข้ามามีส่วนร่วมกับ Common Voice ด้วยนะ การมีส่วนร่วมของคุณมีคุณค่าและสำคัญจริง ๆ!\nแตะที่นี่เพื่อเปิดแอปและทำตามเป้าหมายรายวันเลย</string>
+    <string name="message_dailygoal_notification_title" comment="Title of the notification">ยังไม่ถึงเป้าหมายรายวัน CV Project!</string>
+    <string name="text_dailygoal_notifications_details" comment="Description for Daily goal notifications">Choose when you wish to be notified in case your daily goal has not been reached.</string>
+    <string name="text_dailygoal_notifications_details2" comment="Details of description for Daily goal notifications">Please note that this might not be exact or might not be work at all due to battery optimisation settings.</string>
+    <string name="label_dailygoal_notifications_first_alert" comment="Label to choose the first alert">First alert</string>
+    <string name="label_dailygoal_notifications_second_alert" comment="Label to choose the second alert">Second alert</string>
+    <string name="label_dailygoal_notifications_second_alert_none" comment="Label if you don't desire the second alert">ไม่มี</string>
+    <string name="title_sub_section_statistics" comment="Title for a sub-section in Settings &gt; Advanced">สถิติ</string>
+    <string name="title_sub_section_destination_api_server" comment="Title for a sub-section in Settings &gt; Advanced">Destination API server</string>
+    <string name="button_reset_default_api_server" comment="It's a button to reset the default API server">Reset to the default API server</string>
+    <string name="button_customise_api_server" comment="Button">Customise API server</string>
+    <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
+    <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <!-- Speak & Listen-->
+    <string name="txt_loading_sentence" comment="Label in Speak">กำลังโหลดประโยค…</string>
+    <string name="btn_skip_sentence" comment="Button in Speak and Listen">ข้าม</string>
+    <string name="btn_send_sentence" comment="Button in Speak">ส่งคลิปเสียงบันทึก</string>
+    <string name="txt_loading_clip" comment="Label in Listen">กำลังโหลดคลิป…</string>
+    <string name="txt_press_icon_below_speak_1" comment="Label in Speak">กดไอคอนด้านล่างเพื่อเริ่มบันทึกเสียง</string>
+    <string name="txt_press_icon_below_speak_2" comment="Label in Speak">กดไอคอนด้านล่างเพื่อหยุดบันทึกเสียง</string>
+    <string name="txt_sentence_recorded" comment="Label in Speak">บันทึกเสียงประโยคแล้ว ฟังเสียงที่บันทึกกันเลย</string>
+    <string name="txt_sentence_record_failed" comment="Label in Speak">การบันทึกล้มเหลว กรุณาลองอีกครั้ง</string>
+    <string name="txt_recorded_correct_or_wrong" comment="Label in Speak">หากคุณพูดถูกทุกคำ ส่งคลิปเสียงบันทึกได้เลย\nแต่หากคุณพูดผิด คุณสามารถบันทึกประโยคซ้ำอีกครั้ง</string>
+    <string name="txt_listening_stopped" comment="Label in Speak">ฟังทั้งคลิปเสียงเพื่อให้แน่ใจว่าถูกทุกคำ</string>
+    <string name="txt_listening_again_recording" comment="Label in Speak">กดไอคอนด้านล่างเพื่อหยุดฟัง</string>
+    <string name="txt_recording_too_long" comment="Label in Speak &amp; Message text">เสียงบันทึกยาวเกินไป ความยาวสูงสุดคือ 10 วินาที</string>
+    <string name="txt_recording_too_short" comment="Label in Speak &amp; Message text">เสียงบันทึกสั้นเกินไป กรุณาลองอีกครั้ง</string>
+    <string name="txt_sending_recording" comment="Label in Speak">กำลังส่งเสียงบันทึก...</string>
+    <string name="txt_recording_sent" comment="Label in Speak">ส่งเสียงบันทึกแล้ว!</string>
+    <string name="txt_sending_recording_failed" comment="Message text">ไม่สามารถส่งเสียงบันทึก</string>
+    <string name="txt_sending_recording_failed_and_skip" comment="Message text">ไม่สามารถส่งเสียงบันทึกได้! คุณสามารถลองอีกครั้ง หรือกดปุ่ม {{skip_button}}</string>
+    <string name="txt_press_icon_below_listen_1" comment="Label in Listen">กดไอคอนด้านล่างเพื่อเริ่มคลิปเสียง</string>
+    <string name="txt_press_icon_below_listen_2" comment="Label in Listen">กดไอคอนด้านล่างเพื่อหยุดคลิปเสียง</string>
+    <string name="txt_clip_correct_or_wrong" comment="Label in Listen">หากคลิปเสียงถูกต้อง กดปุ่มนิ้วโป้งชี้ขึ้น\nหากไม่ถูกต้อง กดปุ่มนิ้วโป้งชี้ลง</string>
+    <string name="txt_clip_again" comment="Label in Listen">กดปุ่มด้านล่างเพื่อเล่นคลิปเสียงอีกครั้ง</string>
+    <string name="txt_clip_validated_yes" comment="Label in Listen &amp; Message text">ระบุว่าเป็นคลิปถูกต้องแล้ว!</string>
+    <string name="txt_clip_validated_no" comment="Label in Listen &amp; Message text">ระบุว่าเป็นคลิปไม่ถูกต้องแล้ว!</string>
+    <string name="txt_error_1_try_again_tap_skip" comment="Label in Listen &amp; Message text">เกิดข้อผิดพลาด กดปุ่ม {{skip_button}} เพื่อดำเนินการต่อ</string>
+    <string name="txt_error_2_sending_failed" comment="Label in Listen">ไม่สามารถส่งเสียงบันทึก</string>
+    <string name="txt_sending_validation" comment="Label in Listen">กำลังส่ง...</string>
+    <string name="txt_error_3_sending_validation_failed" comment="Label in Listen">ไม่สามารถส่งผลลัพธ์ได้! คุณสามารถลองอีกครั้ง หรือกดปุ่ม {{skip_button}}</string>
+    <string name="txt_closing" comment="Label in Listen &amp; Label in Speak">กำลังปิด…</string>
+    <string name="txt_error_4_clips_no_available" comment="Label in Listen">เกิดข้อผิดพลาด ไม่มีคลิปเสียงสำหรับภาษานี้แล้ว</string>
+    <string name="button_report" comment="Button">รายงาน</string>
+    <string name="title_report_clip" comment="Title in Report a clip">รายงานคลิปเสียง:</string>
+    <string name="title_report_sentence" comment="Title in Report a sentence">รายงานประโยค:</string>
+    <string name="button_send_report" comment="Button">ส่งรายงาน</string>
+    <string name="checkbox_reason1_report_sentence" comment="Checkbox">ภาษาที่ไม่เหมาะสม</string>
+    <string name="checkbox_reason1_report_clip" comment="Checkbox">เสียงพูดที่ไม่เหมาะสม</string>
+    <string name="checkbox_reason2_report" comment="Checkbox">ข้อผิดพลาดทางไวยากรณ์ / การสะกดคำ</string>
+    <string name="checkbox_reason3_report" comment="Checkbox">คนละภาษา</string>
+    <string name="checkbox_reason4_report" comment="Checkbox">อ่านออกเสียงยาก</string>
+    <string name="checkbox_reason5_report" comment="Checkbox">อื่น ๆ</string>
+    <string name="checkbox_reason5_comment_report" comment="Label (Placeholder)">ความคิดเห็น</string>
+    <string name="txt_sentences_finished_offline_mode" comment="Message text">You have run out of offline sentences. Connect to the Internet to download more sentences to record.</string>
+    <string name="txt_clips_finished_offline_mode" comment="Message text">You have run out of offline clips. Connect to the Internet to download more clips to validate.</string>
+    <string name="txt_residual_sentences_offline_mode" comment="Message text | Don't translate {{n_sentences}}">You can record {{n_sentences}} more sentences before you need to connect to the Internet.</string>
+    <string name="txt_residual_clips_offline_mode" comment="Message text | Don't translate {{n_clips}}">You can validate {{n_clips}} more clips before you need to connect to the Internet.</string>
+    <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">กำลังฟัง…</string>
+    <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">\"{{feature_name}}\" เปิดอยู่ ไปที่การตั้งค่าเพื่อปิด</string>
+    <string name="txt_sentence_text_hidden" comment="Text in Listen">ข้อความประโยคถูกซ่อนอยู่</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
+    <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
+        <item quantity="other">คุณตรวจสอบ %d คลิปเสียงติดต่อกันแล้ว ยอดเยี่ยมมาก ทำต่อไปนะ!</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_2" comment="Motivational sentence in Listen">
+        <item quantity="other">ทำต่อไปเรื่อย ๆ ได้เลย คุณตรวจสอบไปแล้ว %d คลิปเสียงติดต่อกัน</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_3" comment="Motivational sentence in Listen">
+        <item quantity="other">ยอดเยี่ยมมาก! คุณตรวจสอบไปแล้ว %d คลิปเสียงติดต่อกัน</item>
+    </plurals>
+    <plurals name="text_continue_to_validate_4" comment="Motivational sentence in Listen">
+        <item quantity="other">ว้าว คุณมีพลังเหนือมนุษย์! คุณตรวจสอบไปแล้ว %d คลิปเสียงติดต่อกัน!</item>
+    </plurals>
+    <plurals name="text_continue_to_send_1" comment="Motivational sentence in Speak">
+        <item quantity="other">คุณส่งไปแล้ว %d คลิปเสียงติดต่อกัน</item>
+    </plurals>
+    <plurals name="text_continue_to_send_2" comment="Motivational sentence in Speak">
+        <item quantity="other">สุดยอด! คุณส่งไปแล้ว %d คลิปเสียงติดต่อกัน</item>
+    </plurals>
+    <plurals name="text_continue_to_send_3" comment="Motivational sentence in Speak">
+        <item quantity="other">Congratulations! You achieved the milestone of %d recorded sentences. Keep going.</item>
+    </plurals>
+    <plurals name="text_continue_to_send_4" comment="Motivational sentence in Speak">
+        <item quantity="other">ว้าว คุณมีพลังเหนือมนุษย์! คุณบันทึกไปแล้ว %d ประโยคติดต่อกัน!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_listen" comment="Motivational sentence in Listen">
+        <item quantity="other">You miss only %d clips to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <plurals name="text_almost_achieved_dailygoal_speak" comment="Motivational sentence in Speak">
+        <item quantity="other">You miss only %d sentences to achieve your daily goal of {{dailygoal}}!</item>
+    </plurals>
+    <string name="toast_speed_set_successfully" comment="Toast message in Speak and Listen | Don't translate {{speed_value}}">ตั้งความเร็วเป็น {{speed_value}} เรียบร้อยแล้ว</string>
+    <!--Accessibility-->
+    <string name="accessibility_reject_clip" comment="contentDescription for Accessibility feature">ปฏิเสธคลิปเสียง</string>
+    <string name="accessibility_accept_clip" comment="contentDescription for Accessibility feature">ยอมรับคลิปเสียง</string>
+    <string name="accessibility_play_clip" comment="contentDescription for Accessibility feature">เล่นคลิปเสียง</string>
+    <string name="accessibility_stop_clip" comment="contentDescription for Accessibility feature">หยุดคลิปเสียง</string>
+    <string name="accessibility_start_recording" comment="contentDescription for Accessibility feature">Start recording</string>
+    <string name="accessibility_record_again_sentence" comment="contentDescription for Accessibility feature">Record again the sentence</string>
+    <string name="accessibility_stop_recording" comment="contentDescription for Accessibility feature">Stop recording</string>
+    <string name="accessibility_listen_recording" comment="contentDescription for Accessibility feature">Play recording</string>
+    <string name="accessibility_stop_listening" comment="contentDescription for Accessibility feature">Stop listening</string>
+    <string name="accessibility_send_recording" comment="contentDescription for Accessibility feature">Send recording</string>
+    <string name="accessibility_read_contribution_criteria" comment="contentDescription for Accessibility feature">Read contribution criteria</string>
+    <string name="accessibility_see_offline_mode" comment="contentDescription for Accessibility feature">See offline mode details</string>
+    <string name="accessibility_see_info_clip" comment="contentDescription for Accessibility feature">See information about the current clip</string>
+    <string name="accessibility_see_info_sentence" comment="contentDescription for Accessibility feature">See information about the current sentence</string>
+    <string name="accessibility_report_clip" comment="contentDescription for Accessibility feature">Report the current clip</string>
+    <string name="accessibility_report_sentence" comment="contentDescription for Accessibility feature">Report the current sentence</string>
+    <string name="accessibility_open_listen" comment="contentDescription for Accessibility feature">Open Listen section</string>
+    <string name="accessibility_open_speak" comment="contentDescription for Accessibility feature">Open Speak section</string>
+    <string name="accessibility_go_back" comment="contentDescription for Accessibility feature">ย้อนกลับไป</string>
+    <string name="accessibility_enable_disable_switch" comment="contentDescription for Accessibility feature">เปิดหรือปิด</string>
+    <string name="accessibility_close_message" comment="contentDescription for Accessibility feature">ปิดข้อความ</string>
+    <string name="accessibility_copy" comment="contentDescription for Accessibility feature">คัดลอก</string>
+    <string name="accessibility_increase" comment="contentDescription for Accessibility feature">เพิ่ม</string>
+    <string name="accessibility_decrease" comment="contentDescription for Accessibility feature">ลด</string>
+    <!-- NoConnection -->
+    <string name="btn_check_again_noconnection" comment="Button">ตรวจสอบอีกครั้ง</string>
+    <string name="txt_noconnection" comment="Message text">You aren\'t connected to the internet. Connect to Wi-Fi or mobile data, then press the button below.</string>
+    <!-- First-run Speak & Listen -->
+    <string name="txt1_tutorial_speak" comment="Message text | First-run Speak">นี่คือประโยคที่คุณจะต้องบันทึกเสียง</string>
+    <string name="txt2_tutorial_speak_and_listen" comment="Message text | First-run Speak">ข้อความตัวช่วยจะปรากฏตรงนี้</string>
+    <string name="txt3_tutorial_speak" comment="Message text | First-run Speak">หากคุณไม่ชอบประโยคนี้ คุณสามารถแตะปุ่มนี้เพื่อข้ามไปยังอันอื่นได้</string>
+    <string name="txt4_tutorial_speak" comment="Message text | First-run Speak">แตะไอคอนนี้เพื่อเริ่มการบันทึก</string>
+    <string name="txt5_tutorial_speak" comment="Message text | First-run Speak">แตะไอคอนนี้เพื่อหยุดการบันทึก</string>
+    <string name="txt6_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording.</string>
+    <string name="txt7_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to re-record if you made a mistake.</string>
+    <string name="txt8_tutorial_speak" comment="Message text | First-run Speak">Tap on this icon to play back your recording again.</string>
+    <string name="txt9_tutorial_speak" comment="Message text | First-run Speak">Tap on this button to send your recording.</string>
+    <string name="txt1_tutorial_listen" comment="Message text | First-run Listen">นี่คือประโยค/คลิปเสียงที่คุณต้องตรวจสอบ</string>
+    <string name="txt3_tutorial_listen" comment="Message text | First-run Listen">หากคุณไม่ชอบคลิปเสียงนี้ คุณสามารถแตะปุ่มนี้เพื่อข้ามไปยังอันอื่นได้</string>
+    <string name="txt4_tutorial_listen" comment="Message text | First-run Listen">แตะไอคอนนี้เพื่อเล่นคลิปเสียง</string>
+    <string name="txt5_tutorial_listen" comment="Message text | First-run Listen">แตะไอคอนนี้เพื่อหยุดเล่นคลิปเสียง</string>
+    <string name="txt6_tutorial_listen" comment="Message text | First-run Listen">แตะไอคอนนี้หากคุณต้องการฟังคลิปเสียงซ้ำ</string>
+    <string name="txt7_tutorial_listen" comment="Message text | First-run Listen">หากคลิปเสียงตรงกับประโยค แตะปุ่มนี้เพื่ออนุมัติ</string>
+    <string name="txt8_tutorial_listen" comment="Message text | First-run Listen">หากคลิปเสียงไม่ตรงกับประโยค แตะปุ่มนี้เพื่อปฏิเสธ</string>
+    <string name="txt_contribution_criteria" comment="Message text | First-run Listen">If you\'re not sure whether to accept or reject a recording, or you want to improve your recordings, you can read the official contribution criteria.\nYou also can find this link later in Settings &gt; Useful links.</string>
+    <string name="btn_read_now_guidelines_listen" comment="Button">Read now</string>
+    <!-- NotAvailableNow -->
+    <string name="txtNotAvailableNow" comment="Message text">Sorry, this feature doesn\'t exist yet.\nWe\'re working constantly to improve the app, so check back later to see if it\'s been added.</string>
+    <!-- Badges -->
+    <string name="btnCloseBadges" comment="Button">Close</string>
+    <string name="labelAllBadges" comment="Title for All badge section">All badges</string>
+    <string name="message_new_badge_title" comment="Title for the message dialog">New badge earnt</string>
+    <string name="message_level_up_title" comment="Title for the message dialog">New level achieved</string>
+    <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Hooray! You have just earned a new badge.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Congrats! You have just achieved a new level and you earnt a new badge as well.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_got_badge_because_clips" comment="Message text">You got this badge because you validated at least {{n_clips}} clips.</string>
+    <string name="message_got_badge_because_sentences" comment="Message text">You got this badge because you recorded at least {{n_sentences}} sentences.</string>
+    <string name="message_got_badge_because_levels" comment="Message text">You got this badge because you validated or recorded at least {{n_total}} clips.</string>
+    <!-- Message dialog -->
+    <string name="btnOk" comment="Button">ตกลง</string>
+    <string name="messageDialogErrorTitle" comment="Title for Message text">ข้อผิดพลาด</string>
+    <string name="messageDialogGenericError" comment="Message text | Generic error">ไม่สามารถดำเนินการได้\nกรุณาลองอีกครั้ง หรือติดต่อนักพัฒนา</string>
+    <string name="messageDialogErrorCode" comment="Message text | Generic error | Don't translate EX-{{error_code}}">ไม่สามารถดำเนินการได้ กรุณาลองอีกครั้ง หรือติดต่อนักพัฒนา\nรหัสข้อผิดพลาด: EX-{{error_code}}</string>
+    <string name="youHaveToAcceptPrivacyPolicyTitle" comment="Message text">เข้าสู่ระบบไม่สำเร็จ</string>
+    <string name="youHaveToAcceptPrivacyPolicy" comment="Message text">คุณต้องเข้าสู่ระบบบนเว็บไซต์ Common Voice และยอมรับนโยบายความเป็นส่วนตัวของ Common Voice ก่อน</string>
+    <string name="youHaveToAcceptPrivacyPolicyOpenCommonVoice" comment="Button">เปิด Common Voice</string>
+    <string name="text_warning" comment="Title for Message text">คำเตือน</string>
+    <string name="text_tip" comment="Title for Message text">เคล็ดลับ</string>
+    <string name="text_changelog" comment="Title for Message text">บันทึกการเปลี่ยนแปลง</string>
+    <string name="text_help" comment="Title for Message text">ช่วยเหลือ</string>
+    <string name="text_info" comment="Title for Message text">ข้อมูล</string>
+    <string name="check_box_message_dialog" comment="Checkbox (for Message text)">ไม่ต้องแสดงอีก</string>
+    <string name="text_report_website_bug" comment="Message text">If you have issues with the official Common Voice website, please report them on Mozilla Discourse forums or GitHub repository so that Mozilla can fix them.</string>
+    <string name="text_review_now" comment="Button" translatable="true">ตรวจทานเลย</string>
+    <string name="text_buy_me_a_coffee" comment="Message text" translatable="true">Do you like the app? You can support my work. Buy me a coffee on PayPal or LiberaPay.</string>
+    <string name="text_log_in_again" comment="Button" translatable="true">เข้าสู่ระบบอีกครั้ง</string>
+    <string name="text_offline_mode" comment="Title">โหมดออฟไลน์</string>
+    <string name="text_offline_mode_enabled" comment="Message text">You are now offline and the app switched to offline mode automatically.\nThis means you can continue to record and validate, but the requests will be sent later.</string>
+    <string name="text_offline_mode_enabled_2" comment="Message text">You can tell when you are in offline mode by looking for this icon on the screen:</string>
+    <string name="text_offline_mode_enabled_3" comment="Message text">You can tap that icon to see downloaded clips and sentences.</string>
+    <string name="offline_mode_is_not_enabled" comment="Message text">The Offline mode is not enabled, so you can\'t use the app without an Internet connection.\nTo use the Offline mode feature, turn on it in Settings.</string>
+    <string name="text_ads_are_disable_would_you_like_able" comment="Message text">Do you know you can support my work freely? Please, if you like the app, consider to turn on ad banners in Settings.</string>
+    <string name="text_open_settings_now">Open Settings now</string>
+    <string name="text_are_you_sure_go_back_and_lose_the_recording" comment="Message text">Are you sure you want to go back and lose the recording?</string>
+    <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Are you sure you want to skip and lose the recording?</string>
+    <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
+    <string name="text_are_you_sure_reset_app_data" comment="Message text">Are you sure you want to reset all app data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="button_yes_sure" comment="Button">ใช่</string>
+    <string name="button_cancel" comment="Button">ยกเลิก</string>
+    <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
+        <item quantity="other">Well done! You opened the app %d days in a row.</item>
+    </plurals>
+    <plurals name="text_share_n_times_in_a_row" comment="Message text to share on socials">
+        <item quantity="other">I\'ve opened the CV Project app %d days in a row! Download it too, so you can contribute to the Common Voice project with your smartphone.</item>
+    </plurals>
+    <string name="button_log_in_now" comment="Button">เข้าสู่ระบบเลย</string>
+    <string name="button_open_profile_now" comment="Button">เปิดโปรไฟล์เลย</string>
+    <string name="button_translate_on_crowdin" comment="Button">แปลเลย</string>
+    <!-- Daily goal -->
+    <string name="daily_goal_title" comment="Title in Dashboard">เป้าหมายรายวัน</string>
+    <string name="daily_goal_is_not_set" comment="Label in Dashboard (for Dailygoal)">ไม่ได้ตั้งเป้าหมาย</string>
+    <string name="set_daily_goal" comment="Button">ตั้งเป้าหมาย</string>
+    <string name="edit_daily_goal" comment="Button">แก้ไขเป้าหมาย</string>
+    <string name="save_daily_goal" comment="Button">บันทึก</string>
+    <string name="delete_daily_goal" comment="Button">ลบ</string>
+    <string name="cancel_daily_goal" comment="Button">ยกเลิก</string>
+    <string name="description_setting_daily_goal" comment="Message text">Choose how many sentences you want to record and clips you want to validate (sum of them) per day.</string>
+    <string name="daily_goal_achieved_today" comment="Label (for Dailygoal)">Achieved today</string>
+    <string name="daily_goal_not_achieved_today">Not achieved today</string>
+    <string name="daily_goal_achieved_message" comment="Message text | Don't translate {{n_clips}} and {{n_sentences}}">Well done! You achieved your daily goal.\nYou validated {{n_clips}} clip(s) and recorded {{n_sentences}} sentence(s).\nFeel free to continue contributing to Common Voice.</string>
+    <string name="share_daily_goal" comment="Button when you achieve a daily goal">Share</string>
+    <string name="share_daily_goal_title" comment="Title of panel">Share on</string>
+    <string name="share_daily_goal_text_on_social" comment="This is the text will go shared | Don't translate {{link}}, hashtags (#CVAndroid, #CommonVoice) and tag (@mozilla)">I\'ve just achieved my daily goal for @mozilla #CommonVoice using #CVProject.\nJoin in and contribute! Install CV Project from Google Play, F-Droid or Huawei AppGallery now {{link}}</string>
+    <string name="daily_goal_is_not_official_by_mozilla" comment="Message text">This daily goal isn\'t an official Mozilla feature. It\'s only a feature of this app.</string>
+    <string name="did_you_know_that" comment="Sub-title / Message text in Dailygoal">Did you know that … ?</string>
+    <string name="daily_goal_motivational_message" comment="Message text | The comma ',' is used to divide 'thousands'. Use the correct sign in your language">10,000 hours is achievable in just over 6 months if 1,000 people record 45 clips a day.</string>
+    <string name="copied_string" comment="Toast message">Copied</string>
+    <!-- Message dialog (unspecified category) -->
+    <string name="message_dialog_new_version_available" comment="Message text | Don't translate {{n_version}}">A new version of the app is available (release {{n_version}}). You can update it from your favourite store (F-Droid, Google Play, Huawei AppGallery, Amazon AppStore) or directly from GitHub.</string>
+</resources>

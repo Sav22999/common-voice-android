@@ -90,6 +90,7 @@ class CommonVoice : Application() {
                 get<WorkManager>(),
                 get<SpeakPrefManager>(),
                 get<MainPrefManager>(),
+                get<SettingsPrefManager>(),
                 get<AppActionsRepository>(),
             )
         }
@@ -103,16 +104,19 @@ class CommonVoice : Application() {
                 get<WorkManager>(),
                 get<MainPrefManager>(),
                 get<ListenPrefManager>(),
+                get<SettingsPrefManager>(),
                 get<AppActionsRepository>(),
             )
         }
-        viewModel { DashboardViewModel(
-            get<CVStatsRepository>(),
-            get<StatsRepository>(),
-            get<ConnectionManager>(),
-            get<MainPrefManager>(),
-            get<StatsPrefManager>()
-        ) }
+        viewModel {
+            DashboardViewModel(
+                get<CVStatsRepository>(),
+                get<StatsRepository>(),
+                get<ConnectionManager>(),
+                get<MainPrefManager>(),
+                get<StatsPrefManager>()
+            )
+        }
         viewModel { LoginViewModel(get(), get()) }
         viewModel { MainActivityViewModel(get(), get(), get()) }
         viewModel { HomeViewModel(get(), get(), get(), get(), get(), get()) }

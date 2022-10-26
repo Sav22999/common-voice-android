@@ -20,15 +20,17 @@ import org.commonvoice.saverio_lib.models.Recording
 import org.commonvoice.saverio_lib.models.Report
 import org.commonvoice.saverio_lib.models.Sentence
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
+import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.repositories.AppActionsRepository
 import org.commonvoice.saverio_lib.repositories.RecordingsRepository
 import org.commonvoice.saverio_lib.repositories.ReportsRepository
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
+import org.koin.android.ext.android.inject
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
-    private val sentencesRepository: SentencesRepository,
+    public val sentencesRepository: SentencesRepository,
     private val recordingsRepository: RecordingsRepository,
     private val mediaRecorderRepository: MediaRecorderRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,
@@ -37,6 +39,7 @@ class SpeakViewModel(
     private val workManager: WorkManager,
     private val speakPrefManager: SpeakPrefManager,
     private val mainPrefManager: MainPrefManager,
+    private val settingsPrefManager: SettingsPrefManager,
     private val appActionsRepository: AppActionsRepository,
 ) : ViewModel() {
 
@@ -129,7 +132,10 @@ class SpeakViewModel(
         }
         withContext(Dispatchers.Main) {
             _state.postValue(State.STANDBY)
-            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyDownload
+            )
         }
     }
 
@@ -165,8 +171,14 @@ class SpeakViewModel(
             currentRecording = null
             withContext(Dispatchers.Main) {
                 _state.postValue(State.STANDBY)
-                RecordingsUploadWorker.attachToWorkManager(workManager)
-                SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                RecordingsUploadWorker.attachToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyUpload
+                )
+                SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                    workManager,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
+                )
             }
 
             appActionsRepository.insertAction(
@@ -187,7 +199,10 @@ class SpeakViewModel(
         } else {
             delay(500) //Just to avoid a loop
             _state.postValue(if (speakPrefManager.noMoreSentencesAvailable) State.NO_MORE_SENTENCES else State.STANDBY)
-            SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+            SentencesDownloadWorker.attachOneTimeJobToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyDownload
+            )
         }
     }
 
@@ -223,7 +238,10 @@ class SpeakViewModel(
                         "API = ${Build.VERSION.SDK_INT} (Android ${Build.VERSION.RELEASE})\n" +
                         "Server API = ${mainPrefManager.genericAPIUrl}"
             )
-            ReportsUploadWorker.attachToWorkManager(workManager)
+            ReportsUploadWorker.attachToWorkManager(
+                workManager,
+                wifiOnly = settingsPrefManager.wifiOnlyUpload
+            )
             skipSentence()
         }
     }

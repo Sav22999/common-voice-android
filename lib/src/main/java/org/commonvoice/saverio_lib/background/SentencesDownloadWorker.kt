@@ -9,11 +9,12 @@ import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
 import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
+import kotlin.math.log
 
 class SentencesDownloadWorker(
     appContext: Context,
     private val workerParams: WorkerParameters
-): CoroutineWorker(appContext, workerParams) {
+) : CoroutineWorker(appContext, workerParams) {
 
     private val db = AppDB.getNewInstance(appContext)
     private val prefManager =
@@ -34,8 +35,11 @@ class SentencesDownloadWorker(
             sentenceRepository.deleteWrongSentences(currentLanguage)
 
             val numberDifference = requiredSentences - sentenceRepository.getSentenceCount()
+            var numberDifferenceToUse = numberDifference
+            if (numberDifferenceToUse > 50) numberDifferenceToUse = 50
 
             return@coroutineScope when {
+
                 numberDifference < 0 -> {
                     Result.failure()
                 }
@@ -43,7 +47,7 @@ class SentencesDownloadWorker(
                     Result.success()
                 }
                 else -> {
-                    val newSentences = sentenceRepository.getNewSentences(numberDifference)
+                    val newSentences = sentenceRepository.getNewSentences(numberDifferenceToUse)
                     if (!newSentences.isSuccessful) {
 
                         if (workerParams.runAttemptCount > 5) {

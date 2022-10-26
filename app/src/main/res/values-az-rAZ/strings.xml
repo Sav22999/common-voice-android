@@ -117,6 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">İstifadəçi interfeysi</string>
     <string name="title_advanced_settings" comment="Option in Settings">Qabaqcıl</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Səsyazmaları cihazda saxla</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
     <string name="txt_reset_data" comment="Button in Settings">Tətbiq verilənlərini sıfırla</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Artıq təcrübi özəlliklər yoxdur</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Cümlə mətnini yalnız klip oynatması tamamlandıqdan sonra göstər</string>
@@ -179,6 +180,8 @@
     <string name="button_customise_api_server" comment="Button">API serveri özəlləşdir</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">API serverini özəlləşdirmək istədiyinizə əminsiniz? Bu potensial bir təhlükəli əməliyyatıdır.\nYenə də, istənilən vaxt ilkin API serverini sıfırlaya bilərsiniz.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Hədəf API serveri</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cümlə yüklənir…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ötür</string>
@@ -358,6 +361,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Səsyazmanı ötürüb itirmək istədiyinizə əminsiniz?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Davam edib səsyazmanı itirmək istədiyinizə əminsiniz?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Bütün tətbiq verilənlərini sıfırlamaq istədiyinizə əminsiniz?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
     <string name="button_yes_sure" comment="Button">Bəli</string>
     <string name="button_cancel" comment="Button">İmtina</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

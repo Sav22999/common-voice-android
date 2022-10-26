@@ -1,13 +1,22 @@
 package org.commonvoice.saverio.ui.settings.nestedSettings
 
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.net.Uri
+import android.os.Handler
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.core.view.isGone
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.lifecycleScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
+import kotlinx.coroutines.launch
+import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
@@ -18,15 +27,17 @@ import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
+import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBinding>() {
 
     override fun inflate(
-        layoutInflater: LayoutInflater,
-        container: ViewGroup?
+        layoutInflater: LayoutInflater, container: ViewGroup?
     ): FragmentOfflineSettingsBinding {
         return FragmentOfflineSettingsBinding.inflate(layoutInflater, container, false)
     }
@@ -37,22 +48,33 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     private val listenPrefManager by inject<ListenPrefManager>()
     private val mainViewModel by viewModel<MainActivityViewModel>()
     private val workManager by inject<WorkManager>()
+    private val listenViewModel: ListenViewModel by stateViewModel()
+    private val speakViewModel: SpeakViewModel by stateViewModel()
 
     private var changedNumber = false
 
     private val minimumOfflineModeNumber = 10
     private val stepsOfflineMode = 10
 
+    private var startup = true
+
     override fun onStart() {
         super.onStart()
 
         withBinding {
+            val viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            if (viewModel.fromFragment.value != "settings") activity?.onBackPressed()
+            viewModel.setNestedFragment("offline-settings")
+
             buttonBackSettingsSubSectionOfflineMode.setOnClickListener {
                 activity?.onBackPressed()
             }
 
-            if (mainPrefManager.areGesturesEnabled)
-                nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled) nestedScrollSettingsOfflineMode.setupOnSwipeRight(
+                requireContext()
+            ) { activity?.onBackPressed() }
 
 
             val oldStatus = settingsPrefManager.isOfflineMode
@@ -61,8 +83,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 settingsSectionCustomiseOfflineMode.isGone = !isChecked
                 if (oldStatus != isChecked) {
                     var count = 50
-                    if (!settingsPrefManager.isOfflineMode)
-                        count = 3
+                    if (!settingsPrefManager.isOfflineMode) count = 3
                     listenPrefManager.requiredClipsCount = count
                     speakPrefManager.requiredSentencesCount = count
                 }
@@ -81,15 +102,83 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                     listenPrefManager.requiredClipsCount = count
                     speakPrefManager.requiredSentencesCount = count
                 }
+
+                showHideProgressBar(!isChecked)
+
+                if (startup) startup = false
             }
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
 
             buttonOfflineModeLearnMore.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.saveriomorelli.com/commonvoice/offline-mode/")))
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://www.saveriomorelli.com/commonvoice/offline-mode/")
+                    )
+                )
             }
+
+
         }
 
+        checkProgressBar()
+
         setTheme()
+    }
+
+    private fun showHideProgressBar(isGone: Boolean) {
+        withBinding {
+            progressBarOfflineModeListen.isGone = isGone
+            progressBarOfflineModeSpeak.isGone = isGone
+        }
+    }
+
+    private fun checkProgressBar() {
+        try {
+            val viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            if (viewModel.nestedFragment.value == "offline-settings") {
+                withBinding {
+                    lifecycleScope.launch {
+                        /*animateProgressBar(
+                    progressBarOfflineModeListen,
+                    listenViewModel.getClipsCount(),
+                    listenPrefManager.requiredClipsCount
+                )
+                animateProgressBar(
+                    progressBarOfflineModeSpeak,
+                    speakViewModel.getSentencesCount(),
+                    speakPrefManager.requiredSentencesCount
+                )
+                 */
+
+
+                        listenViewModel.clipsRepository.getLiveClipsCount()
+                            .observe(viewLifecycleOwner, Observer {
+                                animateProgressBar(
+                                    progressBarOfflineModeListen,
+                                    it,
+                                    listenPrefManager.requiredClipsCount
+                                )
+                            })
+
+                        speakViewModel.sentencesRepository.getLiveSentenceCount()
+                            .observe(viewLifecycleOwner, Observer {
+                                animateProgressBar(
+                                    progressBarOfflineModeSpeak,
+                                    it,
+                                    speakPrefManager.requiredSentencesCount
+                                )
+                            })
+
+                        Handler().postDelayed({ checkProgressBar() }, 15000)
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            //println("??????")
+        }
     }
 
     private fun showCustomisationSection() {
@@ -100,8 +189,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             seekOfflineModeValue.setOnSeekBarChangeListener(object :
                 SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
-                    seek: SeekBar,
-                    progress: Int, fromUser: Boolean
+                    seek: SeekBar, progress: Int, fromUser: Boolean
                 ) {
                     //onProgress
                     setSeekBar(seek.progress.toFloat())
@@ -123,12 +211,12 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         val valueToUse = (value - value % stepsOfflineMode).toInt() + minimumOfflineModeNumber
         withBinding {
             labelOfflineModeValue.text = valueToUse.toString()
-
             listenPrefManager.requiredClipsCount = valueToUse
             speakPrefManager.requiredSentencesCount = valueToUse
 
-            changedNumber = true
+            if (!startup) changedNumber = true
         }
+        checkProgressBar()
     }
 
     override fun onDestroyView() {
@@ -137,15 +225,49 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         if (changedNumber) {
             mainViewModel.clearDB().invokeOnCompletion {
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager,
-                    ExistingWorkPolicy.REPLACE
+                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
                 )
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager,
-                    ExistingWorkPolicy.REPLACE
+                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE,
+                    wifiOnly = settingsPrefManager.wifiOnlyDownload
                 )
             }
         }
+    }
+
+    private fun animateProgressBar(
+        progressBar: View, downloaded: Int, total: Int
+    ) {
+        val view: View = progressBar
+        val metrics = DisplayMetrics()
+        activity?.windowManager?.defaultDisplay?.getMetrics(metrics)
+        val width = metrics.widthPixels
+        //val height = metrics.heightPixels
+
+        if (!settingsPrefManager.isOfflineMode || downloaded == 0 || total == 0) {
+            view.isGone = true
+        } else {
+            val widthToUse = (downloaded * width) / total
+            animationProgressBar(view, view.x.toInt(), widthToUse)
+            progressBar.isGone = false
+        }
+    }
+
+    private fun animationProgressBar(
+        progressBar: View,
+        min: Int,
+        max: Int
+    ) {
+        val view: View = progressBar
+        val animation: ValueAnimator = ValueAnimator.ofInt(min, max)
+        animation.duration = 1000
+        animation.addUpdateListener { anim ->
+            val value = anim.animatedValue as Int
+            view.layoutParams.width = value
+            view.requestLayout()
+        }
+        animation.start()
     }
 
     fun setTheme() {

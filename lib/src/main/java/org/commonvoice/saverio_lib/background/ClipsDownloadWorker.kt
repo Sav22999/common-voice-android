@@ -13,7 +13,7 @@ import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 class ClipsDownloadWorker(
     appContext: Context,
     private val workerParams: WorkerParameters
-): CoroutineWorker(appContext, workerParams) {
+) : CoroutineWorker(appContext, workerParams) {
 
     private val db = AppDB.getNewInstance(appContext)
     private val prefManager = MainPrefManager(appContext)
@@ -32,6 +32,8 @@ class ClipsDownloadWorker(
             clipsRepository.deleteWrongClips(currentLanguage)
 
             val numberDifference = requiredClips - clipsRepository.getClipsCount()
+            var numberDifferenceToUse = numberDifference
+            if (numberDifferenceToUse > 50) numberDifferenceToUse = 50
 
             return@coroutineScope when {
                 numberDifference < 0 -> {
@@ -45,19 +47,21 @@ class ClipsDownloadWorker(
 
                     listenPrefManager.noMoreClipsAvailable = false
 
-                    clipsRepository.loadNewClips(numberDifference, forEachClip = { clip ->
-                        clipsRepository.insertClip(clip.also {
-                            it.sentence.setLanguage(currentLanguage)
+                    val newClips =
+                        clipsRepository.loadNewClips(numberDifferenceToUse, forEachClip = { clip ->
+                            clipsRepository.insertClip(clip.also {
+                                it.sentence.setLanguage(currentLanguage)
+                            })
+                        }, onError = {
+                            result = if (workerParams.runAttemptCount > 5) {
+                                Result.failure()
+                            } else {
+                                Result.retry()
+                            }
+                        }, onEmpty = {
+                            listenPrefManager.noMoreClipsAvailable = true
                         })
-                    }, onError = {
-                        result = if (workerParams.runAttemptCount > 5) {
-                            Result.failure()
-                        } else {
-                            Result.retry()
-                        }
-                    }, onEmpty = {
-                        listenPrefManager.noMoreClipsAvailable = true
-                    })
+
                     result
                 }
             }

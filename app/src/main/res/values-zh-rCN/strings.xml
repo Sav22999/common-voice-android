@@ -24,7 +24,7 @@
     <string name="toastNoLoginNoStatistics">您必须登录才能查看您的统计</string>
     <string name="toastNoLoginNoDailyGoal">您必须登录才能设置每日目标</string>
     <string name="textHoursAbbreviation">小时</string>
-    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">Hour {{hour}}</string>
+    <string name="textHour" comment="Label in Dashboard, like 'Hour 09:00', etc.">{{hour}} 时</string>
     <string name="txt_top_contributors">贡献榜</string>
     <string name="txt_top_contributors_recorded">录音数</string>
     <string name="txt_top_contributors_validated">验证数</string>
@@ -46,7 +46,7 @@
     <string name="txt_microphone_permission_first_launch" comment="Text | First-run">此应用需要“麦克风”权限才能录制您的声音。</string>
     <string name="txt_storage_permission_first_launch" comment="Text | First-run">您可以在 GitHub 或 Telegram 上报告漏洞。 为了帮助开发者迅速理解这个问题，您应该将应用的日志文件添加到您的报告中。 该应用需要保存日志文件的“存储”权限。</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">您可以在离线时继续使用该应用。 应用的“离线模式”将被自动启用，这样您可以在没有互联网连接的情况下继续录制和听录音。</string>
-    <string name="txt_themes_first_launch" comment="Text | First-run">Choose your preferred theme. \"Auto\" toggles the theme based on the current time. You can change this later in Settings.</string>
+    <string name="txt_themes_first_launch" comment="Text | First-run">根据喜好选择你的主题。选择“自动”将会根据当前时间切换主题。你也可以稍后在“设置”中更改主题。</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">暗色主题</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">一些动作有相应的手势。例如，你可以通过向左滑动跳过朗读句子。</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">您可以在设置中自定义这些手势。</string>
@@ -70,7 +70,7 @@
     <string name="txt_verification_link" comment="Label (Placeholder)">输入验证链接的网址</string>
     <string name="txt_verification_link_not_valid" comment="Message text">此链接无效</string>
     <!-- Settings -->
-    <string name="btn_open_tutorial_settings" comment="Button in Settings">Reopen tutorial</string>
+    <string name="btn_open_tutorial_settings" comment="Button in Settings">重返教程</string>
     <string name="txt_project_github_settings" comment="Button in Settings">GitHub 上的项目开源</string>
     <string name="txt_developed_by" comment="Label in Settings">开发者</string>
     <string name="toast_language_changed" comment="Message text">已成功设置语言为 {{lang}}</string>
@@ -112,14 +112,15 @@
     <string name="txt_telegram_group_settings" comment="Button in Settings">Telegram 群組應用程式</string>
     <string name="txt_show_labels_below_menu_icons" comment="Switch-Button in Settings">在菜单图标下方显示标签</string>
     <string name="txt_read_tos_mozilla_common_voice" comment="Button in Settings">查看 Mozilla Common Voice 服务条款</string>
-    <string name="txt_read_guidelines" comment="Button in Settings">Read the contribution criteria</string>
+    <string name="txt_read_guidelines" comment="Button in Settings">阅读《贡献标准》</string>
     <string name="txt_review_on_google_play" comment="Button in Settings">在 Google Play 上评价</string>
     <string name="title_ui_settings" comment="Option in Settings">界面</string>
     <string name="title_advanced_settings" comment="Option in Settings">高级选项</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">保存录音至本地</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
     <string name="txt_reset_data" comment="Button in Settings">重置应用数据</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">暂无新实验性功能</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">只在每段播放后展示句子内容</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">显示报告图标 (右上) 而不是按钮 (底部)</string>
     <string name="title_textsize_settings" comment="Title in Settings">字体大小</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">广告</string>
@@ -128,9 +129,9 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}}和{{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">对听与读中需要读取/验证的句子也开启浅色主题(当浅色主题开启时)。</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">显示速度控制栏</string>
-    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Show info icon</string>
+    <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">显示信息图标</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">按住讲话</string>
-    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Choose the number of sentences and the number of clips to download and use when the app is in offline mode.</string>
+    <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">选择当应用程序处于离线模式时需要下载和使用的句子数量和片段数量。</string>
     <string name="text_choose_number_sentences_clips_offline_mode_explanation" comment="Text in Settings &gt; Offline mode || It's an explanation and an hint">Usually users take about 13 minutes to validate 50 clips and 26 minutes to record 50 sentences.</string>
     <string name="text_customise_gestures_settings_swipe_up" comment="Button in Settings &gt; Gestures">向上滑动</string>
     <string name="text_customise_gestures_settings_swipe_down" comment="Button in Settings &gt; Gestures">向下滑动</string>
@@ -179,6 +180,8 @@
     <string name="button_customise_api_server" comment="Button">Customise API server</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Are you sure you want to customise the API server? This is potentially a dangerous action.\nYou can reset to the default API server at any moment.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API server</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Loading sentence…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">跳过</string>
@@ -348,6 +351,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">您确定要跳过并丢失录音吗？</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Are you sure you want to continue and lose the recording?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">您确定要重置所有应用数据吗？</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
     <string name="button_yes_sure" comment="Button">否</string>
     <string name="button_cancel" comment="Button">取消</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
