@@ -130,14 +130,18 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     private fun checkProgressBar() {
         withBinding {
             lifecycleScope.launch {
-                val prefManager = MainPrefManager(requireContext())
-                val sentencesRepository: SentencesRepository = SentencesRepository(
-                    AppDB.getInstance(requireContext()), RetrofitFactory(prefManager)
+                animateProgressBar(
+                    progressBarOfflineModeListen,
+                    listenViewModel.getClipsCount(),
+                    listenPrefManager.requiredClipsCount
                 )
-                val clipsRepository: ClipsRepository = ClipsRepository(
-                    AppDB.getInstance(requireContext()), RetrofitFactory(prefManager)
+                animateProgressBar(
+                    progressBarOfflineModeSpeak,
+                    speakViewModel.getSentencesCount(),
+                    speakPrefManager.requiredSentencesCount
                 )
 
+                /*
                 clipsRepository.getLiveClipsCount()
                     .observe(viewLifecycleOwner, Observer {
                         animateProgressBar(
@@ -153,6 +157,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                             speakPrefManager.requiredSentencesCount
                         )
                     })
+                */
             }
         }
     }
@@ -192,6 +197,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
 
             if (!startup) changedNumber = true
         }
+        checkProgressBar()
     }
 
     override fun onDestroyView() {
