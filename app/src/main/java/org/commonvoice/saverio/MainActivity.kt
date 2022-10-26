@@ -104,7 +104,9 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
 
             RecordingsUploadWorker.attachToWorkManager(workManager)
             SentencesDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                .apply { println("Finished sentences main") }
             ClipsDownloadWorker.attachOneTimeJobToWorkManager(workManager)
+                .apply { println("Finished clips main") }
 
             mainActivityViewModel.postStats(
                 BuildConfig.VERSION_NAME,

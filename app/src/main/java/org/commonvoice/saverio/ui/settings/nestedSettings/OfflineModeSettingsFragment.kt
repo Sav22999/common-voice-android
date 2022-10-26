@@ -9,28 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.core.view.isGone
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
-import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
-import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
-import org.commonvoice.saverio_lib.repositories.ClipsRepository
-import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
@@ -106,6 +100,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                     speakPrefManager.requiredSentencesCount = count
                 }
 
+                showHideProgressBar(!isChecked)
+
                 if (startup) startup = false
             }
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
@@ -125,6 +121,13 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         checkProgressBar()
 
         setTheme()
+    }
+
+    private fun showHideProgressBar(isGone: Boolean) {
+        withBinding {
+            progressBarOfflineModeListen.isGone = isGone
+            progressBarOfflineModeSpeak.isGone = isGone
+        }
     }
 
     private fun checkProgressBar() {

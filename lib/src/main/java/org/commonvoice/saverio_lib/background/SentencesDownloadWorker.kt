@@ -67,8 +67,7 @@ class SentencesDownloadWorker(
                         speakPrefManager.noMoreSentencesAvailable =
                             newSentences.body()?.isEmpty() ?: false
 
-                        Result.retry()
-                        //TODO: check this change is correct
+                        Result.success()
                     }
                 }
             }

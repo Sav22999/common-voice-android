@@ -47,22 +47,22 @@ class ClipsDownloadWorker(
 
                     listenPrefManager.noMoreClipsAvailable = false
 
-                    val newClips = clipsRepository.loadNewClips(numberDifferenceToUse, forEachClip = { clip ->
-                        clipsRepository.insertClip(clip.also {
-                            it.sentence.setLanguage(currentLanguage)
+                    val newClips =
+                        clipsRepository.loadNewClips(numberDifferenceToUse, forEachClip = { clip ->
+                            clipsRepository.insertClip(clip.also {
+                                it.sentence.setLanguage(currentLanguage)
+                            })
+                        }, onError = {
+                            result = if (workerParams.runAttemptCount > 5) {
+                                Result.failure()
+                            } else {
+                                Result.retry()
+                            }
+                        }, onEmpty = {
+                            listenPrefManager.noMoreClipsAvailable = true
                         })
-                    }, onError = {
-                        if (workerParams.runAttemptCount > 5) {
-                            Result.failure()
-                        } else {
-                            Result.retry()
-                        }
-                    }, onEmpty = {
-                        listenPrefManager.noMoreClipsAvailable = true
-                    })
 
-                    Result.retry()
-                    //TODO: check this change is correct
+                    result
                 }
             }
         } finally {
