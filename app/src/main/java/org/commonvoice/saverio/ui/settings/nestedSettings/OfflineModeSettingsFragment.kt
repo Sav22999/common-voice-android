@@ -3,12 +3,14 @@ package org.commonvoice.saverio.ui.settings.nestedSettings
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.net.Uri
+import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.core.view.isGone
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.work.ExistingWorkPolicy
@@ -133,7 +135,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     private fun checkProgressBar() {
         withBinding {
             lifecycleScope.launch {
-                animateProgressBar(
+                /*animateProgressBar(
                     progressBarOfflineModeListen,
                     listenViewModel.getClipsCount(),
                     listenPrefManager.requiredClipsCount
@@ -143,16 +145,19 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                     speakViewModel.getSentencesCount(),
                     speakPrefManager.requiredSentencesCount
                 )
+                 */
 
-                /*
-                clipsRepository.getLiveClipsCount()
+
+                listenViewModel.clipsRepository.getLiveClipsCount()
                     .observe(viewLifecycleOwner, Observer {
                         animateProgressBar(
-                            progressBarOfflineModeListen, it, listenPrefManager.requiredClipsCount
+                            progressBarOfflineModeListen,
+                            it,
+                            listenPrefManager.requiredClipsCount
                         )
                     })
 
-                sentencesRepository.getLiveSentenceCount()
+                speakViewModel.sentencesRepository.getLiveSentenceCount()
                     .observe(viewLifecycleOwner, Observer {
                         animateProgressBar(
                             progressBarOfflineModeSpeak,
@@ -160,7 +165,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                             speakPrefManager.requiredSentencesCount
                         )
                     })
-                */
+
+                Handler().postDelayed({ checkProgressBar() }, 15000)
             }
         }
     }
@@ -209,10 +215,10 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         if (changedNumber) {
             mainViewModel.clearDB().invokeOnCompletion {
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager, ExistingWorkPolicy.REPLACE
+                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE
                 )
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager, ExistingWorkPolicy.REPLACE
+                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE
                 )
             }
         }
@@ -236,7 +242,11 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         }
     }
 
-    private fun animationProgressBar(progressBar: View, min: Int, max: Int) {
+    private fun animationProgressBar(
+        progressBar: View,
+        min: Int,
+        max: Int
+    ) {
         val view: View = progressBar
         val animation: ValueAnimator = ValueAnimator.ofInt(min, max)
         animation.duration = 1000
