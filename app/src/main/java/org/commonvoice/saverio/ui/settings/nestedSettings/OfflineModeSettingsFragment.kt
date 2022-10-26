@@ -140,7 +140,6 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
 
                 clipsRepository.getLiveClipsCount()
                     .observe(viewLifecycleOwner, Observer {
-                        println("||clips: " + it)
                         animateProgressBar(
                             progressBarOfflineModeListen, it, listenPrefManager.requiredClipsCount
                         )
@@ -148,7 +147,6 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
 
                 sentencesRepository.getLiveSentenceCount()
                     .observe(viewLifecycleOwner, Observer {
-                        println("||sentences: " + it)
                         animateProgressBar(
                             progressBarOfflineModeSpeak,
                             it,
