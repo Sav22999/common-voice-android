@@ -28,7 +28,7 @@ import org.commonvoice.saverio_lib.repositories.SentencesRepository
 
 class SpeakViewModel(
     private val savedStateHandle: SavedStateHandle,
-    private val sentencesRepository: SentencesRepository,
+    public val sentencesRepository: SentencesRepository,
     private val recordingsRepository: RecordingsRepository,
     private val mediaRecorderRepository: MediaRecorderRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,

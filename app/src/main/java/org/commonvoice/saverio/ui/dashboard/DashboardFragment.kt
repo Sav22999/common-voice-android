@@ -97,7 +97,7 @@ class DashboardFragment : ViewBoundFragment<FragmentDashboardBinding>() {
         viewModel = activity?.run {
             ViewModelProviders.of(this).get(GenericViewModel::class.java)
         } ?: throw Exception("?? Invalid Activity ??")
-        viewModel.updateFromFragment("dashboard")
+        viewModel.setFromFragment("dashboard")
 
         voicesOnlineSection()
 

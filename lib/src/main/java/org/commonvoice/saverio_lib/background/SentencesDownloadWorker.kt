@@ -35,6 +35,8 @@ class SentencesDownloadWorker(
             sentenceRepository.deleteWrongSentences(currentLanguage)
 
             val numberDifference = requiredSentences - sentenceRepository.getSentenceCount()
+            var numberDifferenceToUse = numberDifference
+            if (numberDifferenceToUse > 50) numberDifferenceToUse = 50
 
             return@coroutineScope when {
 
@@ -45,8 +47,6 @@ class SentencesDownloadWorker(
                     Result.success()
                 }
                 else -> {
-                    var numberDifferenceToUse = numberDifference
-                    if (numberDifferenceToUse > 50) numberDifferenceToUse = 50
                     val newSentences = sentenceRepository.getNewSentences(numberDifferenceToUse)
                     if (!newSentences.isSuccessful) {
 

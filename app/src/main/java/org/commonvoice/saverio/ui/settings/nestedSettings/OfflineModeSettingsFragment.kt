@@ -9,24 +9,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.core.view.isGone
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.commonvoice.saverio_lib.viewmodels.GenericViewModel
 import org.commonvoice.saverio.R
 import org.commonvoice.saverio.databinding.FragmentOfflineSettingsBinding
 import org.commonvoice.saverio.ui.viewBinding.ViewBoundFragment
 import org.commonvoice.saverio.utils.setupOnSwipeRight
+import org.commonvoice.saverio_lib.api.RetrofitFactory
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
+import org.commonvoice.saverio_lib.db.AppDB
 import org.commonvoice.saverio_lib.preferences.ListenPrefManager
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
 import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.SpeakPrefManager
+import org.commonvoice.saverio_lib.repositories.ClipsRepository
+import org.commonvoice.saverio_lib.repositories.SentencesRepository
 import org.commonvoice.saverio_lib.viewmodels.ListenViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.commonvoice.saverio_lib.viewmodels.SpeakViewModel
@@ -37,8 +41,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBinding>() {
 
     override fun inflate(
-        layoutInflater: LayoutInflater,
-        container: ViewGroup?
+        layoutInflater: LayoutInflater, container: ViewGroup?
     ): FragmentOfflineSettingsBinding {
         return FragmentOfflineSettingsBinding.inflate(layoutInflater, container, false)
     }
@@ -57,6 +60,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     private val minimumOfflineModeNumber = 10
     private val stepsOfflineMode = 10
 
+    private var startup = true
+
     override fun onStart() {
         super.onStart()
 
@@ -70,8 +75,9 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 activity?.onBackPressed()
             }
 
-            if (mainPrefManager.areGesturesEnabled)
-                nestedScrollSettingsOfflineMode.setupOnSwipeRight(requireContext()) { activity?.onBackPressed() }
+            if (mainPrefManager.areGesturesEnabled) nestedScrollSettingsOfflineMode.setupOnSwipeRight(
+                requireContext()
+            ) { activity?.onBackPressed() }
 
 
             val oldStatus = settingsPrefManager.isOfflineMode
@@ -80,8 +86,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 settingsSectionCustomiseOfflineMode.isGone = !isChecked
                 if (oldStatus != isChecked) {
                     var count = 50
-                    if (!settingsPrefManager.isOfflineMode)
-                        count = 3
+                    if (!settingsPrefManager.isOfflineMode) count = 3
                     listenPrefManager.requiredClipsCount = count
                     speakPrefManager.requiredSentencesCount = count
                 }
@@ -100,6 +105,8 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                     listenPrefManager.requiredClipsCount = count
                     speakPrefManager.requiredSentencesCount = count
                 }
+
+                if (startup) startup = false
             }
             switchSettingsSubSectionOfflineMode.isChecked = settingsPrefManager.isOfflineMode
 
@@ -112,22 +119,44 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 )
             }
 
-            //TODO
-            /*
-            animateProgressBar(
-                progressBarOfflineModeListen,
-                <current_downloaded_listen>,
-                listenPrefManager.requiredClipsCount
-            )
-            animateProgressBar(
-                progressBarOfflineModeSpeak,
-                <current_downloaded_speak>,
-                speakPrefManager.requiredSentencesCount
-            )
-            */
+
         }
 
+        checkProgressBar()
+
         setTheme()
+    }
+
+    private fun checkProgressBar() {
+        withBinding {
+            lifecycleScope.launch {
+                val prefManager = MainPrefManager(requireContext())
+                val sentencesRepository: SentencesRepository = SentencesRepository(
+                    AppDB.getInstance(requireContext()), RetrofitFactory(prefManager)
+                )
+                val clipsRepository: ClipsRepository = ClipsRepository(
+                    AppDB.getInstance(requireContext()), RetrofitFactory(prefManager)
+                )
+
+                clipsRepository.getLiveClipsCount()
+                    .observe(viewLifecycleOwner, Observer {
+                        println("||clips: " + it)
+                        animateProgressBar(
+                            progressBarOfflineModeListen, it, listenPrefManager.requiredClipsCount
+                        )
+                    })
+
+                sentencesRepository.getLiveSentenceCount()
+                    .observe(viewLifecycleOwner, Observer {
+                        println("||sentences: " + it)
+                        animateProgressBar(
+                            progressBarOfflineModeSpeak,
+                            it,
+                            speakPrefManager.requiredSentencesCount
+                        )
+                    })
+            }
+        }
     }
 
     private fun showCustomisationSection() {
@@ -138,8 +167,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             seekOfflineModeValue.setOnSeekBarChangeListener(object :
                 SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
-                    seek: SeekBar,
-                    progress: Int, fromUser: Boolean
+                    seek: SeekBar, progress: Int, fromUser: Boolean
                 ) {
                     //onProgress
                     setSeekBar(seek.progress.toFloat())
@@ -161,11 +189,10 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         val valueToUse = (value - value % stepsOfflineMode).toInt() + minimumOfflineModeNumber
         withBinding {
             labelOfflineModeValue.text = valueToUse.toString()
-
             listenPrefManager.requiredClipsCount = valueToUse
             speakPrefManager.requiredSentencesCount = valueToUse
 
-            changedNumber = true
+            if (!startup) changedNumber = true
         }
     }
 
@@ -175,21 +202,17 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
         if (changedNumber) {
             mainViewModel.clearDB().invokeOnCompletion {
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager,
-                    ExistingWorkPolicy.REPLACE
+                    workManager, ExistingWorkPolicy.REPLACE
                 )
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager,
-                    ExistingWorkPolicy.REPLACE
+                    workManager, ExistingWorkPolicy.REPLACE
                 )
             }
         }
     }
 
     private fun animateProgressBar(
-        progressBar: View,
-        downloaded: Int,
-        total: Int
+        progressBar: View, downloaded: Int, total: Int
     ) {
         val view: View = progressBar
         val metrics = DisplayMetrics()
@@ -208,8 +231,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
 
     private fun animationProgressBar(progressBar: View, min: Int, max: Int) {
         val view: View = progressBar
-        val animation: ValueAnimator =
-            ValueAnimator.ofInt(min, max)
+        val animation: ValueAnimator = ValueAnimator.ofInt(min, max)
         animation.duration = 1000
         animation.addUpdateListener { anim ->
             val value = anim.animatedValue as Int

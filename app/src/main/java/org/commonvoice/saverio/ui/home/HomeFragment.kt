@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
@@ -64,7 +63,7 @@ class HomeFragment : ViewBoundFragment<FragmentHomeBinding>() {
         viewModel = activity?.run {
             ViewModelProviders.of(this).get(GenericViewModel::class.java)
         } ?: throw Exception("?? Invalid Activity ??")
-        viewModel.updateFromFragment("home")
+        viewModel.setFromFragment("home")
 
         //TODO fix this mess once MainActivity is fixed
 

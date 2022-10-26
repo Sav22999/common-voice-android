@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.view.isGone
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.work.ExistingWorkPolicy
@@ -24,14 +23,12 @@ import org.commonvoice.saverio.utils.onClick
 import org.commonvoice.saverio_lib.background.ClipsDownloadWorker
 import org.commonvoice.saverio_lib.background.SentencesDownloadWorker
 import org.commonvoice.saverio_lib.preferences.MainPrefManager
-import org.commonvoice.saverio_lib.preferences.SettingsPrefManager
 import org.commonvoice.saverio_lib.preferences.StatsPrefManager
 import org.commonvoice.saverio_lib.viewmodels.DashboardViewModel
 import org.commonvoice.saverio_lib.viewmodels.MainActivityViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.logging.Handler
 
 class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
 
@@ -59,7 +56,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
             viewModel = activity?.run {
                 ViewModelProviders.of(this).get(GenericViewModel::class.java)
             } ?: throw Exception("?? Invalid Activity ??")
-            viewModel.updateFromFragment("settings")
+            viewModel.setFromFragment("settings")
 
             buttonSettingsGoToAdvanced.onClick {
                 findNavController().navigate(R.id.advancedSettingsFragment)

@@ -26,7 +26,7 @@ import org.commonvoice.saverio_lib.repositories.ValidationsRepository
 
 class ListenViewModel(
     handle: SavedStateHandle,
-    private val clipsRepository: ClipsRepository,
+    public val clipsRepository: ClipsRepository,
     private val validationsRepository: ValidationsRepository,
     private val mediaPlayerRepository: MediaPlayerRepository,
     private val reportsRepository: ReportsRepository,

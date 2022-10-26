@@ -13,7 +13,7 @@ import org.commonvoice.saverio_lib.utils.getTimestampOfNowPlus
 class ClipsDownloadWorker(
     appContext: Context,
     private val workerParams: WorkerParameters
-): CoroutineWorker(appContext, workerParams) {
+) : CoroutineWorker(appContext, workerParams) {
 
     private val db = AppDB.getNewInstance(appContext)
     private val prefManager = MainPrefManager(appContext)
@@ -32,6 +32,8 @@ class ClipsDownloadWorker(
             clipsRepository.deleteWrongClips(currentLanguage)
 
             val numberDifference = requiredClips - clipsRepository.getClipsCount()
+            var numberDifferenceToUse = numberDifference
+            if (numberDifferenceToUse > 50) numberDifferenceToUse = 50
 
             return@coroutineScope when {
                 numberDifference < 0 -> {
@@ -45,9 +47,7 @@ class ClipsDownloadWorker(
 
                     listenPrefManager.noMoreClipsAvailable = false
 
-                    //var numberDifferenceToUse = numberDifference
-                    //if (numberDifferenceToUse > 50) numberDifferenceToUse = 50
-                    clipsRepository.loadNewClips(numberDifference, forEachClip = { clip ->
+                    clipsRepository.loadNewClips(numberDifferenceToUse, forEachClip = { clip ->
                         clipsRepository.insertClip(clip.also {
                             it.sentence.setLanguage(currentLanguage)
                         })
