@@ -66,6 +66,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                 ViewModelProviders.of(this).get(GenericViewModel::class.java)
             } ?: throw Exception("?? Invalid Activity ??")
             if (viewModel.fromFragment.value != "settings") activity?.onBackPressed()
+            viewModel.setNestedFragment("offline-settings")
 
             buttonBackSettingsSubSectionOfflineMode.setOnClickListener {
                 activity?.onBackPressed()
@@ -133,9 +134,14 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     }
 
     private fun checkProgressBar() {
-        withBinding {
-            lifecycleScope.launch {
-                /*animateProgressBar(
+        try {
+            val viewModel = activity?.run {
+                ViewModelProviders.of(this).get(GenericViewModel::class.java)
+            } ?: throw Exception("?? Invalid Activity ??")
+            if (viewModel.nestedFragment.value == "offline-settings") {
+                withBinding {
+                    lifecycleScope.launch {
+                        /*animateProgressBar(
                     progressBarOfflineModeListen,
                     listenViewModel.getClipsCount(),
                     listenPrefManager.requiredClipsCount
@@ -148,26 +154,30 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                  */
 
 
-                listenViewModel.clipsRepository.getLiveClipsCount()
-                    .observe(viewLifecycleOwner, Observer {
-                        animateProgressBar(
-                            progressBarOfflineModeListen,
-                            it,
-                            listenPrefManager.requiredClipsCount
-                        )
-                    })
+                        listenViewModel.clipsRepository.getLiveClipsCount()
+                            .observe(viewLifecycleOwner, Observer {
+                                animateProgressBar(
+                                    progressBarOfflineModeListen,
+                                    it,
+                                    listenPrefManager.requiredClipsCount
+                                )
+                            })
 
-                speakViewModel.sentencesRepository.getLiveSentenceCount()
-                    .observe(viewLifecycleOwner, Observer {
-                        animateProgressBar(
-                            progressBarOfflineModeSpeak,
-                            it,
-                            speakPrefManager.requiredSentencesCount
-                        )
-                    })
+                        speakViewModel.sentencesRepository.getLiveSentenceCount()
+                            .observe(viewLifecycleOwner, Observer {
+                                animateProgressBar(
+                                    progressBarOfflineModeSpeak,
+                                    it,
+                                    speakPrefManager.requiredSentencesCount
+                                )
+                            })
 
-                Handler().postDelayed({ checkProgressBar() }, 15000)
+                        Handler().postDelayed({ checkProgressBar() }, 15000)
+                    }
+                }
             }
+        } catch (e: Exception) {
+            //println("??????")
         }
     }
 

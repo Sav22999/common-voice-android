@@ -57,6 +57,7 @@ class SettingsFragment : ViewBoundFragment<FragmentSettingsBinding>() {
                 ViewModelProviders.of(this).get(GenericViewModel::class.java)
             } ?: throw Exception("?? Invalid Activity ??")
             viewModel.setFromFragment("settings")
+            viewModel.setNestedFragment("")
 
             buttonSettingsGoToAdvanced.onClick {
                 findNavController().navigate(R.id.advancedSettingsFragment)
