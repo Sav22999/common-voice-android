@@ -117,6 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">Interface de usuário</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avançado</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Salvar as gravações no dispositivo</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Limpar clipes e frases offline</string>
     <string name="txt_reset_data" comment="Button in Settings">Redefinir dados do aplicativo</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nenhuma funcionalidade experimental está agora disponível</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostrar o texto da frase somente quando a reprodução do clipe for concluída</string>
@@ -179,6 +180,8 @@
     <string name="button_customise_api_server" comment="Button">Personalizar o servidor de API</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Tem certeza que deseja personalizar o servidor de API? Esta é potencialmente uma ação perigosa.\nVocê pode redefinir para o servidor de API padrão a qualquer momento.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Servidor de API de destino</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Carregando frase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Ignorar</string>
@@ -358,6 +361,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Tem certeza de que deseja pular e perder a gravação?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Tem certeza de que deseja continuar e perder a gravação?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Tem certeza de que deseja redefinir todos os dados do aplicativo?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Tem certeza de que deseja limpar os dados offline de usuário?</string>
     <string name="button_yes_sure" comment="Button">Sim</string>
     <string name="button_cancel" comment="Button">Cancelar</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

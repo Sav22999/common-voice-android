@@ -117,9 +117,10 @@
     <string name="title_ui_settings" comment="Option in Settings">Kullanıcı arayüzü</string>
     <string name="title_advanced_settings" comment="Option in Settings">Gelişmiş</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Kayıtları cihaza depolayın</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
     <string name="txt_reset_data" comment="Button in Settings">Uygulama verilerini sıfırla</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Artık deneysel özellik yok</string>
-    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Only show the sentence text once the clip has completed playing</string>
+    <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Cümle metnini yalnızca klip oynatımı tamamlandıktan sonra göster</string>
     <string name="txt_show_report_icon_instead_of_button" comment="Switch-Button in Settings">Bildirim\'i (aşağıda) tuş yerine ikon (sağ-üst) olarak göster</string>
     <string name="title_textsize_settings" comment="Title in Settings">Yazı Boyutu</string>
     <string name="title_ads_banner_settings" comment="Title in Settings">Reklam şeridi</string>
@@ -179,6 +180,8 @@
     <string name="button_customise_api_server" comment="Button">API sunucusunu düzenle</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">API sunucusunu düzenlemek istediğinizden emin misiniz? Bu potansiyel olarak tehlikeli bir eylem.\nİstediğiniz zaman varsayılan API sunucusuna sıfırlayabilirsiniz.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Hedef API sunucusu</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cümle yükleniyor…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Atla</string>
@@ -325,7 +328,7 @@
     <string name="message_new_badge_title" comment="Title for the message dialog">Yeni rozet kazandınız</string>
     <string name="message_level_up_title" comment="Title for the message dialog">Yeni seviyeye ulaştınız</string>
     <string name="message_new_badge_earnt_text" comment="Message text when you get a new badge">Yaşasın! Yeni bir rozet kazandın.\n Bütün rozetlerini görmek için {{profile}}&gt;{{all_badges}}\'e git.</string>
-    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Congrats! You have just achieved a new level and you earnt a new badge as well.\nGo to the {{profile}} &gt; {{all_badges}} to see all your badges.</string>
+    <string name="message_level_up_text" comment="Message text when you level up and get a new badge">Tebrikler! Yeni bir seviyeye ulaştın ve yeni bir rozet de kazandın.\nTüm rozetlerini görmek için {{profile}} &gt; {{all_badges}} bölümüne git.</string>
     <string name="message_got_badge_because_clips" comment="Message text">Bu rozeti, en az {{n_clips}} kaydı doğruladığınız için aldınız.</string>
     <string name="message_got_badge_because_sentences" comment="Message text">Bu rozeti, en az {{n_sentences}} cümle kaydettiğiniz için aldınız.</string>
     <string name="message_got_badge_because_levels" comment="Message text">Bu rozeti, en az {{n_total}} kaydı doğruladığınız veya kaydettiğiniz için aldınız.</string>
@@ -358,6 +361,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Atlayıp, yaptığınız kaydı kaybetmek istediğinizden emin misiniz?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Devam etmek ve kaydı kaybetmek istediğinizden emin misiniz?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Bütün uygulama verisini sıfırlamak istediğinize emin misiniz?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
     <string name="button_yes_sure" comment="Button">Evet</string>
     <string name="button_cancel" comment="Button">İptal</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

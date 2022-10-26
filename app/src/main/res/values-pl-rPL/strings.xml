@@ -117,6 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">Interfejs</string>
     <string name="title_advanced_settings" comment="Option in Settings">Zaawansowane</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Zapisuj nagrania na urządzeniu</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
     <string name="txt_reset_data" comment="Button in Settings">Wyczyść dane aplikacji</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Brak dostępnych funkcji eksperymentalnych</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Pokaż tekst zdania tylko wtedy, gdy klip zakończy odtwarzanie</string>
@@ -179,6 +180,8 @@
     <string name="button_customise_api_server" comment="Button">Dostosuj serwer API</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Czy na pewno chcesz dostosować serwer API? To potencjalnie niebezpieczne działanie.\nMożesz zresetować do domyślnego serwera API w każdej chwili.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Docelowy serwer API</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Ładowanie zdania…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Pomiń</string>
@@ -378,6 +381,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Czy na pewno chcesz pominąć i stracić nagranie?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Czy na pewno chcesz kontynuować i stracić nagranie?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Czy na pewno chcesz zresetować wszystkie dane aplikacji?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
     <string name="button_yes_sure" comment="Button">Tak</string>
     <string name="button_cancel" comment="Button">Anuluj</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">
