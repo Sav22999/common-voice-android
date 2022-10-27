@@ -172,7 +172,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
                                 )
                             })
 
-                        Handler().postDelayed({ checkProgressBar() }, 15000)
+                        Handler().postDelayed({ checkProgressBar() }, 5000)
                     }
                 }
             }
@@ -222,14 +222,21 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
     override fun onDestroyView() {
         super.onDestroyView()
 
+        checkChangedNumber()
+    }
+
+    private fun checkChangedNumber() {
         if (changedNumber) {
+            var workPolicy: ExistingWorkPolicy = ExistingWorkPolicy.APPEND_OR_REPLACE
+            if (listenPrefManager.requiredClipsCount == 3 || speakPrefManager.requiredSentencesCount == 3) workPolicy =
+                ExistingWorkPolicy.REPLACE
             mainViewModel.clearDB().invokeOnCompletion {
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE,
+                    workManager, workPolicy,
                     wifiOnly = settingsPrefManager.wifiOnlyDownload
                 )
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(
-                    workManager, ExistingWorkPolicy.APPEND_OR_REPLACE,
+                    workManager, workPolicy,
                     wifiOnly = settingsPrefManager.wifiOnlyDownload
                 )
             }
@@ -249,7 +256,7 @@ class OfflineModeSettingsFragment : ViewBoundFragment<FragmentOfflineSettingsBin
             view.isGone = true
         } else {
             val widthToUse = (downloaded * width) / total
-            animationProgressBar(view, view.x.toInt(), widthToUse)
+            animationProgressBar(view, view.width, widthToUse)
             progressBar.isGone = false
         }
     }
