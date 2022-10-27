@@ -136,7 +136,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
     fun checkSentencesOfflineMode() {
         lifecycleScope.launch {
             //println(speakPrefManager.requiredSentencesCount.toString() + " =S= " + speakViewModel.getSentencesCount())
-            if (speakPrefManager.requiredSentencesCount != speakViewModel.getSentencesCount())
+            if (speakPrefManager.requiredSentencesCount != speakViewModel.getSentencesCount()) {
                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
                     workManager,
                     wifiOnly = settingsPrefManager.wifiOnlyDownload
@@ -145,13 +145,18 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         checkSentencesOfflineMode()
                     }, 15000)
                 }
+            } else {
+                Handler().postDelayed({
+                    checkSentencesOfflineMode()
+                }, 50000)
+            }
         }
     }
 
     fun checkClipsOfflineMode() {
         lifecycleScope.launch {
             //println(listenPrefManager.requiredClipsCount.toString() + " =C= " + listenViewModel.getClipsCount())
-            if (listenPrefManager.requiredClipsCount != listenViewModel.getClipsCount())
+            if (listenPrefManager.requiredClipsCount != listenViewModel.getClipsCount()) {
                 ClipsDownloadWorker.attachOneTimeJobToWorkManager(
                     workManager,
                     wifiOnly = settingsPrefManager.wifiOnlyDownload
@@ -160,6 +165,11 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
                         checkClipsOfflineMode()
                     }, 15000)
                 }
+            } else {
+                Handler().postDelayed({
+                    checkClipsOfflineMode()
+                }, 50000)
+            }
         }
     }
 

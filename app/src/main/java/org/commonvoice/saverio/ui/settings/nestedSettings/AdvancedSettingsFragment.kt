@@ -282,9 +282,6 @@ class AdvancedSettingsFragment : ViewBoundFragment<FragmentAdvancedSettingsBindi
                         messageRes = R.string.text_are_you_sure_clear_offline_data,
                         buttonTextRes = R.string.button_yes_sure,
                         onButtonClick = {
-                            listenPrefManager.requiredClipsCount = 3
-                            speakPrefManager.requiredSentencesCount = 3
-
                             mainViewModel.clearDB().invokeOnCompletion {
                                 SentencesDownloadWorker.attachOneTimeJobToWorkManager(
                                     workManager, ExistingWorkPolicy.REPLACE,
