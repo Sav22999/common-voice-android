@@ -117,7 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">Gebruikersinterface</string>
     <string name="title_advanced_settings" comment="Option in Settings">Geavanceerd</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Opnames op apparaat opslaan</string>
-    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Offline fragmenten en zinnen wissen</string>
     <string name="txt_reset_data" comment="Button in Settings">Appgegevens herinitialiseren</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Er zijn momenteel geen experimentele functies beschikbaar</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Zintekst pas tonen als het fragment volledig is afgespeeld</string>
@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} en {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Licht thema ook voor de te lezen/valideren zin in Spreken en Luisteren (wanneer het lichte thema is ingeschakeld).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Snelheidscontrolebalk tonen</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Infopictogram tonen</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Druk om te spreken</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Kies het aantal te downloaden zinnen en fragmenten dat u in de app in de offline-modus wilt gebruiken.</string>
@@ -180,8 +182,8 @@
     <string name="button_customise_api_server" comment="Button">API-server aanpassen</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Weet u zeker dat u de API-server wilt aanpassen? Dit kan een gevaarlijke actie zijn.\nU kunt op elk gewenst moment naar de standaard API-server terugzetten.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Doel-API-server</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Alleen downloaden met wifi-verbinding</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Alleen uploaden met wifi-verbinding</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Zin laden…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Overslaan</string>
@@ -361,7 +363,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Weet u zeker dat u wilt overslaan en de opname wilt verwijderen?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Weet u zeker dat u door wilt gaan en de opname wilt verwijderen?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Weet u zeker dat u alle app-gegevens wilt resetten?</string>
-    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Weet u zeker dat u offline gegevens wilt wissen?</string>
     <string name="button_yes_sure" comment="Button">Ja</string>
     <string name="button_cancel" comment="Button">Annuleren</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

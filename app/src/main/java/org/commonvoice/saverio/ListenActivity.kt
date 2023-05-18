@@ -127,6 +127,60 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         volumeControlStream = AudioConstants.VolumeControlStream
     }
 
+    private fun getRejectButton(): Button {
+        var buttonToUse = binding.buttonNoClip
+        if (listenPrefManager.invertButtons) {
+            //buttonLeft -> reject, buttonRight -> accept
+            buttonToUse = binding.buttonYesClip
+        }
+
+        return buttonToUse
+    }
+
+    private fun getAcceptButton(): Button {
+        var buttonToUse = binding.buttonYesClip
+        if (listenPrefManager.invertButtons) {
+            //buttonLeft -> reject, buttonRight -> accept
+            buttonToUse = binding.buttonNoClip
+        }
+
+        return buttonToUse
+    }
+
+    private fun setClickRejectButton() {
+        var buttonToUse = getRejectButton()
+
+        if (listenPrefManager.longPressAcceptReject) {
+            buttonToUse.setOnLongClickListener(
+                View.OnLongClickListener {
+                    validateNo()
+                    false
+                }
+            )
+        } else {
+            buttonToUse.onClick {
+                validateNo()
+            }
+        }
+    }
+
+    private fun setClickAcceptButton() {
+        var buttonToUse = getAcceptButton()
+
+        if (listenPrefManager.longPressAcceptReject) {
+            buttonToUse.setOnLongClickListener(
+                View.OnLongClickListener {
+                    validateYes()
+                    false
+                }
+            )
+        } else {
+            buttonToUse.onClick {
+                validateYes()
+            }
+        }
+    }
+
     private fun checkOfflineMode(available: Boolean) {
         if (!listenViewModel.showingHidingOfflineIcon && (listenViewModel.offlineModeIconVisible == available)) {
             listenViewModel.showingHidingOfflineIcon = true
@@ -160,8 +214,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             skipClip()
         }
 
-        buttonYesClip.isGone = true
-        buttonNoClip.isGone = true
+        getAcceptButton().isGone = true
+        getRejectButton().isGone = true
     }
 
     private fun setupUI() {
@@ -208,18 +262,22 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     loadUIStateLoading()
                     listenViewModel.loadNewClip()
                 }
+
                 ListenViewModel.Companion.State.NO_MORE_CLIPS -> {
                     loadUIStateNoMoreClips()
                     //listenViewModel.loadNewClip()
                 }
+
                 ListenViewModel.Companion.State.LISTENING -> {
                     loadUIStateListening()
                     isListenAnimateButtonVisible = true
                     animateListenAnimateButtons()
                 }
+
                 ListenViewModel.Companion.State.LISTENED -> {
                     loadUIStateListened()
                 }
+
                 ListenViewModel.Companion.State.ERROR -> {
                     //TODO
                     loadUIStateListening()
@@ -287,6 +345,15 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         setupNestedScroll()
 
         setupBadgeDialog()
+
+        if (listenPrefManager.invertButtons)
+        {
+            binding.buttonNoClip.setBackgroundResource(R.drawable.yes_thumb_cv)
+            binding.buttonYesClip.setBackgroundResource(R.drawable.no_thumb_cv)
+
+            binding.buttonNoClip.contentDescription = getString(R.string.accessibility_accept_clip)
+            binding.buttonYesClip.contentDescription = getString(R.string.accessibility_reject_clip)
+        }
 
         setTheme(this)
 
@@ -688,18 +755,23 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             "back" -> {
                 onBackPressed()
             }
+
             "report" -> {
                 openReportDialog()
             }
+
             "skip" -> {
                 skipClip()
             }
+
             "info" -> {
                 showInformationAboutClip()
             }
+
             "animations" -> {
                 mainPrefManager.areAnimationsEnabled = !mainPrefManager.areAnimationsEnabled
             }
+
             "speed-control" -> {
                 listenPrefManager.showSpeedControl = !listenPrefManager.showSpeedControl
                 if (listenPrefManager.showSpeedControl) {
@@ -720,18 +792,23 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     binding.listenSectionSpeedButtons.isGone = true
                 }
             }
+
             "auto-play" -> {
                 listenPrefManager.isAutoPlayClipEnabled = !listenPrefManager.isAutoPlayClipEnabled
             }
+
             "validate-yes" -> {
                 validateYes()
             }
+
             "validate-no" -> {
                 validateNo()
             }
+
             "play-stop-clip" -> {
                 playStopClip()
             }
+
             else -> {
                 //nothing
             }
@@ -743,30 +820,39 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             "back" -> {
                 R.drawable.ic_back_gestures
             }
+
             "report" -> {
                 R.drawable.ic_report_gestures
             }
+
             "skip" -> {
                 R.drawable.ic_skip
             }
+
             "info" -> {
                 R.drawable.ic_info_gestures
             }
+
             "animations" -> {
                 R.drawable.ic_animations_white
             }
+
             "speed-control" -> {
                 R.drawable.ic_speed_control_white
             }
+
             "auto-play" -> {
                 R.drawable.ic_auto_play_white
             }
+
             "validate-yes" -> {
                 R.drawable.ic_yes_thumb2
             }
+
             "validate-no" -> {
                 R.drawable.ic_no_thumb2
             }
+
             "play-stop-clip" -> {
                 if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) {
                     R.drawable.ic_stop_clip
@@ -774,6 +860,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                     R.drawable.ic_play_clip
                 }
             }
+
             else -> {
                 R.drawable.ic_nothing
             }
@@ -976,11 +1063,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
                 hideImage(imageContributionCriteriaListen)
             }
-            if (!buttonYesClip.isGone) {
-                hideButton(buttonYesClip)
+            if (!getAcceptButton().isGone) {
+                hideButton(getAcceptButton())
             }
-            if (!buttonNoClip.isGone) {
-                hideButton(buttonNoClip)
+            if (!getRejectButton().isGone) {
+                hideButton(getRejectButton())
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
             buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
@@ -1066,11 +1153,11 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
             if (settingsPrefManager.showContributionCriteriaIcon && !imageContributionCriteriaListen.isGone) {
                 hideImage(imageContributionCriteriaListen)
             }
-            if (!buttonYesClip.isGone) {
-                hideButton(buttonYesClip)
+            if (!getAcceptButton().isGone) {
+                hideButton(getAcceptButton())
             }
-            if (!buttonNoClip.isGone) {
-                hideButton(buttonNoClip)
+            if (!getRejectButton().isGone) {
+                hideButton(getRejectButton())
             }
             buttonStartStopListen.setBackgroundResource(R.drawable.listen_cv)
             buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
@@ -1143,10 +1230,10 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
 
-            if (!listenViewModel.startedOnce || !buttonNoClip.isVisible) {
+            if (!listenViewModel.startedOnce || !getRejectButton().isVisible) {
                 Handler().postDelayed({
                     if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
-                        buttonNoClip
+                        getRejectButton()
                     )
                 }, 900)
             }
@@ -1241,34 +1328,32 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         if (!listenViewModel.startedOnce) {
             Handler().postDelayed({
                 if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING)
-                    showButton(buttonNoClip)
+                    showButton(getRejectButton())
             }, 900)
         }
 
-        if (!listenViewModel.listenedOnce) buttonYesClip.isVisible = false
+        if (!listenViewModel.listenedOnce) getAcceptButton().isVisible = false
         listenViewModel.startedOnce = true
         buttonSkipListen.isEnabled = true
 
         buttonStartStopListen.setBackgroundResource(R.drawable.stop_listen_cv)
         buttonStartStopListen.contentDescription = getString(R.string.accessibility_stop_clip)
 
-        buttonNoClip.onClick {
-            validateNo()
-        }
+        setClickRejectButton()
         buttonStartStopListen.onClick {
             listenViewModel.stopListening()
         }
     }
 
     private fun loadUIStateListened() = withBinding {
-        buttonNoClip.isVisible = true
+        getRejectButton().isVisible = true
         textSentenceListen.text = listenViewModel.getSentenceText()
         resizeSentence()
         hideListenAnimateButtons()
 
         setTextSentenceListen(this@ListenActivity)
         if (!listenViewModel.listenedOnce) {
-            showButton(buttonYesClip)
+            showButton(getAcceptButton())
         }
         listenViewModel.listenedOnce = true
 
@@ -1277,16 +1362,15 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         buttonStartStopListen.setBackgroundResource(R.drawable.listen2_cv)
         buttonStartStopListen.contentDescription = getString(R.string.accessibility_play_clip)
 
-        buttonYesClip.onClick {
-            validateYes()
-        }
+
+        setClickAcceptButton()
         buttonStartStopListen.onClick {
             listenViewModel.startListening()
 
-            if (!listenViewModel.startedOnce || !buttonNoClip.isVisible) {
+            if (!listenViewModel.startedOnce || !getRejectButton().isVisible) {
                 Handler().postDelayed({
                     if (listenViewModel.state.value == ListenViewModel.Companion.State.LISTENING) showButton(
-                        buttonNoClip
+                        getRejectButton()
                     )
                 }, 900)
             }
@@ -1294,7 +1378,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun validateYes() {
-        if (!binding.buttonYesClip.isGone) {
+        if (!getAcceptButton().isGone) {
             hideButtons()
             listenViewModel.validate(result = true)
             numberSentThisSession++
@@ -1308,7 +1392,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun validateNo() {
-        if (!binding.buttonNoClip.isGone) {
+        if (!getRejectButton().isGone) {
             hideButtons()
             listenViewModel.validate(result = false)
             numberSentThisSession++
@@ -1341,8 +1425,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
         }
         buttonStartStopListen.isEnabled = false
         buttonSkipListen.isEnabled = false
-        buttonYesClip.isGone = true
-        buttonNoClip.isGone = true
+        getAcceptButton().isGone = true
+        getRejectButton().isGone = true
 
         listenViewModel.stop()
 
@@ -1491,8 +1575,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
 
     private fun hideButtons() {
         stopButtons()
-        if (listenViewModel.startedOnce) hideButton(binding.buttonNoClip)
-        if (listenViewModel.listenedOnce) hideButton(binding.buttonYesClip)
+        if (listenViewModel.startedOnce) hideButton(getRejectButton())
+        if (listenViewModel.listenedOnce) hideButton(getAcceptButton())
         hideListenAnimateButtons()
     }
 
@@ -1517,8 +1601,8 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
     }
 
     private fun stopButtons() {
-        stopAnimation(binding.buttonNoClip)
-        stopAnimation(binding.buttonYesClip)
+        stopAnimation(getRejectButton())
+        stopAnimation(getAcceptButton())
     }
 
     private fun showImage(image: ImageView) {

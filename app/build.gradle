@@ -10,7 +10,7 @@ android {
         minSdkVersion 26
         targetSdk 31
         versionCode = 182
-        versionName '2.5.0.1'
+        versionName '2.5.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

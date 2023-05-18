@@ -117,7 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">Benutzeroberfläche</string>
     <string name="title_advanced_settings" comment="Option in Settings">Erweiterte Einstellungen</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Aufnahmen auf dem Gerät speichern</string>
-    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Offline Clips und Sätze löschen</string>
     <string name="txt_reset_data" comment="Button in Settings">App-Daten zurücksetzen</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Gerade sind keine experimentellen Funktionen verfügbar</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Den Satztext nur anzeigen, wenn der Clip die Wiedergabe abgeschlossen hat</string>
@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} und {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Helles Thema auch für Abspielen und Anhören verwenden (wenn das helle Thema aktiviert ist).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Menü für Abspielgeschwindigkeit anzeigen</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Info-Symbol anzeigen</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Zum Sprechen drücken</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Wähle die Anzahl der Sätze und die Anzahl der Clips, die heruntergeladen und verwendet werden sollen, wenn sich die App im Offline-Modus befindet.</string>
@@ -180,8 +182,8 @@
     <string name="button_customise_api_server" comment="Button">API-Server anpassen</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Bist du sicher, dass du den API-Server anpassen möchtest? Dies ist möglicherweise eine gefährliche Aktion.\nDu kannst jederzeit auf den Standard-API-Server zurücksetzen.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Ziel-API-Server</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Nur herunterladen, wenn mit Wi-Fi verbunden</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Nur hochladen, wenn mit Wi-Fi verbunden</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Satz wird geladen…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Überspringen</string>
@@ -361,7 +363,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Willst du überspringen und die die Aufnahme löschen?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Bist du sicher, dass du fortfahren und die Aufnahme verlieren willst?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Bist du sicher, dass du die App-Daten löschen willst?</string>
-    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Bist du sicher, dass du die Offline-Daten löschen möchtest?</string>
     <string name="button_yes_sure" comment="Button">Ja</string>
     <string name="button_cancel" comment="Button">Abbrechen</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

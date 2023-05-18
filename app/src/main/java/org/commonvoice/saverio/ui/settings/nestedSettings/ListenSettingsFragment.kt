@@ -50,6 +50,18 @@ class ListenSettingsFragment : ViewBoundFragment<FragmentListenSettingsBinding>(
             switchShowSentencesTextWhenClipsCompleted.isChecked =
                 listenPrefManager.isShowTheSentenceAtTheEnd
 
+            switchLongPressToAcceptOrReject.setOnCheckedChangeListener { _, isChecked ->
+                listenPrefManager.longPressAcceptReject = isChecked
+            }
+            switchLongPressToAcceptOrReject.isChecked =
+                listenPrefManager.longPressAcceptReject
+
+            switchInvertYesNoButtons.setOnCheckedChangeListener { _, isChecked ->
+                listenPrefManager.invertButtons = isChecked
+            }
+            switchInvertYesNoButtons.isChecked =
+                listenPrefManager.invertButtons
+
             switchShowSpeedControlListen.setOnCheckedChangeListener { _, isChecked ->
                 listenPrefManager.showSpeedControl = isChecked
                 if (!isChecked) {

@@ -117,7 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">ინტერფეისი</string>
     <string name="title_advanced_settings" comment="Option in Settings">დამატებითი</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">ჩანაწერების შენახვა მოწყობილობაზე</string>
-    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">ოფლაინ კლიპებისა და წინადადებების წაშლა</string>
     <string name="txt_reset_data" comment="Button in Settings">აპის მონაცემების გაწმენდა</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">ექსპერიმენტული ფუნქციები ჯერ არაა ხელმისაწვდომი</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">წინადადება მაჩვენე კლიპის დაკვრის მერე</string>
@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} და {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ნათელი თემა წინადადებების წაკითხვისთვის; ჩანაწერების შემოწმებისთვის (როცა ნათელი თემა ჩართულია).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">სიჩქარის მართვა</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">ინფოს ხატულის ჩვენება</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">დააჭირე სალაპარაკოდ</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">მიუთითეთ რამდენი წინადადება და ჩანაწერი გადმოიწეროს, რომლებსაც გამოიყენებთ როცა ინტერნეტი არ გექნებათ.</string>
@@ -180,8 +182,8 @@
     <string name="button_customise_api_server" comment="Button">API სერვერის შეცვლა</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">დარწმუნებული ხართ, რომ გინდათ API სერვერის შეცვლა? ეს პოტენციურად სახიფათო ქმედებაა.\nპირვანდელ API სერვერზე გადაყვანა ნებისმიერ დროს შეგიძლიათ.</string>
     <string name="label_destination_api_server" comment="Label (hint)">API სერვერის მისამართი</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">გადმოტვირთვა მხოლოდ Wi-Fi-თან კავშირის დროს</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">ატვირთვა მხოლოდ Wi-Fi-თან კავშირის დროს</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">წინადადება იტვირთება…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">გამოტოვება</string>
@@ -363,7 +365,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">დარწმუნებული ხართ, რომ გინდათ გამოტოვოთ და დაკარგოთ ჩანაწერი?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">დარწმუნებული ხართ, რომ გინდათ გააგრძელოთ და დაკარგოთ ჩანაწერი?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">დარწმუნებული ხართ, რომ გინდათ აპის მონაცემები საწყის პარამეტრებზე დააყენოთ?</string>
-    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">გსურთ ოფლაინ მონაცემების წაშლა?</string>
     <string name="button_yes_sure" comment="Button">დიახ</string>
     <string name="button_cancel" comment="Button">გაუქმება</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

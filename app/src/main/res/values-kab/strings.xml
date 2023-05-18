@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} d {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Asentel aceεlal i tefyirt ara d-yettwaɣren/i usentem deg Mmeslay syen Sell (mi ara yermed usentel acewlal).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Sken afeggag n usenqed arurad</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Sken tagnit n talɣut</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Push to talk</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Fren amḍan n tefyar d umḍan n tuṭṭfiwin i usader d useqdec mi ara yili usnas deg uskar aruqqin.</string>

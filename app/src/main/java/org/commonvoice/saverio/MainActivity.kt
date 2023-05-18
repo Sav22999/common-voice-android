@@ -1,5 +1,6 @@
 package org.commonvoice.saverio
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -12,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -101,7 +103,7 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             }
         } else {
             setLanguageUI("start")
-            //checkPermissions()
+            checkPermissions()
 
             RecordingsUploadWorker.attachToWorkManager(
                 workManager,
@@ -130,6 +132,21 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
             if (statsPrefManager.reviewOnPlayStoreCounter >= 5) {
                 dialogInflater.show(this, ReportBugsDialog(this, mainPrefManager))
             }
+        }
+    }
+
+    fun checkPermissions() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.RECORD_AUDIO
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.RECORD_AUDIO),
+                MainActivity.RECORD_REQUEST_CODE
+            )
         }
     }
 
@@ -199,11 +216,12 @@ class MainActivity : VariableLanguageActivity(R.layout.activity_main) {
         } else {
             SimpleDateFormat("yyyy-MM-dd").format(Date()).toString()
         }
-        val yesterday = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            LocalDate.now().minusDays(1).toString()
-        } else {
-            SimpleDateFormat("yyyy-MM-dd").format(yesterday()).toString()
-        }
+        val yesterday =
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                LocalDate.now().minusDays(1).toString()
+            } else {
+                SimpleDateFormat("yyyy-MM-dd").format(yesterday()).toString()
+            }
         if (lastDateOpenedTheApp == null || lastDateOpenedTheApp == yesterday) {
             statsPrefManager.lastDateOpenedTheApp = today
             if (lastDateOpenedTheApp == null) statsPrefManager.daysInARow = 1

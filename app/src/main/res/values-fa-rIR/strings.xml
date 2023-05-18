@@ -8,7 +8,7 @@
     <string name="title_dashboard">پیش‌خوان</string>
     <string name="title_settings">تنظیمات</string>
     <!-- Home (main) -->
-    <string name="button_home_login">ورود / ثبت‌نام</string>
+    <string name="button_home_login">ورود / نام‌نویسی</string>
     <string name="button_home_logout">خروج</string>
     <string name="button_home_profile">نمایه</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">سلام!</string>
@@ -117,7 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">رابط کاربری</string>
     <string name="title_advanced_settings" comment="Option in Settings">پیشرفته</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">ذخیرهٔ ضبط‌ها روی دستگاه</string>
-    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">پاک‌سازی قطعه‌ها و جمله‌های برون‌خط</string>
     <string name="txt_reset_data" comment="Button in Settings">پاک کردن حافظهٔ کاره</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">هیچ قابلیت آزمایشی‌ای در حال حاضر در دسترس نیست</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">متن جملات را تنها زمانی نمایش یابند که پخش صدا کامل شده باشد</string>
@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} و {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">پوستهٔ روشن همچنین برای خواندن/تأیید جمله در گفتن و شنیدن (هنگامی که پوستهٔ روشن فعال است).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">نمایش نوار کنترل سرعت</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">نمایش آیکون اطلاعات</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">برای صحبت کردن فشار دهید</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">تعداد جملات و تعداد قطعات را برای بارگیری و استفاده در حالت برون‌خط کاره انتخاب کنید.</string>
@@ -180,8 +182,8 @@
     <string name="button_customise_api_server" comment="Button">شخصی‌سازی کارساز API</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">آیا اطمینان دارید که می‌خواهید کارساز API را شخصی‌سازی کنید؟ این کار به طور بالقوه‌ای خطرناک است.\n شما در هر لحظه قادرید کارساز API را به پیش‌فرض بازگردانی کنید.</string>
     <string name="label_destination_api_server" comment="Label (hint)">کارساز API مقصد</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">بارگیری فقط هنگامی که به وای‌فای متصل است</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">بارگذاری فقط هنگامی که به وای‌فای متصل است</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">دریافت جمله…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">پرش</string>
@@ -361,7 +363,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">مطمئنید می‌خواهید رد شده و ضبط را از دست دهید؟</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">مطمئنید می‌خواهید ادامه دهید و ضبط را از دست دهید؟</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">مطمئنید می‌خواهید همهٔ داده‌های کاره را بازنشانی کنید؟</string>
-    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">مطمئنید که می‌خواهید داده‌های برون‌خط را پاک کنید؟</string>
     <string name="button_yes_sure" comment="Button">بله</string>
     <string name="button_cancel" comment="Button">لغو</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

@@ -19,6 +19,16 @@ class ListenPrefManager(ctx: Context) {
         set(value) = preferences.edit().putBoolean(Keys.SHOW_SENTENCE_AT_THE_END.name, value)
             .apply()
 
+    var invertButtons: Boolean
+        get() = preferences.getBoolean(Keys.INVERT_BUTTONS.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.INVERT_BUTTONS.name, value)
+            .apply()
+
+    var longPressAcceptReject: Boolean
+        get() = preferences.getBoolean(Keys.LONG_PRESS_ACCEPT_REJECT.name, false)
+        set(value) = preferences.edit().putBoolean(Keys.LONG_PRESS_ACCEPT_REJECT.name, value)
+            .apply()
+
     var noMoreClipsAvailable: Boolean
         get() = preferences.getBoolean(Keys.NO_MORE_CLIPS_AVAILABLE.name, false)
         set(value) = preferences.edit().putBoolean(Keys.NO_MORE_CLIPS_AVAILABLE.name, value).apply()
@@ -92,6 +102,8 @@ class ListenPrefManager(ctx: Context) {
         SHOW_AD_BANNER,
         SHOW_SPEED_CONTROL_LISTEN,
         AUDIO_SPEED_LISTEN,
+        INVERT_BUTTONS,
+        LONG_PRESS_ACCEPT_REJECT,
 
         NO_MORE_CLIPS_AVAILABLE,
 
