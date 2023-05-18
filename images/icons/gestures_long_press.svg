@@ -1,87 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="48mm"
-   height="48mm"
-   viewBox="0 0 48 48"
-   version="1.1"
-   id="svg8"
-   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="gestures_long_press.svg">
-  <defs
-     id="defs2" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="84.286801"
-     inkscape:cy="70.773498"
-     inkscape:document-units="mm"
-     inkscape:current-layer="g844"
-     inkscape:document-rotation="0"
-     showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1002"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata5">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-74.490074,-34.399647)">
-    <g
-       id="g843"
-       transform="translate(-0.25611493,-7.7613905)">
-      <g
-         id="g855">
-        <g
-           id="g844">
-          <g
-             id="g930"
-             style="stroke-width:2.5;stroke-miterlimit:10;stroke-dasharray:none">
-            <circle
-               style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-               id="path866-3"
-               cx="98.490074"
-               cy="58.399647"
-               r="4" />
-            <circle
-               style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-               id="path866-3-1"
-               cx="98.490074"
-               cy="58.399647"
-               r="8.4155703" />
-          </g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 137 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1;">
+    <g transform="matrix(1,0,0,1,-211.879,-119.512)">
+        <g id="Layer-1" serif:id="Layer 1">
+            <g id="g843">
+                <g id="g855">
+                    <g id="g844">
+                        <g id="g930">
+                            <circle id="path866-3" cx="279.184" cy="165.542" r="11.339" style="stroke:black;stroke-width:30px;"/>
+                        </g>
+                        <g id="g930-0" transform="matrix(1.23625,0,0,1.23625,-75.891,-49.0427)">
+                            <circle id="path866-3-1-6" cx="287.219" cy="173.577" r="30.851" style="fill:none;stroke:black;stroke-width:5.73px;stroke-miterlimit:10;"/>
+                        </g>
+                    </g>
+                    <path id="path2" d="M313.483,188.543C312.312,188.543 311.14,188.543 309.968,189.129C308.797,185.614 305.281,183.271 301.766,183.271C300.008,183.271 298.837,183.857 297.08,184.443C295.322,182.1 292.979,180.928 290.636,180.928L288.293,180.928L288.293,166.282C288.293,161.596 284.192,157.495 279.505,157.495C274.819,157.495 270.718,161.596 270.718,166.282L270.718,204.947L266.617,201.432C263.102,197.917 257.244,197.917 253.729,201.432C250.8,204.947 250.8,209.633 253.142,213.734C254.9,216.077 256.657,220.178 259.001,224.279C264.859,237.167 271.303,251.226 281.262,251.226L304.109,251.226C304.109,251.226 322.269,245.368 322.269,227.794L322.269,196.745C322.854,192.058 318.169,188.543 313.482,188.543L313.483,188.543Z" style="fill-rule:nonzero;"/>
+                </g>
+            </g>
         </g>
-        <path
-           d="m 110.58981,66.513945 c -0.4132,0 -0.82661,0 -1.24,0.206675 -0.41316,-1.239987 -1.65331,-2.066642 -2.89331,-2.066642 -0.62019,0 -1.0333,0.206675 -1.65325,0.413355 -0.62021,-0.826656 -1.44669,-1.239987 -2.27331,-1.239987 h -0.82673 v -5.166618 c 0,-1.653319 -1.44665,-3.09997 -3.099925,-3.09997 -1.65335,0 -3.1,1.446651 -3.1,3.09997 V 72.3006 l -1.44666,-1.239988 c -1.24003,-1.239988 -3.30663,-1.239988 -4.54663,0 -1.0333,1.239988 -1.0333,2.893309 -0.207,4.339961 0.62019,0.826655 1.23999,2.273312 2.06669,3.719963 2.06664,4.546621 4.33992,9.506575 7.85322,9.506575 h 8.059955 c 0,0 6.40664,-2.066646 6.40664,-8.266587 V 69.407245 c 0.20625,-1.653311 -1.44669,-2.893302 -3.1,-2.893302 z"
-           id="path2"
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.067;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-           sodipodi:nodetypes="ccscscssscccccscsccc" />
-      </g>
     </g>
-  </g>
 </svg>

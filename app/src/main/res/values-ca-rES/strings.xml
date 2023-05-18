@@ -117,7 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">Interfície d\'Usuari</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avançat</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Guarda gravacions al dispositiu</string>
-    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Esborra els clips i frases sense connexió</string>
     <string name="txt_reset_data" comment="Button in Settings">Reinicialitza les dades</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Cap funció experimental està ara disponible</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Mostra la frase escrita solament després que el tall s\'ha reproduït</string>
@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} i {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">El tema clar també per a la frase a llegir o validar en Parla i Escola (si el tema clar és actiu).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Mostra la barra de control de velocitat</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Mostra icona d\'informació</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Premeu per a parlar</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Trieu el nombre d\'oracions i el nombre de talls que descarregar i usar quan l\'aplicació es troba en mode fora de línia.</string>
@@ -180,8 +182,8 @@
     <string name="button_customise_api_server" comment="Button">Personalitza el servidor API</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Segur que voleu personalitzar el servidor API? És una acció potencialment perillosa.\nPodeu restablir el servidor API per defecte en qualsevol moment.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Servidor API de destinació</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Baixa només quan estigui connectat a Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Puja només quan estigui connectat a Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Es carrega la frase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -361,7 +363,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Esteu segur de voler ometre i perdre l\'enregistrament?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Esteu segur de voler continuar i perdre el registre?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Esteu segur de voler restablir totes les dades de l\'aplicació?</string>
-    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Esteu segur que voleu esborrar les dades sense connexió?</string>
     <string name="button_yes_sure" comment="Button">Sí</string>
     <string name="button_cancel" comment="Button">Cancel·la</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

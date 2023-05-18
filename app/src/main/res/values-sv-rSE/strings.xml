@@ -119,7 +119,7 @@ De främsta deltagarna</string>
     <string name="title_ui_settings" comment="Option in Settings">Användargränssnitt</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avancerat</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Spara inspelningar på enheten</string>
-    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Rensa offline-klipp och meningar</string>
     <string name="txt_reset_data" comment="Button in Settings">Återställ appdata</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Inga experimentella funktioner finns tillgängliga</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Visa meningstexten endast när klippet har spelat färdigt</string>
@@ -131,6 +131,8 @@ De främsta deltagarna</string>
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} och {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljust tema också för meningen att läsa/validera i Tala och Lyssna (när ljust tema är påslaget).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Visa fält för hastighetskontroll</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Visa info-ikon</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Tryck för att tala (PTT)</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Välj antal meningar och antal klipp att ladda ner och använda när appen är i offlineläge.</string>
@@ -182,8 +184,8 @@ De främsta deltagarna</string>
     <string name="button_customise_api_server" comment="Button">Anpassa API-server</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Är du säker på att du vill anpassa API-servern? Detta är en potentiellt farlig åtgärd.\nDu kan återställa till standard API-servern när som helst.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Destination API-server</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Ladda ner endast när du är ansluten till Wi-Fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Ladda upp endast när du är ansluten till Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Laddar mening…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Hoppa över</string>
@@ -232,8 +234,8 @@ De främsta deltagarna</string>
     <string name="txt_listening_clip" comment="Text in Listen | This text indicates you turned on 'Show sentences text when clips completed'">Lyssnar…</string>
     <string name="txt_sentence_feature_enabled" comment="Message text | Don't translate {{feature_name}}">Funktionen \"{{feature_name}}\" är aktiverad. Gå till Inställningar för att inaktivera den.</string>
     <string name="txt_sentence_text_hidden" comment="Text in Listen">Meningstexten är dold</string>
-    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">The Common Voice API server did not provide any more sentences. Try later or contact Mozilla.</string>
-    <string name="txt_common_voice_clips_finished" comment="Text in Listen">The Common Voice API server did not provide any more clips. Try later or contact Mozilla.</string>
+    <string name="txt_common_voice_sentences_finished" comment="Text in Speak">Common Voice API-servern gav inga fler meningar. Försök senare eller kontakta Mozilla.</string>
+    <string name="txt_common_voice_clips_finished" comment="Text in Listen">Common Voice API-servern gav inga fler klipp. Försök senare eller kontakta Mozilla.</string>
     <plurals name="text_continue_to_validate_1" comment="Motivational sentence in Listen">
         <item quantity="one">Du har redan validerat %d klipp i rad, fortsätt så!</item>
         <item quantity="other">Du har redan validerat %d klipp i rad, fortsätt så!</item>
@@ -363,7 +365,7 @@ De främsta deltagarna</string>
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Är du säker på att du vill hoppa över och förlora inspelningen?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Är du säker på att du vill fortsätta och förlora inspelningen?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Är du säker på att du vill återställa all appdata?</string>
-    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Är du säker på att du vill rensa all offline-data?</string>
     <string name="button_yes_sure" comment="Button">Ja</string>
     <string name="button_cancel" comment="Button">Avbryt</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

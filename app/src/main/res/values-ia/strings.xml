@@ -5,7 +5,7 @@
     <string name="language" comment="Use the abbreviation of Common Voice (e.g. Italian -&gt; it, Swedish -&gt; sv-SE, ect.)&#10;(https://commonvoice.mozilla.org/{YOUR_LANGUAGE_CODE})">ia</string>
     <!-- Buttons (nav) -->
     <string name="title_home">Al initio</string>
-    <string name="title_dashboard">Controlo</string>
+    <string name="title_dashboard">Pannello de controlo</string>
     <string name="title_settings">Parametros</string>
     <!-- Home (main) -->
     <string name="button_home_login">Acceder / Registrar se</string>
@@ -13,7 +13,7 @@
     <string name="button_home_profile">Profilo</string>
     <string name="text_hi_without_username" comment="Text | If it's not set a username">Holla!</string>
     <string name="text_hi_with_username" comment="Text | If it's set the username, like 'Hi, Sav22999!'">Holla, {{username}}!</string>
-    <string name="message_log_in_again">Le ID de session es expirate, tu debe authenticar te de novo</string>
+    <string name="message_log_in_again">Le ID de session expirava, tu debe authenticar te de novo</string>
     <!-- Dashboard -->
     <string name="dashboardStatistics">Statistica</string>
     <string name="dashboardVoicesOnline">Voces online</string>
@@ -41,17 +41,17 @@
     <string name="btn_skip" comment="Button">Saltar</string>
     <string name="txt_permission_obtained_first_launch" comment="Message text">Permisso obtenite</string>
     <string name="txt_permission_denied_first_launch" comment="Message text">Error: permisso denegate</string>
-    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">CV Project es un app non official pro Mozilla Common Voice. Illo es disveloppate per Saverio Morelli sin ulle assistentia o societate con Mozilla.</string>
+    <string name="txt_introduction_app_first_launch" comment="txt_introduction_app_first_launch&#10;Text | First-run | Don't translate &quot;Saverio Morelli&quot;, &quot;CV Project&quot;, &quot;Common Voice&quot;, &quot;Mozilla&quot;">Le CV Project es un app non official pro Mozilla Common Voice. Illo es disveloppate per Saverio Morelli sin ulle assistentia o societate con Mozilla.</string>
     <string name="txt_accept_terms_first_launch" comment="Text | First-run">Si tu procede, tu concorda con le Terminos de Servicio de Mozilla Common Voice.</string>
-    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Iste le application besonia de permisso \"Microphono\" pro registrar tu voce.</string>
-    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Tu pote reportar bugs sur GitHub o Telegram. Pro adjutar le disveloppator a comprender le problema rapidemente, tu deberea attaccar a tu reporto le file de registro del app. Le app besoniante del permisso \"Immagazinage\" pro salvar le file de registro.</string>
+    <string name="txt_microphone_permission_first_launch" comment="Text | First-run">Iste application besonia del permisso \"Microphono\" pro registrar tu voce.</string>
+    <string name="txt_storage_permission_first_launch" comment="Text | First-run">Tu pote reportar bugs sur GitHub o Telegram. Pro adjutar le disveloppator a comprender le problema rapidemente, tu deberea attaccar a tu reporto le file de registro del app. Le app besonia del permisso \"Immagazinage\" pro salvar le file de registro.</string>
     <string name="txt_offline_mode_first_launch" comment="Text | First-run">Tu pote mesmo contribuer sin connexion. Le \"Modo sin connexion\" sera activate automaticamente e tu pote continua a registrar e ascoltar sin un connexion a internet.</string>
     <string name="txt_themes_first_launch" comment="Text | First-run">Selige tu thema preferite. \"Auto\" muta le themas in base al tempore actual. Tu pote cambiar lo in Parametros.</string>
     <string name="txt_turn_on_dark_theme_first_launch" comment="Text | First-run">Thema obscur</string>
     <string name="txt_gestures_first_launch" comment="Text | First-run">Alcun actiones ha gestos correspondente. Per exemplo, tu pote saltar un phrase in Parlar glissante a sinistra.</string>
     <string name="txt_customise_gestures_first_launch" comment="Text | First-run">Tu pote personalisar iste gestos in Parametros.</string>
     <string name="txt_telegram_group_first_launch" comment="Text | First-run">Tu pote junger te al gruppo Telegram pro obtener novas e assistentia.</string>
-    <string name="btn_join_telegram_first_launch" comment="Button">Junger te al gruppo</string>
+    <string name="btn_join_telegram_first_launch" comment="Button">Junge te al gruppo</string>
     <string name="txt_choose_language_first_launch" comment="Text | First-run">Avante! Elige que lingua tu amarea parlar o ascoltar. Le app essera alsi monstrate in ille lingua si un traduction es disponibile.</string>
     <!-- Login -->
     <string name="txt_loading_page" comment="Label">Cargamento…</string>
@@ -117,7 +117,7 @@
     <string name="title_ui_settings" comment="Option in Settings">Interfacie de usator</string>
     <string name="title_advanced_settings" comment="Option in Settings">Avantiate</string>
     <string name="switch_settings_save_recordings_on_device" comment="Switch-Button in Settings">Salvar registrationes sur apparato</string>
-    <string name="txt_reset_data_offline" comment="Button in Settings">Clear offline clips and sentences</string>
+    <string name="txt_reset_data_offline" comment="Button in Settings">Clarar le registrationes e le phrases offline</string>
     <string name="txt_reset_data" comment="Button in Settings">Reinitialisar le datos de application</string>
     <string name="txt_no_experimental_features_now_available" comment="Text in Settings where there are not any experimental features available">Nulle functionalitates experimental es ora disponibile</string>
     <string name="txt_show_sentence_at_the_ending" comment="Switch-Button in Settings | This permits you to enable/disable the showing of the sentence text (in Listen) just when the clip is completed">Solo monstrar le texto del phrase post que le reproduction del registration fini</string>
@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} e {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Le thema clar alsi pro le phrase a leger o validar in Parlar e Ascoltar (quando le thema clar es activate).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Monstrar le barra de controlo velocitate</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Monstrar icone informative</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Pulsa pro parlar</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Elige le numero de phrases e le numero de registrationes a discargar e usar quando le app es sin connexion.</string>
@@ -180,8 +182,8 @@
     <string name="button_customise_api_server" comment="Button">Personalisar le servitor API</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Desira tu vermente personalisar le servitor API? Isto es potentialmente un action periculose.\nTu potera reinitialisar al predefinite le servitor API in ulle momento.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Servitor API de destination</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Solo discargar quando connexe a wi-fi</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Solo cargar quando connexe a Wi-Fi</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Cargamento phrase…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Saltar</string>
@@ -361,7 +363,7 @@
     <string name="text_are_you_sure_skip_and_lose_the_recording" comment="Message text">Desira tu vermente saltar e perder le registration?</string>
     <string name="text_are_you_sure_continue_and_lose_the_recording" comment="Message text">Desira tu vermente continuar e perder le registration?</string>
     <string name="text_are_you_sure_reset_app_data" comment="Message text">Desira tu vermente remontar tote le datos del apps?</string>
-    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Are you sure you want to clear offline data?</string>
+    <string name="text_are_you_sure_clear_offline_data" comment="Message text">Vole tu vermente clarar le datos offline?</string>
     <string name="button_yes_sure" comment="Button">Si</string>
     <string name="button_cancel" comment="Button">Cancellar</string>
     <plurals name="text_opened_the_app_n_times_in_a_row" comment="Message text">

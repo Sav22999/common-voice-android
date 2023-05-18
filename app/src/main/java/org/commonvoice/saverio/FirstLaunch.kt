@@ -116,7 +116,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
             languageListFirstLaunch.isGone = true
             buttonNextFirstLaunch.setText(R.string.btn_tutorial3)
             firstLaunchSectionMiddleBottom.isGone = true
-            firstLaunchSectionTheme.isGone=true
+            firstLaunchSectionTheme.isGone = true
             textTermsFirstLaunch.isGone = true
 
             if (!start) {
@@ -153,7 +153,7 @@ class FirstLaunch : ViewBoundActivity<FirstLaunchBinding>(
                     buttonNextFirstLaunch.onClick {
                         getPermission(Manifest.permission.RECORD_AUDIO)
                     }
-                    buttonSkipFirstLaunch.isGone = false
+                    buttonSkipFirstLaunch.isGone = true
                 } else {
                     buttonNextFirstLaunch.onClick {
                         checkStatus(swipe = false)

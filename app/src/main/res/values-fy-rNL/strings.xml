@@ -129,6 +129,8 @@
     <string name="txt_speak_and_listen" comment="Title in Settings || Don't translate {{listen_name}} and {{speak_name}}">{{speak_name}} en {{listen_name}}</string>
     <string name="txt_light_also_for_sentence_box_in_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ljocht tema ek foar de te lêzen/falidearjen sin yn Sprekke en Harkje (wannear\'t it ljochte tema ynskeakele is).</string>
     <string name="txt_show_speed_control_in_speak_listen" comment="Switch-Button in Settings &gt; Speak / Listen">Snelheidskontrôlebalke toane</string>
+    <string name="txt_long_press_to_accept_or_reject_listen" comment="Switch-Button in Settings &gt; Listen">Long press to \"Yes\" and \"No\" buttons to accept or reject the clip</string>
+    <string name="txt_invert_yes_no_buttons_listen" comment="Switch-Button in Settings &gt; Listen">Invert \"Yes\" and \"No\" buttons</string>
     <string name="txt_show_info_icon_speak_listen" comment="Switch-Button in Settings (Experimental feature)">Ynfo-piktogram toane</string>
     <string name="txt_push_to_talk_speak" comment="Switch-Button in Settings (Experimental feature)">Druk om te sprekken</string>
     <string name="text_choose_number_sentences_clips_offline_mode" comment="Text in Settings &gt; Offline mode">Kies it oantal te downloaden sinnen en fragminten dy\'t jo yn de app yn de offlinemodus brûke wolle.</string>
@@ -180,8 +182,8 @@
     <string name="button_customise_api_server" comment="Button">API-server oanpasse</string>
     <string name="message_customisation_api_server_text" comment="Message dialog">Binne jo wis dat jo de API-server oanpasse wolle? Dit kin in gefaarlike aksje wêze.\nJo kinne op elk winske momint nei de standert API-server tebeksette.</string>
     <string name="label_destination_api_server" comment="Label (hint)">Doel-API-server</string>
-    <string name="switch_download_wifi_only" comment="Switch-button">Download only when connected to Wi-Fi</string>
-    <string name="switch_upload_wifi_only" comment="Switch-button">Upload only when connected to Wi-Fi</string>
+    <string name="switch_download_wifi_only" comment="Switch-button">Allinnich downloade mei wifi-ferbining</string>
+    <string name="switch_upload_wifi_only" comment="Switch-button">Allinnich oplade mei wifi-ferbining</string>
     <!-- Speak & Listen-->
     <string name="txt_loading_sentence" comment="Label in Speak">Sin lade…</string>
     <string name="btn_skip_sentence" comment="Button in Speak and Listen">Oerslaan</string>
