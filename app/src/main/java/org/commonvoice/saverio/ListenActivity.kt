@@ -682,6 +682,7 @@ class ListenActivity : ViewBoundActivity<ActivityListenBinding>(
                 listenPrefManager.gesturesDoubleTap
             }
             binding.imageFullScreenViewListen.setImageResource(imageAllActions(action))
+            binding.imageFullScreenViewListen.isGone = false
             binding.fullScreenViewListen.isGone = false
             if (startAnimation) {
                 Handler().postDelayed(
