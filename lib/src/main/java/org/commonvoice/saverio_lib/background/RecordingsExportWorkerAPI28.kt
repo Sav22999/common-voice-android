@@ -37,10 +37,14 @@ internal class RecordingsExportWorkerAPI28(
                     .openDirectory(speakPrefManager.deviceRecordingsLocation.drop(1).dropLast(1))
 
             availableRecordings.forEach { recording ->
-                val file =
-                    saveDirectory.openFile(recording.sentenceId + '_' + System.currentTimeMillis() + ".mp3")
+                val mp3Filename = recording.sentenceId + '_' + System.currentTimeMillis()
+                val csvFilename = "output"
 
-                file.writeBytes(recording.audio)
+                val fileMp3 = saveDirectory.openFile(mp3Filename + ".mp3")
+                fileMp3.writeBytes(recording.audio)
+                
+                val fileCsv = saveDirectory.openFile(csvFilename + ".csv")
+                fileCsv.write(Paths.get(path), (mp3Filename + "\t" +recording.sentenceText).toByteArray(), StandardOpenOption.APPEND)                
             }
 
             Result.success()
